@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Coral é uma linguagem de programação com sintaxe natural em português, criada para aproximar código, ensino e projetos reais.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Coral — programação em português corrente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <nav class="primary-nav" id="menu-principal" aria-label="Navegação principal">
+      <a href="#recursos">Recursos</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#instalacao">Instalação</a>
+      <a href="docs.html">Documentação</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+      <a class="button button-secondary" href="docs.html">Abrir docs</a>
+      <button class="menu-button" type="button" data-menu-toggle aria-controls="menu-principal" aria-expanded="false">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Release estável 1.5.9</span>
+        <h1>Programação em português, sem esconder o que o código faz.</h1>
+        <p class="hero-lead">Coral combina sintaxe corrente em português com ferramentas modernas para aprender, experimentar e construir projetos de verdade.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="docs.html#primeiros-passos">Começar agora</a>
+          <a class="button button-secondary" href="#instalacao">Ver instalação</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>Runtime</strong> 1.5.9</span>
+          <span><strong>VS Code</strong> 0.41.0</span>
+          <span><strong>Livro Oficial</strong> 1.5.8</span>
+        </div>
+      </div>
+
+      <div class="code-card" aria-label="Exemplo de código Coral">
+        <div class="snake-orbit" aria-hidden="true"></div>
+        <div class="code-card-head"><strong>primeiro_programa.coral</strong><span>Coral</span></div>
+        <div class="code-frame">
+          <div class="ring-stripe" aria-hidden="true"></div>
+          <pre><code><span class="code-comment"># Fluxo, estado e coleções.</span>
+<span class="code-key">mostre</span> "Olá, Coral!"
+
+<span class="code-key">defina</span> pontos como 10
+<span class="code-key">adicione</span> 5 a pontos
+
+<span class="code-key">se</span> pontos for maior ou igual a 15 então
+    <span class="code-key">mostre</span> "Meta alcançada"
+senão
+    <span class="code-key">mostre</span> "Continue tentando"
+fim</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="recursos">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Da linguagem ao editor</span>
+        <h2>Uma experiência inteira, não só uma sintaxe diferente.</h2>
+        <p>A linha 1.5.x consolidou runtime, módulos, jogos, regras, projetos e uma integração muito mais profunda com o VS Code.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card"><div class="card-icon">01</div><h3>Português corrente</h3><p>Funções, condições, laços, módulos e formas naturais foram desenhados para permanecer legíveis sem abandonar estrutura e previsibilidade.</p></article>
+        <article class="card"><div class="card-icon">02</div><h3>VS Code integrado</h3><p>Coral Language 0.41.0 reúne LSP, DAP/F5, IntelliSense contextual, diagnósticos, semantic tokens, Test Explorer e execução de projetos.</p></article>
+        <article class="card"><div class="card-icon">03</div><h3>Projetos reais</h3><p><code>coral.toml</code>, módulos, testes nativos, REPL, persistência, exemplos completos e ferramentas de projeto convivem no mesmo ecossistema.</p></article>
+        <article class="card"><div class="card-icon">04</div><h3>Jogos e visual</h3><p>Sprites, animação, transformações, colisão configurável, tilemaps, câmera, entrada e espaço 2D/3D formam uma base prática para protótipos.</p></article>
+        <article class="card"><div class="card-icon">05</div><h3>Mundo e regras</h3><p>Mundo, RPG, relações, mapas, regiões, eventos e regras reativas permitem modelar sistemas além do domínio de jogos.</p></article>
+        <article class="card"><div class="card-icon">06</div><h3>Aprendizado progressivo</h3><p>Exemplos reorganizados e Livro Oficial separam a jornada de iniciante e intermediário da documentação técnica do compilador e das ferramentas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="modulos">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Biblioteca Coral</span>
+        <h2>Domínios que conversam entre si.</h2>
+        <p>A documentação apresenta os módulos como partes de uma mesma linguagem, evitando que cada domínio vire um ecossistema separado.</p>
+      </div>
+      <div class="module-grid">
+        <article class="card module-card"><code>coral.numerico</code><h3>Números e matemática</h3><p>Operações e ferramentas numéricas para programas, simulações e automações.</p></article>
+        <article class="card module-card"><code>coral.jogos</code><h3>Jogos e apresentação</h3><p>Janela, entrada, desenho, sprites, tilemaps, câmera e recursos interativos.</p></article>
+        <article class="card module-card"><code>coral.mundo</code><h3>Mundos e mapas</h3><p>Entidades, relações, caminhos, regiões e estruturas espaciais de alto nível.</p></article>
+        <article class="card module-card"><code>coral.rpg</code><h3>Personagens e mecânicas</h3><p>Personagens, vida, dados, combate e integração com mundos e regras.</p></article>
+        <article class="card module-card"><code>coral.regras</code><h3>Reatividade</h3><p>Observação, eventos, condições, sequências e comportamento baseado em estado.</p></article>
+        <article class="card module-card"><code>coral.sistema</code><h3>Sistema e arquivos</h3><p>Caminhos, persistência, ambiente e recursos de integração com o sistema.</p></article>
+        <article class="card module-card"><code>coral.laboratorio</code><h3>Experimentação</h3><p>Ferramentas para explorar, medir e testar ideias com uma superfície controlada.</p></article>
+        <article class="card module-card"><code>coral.hardware</code><h3>Hardware</h3><p>Base para inspeção e integração com capacidades da máquina quando disponíveis.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container split">
+      <div>
+        <span class="kicker">Coral 1.5.9</span>
+        <h2>O editor finalmente acompanha a linguagem.</h2>
+        <p>Na 1.5.9, o foco foi fazer o VS Code compreender a mesma Coral que o runtime já compreende.</p>
+        <ul class="check-list">
+          <li>IntelliSense contextual, hover, navegação e diagnósticos pelo LSP.</li>
+          <li>Coloração em duas camadas: TextMate como fallback e semantic tokens para contexto real.</li>
+          <li>DAP/F5, execução, REPL e testes integrados ao fluxo do editor.</li>
+          <li>Project Explorer, Ambiente Coral, Biblioteca Coral e melhor suporte a <code>coral.toml</code>.</li>
+          <li>Formas naturais importadas reconhecidas de maneira consistente pelo runtime e pelo editor.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <div class="ring-stripe" aria-hidden="true"></div>
+        <div class="callout-body">
+          <span class="callout-label">Princípio da 1.5.9</span>
+          <p>Se a Coral já conhece uma informação, o editor não deveria obrigar você a redigitar, procurar ou deduzir essa informação manualmente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Linha 1.5.x</span>
+        <h2>Da última base estável à consolidação atual.</h2>
+      </div>
+      <div class="version-strip" aria-label="Evolução resumida das versões Coral">
+        <div class="version-step"><strong>1.5.2</strong><span>Base estável de referência.</span></div>
+        <div class="version-step"><strong>1.5.3–1.5.4</strong><span>Jogos, entrada, sprites e transformações.</span></div>
+        <div class="version-step"><strong>1.5.5–1.5.7</strong><span>Regras, tempo, mundo e integrações.</span></div>
+        <div class="version-step"><strong>1.5.8</strong><span>Revisão e ampliação da Coral base.</span></div>
+        <div class="version-step current"><strong>1.5.9</strong><span>Integração e experiência no VS Code.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="instalacao">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Instalação</span>
+        <h2>Use os assistentes da distribuição oficial.</h2>
+        <p>O pacote completo inclui runtime portátil, instaladores e a extensão oficial do VS Code.</p>
+      </div>
+      <div class="install-grid">
+        <div class="command-box"><div class="command-title">Linux</div><pre><code>bash Instalacao/Coral_Setup.sh
+python Instalacao/Runtime/coral-1.5.9.pyz --versao</code></pre></div>
+        <div class="command-box"><div class="command-title">Windows</div><pre><code>Instalacao\Coral_Setup.cmd
+python Instalacao\Runtime\coral-1.5.9.pyz --versao</code></pre></div>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="docs.html#instalacao">Guia de instalação</a>
+        <a class="button button-secondary" href="docs.html#vscode">Configurar VS Code</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <span class="kicker">Documentação</span>
+        <h2>Do primeiro programa à arquitetura.</h2>
+        <p>A documentação começa pela linguagem e seus projetos. A parte técnica fica disponível sem invadir o percurso de quem ainda está aprendendo.</p>
+        <div class="hero-actions"><a class="button button-primary" href="docs.html">Abrir documentação</a></div>
+      </div>
+      <div class="release-grid" style="grid-template-columns:1fr;">
+        <article class="release-card"><h3>Livro Oficial 1.5.8</h3><p>A edição do Livro é controlada separadamente da versão técnica do runtime.</p></article>
+        <article class="release-card"><h3>Exemplos reorganizados</h3><p>Exemplos curtos e redundantes foram consolidados por assunto, com projetos completos separados das demonstrações focadas.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C</span><span class="brand-name">Coral</span></a><p class="small">Uma linguagem em português corrente, com ferramentas para aprender e construir.</p></div>
+    <div class="footer-links"><a href="docs.html">Documentação</a><a href="docs.html#exemplos">Exemplos</a><a href="docs.html#release">Release 1.5.9</a></div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

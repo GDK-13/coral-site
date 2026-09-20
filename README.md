@@ -1,19 +1,30 @@
-cat > README.md <<'EOF'
-# Coral
+# Site da Coral
 
-Site oficial da linguagem de programação Coral.
+Site estático inicial da Coral, preparado para GitHub Pages.
 
-A Coral é uma linguagem de programação com sintaxe natural em português.
+## Arquivos
 
-## Site
+* `index.html`: landing page
+* `docs.html`: página inicial de documentação
+* `assets/styles.css`: sistema visual compartilhado
+* `assets/site.js`: tema, navegação responsiva e busca local da documentação
 
-O site público é distribuído através do GitHub Pages.
+## Executar localmente
+
+```bash
+python -m http.server 8000
+```
+
+Depois abra `http://localhost:8000`.
+
+## Publicar no GitHub Pages
+
+Use `index.html` na raiz do repositório e publique a branch `main` a partir de `/`.
 
 ## Identidade visual
 
-A interface segue a identidade visual oficial da Coral.
+A implementação segue o Guia de Estilo da Coral e as referências `coral-site.html`, `coral-docs.html` e `artefatos-identidade-coral.md`.
 
-## Estado
+As fontes são carregadas pelo Google Fonts. Nenhum arquivo de fonte é distribuído neste pacote.
 
-Projeto em desenvolvimento ativo.
-EOF
+O símbolo circular com a letra `C` continua sendo um placeholder visual enquanto o SVG final do logo não estiver definido.

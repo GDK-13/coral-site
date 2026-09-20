@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Documentação da linguagem Coral 1.5.9: primeiros passos, instalação, projetos, módulos, VS Code e exemplos.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Documentação — Coral 1.5.9</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner" style="width:min(1360px, calc(100% - 32px));">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false" aria-label="Abrir navegação da documentação">Menu</button>
+      <a class="brand" href="index.html" aria-label="Coral, página inicial"><span class="brand-mark" aria-hidden="true">C</span><span class="brand-name">Coral</span></a>
+    </div>
+    <input class="docs-search" data-doc-search type="search" placeholder="Buscar nesta página…" aria-label="Buscar na documentação">
+    <div class="header-actions">
+      <span class="badge">v1.5.9 estável</span>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+
+<div class="docs-backdrop" aria-hidden="true"></div>
+<div class="docs-shell">
+  <nav class="docs-sidebar" aria-label="Seções da documentação">
+    <h4>Primeiros passos</h4>
+    <ul>
+      <li><a href="#primeiros-passos">Introdução</a></li>
+      <li><a href="#instalacao">Instalação</a></li>
+      <li><a href="#primeiro-programa">Primeiro programa</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+    </ul>
+    <h4>Ferramentas</h4>
+    <ul>
+      <li><a href="#vscode">VS Code</a></li>
+      <li><a href="#testes">Testes</a></li>
+      <li><a href="#repl">REPL e CLI</a></li>
+    </ul>
+    <h4>Módulos</h4>
+    <ul>
+      <li><a href="#modulos"><code>coral.numerico</code></a></li>
+      <li><a href="#modulos"><code>coral.jogos</code></a></li>
+      <li><a href="#modulos"><code>coral.mundo</code></a></li>
+      <li><a href="#modulos"><code>coral.rpg</code></a></li>
+      <li><a href="#modulos"><code>coral.regras</code></a></li>
+    </ul>
+    <h4>Referência</h4>
+    <ul>
+      <li><a href="#exemplos">Exemplos</a></li>
+      <li><a href="#livro">Livro Oficial</a></li>
+      <li><a href="#release">Release 1.5.9</a></li>
+    </ul>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero">
+      <div class="breadcrumb">Documentação / Coral 1.5.9</div>
+      <h1>Documentação Coral</h1>
+      <p>Uma entrada prática para a linguagem, seus projetos e as ferramentas da release estável 1.5.9.</p>
+      <div class="stat-row">
+        <div class="stat"><strong>1.5.9</strong><span>runtime estável</span></div>
+        <div class="stat"><strong>0.41.0</strong><span>extensão VS Code</span></div>
+        <div class="stat"><strong>1.5.8</strong><span>Livro Oficial</span></div>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+
+    <section class="docs-section" id="primeiros-passos">
+      <h2 data-searchable>Primeiros passos</h2>
+      <p data-searchable>Coral é uma linguagem com sintaxe corrente em português. A ideia é tornar a intenção do programa legível sem transformar a linguagem em simples substituição textual: parser, AST, tipos, módulos e ferramentas continuam sendo partes reais da implementação.</p>
+      <div class="callout">
+        <div class="ring-stripe" aria-hidden="true"></div>
+        <div class="callout-body"><span class="callout-label">Comece pequeno</span><p data-searchable>Você pode executar um único arquivo <code>.coral</code> sem criar projeto. Quando precisar de módulos, testes e configuração, passe para um projeto com <code>coral.toml</code>.</p></div>
+      </div>
+    </section>
+
+    <section class="docs-section" id="instalacao">
+      <h2 data-searchable>Instalação</h2>
+      <p data-searchable>A distribuição oficial 1.5.9 inclui o runtime portátil, os assistentes de instalação e o VSIX da extensão Coral Language 0.41.0.</p>
+      <h3 data-searchable>Linux</h3>
+      <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>bash Instalacao/Coral_Setup.sh
+python Instalacao/Runtime/coral-1.5.9.pyz --versao</code></pre></div></div>
+      <h3 data-searchable>Windows</h3>
+      <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>Instalacao\Coral_Setup.cmd
+python Instalacao\Runtime\coral-1.5.9.pyz --versao</code></pre></div></div>
+      <p data-searchable>O runtime corrente é <code>coral-1.5.9.pyz</code>. A extensão oficial fica em <code>Instalacao/Extensao_VSCode/coral-language-0.41.0.vsix</code>.</p>
+    </section>
+
+    <section class="docs-section" id="primeiro-programa">
+      <h2 data-searchable>Seu primeiro programa</h2>
+      <p data-searchable>O exemplo abaixo usa as mesmas construções presentes na biblioteca oficial de exemplos.</p>
+      <div class="code-card"><div class="code-card-head"><strong>ola.coral</strong><span>Coral</span></div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code><span class="code-key">mostre</span> "Olá, Coral!"
+
+<span class="code-key">defina</span> pontos como 10
+<span class="code-key">adicione</span> 5 a pontos
+
+<span class="code-key">se</span> pontos for maior ou igual a 15 então
+    <span class="code-key">mostre</span> "Meta alcançada"
+senão
+    <span class="code-key">mostre</span> "Continue tentando"
+fim</code></pre></div></div>
+      <p data-searchable>Para executar um arquivo diretamente:</p>
+      <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>python Instalacao/Runtime/coral-1.5.9.pyz ola.coral</code></pre></div></div>
+    </section>
+
+    <section class="docs-section" id="projetos">
+      <h2 data-searchable>Projetos e módulos</h2>
+      <p data-searchable>Projetos Coral usam <code>coral.toml</code> para declarar entrada, caminhos de módulos, testes e outras propriedades de projeto. A 1.5.9 trata projetos e módulos também no LSP e no Project Explorer.</p>
+      <h3 data-searchable>Forma natural importada</h3>
+      <p data-searchable>Funções públicas podem declarar uma forma natural e, quando importadas seletivamente, essa forma é reconhecida pelo runtime e pelo editor.</p>
+      <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code><span class="code-key">crie</span> a função dobro com numero chamada como "dobre {numero}"
+    retorne numero vezes 2
+fim
+
+mostre dobre 21</code></pre></div></div>
+    </section>
+
+    <section class="docs-section" id="vscode">
+      <h2 data-searchable>VS Code e Coral Language 0.41.0</h2>
+      <p data-searchable>A Coral 1.5.9 é um ciclo especialmente voltado à experiência no editor. O objetivo é reduzir a distância entre o que o runtime entende e o que o VS Code consegue apresentar e operar.</p>
+      <table>
+        <thead><tr><th>Recurso</th><th>Na 1.5.9</th></tr></thead>
+        <tbody>
+          <tr><td data-searchable>IntelliSense e navegação</td><td data-searchable>Completion contextual, hover, definição, referências e rename usando informação do LSP.</td></tr>
+          <tr><td data-searchable>Coloração</td><td data-searchable>TextMate como fallback léxico e semantic tokens como camada contextual, respeitando o tema do usuário.</td></tr>
+          <tr><td data-searchable>Execução e debug</td><td data-searchable>Execução de arquivo/projeto, REPL e DAP/F5 integrados.</td></tr>
+          <tr><td data-searchable>Projetos</td><td data-searchable>Project Explorer, Ambiente Coral, Biblioteca Coral e suporte melhorado a <code>coral.toml</code>.</td></tr>
+          <tr><td data-searchable>Testes</td><td data-searchable>Test Explorer e integração com o runner de testes da Coral.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="docs-section" id="testes">
+      <h2 data-searchable>Testes</h2>
+      <p data-searchable>A Coral possui testes nativos e integração com projetos. Na própria distribuição, a política de desenvolvimento evita acumular suítes repetitivas: testes locais ficam no ciclo rápido e validações pesadas entram nos gates adequados.</p>
+      <div class="callout"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Ambiente real</span><p data-searchable>Testes que precisam de janela, áudio, Pygame, entrada física ou ambiente gráfico ficam em <code>Testes/Executar_Testes_Reais.coral</code>.</p></div></div>
+    </section>
+
+    <section class="docs-section" id="repl">
+      <h2 data-searchable>REPL e CLI</h2>
+      <p data-searchable>O runtime portátil expõe REPL, validação, formatação, informações de projeto, LSP, DAP e outros comandos de desenvolvimento.</p>
+      <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>python Instalacao/Runtime/coral-1.5.9.pyz --repl
+python Instalacao/Runtime/coral-1.5.9.pyz --self-check
+python Instalacao/Runtime/coral-1.5.9.pyz --ambiente</code></pre></div></div>
+    </section>
+
+    <section class="docs-section" id="modulos">
+      <h2 data-searchable>Módulos principais</h2>
+      <p data-searchable>A superfície da Coral inclui módulos de uso geral e domínios especializados. Esta página é uma visão de entrada, não a referência completa de cada API.</p>
+      <table>
+        <thead><tr><th>Módulo</th><th>Finalidade</th></tr></thead>
+        <tbody>
+          <tr><td><code>coral.numerico</code></td><td data-searchable>Operações numéricas e matemáticas.</td></tr>
+          <tr><td><code>coral.jogos</code></td><td data-searchable>Entrada, desenho, sprites, animação, tilemaps e câmera.</td></tr>
+          <tr><td><code>coral.mundo</code></td><td data-searchable>Mundos, entidades, relações, caminhos, mapas e regiões.</td></tr>
+          <tr><td><code>coral.rpg</code></td><td data-searchable>Personagens, vida, dados, combate e mecânicas de RPG.</td></tr>
+          <tr><td><code>coral.regras</code></td><td data-searchable>Eventos, observação, condições e comportamento reativo.</td></tr>
+          <tr><td><code>coral.sistema</code></td><td data-searchable>Arquivos, caminhos, ambiente e integração com o sistema.</td></tr>
+          <tr><td><code>coral.hardware</code></td><td data-searchable>Capacidades relacionadas ao hardware quando disponíveis.</td></tr>
+          <tr><td><code>coral.laboratorio</code></td><td data-searchable>Ferramentas para experimentação e medição.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="docs-section" id="exemplos">
+      <h2 data-searchable>Exemplos oficiais</h2>
+      <p data-searchable>A biblioteca de exemplos foi reorganizada na preparação da 1.5.9. Exemplos muito curtos ou redundantes foram condensados, demonstrações extremamente nichadas foram removidas e a estrutura passou a ser organizada por assunto.</p>
+      <ul>
+        <li data-searchable><code>Exemplos/Fundamentos</code>: fluxo, coleções, funções, tipos, escopo, objetos, erros, geradores e assíncrono.</li>
+        <li data-searchable><code>Exemplos/Dados</code>: entrada, conversões, arquivos, JSON, caminhos, aleatoriedade, persistência e fundação de criptografia.</li>
+        <li data-searchable><code>Exemplos/Espaco</code>: geometria, consultas e movimento.</li>
+        <li data-searchable><code>Exemplos/Jogos</code>: entrada, sprites, animação, tilemaps, câmera e demonstrações visuais.</li>
+        <li data-searchable><code>Exemplos/Mundo</code> e <code>Exemplos/Regras</code>: mundos, RPG, mapas, regiões, eventos e reatividade.</li>
+        <li data-searchable><code>Exemplos/Projetos_Completos</code>: projetos com estrutura de módulos e <code>coral.toml</code>.</li>
+      </ul>
+    </section>
+
+    <section class="docs-section" id="livro">
+      <h2 data-searchable>Livro Oficial</h2>
+      <p data-searchable>O Livro Oficial permanece na edição 1.5.8. A edição editorial é controlada separadamente da versão técnica do runtime, porque a 1.5.9 foi predominantemente um ciclo de integração e experiência no editor.</p>
+      <p data-searchable>Os exemplos citados pelo Livro também são sincronizados em <code>Livro/Exemplos/Citados</code>, mantendo o texto autocontido sem substituir os caminhos canônicos da biblioteca geral.</p>
+    </section>
+
+    <section class="docs-section" id="release">
+      <h2 data-searchable>Release 1.5.9</h2>
+      <p data-searchable>A 1.5.9 é a primeira release oficial depois da 1.5.2 a consolidar toda a evolução acumulada da linha 1.5.x em uma distribuição revisada.</p>
+      <ul>
+        <li data-searchable>Coral Language 0.41.0 e integração profunda com VS Code.</li>
+        <li data-searchable>LSP com IntelliSense contextual, semantic tokens, diagnósticos e suporte a módulos/projetos.</li>
+        <li data-searchable>DAP/F5, Test Explorer, REPL e execução integrada.</li>
+        <li data-searchable>Jogos ampliado com spritesheets, animações, transformações e colisão configurável.</li>
+        <li data-searchable>Espaço 2D/3D, mapas, regiões, regras reativas, eventos e integrações Mundo/RPG/Jogos.</li>
+        <li data-searchable>Revisão da Coral base na 1.5.8: entrada, conversões, persistência, módulos, tipagem opcional, testes nativos e fundação de <code>coral.criptografia</code>.</li>
+      </ul>
+    </section>
+
+    <div class="callout">
+      <div class="ring-stripe" aria-hidden="true"></div>
+      <div class="callout-body"><span class="callout-label">Próximo passo</span><p>Abra a biblioteca de exemplos da distribuição e escolha um percurso por assunto. Para uma leitura sequencial, use o Livro Oficial 1.5.8.</p></div>
+    </div>
+  </main>
+
+  <aside class="toc" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul>
+      <li><a href="#primeiros-passos" data-toc-link>Primeiros passos</a></li>
+      <li><a href="#instalacao" data-toc-link>Instalação</a></li>
+      <li><a href="#primeiro-programa" data-toc-link>Primeiro programa</a></li>
+      <li><a href="#projetos" data-toc-link>Projetos</a></li>
+      <li><a href="#vscode" data-toc-link>VS Code</a></li>
+      <li><a href="#modulos" data-toc-link>Módulos</a></li>
+      <li><a href="#exemplos" data-toc-link>Exemplos</a></li>
+      <li><a href="#livro" data-toc-link>Livro</a></li>
+      <li><a href="#release" data-toc-link>Release 1.5.9</a></li>
+    </ul>
+  </aside>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
