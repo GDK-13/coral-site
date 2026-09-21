@@ -126,6 +126,59 @@
     tocFab.setAttribute('aria-hidden', 'true');
   }
 
+  // ---------- Cards da Referência da API ----------
+  // Cada função/ classe na seção "Referência da API" começa com um
+  // <h4> contendo apenas um <code> (nome da função) e termina no
+  // <details class="api-tech-details"> seguinte. Embrulhamos esse
+  // intervalo em <section class="api-fn-card"> para que o CSS possa
+  // aplicar borda, padding e o rodapé "Detalhes técnicos" colado.
+  // Melhoria progressiva: se o JS não rodar, o conteúdo permanece
+  // legível como texto corrido.
+  (function wrapApiFunctionCards() {
+    const article = document.querySelector('.docs-main .docs-section');
+    if (!article) return;
+    // Só atua em <h4> cujo único conteúdo é um <code> — evita capturar
+    // h4s da sidebar/TOC (que não estão em .docs-main).
+    const fnHeaders = Array.from(article.querySelectorAll('h4')).filter((h) => {
+      // Critério: tem exatamente um filho <code> e nenhum texto direto relevante.
+      const code = h4OnlyCode(h);
+      return Boolean(code);
+    });
+    if (!fnHeaders.length) return;
+
+    fnHeaders.forEach((h4) => {
+      // Coleta todos os irmãos seguintes até o próximo h4 (ou h1/h2/h3, ou fim).
+      const siblings = [];
+      let node = h4.nextElementSibling;
+      while (node && !/^(H1|H2|H3|H4)$/.test(node.tagName)) {
+        siblings.push(node);
+        node = node.nextElementSibling;
+      }
+      const card = document.createElement('section');
+      card.className = 'api-fn-card';
+      // Preserva âncora: move o id do h4 para o card para que #hash continue funcionando.
+      if (h4.id) {
+        card.id = h4.id;
+        h4.removeAttribute('id');
+        card.setAttribute('data-api-anchor', '');
+      }
+      h4.parentNode.insertBefore(card, h4);
+      card.appendChild(h4);
+      siblings.forEach((s) => card.appendChild(s));
+    });
+  })();
+
+  function h4OnlyCode(h4) {
+    // Retorna o <code> se for o único conteúdo do h4; caso contrário, null.
+    const children = Array.from(h4.childNodes).filter((n) => {
+      if (n.nodeType === Node.TEXT_NODE) return n.nodeValue.trim().length > 0;
+      return true;
+    });
+    if (children.length !== 1) return null;
+    const only = children[0];
+    return only.tagName === 'CODE' ? only : null;
+  }
+
   document.addEventListener('click', async (event) => {
     const headingAnchor = event.target.closest('.heading-anchor');
     if (headingAnchor) {
