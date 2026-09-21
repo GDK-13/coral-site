@@ -118,9 +118,17 @@
 <div class="callout variant-aviso"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Aviso</span><p class="callout-text" data-searchable>Não usar para senhas, chaves, tokens ou outros segredos.</p></div></div>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>FonteAleatoria</code>, <code>fonte</code>, <code>inteiro</code>, <code>decimal</code>, <code>escolher</code>, <code>amostra</code>, <code>escolha_ponderada</code>, <code>embaralhar</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É a fonte comum de aleatoriedade da biblioteca padrão. A separação entre funções de conveniência e <code>FonteAleatoria</code> permite escolher entre uso rápido e controle explícito do estado pseudoaleatório.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="fonte-reproduzivel" data-searchable>Fonte reproduzível</h3>
+<p data-searchable><code>fonte(semente)</code> cria um gerador independente. Com a mesma semente e a mesma sequência de chamadas, ele é apropriado para testes, simulações e geração procedural reproduzível.</p>
+<h3 id="sorteio-amostra-e-embaralhamento" data-searchable>Sorteio, amostra e embaralhamento</h3>
+<p data-searchable><code>escolher</code> seleciona um elemento, <code>amostra</code> seleciona vários, <code>embaralhar</code> reorganiza valores e <code>escolha_ponderada</code> permite pesos explícitos.</p>
+<h3 id="aleatoriedade-numerica" data-searchable>Aleatoriedade numérica</h3>
+<p data-searchable><code>inteiro</code> trabalha com limites inteiros e <code>decimal</code> produz valores em intervalo decimal. As mesmas operações também existem como métodos de <code>FonteAleatoria</code>.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>FonteAleatoria</code>, <code>fonte</code>, <code>inteiro</code>, <code>decimal</code>, <code>escolher</code>, <code>amostra</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/03_aleatorio_e_persistencia.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Aleatoriedade reproduzível e persistência portátil.</span>
@@ -134,10 +142,40 @@ de <span class="code-mod">coral.persistencia</span> <span class="code-key">impor
 garanta que primeiro for igual a segundo
 
 <span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Não use aleatoriedade comum para segredos. Para tokens e bytes seguros, use <code>coral.criptografia</code>.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>criar uma fonte reproduzível</td></tr>
+<tr><td data-searchable><code>inteiro</code></td><td data-searchable>sortear inteiro em intervalo</td></tr>
+<tr><td data-searchable><code>decimal</code></td><td data-searchable>sortear decimal em intervalo</td></tr>
+<tr><td data-searchable><code>escolher</code></td><td data-searchable>escolher um elemento</td></tr>
+<tr><td data-searchable><code>amostra</code></td><td data-searchable>selecionar vários elementos</td></tr>
+<tr><td data-searchable><code>escolha_ponderada</code></td><td data-searchable>sortear com pesos</td></tr>
+<tr><td data-searchable><code>embaralhar</code></td><td data-searchable>reordenar valores</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Para testes, crie a fonte com semente fixa e passe a mesma fonte às operações relacionadas.</li>
+<li data-searchable>Para geração procedural, mantenha a fonte junto do estado da simulação para evitar sorteios escondidos em pontos diferentes do programa.</li>
+<li data-searchable>Para sorteios com chances diferentes, valide se valores e pesos representam a mesma população antes de chamar <code>escolha_ponderada</code>.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Uma população vazia, uma quantidade de amostra incompatível ou pesos inválidos podem produzir erro operacional. A referência automática abaixo registra exceções diretamente observáveis no corpo das funções quando a release as expõe.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Use sementes explícitas em testes.</li>
+<li data-searchable>Compartilhe uma <code>FonteAleatoria</code> quando várias decisões pertencem à mesma sequência pseudoaleatória.</li>
+<li data-searchable>Não use este módulo para segredos, tokens ou material criptográfico.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.persistencia</code> pode guardar dados produzidos por simulações; <code>coral.mundo</code> e <code>coral.rpg</code> podem usar a fonte para geração procedural; <code>coral.criptografia</code> é a escolha apropriada quando a aleatoriedade precisa ser segura.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Reprodutibilidade é a principal ferramenta de teste deste módulo. Um caso que falha com uma semente conhecida deve poder ser repetido com a mesma semente.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="fonte-semente-none-fontealeatoria" data-searchable><code>fonte(semente = None) -&gt; FonteAleatoria</code></h4>
@@ -276,14 +314,18 @@ garanta que primeiro for igual a segundo
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

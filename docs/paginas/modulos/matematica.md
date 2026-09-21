@@ -17,29 +17,93 @@ operações matemáticas fundamentais recorrentes
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Reúne operações matemáticas fundamentais recorrentes para código geral. É complementar a `coral.numerico`, que concentra estruturas e recursos numéricos mais amplos.
+
+## Conceitos principais
+
+### Aritmética e agregação
+
+`raiz`, `potencia`, `absoluto`, `arredondar`, `soma`, `media`, `minimo` e `maximo` cobrem operações comuns.
+
+### Trigonometria
+
+`seno`, `cosseno`, `tangente`, `graus` e `radianos` permitem trabalhar explicitamente com ângulos.
+
+### Arredondamento e limites
+
+`piso`, `teto`, `truncar` e `limitar` controlam transformação de faixa e discretização.
+
+### Exponenciais
+
+`log` e `exp` cobrem transformações exponenciais e logarítmicas.
+
+### Inteiros
+
+`mdc` e `mmc` tratam relações entre inteiros; `finito` ajuda a verificar valores numéricos.
+
+### Constantes
+
+`pi` e `e` ficam disponíveis como constantes públicas.
+
 ## Quando usar
 
-Use para operações matemáticas fundamentais que aparecem em programas comuns sem exigir a camada numérica mais ampla.
-
-Entre as entradas públicas detectadas estão `raiz`, `potencia`, `absoluto`, `arredondar`, `minimo`, `maximo`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.matematica importe raiz, potencia, absoluto
+de coral.matematica importe raiz, media, seno, pi
+
+mostre raiz(81)
+mostre media([2, 4, 6, 8])
+mostre seno(pi / 2)
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `raiz` / `potencia` | potências e raízes |
+| `soma` / `media` | agregação |
+| `seno` / `cosseno` / `tangente` | trigonometria |
+| `piso` / `teto` / `truncar` | arredondamento direcional |
+| `log` / `exp` | exponenciais |
+| `limitar` | restringir faixa |
+| `mdc` / `mmc` | inteiros |
+| `pi` / `e` | constantes |
 
-Para vetores, matrizes e estatística, consulte também `coral.numerico`.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.
+1. Escolha a operação com unidade e domínio corretos.
+2. Converta graus para radianos quando a API trigonométrica exigir radianos.
+3. Valide domínio antes de raiz ou log quando a entrada puder ser inválida.
+4. Use `coral.numerico` quando o problema evoluir para vetores, estatística, séries ou outros recursos de laboratório numérico.
+
+## Erros e casos de borda
+
+Raiz de valor fora do domínio real, log inválido, divisão implícita por condições inadequadas ou valores não finitos são casos que devem ser considerados pelo chamador.
+
+## Boas práticas
+
+* Documente a unidade de ângulos.
+* Evite números mágicos para constantes já fornecidas.
+* Teste tolerância numérica quando o resultado envolve ponto flutuante.
+
+## Integração com outros módulos
+
+`coral.numerico` amplia o domínio numérico; `coral.laboratorio` usa operações matemáticas em experimentos; `coral.jogos` aproveita funções periódicas em animações.
+
+## Testabilidade e previsibilidade
+
+Para ponto flutuante, compare com tolerância quando a igualdade exata não for matematicamente garantida. Casos de borda de domínio merecem testes separados.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

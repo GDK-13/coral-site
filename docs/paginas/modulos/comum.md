@@ -17,29 +17,83 @@ contratos transversais de erros, resultados e diagnósticos
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+É a camada transversal de contratos operacionais do runtime. A maior parte dos programas não precisa começar por ela, mas bibliotecas e ferramentas a usam para expressar falhas, resultados e diagnósticos de forma uniforme.
+
+## Conceitos principais
+
+### Hierarquia de erros
+
+`ErroCoral`, `ErroOperacaoCoral` e `ErroDependenciaCoral` distinguem erro controlado geral, falha operacional e ausência de dependência opcional.
+
+### Resultado estruturado
+
+`ResultadoOperacao` pode transportar sucesso, valor, falha e metadados sem transformar toda condição operacional em exceção.
+
+### Diagnóstico
+
+`DiagnosticoOperacional`, `diagnostico` e `agregar_diagnosticos` produzem informações consumíveis por CLI, VS Code e ferramentas.
+
+### Contratos
+
+`CONTRATO` e `CONTRATO_DIAGNOSTICO` identificam formatos transversais estáveis usados pelas superfícies que aderem a eles.
+
 ## Quando usar
 
-Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.
-
-Entre as entradas públicas detectadas estão `CONTRATO`, `CONTRATO_DIAGNOSTICO`, `ErroCoral`, `ErroOperacaoCoral`, `ErroDependenciaCoral`, `FalhaOperacao`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.comum importe CONTRATO, CONTRATO_DIAGNOSTICO, ErroCoral
+de coral.comum importe diagnostico, agregar_diagnosticos
+
+defina d1 como diagnostico("runtime", "exemplo", verdadeiro, "pronto")
+defina d2 como diagnostico("arquivo", "exemplo", falso, "ausente", sugestao="crie o arquivo")
+defina resumo como agregar_diagnosticos([d1, d2], origem="tutorial")
+mostre resumo
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `ResultadoOperacao` | resultado estruturado |
+| `FalhaOperacao` | descrição de falha |
+| `DiagnosticoOperacional` | diagnóstico estruturado |
+| `diagnostico` | construir diagnóstico |
+| `agregar_diagnosticos` | agregar vários diagnósticos |
+| `ErroDependenciaCoral` | dependência opcional ausente |
 
-É uma superfície mais estrutural. Em programas simples, normalmente você chega a esses tipos por meio de outro módulo.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Na mesma área, veja também `coral.assincrono`, `coral.conversoes`, `coral.entrada`, `coral.tipos`.
+1. Uma biblioteca detecta uma capacidade ou executa uma operação.
+2. Quando a falha é parte do contrato operacional, ela pode ser representada por resultado ou diagnóstico estruturado.
+3. Ferramentas agregam diagnósticos sem precisar interpretar textos livres de cada módulo.
+
+## Erros e casos de borda
+
+Não use `ResultadoOperacao` para esconder erros de programação. A camada comum serve a falhas operacionais previstas, enquanto invariantes quebradas continuam merecendo erro explícito.
+
+## Boas práticas
+
+* Preserve `codigo`, `dominio` e metadados úteis ao criar falhas.
+* Inclua sugestão somente quando houver uma ação concreta possível.
+* Evite depender do texto humano da mensagem para lógica do programa.
+
+## Integração com outros módulos
+
+É usada transversalmente por módulos de sistema, hardware, laboratório e ferramentas. O editor pode consumir diagnósticos estruturados sem conhecer a implementação interna de cada domínio.
+
+## Testabilidade e previsibilidade
+
+Teste tanto a estrutura serializável do diagnóstico quanto o conteúdo mínimo exigido pelo consumidor. Mensagens humanas podem evoluir; códigos e campos contratuais são mais apropriados para automação.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

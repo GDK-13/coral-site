@@ -17,29 +17,91 @@ fontes de tempo, cancelamento e eventos determinísticos
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Fornece infraestrutura compartilhada de tempo injetável, eventos, filas e cancelamento. É a base adequada para código que precisa ser determinístico em testes e ainda operar com relógio real em produção.
+
+## Conceitos principais
+
+### Fonte de tempo
+
+`FonteTempo` é o contrato. `RelogioMonotonico` mede duração real e `RelogioSimulado` permite controlar o instante.
+
+### Duração
+
+`validar_duracao` e `normalizar_dt` uniformizam valores temporais usados por bibliotecas.
+
+### Eventos
+
+`Evento` é o registro; `Eventos` é o barramento local capaz de publicar, enfileirar e propagar conforme sua API.
+
+### Cancelamento
+
+`TokenCancelamento` representa cancelamento cooperativo e `OperacaoCancelada` é a falha correspondente.
+
+### Hierarquia
+
+`Eventos` pode ter um barramento pai, permitindo composição de escopos sem um barramento global obrigatório.
+
 ## Quando usar
 
-Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.
-
-Entre as entradas públicas detectadas estão `CONTRATO`, `validar_duracao`, `normalizar_dt`, `FonteTempo`, `RelogioMonotonico`, `RelogioSimulado`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.tempo_eventos importe CONTRATO, validar_duracao, normalizar_dt
+de coral.tempo_eventos importe RelogioSimulado, Eventos
+
+defina relogio como RelogioSimulado(0)
+defina eventos como Eventos(relogio=relogio)
+mostre relogio.agora()
+execute relogio.avancar(0.5)
+mostre relogio.agora()
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `RelogioMonotonico` | tempo real monotônico |
+| `RelogioSimulado` | tempo controlado |
+| `Evento` | registro de evento |
+| `Eventos` | barramento |
+| `TokenCancelamento` | cancelamento cooperativo |
+| `validar_duracao` | normalizar duração |
+| `normalizar_dt` | normalizar avanço |
 
-Para testes, fontes de tempo controláveis tornam o comportamento temporal repetível.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.
+1. Escolha relógio real ou simulado na fronteira de composição.
+2. Construa eventos com nomes e dados explícitos.
+3. Use o barramento para desacoplar produtor e consumidores.
+4. Passe token de cancelamento a operações longas que podem parar em pontos seguros.
+
+## Erros e casos de borda
+
+Relógio civil não é substituto de monotônico para medir duração. Cancelamento não desfaz automaticamente efeitos já realizados. Eventos reentrantes podem formar cadeias difíceis de explicar se não houver política de ordem.
+
+## Boas práticas
+
+* Injete relógio em código temporal.
+* Prefira `RelogioSimulado` em testes.
+* Mantenha nomes de eventos estáveis e dados serializáveis quando houver replay.
+* Use cancelamento cooperativo em pontos seguros.
+
+## Integração com outros módulos
+
+É infraestrutura para `coral.regras`, observadores, sequências e replay. `coral.datas` cobre tempo civil e calendários, enquanto este módulo cobre tempo de execução.
+
+## Testabilidade e previsibilidade
+
+Controle o relógio e a fila em testes. Isso elimina esperas reais e torna ordem e instante dos eventos verificáveis.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

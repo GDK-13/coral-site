@@ -17,11 +17,35 @@ conversões explícitas entre valores Coral
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Centraliza conversões explícitas e estritas entre valores básicos. O objetivo é evitar coerções implícitas surpreendentes em entradas de usuário, arquivos e APIs.
+
+## Conceitos principais
+
+### Inteiro estrito
+
+`inteiro` aceita inteiro, decimal inteiro exato ou texto inteiro. Booleanos não são tratados como inteiros implicitamente.
+
+### Decimal finito
+
+`decimal` aceita número ou texto decimal; em texto, ponto e vírgula são aceitos individualmente, mas não ao mesmo tempo. Valores infinitos e NaN são recusados.
+
+### Texto Coral
+
+`texto` representa `nulo`, `verdadeiro` e `falso` com a grafia da linguagem.
+
+### Booleano explícito
+
+`booleano` reconhece apenas representações definidas, como verdadeiro/falso, sim/não e 1/0.
+
+### Padrão opcional
+
+As conversões aceitam um valor padrão opcional. Sem padrão, uma entrada inválida gera `ErroConversao`.
+
 ## Quando usar
 
-Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.
-
-Entre as entradas públicas detectadas estão `inteiro`, `decimal`, `texto`, `booleano`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -38,13 +62,46 @@ defina altura como decimal(ler_linha("Altura em metros: "))
 mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
 ```
 
-## Cuidados
+## API essencial
 
-Conversões podem falhar quando a entrada não representa o tipo de destino. Valide entrada externa quando necessário.
+| Entrada | Papel |
+|---|---|
+| `inteiro` | converter para inteiro |
+| `decimal` | converter para decimal finito |
+| `texto` | produzir texto com literais Coral |
+| `booleano` | converter representação explícita |
+| `ErroConversao` | falha de conversão |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.assincrono`, `coral.comum`, `coral.entrada`, `coral.tipos`.
+## Fluxos comuns
+
+1. Leia ou receba o valor bruto.
+2. Converta na fronteira de entrada, antes de espalhar texto cru pelo domínio.
+3. Decida se entrada inválida deve gerar erro ou receber padrão explícito.
+4. Depois da conversão, mantenha o restante da lógica trabalhando com o tipo correto.
+
+## Erros e casos de borda
+
+Uma string vazia, um número não finito, um decimal não inteiro em `inteiro` ou um booleano ambíguo são recusados. O comportamento é deliberadamente mais estrito do que coerções permissivas.
+
+## Boas práticas
+
+* Converta entrada externa cedo.
+* Use padrão apenas quando houver significado real para ele.
+* Não trate falha de conversão como zero ou falso automaticamente.
+
+## Integração com outros módulos
+
+Combina diretamente com `coral.entrada`; `coral.formatacao` usa a conversão textual para representar valores; `coral.tipos` ajuda quando a lógica precisa inspecionar tipos já convertidos.
+
+## Testabilidade e previsibilidade
+
+Teste entradas válidas, espaços laterais, formatos alternativos aceitos e valores inválidos. O contrato estrito é justamente o que torna o comportamento previsível.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

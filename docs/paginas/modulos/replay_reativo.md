@@ -17,29 +17,82 @@ gravação e reprodução determinística de eventos e mudanças
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Permite registrar entradas relevantes de um fluxo reativo e reaplicá las de forma controlada. O objetivo é reproduzir comportamento sem depender novamente das fontes externas originais.
+
+## Conceitos principais
+
+### Registro
+
+`RegistroReplay` descreve tipo e dados de uma entrada gravada.
+
+### Gravação
+
+`GravadorReplay` coleta registros produzidos durante uma execução.
+
+### Reprodução
+
+`ReplayReativo` consome uma sequência de registros e produz resultados de replay.
+
+### Resultado
+
+`ResultadoReplay` registra tipo, instante e itens processados para inspeção da reprodução.
+
 ## Quando usar
 
-Use para gravar e reproduzir eventos e mudanças de forma determinística.
-
-Entre as entradas públicas detectadas estão `RegistroReplay`, `ResultadoReplay`, `GravadorReplay`, `ReplayReativo`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.replay_reativo importe RegistroReplay, ResultadoReplay, GravadorReplay
+de coral.replay_reativo importe GravadorReplay, ReplayReativo
+
+defina gravador como GravadorReplay()
+mostre gravador
+defina replay como ReplayReativo([])
+mostre replay
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `GravadorReplay` | gravar entradas |
+| `ReplayReativo` | reproduzir registros |
+| `RegistroReplay` | registro persistível |
+| `ResultadoReplay` | resultado da reprodução |
 
-Replay depende de entradas reproduzíveis. Efeitos externos precisam ser controlados ou registrados.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Na mesma área, veja também `coral.observadores_reativos`, `coral.rastreamento_reativo`, `coral.sequencias_reativas`.
+1. Defina quais entradas externas precisam ser gravadas.
+2. Execute o sistema com fontes determinísticas de tempo e aleatoriedade quando elas influenciam o resultado.
+3. Grave os eventos ou mudanças relevantes.
+4. Reproduza os registros em ambiente controlado e compare o estado ou resultados obtidos.
+
+## Erros e casos de borda
+
+Replay não consegue reproduzir um efeito que depende de uma fonte externa não registrada, como arquivo mutável, rede, relógio real ou aleatoriedade não controlada.
+
+## Boas práticas
+
+* Grave entradas, não snapshots gigantes de estado a cada passo.
+* Use relógio simulado e sementes fixas quando o comportamento depende deles.
+* Versione o formato do registro se ele for persistido entre releases.
+
+## Integração com outros módulos
+
+`coral.tempo_eventos` fornece relógio e eventos controláveis; `coral.aleatorio` fornece fontes com semente; `coral.rastreamento_reativo` ajuda a comparar causalidade entre execução e replay.
+
+## Testabilidade e previsibilidade
+
+O teste mais forte é executar uma sequência, gravar, reproduzir e comparar um estado final ou resultados estruturados.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

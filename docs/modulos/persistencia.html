@@ -117,9 +117,21 @@
 <p data-searchable>persistência portátil, versionada e canônica</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>CONTRATO</code>, <code>VERSAO_ESQUEMA</code>, <code>ErroPersistencia</code>, <code>registrar_adaptador</code>, <code>registrar_extensao_persistente</code>, <code>extensoes_para_dados</code>, <code>aplicar_extensoes_persistentes</code>, <code>valor_portatil</code>, <code>para_dados</code>, <code>de_dados</code>, <code>texto_canonico</code>, <code>serializar_canonico</code>, <code>salvar</code>, <code>carregar</code>, <code>carregar_como</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É o contrato de persistência portátil e versionada da Coral. Em vez de serializar objetos arbitrários do runtime, grava somente dados semânticos reconstruíveis e rejeita estado que não é seguro ou portátil salvar.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="contrato-versionado" data-searchable>Contrato versionado</h3>
+<p data-searchable><code>CONTRATO</code> e <code>VERSAO_ESQUEMA</code> identificam o formato persistente.</p>
+<h3 id="conversao-para-dados" data-searchable>Conversão para dados</h3>
+<p data-searchable><code>para_dados</code> e <code>de_dados</code> transformam entre objeto suportado e documento persistente.</p>
+<h3 id="representacao-portatil" data-searchable>Representação portátil</h3>
+<p data-searchable><code>valor_portatil</code> normaliza valores; <code>texto_canonico</code> e <code>serializar_canonico</code> geram representação determinística útil para hash, cache e equivalência.</p>
+<h3 id="arquivo" data-searchable>Arquivo</h3>
+<p data-searchable><code>salvar</code>, <code>carregar</code> e <code>carregar_como</code> operam sobre o formato persistente.</p>
+<h3 id="extensao" data-searchable>Extensão</h3>
+<p data-searchable>Adaptadores e extensões persistentes permitem que outros domínios participem do contrato sem acoplamento rígido ao módulo central.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use quando os dados precisam ser salvos de forma portátil, versionada e canônica.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>salvar</code>, <code>carregar</code>, <code>valor_portatil</code>, <code>para_dados</code>, <code>de_dados</code>, <code>texto_canonico</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/03_aleatorio_e_persistencia.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.aleatorio</span> <span class="code-key">importe</span> fonte
@@ -133,10 +145,42 @@ garanta que primeiro for igual a segundo
 
 <span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}
 execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;exemplo.coraldata&quot;</span>)</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Versione o formato persistido quando ele fizer parte de um projeto que continuará evoluindo.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.colecoes</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor_portatil</code></td><td data-searchable>normalizar valor</td></tr>
+<tr><td data-searchable><code>para_dados</code> / <code>de_dados</code></td><td data-searchable>converter documento</td></tr>
+<tr><td data-searchable><code>texto_canonico</code> / <code>serializar_canonico</code></td><td data-searchable>representação determinística</td></tr>
+<tr><td data-searchable><code>salvar</code> / <code>carregar</code></td><td data-searchable>persistir arquivo</td></tr>
+<tr><td data-searchable><code>carregar_como</code></td><td data-searchable>validar tipo esperado</td></tr>
+<tr><td data-searchable><code>registrar_adaptador</code></td><td data-searchable>ensinar novo tipo</td></tr>
+<tr><td data-searchable><code>registrar_extensao_persistente</code></td><td data-searchable>anexar dados de domínio</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Converta estado de domínio para dados persistíveis.</li>
+<li data-searchable>Use a serialização canônica quando precisar de identidade de conteúdo ou comparação determinística.</li>
+<li data-searchable>Salve com o contrato versionado.</li>
+<li data-searchable>Ao carregar, valide a estrutura e reconstrua somente tipos registrados ou suportados.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Handles, recursos externos, estado de execução e objetos arbitrários são deliberadamente recusados. Persistir tudo que existe na memória não é o objetivo do módulo.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Persista estado semântico, não detalhes efêmeros do runtime.</li>
+<li data-searchable>Mantenha adaptadores pequenos e versionáveis.</li>
+<li data-searchable>Use <code>carregar_como</code> quando o tipo esperado é parte do contrato do chamador.</li>
+<li data-searchable>Não edite manualmente o documento canônico esperando estabilidade de campos internos não documentados.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable>Módulos como <code>coral.mundo</code> podem registrar extensões de domínio; <code>coral.arquivos</code> fornece operações genéricas de IO, enquanto <code>coral.persistencia</code> define o significado do formato salvo.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste round trip objeto → dados → objeto, compatibilidade de versão e rejeição de valores não portáteis. A saída canônica deve ser determinística para o mesmo conteúdo.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="registrar-adaptador-tipo-python-type-identificador-str-para-dados-callable-any-dict-str-any-de-dados-callable-dict-str-any-any-none" data-searchable><code>registrar_adaptador(tipo_python: type, identificador: str, para_dados: Callable[[Any], dict[str, Any]], de_dados: Callable[[dict[str, Any]], Any]) -&gt; None</code></h4>
@@ -317,15 +361,18 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

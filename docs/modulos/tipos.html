@@ -117,17 +117,61 @@
 <p data-searchable>consulta e teste de categorias de valor</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>TIPOS_CORAL</code>, <code>traduzir_tipo</code>, <code>TipoCoral</code>, <code>tipo_de</code>, <code>nome_tipo</code>, <code>e_tipo</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Expõe a visão de categorias de valor do runtime Coral. É útil para introspecção, validação e ferramentas, mas não deve substituir um desenho orientado ao comportamento quando o tipo concreto não importa.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="descritor" data-searchable>Descritor</h3>
+<p data-searchable><code>TipoCoral</code> contém nome, tipos Python associados e aliases.</p>
+<h3 id="descoberta" data-searchable>Descoberta</h3>
+<p data-searchable><code>tipo_de</code> produz o descritor e <code>nome_tipo</code> retorna o nome textual da categoria.</p>
+<h3 id="teste" data-searchable>Teste</h3>
+<p data-searchable><code>e_tipo</code> aceita nome Coral, classe ou <code>TipoCoral</code> como expectativa.</p>
+<h3 id="traducao" data-searchable>Tradução</h3>
+<p data-searchable><code>traduzir_tipo</code> converte nomes da sintaxe Coral para o nome técnico correspondente quando existe no mapa.</p>
+<h3 id="mapa-publico" data-searchable>Mapa público</h3>
+<p data-searchable><code>TIPOS_CORAL</code> expõe aliases básicos reconhecidos pela camada de tradução.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para consultar e testar categorias de valor quando a lógica realmente depende do tipo em tempo de execução.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>tipo_de</code>, <code>nome_tipo</code>, <code>e_tipo</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tipos</span> <span class="code-key">importe</span> tipo_de, nome_tipo, e_tipo</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Prefira código orientado ao comportamento quando não for necessário ramificar por categoria de valor.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.assincrono</code>, <code>coral.comum</code>, <code>coral.conversoes</code>, <code>coral.entrada</code>.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tipos</span> <span class="code-key">importe</span> tipo_de, nome_tipo, e_tipo
+
+<span class="code-key">defina</span> valor como <span class="code-num">42</span>
+<span class="code-key">mostre</span> <span class="code-fn">tipo_de</span>(valor)
+<span class="code-key">mostre</span> <span class="code-fn">nome_tipo</span>(valor)
+garanta que <span class="code-fn">e_tipo</span>(valor, <span class="code-str">&quot;inteiro&quot;</span>) for igual a verdadeiro</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo_de</code></td><td data-searchable>descobrir categoria</td></tr>
+<tr><td data-searchable><code>nome_tipo</code></td><td data-searchable>obter nome Coral</td></tr>
+<tr><td data-searchable><code>e_tipo</code></td><td data-searchable>testar categoria</td></tr>
+<tr><td data-searchable><code>traduzir_tipo</code></td><td data-searchable>traduzir nome</td></tr>
+<tr><td data-searchable><code>TipoCoral</code></td><td data-searchable>descritor</td></tr>
+<tr><td data-searchable><code>TIPOS_CORAL</code></td><td data-searchable>mapa de aliases</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Use introspecção na borda de ferramentas, serialização ou APIs genéricas.</li>
+<li data-searchable>Quando o programa conhece a expectativa, prefira <code>e_tipo</code> a comparar strings de nome manualmente.</li>
+<li data-searchable>Depois da validação, deixe a lógica trabalhar com comportamento ou dados já normalizados.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Booleano é tratado separadamente de inteiro apesar da herança do host. Datas, data e hora, duração e caminho também possuem categorias próprias no runtime.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Não ramifique todo o domínio por <code>nome_tipo</code> se polimorfismo ou funções separadas forem mais claros.</li>
+<li data-searchable>Use aliases Coral aceitos em vez de nomes Python quando a interface é voltada ao usuário.</li>
+<li data-searchable>Considere <code>coral.conversoes</code> quando a intenção é transformar, não apenas inspecionar.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.conversoes</code> transforma valores; <code>coral.persistencia</code> consulta categorias para valores portáteis; ferramentas e diagnósticos podem exibir nomes Coral ao usuário.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste diferenças intencionais como booleano versus inteiro, data versus data e hora, além de aliases acentuados e não acentuados.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="traduzir-tipo-tipo-str-str" data-searchable><code>traduzir_tipo(tipo: str) -&gt; str</code></h4>
@@ -213,15 +257,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

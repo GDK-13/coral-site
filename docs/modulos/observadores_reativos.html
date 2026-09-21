@@ -117,17 +117,60 @@
 <p data-searchable>observadores reutilizáveis de mudança e espaço</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>LeitorValor</code>, <code>AcaoMudanca</code>, <code>ObservadorMudanca</code>, <code>ObservadorEspacial</code>, <code>EstadoObservavel</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Transforma mudanças de valor ou relações espaciais em reações reutilizáveis. Ele complementa o motor de regras sem obrigar cada programa a escrever manualmente o mesmo padrão “ler estado anterior, comparar, disparar ação”.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="mudanca-de-valor" data-searchable>Mudança de valor</h3>
+<p data-searchable><code>ObservadorMudanca</code> lê um valor e decide quando uma alteração ou condição deve acionar a ação configurada.</p>
+<h3 id="relacao-espacial" data-searchable>Relação espacial</h3>
+<p data-searchable><code>ObservadorEspacial</code> observa uma relação entre alvo e referência, com transições como entrada em uma relação espacial.</p>
+<h3 id="estado-observavel" data-searchable>Estado observável</h3>
+<p data-searchable><code>EstadoObservavel</code> encapsula um valor e pode publicar mudanças em um barramento <code>Eventos</code>.</p>
+<h3 id="leitor-e-acao" data-searchable>Leitor e ação</h3>
+<p data-searchable><code>LeitorValor</code> e <code>AcaoMudanca</code> documentam os contratos usados pelos observadores.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para observar mudanças de valor ou espaço e reagir sem acoplar diretamente produtor e consumidor.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>LeitorValor</code>, <code>AcaoMudanca</code>, <code>ObservadorMudanca</code>, <code>ObservadorEspacial</code>, <code>EstadoObservavel</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.observadores_reativos</span> <span class="code-key">importe</span> LeitorValor, AcaoMudanca, ObservadorMudanca</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Evite cadeias reativas difíceis de rastrear. Combine observadores com rastreamento quando o fluxo crescer.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.rastreamento_reativo</code>, <code>coral.replay_reativo</code>, <code>coral.sequencias_reativas</code>.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.observadores_reativos</span> <span class="code-key">importe</span> EstadoObservavel
+de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> Eventos
+
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>()
+<span class="code-key">defina</span> estado como <span class="code-fn">EstadoObservavel</span>(<span class="code-str">&quot;energia&quot;</span>, <span class="code-num">10</span>, eventos=eventos)
+<span class="code-key">mostre</span> estado</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ObservadorMudanca</code></td><td data-searchable>observar mudança de valor</td></tr>
+<tr><td data-searchable><code>ObservadorEspacial</code></td><td data-searchable>observar relação espacial</td></tr>
+<tr><td data-searchable><code>EstadoObservavel</code></td><td data-searchable>estado que publica mudança</td></tr>
+<tr><td data-searchable><code>LeitorValor</code></td><td data-searchable>contrato de leitura</td></tr>
+<tr><td data-searchable><code>AcaoMudanca</code></td><td data-searchable>contrato de reação</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Defina qual valor ou relação é observável.</li>
+<li data-searchable>Separe leitura de estado da ação produzida.</li>
+<li data-searchable>Atualize ou avalie o observador no ciclo apropriado do domínio.</li>
+<li data-searchable>Ative rastreamento quando múltiplas reações começarem a formar uma cadeia difícil de explicar.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Observadores encadeados podem formar ciclos. Uma ação que altera exatamente o valor que dispara outro observador precisa de política clara de ordem e término.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Dê nomes descritivos aos observadores.</li>
+<li data-searchable>Mantenha a ação pequena e previsível.</li>
+<li data-searchable>Evite efeitos externos escondidos em leitores.</li>
+<li data-searchable>Use <code>coral.rastreamento_reativo</code> para diagnosticar cadeias maiores.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.tempo_eventos.Eventos</code> pode receber mudanças; <code>coral.rastreamento_reativo</code> explica cadeias e ciclos; <code>coral.replay_reativo</code> grava entradas reativas; <code>coral.regras</code> fornece regras de domínio mais amplas.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Use estado controlado e ações registradas em memória nos testes. Assim é possível provar exatamente quando um observador dispara sem depender de interface ou tempo real.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="observadormudanca-nome-str-leitor-leitorvalor-acao-acaomudanca-modo-str-mudanca-limite-any-none" data-searchable><code>ObservadorMudanca(nome: str, leitor: LeitorValor, acao: AcaoMudanca, modo: str = 'mudanca', limite: Any = None)</code></h4>
@@ -218,14 +261,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

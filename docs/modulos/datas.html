@@ -117,17 +117,63 @@
 <p data-searchable>datas, datas e horas, fusos e durações</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>agora</code>, <code>hoje</code>, <code>dias</code>, <code>segundos</code>, <code>minutos</code>, <code>horas</code>, <code>semanas</code>, <code>formatar</code>, <code>analisar</code>, <code>de_iso</code>, <code>para_iso</code>, <code>fuso_horario</code>, <code>converter_fuso</code>, <code>diferenca</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Reúne data, data e hora, fuso e duração numa superfície única. Serve para representar tempo civil e conversões de calendário, enquanto <code>coral.tempo_eventos</code> trata relógios de execução e eventos determinísticos.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="agora-e-hoje" data-searchable>Agora e hoje</h3>
+<p data-searchable><code>agora</code> retorna data e hora e <code>hoje</code> trabalha com a data civil, ambos podendo receber fuso.</p>
+<h3 id="duracoes" data-searchable>Durações</h3>
+<p data-searchable><code>dias</code>, <code>horas</code>, <code>minutos</code>, <code>segundos</code> e <code>semanas</code> criam durações explícitas.</p>
+<h3 id="formatacao-e-analise" data-searchable>Formatação e análise</h3>
+<p data-searchable><code>formatar</code>, <code>analisar</code>, <code>de_iso</code> e <code>para_iso</code> transformam entre valores temporais e texto.</p>
+<h3 id="fusos" data-searchable>Fusos</h3>
+<p data-searchable><code>fuso_horario</code> obtém um fuso e <code>converter_fuso</code> converte uma data e hora consciente de fuso.</p>
+<h3 id="diferenca" data-searchable>Diferença</h3>
+<p data-searchable><code>diferenca</code> produz a duração entre dois valores temporais compatíveis.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>agora</code>, <code>hoje</code>, <code>dias</code>, <code>segundos</code>, <code>minutos</code>, <code>horas</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, hoje, dias</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Ao trocar dados entre sistemas, prefira representações explícitas como ISO e declare o fuso quando ele for relevante.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, para_iso, horas
+
+<span class="code-key">defina</span> inicio como <span class="code-fn">agora</span>(<span class="code-str">&quot;UTC&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">para_iso</span>(inicio)
+<span class="code-key">defina</span> intervalo como <span class="code-fn">horas</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> intervalo</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code> / <code>hoje</code></td><td data-searchable>tempo civil atual</td></tr>
+<tr><td data-searchable><code>dias</code> / <code>horas</code> / <code>minutos</code></td><td data-searchable>construir duração</td></tr>
+<tr><td data-searchable><code>analisar</code> / <code>formatar</code></td><td data-searchable>texto e valor temporal</td></tr>
+<tr><td data-searchable><code>de_iso</code> / <code>para_iso</code></td><td data-searchable>ISO 8601</td></tr>
+<tr><td data-searchable><code>fuso_horario</code></td><td data-searchable>obter fuso</td></tr>
+<tr><td data-searchable><code>converter_fuso</code></td><td data-searchable>converter fuso</td></tr>
+<tr><td data-searchable><code>diferenca</code></td><td data-searchable>calcular duração</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Para armazenamento e intercâmbio, prefira ISO quando possível.</li>
+<li data-searchable>Associe fuso a valores que representam um instante global.</li>
+<li data-searchable>Use durações para somar ou comparar intervalos em vez de números “mágicos” de segundos.</li>
+<li data-searchable>Use <code>coral.tempo_eventos</code> quando o problema for simulação de tempo ou controle determinístico de execução.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Datas sem fuso e datas com fuso não devem ser misturadas sem decisão explícita. Formatos livres de data são ambíguos; quando o formato não for ISO, informe o padrão esperado.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Armazene instantes interoperáveis em ISO com fuso.</li>
+<li data-searchable>Evite interpretar texto de data sem formato conhecido.</li>
+<li data-searchable>Não use relógio civil para medir duração de execução.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.formatacao</code> e <code>coral.texto</code> cuidam da apresentação; <code>coral.json</code> pode transportar strings ISO; <code>coral.tempo_eventos</code> cobre relógios monotônicos ou simulados.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste datas de fronteira, mudanças de fuso e round trip <code>para_iso</code>/<code>de_iso</code>. Para duração, prefira valores controlados a consultar o relógio real.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="agora-fuso-str-tzinfo-none-none" data-searchable><code>agora(fuso: str | tzinfo | None = None)</code></h4>
@@ -328,13 +374,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

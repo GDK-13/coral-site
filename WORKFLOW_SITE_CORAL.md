@@ -73,7 +73,7 @@ Os módulos são divididos em dois grupos de navegação:
 
 A classificação vem do campo `destaque` de `docs/dados/modulos.json`, preenchido pelo importador da release. O grupo principal fica aberto nas páginas gerais e nas páginas principais; o grupo complementar abre quando uma de suas páginas está ativa.
 
-A coluna **Nesta página** continua sendo local. Nos módulos principais ela mostra apenas títulos `##`, porque as páginas são mais profundas; títulos `###` e entradas individuais da API não poluem o índice lateral.
+A coluna **Nesta página** continua sendo local. Em **todas as páginas de módulo** ela mostra apenas títulos `##`. Conceitos internos em `###` e entradas individuais da API em `####` permanecem navegáveis no conteúdo, mas não poluem o índice lateral.
 
 ## 4. Fontes editáveis
 
@@ -209,7 +209,7 @@ Páginas de módulos usam dois blocos mecânicos:
 
 Somente esses blocos são substituídos durante a importação. Conceitos, tutoriais, decisões de uso, exemplos comentados, erros comuns e boas práticas permanecem sob revisão humana.
 
-Os módulos principais recebem documentação editorial mais extensa: papel no ecossistema, modelo mental, conceitos, fluxos comuns, API essencial, diagnóstico, integração, testabilidade e compatibilidade. Os outros módulos mantêm uma referência mais compacta, mas continuam recebendo a API automática.
+Os módulos principais recebem a camada editorial mais extensa, com foco também na arquitetura de domínio. Os **módulos secundários** não são tratados como simples fichas: cada página deve conter visão geral, papel no ecossistema, conceitos principais, quando usar, exemplo validado, API essencial, fluxos comuns, erros e casos de borda, boas práticas, integração, testabilidade/previsibilidade, compatibilidade e a referência automática completa da API. A diferença entre os grupos é de prioridade e profundidade de domínio, não de qualidade documental.
 
 Outras páginas usam blocos equivalentes para versão da extensão, CLI, exemplos, edição do Livro e changelog.
 

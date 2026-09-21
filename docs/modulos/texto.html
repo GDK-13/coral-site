@@ -117,9 +117,25 @@
 <p data-searchable>transformar, localizar, normalizar e formatar texto</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>maiusculas</code>, <code>minusculas</code>, <code>aparar</code>, <code>dividir</code>, <code>juntar</code>, <code>substituir</code>, <code>comeca_com</code>, <code>termina_com</code>, <code>localizar</code>, <code>contar</code>, <code>normalizar_unicode</code>, <code>linhas</code>, <code>remover_prefixo</code>, <code>remover_sufixo</code>, <code>preencher</code>, <code>formatar</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É a caixa de ferramentas para transformação, busca e normalização de texto. As operações são pequenas, explícitas e projetadas para compor pipelines de tratamento de entrada humana e dados textuais.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="caixa-e-espacos" data-searchable>Caixa e espaços</h3>
+<p data-searchable><code>maiusculas</code>, <code>minusculas</code> e <code>aparar</code> cuidam de normalização básica.</p>
+<h3 id="divisao-e-juncao" data-searchable>Divisão e junção</h3>
+<p data-searchable><code>dividir</code> e <code>juntar</code> transformam entre texto e sequências.</p>
+<h3 id="busca" data-searchable>Busca</h3>
+<p data-searchable><code>comeca_com</code>, <code>termina_com</code>, <code>localizar</code> e <code>contar</code> inspecionam conteúdo.</p>
+<h3 id="substituicao" data-searchable>Substituição</h3>
+<p data-searchable><code>substituir</code>, <code>remover_prefixo</code> e <code>remover_sufixo</code> alteram trechos conhecidos.</p>
+<h3 id="unicode" data-searchable>Unicode</h3>
+<p data-searchable><code>normalizar_unicode</code> torna explícita a forma Unicode antes de comparação ou armazenamento.</p>
+<h3 id="linhas-e-preenchimento" data-searchable>Linhas e preenchimento</h3>
+<p data-searchable><code>linhas</code> separa linhas com controle de quebras e <code>preencher</code> alinha ou completa texto.</p>
+<h3 id="formatacao-por-modelo" data-searchable>Formatação por modelo</h3>
+<p data-searchable><code>formatar</code> fornece a operação textual publicada pelo módulo; para montagem simples por partes, <code>coral.formatacao</code> também é apropriado.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para transformar, localizar, normalizar e formatar texto.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>maiusculas</code>, <code>minusculas</code>, <code>aparar</code>, <code>dividir</code>, <code>juntar</code>, <code>substituir</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/05_utilitarios_e_interoperabilidade.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Biblioteca padrão Coral e interoperabilidade explícita com Python.</span>
@@ -133,10 +149,42 @@ calcule a média de dados como media_dados
 python: import math
 <span class="code-key">defina</span> raiz como math.<span class="code-fn">sqrt</span>(<span class="code-num">81</span>)
 <span class="code-key">mostre</span> raiz</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Ao processar entrada humana, considere normalização e diferenças de caixa antes de comparar valores.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.formatacao</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>aparar</code></td><td data-searchable>remover bordas de espaço</td></tr>
+<tr><td data-searchable><code>dividir</code> / <code>juntar</code></td><td data-searchable>segmentar e recompor</td></tr>
+<tr><td data-searchable><code>substituir</code></td><td data-searchable>trocar trecho</td></tr>
+<tr><td data-searchable><code>localizar</code> / <code>contar</code></td><td data-searchable>buscar ocorrências</td></tr>
+<tr><td data-searchable><code>normalizar_unicode</code></td><td data-searchable>normalizar Unicode</td></tr>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>separar linhas</td></tr>
+<tr><td data-searchable><code>preencher</code></td><td data-searchable>alinhar/preencher</td></tr>
+<tr><td data-searchable><code>formatar</code></td><td data-searchable>formatar texto</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Normalize Unicode quando o texto pode vir de fontes diferentes.</li>
+<li data-searchable>Apare e normalize caixa somente quando isso fizer sentido para a regra de comparação.</li>
+<li data-searchable>Separe parsing textual da lógica de domínio.</li>
+<li data-searchable>Mantenha o texto original quando a apresentação ou auditoria exigir fidelidade.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Duas strings visualmente iguais podem ter sequências Unicode diferentes. Busca sensível a caixa e substituição literal também podem surpreender quando o programa presume normalização implícita.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Normalize antes de comparar identificadores humanos quando apropriado.</li>
+<li data-searchable>Não destrua caixa ou acentuação se elas fazem parte do dado.</li>
+<li data-searchable>Evite cadeias longas de transformação sem nomes intermediários quando a intenção ficar difícil de ler.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.entrada</code> fornece texto bruto; <code>coral.conversoes</code> transforma texto em tipos; <code>coral.formatacao</code> monta saída; <code>coral.formatos</code> trabalha com representações estruturadas.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Inclua acentos, Unicode composto/decomposto, string vazia, múltiplas linhas e ausência de trecho nos testes relevantes.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="maiusculas-valor" data-searchable><code>maiusculas(valor)</code></h4>
@@ -377,13 +425,18 @@ python: import math
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

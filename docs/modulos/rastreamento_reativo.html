@@ -117,17 +117,56 @@
 <p data-searchable>rastreamento estruturado e proteção de ciclos reativos</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>MODOS_RASTREAMENTO</code>, <code>ErroCicloReativo</code>, <code>EntradaRastreamentoReativo</code>, <code>RastreamentoReativo</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Registra decisões do sistema reativo de forma estruturada e impõe proteção contra ciclos. É uma ferramenta de explicabilidade e segurança operacional, não apenas um log textual.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="entrada-estruturada" data-searchable>Entrada estruturada</h3>
+<p data-searchable><code>EntradaRastreamentoReativo</code> registra sequência, instante, tipo, nome, decisão, causa, prioridade, condição e detalhes.</p>
+<h3 id="modos" data-searchable>Modos</h3>
+<p data-searchable><code>MODOS_RASTREAMENTO</code> define os níveis aceitos e <code>RastreamentoReativo</code> controla como o registro é produzido.</p>
+<h3 id="causalidade" data-searchable>Causalidade</h3>
+<p data-searchable><code>causa_sequencia</code> permite ligar uma reação à entrada que a originou.</p>
+<h3 id="protecao-de-ciclo" data-searchable>Proteção de ciclo</h3>
+<p data-searchable><code>ErroCicloReativo</code> sinaliza que o sistema ultrapassou o limite seguro em uma cadeia reativa.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para registrar a cadeia de reações e proteger o sistema contra ciclos reativos.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>MODOS_RASTREAMENTO</code>, <code>ErroCicloReativo</code>, <code>EntradaRastreamentoReativo</code>, <code>RastreamentoReativo</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.rastreamento_reativo</span> <span class="code-key">importe</span> MODOS_RASTREAMENTO, ErroCicloReativo, EntradaRastreamentoReativo</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>O rastreamento ajuda a explicar por que uma reação aconteceu. Não o remova de fluxos complexos apenas para esconder um ciclo.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.observadores_reativos</code>, <code>coral.replay_reativo</code>, <code>coral.sequencias_reativas</code>.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.rastreamento_reativo</span> <span class="code-key">importe</span> RastreamentoReativo
+
+<span class="code-key">defina</span> rastreamento como <span class="code-fn">RastreamentoReativo</span>(<span class="code-str">&quot;resumo&quot;</span>)
+<span class="code-key">mostre</span> rastreamento</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>RastreamentoReativo</code></td><td data-searchable>coletar rastreamento</td></tr>
+<tr><td data-searchable><code>EntradaRastreamentoReativo</code></td><td data-searchable>registro estruturado</td></tr>
+<tr><td data-searchable><code>ErroCicloReativo</code></td><td data-searchable>proteção de ciclo</td></tr>
+<tr><td data-searchable><code>MODOS_RASTREAMENTO</code></td><td data-searchable>modos aceitos</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Ative rastreamento quando precisar explicar uma cadeia de reações.</li>
+<li data-searchable>Registre causa e sequência para preservar a ordem causal.</li>
+<li data-searchable>Ao detectar ciclo, trate a causa; não aumente limites apenas para silenciar o sintoma.</li>
+<li data-searchable>Use os registros em diagnóstico, testes ou replay conforme a necessidade.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Uma cadeia infinita de mudanças pode parecer apenas “muitos eventos”. A proteção de ciclo existe para transformar esse crescimento em falha explicável antes que o processo consuma recursos indefinidamente.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Mantenha nomes estáveis para regras e observadores.</li>
+<li data-searchable>Registre detalhes úteis, mas não coloque objetos enormes em cada entrada.</li>
+<li data-searchable>Use o modo mais detalhado apenas quando necessário para diagnóstico.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.observadores_reativos</code> gera reações observáveis; <code>coral.regras</code> coordena regras; <code>coral.replay_reativo</code> pode preservar entradas para reprodução.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Testes devem verificar ordem, causa e decisão, não apenas quantidade de logs. Inclua um caso que provoque ciclo controlado e confirme <code>ErroCicloReativo</code>.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="entradarastreamentoreativo-sequencia-int-none-instante-float-none-tipo-str-nome-str-decisao-str-causa-sequencia-int-none-none-prioridade-int-none-none-condicao-str-none-none-resultado-condicao-bool-none-none-detalhes-mapping-str-any-field-default-factory-dict" data-searchable><code>EntradaRastreamentoReativo(sequencia: int | None, instante: float | None, tipo: str, nome: str, decisao: str, causa_sequencia: int | None = None, prioridade: int | None = None, condicao: str | None = None, resultado_condicao: bool | None = None, detalhes: Mapping[str, Any] = field(default_factory=dict))</code></h4>
@@ -189,15 +228,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

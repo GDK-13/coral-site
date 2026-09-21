@@ -117,9 +117,19 @@
 <p data-searchable>entrada interceptável e testável</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>FonteEntrada</code>, <code>FonteEntradaFuncao</code>, <code>FonteEntradaSequencial</code>, <code>FimDeEntrada</code>, <code>ler_linha</code>, <code>usar_fonte_entrada</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Separa leitura de linha da origem física da entrada. O programa pode ler do terminal em produção e usar uma fonte determinística em testes, REPLs, debugger ou ferramentas.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="fonte-explicita" data-searchable>Fonte explícita</h3>
+<p data-searchable><code>ler_linha(..., fonte=...)</code> permite escolher a origem para uma única leitura.</p>
+<h3 id="fonte-contextual" data-searchable>Fonte contextual</h3>
+<p data-searchable><code>usar_fonte_entrada</code> instala temporariamente uma fonte no contexto corrente, evitando passar o leitor por toda a cadeia de chamadas.</p>
+<h3 id="fonte-sequencial" data-searchable>Fonte sequencial</h3>
+<p data-searchable><code>FonteEntradaSequencial</code> consome uma sequência conhecida de linhas e gera <code>FimDeEntrada</code> quando termina.</p>
+<h3 id="fim-de-entrada" data-searchable>Fim de entrada</h3>
+<p data-searchable>EOF do terminal e fontes esgotadas convergem para <code>FimDeEntrada</code>, evitando dependência direta de <code>EOFError</code>.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use quando a leitura de entrada precisa ser substituível em testes ou controlada por outra fonte.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>ler_linha</code>, <code>usar_fonte_entrada</code>, <code>FonteEntradaSequencial</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/01_entrada_conversoes_e_texto.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Entrada, conversão explícita e composição de texto.</span>
@@ -131,10 +141,39 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
 <span class="code-key">defina</span> idade como <span class="code-fn">inteiro</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Idade: &quot;</span>))
 <span class="code-key">defina</span> altura como <span class="code-fn">decimal</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Altura em metros: &quot;</span>))
 <span class="code-key">mostre</span> <span class="code-fn">montar_texto</span>(<span class="code-str">&quot;Olá, &quot;</span>, nome, <span class="code-str">&quot;. Idade: &quot;</span>, idade, <span class="code-str">&quot;. Altura: &quot;</span>, altura)</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Separar a fonte de entrada facilita testes determinísticos e evita depender do teclado real.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.assincrono</code>, <code>coral.comum</code>, <code>coral.conversoes</code>, <code>coral.tipos</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>ler uma linha</td></tr>
+<tr><td data-searchable><code>usar_fonte_entrada</code></td><td data-searchable>instalar fonte contextual</td></tr>
+<tr><td data-searchable><code>FonteEntradaSequencial</code></td><td data-searchable>entrada determinística</td></tr>
+<tr><td data-searchable><code>FonteEntrada</code></td><td data-searchable>protocolo de fonte</td></tr>
+<tr><td data-searchable><code>FimDeEntrada</code></td><td data-searchable>fim controlado da fonte</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Leia texto bruto por <code>ler_linha</code>.</li>
+<li data-searchable>Converta o valor com <code>coral.conversoes</code> na borda da aplicação.</li>
+<li data-searchable>Em testes, substitua terminal por <code>FonteEntradaSequencial</code> ou fonte função.</li>
+<li data-searchable>Trate <code>FimDeEntrada</code> quando terminar a fonte for um cenário esperado.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Uma fonte pode terminar antes do esperado. <code>ler_linha</code> remove quebras finais de linha, mas não converte o conteúdo para número ou booleano automaticamente.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Não misture leitura de terminal com lógica de domínio.</li>
+<li data-searchable>Converta e valide imediatamente após ler.</li>
+<li data-searchable>Use fonte determinística em testes e ferramentas.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.conversoes</code> transforma o texto lido; <code>coral.formatacao</code> monta prompts e mensagens; DAP, REPL e ferramentas podem injetar fontes sem modificar o programa.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Com <code>FonteEntradaSequencial</code>, testes não precisam de stdin real. Isso torna prompts e fluxos de entrada repetíveis em CI.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="ler-linha-mensagem-str-none-none-fonte-fonteentrada-fonteentradafuncao-none-none-str" data-searchable><code>ler_linha(mensagem: str | None = None, *, fonte: FonteEntrada | FonteEntradaFuncao | None = None) -&gt; str</code></h4>
@@ -211,16 +250,18 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

@@ -117,17 +117,65 @@
 <p data-searchable>fontes de tempo, cancelamento e eventos determinísticos</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>CONTRATO</code>, <code>validar_duracao</code>, <code>normalizar_dt</code>, <code>FonteTempo</code>, <code>RelogioMonotonico</code>, <code>RelogioSimulado</code>, <code>OperacaoCancelada</code>, <code>TokenCancelamento</code>, <code>Evento</code>, <code>Eventos</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Fornece infraestrutura compartilhada de tempo injetável, eventos, filas e cancelamento. É a base adequada para código que precisa ser determinístico em testes e ainda operar com relógio real em produção.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="fonte-de-tempo" data-searchable>Fonte de tempo</h3>
+<p data-searchable><code>FonteTempo</code> é o contrato. <code>RelogioMonotonico</code> mede duração real e <code>RelogioSimulado</code> permite controlar o instante.</p>
+<h3 id="duracao" data-searchable>Duração</h3>
+<p data-searchable><code>validar_duracao</code> e <code>normalizar_dt</code> uniformizam valores temporais usados por bibliotecas.</p>
+<h3 id="eventos" data-searchable>Eventos</h3>
+<p data-searchable><code>Evento</code> é o registro; <code>Eventos</code> é o barramento local capaz de publicar, enfileirar e propagar conforme sua API.</p>
+<h3 id="cancelamento" data-searchable>Cancelamento</h3>
+<p data-searchable><code>TokenCancelamento</code> representa cancelamento cooperativo e <code>OperacaoCancelada</code> é a falha correspondente.</p>
+<h3 id="hierarquia" data-searchable>Hierarquia</h3>
+<p data-searchable><code>Eventos</code> pode ter um barramento pai, permitindo composição de escopos sem um barramento global obrigatório.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>CONTRATO</code>, <code>validar_duracao</code>, <code>normalizar_dt</code>, <code>FonteTempo</code>, <code>RelogioMonotonico</code>, <code>RelogioSimulado</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> CONTRATO, validar_duracao, normalizar_dt</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Para testes, fontes de tempo controláveis tornam o comportamento temporal repetível.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> RelogioSimulado, Eventos
+
+<span class="code-key">defina</span> relogio como <span class="code-fn">RelogioSimulado</span>(<span class="code-num">0</span>)
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>(relogio=relogio)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()
+execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5</span>)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>RelogioMonotonico</code></td><td data-searchable>tempo real monotônico</td></tr>
+<tr><td data-searchable><code>RelogioSimulado</code></td><td data-searchable>tempo controlado</td></tr>
+<tr><td data-searchable><code>Evento</code></td><td data-searchable>registro de evento</td></tr>
+<tr><td data-searchable><code>Eventos</code></td><td data-searchable>barramento</td></tr>
+<tr><td data-searchable><code>TokenCancelamento</code></td><td data-searchable>cancelamento cooperativo</td></tr>
+<tr><td data-searchable><code>validar_duracao</code></td><td data-searchable>normalizar duração</td></tr>
+<tr><td data-searchable><code>normalizar_dt</code></td><td data-searchable>normalizar avanço</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Escolha relógio real ou simulado na fronteira de composição.</li>
+<li data-searchable>Construa eventos com nomes e dados explícitos.</li>
+<li data-searchable>Use o barramento para desacoplar produtor e consumidores.</li>
+<li data-searchable>Passe token de cancelamento a operações longas que podem parar em pontos seguros.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Relógio civil não é substituto de monotônico para medir duração. Cancelamento não desfaz automaticamente efeitos já realizados. Eventos reentrantes podem formar cadeias difíceis de explicar se não houver política de ordem.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Injete relógio em código temporal.</li>
+<li data-searchable>Prefira <code>RelogioSimulado</code> em testes.</li>
+<li data-searchable>Mantenha nomes de eventos estáveis e dados serializáveis quando houver replay.</li>
+<li data-searchable>Use cancelamento cooperativo em pontos seguros.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable>É infraestrutura para <code>coral.regras</code>, observadores, sequências e replay. <code>coral.datas</code> cobre tempo civil e calendários, enquanto este módulo cobre tempo de execução.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Controle o relógio e a fila em testes. Isso elimina esperas reais e torna ordem e instante dos eventos verificáveis.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="validar-duracao-valor-any-nome-str-duracao-permitir-none-bool-false-permitir-zero-bool-true-float-none" data-searchable><code>validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -&gt; float | None</code></h4>
@@ -289,16 +337,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

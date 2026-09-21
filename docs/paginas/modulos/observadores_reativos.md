@@ -17,29 +17,84 @@ observadores reutilizáveis de mudança e espaço
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Transforma mudanças de valor ou relações espaciais em reações reutilizáveis. Ele complementa o motor de regras sem obrigar cada programa a escrever manualmente o mesmo padrão “ler estado anterior, comparar, disparar ação”.
+
+## Conceitos principais
+
+### Mudança de valor
+
+`ObservadorMudanca` lê um valor e decide quando uma alteração ou condição deve acionar a ação configurada.
+
+### Relação espacial
+
+`ObservadorEspacial` observa uma relação entre alvo e referência, com transições como entrada em uma relação espacial.
+
+### Estado observável
+
+`EstadoObservavel` encapsula um valor e pode publicar mudanças em um barramento `Eventos`.
+
+### Leitor e ação
+
+`LeitorValor` e `AcaoMudanca` documentam os contratos usados pelos observadores.
+
 ## Quando usar
 
-Use para observar mudanças de valor ou espaço e reagir sem acoplar diretamente produtor e consumidor.
-
-Entre as entradas públicas detectadas estão `LeitorValor`, `AcaoMudanca`, `ObservadorMudanca`, `ObservadorEspacial`, `EstadoObservavel`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.observadores_reativos importe LeitorValor, AcaoMudanca, ObservadorMudanca
+de coral.observadores_reativos importe EstadoObservavel
+de coral.tempo_eventos importe Eventos
+
+defina eventos como Eventos()
+defina estado como EstadoObservavel("energia", 10, eventos=eventos)
+mostre estado
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `ObservadorMudanca` | observar mudança de valor |
+| `ObservadorEspacial` | observar relação espacial |
+| `EstadoObservavel` | estado que publica mudança |
+| `LeitorValor` | contrato de leitura |
+| `AcaoMudanca` | contrato de reação |
 
-Evite cadeias reativas difíceis de rastrear. Combine observadores com rastreamento quando o fluxo crescer.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Na mesma área, veja também `coral.rastreamento_reativo`, `coral.replay_reativo`, `coral.sequencias_reativas`.
+1. Defina qual valor ou relação é observável.
+2. Separe leitura de estado da ação produzida.
+3. Atualize ou avalie o observador no ciclo apropriado do domínio.
+4. Ative rastreamento quando múltiplas reações começarem a formar uma cadeia difícil de explicar.
+
+## Erros e casos de borda
+
+Observadores encadeados podem formar ciclos. Uma ação que altera exatamente o valor que dispara outro observador precisa de política clara de ordem e término.
+
+## Boas práticas
+
+* Dê nomes descritivos aos observadores.
+* Mantenha a ação pequena e previsível.
+* Evite efeitos externos escondidos em leitores.
+* Use `coral.rastreamento_reativo` para diagnosticar cadeias maiores.
+
+## Integração com outros módulos
+
+`coral.tempo_eventos.Eventos` pode receber mudanças; `coral.rastreamento_reativo` explica cadeias e ciclos; `coral.replay_reativo` grava entradas reativas; `coral.regras` fornece regras de domínio mais amplas.
+
+## Testabilidade e previsibilidade
+
+Use estado controlado e ações registradas em memória nos testes. Assim é possível provar exatamente quando um observador dispara sem depender de interface ou tempo real.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

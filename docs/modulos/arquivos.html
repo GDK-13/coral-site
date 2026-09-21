@@ -117,9 +117,19 @@
 <p data-searchable>ler, escrever e organizar arquivos e caminhos locais</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>, <code>listar</code>, <code>listar_recursivo</code>, <code>criar_pasta</code>, <code>remover</code>, <code>renomear</code>, <code>copiar</code>, <code>mover</code>, <code>tamanho</code>, <code>metadados</code>, <code>arquivo_temporario</code>, <code>pasta_temporaria</code>, <code>nome</code>, <code>extensao</code>, <code>pai</code>, <code>resolver</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É a camada de operações locais de sistema de arquivos. Ela concentra leitura, escrita, organização, metadados e recursos temporários para que o restante do programa não precise misturar lógica de domínio com detalhes de IO.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="texto-e-bytes" data-searchable>Texto e bytes</h3>
+<p data-searchable>Use as famílias <code>ler_texto</code>/<code>escrever_texto</code> para dados textuais com codificação explícita e <code>ler_bytes</code>/<code>escrever_bytes</code> para conteúdo binário.</p>
+<h3 id="navegacao-e-inspecao" data-searchable>Navegação e inspeção</h3>
+<p data-searchable><code>listar</code>, <code>listar_recursivo</code>, <code>existe</code>, <code>tamanho</code> e <code>metadados</code> cobrem descoberta e inspeção sem alterar o sistema de arquivos.</p>
+<h3 id="operacoes-destrutivas" data-searchable>Operações destrutivas</h3>
+<p data-searchable><code>remover</code>, <code>renomear</code>, <code>copiar</code> e <code>mover</code> alteram o estado local. Operações recursivas exigem intenção explícita.</p>
+<h3 id="arquivos-temporarios" data-searchable>Arquivos temporários</h3>
+<p data-searchable><code>arquivo_temporario</code> e <code>pasta_temporaria</code> evitam nomes improvisados em testes, conversões e etapas intermediárias.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/02_arquivos_json_e_caminhos.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Arquivos, JSON, caminhos e contexto de leitura.</span>
@@ -133,10 +143,42 @@ de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</
 execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
 <span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
 <span class="code-key">mostre</span> conteudo</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Operações de escrita, remoção e movimento alteram o sistema de arquivos. Valide caminhos e trate falhas operacionais.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.caminhos</code>, <code>coral.sistema</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ler_texto</code> / <code>escrever_texto</code></td><td data-searchable>IO textual</td></tr>
+<tr><td data-searchable><code>ler_bytes</code> / <code>escrever_bytes</code></td><td data-searchable>IO binário</td></tr>
+<tr><td data-searchable><code>listar</code> / <code>listar_recursivo</code></td><td data-searchable>descoberta de conteúdo</td></tr>
+<tr><td data-searchable><code>copiar</code> / <code>mover</code> / <code>renomear</code></td><td data-searchable>organização</td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>remoção explícita</td></tr>
+<tr><td data-searchable><code>metadados</code> / <code>tamanho</code></td><td data-searchable>inspeção</td></tr>
+<tr><td data-searchable><code>arquivo_temporario</code> / <code>pasta_temporaria</code></td><td data-searchable>recursos temporários</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Normalize ou componha o caminho com <code>coral.caminhos</code> quando ele vier de múltiplas partes.</li>
+<li data-searchable>Escolha a operação de leitura adequada a texto ou bytes.</li>
+<li data-searchable>Valide existência e destino antes de uma mutação destrutiva quando isso fizer parte da regra do programa.</li>
+<li data-searchable>Converta o conteúdo com <code>coral.json</code>, <code>coral.formatos</code> ou outro módulo de dados somente depois de concluir o IO.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Falhas de permissão, caminhos inexistentes, destinos ocupados e codificação inválida pertencem ao domínio de IO. O módulo não transforma toda falha do sistema em sucesso silencioso.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Prefira <code>utf-8</code> para novos arquivos textuais.</li>
+<li data-searchable>Não monte caminhos concatenando barras manualmente.</li>
+<li data-searchable>Evite <code>remover(..., recursivo=True)</code> sem uma verificação anterior do alvo.</li>
+<li data-searchable>Use temporários em testes em vez de escrever na árvore do projeto.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.caminhos</code> normaliza caminhos; <code>coral.json</code> e <code>coral.formatos</code> cuidam de representação; <code>coral.persistencia</code> deve ser preferido quando o objetivo é persistir objetos Coral segundo um contrato versionado.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Testes devem trabalhar em pasta temporária e conferir efeitos observáveis: arquivo criado, conteúdo, tamanho, listagem e remoção. Isso evita depender do diretório pessoal da máquina.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="ler-texto-caminho-codificacao-utf-8" data-searchable><code>ler_texto(caminho, codificacao = 'utf-8')</code></h4>
@@ -439,13 +481,18 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

@@ -17,11 +17,31 @@ normalização explícita de caminhos locais e portáteis
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Define um contrato único para representar caminhos locais e portáteis. A intenção é impedir que texto, caminhos Windows e caminhos POSIX sejam misturados silenciosamente como se tivessem a mesma semântica.
+
+## Conceitos principais
+
+### Caminho local
+
+`normalizar_caminho` produz um `Path` nativo e permite decidir explicitamente se `~` será expandido e se o caminho será resolvido.
+
+### Composição
+
+`juntar_caminho` reúne partes sem depender de barras escritas à mão.
+
+### Estilo de caminho
+
+`estilo_caminho` e `estilo_nativo` ajudam a distinguir representação Windows, POSIX e o estilo do sistema corrente.
+
+### Reconstrução portátil
+
+`caminho_portatil` reconstrói um caminho a partir de texto e estilo informado, sem fingir que ele já é necessariamente utilizável como caminho local.
+
 ## Quando usar
 
-Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.
-
-Entre as entradas públicas detectadas estão `normalizar_caminho`, `juntar_caminho`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -41,13 +61,46 @@ mostre conteudo
 defina original como {"nome": "Ana", "nota": 9}
 ```
 
-## Cuidados
+## API essencial
 
-Evite montar caminhos manualmente por concatenação de barras.
+| Entrada | Papel |
+|---|---|
+| `normalizar_caminho` | normalizar entrada local |
+| `juntar_caminho` | compor partes |
+| `estilo_caminho` | identificar estilo |
+| `estilo_nativo` | consultar estilo local |
+| `caminho_portatil` | reconstruir caminho por estilo |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.arquivos`, `coral.sistema`.
+## Fluxos comuns
+
+1. Receba texto ou objeto de caminho na borda da aplicação.
+2. Normalize somente quando a operação realmente será local.
+3. Preserve a informação de estilo quando um caminho será transportado entre sistemas.
+4. Passe o caminho normalizado a `coral.arquivos` apenas no momento do IO.
+
+## Erros e casos de borda
+
+Resolver um caminho e expandir usuário são decisões diferentes. Também não é seguro assumir que um caminho portátil de outro sistema existe na máquina atual.
+
+## Boas práticas
+
+* Não concatene `"/"` ou `"\"` manualmente.
+* Não converta cedo demais um caminho de outro estilo para `Path` nativo.
+* Guarde caminhos relativos quando isso melhorar a portabilidade de projetos movidos.
+
+## Integração com outros módulos
+
+É parceiro direto de `coral.arquivos`; também aparece em persistência, assets e recursos de projeto onde um valor precisa continuar portátil.
+
+## Testabilidade e previsibilidade
+
+Testes de caminho devem cobrir componentes, estilos e normalização sem depender de uma pasta real sempre que possível. IO real fica para testes de `coral.arquivos`.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

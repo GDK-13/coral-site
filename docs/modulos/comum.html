@@ -117,17 +117,59 @@
 <p data-searchable>contratos transversais de erros, resultados e diagnósticos</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>CONTRATO</code>, <code>CONTRATO_DIAGNOSTICO</code>, <code>ErroCoral</code>, <code>ErroOperacaoCoral</code>, <code>ErroDependenciaCoral</code>, <code>FalhaOperacao</code>, <code>ResultadoOperacao</code>, <code>DiagnosticoOperacional</code>, <code>diagnostico</code>, <code>agregar_diagnosticos</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É a camada transversal de contratos operacionais do runtime. A maior parte dos programas não precisa começar por ela, mas bibliotecas e ferramentas a usam para expressar falhas, resultados e diagnósticos de forma uniforme.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="hierarquia-de-erros" data-searchable>Hierarquia de erros</h3>
+<p data-searchable><code>ErroCoral</code>, <code>ErroOperacaoCoral</code> e <code>ErroDependenciaCoral</code> distinguem erro controlado geral, falha operacional e ausência de dependência opcional.</p>
+<h3 id="resultado-estruturado" data-searchable>Resultado estruturado</h3>
+<p data-searchable><code>ResultadoOperacao</code> pode transportar sucesso, valor, falha e metadados sem transformar toda condição operacional em exceção.</p>
+<h3 id="diagnostico" data-searchable>Diagnóstico</h3>
+<p data-searchable><code>DiagnosticoOperacional</code>, <code>diagnostico</code> e <code>agregar_diagnosticos</code> produzem informações consumíveis por CLI, VS Code e ferramentas.</p>
+<h3 id="contratos" data-searchable>Contratos</h3>
+<p data-searchable><code>CONTRATO</code> e <code>CONTRATO_DIAGNOSTICO</code> identificam formatos transversais estáveis usados pelas superfícies que aderem a eles.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>CONTRATO</code>, <code>CONTRATO_DIAGNOSTICO</code>, <code>ErroCoral</code>, <code>ErroOperacaoCoral</code>, <code>ErroDependenciaCoral</code>, <code>FalhaOperacao</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>Uma importação seletiva começa assim:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.comum</span> <span class="code-key">importe</span> CONTRATO, CONTRATO_DIAGNOSTICO, ErroCoral</code></pre></div></div>
-<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>É uma superfície mais estrutural. Em programas simples, normalmente você chega a esses tipos por meio de outro módulo.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.assincrono</code>, <code>coral.conversoes</code>, <code>coral.entrada</code>, <code>coral.tipos</code>.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.comum</span> <span class="code-key">importe</span> diagnostico, agregar_diagnosticos
+
+<span class="code-key">defina</span> d1 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;runtime&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, verdadeiro, <span class="code-str">&quot;pronto&quot;</span>)
+<span class="code-key">defina</span> d2 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;arquivo&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, falso, <span class="code-str">&quot;ausente&quot;</span>, sugestao=<span class="code-str">&quot;crie o arquivo&quot;</span>)
+<span class="code-key">defina</span> resumo como <span class="code-fn">agregar_diagnosticos</span>([d1, d2], origem=<span class="code-str">&quot;tutorial&quot;</span>)
+<span class="code-key">mostre</span> resumo</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ResultadoOperacao</code></td><td data-searchable>resultado estruturado</td></tr>
+<tr><td data-searchable><code>FalhaOperacao</code></td><td data-searchable>descrição de falha</td></tr>
+<tr><td data-searchable><code>DiagnosticoOperacional</code></td><td data-searchable>diagnóstico estruturado</td></tr>
+<tr><td data-searchable><code>diagnostico</code></td><td data-searchable>construir diagnóstico</td></tr>
+<tr><td data-searchable><code>agregar_diagnosticos</code></td><td data-searchable>agregar vários diagnósticos</td></tr>
+<tr><td data-searchable><code>ErroDependenciaCoral</code></td><td data-searchable>dependência opcional ausente</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Uma biblioteca detecta uma capacidade ou executa uma operação.</li>
+<li data-searchable>Quando a falha é parte do contrato operacional, ela pode ser representada por resultado ou diagnóstico estruturado.</li>
+<li data-searchable>Ferramentas agregam diagnósticos sem precisar interpretar textos livres de cada módulo.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Não use <code>ResultadoOperacao</code> para esconder erros de programação. A camada comum serve a falhas operacionais previstas, enquanto invariantes quebradas continuam merecendo erro explícito.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Preserve <code>codigo</code>, <code>dominio</code> e metadados úteis ao criar falhas.</li>
+<li data-searchable>Inclua sugestão somente quando houver uma ação concreta possível.</li>
+<li data-searchable>Evite depender do texto humano da mensagem para lógica do programa.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable>É usada transversalmente por módulos de sistema, hardware, laboratório e ferramentas. O editor pode consumir diagnósticos estruturados sem conhecer a implementação interna de cada domínio.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste tanto a estrutura serializável do diagnóstico quanto o conteúdo mínimo exigido pelo consumidor. Mensagens humanas podem evoluir; códigos e campos contratuais são mais apropriados para automação.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="diagnostico-id-str-dominio-str-ok-bool-mensagem-any-capacidade-str-none-none-sugestao-str-none-none-detalhe-mapping-str-any-none-none-diagnosticooperacional" data-searchable><code>diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] | None = None) -&gt; DiagnosticoOperacional</code></h4>
@@ -261,16 +303,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

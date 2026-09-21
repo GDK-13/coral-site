@@ -19,11 +19,27 @@ aleatoriedade reproduzível e simulação
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+É a fonte comum de aleatoriedade da biblioteca padrão. A separação entre funções de conveniência e `FonteAleatoria` permite escolher entre uso rápido e controle explícito do estado pseudoaleatório.
+
+## Conceitos principais
+
+### Fonte reproduzível
+
+`fonte(semente)` cria um gerador independente. Com a mesma semente e a mesma sequência de chamadas, ele é apropriado para testes, simulações e geração procedural reproduzível.
+
+### Sorteio, amostra e embaralhamento
+
+`escolher` seleciona um elemento, `amostra` seleciona vários, `embaralhar` reorganiza valores e `escolha_ponderada` permite pesos explícitos.
+
+### Aleatoriedade numérica
+
+`inteiro` trabalha com limites inteiros e `decimal` produz valores em intervalo decimal. As mesmas operações também existem como métodos de `FonteAleatoria`.
+
 ## Quando usar
 
-Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.
-
-Entre as entradas públicas detectadas estão `FonteAleatoria`, `fonte`, `inteiro`, `decimal`, `escolher`, `amostra`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -43,13 +59,47 @@ garanta que primeiro for igual a segundo
 defina dados como {"ponto": (3, 4), "tags": {"a", "b"}}
 ```
 
-## Cuidados
+## API essencial
 
-Não use aleatoriedade comum para segredos. Para tokens e bytes seguros, use `coral.criptografia`.
+| Entrada | Papel |
+|---|---|
+| `fonte` | criar uma fonte reproduzível |
+| `inteiro` | sortear inteiro em intervalo |
+| `decimal` | sortear decimal em intervalo |
+| `escolher` | escolher um elemento |
+| `amostra` | selecionar vários elementos |
+| `escolha_ponderada` | sortear com pesos |
+| `embaralhar` | reordenar valores |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.
+## Fluxos comuns
+
+1. Para testes, crie a fonte com semente fixa e passe a mesma fonte às operações relacionadas.
+2. Para geração procedural, mantenha a fonte junto do estado da simulação para evitar sorteios escondidos em pontos diferentes do programa.
+3. Para sorteios com chances diferentes, valide se valores e pesos representam a mesma população antes de chamar `escolha_ponderada`.
+
+## Erros e casos de borda
+
+Uma população vazia, uma quantidade de amostra incompatível ou pesos inválidos podem produzir erro operacional. A referência automática abaixo registra exceções diretamente observáveis no corpo das funções quando a release as expõe.
+
+## Boas práticas
+
+* Use sementes explícitas em testes.
+* Compartilhe uma `FonteAleatoria` quando várias decisões pertencem à mesma sequência pseudoaleatória.
+* Não use este módulo para segredos, tokens ou material criptográfico.
+
+## Integração com outros módulos
+
+`coral.persistencia` pode guardar dados produzidos por simulações; `coral.mundo` e `coral.rpg` podem usar a fonte para geração procedural; `coral.criptografia` é a escolha apropriada quando a aleatoriedade precisa ser segura.
+
+## Testabilidade e previsibilidade
+
+Reprodutibilidade é a principal ferramenta de teste deste módulo. Um caso que falha com uma semente conhecida deve poder ser repetido com a mesma semente.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

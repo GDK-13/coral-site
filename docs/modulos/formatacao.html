@@ -117,9 +117,17 @@
 <p data-searchable>montagem explícita de texto</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>formatar_valor</code>, <code>montar_texto</code>, <code>ErroFormato</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Fornece montagem textual explícita e previsível. É intencionalmente pequeno para não criar um segundo sistema de interpolação fora do parser e da AST da Coral.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="representacao-de-valor" data-searchable>Representação de valor</h3>
+<p data-searchable><code>formatar_valor</code> usa as convenções textuais da Coral, incluindo <code>nulo</code>, <code>verdadeiro</code> e <code>falso</code>.</p>
+<h3 id="composicao" data-searchable>Composição</h3>
+<p data-searchable><code>montar_texto</code> converte cada parte, junta com separador opcional e acrescenta um final opcional.</p>
+<h3 id="sem-interpolacao-oculta" data-searchable>Sem interpolação oculta</h3>
+<p data-searchable>O módulo não interpreta placeholders ou expressões dentro de strings; isso evita sintaxe paralela à linguagem.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para montar textos e formatar valores de modo explícito e reutilizável.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>montar_texto</code>, <code>formatar_valor</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/01_entrada_conversoes_e_texto.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro, decimal
@@ -129,10 +137,36 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
 <span class="code-key">defina</span> idade como <span class="code-fn">inteiro</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Idade: &quot;</span>))
 <span class="code-key">defina</span> altura como <span class="code-fn">decimal</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Altura em metros: &quot;</span>))
 <span class="code-key">mostre</span> <span class="code-fn">montar_texto</span>(<span class="code-str">&quot;Olá, &quot;</span>, nome, <span class="code-str">&quot;. Idade: &quot;</span>, idade, <span class="code-str">&quot;. Altura: &quot;</span>, altura)</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Mantenha regras de apresentação próximas da camada de saída quando elas não fizerem parte do domínio.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.texto</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>formatar_valor</code></td><td data-searchable>representar um valor</td></tr>
+<tr><td data-searchable><code>montar_texto</code></td><td data-searchable>montar texto por partes</td></tr>
+<tr><td data-searchable><code>ErroFormato</code></td><td data-searchable>falha controlada de formatação</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Converta valores do domínio apenas no momento de apresentar.</li>
+<li data-searchable>Use <code>montar_texto</code> quando a mensagem combina partes heterogêneas e um separador claro.</li>
+<li data-searchable>Para transformações de texto, use <code>coral.texto</code>; para formatos de dados, use <code>coral.formatos</code> ou <code>coral.json</code>.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Separador e final precisam ser representáveis como texto. O módulo não tenta executar código escrito dentro de uma string.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Mantenha lógica de cálculo fora da formatação.</li>
+<li data-searchable>Use <code>montar_texto</code> quando a composição é simples e explícita.</li>
+<li data-searchable>Não confunda apresentação humana com serialização de dados.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.conversoes.texto</code> sustenta a representação básica; <code>coral.texto</code> cuida de transformação textual; módulos de dados devem usar formatos próprios para persistência e intercâmbio.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste valores especiais como <code>nulo</code>, booleanos e separadores. Como não há interpolação implícita, os resultados são fáceis de comparar exatamente.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="formatar-valor-valor-any-str" data-searchable><code>formatar_valor(valor: Any) -&gt; str</code></h4>
@@ -173,14 +207,18 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

@@ -118,9 +118,17 @@
 <div class="callout variant-aviso"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Aviso</span><p class="callout-text" data-searchable>Hexadecimal e Base64 são codificações, não mecanismos de segurança.</p></div></div>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>para_hex</code>, <code>de_hex</code>, <code>para_base64</code>, <code>de_base64</code>, <code>para_csv</code>, <code>de_csv</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Agrupa codificações e formatos de intercâmbio pequenos: hexadecimal, Base64 e CSV. O módulo transforma representação; ele não adiciona segurança ao conteúdo.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="hexadecimal" data-searchable>Hexadecimal</h3>
+<p data-searchable><code>para_hex</code> e <code>de_hex</code> convertem entre bytes e representação hexadecimal.</p>
+<h3 id="base64" data-searchable>Base64</h3>
+<p data-searchable><code>para_base64</code> e <code>de_base64</code> suportam variante normal ou URL e opções de padding na codificação.</p>
+<h3 id="csv" data-searchable>CSV</h3>
+<p data-searchable><code>para_csv</code> serializa linhas tabulares e <code>de_csv</code> reconstrói dados, com cabeçalho e delimitador configuráveis.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>para_hex</code>, <code>de_hex</code>, <code>para_base64</code>, <code>de_base64</code>, <code>para_csv</code>, <code>de_csv</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/04_criptografia_basica.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Codificação, hash, token seguro e autenticação. Nenhum destes recursos cifra dados.</span>
@@ -133,10 +141,38 @@ de <span class="code-mod">coral.criptografia</span> <span class="code-key">impor
 <span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
 <span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
 <span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Base64 e hexadecimal são codificações, não mecanismos de segurança.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.json</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>para_hex</code> / <code>de_hex</code></td><td data-searchable>hexadecimal</td></tr>
+<tr><td data-searchable><code>para_base64</code> / <code>de_base64</code></td><td data-searchable>Base64</td></tr>
+<tr><td data-searchable><code>para_csv</code></td><td data-searchable>gerar CSV</td></tr>
+<tr><td data-searchable><code>de_csv</code></td><td data-searchable>ler CSV</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Escolha o formato de acordo com o consumidor externo.</li>
+<li data-searchable>Converta bytes para hex ou Base64 quando precisar de uma forma textual.</li>
+<li data-searchable>Para dados tabulares, defina deliberadamente cabeçalho e delimitador.</li>
+<li data-searchable>Para objetos estruturados hierárquicos, considere <code>coral.json</code> em vez de CSV.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Base64 e hexadecimal são codificações reversíveis, não criptografia. CSV pode ser ambíguo se o produtor e o consumidor não concordarem sobre delimitador e cabeçalho.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Documente variante Base64 e política de padding em protocolos.</li>
+<li data-searchable>Defina colunas explicitamente quando a ordem importa.</li>
+<li data-searchable>Não use Base64 para “proteger” segredos.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.criptografia</code> produz bytes, hashes e tokens seguros; <code>coral.arquivos</code> lê e escreve conteúdo; <code>coral.json</code> cobre estruturas hierárquicas.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Teste round trips: valor → formato → valor. Para CSV, inclua células com delimitador, aspas e quebras quando esse caso fizer parte do uso.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="para-hex-dados-maiusculas-false-str" data-searchable><code>para_hex(dados, *, maiusculas = False) -&gt; str</code></h4>
@@ -236,13 +272,18 @@ de <span class="code-mod">coral.criptografia</span> <span class="code-key">impor
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

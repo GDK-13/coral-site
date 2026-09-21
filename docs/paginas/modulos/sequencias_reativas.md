@@ -17,29 +17,84 @@ sequências temporais reutilizáveis de eventos
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Encapsula padrões temporais simples de eventos. Na 1.5.9 a superfície pública é deliberadamente pequena e oferece `SequenciaDoisPassos` como bloco reutilizável.
+
+## Conceitos principais
+
+### Dois passos
+
+`SequenciaDoisPassos` observa um primeiro evento e aguarda um segundo antes de executar a ação.
+
+### Janela temporal
+
+A sequência pode ter uma janela máxima entre os dois eventos.
+
+### Ação
+
+`AcaoSequencia` descreve o callback executado quando a sequência é reconhecida.
+
+### Nome
+
+A sequência possui nome explícito, útil em diagnóstico e rastreamento.
+
 ## Quando usar
 
-Use para organizar sequências temporais reutilizáveis de eventos em sistemas reativos.
-
-Entre as entradas públicas detectadas estão `AcaoSequencia`, `SequenciaDoisPassos`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
-Uma importação seletiva começa assim:
-
 ```coral
-de coral.sequencias_reativas importe AcaoSequencia, SequenciaDoisPassos
+de coral.tempo_eventos importe Eventos
+de coral.sequencias_reativas importe SequenciaDoisPassos
+
+defina eventos como Eventos()
+crie a função concluiu com primeiro e segundo
+    mostre "sequência reconhecida"
+fim
+
+defina sequencia como SequenciaDoisPassos(eventos, "abrir", "confirmar", concluiu, janela=2)
+mostre sequencia
 ```
 
-Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.
+## API essencial
 
-## Cuidados
+| Entrada | Papel |
+|---|---|
+| `SequenciaDoisPassos` | reconhecer padrão de dois eventos |
+| `AcaoSequencia` | contrato da ação |
 
-Mantenha a ordem e as condições de avanço explícitas para facilitar inspeção e replay.
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-## Relações com outros módulos
+## Fluxos comuns
 
-Na mesma área, veja também `coral.observadores_reativos`, `coral.rastreamento_reativo`, `coral.replay_reativo`.
+1. Escolha dois eventos semanticamente relevantes.
+2. Defina se existe janela máxima entre eles.
+3. Crie uma ação pequena para o reconhecimento.
+4. Associe a sequência ao mesmo barramento de eventos do domínio.
+
+## Erros e casos de borda
+
+Eventos fora de ordem ou depois da janela não devem ser tratados como sequência válida. Ao combinar muitas sequências sobre os mesmos eventos, observe interações e consumo de eventos.
+
+## Boas práticas
+
+* Use nomes descritivos.
+* Mantenha sequências pequenas; regras mais complexas pertencem a `coral.regras`.
+* Teste ordem correta, ordem invertida e expiração da janela.
+
+## Integração com outros módulos
+
+Depende conceitualmente de `coral.tempo_eventos.Eventos`; pode participar de regras, observadores, rastreamento e replay.
+
+## Testabilidade e previsibilidade
+
+Um relógio controlável permite testar a janela sem `sleep`. Casos mínimos: sucesso dentro da janela, segundo evento atrasado e segundo evento sem primeiro.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

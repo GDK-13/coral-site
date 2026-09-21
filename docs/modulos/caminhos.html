@@ -117,9 +117,19 @@
 <p data-searchable>normalização explícita de caminhos locais e portáteis</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>CaminhoAceito</code>, <code>normalizar_caminho</code>, <code>juntar_caminho</code>, <code>estilo_caminho</code>, <code>estilo_nativo</code>, <code>caminho_portatil</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Define um contrato único para representar caminhos locais e portáteis. A intenção é impedir que texto, caminhos Windows e caminhos POSIX sejam misturados silenciosamente como se tivessem a mesma semântica.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="caminho-local" data-searchable>Caminho local</h3>
+<p data-searchable><code>normalizar_caminho</code> produz um <code>Path</code> nativo e permite decidir explicitamente se <code>~</code> será expandido e se o caminho será resolvido.</p>
+<h3 id="composicao" data-searchable>Composição</h3>
+<p data-searchable><code>juntar_caminho</code> reúne partes sem depender de barras escritas à mão.</p>
+<h3 id="estilo-de-caminho" data-searchable>Estilo de caminho</h3>
+<p data-searchable><code>estilo_caminho</code> e <code>estilo_nativo</code> ajudam a distinguir representação Windows, POSIX e o estilo do sistema corrente.</p>
+<h3 id="reconstrucao-portatil" data-searchable>Reconstrução portátil</h3>
+<p data-searchable><code>caminho_portatil</code> reconstrói um caminho a partir de texto e estilo informado, sem fingir que ele já é necessariamente utilizável como caminho local.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>normalizar_caminho</code>, <code>juntar_caminho</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/02_arquivos_json_e_caminhos.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> para_json, de_json
@@ -133,10 +143,39 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <span class="code-key">mostre</span> conteudo
 
 <span class="code-key">defina</span> original como {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;nota&quot;</span>: <span class="code-num">9</span>}</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Evite montar caminhos manualmente por concatenação de barras.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.arquivos</code>, <code>coral.sistema</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>normalizar_caminho</code></td><td data-searchable>normalizar entrada local</td></tr>
+<tr><td data-searchable><code>juntar_caminho</code></td><td data-searchable>compor partes</td></tr>
+<tr><td data-searchable><code>estilo_caminho</code></td><td data-searchable>identificar estilo</td></tr>
+<tr><td data-searchable><code>estilo_nativo</code></td><td data-searchable>consultar estilo local</td></tr>
+<tr><td data-searchable><code>caminho_portatil</code></td><td data-searchable>reconstruir caminho por estilo</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Receba texto ou objeto de caminho na borda da aplicação.</li>
+<li data-searchable>Normalize somente quando a operação realmente será local.</li>
+<li data-searchable>Preserve a informação de estilo quando um caminho será transportado entre sistemas.</li>
+<li data-searchable>Passe o caminho normalizado a <code>coral.arquivos</code> apenas no momento do IO.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Resolver um caminho e expandir usuário são decisões diferentes. Também não é seguro assumir que um caminho portátil de outro sistema existe na máquina atual.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Não concatene <code>"/"</code> ou <code>"\"</code> manualmente.</li>
+<li data-searchable>Não converta cedo demais um caminho de outro estilo para <code>Path</code> nativo.</li>
+<li data-searchable>Guarde caminhos relativos quando isso melhorar a portabilidade de projetos movidos.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable>É parceiro direto de <code>coral.arquivos</code>; também aparece em persistência, assets e recursos de projeto onde um valor precisa continuar portátil.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Testes de caminho devem cobrir componentes, estilos e normalização sem depender de uma pasta real sempre que possível. IO real fica para testes de <code>coral.arquivos</code>.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="normalizar-caminho-valor-caminhoaceito-expandir-usuario-bool-false-resolver-bool-false-path" data-searchable><code>normalizar_caminho(valor: CaminhoAceito, *, expandir_usuario: bool = False, resolver: bool = False) -&gt; Path</code></h4>
@@ -208,14 +247,18 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
-<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

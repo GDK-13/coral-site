@@ -117,9 +117,17 @@
 <p data-searchable>ler e escrever JSON</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>para_json</code>, <code>de_json</code>, <code>ler_json</code>, <code>escrever_json</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>É a superfície direta para JSON em memória e em arquivo. Separa serialização JSON de persistência Coral versionada, que possui outro contrato.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="em-memoria" data-searchable>Em memória</h3>
+<p data-searchable><code>para_json</code> e <code>de_json</code> convertem entre valor compatível e texto JSON.</p>
+<h3 id="arquivo" data-searchable>Arquivo</h3>
+<p data-searchable><code>ler_json</code> e <code>escrever_json</code> combinam IO de arquivo com a serialização JSON.</p>
+<h3 id="indentacao" data-searchable>Indentação</h3>
+<p data-searchable><code>para_json</code> e <code>escrever_json</code> aceitam controle de indentação para legibilidade.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para serializar dados estruturados em JSON e carregar arquivos ou textos JSON de volta para valores Coral.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>para_json</code>, <code>de_json</code>, <code>ler_json</code>, <code>escrever_json</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/02_arquivos_json_e_caminhos.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.arquivos</span> <span class="code-key">importe</span> escrever_texto, ler_texto
@@ -132,10 +140,37 @@ de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</
 execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
 <span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
 <span class="code-key">mostre</span> conteudo</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>JSON é ótimo para interoperabilidade, mas não preserva automaticamente qualquer tipo específico da aplicação.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Na mesma área, veja também <code>coral.formatos</code>.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>para_json</code></td><td data-searchable>serializar valor</td></tr>
+<tr><td data-searchable><code>de_json</code></td><td data-searchable>interpretar texto JSON</td></tr>
+<tr><td data-searchable><code>ler_json</code></td><td data-searchable>ler JSON de arquivo</td></tr>
+<tr><td data-searchable><code>escrever_json</code></td><td data-searchable>gravar JSON em arquivo</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Use <code>para_json</code>/<code>de_json</code> quando o texto já está em memória.</li>
+<li data-searchable>Use as funções de arquivo quando JSON é diretamente o formato externo desejado.</li>
+<li data-searchable>Use <code>coral.persistencia</code> quando o objetivo é salvar objetos segundo o contrato portátil e versionado da Coral.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Nem todo objeto Coral é automaticamente representável em JSON. JSON também não preserva todos os tipos ricos da linguagem sem uma convenção adicional.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Use JSON para interoperabilidade com outros sistemas.</li>
+<li data-searchable>Não dependa da formatação textual exata quando o consumidor só precisa dos dados.</li>
+<li data-searchable>Mantenha a fronteira entre JSON externo e modelo interno explícita.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.arquivos</code> fornece IO genérico; <code>coral.caminhos</code> ajuda a construir o caminho; <code>coral.persistencia</code> é a alternativa quando portabilidade Coral e versionamento são requisitos.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Round trip é o teste principal: serializar e desserializar deve preservar os valores compatíveis esperados. Teste também JSON inválido quando a entrada vem de fora.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="para-json-valor-identar-2" data-searchable><code>para_json(valor, identar = 2)</code></h4>
@@ -201,13 +236,18 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

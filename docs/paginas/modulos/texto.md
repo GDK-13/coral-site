@@ -17,11 +17,43 @@ transformar, localizar, normalizar e formatar texto
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+É a caixa de ferramentas para transformação, busca e normalização de texto. As operações são pequenas, explícitas e projetadas para compor pipelines de tratamento de entrada humana e dados textuais.
+
+## Conceitos principais
+
+### Caixa e espaços
+
+`maiusculas`, `minusculas` e `aparar` cuidam de normalização básica.
+
+### Divisão e junção
+
+`dividir` e `juntar` transformam entre texto e sequências.
+
+### Busca
+
+`comeca_com`, `termina_com`, `localizar` e `contar` inspecionam conteúdo.
+
+### Substituição
+
+`substituir`, `remover_prefixo` e `remover_sufixo` alteram trechos conhecidos.
+
+### Unicode
+
+`normalizar_unicode` torna explícita a forma Unicode antes de comparação ou armazenamento.
+
+### Linhas e preenchimento
+
+`linhas` separa linhas com controle de quebras e `preencher` alinha ou completa texto.
+
+### Formatação por modelo
+
+`formatar` fornece a operação textual publicada pelo módulo; para montagem simples por partes, `coral.formatacao` também é apropriado.
+
 ## Quando usar
 
-Use para transformar, localizar, normalizar e formatar texto.
-
-Entre as entradas públicas detectadas estão `maiusculas`, `minusculas`, `aparar`, `dividir`, `juntar`, `substituir`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -41,13 +73,49 @@ defina raiz como math.sqrt(81)
 mostre raiz
 ```
 
-## Cuidados
+## API essencial
 
-Ao processar entrada humana, considere normalização e diferenças de caixa antes de comparar valores.
+| Entrada | Papel |
+|---|---|
+| `aparar` | remover bordas de espaço |
+| `dividir` / `juntar` | segmentar e recompor |
+| `substituir` | trocar trecho |
+| `localizar` / `contar` | buscar ocorrências |
+| `normalizar_unicode` | normalizar Unicode |
+| `linhas` | separar linhas |
+| `preencher` | alinhar/preencher |
+| `formatar` | formatar texto |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.formatacao`.
+## Fluxos comuns
+
+1. Normalize Unicode quando o texto pode vir de fontes diferentes.
+2. Apare e normalize caixa somente quando isso fizer sentido para a regra de comparação.
+3. Separe parsing textual da lógica de domínio.
+4. Mantenha o texto original quando a apresentação ou auditoria exigir fidelidade.
+
+## Erros e casos de borda
+
+Duas strings visualmente iguais podem ter sequências Unicode diferentes. Busca sensível a caixa e substituição literal também podem surpreender quando o programa presume normalização implícita.
+
+## Boas práticas
+
+* Normalize antes de comparar identificadores humanos quando apropriado.
+* Não destrua caixa ou acentuação se elas fazem parte do dado.
+* Evite cadeias longas de transformação sem nomes intermediários quando a intenção ficar difícil de ler.
+
+## Integração com outros módulos
+
+`coral.entrada` fornece texto bruto; `coral.conversoes` transforma texto em tipos; `coral.formatacao` monta saída; `coral.formatos` trabalha com representações estruturadas.
+
+## Testabilidade e previsibilidade
+
+Inclua acentos, Unicode composto/decomposto, string vazia, múltiplas linhas e ausência de trecho nos testes relevantes.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

@@ -19,11 +19,27 @@ CSV, hexadecimal e Base64
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Agrupa codificações e formatos de intercâmbio pequenos: hexadecimal, Base64 e CSV. O módulo transforma representação; ele não adiciona segurança ao conteúdo.
+
+## Conceitos principais
+
+### Hexadecimal
+
+`para_hex` e `de_hex` convertem entre bytes e representação hexadecimal.
+
+### Base64
+
+`para_base64` e `de_base64` suportam variante normal ou URL e opções de padding na codificação.
+
+### CSV
+
+`para_csv` serializa linhas tabulares e `de_csv` reconstrói dados, com cabeçalho e delimitador configuráveis.
+
 ## Quando usar
 
-Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.
-
-Entre as entradas públicas detectadas estão `para_hex`, `de_hex`, `para_base64`, `de_base64`, `para_csv`, `de_csv`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -42,13 +58,45 @@ defina chave como "chave de exemplo"
 defina etiqueta como autenticar(mensagem, chave, "sha256")
 ```
 
-## Cuidados
+## API essencial
 
-Base64 e hexadecimal são codificações, não mecanismos de segurança.
+| Entrada | Papel |
+|---|---|
+| `para_hex` / `de_hex` | hexadecimal |
+| `para_base64` / `de_base64` | Base64 |
+| `para_csv` | gerar CSV |
+| `de_csv` | ler CSV |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.json`.
+## Fluxos comuns
+
+1. Escolha o formato de acordo com o consumidor externo.
+2. Converta bytes para hex ou Base64 quando precisar de uma forma textual.
+3. Para dados tabulares, defina deliberadamente cabeçalho e delimitador.
+4. Para objetos estruturados hierárquicos, considere `coral.json` em vez de CSV.
+
+## Erros e casos de borda
+
+Base64 e hexadecimal são codificações reversíveis, não criptografia. CSV pode ser ambíguo se o produtor e o consumidor não concordarem sobre delimitador e cabeçalho.
+
+## Boas práticas
+
+* Documente variante Base64 e política de padding em protocolos.
+* Defina colunas explicitamente quando a ordem importa.
+* Não use Base64 para “proteger” segredos.
+
+## Integração com outros módulos
+
+`coral.criptografia` produz bytes, hashes e tokens seguros; `coral.arquivos` lê e escreve conteúdo; `coral.json` cobre estruturas hierárquicas.
+
+## Testabilidade e previsibilidade
+
+Teste round trips: valor → formato → valor. Para CSV, inclua células com delimitador, aspas e quebras quando esse caso fizer parte do uso.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

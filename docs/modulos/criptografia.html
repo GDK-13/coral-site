@@ -118,9 +118,21 @@
 <div class="callout variant-aviso"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Aviso</span><p class="callout-text" data-searchable>Primitivas isoladas não formam automaticamente um protocolo seguro.</p></div></div>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
 <p data-searchable><code>resumir</code>, <code>verificar_resumo</code>, <code>autenticar</code>, <code>verificar_autenticacao</code>, <code>gerar_bytes_seguros</code>, <code>gerar_token_seguro</code>, <code>comparar_com_seguranca</code>, <code>listar_algoritmos</code>, <code>explicar_algoritmo</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Fornece uma fundação introdutória para hash, HMAC, comparação em tempo apropriado e aleatoriedade segura usando primitivas da biblioteca padrão. Ela ensina conceitos separados em vez de vender uma função genérica chamada “criptografar”.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="resumo-criptografico" data-searchable>Resumo criptográfico</h3>
+<p data-searchable><code>resumir</code> produz hash em algoritmo e formato escolhidos; <code>verificar_resumo</code> compara um resumo esperado.</p>
+<h3 id="autenticacao-com-chave" data-searchable>Autenticação com chave</h3>
+<p data-searchable><code>autenticar</code> e <code>verificar_autenticacao</code> implementam HMAC para autenticar dados com uma chave compartilhada.</p>
+<h3 id="aleatoriedade-segura" data-searchable>Aleatoriedade segura</h3>
+<p data-searchable><code>gerar_bytes_seguros</code> e <code>gerar_token_seguro</code> usam uma fonte apropriada para segredos, diferente de <code>coral.aleatorio</code>.</p>
+<h3 id="comparacao-segura" data-searchable>Comparação segura</h3>
+<p data-searchable><code>comparar_com_seguranca</code> evita uma comparação ingênua quando o valor comparado é sensível.</p>
+<h3 id="descoberta" data-searchable>Descoberta</h3>
+<p data-searchable><code>listar_algoritmos</code> e <code>explicar_algoritmo</code> ajudam a conhecer o que a release expõe sem depender de nomes memorizados.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
-<p data-searchable>Use para aprender e aplicar primitivas introdutórias de resumo, autenticação e aleatoriedade segura.</p>
-<p data-searchable>Entre as entradas públicas detectadas estão <code>resumir</code>, <code>verificar_resumo</code>, <code>autenticar</code>, <code>verificar_autenticacao</code>, <code>gerar_bytes_seguros</code>, <code>gerar_token_seguro</code>.</p>
+<p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
 <p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/04_criptografia_basica.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
@@ -134,10 +146,41 @@ de <span class="code-mod">coral.criptografia</span> <span class="code-key">impor
 <span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
 
 garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
-<h2 id="cuidados" data-searchable>Cuidados</h2>
-<p data-searchable>Hash e HMAC não são cifragem. Primitivas isoladas não formam automaticamente um protocolo seguro. Este módulo ainda não faz parte da edição 1.5.8 do Livro.</p>
-<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
-<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resumir</code></td><td data-searchable>hash de dados</td></tr>
+<tr><td data-searchable><code>verificar_resumo</code></td><td data-searchable>verificar hash</td></tr>
+<tr><td data-searchable><code>autenticar</code></td><td data-searchable>HMAC</td></tr>
+<tr><td data-searchable><code>verificar_autenticacao</code></td><td data-searchable>verificar HMAC</td></tr>
+<tr><td data-searchable><code>gerar_bytes_seguros</code></td><td data-searchable>entropia em bytes</td></tr>
+<tr><td data-searchable><code>gerar_token_seguro</code></td><td data-searchable>token textual seguro</td></tr>
+<tr><td data-searchable><code>comparar_com_seguranca</code></td><td data-searchable>comparação sensível</td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Escolha primeiro se o problema é integridade, autenticação ou geração de segredo.</li>
+<li data-searchable>Para integridade sem chave, use resumo; para autenticação com segredo compartilhado, use HMAC.</li>
+<li data-searchable>Use tokens seguros para identificadores secretos e nunca uma fonte pseudoaleatória comum.</li>
+<li data-searchable>Armazene algoritmo e formato junto do valor quando a verificação ocorrer em outro momento.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Hash não cifra dados e Base64 não protege conteúdo. HMAC também não fornece confidencialidade. A própria release adverte que primitivas isoladas não formam automaticamente um protocolo seguro.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Prefira algoritmos atuais expostos e documentados pela release.</li>
+<li data-searchable>Nunca invente protocolo criptográfico combinando primitivas sem uma especificação externa confiável.</li>
+<li data-searchable>Não reutilize <code>coral.aleatorio</code> para senhas, tokens ou chaves.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.formatos</code> pode codificar bytes, mas codificação não é segurança. <code>coral.persistencia</code> pode armazenar dados derivados, porém segredos exigem uma política própria de armazenamento.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Vetores conhecidos e comparações de verificação são mais úteis que testes baseados em “parece aleatório”. Para tokens, teste formato e tamanho, não igualdade entre execuções.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="resumir-dados-algoritmo-sha256-formato-hex" data-searchable><code>resumir(dados, algoritmo = 'sha256', formato = 'hex')</code></h4>
@@ -265,13 +308,18 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
-<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
-<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
-<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
-<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
-<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

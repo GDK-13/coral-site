@@ -17,11 +17,35 @@ persistência portátil, versionada e canônica
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+É o contrato de persistência portátil e versionada da Coral. Em vez de serializar objetos arbitrários do runtime, grava somente dados semânticos reconstruíveis e rejeita estado que não é seguro ou portátil salvar.
+
+## Conceitos principais
+
+### Contrato versionado
+
+`CONTRATO` e `VERSAO_ESQUEMA` identificam o formato persistente.
+
+### Conversão para dados
+
+`para_dados` e `de_dados` transformam entre objeto suportado e documento persistente.
+
+### Representação portátil
+
+`valor_portatil` normaliza valores; `texto_canonico` e `serializar_canonico` geram representação determinística útil para hash, cache e equivalência.
+
+### Arquivo
+
+`salvar`, `carregar` e `carregar_como` operam sobre o formato persistente.
+
+### Extensão
+
+Adaptadores e extensões persistentes permitem que outros domínios participem do contrato sem acoplamento rígido ao módulo central.
+
 ## Quando usar
 
-Use quando os dados precisam ser salvos de forma portátil, versionada e canônica.
-
-Entre as entradas públicas detectadas estão `salvar`, `carregar`, `valor_portatil`, `para_dados`, `de_dados`, `texto_canonico`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -41,13 +65,49 @@ defina dados como {"ponto": (3, 4), "tags": {"a", "b"}}
 execute salvar(dados, "exemplo.coraldata")
 ```
 
-## Cuidados
+## API essencial
 
-Versione o formato persistido quando ele fizer parte de um projeto que continuará evoluindo.
+| Entrada | Papel |
+|---|---|
+| `valor_portatil` | normalizar valor |
+| `para_dados` / `de_dados` | converter documento |
+| `texto_canonico` / `serializar_canonico` | representação determinística |
+| `salvar` / `carregar` | persistir arquivo |
+| `carregar_como` | validar tipo esperado |
+| `registrar_adaptador` | ensinar novo tipo |
+| `registrar_extensao_persistente` | anexar dados de domínio |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.colecoes`.
+## Fluxos comuns
+
+1. Converta estado de domínio para dados persistíveis.
+2. Use a serialização canônica quando precisar de identidade de conteúdo ou comparação determinística.
+3. Salve com o contrato versionado.
+4. Ao carregar, valide a estrutura e reconstrua somente tipos registrados ou suportados.
+
+## Erros e casos de borda
+
+Handles, recursos externos, estado de execução e objetos arbitrários são deliberadamente recusados. Persistir tudo que existe na memória não é o objetivo do módulo.
+
+## Boas práticas
+
+* Persista estado semântico, não detalhes efêmeros do runtime.
+* Mantenha adaptadores pequenos e versionáveis.
+* Use `carregar_como` quando o tipo esperado é parte do contrato do chamador.
+* Não edite manualmente o documento canônico esperando estabilidade de campos internos não documentados.
+
+## Integração com outros módulos
+
+Módulos como `coral.mundo` podem registrar extensões de domínio; `coral.arquivos` fornece operações genéricas de IO, enquanto `coral.persistencia` define o significado do formato salvo.
+
+## Testabilidade e previsibilidade
+
+Teste round trip objeto → dados → objeto, compatibilidade de versão e rejeição de valores não portáteis. A saída canônica deve ser determinística para o mesmo conteúdo.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

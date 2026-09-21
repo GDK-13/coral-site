@@ -17,11 +17,27 @@ montagem explícita de texto
 
 <!-- /AUTO:MODULO -->
 
+## Papel no ecossistema
+
+Fornece montagem textual explícita e previsível. É intencionalmente pequeno para não criar um segundo sistema de interpolação fora do parser e da AST da Coral.
+
+## Conceitos principais
+
+### Representação de valor
+
+`formatar_valor` usa as convenções textuais da Coral, incluindo `nulo`, `verdadeiro` e `falso`.
+
+### Composição
+
+`montar_texto` converte cada parte, junta com separador opcional e acrescenta um final opcional.
+
+### Sem interpolação oculta
+
+O módulo não interpreta placeholders ou expressões dentro de strings; isso evita sintaxe paralela à linguagem.
+
 ## Quando usar
 
-Use para montar textos e formatar valores de modo explícito e reutilizável.
-
-Entre as entradas públicas detectadas estão `montar_texto`, `formatar_valor`.
+Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.
 
 ## Começando
 
@@ -37,13 +53,43 @@ defina altura como decimal(ler_linha("Altura em metros: "))
 mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
 ```
 
-## Cuidados
+## API essencial
 
-Mantenha regras de apresentação próximas da camada de saída quando elas não fizerem parte do domínio.
+| Entrada | Papel |
+|---|---|
+| `formatar_valor` | representar um valor |
+| `montar_texto` | montar texto por partes |
+| `ErroFormato` | falha controlada de formatação |
 
-## Relações com outros módulos
+A seção **Referência da API** no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.
 
-Na mesma área, veja também `coral.texto`.
+## Fluxos comuns
+
+1. Converta valores do domínio apenas no momento de apresentar.
+2. Use `montar_texto` quando a mensagem combina partes heterogêneas e um separador claro.
+3. Para transformações de texto, use `coral.texto`; para formatos de dados, use `coral.formatos` ou `coral.json`.
+
+## Erros e casos de borda
+
+Separador e final precisam ser representáveis como texto. O módulo não tenta executar código escrito dentro de uma string.
+
+## Boas práticas
+
+* Mantenha lógica de cálculo fora da formatação.
+* Use `montar_texto` quando a composição é simples e explícita.
+* Não confunda apresentação humana com serialização de dados.
+
+## Integração com outros módulos
+
+`coral.conversoes.texto` sustenta a representação básica; `coral.texto` cuida de transformação textual; módulos de dados devem usar formatos próprios para persistência e intercâmbio.
+
+## Testabilidade e previsibilidade
+
+Teste valores especiais como `nulo`, booleanos e separadores. Como não há interpolação implícita, os resultados são fáceis de comparar exatamente.
+
+## Compatibilidade e evolução
+
+A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

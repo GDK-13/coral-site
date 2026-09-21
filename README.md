@@ -58,6 +58,8 @@ A documentação dá prioridade editorial a `coral.numerico`, `coral.sistema`, `
 
 A classificação é mantida no campo `destaque` do inventário de módulos, e o gerador preserva essa hierarquia ao importar novas releases.
 
+Os 22 módulos complementares também possuem documentação aprofundada, com conceitos, cenários de uso, exemplos validados, API essencial, erros, boas práticas, integrações e referência automática. Nas páginas de módulo, o índice **Nesta página** mostra apenas seções `##` para continuar legível mesmo quando a referência técnica é extensa.
+
 ## Identidade visual
 
 A implementação segue as referências oficiais da identidade visual da Coral. A landing e a documentação compartilham a mesma paleta, tipografia, padrão de anéis e regras de acessibilidade. As fontes (Fraunces, Atkinson Hyperlegible, JetBrains Mono) são servidas localmente de `assets/fonts/`, sem dependência de CDNs — o site funciona integralmente offline.
