@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.numerico é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa C">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.numerico — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.numerico — Documentação Coral">
+  <meta property="og:description" content="coral.numerico é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa C">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.numerico — Documentação Coral">
+  <meta name="twitter:description" content="coral.numerico é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa C">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a class="active" aria-current="page" href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Módulos principais</div>
+      <h1>coral.numerico</h1>
+      <p>coral.numerico é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa C</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.numerico</code> é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa Coral.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.numerico</code> <strong>Categoria:</strong> cientifico</p>
+<p data-searchable>vetores, matrizes, estatística e álgebra numérica</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>DependenciaNumericaAusente</code>, <code>ErroNumerico</code>, <code>numpy_disponivel</code>, <code>diagnosticar_numerico</code>, <code>vetor</code>, <code>matriz</code>, <code>zeros</code>, <code>uns</code>, <code>intervalo</code>, <code>espaco_linear</code>, <code>soma</code>, <code>media</code>, <code>mediana</code>, <code>variancia</code>, <code>desvio_padrao</code>, <code>minimo</code>, <code>maximo</code>, <code>transposta</code>, <code>produto_escalar</code>, <code>multiplicar_matrizes</code>, <code>determinante</code>, <code>inversa</code>, <code>resolver_sistema</code>, <code>autovalores</code>, <code>forma</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>Use <code>coral.numerico</code> quando o problema deixa de ser apenas aritmética escalar e passa a envolver séries, matrizes, medidas estatísticas ou álgebra linear. Para operações matemáticas simples e portáveis, <code>coral.matematica</code> costuma ser uma dependência menor.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">valores escalares ── coral.matematica
+        │
+        └── vetores, matrizes, estatística e álgebra ── coral.numerico
+                                                        │
+                                                        └── experimentos ── coral.laboratorio</code></pre></div></div>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="numpy-e-opcional" data-searchable>NumPy é opcional</h3>
+<p data-searchable>Importar a Coral não obriga a instalação de NumPy. As operações deste módulo que dependem da biblioteca científica verificam a capacidade quando usadas. <code>numpy_disponivel()</code> e <code>diagnosticar_numerico()</code> permitem inspecionar o ambiente antes de escolher um caminho opcional.</p>
+<h3 id="vetores-e-matrizes" data-searchable>Vetores e matrizes</h3>
+<p data-searchable><code>vetor</code>, <code>matriz</code>, <code>zeros</code>, <code>uns</code>, <code>intervalo</code> e <code>espaco_linear</code> constroem estruturas numéricas. O módulo valida forma e dimensionalidade em vez de deixar erros surgirem muito depois da criação dos dados.</p>
+<h3 id="estatistica" data-searchable>Estatística</h3>
+<p data-searchable>A superfície inclui soma, média, mediana, variância, desvio padrão, mínimo e máximo. Ao trabalhar com variância ou desvio, documente se o cálculo é populacional ou amostral no contexto do projeto.</p>
+<h3 id="algebra-linear" data-searchable>Álgebra linear</h3>
+<p data-searchable>Transposta, produto escalar, multiplicação matricial, determinante, inversa, solução de sistema e autovalores formam a camada de álgebra linear.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use este módulo para análise numérica, processamento de séries, modelos matriciais, simulações, pós processamento de experimentos e algoritmos que realmente dependem de estruturas multidimensionais.</p>
+<p data-searchable>Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesses casos <code>coral.matematica</code> mantém a dependência menor e a intenção mais clara.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release 1.5.9 usa <code>coral.numerico</code> no projeto de laboratório de algoritmos. O trecho abaixo vem de <code>Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
+de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> analisar_relatorio com caminho
+    <span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
+    <span class="code-key">defina</span> tempos como [medicao[<span class="code-str">&quot;tempo_segundos&quot;</span>] <span class="code-key">para</span> <span class="code-key">cada</span> medicao em relatorio[<span class="code-str">&quot;medicoes&quot;</span>] <span class="code-key">se</span> medicao[<span class="code-str">&quot;erro&quot;</span>] for igual a nada]
+    <span class="code-key">crie</span> um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
+    calcule o desvio padrão de serie como desvio_serie
+    retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
+<span class="code-key">fim</span></code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>numpy_disponivel</code></td><td data-searchable>descobrir se a capacidade NumPy está disponível</td><td data-searchable><code>numpy_disponivel() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>diagnosticar_numerico</code></td><td data-searchable>obter diagnóstico estruturado</td><td data-searchable><code>diagnosticar_numerico() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>vetor</code></td><td data-searchable>construir vetor</td><td data-searchable><code>vetor(valores: Iterable[Any], tipo: Any | None = None)</code></td></tr>
+<tr><td data-searchable><code>matriz</code></td><td data-searchable>construir matriz</td><td data-searchable><code>matriz(linhas: Iterable[Iterable[Any]], tipo: Any | None = None)</code></td></tr>
+<tr><td data-searchable><code>media</code></td><td data-searchable>calcular média</td><td data-searchable><code>media(valores)</code></td></tr>
+<tr><td data-searchable><code>mediana</code></td><td data-searchable>calcular mediana</td><td data-searchable><code>mediana(valores)</code></td></tr>
+<tr><td data-searchable><code>desvio_padrao</code></td><td data-searchable>calcular dispersão</td><td data-searchable><code>desvio_padrao(valores, populacional = True)</code></td></tr>
+<tr><td data-searchable><code>produto_escalar</code></td><td data-searchable>combinar dois vetores</td><td data-searchable><code>produto_escalar(a, b)</code></td></tr>
+<tr><td data-searchable><code>determinante</code></td><td data-searchable>medir determinante de matriz</td><td data-searchable><code>determinante(m)</code></td></tr>
+<tr><td data-searchable><code>resolver_sistema</code></td><td data-searchable>resolver sistema linear</td><td data-searchable><code>resolver_sistema(coeficientes, termos)</code></td></tr>
+</tbody></table></div>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<h3 id="preparar-uma-serie" data-searchable>Preparar uma série</h3>
+<p data-searchable>Construa os dados com <code>vetor</code> ou com as formas naturais da Coral, valide a disponibilidade da capacidade numérica quando ela for opcional e só então aplique estatística ou álgebra.</p>
+<h3 id="analisar-resultados-de-laboratorio" data-searchable>Analisar resultados de laboratório</h3>
+<p data-searchable><code>coral.laboratorio</code> produz medições e metadados. <code>coral.numerico</code> entra depois para resumir distribuição, tendência e dispersão. Essa separação evita misturar medição com interpretação.</p>
+<h3 id="criar-fallback-sem-numpy" data-searchable>Criar fallback sem NumPy</h3>
+<p data-searchable>Quando NumPy for apenas uma otimização ou recurso complementar, consulte <code>numpy_disponivel()</code> e ofereça um caminho mais simples em vez de fazer o programa inteiro falhar na importação.</p>
+<h2 id="erros-e-diagnostico" data-searchable>Erros e diagnóstico</h2>
+<p data-searchable><code>DependenciaNumericaAusente</code> representa a falta da dependência opcional quando uma operação realmente precisa dela. <code>ErroNumerico</code> representa entradas ou operações incompatíveis. Use <code>diagnosticar_numerico()</code> para diferenciar ambiente incompleto de erro nos dados.</p>
+<p data-searchable>Coleções vazias, formas incompatíveis e matrizes que não satisfazem os requisitos de uma operação devem ser tratadas como erros de domínio, não escondidas com valores artificiais.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Registre a forma dos dados antes de operações matriciais importantes.</li>
+<li data-searchable>Não confunda ausência de NumPy com programa Coral inválido.</li>
+<li data-searchable>Em benchmarks, separe custo de preparação dos dados do custo da operação medida.</li>
+<li data-searchable>Para resultados científicos, preserve semente, parâmetros e ambiente com <code>coral.laboratorio</code>.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.matematica</code> cobre matemática geral. <code>coral.laboratorio</code> mede experimentos. <code>coral.json</code> e <code>coral.persistencia</code> ajudam a transportar resultados. <code>coral.aleatorio</code> fornece fontes reproduzíveis para simulações.</p>
+<h2 id="testabilidade-e-reprodutibilidade" data-searchable>Testabilidade e reprodutibilidade</h2>
+<p data-searchable>A parte determinística do módulo deve receber dados já preparados. Se a geração da entrada for aleatória, fixe a semente na fonte de aleatoriedade e salve os parâmetros junto do resultado.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="numpy-disponivel-bool" data-searchable><code>numpy_disponivel() -&gt; bool</code></h4>
+<p data-searchable>Entrada pública <code>numpy_disponivel</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
+<h4 id="diagnosticar-numerico-dict-str-any" data-searchable><code>diagnosticar_numerico() -&gt; dict[str, Any]</code></h4>
+<p data-searchable>Entrada pública <code>diagnosticar_numerico</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<h4 id="vetor-valores-iterable-any-tipo-any-none-none" data-searchable><code>vetor(valores: Iterable[Any], tipo: Any | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>vetor</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>Any | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="matriz-linhas-iterable-iterable-any-tipo-any-none-none" data-searchable><code>matriz(linhas: Iterable[Iterable[Any]], tipo: Any | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>matriz</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable><code>Iterable[Iterable[Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>Any | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="zeros-forma-tipo-float" data-searchable><code>zeros(forma, tipo = float)</code></h4>
+<p data-searchable>Entrada pública <code>zeros</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>forma</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>float</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="uns-forma-tipo-float" data-searchable><code>uns(forma, tipo = float)</code></h4>
+<p data-searchable>Entrada pública <code>uns</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>forma</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>float</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="intervalo-inicio-fim-none-passo-1-tipo-none" data-searchable><code>intervalo(inicio, fim = None, passo = 1, tipo = None)</code></h4>
+<p data-searchable>Entrada pública <code>intervalo</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="espaco-linear-inicio-fim-quantidade-50" data-searchable><code>espaco_linear(inicio, fim, quantidade = 50)</code></h4>
+<p data-searchable>Entrada pública <code>espaco_linear</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>50</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="soma-valores" data-searchable><code>soma(valores)</code></h4>
+<p data-searchable>Entrada pública <code>soma</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="media-valores" data-searchable><code>media(valores)</code></h4>
+<p data-searchable>Entrada pública <code>media</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="mediana-valores" data-searchable><code>mediana(valores)</code></h4>
+<p data-searchable>Entrada pública <code>mediana</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="variancia-valores-populacional-true" data-searchable><code>variancia(valores, populacional = True)</code></h4>
+<p data-searchable>Entrada pública <code>variancia</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>populacional</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="desvio-padrao-valores-populacional-true" data-searchable><code>desvio_padrao(valores, populacional = True)</code></h4>
+<p data-searchable>Entrada pública <code>desvio_padrao</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>populacional</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="minimo-valores" data-searchable><code>minimo(valores)</code></h4>
+<p data-searchable>Entrada pública <code>minimo</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="maximo-valores" data-searchable><code>maximo(valores)</code></h4>
+<p data-searchable>Entrada pública <code>maximo</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="transposta-valor" data-searchable><code>transposta(valor)</code></h4>
+<p data-searchable>Entrada pública <code>transposta</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="produto-escalar-a-b" data-searchable><code>produto_escalar(a, b)</code></h4>
+<p data-searchable>Entrada pública <code>produto_escalar</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="multiplicar-matrizes-a-b" data-searchable><code>multiplicar_matrizes(a, b)</code></h4>
+<p data-searchable>Entrada pública <code>multiplicar_matrizes</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="determinante-m" data-searchable><code>determinante(m)</code></h4>
+<p data-searchable>Entrada pública <code>determinante</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>m</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="inversa-m" data-searchable><code>inversa(m)</code></h4>
+<p data-searchable>Entrada pública <code>inversa</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>m</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="resolver-sistema-coeficientes-termos" data-searchable><code>resolver_sistema(coeficientes, termos)</code></h4>
+<p data-searchable>Entrada pública <code>resolver_sistema</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>coeficientes</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>termos</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="autovalores-m" data-searchable><code>autovalores(m)</code></h4>
+<p data-searchable>Entrada pública <code>autovalores</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>m</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroNumerico</code></p>
+<h4 id="forma-valor-tuple-int" data-searchable><code>forma(valor) -&gt; tuple[int, ...]</code></h4>
+<p data-searchable>Entrada pública <code>forma</code> da superfície <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>tuple[int, ...]</code></p>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="dependencianumericaausente" data-searchable><code>DependenciaNumericaAusente(...)</code></h4>
+<p data-searchable>Entrada pública <code>DependenciaNumericaAusente</code> da superfície <code>coral.numerico</code>.</p>
+<h4 id="erronumerico" data-searchable><code>ErroNumerico(...)</code></h4>
+<p data-searchable>Erro público para entradas numéricas inválidas ou operações incompatíveis.</p>
+<h2 id="compatibilidade-e-dependencias" data-searchable>Compatibilidade e dependências</h2>
+<p data-searchable>NumPy é opcional. O módulo pode ser importado sem ele, mas operações que dependem da biblioteca científica exigem a capacidade instalada no ambiente de execução.</p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="../release.html"><span>Anterior</span><strong>Release atual</strong></a><a class="docs-page-nav-link next" href="sistema.html"><span>Próxima</span><strong>coral.sistema</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-diagnostico" data-toc-link>Erros e diagnóstico</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-reprodutibilidade" data-toc-link>Testabilidade e reprodutibilidade</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-dependencias" data-toc-link>Compatibilidade e dependências</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

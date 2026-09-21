@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Coral Site: Atualizar documentação",
+      "type": "shell",
+      "command": "python tools/atualizar_docs.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "group": "build"
+    },
+    {
+      "label": "Coral Site: Importar release",
+      "type": "shell",
+      "command": "python tools/atualizar_docs.py \"${input:coralReleaseZip}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Coral Site: Validar",
+      "type": "shell",
+      "command": "python tools/validar_site.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "group": "test"
+    },
+    {
+      "label": "Coral Site: Servir localmente",
+      "type": "shell",
+      "command": "python -m http.server 8000",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "coralReleaseZip",
+      "type": "promptString",
+      "description": "Caminho para o ZIP oficial da release Coral",
+      "default": "../Coral_1.5.10_Completo.zip"
+    }
+  ]
+}

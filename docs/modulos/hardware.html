@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.hardware expõe informações de CPU, memória, discos, bateria e comunicação serial por uma superfície que pode funcionar com capacidades opcionais e backends simulados.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.hardware — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.hardware — Documentação Coral">
+  <meta property="og:description" content="coral.hardware expõe informações de CPU, memória, discos, bateria e comunicação serial por uma superfície que pode funcionar com capacidades opcionais e backends simulados.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.hardware — Documentação Coral">
+  <meta name="twitter:description" content="coral.hardware expõe informações de CPU, memória, discos, bateria e comunicação serial por uma superfície que pode funcionar com capacidades opcionais e backends simulados.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a class="active" aria-current="page" href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Módulos principais</div>
+      <h1>coral.hardware</h1>
+      <p>coral.hardware expõe informações de CPU, memória, discos, bateria e comunicação serial por uma superfície que pode funcionar com capacidades opcionais e backends simulados.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.hardware</code> expõe informações de CPU, memória, discos, bateria e comunicação serial por uma superfície que pode funcionar com capacidades opcionais e backends simulados.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.hardware</code> <strong>Categoria:</strong> hardware</p>
+<p data-searchable>CPU, memória, discos, bateria e comunicação serial</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>DependenciaHardwareAusente</code>, <code>CPU</code>, <code>Memoria</code>, <code>Disco</code>, <code>Bateria</code>, <code>psutil_disponivel</code>, <code>serial_disponivel</code>, <code>cpu</code>, <code>memoria</code>, <code>discos</code>, <code>bateria</code>, <code>diagnosticar_hardware</code>, <code>auditar_hardware</code>, <code>ErroSerial</code>, <code>DependenciaSerialAusente</code>, <code>ErroConfiguracaoSerial</code>, <code>ConexaoSerialFechada</code>, <code>DesconexaoSerial</code>, <code>BackendSerial</code>, <code>BackendSerialReal</code>, <code>BackendSerialSimulado</code>, <code>usar_backend_serial</code>, <code>ConexaoSerial</code>, <code>PortaSerial</code>, <code>portas_seriais</code>, <code>conectar_serial</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable>O módulo trata hardware como capacidade do ambiente, não como pressuposto. Um programa pode descobrir se <code>psutil</code> ou serial estão disponíveis e escolher entre backend real, simulação ou degradação explícita.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="inventario-do-host" data-searchable>Inventário do host</h3>
+<p data-searchable><code>CPU</code>, <code>Memoria</code>, <code>Disco</code> e <code>Bateria</code> são estruturas de dados. As funções <code>cpu</code>, <code>memoria</code>, <code>discos</code> e <code>bateria</code> produzem esses retratos.</p>
+<h3 id="dependencias-opcionais" data-searchable>Dependências opcionais</h3>
+<p data-searchable><code>psutil_disponivel()</code> e <code>serial_disponivel()</code> permitem consultar capacidades. <code>diagnosticar_hardware()</code> e <code>auditar_hardware()</code> ajudam a explicar por que um recurso não está disponível.</p>
+<h3 id="serial-real-e-simulada" data-searchable>Serial real e simulada</h3>
+<p data-searchable><code>BackendSerialReal</code> usa a dependência serial quando instalada. <code>BackendSerialSimulado</code> mantém portas e buffers em memória, permitindo testar protocolo, conexão e desconexão sem hardware físico.</p>
+<h3 id="conexao-serial" data-searchable>Conexão serial</h3>
+<p data-searchable><code>ConexaoSerial</code> concentra envio, leitura, leitura de linha e fechamento. <code>conectar_serial</code> é o atalho funcional para abrir uma sessão.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use quando o programa precisa inspecionar a máquina, reagir à presença de bateria ou disco, conversar com microcontroladores ou testar uma integração serial.</p>
+<p data-searchable>Evite tornar a lógica de domínio dependente de hardware real quando ela puder receber dados simulados. Isso melhora testes e permite executar o programa em servidores ou CI.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>O exemplo abaixo foi validado com o runtime 1.5.9:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.hardware</span> <span class="code-key">importe</span> cpu, memoria, discos, psutil_disponivel
+
+<span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+    <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+    <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
+    <span class="code-key">mostre</span> processador.nucleos_logicos
+    <span class="code-key">mostre</span> ram.total_bytes
+    <span class="code-key">mostre</span> quantidade de unidades
+<span class="code-key">fim</span></code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>psutil_disponivel</code></td><td data-searchable>detectar inventário avançado</td><td data-searchable><code>psutil_disponivel() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>serial_disponivel</code></td><td data-searchable>detectar backend serial real</td><td data-searchable><code>serial_disponivel() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>cpu</code></td><td data-searchable>consultar CPU</td><td data-searchable><code>cpu() -&gt; CPU</code></td></tr>
+<tr><td data-searchable><code>memoria</code></td><td data-searchable>consultar RAM</td><td data-searchable><code>memoria() -&gt; Memoria</code></td></tr>
+<tr><td data-searchable><code>discos</code></td><td data-searchable>listar discos</td><td data-searchable><code>discos() -&gt; tuple[Disco, ...]</code></td></tr>
+<tr><td data-searchable><code>bateria</code></td><td data-searchable>consultar bateria</td><td data-searchable><code>bateria() -&gt; Bateria | None</code></td></tr>
+<tr><td data-searchable><code>diagnosticar_hardware</code></td><td data-searchable>diagnóstico estruturado</td><td data-searchable><code>diagnosticar_hardware() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>BackendSerialSimulado</code></td><td data-searchable>simular portas em memória</td><td data-searchable><code>BackendSerialSimulado() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>ConexaoSerial</code></td><td data-searchable>sessão serial</td><td data-searchable><code>ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None)</code></td></tr>
+<tr><td data-searchable><code>conectar_serial</code></td><td data-searchable>abrir conexão serial</td><td data-searchable><code>conectar_serial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None) -&gt; ConexaoSerial</code></td></tr>
+</tbody></table></div>
+<h2 id="testando-serial-sem-dispositivo-fisico" data-searchable>Testando serial sem dispositivo físico</h2>
+<p data-searchable><code>BackendSerialSimulado</code> pode registrar portas, injetar bytes recebidos, registrar o que foi enviado, simular desconexão e reconexão e abrir transportes sem esperar tempo real. Use essa rota como padrão para testes automatizados.</p>
+<h2 id="erros-e-diagnostico" data-searchable>Erros e diagnóstico</h2>
+<p data-searchable><code>DependenciaHardwareAusente</code> informa ausência de capacidade de inventário. A camada serial separa falta da dependência, configuração inválida, conexão fechada e desconexão durante a sessão.</p>
+<p data-searchable>Antes de concluir que há defeito no programa, consulte <code>diagnosticar_hardware()</code> e a disponibilidade das capacidades usadas.</p>
+<h2 id="seguranca-e-robustez" data-searchable>Segurança e robustez</h2>
+<ul>
+<li data-searchable>Trate dados vindos de serial como entrada externa.</li>
+<li data-searchable>Defina timeout apropriado para dispositivos que podem parar de responder.</li>
+<li data-searchable>Feche conexões explicitamente quando o ciclo de vida terminar.</li>
+<li data-searchable>Não presuma que bateria ou determinada porta existe.</li>
+<li data-searchable>Prefira o backend simulado em testes de lógica.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.sistema</code> descreve o host de forma geral. <code>coral.laboratorio</code> pode medir experimentos dependentes de hardware. <code>coral.tempo_eventos</code> ajuda a controlar polling e timeouts em fluxos mais amplos.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="psutil-disponivel-bool" data-searchable><code>psutil_disponivel() -&gt; bool</code></h4>
+<p data-searchable>Entrada pública <code>psutil_disponivel</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
+<h4 id="serial-disponivel-bool" data-searchable><code>serial_disponivel() -&gt; bool</code></h4>
+<p data-searchable>Entrada pública <code>serial_disponivel</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
+<h4 id="cpu-cpu" data-searchable><code>cpu() -&gt; CPU</code></h4>
+<p data-searchable>Entrada pública <code>cpu</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>CPU</code></p>
+<h4 id="memoria-memoria" data-searchable><code>memoria() -&gt; Memoria</code></h4>
+<p data-searchable>Entrada pública <code>memoria</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>Memoria</code></p>
+<h4 id="discos-tuple-disco" data-searchable><code>discos() -&gt; tuple[Disco, ...]</code></h4>
+<p data-searchable>Entrada pública <code>discos</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>tuple[Disco, ...]</code></p>
+<h4 id="bateria-bateria-none" data-searchable><code>bateria() -&gt; Bateria | None</code></h4>
+<p data-searchable>Entrada pública <code>bateria</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>Bateria | None</code></p>
+<h4 id="diagnosticar-hardware-dict-str-any" data-searchable><code>diagnosticar_hardware() -&gt; dict[str, Any]</code></h4>
+<p data-searchable>Entrada pública <code>diagnosticar_hardware</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<h4 id="auditar-hardware-dict-str-any" data-searchable><code>auditar_hardware() -&gt; dict[str, Any]</code></h4>
+<p data-searchable>Inventário observável e estado dos gates de coesão de Hardware 1.4.9.</p>
+<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<h4 id="usar-backend-serial-backend-backendserial" data-searchable><code>usar_backend_serial(backend: BackendSerial)</code></h4>
+<p data-searchable>Usa temporariamente um backend serial como padrão do contexto atual.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="portas-seriais-backend-backendserial-none-none-tuple-portaserial" data-searchable><code>portas_seriais(*, backend: BackendSerial | None = None) -&gt; tuple[PortaSerial, ...]</code></h4>
+<p data-searchable>Entrada pública <code>portas_seriais</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>tuple[PortaSerial, ...]</code></p>
+<h4 id="conectar-serial-porta-str-velocidade-int-115200-timeout-float-none-1-0-codificacao-str-utf-8-backend-backendserial-none-none-conexaoserial" data-searchable><code>conectar_serial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None) -&gt; ConexaoSerial</code></h4>
+<p data-searchable>Entrada pública <code>conectar_serial</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>porta</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>velocidade</code></td><td data-searchable><code>int</code></td><td data-searchable><code>115200</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable><code>float | None</code></td><td data-searchable><code>1.0</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>ConexaoSerial</code></p>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="cpu-nome-str-nucleos-logicos-int-none-nucleos-fisicos-int-none-frequencia-mhz-float-none" data-searchable><code>CPU(nome: str, nucleos_logicos: int | None, nucleos_fisicos: int | None, frequencia_mhz: float | None)</code></h4>
+<p data-searchable>Entrada pública <code>CPU</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_logicos</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_fisicos</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>frequencia_mhz</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<h4 id="memoria-total-bytes-int-none-disponivel-bytes-int-none-percentual-usado-float-none" data-searchable><code>Memoria(total_bytes: int | None, disponivel_bytes: int | None, percentual_usado: float | None)</code></h4>
+<p data-searchable>Entrada pública <code>Memoria</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>disponivel_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>percentual_usado</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<h4 id="disco-dispositivo-str-ponto-montagem-str-sistema-arquivos-str-total-bytes-int-none-none-livre-bytes-int-none-none" data-searchable><code>Disco(dispositivo: str, ponto_montagem: str, sistema_arquivos: str, total_bytes: int | None = None, livre_bytes: int | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>Disco</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_montagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sistema_arquivos</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>livre_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<h4 id="bateria-percentual-float-none-conectada-bool-none-segundos-restantes-int-none" data-searchable><code>Bateria(percentual: float | None, conectada: bool | None, segundos_restantes: int | None)</code></h4>
+<p data-searchable>Entrada pública <code>Bateria</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>percentual</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>conectada</code></td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>segundos_restantes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<h4 id="conexaoserialfechada" data-searchable><code>ConexaoSerialFechada(...)</code></h4>
+<p data-searchable>Uma operação foi solicitada depois do fechamento da conexão.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<h4 id="desconexaoserial" data-searchable><code>DesconexaoSerial(...)</code></h4>
+<p data-searchable>A porta deixou de estar conectada durante a sessão.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<h4 id="backendserial" data-searchable><code>BackendSerial(...)</code></h4>
+<p data-searchable>Contrato mínimo de backend serial usado por `<code>ConexaoSerial</code>`.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="backendserialreal" data-searchable><code>BackendSerialReal(...)</code></h4>
+<p data-searchable>Adaptador do pyserial, carregado apenas quando realmente necessário.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="backendserialsimulado-none" data-searchable><code>BackendSerialSimulado() -&gt; None</code></h4>
+<p data-searchable>Backend serial em memória, sem espera real e sem dependências externas.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registrar_porta</code></td><td data-searchable>método</td><td data-searchable><code>registrar_porta(dispositivo: str = 'SIM0', *, descricao: str = 'Porta serial simulada', fabricante: str | None = 'Coral', vid: int | None = None, pid: int | None = None) -&gt; PortaSerial</code></td><td data-searchable><code>PortaSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>remover_porta</code></td><td data-searchable>método</td><td data-searchable><code>remover_porta(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>desconectar</code></td><td data-searchable>método</td><td data-searchable><code>desconectar(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>reconectar</code></td><td data-searchable>método</td><td data-searchable><code>reconectar(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>injetar_recebimento</code></td><td data-searchable>método</td><td data-searchable><code>injetar_recebimento(dispositivo: str, dados: bytes | bytearray | str, *, codificacao: str = 'utf-8') -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>dados_enviados</code></td><td data-searchable>método</td><td data-searchable><code>dados_enviados(dispositivo: str, *, limpar: bool = False) -&gt; bytes</code></td><td data-searchable><code>bytes</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>limpar</code></td><td data-searchable>método</td><td data-searchable><code>limpar(dispositivo: str | None = None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="conexaoserial-porta-str-velocidade-int-115200-timeout-float-none-1-0-codificacao-str-utf-8-backend-backendserial-none-none" data-searchable><code>ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>ConexaoSerial</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>aberta</code></td><td data-searchable>propriedade</td><td data-searchable><code>aberta() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>enviar_bytes</code></td><td data-searchable>método</td><td data-searchable><code>enviar_bytes(dados: bytes | bytearray) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>enviar</code></td><td data-searchable>método</td><td data-searchable><code>enviar(texto: Any, *, terminar_linha: bool = False) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>ler</code></td><td data-searchable>método</td><td data-searchable><code>ler(quantidade: int = 1) -&gt; bytes</code></td><td data-searchable><code>bytes</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>método</td><td data-searchable><code>fechar() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="portaserial-dispositivo-str-descricao-str-fabricante-str-none-none-vid-int-none-none-pid-int-none-none" data-searchable><code>PortaSerial(dispositivo: str, descricao: str = '', fabricante: str | None = None, vid: int | None = None, pid: int | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>PortaSerial</code> da superfície <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>descricao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>fabricante</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>vid</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>pid</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="dependenciahardwareausente" data-searchable><code>DependenciaHardwareAusente(...)</code></h4>
+<p data-searchable>Entrada pública <code>DependenciaHardwareAusente</code> da superfície <code>coral.hardware</code>.</p>
+<h4 id="erroserial" data-searchable><code>ErroSerial(...)</code></h4>
+<p data-searchable>Erro público base da camada serial Coral.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<h4 id="dependenciaserialausente" data-searchable><code>DependenciaSerialAusente(...)</code></h4>
+<p data-searchable>pyserial não está disponível para o backend real.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<h4 id="erroconfiguracaoserial" data-searchable><code>ErroConfiguracaoSerial(...)</code></h4>
+<p data-searchable>Parâmetro serial inválido antes da abertura da porta.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<h2 id="compatibilidade-e-dependencias" data-searchable>Compatibilidade e dependências</h2>
+<p data-searchable><code>psutil</code> e <code>pyserial</code> são opcionais. A importação do módulo permanece possível sem elas; a capacidade específica informa a ausência quando necessária. Informações disponíveis também variam por sistema operacional e máquina.</p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="laboratorio.html"><span>Anterior</span><strong>coral.laboratorio</strong></a><a class="docs-page-nav-link next" href="mundo.html"><span>Próxima</span><strong>coral.mundo</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#testando-serial-sem-dispositivo-fisico" data-toc-link>Testando serial sem dispositivo físico</a></li>
+<li class="toc-level-2"><a href="#erros-e-diagnostico" data-toc-link>Erros e diagnóstico</a></li>
+<li class="toc-level-2"><a href="#seguranca-e-robustez" data-toc-link>Segurança e robustez</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-dependencias" data-toc-link>Compatibilidade e dependências</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

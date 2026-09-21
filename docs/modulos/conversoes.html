@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.conversoes oferece conversões explícitas entre valores Coral. Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.conversoes — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.conversoes — Documentação Coral">
+  <meta property="og:description" content="coral.conversoes oferece conversões explícitas entre valores Coral. Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.conversoes — Documentação Coral">
+  <meta name="twitter:description" content="coral.conversoes oferece conversões explícitas entre valores Coral. Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a class="active" aria-current="page" href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.conversoes</h1>
+      <p>coral.conversoes oferece conversões explícitas entre valores Coral. Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.conversoes</code> oferece conversões explícitas entre valores Coral. Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.conversoes</code> <strong>Categoria:</strong> runtime</p>
+<p data-searchable>conversões explícitas entre valores Coral</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroConversao</code>, <code>inteiro</code>, <code>decimal</code>, <code>texto</code>, <code>booleano</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para converter valores de forma explícita entre inteiro, decimal, texto e booleano.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>inteiro</code>, <code>decimal</code>, <code>texto</code>, <code>booleano</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/01_entrada_conversoes_e_texto.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.entrada</span> <span class="code-key">importe</span> ler_linha
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro, decimal
+de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe</span> montar_texto
+
+<span class="code-key">defina</span> nome como <span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Nome: &quot;</span>)
+<span class="code-key">defina</span> idade como <span class="code-fn">inteiro</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Idade: &quot;</span>))
+<span class="code-key">defina</span> altura como <span class="code-fn">decimal</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Altura em metros: &quot;</span>))
+<span class="code-key">mostre</span> <span class="code-fn">montar_texto</span>(<span class="code-str">&quot;Olá, &quot;</span>, nome, <span class="code-str">&quot;. Idade: &quot;</span>, idade, <span class="code-str">&quot;. Altura: &quot;</span>, altura)</code></pre></div></div>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Conversões podem falhar quando a entrada não representa o tipo de destino. Valide entrada externa quando necessário.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Na mesma área, veja também <code>coral.assincrono</code>, <code>coral.comum</code>, <code>coral.entrada</code>, <code>coral.tipos</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="inteiro-valor-any-padrao-any-ausente-int-any" data-searchable><code>inteiro(valor: Any, padrao: Any = _AUSENTE) -&gt; int | Any</code></h4>
+<p data-searchable>Converte para inteiro de forma estrita, com padrão opcional.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>_AUSENTE</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>int | Any</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p>
+<h4 id="decimal-valor-any-padrao-any-ausente-float-any" data-searchable><code>decimal(valor: Any, padrao: Any = _AUSENTE) -&gt; float | Any</code></h4>
+<p data-searchable>Converte para decimal finito, aceitando ponto ou vírgula decimal em texto.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>_AUSENTE</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>float | Any</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code>, <code>TypeError</code></p>
+<h4 id="texto-valor-any-padrao-any-ausente-str-any" data-searchable><code>texto(valor: Any, padrao: Any = _AUSENTE) -&gt; str | Any</code></h4>
+<p data-searchable>Produz texto com grafia coerente para os literais básicos da Coral.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>_AUSENTE</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str | Any</code></p>
+<h4 id="booleano-valor-any-padrao-any-ausente-bool-any" data-searchable><code>booleano(valor: Any, padrao: Any = _AUSENTE) -&gt; bool | Any</code></h4>
+<p data-searchable>Converte apenas representações booleanas explícitas e não vazias.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>_AUSENTE</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>bool | Any</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="erroconversao-valor-any-destino-str-mensagem-str-none-none-causa-baseexception-none-none" data-searchable><code>ErroConversao(valor: Any, destino: str, mensagem: str | None = None, *, causa: BaseException | None = None)</code></h4>
+<p data-searchable>Um valor não pôde ser convertido para o tipo Coral solicitado.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.erros</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="comum.html"><span>Anterior</span><strong>coral.comum</strong></a><a class="docs-page-nav-link next" href="criptografia.html"><span>Próxima</span><strong>coral.criptografia</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
+<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

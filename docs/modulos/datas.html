@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.datas oferece datas, datas e horas, fusos e durações. Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.datas — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.datas — Documentação Coral">
+  <meta property="og:description" content="coral.datas oferece datas, datas e horas, fusos e durações. Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.datas — Documentação Coral">
+  <meta name="twitter:description" content="coral.datas oferece datas, datas e horas, fusos e durações. Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a class="active" aria-current="page" href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.datas</h1>
+      <p>coral.datas oferece datas, datas e horas, fusos e durações. Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.datas</code> oferece datas, datas e horas, fusos e durações. Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.datas</code> <strong>Categoria:</strong> tempo</p>
+<p data-searchable>datas, datas e horas, fusos e durações</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>agora</code>, <code>hoje</code>, <code>dias</code>, <code>segundos</code>, <code>minutos</code>, <code>horas</code>, <code>semanas</code>, <code>formatar</code>, <code>analisar</code>, <code>de_iso</code>, <code>para_iso</code>, <code>fuso_horario</code>, <code>converter_fuso</code>, <code>diferenca</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para obter data e hora, construir durações, formatar valores e trabalhar com fusos horários.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>agora</code>, <code>hoje</code>, <code>dias</code>, <code>segundos</code>, <code>minutos</code>, <code>horas</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>Uma importação seletiva começa assim:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, hoje, dias</code></pre></div></div>
+<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Ao trocar dados entre sistemas, prefira representações explícitas como ISO e declare o fuso quando ele for relevante.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="agora-fuso-str-tzinfo-none-none" data-searchable><code>agora(fuso: str | tzinfo | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>agora</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="hoje-fuso-str-tzinfo-none-none" data-searchable><code>hoje(fuso: str | tzinfo | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>hoje</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="dias-valor" data-searchable><code>dias(valor)</code></h4>
+<p data-searchable>Entrada pública <code>dias</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="segundos-valor" data-searchable><code>segundos(valor)</code></h4>
+<p data-searchable>Entrada pública <code>segundos</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="minutos-valor" data-searchable><code>minutos(valor)</code></h4>
+<p data-searchable>Entrada pública <code>minutos</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="horas-valor" data-searchable><code>horas(valor)</code></h4>
+<p data-searchable>Entrada pública <code>horas</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="semanas-valor" data-searchable><code>semanas(valor)</code></h4>
+<p data-searchable>Entrada pública <code>semanas</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="formatar-valor-formato-d-m-y" data-searchable><code>formatar(valor, formato = '%d/%m/%Y')</code></h4>
+<p data-searchable>Entrada pública <code>formatar</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'%d/%m/%Y'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="analisar-texto-str-formato-str-none-none" data-searchable><code>analisar(texto: str, formato: str | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>analisar</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h4 id="de-iso-texto-str" data-searchable><code>de_iso(texto: str)</code></h4>
+<p data-searchable>Entrada pública <code>de_iso</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="para-iso-valor-vezespec-auto-str" data-searchable><code>para_iso(valor, *, vezespec = 'auto') -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>para_iso</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>vezespec</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'auto'</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+<h4 id="fuso-horario-nome-str-utc-tzinfo" data-searchable><code>fuso_horario(nome: str = 'UTC') -&gt; tzinfo</code></h4>
+<p data-searchable>Entrada pública <code>fuso_horario</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'UTC'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>tzinfo</code></p>
+<h4 id="converter-fuso-valor-datetime-fuso-str-tzinfo-datetime" data-searchable><code>converter_fuso(valor: datetime, fuso: str | tzinfo) -&gt; datetime</code></h4>
+<p data-searchable>Entrada pública <code>converter_fuso</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>datetime</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>datetime</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p>
+<h4 id="diferenca-final-inicial" data-searchable><code>diferenca(final, inicial)</code></h4>
+<p data-searchable>Entrada pública <code>diferenca</code> da superfície <code>coral.datas</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>final</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>inicial</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="criptografia.html"><span>Anterior</span><strong>coral.criptografia</strong></a><a class="docs-page-nav-link next" href="entrada.html"><span>Próxima</span><strong>coral.entrada</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

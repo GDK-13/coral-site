@@ -1,0 +1,10 @@
+# Resíduos locais de Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Sistema/editor
+.DS_Store
+Thumbs.db

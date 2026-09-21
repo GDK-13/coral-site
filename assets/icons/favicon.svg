@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Coral">
+  <style>
+    .favicon-bg { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .favicon-bg { fill: #262226; }
+    }
+  </style>
+  <rect class="favicon-bg" width="64" height="64" rx="14"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#EF362A" stroke-width="6"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="34" fill="#EF362A">C</text>
+</svg>

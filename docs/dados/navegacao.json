@@ -1,0 +1,244 @@
+{
+  "paginas": [
+    {
+      "arquivo": "introducao.md",
+      "titulo": "Introdução",
+      "slug": "introducao",
+      "grupo": "Primeiros passos"
+    },
+    {
+      "arquivo": "instalacao.md",
+      "titulo": "Instalação",
+      "slug": "instalacao",
+      "grupo": "Primeiros passos"
+    },
+    {
+      "arquivo": "primeiro_programa.md",
+      "titulo": "Seu primeiro programa",
+      "slug": "primeiro-programa",
+      "grupo": "Primeiros passos"
+    },
+    {
+      "arquivo": "projetos.md",
+      "titulo": "Projetos e módulos",
+      "slug": "projetos",
+      "grupo": "Guias"
+    },
+    {
+      "arquivo": "vscode.md",
+      "titulo": "VS Code",
+      "slug": "vscode",
+      "grupo": "Guias"
+    },
+    {
+      "arquivo": "testes.md",
+      "titulo": "Testes",
+      "slug": "testes",
+      "grupo": "Guias"
+    },
+    {
+      "arquivo": "repl_cli.md",
+      "titulo": "REPL e CLI",
+      "slug": "repl-cli",
+      "grupo": "Referência"
+    },
+    {
+      "arquivo": "exemplos.md",
+      "titulo": "Exemplos oficiais",
+      "slug": "exemplos",
+      "grupo": "Referência"
+    },
+    {
+      "arquivo": "livro.md",
+      "titulo": "Livro Oficial",
+      "slug": "livro",
+      "grupo": "Referência"
+    },
+    {
+      "arquivo": "release.md",
+      "titulo": "Release atual",
+      "slug": "release",
+      "grupo": "Referência"
+    },
+    {
+      "arquivo": "modulos/numerico.md",
+      "titulo": "coral.numerico",
+      "slug": "modulo-numerico",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/sistema.md",
+      "titulo": "coral.sistema",
+      "slug": "modulo-sistema",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/laboratorio.md",
+      "titulo": "coral.laboratorio",
+      "slug": "modulo-laboratorio",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/hardware.md",
+      "titulo": "coral.hardware",
+      "slug": "modulo-hardware",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/mundo.md",
+      "titulo": "coral.mundo",
+      "slug": "modulo-mundo",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/regras.md",
+      "titulo": "coral.regras",
+      "slug": "modulo-regras",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/rpg.md",
+      "titulo": "coral.rpg",
+      "slug": "modulo-rpg",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/jogos.md",
+      "titulo": "coral.jogos",
+      "slug": "modulo-jogos",
+      "grupo": "Módulos principais"
+    },
+    {
+      "arquivo": "modulos/aleatorio.md",
+      "titulo": "coral.aleatorio",
+      "slug": "modulo-aleatorio",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/arquivos.md",
+      "titulo": "coral.arquivos",
+      "slug": "modulo-arquivos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/assincrono.md",
+      "titulo": "coral.assincrono",
+      "slug": "modulo-assincrono",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/caminhos.md",
+      "titulo": "coral.caminhos",
+      "slug": "modulo-caminhos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/colecoes.md",
+      "titulo": "coral.colecoes",
+      "slug": "modulo-colecoes",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/comum.md",
+      "titulo": "coral.comum",
+      "slug": "modulo-comum",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/conversoes.md",
+      "titulo": "coral.conversoes",
+      "slug": "modulo-conversoes",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/criptografia.md",
+      "titulo": "coral.criptografia",
+      "slug": "modulo-criptografia",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/datas.md",
+      "titulo": "coral.datas",
+      "slug": "modulo-datas",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/entrada.md",
+      "titulo": "coral.entrada",
+      "slug": "modulo-entrada",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/formatacao.md",
+      "titulo": "coral.formatacao",
+      "slug": "modulo-formatacao",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/formatos.md",
+      "titulo": "coral.formatos",
+      "slug": "modulo-formatos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/json.md",
+      "titulo": "coral.json",
+      "slug": "modulo-json",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/matematica.md",
+      "titulo": "coral.matematica",
+      "slug": "modulo-matematica",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/observadores_reativos.md",
+      "titulo": "coral.observadores_reativos",
+      "slug": "modulo-observadores_reativos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/persistencia.md",
+      "titulo": "coral.persistencia",
+      "slug": "modulo-persistencia",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/rastreamento_reativo.md",
+      "titulo": "coral.rastreamento_reativo",
+      "slug": "modulo-rastreamento_reativo",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/replay_reativo.md",
+      "titulo": "coral.replay_reativo",
+      "slug": "modulo-replay_reativo",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/sequencias_reativas.md",
+      "titulo": "coral.sequencias_reativas",
+      "slug": "modulo-sequencias_reativas",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/tempo_eventos.md",
+      "titulo": "coral.tempo_eventos",
+      "slug": "modulo-tempo_eventos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/texto.md",
+      "titulo": "coral.texto",
+      "slug": "modulo-texto",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/tipos.md",
+      "titulo": "coral.tipos",
+      "slug": "modulo-tipos",
+      "grupo": "Outros módulos"
+    }
+  ]
+}

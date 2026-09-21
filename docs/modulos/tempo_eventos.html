@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.tempo_eventos oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.tempo_eventos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.tempo_eventos — Documentação Coral">
+  <meta property="og:description" content="coral.tempo_eventos oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.tempo_eventos — Documentação Coral">
+  <meta name="twitter:description" content="coral.tempo_eventos oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a class="active" aria-current="page" href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.tempo_eventos</h1>
+      <p>coral.tempo_eventos oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.tempo_eventos</code> oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.tempo_eventos</code> <strong>Categoria:</strong> eventos</p>
+<p data-searchable>fontes de tempo, cancelamento e eventos determinísticos</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>CONTRATO</code>, <code>validar_duracao</code>, <code>normalizar_dt</code>, <code>FonteTempo</code>, <code>RelogioMonotonico</code>, <code>RelogioSimulado</code>, <code>OperacaoCancelada</code>, <code>TokenCancelamento</code>, <code>Evento</code>, <code>Eventos</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>CONTRATO</code>, <code>validar_duracao</code>, <code>normalizar_dt</code>, <code>FonteTempo</code>, <code>RelogioMonotonico</code>, <code>RelogioSimulado</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>Uma importação seletiva começa assim:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> CONTRATO, validar_duracao, normalizar_dt</code></pre></div></div>
+<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Para testes, fontes de tempo controláveis tornam o comportamento temporal repetível.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="validar-duracao-valor-any-nome-str-duracao-permitir-none-bool-false-permitir-zero-bool-true-float-none" data-searchable><code>validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -&gt; float | None</code></h4>
+<p data-searchable>Normaliza uma duração pública para segundos finitos não negativos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'duração'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>permitir_none</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>permitir_zero</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>float | None</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h4 id="normalizar-dt-valor-any-compatibilidade-negativo-zero-bool-true-float" data-searchable><code>normalizar_dt(valor: Any, *, compatibilidade_negativo_zero: bool = True) -&gt; float</code></h4>
+<p data-searchable>Normaliza avanço de simulação.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>compatibilidade_negativo_zero</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>float</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="fontetempo" data-searchable><code>FonteTempo(...)</code></h4>
+<p data-searchable>Entrada pública <code>FonteTempo</code> da superfície <code>coral.tempo_eventos</code>.</p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="relogiomonotonico-fonte-callable-float-time-perf-counter" data-searchable><code>RelogioMonotonico(fonte: Callable[[], float] = time.perf_counter)</code></h4>
+<p data-searchable>Relógio real baseado em `<code>perf_counter</code>` e apropriado para durações.</p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="relogiosimulado-inicial-float-0-0" data-searchable><code>RelogioSimulado(inicial: float = 0.0)</code></h4>
+<p data-searchable>Relógio controlado pelo programa, sem dormir nem consultar o sistema.</p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(dt: Any) -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(instante: Any) -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="tokencancelamento" data-searchable><code>TokenCancelamento()</code></h4>
+<p data-searchable>Entrada pública <code>TokenCancelamento</code> da superfície <code>coral.tempo_eventos</code>.</p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>propriedade</td><td data-searchable><code>cancelado() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>motivo() -&gt; str | None</code></td><td data-searchable><code>str | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str = 'Operação cancelada pelo usuário.') -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>verificar</code></td><td data-searchable>método</td><td data-searchable><code>verificar() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="evento-nome-str-args-tuple-any-kwargs-mapping-str-any-field-default-factory-dict-origem-str-none-none-sequencia-int-0-instante-float-none-none-cancelavel-bool-false-cancelado-bool-false-motivo-cancelamento-str-none-none-consumido-bool-false-metadados-mapping-str-any-field-default-factory-dict-causa-sequencia-int-none-none" data-searchable><code>Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str | None = None, sequencia: int = 0, instante: float | None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str | None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>Evento</code> da superfície <code>coral.tempo_eventos</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>args</code></td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>kwargs</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sequencia</code></td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>cancelavel</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>consumido</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>causa_sequencia</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str | None = None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>consumir</code></td><td data-searchable>método</td><td data-searchable><code>consumir() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="eventos-pai-eventos-none-none-relogio-fontetempo-none-none-fonte-instante-callable-float-none-none" data-searchable><code>Eventos(*, pai: 'Eventos | None' = None, relogio: FonteTempo | None = None, fonte_instante: Callable[[], float] | None = None)</code></h4>
+<p data-searchable>Barramento local compatível com `<code>coral.regras.Eventos</code>`.</p>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pendentes</code></td><td data-searchable>propriedade</td><td data-searchable><code>pendentes() -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>pai</code></td><td data-searchable>propriedade</td><td data-searchable><code>pai() -&gt; 'Eventos | None'</code></td><td data-searchable><code>'Eventos | None'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; FonteTempo | None</code></td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>definir_fonte_instante</code></td><td data-searchable>método</td><td data-searchable><code>definir_fonte_instante(fonte: Callable[[], float] | None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>possui_fonte_instante</code></td><td data-searchable>propriedade</td><td data-searchable><code>possui_fonte_instante() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>definir_pai</code></td><td data-searchable>método</td><td data-searchable><code>definir_pai(pai: 'Eventos | None') -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>quando</code></td><td data-searchable>método</td><td data-searchable><code>quando(nome: str, funcao: Callable[..., Any], *, prioridade: str | int = 'normal', receber_evento: bool = False, max_execucoes: int | None = None, cooldown: float = 0.0)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(nome: str, funcao: Callable[..., Any]) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>emitir</code></td><td data-searchable>método</td><td data-searchable><code>emitir(nome: str, *args, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar(nome: str, *args, origem: str | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>processar</code></td><td data-searchable>método</td><td data-searchable><code>processar(limite: int | None = None) -&gt; tuple[Evento, ...]</code></td><td data-searchable><code>tuple[Evento, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(nome: str, *args, origem: str | None = None, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="operacaocancelada" data-searchable><code>OperacaoCancelada(...)</code></h4>
+<p data-searchable>Operação cooperativa interrompida antes de uma fase segura.</p>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
+<p data-searchable>Constante pública do módulo.</p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.tempo_eventos/1'</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="sequencias_reativas.html"><span>Anterior</span><strong>coral.sequencias_reativas</strong></a><a class="docs-page-nav-link next" href="texto.html"><span>Próxima</span><strong>coral.texto</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
+<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
+<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
+<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

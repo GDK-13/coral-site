@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.arquivos oferece ler, escrever e organizar arquivos e caminhos locais. Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.arquivos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.arquivos — Documentação Coral">
+  <meta property="og:description" content="coral.arquivos oferece ler, escrever e organizar arquivos e caminhos locais. Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.arquivos — Documentação Coral">
+  <meta name="twitter:description" content="coral.arquivos oferece ler, escrever e organizar arquivos e caminhos locais. Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a class="active" aria-current="page" href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.arquivos</h1>
+      <p>coral.arquivos oferece ler, escrever e organizar arquivos e caminhos locais. Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.arquivos</code> oferece ler, escrever e organizar arquivos e caminhos locais. Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.arquivos</code> <strong>Categoria:</strong> sistema</p>
+<p data-searchable>ler, escrever e organizar arquivos e caminhos locais</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>, <code>listar</code>, <code>listar_recursivo</code>, <code>criar_pasta</code>, <code>remover</code>, <code>renomear</code>, <code>copiar</code>, <code>mover</code>, <code>tamanho</code>, <code>metadados</code>, <code>arquivo_temporario</code>, <code>pasta_temporaria</code>, <code>nome</code>, <code>extensao</code>, <code>pai</code>, <code>resolver</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para ler e escrever dados locais, criar pastas e organizar arquivos sem espalhar chamadas de sistema pelo programa.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/02_arquivos_json_e_caminhos.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Arquivos, JSON, caminhos e contexto de leitura.</span>
+de <span class="code-mod">coral.arquivos</span> <span class="code-key">importe</span> escrever_texto, ler_texto
+de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> para_json, de_json
+de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</span> juntar_caminho
+
+<span class="code-key">defina</span> caminho_texto como <span class="code-fn">juntar_caminho</span>(<span class="code-str">&quot;dados&quot;</span>, <span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> caminho_texto
+
+execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
+<span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> conteudo</code></pre></div></div>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Operações de escrita, remoção e movimento alteram o sistema de arquivos. Valide caminhos e trate falhas operacionais.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Na mesma área, veja também <code>coral.caminhos</code>, <code>coral.sistema</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="ler-texto-caminho-codificacao-utf-8" data-searchable><code>ler_texto(caminho, codificacao = 'utf-8')</code></h4>
+<p data-searchable>Entrada pública <code>ler_texto</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="escrever-texto-caminho-texto-codificacao-utf-8" data-searchable><code>escrever_texto(caminho, texto, codificacao = 'utf-8')</code></h4>
+<p data-searchable>Entrada pública <code>escrever_texto</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="adicionar-texto-caminho-texto-codificacao-utf-8" data-searchable><code>adicionar_texto(caminho, texto, codificacao = 'utf-8')</code></h4>
+<p data-searchable>Entrada pública <code>adicionar_texto</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="ler-bytes-caminho-bytes" data-searchable><code>ler_bytes(caminho) -&gt; bytes</code></h4>
+<p data-searchable>Entrada pública <code>ler_bytes</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
+<h4 id="escrever-bytes-caminho-dados-none" data-searchable><code>escrever_bytes(caminho, dados) -&gt; None</code></h4>
+<p data-searchable>Entrada pública <code>escrever_bytes</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+<h4 id="existe-caminho" data-searchable><code>existe(caminho)</code></h4>
+<p data-searchable>Entrada pública <code>existe</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="listar-caminho" data-searchable><code>listar(caminho = '.')</code></h4>
+<p data-searchable>Entrada pública <code>listar</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="listar-recursivo-caminho-profundidade-int-none-none-incluir-pastas-bool-false" data-searchable><code>listar_recursivo(caminho = '.', *, profundidade: int | None = None, incluir_pastas: bool = False)</code></h4>
+<p data-searchable>Entrada pública <code>listar_recursivo</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>profundidade</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>incluir_pastas</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code>, <code>_erro_arquivo_em_portugues</code></p>
+<h4 id="criar-pasta-caminho" data-searchable><code>criar_pasta(caminho)</code></h4>
+<p data-searchable>Entrada pública <code>criar_pasta</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="remover-caminho-recursivo-bool-false-none" data-searchable><code>remover(caminho, *, recursivo: bool = False) -&gt; None</code></h4>
+<p data-searchable>Entrada pública <code>remover</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
+<h4 id="renomear-caminho-destino-path" data-searchable><code>renomear(caminho, destino) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>renomear</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="copiar-caminho-destino-recursivo-bool-false-path" data-searchable><code>copiar(caminho, destino, *, recursivo: bool = False) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>copiar</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>IsADirectoryError</code></p>
+<h4 id="mover-caminho-destino-path" data-searchable><code>mover(caminho, destino) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>mover</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="tamanho-caminho-int" data-searchable><code>tamanho(caminho) -&gt; int</code></h4>
+<p data-searchable>Entrada pública <code>tamanho</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>int</code></p>
+<h4 id="metadados-caminho-dict-str-any" data-searchable><code>metadados(caminho) -&gt; dict[str, Any]</code></h4>
+<p data-searchable>Entrada pública <code>metadados</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<h4 id="arquivo-temporario-prefixo-coral-sufixo-pasta-none-path" data-searchable><code>arquivo_temporario(*, prefixo = 'coral_', sufixo = '', pasta = None) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>arquivo_temporario</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sufixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>''</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="pasta-temporaria-prefixo-coral-pasta-none-path" data-searchable><code>pasta_temporaria(*, prefixo = 'coral_', pasta = None) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>pasta_temporaria</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="nome-caminho-str" data-searchable><code>nome(caminho) -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>nome</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<h4 id="extensao-caminho-str" data-searchable><code>extensao(caminho) -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>extensao</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<h4 id="pai-caminho-path" data-searchable><code>pai(caminho) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>pai</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="resolver-caminho-estrito-bool-false-path" data-searchable><code>resolver(caminho, *, estrito: bool = False) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>resolver</code> da superfície <code>coral.arquivos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>estrito</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="aleatorio.html"><span>Anterior</span><strong>coral.aleatorio</strong></a><a class="docs-page-nav-link next" href="assincrono.html"><span>Próxima</span><strong>coral.assincrono</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

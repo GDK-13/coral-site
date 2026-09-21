@@ -1,0 +1,5 @@
+# Gerado por tools/atualizar_docs.py — ajuste o domínio via --url-base antes de publicar.
+User-agent: *
+Allow: /
+
+Sitemap: https://coral-lang.example/sitemap.xml

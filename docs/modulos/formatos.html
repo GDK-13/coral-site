@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.formatos oferece CSV, hexadecimal e Base64. Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.formatos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.formatos — Documentação Coral">
+  <meta property="og:description" content="coral.formatos oferece CSV, hexadecimal e Base64. Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.formatos — Documentação Coral">
+  <meta name="twitter:description" content="coral.formatos oferece CSV, hexadecimal e Base64. Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a class="active" aria-current="page" href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.formatos</h1>
+      <p>coral.formatos oferece CSV, hexadecimal e Base64. Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.formatos</code> oferece CSV, hexadecimal e Base64. Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.formatos</code> <strong>Categoria:</strong> formatos</p>
+<p data-searchable>CSV, hexadecimal e Base64</p>
+<div class="callout variant-aviso"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Aviso</span><p class="callout-text" data-searchable>Hexadecimal e Base64 são codificações, não mecanismos de segurança.</p></div></div>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>para_hex</code>, <code>de_hex</code>, <code>para_base64</code>, <code>de_base64</code>, <code>para_csv</code>, <code>de_csv</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para codificação e formatos auxiliares como CSV, hexadecimal e Base64.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>para_hex</code>, <code>de_hex</code>, <code>para_base64</code>, <code>de_base64</code>, <code>para_csv</code>, <code>de_csv</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/04_criptografia_basica.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Codificação, hash, token seguro e autenticação. Nenhum destes recursos cifra dados.</span>
+de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
+de <span class="code-mod">coral.criptografia</span> <span class="code-key">importe</span> resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+<span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Base64 e hexadecimal são codificações, não mecanismos de segurança.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Na mesma área, veja também <code>coral.json</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="para-hex-dados-maiusculas-false-str" data-searchable><code>para_hex(dados, *, maiusculas = False) -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>para_hex</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maiusculas</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+<h4 id="de-hex-texto-bytes" data-searchable><code>de_hex(texto) -&gt; bytes</code></h4>
+<p data-searchable>Entrada pública <code>de_hex</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h4 id="para-base64-dados-url-false-sem-padding-false-str" data-searchable><code>para_base64(dados, *, url = False, sem_padding = False) -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>para_base64</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sem_padding</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+<h4 id="de-base64-texto-url-false-bytes" data-searchable><code>de_base64(texto, *, url = False) -&gt; bytes</code></h4>
+<p data-searchable>Entrada pública <code>de_base64</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h4 id="para-csv-linhas-iterable-mapping-str-any-iterable-any-colunas-none-delimitador-str" data-searchable><code>para_csv(linhas: Iterable[Mapping[str, Any] | Iterable[Any]], *, colunas = None, delimitador = ',') -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>para_csv</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable><code>Iterable[Mapping[str, Any] | Iterable[Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<h4 id="de-csv-texto-cabecalho-true-delimitador" data-searchable><code>de_csv(texto, *, cabecalho = True, delimitador = ',')</code></h4>
+<p data-searchable>Entrada pública <code>de_csv</code> da superfície <code>coral.formatos</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="formatacao.html"><span>Anterior</span><strong>coral.formatacao</strong></a><a class="docs-page-nav-link next" href="json.html"><span>Próxima</span><strong>coral.json</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

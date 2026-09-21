@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.comum oferece contratos transversais de erros, resultados e diagnósticos. Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.comum — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.comum — Documentação Coral">
+  <meta property="og:description" content="coral.comum oferece contratos transversais de erros, resultados e diagnósticos. Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.comum — Documentação Coral">
+  <meta name="twitter:description" content="coral.comum oferece contratos transversais de erros, resultados e diagnósticos. Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a class="active" aria-current="page" href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.comum</h1>
+      <p>coral.comum oferece contratos transversais de erros, resultados e diagnósticos. Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.comum</code> oferece contratos transversais de erros, resultados e diagnósticos. Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.comum</code> <strong>Categoria:</strong> runtime</p>
+<p data-searchable>contratos transversais de erros, resultados e diagnósticos</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>CONTRATO</code>, <code>CONTRATO_DIAGNOSTICO</code>, <code>ErroCoral</code>, <code>ErroOperacaoCoral</code>, <code>ErroDependenciaCoral</code>, <code>FalhaOperacao</code>, <code>ResultadoOperacao</code>, <code>DiagnosticoOperacional</code>, <code>diagnostico</code>, <code>agregar_diagnosticos</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Este módulo reúne contratos compartilhados de erro, resultado e diagnóstico usados por outras partes da biblioteca.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>CONTRATO</code>, <code>CONTRATO_DIAGNOSTICO</code>, <code>ErroCoral</code>, <code>ErroOperacaoCoral</code>, <code>ErroDependenciaCoral</code>, <code>FalhaOperacao</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>Uma importação seletiva começa assim:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.comum</span> <span class="code-key">importe</span> CONTRATO, CONTRATO_DIAGNOSTICO, ErroCoral</code></pre></div></div>
+<p data-searchable>Depois da importação, use o hover e o preenchimento do VS Code para consultar a assinatura exata disponível na release.</p>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>É uma superfície mais estrutural. Em programas simples, normalmente você chega a esses tipos por meio de outro módulo.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Na mesma área, veja também <code>coral.assincrono</code>, <code>coral.conversoes</code>, <code>coral.entrada</code>, <code>coral.tipos</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="diagnostico-id-str-dominio-str-ok-bool-mensagem-any-capacidade-str-none-none-sugestao-str-none-none-detalhe-mapping-str-any-none-none-diagnosticooperacional" data-searchable><code>diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] | None = None) -&gt; DiagnosticoOperacional</code></h4>
+<p data-searchable>Entrada pública <code>diagnostico</code> da superfície <code>coral.comum</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>id</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>DiagnosticoOperacional</code></p>
+<h4 id="agregar-diagnosticos-itens-iterable-diagnosticooperacional-mapping-str-any-origem-str-coral-dict-str-any" data-searchable><code>agregar_diagnosticos(itens: Iterable[DiagnosticoOperacional | Mapping[str, Any]], *, origem: str = 'coral') -&gt; dict[str, Any]</code></h4>
+<p data-searchable>Entrada pública <code>agregar_diagnosticos</code> da superfície <code>coral.comum</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>itens</code></td><td data-searchable><code>Iterable[DiagnosticoOperacional | Mapping[str, Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'coral'</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="falhaoperacao-codigo-str-mensagem-str-dominio-str-tipo-str-operacional-causa-str-none-none-detalhe-mapping-str-any-field-default-factory-dict" data-searchable><code>FalhaOperacao(codigo: str, mensagem: str, dominio: str, tipo: str = 'operacional', causa: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></h4>
+<p data-searchable>Entrada pública <code>FalhaOperacao</code> da superfície <code>coral.comum</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'operacional'</code></td></tr>
+<tr><td data-searchable><code>causa</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>de_excecao</code></td><td data-searchable>método</td><td data-searchable><code>de_excecao(exc: BaseException, *, codigo: str, dominio: str, tipo: str = 'operacional', detalhe: Mapping[str, Any] | None = None) -&gt; 'FalhaOperacao'</code></td><td data-searchable><code>'FalhaOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="resultadooperacao-ok-bool-valor-any-none-falha-falhaoperacao-none-none-metadados-mapping-str-any-field-default-factory-dict" data-searchable><code>ResultadoOperacao(ok: bool, valor: Any = None, falha: FalhaOperacao | None = None, metadados: Mapping[str, Any] = field(default_factory=dict))</code></h4>
+<p data-searchable>Representação transversal sem substituir resultados ricos de domínio.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>falha</code></td><td data-searchable><code>FalhaOperacao | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>método</td><td data-searchable><code>sucesso(valor: Any = None, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td><td data-searchable><code>'ResultadoOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>método</td><td data-searchable><code>erro(falha: FalhaOperacao, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td><td data-searchable><code>'ResultadoOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h4 id="diagnosticooperacional-id-str-dominio-str-ok-bool-mensagem-str-capacidade-str-none-none-sugestao-str-none-none-detalhe-mapping-str-any-field-default-factory-dict" data-searchable><code>DiagnosticoOperacional(id: str, dominio: str, ok: bool, mensagem: str, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></h4>
+<p data-searchable>Entrada pública <code>DiagnosticoOperacional</code> da superfície <code>coral.comum</code>.</p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>id</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nivel</code></td><td data-searchable>propriedade</td><td data-searchable><code>nivel() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errocoral" data-searchable><code>ErroCoral(...)</code></h4>
+<p data-searchable>Raiz pública dos erros controlados pela linguagem e bibliotecas Coral.</p>
+<h4 id="errooperacaocoral" data-searchable><code>ErroOperacaoCoral(...)</code></h4>
+<p data-searchable>Falha operacional de um recurso Coral ou de seu backend.</p>
+<h4 id="errodependenciacoral" data-searchable><code>ErroDependenciaCoral(...)</code></h4>
+<p data-searchable>Uma capacidade opcional não pode operar por ausência de dependência.</p>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
+<p data-searchable>Constante pública do módulo.</p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.comum/1'</code></p>
+<h4 id="contrato-diagnostico" data-searchable><code>CONTRATO_DIAGNOSTICO</code></h4>
+<p data-searchable>Constante pública do módulo.</p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.diagnostico.operacional/1'</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="colecoes.html"><span>Anterior</span><strong>coral.colecoes</strong></a><a class="docs-page-nav-link next" href="conversoes.html"><span>Próxima</span><strong>coral.conversoes</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
+<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li>
+<li class="toc-level-3"><a href="#excecoes" data-toc-link>Exceções</a></li>
+<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

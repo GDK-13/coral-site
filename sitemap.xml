@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Gerado por tools/atualizar_docs.py. O domínio abaixo é um placeholder: gere novamente com --url-base=https://SEU-DOMINIO antes de publicar. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://coral-lang.example/</loc></url>
+  <url><loc>https://coral-lang.example/docs/</loc></url>
+  <url><loc>https://coral-lang.example/docs/index.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/instalacao.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/primeiro_programa.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/projetos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/vscode.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/testes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/repl_cli.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/exemplos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/livro.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/release.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/numerico.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/sistema.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/laboratorio.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/hardware.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/mundo.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/regras.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/rpg.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/jogos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/aleatorio.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/arquivos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/assincrono.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/caminhos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/colecoes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/comum.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/conversoes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/criptografia.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/datas.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/entrada.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/formatacao.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/formatos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/json.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/matematica.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/observadores_reativos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/persistencia.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/rastreamento_reativo.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/replay_reativo.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/sequencias_reativas.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/tempo_eventos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/texto.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/tipos.html</loc></url>
+</urlset>

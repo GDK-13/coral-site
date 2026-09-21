@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.caminhos oferece normalização explícita de caminhos locais e portáteis. Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.caminhos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.caminhos — Documentação Coral">
+  <meta property="og:description" content="coral.caminhos oferece normalização explícita de caminhos locais e portáteis. Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.caminhos — Documentação Coral">
+  <meta name="twitter:description" content="coral.caminhos oferece normalização explícita de caminhos locais e portáteis. Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a class="active" aria-current="page" href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.caminhos</h1>
+      <p>coral.caminhos oferece normalização explícita de caminhos locais e portáteis. Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.caminhos</code> oferece normalização explícita de caminhos locais e portáteis. Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.caminhos</code> <strong>Categoria:</strong> sistema</p>
+<p data-searchable>normalização explícita de caminhos locais e portáteis</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>CaminhoAceito</code>, <code>normalizar_caminho</code>, <code>juntar_caminho</code>, <code>estilo_caminho</code>, <code>estilo_nativo</code>, <code>caminho_portatil</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para juntar e normalizar caminhos de forma explícita e mais portátil entre sistemas.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>normalizar_caminho</code>, <code>juntar_caminho</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/02_arquivos_json_e_caminhos.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> para_json, de_json
+de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</span> juntar_caminho
+
+<span class="code-key">defina</span> caminho_texto como <span class="code-fn">juntar_caminho</span>(<span class="code-str">&quot;dados&quot;</span>, <span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> caminho_texto
+
+execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
+<span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> conteudo
+
+<span class="code-key">defina</span> original como {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;nota&quot;</span>: <span class="code-num">9</span>}</code></pre></div></div>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Evite montar caminhos manualmente por concatenação de barras.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Na mesma área, veja também <code>coral.arquivos</code>, <code>coral.sistema</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="normalizar-caminho-valor-caminhoaceito-expandir-usuario-bool-false-resolver-bool-false-path" data-searchable><code>normalizar_caminho(valor: CaminhoAceito, *, expandir_usuario: bool = False, resolver: bool = False) -&gt; Path</code></h4>
+<p data-searchable>Converte uma entrada para `<code>Path</code>` nativo com regras explícitas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>CaminhoAceito</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>expandir_usuario</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>resolver</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code>, <code>TypeError</code></p>
+<h4 id="juntar-caminho-partes-any-expandir-usuario-bool-true-path" data-searchable><code>juntar_caminho(*partes: Any, expandir_usuario: bool = True) -&gt; Path</code></h4>
+<p data-searchable>Entrada pública <code>juntar_caminho</code> da superfície <code>coral.caminhos</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*partes</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>variádico</td></tr>
+<tr><td data-searchable><code>expandir_usuario</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<h4 id="estilo-caminho-valor-purepath-str" data-searchable><code>estilo_caminho(valor: PurePath) -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>estilo_caminho</code> da superfície <code>coral.caminhos</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable><code>PurePath</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<h4 id="estilo-nativo-str" data-searchable><code>estilo_nativo() -&gt; str</code></h4>
+<p data-searchable>Entrada pública <code>estilo_nativo</code> da superfície <code>coral.caminhos</code>.</p>
+<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
+<h4 id="caminho-portatil-texto-str-estilo-str-concreto-bool-true-purepath" data-searchable><code>caminho_portatil(texto: str, estilo: str, *, concreto: bool = True) -&gt; PurePath</code></h4>
+<p data-searchable>Reconstrói a categoria caminho sem fingir compatibilidade entre SOs.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>concreto</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>PurePath</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="caminhoaceito" data-searchable><code>CaminhoAceito</code></h4>
+<p data-searchable>Alias público de tipo ou valor.</p>
+<p data-searchable><strong>Valor declarado:</strong> <code>str | os.PathLike[str]</code></p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="assincrono.html"><span>Anterior</span><strong>coral.assincrono</strong></a><a class="docs-page-nav-link next" href="colecoes.html"><span>Próxima</span><strong>coral.colecoes</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
+<li class="toc-level-3"><a href="#constantes-e-aliases" data-toc-link>Constantes e aliases</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

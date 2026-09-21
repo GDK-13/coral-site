@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.aleatorio oferece aleatoriedade reproduzível e simulação. Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.aleatorio — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.aleatorio — Documentação Coral">
+  <meta property="og:description" content="coral.aleatorio oferece aleatoriedade reproduzível e simulação. Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.aleatorio — Documentação Coral">
+  <meta name="twitter:description" content="coral.aleatorio oferece aleatoriedade reproduzível e simulação. Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a class="active" aria-current="page" href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.aleatorio</h1>
+      <p>coral.aleatorio oferece aleatoriedade reproduzível e simulação. Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.aleatorio</code> oferece aleatoriedade reproduzível e simulação. Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.aleatorio</code> <strong>Categoria:</strong> simulacao</p>
+<p data-searchable>aleatoriedade reproduzível e simulação</p>
+<div class="callout variant-aviso"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><span class="callout-label">Aviso</span><p class="callout-text" data-searchable>Não usar para senhas, chaves, tokens ou outros segredos.</p></div></div>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>FonteAleatoria</code>, <code>fonte</code>, <code>inteiro</code>, <code>decimal</code>, <code>escolher</code>, <code>amostra</code>, <code>escolha_ponderada</code>, <code>embaralhar</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use quando um programa precisa de sorteios, amostras ou simulações reproduzíveis. Uma fonte com semente fixa é especialmente útil em testes.</p>
+<p data-searchable>Entre as entradas públicas detectadas estão <code>FonteAleatoria</code>, <code>fonte</code>, <code>inteiro</code>, <code>decimal</code>, <code>escolher</code>, <code>amostra</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui um exemplo real em <code>Exemplos/Dados/03_aleatorio_e_persistencia.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Aleatoriedade reproduzível e persistência portátil.</span>
+de <span class="code-mod">coral.aleatorio</span> <span class="code-key">importe</span> fonte
+de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
+
+<span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+garanta que primeiro for igual a segundo
+
+<span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}</code></pre></div></div>
+<h2 id="cuidados" data-searchable>Cuidados</h2>
+<p data-searchable>Não use aleatoriedade comum para segredos. Para tokens e bytes seguros, use <code>coral.criptografia</code>.</p>
+<h2 id="relacoes-com-outros-modulos" data-searchable>Relações com outros módulos</h2>
+<p data-searchable>Consulte a navegação lateral para módulos que fornecem dados, sistema, texto ou runtime complementar.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="fonte-semente-none-fontealeatoria" data-searchable><code>fonte(semente = None) -&gt; FonteAleatoria</code></h4>
+<p data-searchable>Entrada pública <code>fonte</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>semente</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>FonteAleatoria</code></p>
+<h4 id="inteiro-minimo-maximo-fonte-fontealeatoria-none-none" data-searchable><code>inteiro(minimo, maximo, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>inteiro</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="decimal-minimo-0-0-maximo-1-0-fonte-fontealeatoria-none-none" data-searchable><code>decimal(minimo = 0.0, maximo = 1.0, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>decimal</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>0.0</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1.0</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="escolher-valores-fonte-fontealeatoria-none-none" data-searchable><code>escolher(valores, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>escolher</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="amostra-valores-quantidade-fonte-fontealeatoria-none-none" data-searchable><code>amostra(valores, quantidade, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>amostra</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h4 id="escolha-ponderada-valores-pesos-fonte-fontealeatoria-none-none" data-searchable><code>escolha_ponderada(valores, pesos, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>escolha_ponderada</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>pesos</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<h4 id="embaralhar-valores-fonte-fontealeatoria-none-none" data-searchable><code>embaralhar(valores, *, fonte: FonteAleatoria | None = None)</code></h4>
+<p data-searchable>Entrada pública <code>embaralhar</code> da superfície <code>coral.aleatorio</code>.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="fontealeatoria-semente-any-none" data-searchable><code>FonteAleatoria(semente: Any = None)</code></h4>
+<p data-searchable>Fonte reproduzível quando criada com semente explícita.</p>
+<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Atributos declarados</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>semente</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+<th>Retorno</th>
+<th>Descrição</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inteiro</code></td><td data-searchable>método</td><td data-searchable><code>inteiro(minimo, maximo)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>decimal</code></td><td data-searchable>método</td><td data-searchable><code>decimal(minimo = 0.0, maximo = 1.0)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>escolher</code></td><td data-searchable>método</td><td data-searchable><code>escolher(valores)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>amostra</code></td><td data-searchable>método</td><td data-searchable><code>amostra(valores, quantidade)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>escolha_ponderada</code></td><td data-searchable>método</td><td data-searchable><code>escolha_ponderada(valores, pesos)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>embaralhar</code></td><td data-searchable>método</td><td data-searchable><code>embaralhar(valores)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+</tbody></table></div>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="jogos.html"><span>Anterior</span><strong>coral.jogos</strong></a><a class="docs-page-nav-link next" href="arquivos.html"><span>Próxima</span><strong>coral.arquivos</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-3"><a href="#superficie-publica-detectada" data-toc-link>Superfície pública detectada</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#cuidados" data-toc-link>Cuidados</a></li>
+<li class="toc-level-2"><a href="#relacoes-com-outros-modulos" data-toc-link>Relações com outros módulos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
+<li class="toc-level-3"><a href="#funcoes" data-toc-link>Funções</a></li>
+<li class="toc-level-3"><a href="#classes-e-protocolos" data-toc-link>Classes e protocolos</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

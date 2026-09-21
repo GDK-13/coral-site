@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Release atual — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Release atual — Documentação Coral">
+  <meta property="og:description" content="Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.">
+  <meta property="og:image" content="../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Release atual — Documentação Coral">
+  <meta name="twitter:description" content="Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.">
+  <meta name="twitter:image" content="../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="index.html">Introdução</a></li>
+<li><a href="instalacao.html">Instalação</a></li>
+<li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="vscode.html">VS Code</a></li>
+<li><a href="testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="repl_cli.html">REPL e CLI</a></li>
+<li><a href="exemplos.html">Exemplos oficiais</a></li>
+<li><a href="livro.html">Livro Oficial</a></li>
+<li><a class="active" aria-current="page" href="release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a href="modulos/numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="modulos/sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="modulos/laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="modulos/hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="modulos/mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="modulos/regras.html"><code>coral.regras</code></a></li>
+<li><a href="modulos/rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="modulos/jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="modulos/arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="modulos/assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="modulos/caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="modulos/colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="modulos/comum.html"><code>coral.comum</code></a></li>
+<li><a href="modulos/conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
+<li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="modulos/json.html"><code>coral.json</code></a></li>
+<li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
+<li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Referência</div>
+      <h1>Release atual</h1>
+      <p>Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <p data-searchable>Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.</p>
+<h2 id="o-que-significa-estavel" data-searchable>O que significa estável</h2>
+<p data-searchable>Uma release estável passou pelos gates de congelamento definidos para a linha atual. Durante o desenvolvimento são usados testes focados; no congelamento final entram também as camadas lentas e históricas necessárias.</p>
+<h2 id="compatibilidade-editorial" data-searchable>Compatibilidade editorial</h2>
+<p data-searchable>A versão do runtime, a versão da extensão e a edição do Livro aparecem separadamente porque são artefatos diferentes. Isso evita promover uma nova edição editorial apenas para acompanhar uma alteração técnica.</p>
+<h2 id="atualizacao-do-site" data-searchable>Atualização do site</h2>
+<p data-searchable>Quando uma nova Coral é publicada, o gerador deste repositório importa o ZIP oficial, compara com o snapshot anterior e atualiza versões, módulos, CLI, exemplos, changelog e páginas mecânicas. Mudanças pedagógicas continuam passando por revisão humana.</p>
+<h2 id="changelog" data-searchable>Changelog</h2>
+<p data-searchable>O trecho abaixo vem diretamente do changelog da release importada.</p>
+<h2 id="1-5-9-integracao-oficial-com-vs-code-e-refinamento-da-distribuicao" data-searchable>1.5.9 — integração oficial com VS Code e refinamento da distribuição</h2>
+<ul>
+<li data-searchable>Promove Coral Language 0.41.0 como extensão oficial da Coral 1.5.9.</li>
+<li data-searchable>Amplia IntelliSense próprio, navegação, hovers, signature help, auto import, semantic tokens e diagnóstico contextual pelo LSP.</li>
+<li data-searchable>Corrige o reconhecimento de formas naturais importadas tanto na execução direta quanto nos diagnósticos do editor.</li>
+<li data-searchable>Consolida execução, Test Explorer, REPL, DAP/F5, restart, informações de ambiente e recuperação de falhas do servidor.</li>
+<li data-searchable>Evolui Project Explorer, suporte a <code>coral.toml</code>, projetos aninhados, multiroot, criação guiada de arquivos e Biblioteca Coral.</li>
+<li data-searchable>Refina a coloração em duas camadas, com TextMate como fallback e semantic tokens contextuais respeitando o tema do usuário.</li>
+<li data-searchable>Atualiza o limite de linha para 150 caracteres e mantém a sugestão segura de quebra com prévia fantasma no VS Code.</li>
+<li data-searchable>Reestrutura a biblioteca de exemplos, remove demonstrações redundantes ou excessivamente nichadas e separa fixtures de aceitação dos exemplos pedagógicos.</li>
+<li data-searchable>Faz <code>Livro/Exemplos</code> conter também cópias sincronizadas dos códigos citados no Livro, sem recompilação redundante nas validações.</li>
+<li data-searchable>Mantém o Livro Oficial na edição 1.5.8, desacoplando a edição editorial da versão técnica do runtime.</li>
+<li data-searchable>Incorpora a nova guideline oficial de identidade visual da Coral à documentação e ao gerador do Livro.</li>
+<li data-searchable>Preserva a política anti acúmulo: validações focadas durante o desenvolvimento e uma única bateria completa no congelamento da release.</li>
+</ul>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="livro.html"><span>Anterior</span><strong>Livro Oficial</strong></a><a class="docs-page-nav-link next" href="modulos/numerico.html"><span>Próxima</span><strong>coral.numerico</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#o-que-significa-estavel" data-toc-link>O que significa estável</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-editorial" data-toc-link>Compatibilidade editorial</a></li>
+<li class="toc-level-2"><a href="#atualizacao-do-site" data-toc-link>Atualização do site</a></li>
+<li class="toc-level-2"><a href="#changelog" data-toc-link>Changelog</a></li>
+<li class="toc-level-2"><a href="#1-5-9-integracao-oficial-com-vs-code-e-refinamento-da-distribuicao" data-toc-link>1.5.9 — integração oficial com VS Code e refinamento da distribuição</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../assets/js/site.js"></script>
+</body>
+</html>
