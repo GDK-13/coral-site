@@ -102,33 +102,79 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Classes e protocolos
 
-#### `SequenciaDoisPassos(eventos: Eventos, primeiro: str, segundo: str, acao: AcaoSequencia, janela: float | None = None, nome: str = 'sequencia')`
+#### `SequenciaDoisPassos`
 
-Entrada pública `SequenciaDoisPassos` da superfície `coral.sequencias_reativas`.
+Representa SequenciaDoisPassos na API de `coral.sequencias_reativas`.
 
-**Atributos declarados**
+**Exemplo**
 
-| Nome | Tipo | Padrão |
+```coral
+fim
+
+defina sequencia como SequenciaDoisPassos(eventos, "abrir", "confirmar", concluiu, janela=2)
+mostre sequencia
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos` | obrigatório |
+| `primeiro` | Valor correspondente a primeiro. | `str` | obrigatório |
+| `segundo` | Valor correspondente a segundo. | `str` | obrigatório |
+| `acao` | Valor correspondente a acao. | `AcaoSequencia` | obrigatório |
+| `janela` | Valor correspondente a janela. | `float \| None` | `None` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'sequencia'` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos` | obrigatório |
+| `primeiro` | Valor correspondente a primeiro. | `str` | obrigatório |
+| `segundo` | Valor correspondente a segundo. | `str` | obrigatório |
+| `acao` | Valor correspondente a acao. | `AcaoSequencia` | obrigatório |
+| `janela` | Valor correspondente a janela. | `float \| None` | `None` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'sequencia'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `eventos` | `Eventos` | obrigatório |
-| `primeiro` | `str` | obrigatório |
-| `segundo` | `str` | obrigatório |
-| `acao` | `AcaoSequencia` | obrigatório |
-| `janela` | `float \| None` | `None` |
-| `nome` | `str` | `'sequencia'` |
+| `resetar` | Executa a operação `resetar` disponibilizada por `coral.sequencias_reativas`. | `None` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `resetar` | método | `resetar() -> None` | `None` | Sem docstring própria na release. |
+**Assinatura:** `SequenciaDoisPassos(eventos: Eventos, primeiro: str, segundo: str, acao: AcaoSequencia, janela: float \| None = None, nome: str = 'sequencia')`
+
+**Origem da implementação:** `coral.sequencias_reativas`
+
+**Arquivo na release:** `coral/sequencias_reativas.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `resetar` | método | `resetar() -> None` |
+
+:::
 
 ### Constantes e aliases
 
 #### `AcaoSequencia`
 
-Alias público de tipo ou valor.
+Expõe `AcaoSequencia` como parte da API pública do módulo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `AcaoSequencia`
+
+**Origem da implementação:** `coral.sequencias_reativas`
+
+**Arquivo na release:** `coral/sequencias_reativas.py`
 
 **Valor declarado:** `Callable[[Evento, Evento], Any]`
+
+:::
 
 <!-- /AUTO:API -->

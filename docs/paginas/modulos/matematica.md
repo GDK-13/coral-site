@@ -111,339 +111,627 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `raiz(valor)`
+#### `raiz`
 
-Entrada pública `raiz` da superfície `coral.matematica`.
+Calcula uma raiz do valor informado.
 
-**Implementação:** `coral.stdlib.matematica`
+**Exemplo**
 
-**Parâmetros**
+```coral
+de coral.matematica importe raiz, media, seno, pi
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-
-**Retorno:** `não declarado`
-
-#### `potencia(base, expoente)`
-
-Entrada pública `potencia` da superfície `coral.matematica`.
-
-**Implementação:** `coral.stdlib.matematica`
+mostre raiz(81)
+mostre media([2, 4, 6, 8])
+mostre seno(pi / 2)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `base` | `não declarado` | obrigatório | posicional |
-| `expoente` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `absoluto(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `absoluto` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `raiz(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `potencia`
+
+Eleva um valor à potência informada.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `base` | Base usada pela conversão ou cálculo. | `não declarado` | obrigatório |
+| `expoente` | Valor correspondente a expoente. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `arredondar(valor, casas = 0)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `arredondar` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `potencia(base, expoente)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `absoluto`
+
+Calcula o valor absoluto.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `casas` | `não declarado` | `0` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `minimo(valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `minimo` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `absoluto(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `arredondar`
+
+Arredonda o valor segundo a precisão solicitada.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `casas` | Valor correspondente a casas. | `não declarado` | `0` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `maximo(valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `maximo` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `arredondar(valor, casas = 0)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `minimo`
+
+Obtém o menor valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `soma(valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `soma` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `minimo(valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `maximo`
+
+Obtém o maior valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `media(valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `media` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `maximo(valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `soma`
+
+Calcula a soma dos valores.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna o resultado da soma.
 
-#### `seno(valor)`
+:::details Detalhes técnicos
 
-Entrada pública `seno` da superfície `coral.matematica`.
+**Assinatura:** `soma(valores)`
 
-**Implementação:** `coral.stdlib.matematica`
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `media`
+
+Calcula a média dos valores.
+
+**Exemplo**
+
+```coral
+de coral.matematica importe raiz, media, seno, pi
+
+mostre raiz(81)
+mostre media([2, 4, 6, 8])
+mostre seno(pi / 2)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `cosseno(valor)`
+Retorna a média calculada.
 
-Entrada pública `cosseno` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `media(valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `seno`
+
+Calcula o seno do ângulo.
+
+**Exemplo**
+
+```coral
+de coral.matematica importe raiz, media, seno, pi
+
+mostre raiz(81)
+mostre media([2, 4, 6, 8])
+mostre seno(pi / 2)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `tangente(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `tangente` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `seno(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `cosseno`
+
+Calcula o cosseno do ângulo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `piso(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `piso` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `cosseno(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `tangente`
+
+Calcula a tangente do ângulo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `teto(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `teto` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `tangente(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `piso`
+
+Obtém o maior inteiro que não ultrapassa o valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `truncar(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `truncar` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `piso(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `teto`
+
+Obtém o menor inteiro que não é inferior ao valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `log(valor, base = None)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `log` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `teto(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `truncar`
+
+Remove a parte fracionária do valor segundo a operação suportada pela release.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `base` | `não declarado` | `None` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `exp(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `exp` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `truncar(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `log`
+
+Calcula o logaritmo do valor na base informada.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `base` | Base usada pela conversão ou cálculo. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `graus(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `graus` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `log(valor, base = None)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `exp`
+
+Calcula a função exponencial do valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `radianos(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `radianos` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `exp(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `graus`
+
+Converte um ângulo em radianos para graus.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `limitar(valor, minimo, maximo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `limitar` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `graus(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `radianos`
+
+Converte um ângulo em graus para radianos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `minimo` | `não declarado` | obrigatório | posicional |
-| `maximo` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `finito(valor)`
+:::details Detalhes técnicos
 
-Entrada pública `finito` da superfície `coral.matematica`.
+**Assinatura:** `radianos(valor)`
 
-**Implementação:** `coral.stdlib.matematica`
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `limitar`
+
+Restringir faixa.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `minimo` | Limite mínimo considerado pela operação. | `não declarado` | obrigatório |
+| `maximo` | Limite máximo considerado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `mdc(*valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `mdc` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `limitar(valor, minimo, maximo)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `finito`
+
+Indica se o valor numérico é finito.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*valores` | `não declarado` | obrigatório | variádico |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `mmc(*valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `mmc` da superfície `coral.matematica`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.matematica`
+**Assinatura:** `finito(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `mdc`
+
+Calcula o máximo divisor comum.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*valores` | `não declarado` | obrigatório | variádico |
+| `*valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `mdc(*valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*valores` | variádico |
+
+:::
+
+#### `mmc`
+
+Calcula o mínimo múltiplo comum.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `*valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `mmc(*valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*valores` | variádico |
+
+:::
 
 ### Constantes e aliases
 
 #### `pi`
 
-Alias público de tipo ou valor.
+Expõe `pi` como parte da API pública do módulo.
 
-**Implementação:** `coral.stdlib.matematica`
+**Exemplo**
+
+```coral
+de coral.matematica importe raiz, media, seno, pi
+
+mostre raiz(81)
+mostre media([2, 4, 6, 8])
+mostre seno(pi / 2)
+```
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pi`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
 
 **Valor declarado:** `math.pi`
 
+:::
+
 #### `e`
 
-Alias público de tipo ou valor.
+Expõe `e` como parte da API pública do módulo.
 
-**Implementação:** `coral.stdlib.matematica`
+:::details Detalhes técnicos
+
+**Assinatura:** `e`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
 
 **Valor declarado:** `math.e`
+
+:::
 
 <!-- /AUTO:API -->

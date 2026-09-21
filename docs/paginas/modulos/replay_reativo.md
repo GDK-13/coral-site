@@ -100,51 +100,150 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Classes e protocolos
 
-#### `RegistroReplay(tipo: str, dados: dict[str, Any])`
+#### `RegistroReplay`
 
-Entrada pública `RegistroReplay` da superfície `coral.replay_reativo`.
+Representa registro persistível.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `RegistroReplay(tipo: str, dados: dict[str, Any])`
+
+**Origem da implementação:** `coral.replay_reativo`
+
+**Arquivo na release:** `coral/replay_reativo.py`
+
+:::
+
+#### `ResultadoReplay`
+
+Representa resultado da reprodução.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `instante` | Valor correspondente a instante. | `float` | obrigatório |
+| `processados` | Valor correspondente a processados. | `tuple[str, ...]` | `()` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `instante` | Valor correspondente a instante. | `float` | obrigatório |
+| `processados` | Valor correspondente a processados. | `tuple[str, ...]` | `()` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ResultadoReplay(tipo: str, instante: float, processados: tuple[str, ...] = ())`
+
+**Origem da implementação:** `coral.replay_reativo`
+
+**Arquivo na release:** `coral/replay_reativo.py`
+
+:::
+
+#### `GravadorReplay`
+
+Representa GravadorReplay na API de `coral.replay_reativo`.
+
+**Exemplo**
+
+```coral
+de coral.replay_reativo importe GravadorReplay, ReplayReativo
+
+defina gravador como GravadorReplay()
+mostre gravador
+defina replay como ReplayReativo([])
+mostre replay
+```
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `tipo` | `str` | obrigatório |
-| `dados` | `dict[str, Any]` | obrigatório |
+| `registros` | Executa a operação `registros` disponibilizada por `coral.replay_reativo`. | `tuple[RegistroReplay, ...]` |
+| `evento` | Executa a operação `evento` disponibilizada por `coral.replay_reativo`. | `RegistroReplay` |
+| `mudanca_mapa` | Registra uma mudança aplicada para reconstrução determinística posterior. | `RegistroReplay` |
+| `avancar` | Avança o valor solicitado. | `RegistroReplay` |
+| `como_json` | Representa o valor como JSON. | `str` |
 
-#### `ResultadoReplay(tipo: str, instante: float, processados: tuple[str, ...] = ())`
+:::details Detalhes técnicos
 
-Entrada pública `ResultadoReplay` da superfície `coral.replay_reativo`.
+**Assinatura:** `GravadorReplay() -> None`
 
-**Atributos declarados**
+**Origem da implementação:** `coral.replay_reativo`
 
-| Nome | Tipo | Padrão |
+**Arquivo na release:** `coral/replay_reativo.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `tipo` | `str` | obrigatório |
-| `instante` | `float` | obrigatório |
-| `processados` | `tuple[str, ...]` | `()` |
+| `registros` | propriedade | `registros() -> tuple[RegistroReplay, ...]` |
+| `evento` | método | `evento(nome: str, *args: Any, origem: str \| None = None, **kwargs: Any) -> RegistroReplay` |
+| `mudanca_mapa` | método | `mudanca_mapa(mudanca: Any) -> RegistroReplay` |
+| `avancar` | método | `avancar(segundos: Any) -> RegistroReplay` |
+| `como_json` | método | `como_json() -> str` |
 
-#### `GravadorReplay() -> None`
+:::
 
-Entrada pública `GravadorReplay` da superfície `coral.replay_reativo`.
+#### `ReplayReativo`
 
-**Métodos e propriedades públicas**
+Representa ReplayReativo na API de `coral.replay_reativo`.
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `registros` | propriedade | `registros() -> tuple[RegistroReplay, ...]` | `tuple[RegistroReplay, ...]` | Sem docstring própria na release. |
-| `evento` | método | `evento(nome: str, *args: Any, origem: str \| None = None, **kwargs: Any) -> RegistroReplay` | `RegistroReplay` | Sem docstring própria na release. |
-| `mudanca_mapa` | método | `mudanca_mapa(mudanca: Any) -> RegistroReplay` | `RegistroReplay` | Registra uma mudança aplicada para reconstrução determinística posterior. |
-| `avancar` | método | `avancar(segundos: Any) -> RegistroReplay` | `RegistroReplay` | Sem docstring própria na release. |
-| `como_json` | método | `como_json() -> str` | `str` | Sem docstring própria na release. |
+**Exemplo**
 
-#### `ReplayReativo(registros: Iterable[RegistroReplay | dict[str, Any]]) -> None`
+```coral
+de coral.replay_reativo importe GravadorReplay, ReplayReativo
 
-Entrada pública `ReplayReativo` da superfície `coral.replay_reativo`.
+defina gravador como GravadorReplay()
+mostre gravador
+defina replay como ReplayReativo([])
+mostre replay
+```
 
-**Métodos e propriedades públicas**
+**Parâmetros**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `reproduzir` | método | `reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -> tuple[ResultadoReplay, ...]` | `tuple[ResultadoReplay, ...]` | Sem docstring própria na release. |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `registros` | Valor correspondente a registros. | `Iterable[RegistroReplay \| dict[str, Any]]` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `reproduzir` | Reproduz o valor solicitado. | `tuple[ResultadoReplay, ...]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ReplayReativo(registros: Iterable[RegistroReplay \| dict[str, Any]]) -> None`
+
+**Origem da implementação:** `coral.replay_reativo`
+
+**Arquivo na release:** `coral/replay_reativo.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `reproduzir` | método | `reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -> tuple[ResultadoReplay, ...]` |
+
+:::
 
 <!-- /AUTO:API -->

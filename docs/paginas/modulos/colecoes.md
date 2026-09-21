@@ -102,77 +102,166 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `ordenar(valores, reverso = False)`
+#### `ordenar`
 
-Entrada pública `ordenar` da superfície `coral.colecoes`.
+Ordenar valores.
 
-**Implementação:** `coral.stdlib.colecoes`
+**Exemplo**
 
-**Parâmetros**
+```coral
+de coral.colecoes importe ordenar, unicos, primeiro
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `reverso` | `não declarado` | `False` | posicional |
-
-**Retorno:** `não declarado`
-
-#### `unicos(valores)`
-
-Entrada pública `unicos` da superfície `coral.colecoes`.
-
-**Implementação:** `coral.stdlib.colecoes`
+defina valores como [3, 1, 3, 2]
+defina ordenados como ordenar(valores)
+defina sem_repeticao como unicos(valores)
+mostre ordenados
+mostre sem_repeticao
+mostre primeiro(ordenados, nulo)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `reverso` | Valor correspondente a reverso. | `não declarado` | `False` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `contar(valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `contar` da superfície `coral.colecoes`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.colecoes`
+**Assinatura:** `ordenar(valores, reverso = False)`
+
+**Origem da implementação:** `coral.stdlib.colecoes`
+
+**Arquivo na release:** `coral/stdlib/colecoes.py`
+
+:::
+
+#### `unicos`
+
+Obter valores únicos.
+
+**Exemplo**
+
+```coral
+de coral.colecoes importe ordenar, unicos, primeiro
+
+defina valores como [3, 1, 3, 2]
+defina ordenados como ordenar(valores)
+defina sem_repeticao como unicos(valores)
+mostre ordenados
+mostre sem_repeticao
+mostre primeiro(ordenados, nulo)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `primeiro(valores, padrao = None)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `primeiro` da superfície `coral.colecoes`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.colecoes`
+**Assinatura:** `unicos(valores)`
+
+**Origem da implementação:** `coral.stdlib.colecoes`
+
+**Arquivo na release:** `coral/stdlib/colecoes.py`
+
+:::
+
+#### `contar`
+
+Contar elementos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `padrao` | `não declarado` | `None` | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `agrupar_pares(chaves, valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `agrupar_pares` da superfície `coral.colecoes`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.colecoes`
+**Assinatura:** `contar(valores)`
+
+**Origem da implementação:** `coral.stdlib.colecoes`
+
+**Arquivo na release:** `coral/stdlib/colecoes.py`
+
+:::
+
+#### `primeiro`
+
+Obter primeiro ou padrão.
+
+**Exemplo**
+
+```coral
+de coral.colecoes importe ordenar, unicos, primeiro
+
+defina valores como [3, 1, 3, 2]
+defina ordenados como ordenar(valores)
+defina sem_repeticao como unicos(valores)
+mostre ordenados
+mostre sem_repeticao
+mostre primeiro(ordenados, nulo)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `chaves` | `não declarado` | obrigatório | posicional |
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `primeiro(valores, padrao = None)`
+
+**Origem da implementação:** `coral.stdlib.colecoes`
+
+**Arquivo na release:** `coral/stdlib/colecoes.py`
+
+:::
+
+#### `agrupar_pares`
+
+Associar chaves e valores.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `chaves` | Valor correspondente a chaves. | `não declarado` | obrigatório |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `agrupar_pares(chaves, valores)`
+
+**Origem da implementação:** `coral.stdlib.colecoes`
+
+**Arquivo na release:** `coral/stdlib/colecoes.py`
+
+:::
 
 <!-- /AUTO:API -->

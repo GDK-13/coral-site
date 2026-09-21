@@ -111,321 +111,594 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `ler_texto(caminho, codificacao = 'utf-8')`
+#### `ler_texto`
 
-Entrada pública `ler_texto` da superfície `coral.arquivos`.
+Lê o conteúdo textual de um arquivo.
 
-**Implementação:** `coral.stdlib.arquivos`
+**Exemplo**
 
-**Parâmetros**
-
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `codificacao` | `não declarado` | `'utf-8'` | posicional |
-
-**Retorno:** `não declarado`
-
-#### `escrever_texto(caminho, texto, codificacao = 'utf-8')`
-
-Entrada pública `escrever_texto` da superfície `coral.arquivos`.
-
-**Implementação:** `coral.stdlib.arquivos`
+```coral
+execute escrever_texto("mensagem.txt", "Olá, arquivo!")
+defina conteudo como ler_texto("mensagem.txt")
+mostre conteudo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `texto` | `não declarado` | obrigatório | posicional |
-| `codificacao` | `não declarado` | `'utf-8'` | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `adicionar_texto(caminho, texto, codificacao = 'utf-8')`
+Retorna o texto lido.
 
-Entrada pública `adicionar_texto` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `ler_texto(caminho, codificacao = 'utf-8')`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `escrever_texto`
+
+Escreve texto em um arquivo, substituindo o conteúdo anterior.
+
+**Exemplo**
+
+```coral
+mostre caminho_texto
+
+execute escrever_texto("mensagem.txt", "Olá, arquivo!")
+defina conteudo como ler_texto("mensagem.txt")
+mostre conteudo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `texto` | `não declarado` | obrigatório | posicional |
-| `codificacao` | `não declarado` | `'utf-8'` | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `ler_bytes(caminho) -> bytes`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-Entrada pública `ler_bytes` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `escrever_texto(caminho, texto, codificacao = 'utf-8')`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `adicionar_texto`
+
+Acrescenta texto ao final de um arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
 
-**Retorno:** `bytes`
+**Retorno**
 
-#### `escrever_bytes(caminho, dados) -> None`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-Entrada pública `escrever_bytes` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `adicionar_texto(caminho, texto, codificacao = 'utf-8')`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `ler_bytes`
+
+Lê o conteúdo binário de um arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `dados` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `None`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna os bytes lidos.
 
-#### `existe(caminho)`
+:::details Detalhes técnicos
 
-Entrada pública `existe` da superfície `coral.arquivos`.
+**Assinatura:** `ler_bytes(caminho) -> bytes`
 
-**Implementação:** `coral.stdlib.arquivos`
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `escrever_bytes`
+
+Escreve dados binários em um arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `listar(caminho = '.')`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-Entrada pública `listar` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `escrever_bytes(caminho, dados) -> None`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `existe`
+
+Verifica se o caminho indicado existe.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | `'.'` | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `listar_recursivo(caminho = '.', *, profundidade: int | None = None, incluir_pastas: bool = False)`
+Retorna um valor lógico que indica o resultado da verificação.
 
-Entrada pública `listar_recursivo` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `existe(caminho)`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `listar`
+
+Lista os itens do diretório indicado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | `'.'` | posicional |
-| `profundidade` | `int \| None` | `None` | nomeado |
-| `incluir_pastas` | `bool` | `False` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | `'.'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`, `_erro_arquivo_em_portugues`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `criar_pasta(caminho)`
+:::details Detalhes técnicos
 
-Entrada pública `criar_pasta` da superfície `coral.arquivos`.
+**Assinatura:** `listar(caminho = '.')`
 
-**Implementação:** `coral.stdlib.arquivos`
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `listar_recursivo`
+
+Lista o conteúdo de um diretório incluindo subdiretórios.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | `'.'` |
+| `profundidade` | Valor correspondente a profundidade. | `int \| None` | `None` |
+| `incluir_pastas` | Controla se deve incluir pastas. | `bool` | `False` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `remover(caminho, *, recursivo: bool = False) -> None`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `remover` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `listar_recursivo(caminho = '.', *, profundidade: int \| None = None, incluir_pastas: bool = False)`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `profundidade` | nomeado |
+| `incluir_pastas` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `_erro_arquivo_em_portugues`
+
+:::
+
+#### `criar_pasta`
+
+Cria pasta.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `recursivo` | `bool` | `False` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `None`
+**Retorno**
 
-#### `renomear(caminho, destino) -> Path`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `renomear` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `criar_pasta(caminho)`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `remover`
+
+Remove o valor solicitado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `destino` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `recursivo` | Valor correspondente a recursivo. | `bool` | `False` |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `copiar(caminho, destino, *, recursivo: bool = False) -> Path`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-Entrada pública `copiar` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `remover(caminho, *, recursivo: bool = False) -> None`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `recursivo` | nomeado |
+
+:::
+
+#### `renomear`
+
+Renomeia o valor solicitado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `destino` | `não declarado` | obrigatório | posicional |
-| `recursivo` | `bool` | `False` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `não declarado` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
 
-**Exceções observáveis no corpo:** `IsADirectoryError`
+Retorna um valor declarado como `Path`.
 
-#### `mover(caminho, destino) -> Path`
+:::details Detalhes técnicos
 
-Entrada pública `mover` da superfície `coral.arquivos`.
+**Assinatura:** `renomear(caminho, destino) -> Path`
 
-**Implementação:** `coral.stdlib.arquivos`
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `copiar`
+
+Copia o valor solicitado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `destino` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `não declarado` | obrigatório |
+| `recursivo` | Valor correspondente a recursivo. | `bool` | `False` |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `tamanho(caminho) -> int`
+Retorna um valor declarado como `Path`.
 
-Entrada pública `tamanho` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `copiar(caminho, destino, *, recursivo: bool = False) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `destino` | posicional |
+| `recursivo` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `IsADirectoryError`
+
+:::
+
+#### `mover`
+
+Move o valor solicitado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `não declarado` | obrigatório |
 
-**Retorno:** `int`
+**Retorno**
 
-#### `metadados(caminho) -> dict[str, Any]`
+Retorna um valor declarado como `Path`.
 
-Entrada pública `metadados` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `mover(caminho, destino) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `tamanho`
+
+Obtém o tamanho do recurso indicado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-#### `arquivo_temporario(*, prefixo = 'coral_', sufixo = '', pasta = None) -> Path`
+Retorna um valor declarado como `int`.
 
-Entrada pública `arquivo_temporario` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `tamanho(caminho) -> int`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `metadados`
+
+Obtém metadados do arquivo ou diretório indicado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `prefixo` | `não declarado` | `'coral_'` | nomeado |
-| `sufixo` | `não declarado` | `''` | nomeado |
-| `pasta` | `não declarado` | `None` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `pasta_temporaria(*, prefixo = 'coral_', pasta = None) -> Path`
+Retorna um valor declarado como `dict[str, Any]`.
 
-Entrada pública `pasta_temporaria` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `metadados(caminho) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `arquivo_temporario`
+
+Cria um arquivo temporário e retorna seu caminho.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `prefixo` | `não declarado` | `'coral_'` | nomeado |
-| `pasta` | `não declarado` | `None` | nomeado |
+| `prefixo` | Valor correspondente a prefixo. | `não declarado` | `'coral_'` |
+| `sufixo` | Valor correspondente a sufixo. | `não declarado` | `''` |
+| `pasta` | Valor correspondente a pasta. | `não declarado` | `None` |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `nome(caminho) -> str`
+Retorna um valor declarado como `Path`.
 
-Entrada pública `nome` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `arquivo_temporario(*, prefixo = 'coral_', sufixo = '', pasta = None) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `prefixo` | nomeado |
+| `sufixo` | nomeado |
+| `pasta` | nomeado |
+
+:::
+
+#### `pasta_temporaria`
+
+Cria uma pasta temporária e retorna seu caminho.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `prefixo` | Valor correspondente a prefixo. | `não declarado` | `'coral_'` |
+| `pasta` | Valor correspondente a pasta. | `não declarado` | `None` |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `extensao(caminho) -> str`
+Retorna um valor declarado como `Path`.
 
-Entrada pública `extensao` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `pasta_temporaria(*, prefixo = 'coral_', pasta = None) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `prefixo` | nomeado |
+| `pasta` | nomeado |
+
+:::
+
+#### `nome`
+
+Obtém o nome final do caminho.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `pai(caminho) -> Path`
+Retorna um valor declarado como `str`.
 
-Entrada pública `pai` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `nome(caminho) -> str`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `extensao`
+
+Obtém a extensão do caminho.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `resolver(caminho, *, estrito: bool = False) -> Path`
+Retorna um valor declarado como `str`.
 
-Entrada pública `resolver` da superfície `coral.arquivos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.arquivos`
+**Assinatura:** `extensao(caminho) -> str`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `pai`
+
+Obtém pai.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `estrito` | `bool` | `False` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pai(caminho) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `resolver`
+
+Resolve o valor solicitado.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `estrito` | Valor correspondente a estrito. | `bool` | `False` |
+
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `resolver(caminho, *, estrito: bool = False) -> Path`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `estrito` | nomeado |
+
+:::
 
 <!-- /AUTO:API -->

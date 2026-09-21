@@ -183,177 +183,237 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="registrar-adaptador-tipo-python-type-identificador-str-para-dados-callable-any-dict-str-any-de-dados-callable-dict-str-any-any-none" data-searchable><code>registrar_adaptador(tipo_python: type, identificador: str, para_dados: Callable[[Any], dict[str, Any]], de_dados: Callable[[dict[str, Any]], Any]) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>registrar_adaptador</code> da superfície <code>coral.persistencia</code>.</p>
+<h4 id="registrar-adaptador" data-searchable><code>registrar_adaptador</code></h4>
+<p data-searchable>Ensinar novo tipo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo_python</code></td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>identificador</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>para_dados</code></td><td data-searchable><code>Callable[[Any], dict[str, Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>de_dados</code></td><td data-searchable><code>Callable[[dict[str, Any]], Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo_python</code></td><td data-searchable>Valor correspondente a tipo python.</td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>para_dados</code></td><td data-searchable>Valor correspondente a para dados.</td><td data-searchable><code>Callable[[Any], dict[str, Any]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>de_dados</code></td><td data-searchable>Valor correspondente a de dados.</td><td data-searchable><code>Callable[[dict[str, Any]], Any]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="registrar-extensao-persistente-tipo-python-type-identificador-str-para-dados-callable-any-any-aplicar-dados-callable-any-any-none-none" data-searchable><code>registrar_extensao_persistente(tipo_python: type, identificador: str, para_dados: Callable[[Any], Any], aplicar_dados: Callable[[Any, Any], None]) -&gt; None</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>registrar_adaptador(tipo_python: type, identificador: str, para_dados: Callable[[Any], dict[str, Any]], de_dados: Callable[[dict[str, Any]], Any]) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="registrar-extensao-persistente" data-searchable><code>registrar_extensao_persistente</code></h4>
 <p data-searchable>Registra uma extensão de domínio sem acoplar o tipo hospedeiro ao módulo dono.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo_python</code></td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>identificador</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>para_dados</code></td><td data-searchable><code>Callable[[Any], Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>aplicar_dados</code></td><td data-searchable><code>Callable[[Any, Any], None]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo_python</code></td><td data-searchable>Valor correspondente a tipo python.</td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>para_dados</code></td><td data-searchable>Valor correspondente a para dados.</td><td data-searchable><code>Callable[[Any], Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>aplicar_dados</code></td><td data-searchable>Valor correspondente a aplicar dados.</td><td data-searchable><code>Callable[[Any, Any], None]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="extensoes-para-dados-objeto-any-dict-str-any" data-searchable><code>extensoes_para_dados(objeto: Any) -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>extensoes_para_dados</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>registrar_extensao_persistente(tipo_python: type, identificador: str, para_dados: Callable[[Any], Any], aplicar_dados: Callable[[Any, Any], None]) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="extensoes-para-dados" data-searchable><code>extensoes_para_dados</code></h4>
+<p data-searchable>Converte extensões persistentes registradas para dados portáteis.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>objeto</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>objeto</code></td><td data-searchable>Objeto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="aplicar-extensoes-persistentes-objeto-any-extensoes-any-none" data-searchable><code>aplicar_extensoes_persistentes(objeto: Any, extensoes: Any) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>aplicar_extensoes_persistentes</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>extensoes_para_dados(objeto: Any) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
+<h4 id="aplicar-extensoes-persistentes" data-searchable><code>aplicar_extensoes_persistentes</code></h4>
+<p data-searchable>Aplica ao objeto as extensões persistentes presentes nos dados carregados.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>objeto</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>extensoes</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>objeto</code></td><td data-searchable>Objeto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>extensoes</code></td><td data-searchable>Valor correspondente a extensoes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroPersistencia</code></p>
-<h4 id="valor-portatil-valor-any-any" data-searchable><code>valor_portatil(valor: Any) -&gt; Any</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>aplicar_extensoes_persistentes(objeto: Any, extensoes: Any) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroPersistencia</code></p></div></details>
+<h4 id="valor-portatil" data-searchable><code>valor_portatil</code></h4>
 <p data-searchable>Normaliza um valor isolado segundo o contrato portátil da Coral.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Any</code></p>
-<h4 id="para-dados-objeto-any-dict-str-any" data-searchable><code>para_dados(objeto: Any) -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>para_dados</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>valor_portatil(valor: Any) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
+<h4 id="para-dados" data-searchable><code>para_dados</code></h4>
+<p data-searchable>Converter documento.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>objeto</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>objeto</code></td><td data-searchable>Objeto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="de-dados-documento-dict-str-any-any" data-searchable><code>de_dados(documento: dict[str, Any]) -&gt; Any</code></h4>
-<p data-searchable>Entrada pública <code>de_dados</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_dados(objeto: Any) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
+<h4 id="de-dados" data-searchable><code>de_dados</code></h4>
+<p data-searchable>Converter documento.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>documento</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>documento</code></td><td data-searchable>Valor correspondente a documento.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Any</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroPersistencia</code></p>
-<h4 id="texto-canonico-valor-any-str" data-searchable><code>texto_canonico(valor: Any) -&gt; str</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_dados(documento: dict[str, Any]) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroPersistencia</code></p></div></details>
+<h4 id="texto-canonico" data-searchable><code>texto_canonico</code></h4>
 <p data-searchable>Serialização JSON canônica para hash, cache, replay e equivalência.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="serializar-canonico-valor-any-bytes" data-searchable><code>serializar_canonico(valor: Any) -&gt; bytes</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>texto_canonico(valor: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
+<h4 id="serializar-canonico" data-searchable><code>serializar_canonico</code></h4>
 <p data-searchable>Versão UTF 8 explícita da serialização canônica.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
-<h4 id="salvar-objeto-any-caminho-str-path-path" data-searchable><code>salvar(objeto: Any, caminho: str | Path) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>salvar</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bytes</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>serializar_canonico(valor: Any) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
+<h4 id="salvar" data-searchable><code>salvar</code></h4>
+<p data-searchable>Persistir arquivo.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}
+execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;exemplo.coraldata&quot;</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>objeto</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>objeto</code></td><td data-searchable>Objeto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroPersistencia</code></p>
-<h4 id="carregar-caminho-str-path-any" data-searchable><code>carregar(caminho: str | Path) -&gt; Any</code></h4>
-<p data-searchable>Entrada pública <code>carregar</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>salvar(objeto: Any, caminho: str \| Path) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroPersistencia</code></p></div></details>
+<h4 id="carregar" data-searchable><code>carregar</code></h4>
+<p data-searchable>Persistir arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Any</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroPersistencia</code></p>
-<h4 id="carregar-como-caminho-str-path-tipo-esperado-type-nome-tipo-str-none-none-any" data-searchable><code>carregar_como(caminho: str | Path, tipo_esperado: type, nome_tipo: str | None = None) -&gt; Any</code></h4>
-<p data-searchable>Entrada pública <code>carregar_como</code> da superfície <code>coral.persistencia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>carregar(caminho: str \| Path) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroPersistencia</code></p></div></details>
+<h4 id="carregar-como" data-searchable><code>carregar_como</code></h4>
+<p data-searchable>Validar tipo esperado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>tipo_esperado</code></td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>nome_tipo</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo_esperado</code></td><td data-searchable>Valor correspondente a tipo esperado.</td><td data-searchable><code>type</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome_tipo</code></td><td data-searchable>Valor correspondente a nome tipo.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Any</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroPersistencia</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>carregar_como(caminho: str \| Path, tipo_esperado: type, nome_tipo: str \| None = None) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroPersistencia</code></p></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="erropersistencia" data-searchable><code>ErroPersistencia(...)</code></h4>
+<h4 id="erropersistencia" data-searchable><code>ErroPersistencia</code></h4>
 <p data-searchable>Falha de validação, codificação ou reconstrução persistente.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroPersistencia(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>'coral.persistencia/1'</code></p>
+<p data-searchable>Expõe a constante pública <code>CONTRATO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.persistencia/1'</code></p></div></details>
 <h4 id="versao-esquema" data-searchable><code>VERSAO_ESQUEMA</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>1</code></p>
+<p data-searchable>Expõe a constante pública <code>VERSAO_ESQUEMA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>VERSAO_ESQUEMA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>1</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="observadores_reativos.html"><span>Anterior</span><strong>coral.observadores_reativos</strong></a><a class="docs-page-nav-link next" href="rastreamento_reativo.html"><span>Próxima</span><strong>coral.rastreamento_reativo</strong></a></nav>
   </main>

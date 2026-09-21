@@ -172,130 +172,263 @@
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="diagnostico-id-str-dominio-str-ok-bool-mensagem-any-capacidade-str-none-none-sugestao-str-none-none-detalhe-mapping-str-any-none-none-diagnosticooperacional" data-searchable><code>diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] | None = None) -&gt; DiagnosticoOperacional</code></h4>
-<p data-searchable>Entrada pública <code>diagnostico</code> da superfície <code>coral.comum</code>.</p>
+<h4 id="diagnostico-2" data-searchable><code>diagnostico</code></h4>
+<p data-searchable>Construir diagnóstico.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.comum</span> <span class="code-key">importe</span> diagnostico, agregar_diagnosticos
+
+<span class="code-key">defina</span> d1 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;runtime&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, verdadeiro, <span class="code-str">&quot;pronto&quot;</span>)
+<span class="code-key">defina</span> d2 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;arquivo&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, falso, <span class="code-str">&quot;ausente&quot;</span>, sugestao=<span class="code-str">&quot;crie o arquivo&quot;</span>)
+<span class="code-key">defina</span> resumo como <span class="code-fn">agregar_diagnosticos</span>([d1, d2], origem=<span class="code-str">&quot;tutorial&quot;</span>)
+<span class="code-key">mostre</span> resumo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>id</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>Valor correspondente a dominio.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Valor correspondente a ok.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable>Valor correspondente a capacidade.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable>Valor correspondente a sugestao.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>Valor correspondente a detalhe.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>DiagnosticoOperacional</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str \| None = None, sugestao: str \| None = None, detalhe: Mapping[str, Any] \| None = None) -&gt; DiagnosticoOperacional</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>id</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>capacidade</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>sugestao</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>DiagnosticoOperacional</code></p>
-<h4 id="agregar-diagnosticos-itens-iterable-diagnosticooperacional-mapping-str-any-origem-str-coral-dict-str-any" data-searchable><code>agregar_diagnosticos(itens: Iterable[DiagnosticoOperacional | Mapping[str, Any]], *, origem: str = 'coral') -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>agregar_diagnosticos</code> da superfície <code>coral.comum</code>.</p>
+<tr><td data-searchable><code>id</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="agregar-diagnosticos" data-searchable><code>agregar_diagnosticos</code></h4>
+<p data-searchable>Agregar vários diagnósticos.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.comum</span> <span class="code-key">importe</span> diagnostico, agregar_diagnosticos
+
+<span class="code-key">defina</span> d1 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;runtime&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, verdadeiro, <span class="code-str">&quot;pronto&quot;</span>)
+<span class="code-key">defina</span> d2 como <span class="code-fn">diagnostico</span>(<span class="code-str">&quot;arquivo&quot;</span>, <span class="code-str">&quot;exemplo&quot;</span>, falso, <span class="code-str">&quot;ausente&quot;</span>, sugestao=<span class="code-str">&quot;crie o arquivo&quot;</span>)
+<span class="code-key">defina</span> resumo como <span class="code-fn">agregar_diagnosticos</span>([d1, d2], origem=<span class="code-str">&quot;tutorial&quot;</span>)
+<span class="code-key">mostre</span> resumo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>itens</code></td><td data-searchable>Valor correspondente a itens.</td><td data-searchable><code>Iterable[DiagnosticoOperacional | Mapping[str, Any]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str</code></td><td data-searchable><code>'coral'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>agregar_diagnosticos(itens: Iterable[DiagnosticoOperacional \| Mapping[str, Any]], *, origem: str = 'coral') -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>itens</code></td><td data-searchable><code>Iterable[DiagnosticoOperacional | Mapping[str, Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'coral'</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<tr><td data-searchable><code>itens</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="falhaoperacao-codigo-str-mensagem-str-dominio-str-tipo-str-operacional-causa-str-none-none-detalhe-mapping-str-any-field-default-factory-dict" data-searchable><code>FalhaOperacao(codigo: str, mensagem: str, dominio: str, tipo: str = 'operacional', causa: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></h4>
-<p data-searchable>Entrada pública <code>FalhaOperacao</code> da superfície <code>coral.comum</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="falhaoperacao" data-searchable><code>FalhaOperacao</code></h4>
+<p data-searchable>Representa descrição de falha.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>codigo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'operacional'</code></td></tr>
-<tr><td data-searchable><code>causa</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>Valor correspondente a codigo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>Valor correspondente a dominio.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable><code>'operacional'</code></td></tr>
+<tr><td data-searchable><code>causa</code></td><td data-searchable>Valor correspondente a causa.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>Valor correspondente a detalhe.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>Valor correspondente a codigo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>Valor correspondente a dominio.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable><code>'operacional'</code></td></tr>
+<tr><td data-searchable><code>causa</code></td><td data-searchable>Valor correspondente a causa.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>Valor correspondente a detalhe.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>de_excecao</code></td><td data-searchable>Interpreta ou reconstrói um valor a partir de excecao.</td><td data-searchable><code>'FalhaOperacao'</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FalhaOperacao(codigo: str, mensagem: str, dominio: str, tipo: str = 'operacional', causa: str \| None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>de_excecao</code></td><td data-searchable>método</td><td data-searchable><code>de_excecao(exc: BaseException, *, codigo: str, dominio: str, tipo: str = 'operacional', detalhe: Mapping[str, Any] | None = None) -&gt; 'FalhaOperacao'</code></td><td data-searchable><code>'FalhaOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="resultadooperacao-ok-bool-valor-any-none-falha-falhaoperacao-none-none-metadados-mapping-str-any-field-default-factory-dict" data-searchable><code>ResultadoOperacao(ok: bool, valor: Any = None, falha: FalhaOperacao | None = None, metadados: Mapping[str, Any] = field(default_factory=dict))</code></h4>
+<tr><td data-searchable><code>de_excecao</code></td><td data-searchable>método</td><td data-searchable><code>de_excecao(exc: BaseException, *, codigo: str, dominio: str, tipo: str = 'operacional', detalhe: Mapping[str, Any] | None = None) -&gt; 'FalhaOperacao'</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="resultadooperacao" data-searchable><code>ResultadoOperacao</code></h4>
 <p data-searchable>Representação transversal sem substituir resultados ricos de domínio.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>falha</code></td><td data-searchable><code>FalhaOperacao | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>metadados</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Valor correspondente a ok.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>falha</code></td><td data-searchable>Valor correspondente a falha.</td><td data-searchable><code>FalhaOperacao | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Valor correspondente a ok.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>falha</code></td><td data-searchable>Valor correspondente a falha.</td><td data-searchable><code>FalhaOperacao | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>Indica o estado de sucesso.</td><td data-searchable><code>'ResultadoOperacao'</code></td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>Executa a operação <code>erro</code> disponibilizada por <code>coral.comum</code>.</td><td data-searchable><code>'ResultadoOperacao'</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoOperacao(ok: bool, valor: Any = None, falha: FalhaOperacao \| None = None, metadados: Mapping[str, Any] = field(default_factory=dict))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>sucesso</code></td><td data-searchable>método</td><td data-searchable><code>sucesso(valor: Any = None, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td><td data-searchable><code>'ResultadoOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>erro</code></td><td data-searchable>método</td><td data-searchable><code>erro(falha: FalhaOperacao, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td><td data-searchable><code>'ResultadoOperacao'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="diagnosticooperacional-id-str-dominio-str-ok-bool-mensagem-str-capacidade-str-none-none-sugestao-str-none-none-detalhe-mapping-str-any-field-default-factory-dict" data-searchable><code>DiagnosticoOperacional(id: str, dominio: str, ok: bool, mensagem: str, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></h4>
-<p data-searchable>Entrada pública <code>DiagnosticoOperacional</code> da superfície <code>coral.comum</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>método</td><td data-searchable><code>sucesso(valor: Any = None, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>método</td><td data-searchable><code>erro(falha: FalhaOperacao, **metadados: Any) -&gt; 'ResultadoOperacao'</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="diagnosticooperacional" data-searchable><code>DiagnosticoOperacional</code></h4>
+<p data-searchable>Representa diagnóstico estruturado.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>id</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>dominio</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>ok</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>capacidade</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>sugestao</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>detalhe</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>id</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>Valor correspondente a dominio.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Valor correspondente a ok.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable>Valor correspondente a capacidade.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable>Valor correspondente a sugestao.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>Valor correspondente a detalhe.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>id</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dominio</code></td><td data-searchable>Valor correspondente a dominio.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Valor correspondente a ok.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable>Valor correspondente a capacidade.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sugestao</code></td><td data-searchable>Valor correspondente a sugestao.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>detalhe</code></td><td data-searchable>Valor correspondente a detalhe.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nivel</code></td><td data-searchable>Executa a operação <code>nivel</code> disponibilizada por <code>coral.comum</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DiagnosticoOperacional(id: str, dominio: str, ok: bool, mensagem: str, capacidade: str \| None = None, sugestao: str \| None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nivel</code></td><td data-searchable>propriedade</td><td data-searchable><code>nivel() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>nivel</code></td><td data-searchable>propriedade</td><td data-searchable><code>nivel() -&gt; str</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="errocoral" data-searchable><code>ErroCoral(...)</code></h4>
+<h4 id="errocoral" data-searchable><code>ErroCoral</code></h4>
 <p data-searchable>Raiz pública dos erros controlados pela linguagem e bibliotecas Coral.</p>
-<h4 id="errooperacaocoral" data-searchable><code>ErroOperacaoCoral(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroCoral(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p></div></details>
+<h4 id="errooperacaocoral" data-searchable><code>ErroOperacaoCoral</code></h4>
 <p data-searchable>Falha operacional de um recurso Coral ou de seu backend.</p>
-<h4 id="errodependenciacoral" data-searchable><code>ErroDependenciaCoral(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroOperacaoCoral(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p></div></details>
+<h4 id="errodependenciacoral" data-searchable><code>ErroDependenciaCoral</code></h4>
 <p data-searchable>Uma capacidade opcional não pode operar por ausência de dependência.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroDependenciaCoral(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>'coral.comum/1'</code></p>
+<p data-searchable>Expõe a constante pública <code>CONTRATO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.comum/1'</code></p></div></details>
 <h4 id="contrato-diagnostico" data-searchable><code>CONTRATO_DIAGNOSTICO</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>'coral.diagnostico.operacional/1'</code></p>
+<p data-searchable>Expõe a constante pública <code>CONTRATO_DIAGNOSTICO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO_DIAGNOSTICO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.comum</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/comum.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.diagnostico.operacional/1'</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="colecoes.html"><span>Anterior</span><strong>coral.colecoes</strong></a><a class="docs-page-nav-link next" href="conversoes.html"><span>Próxima</span><strong>coral.conversoes</strong></a></nav>
   </main>

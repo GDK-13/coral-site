@@ -136,410 +136,976 @@ O modelo de mundo é independente de Pygame e pode ser exercitado headless. Pref
 
 ### Funções
 
-#### `criar_mundo(nome: str = 'mundo') -> Mundo`
+#### `criar_mundo`
 
-Entrada pública `criar_mundo` da superfície `coral.mundo`.
+Criar mundo via API.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `nome` | `str` | `'mundo'` | posicional |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'mundo'` |
 
-**Retorno:** `Mundo`
+**Retorno**
+
+Retorna um valor declarado como `Mundo`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `criar_mundo(nome: str = 'mundo') -> Mundo`
+
+**Origem da implementação:** `coral.mundo`
+
+**Arquivo na release:** `coral/mundo.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `Mundo(nome: str = 'mundo', *, relogio: FonteTempo | None = None, eventos: Eventos | None = None)`
+#### `Mundo`
 
 Mundo leve para jogos, RPGs e simulações Coral.
 
-**Métodos e propriedades públicas**
+**Parâmetros**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `entidades` | propriedade | `entidades() -> tuple[Entidade, ...]` | `tuple[Entidade, ...]` | Sem docstring própria na release. |
-| `relacoes` | propriedade | `relacoes() -> tuple[Relacao, ...]` | `tuple[Relacao, ...]` | Sem docstring própria na release. |
-| `mapas` | propriedade | `mapas() -> tuple[Mapa, ...]` | `tuple[Mapa, ...]` | Sem docstring própria na release. |
-| `adicionar_mapa` | método | `adicionar_mapa(mapa: Mapa) -> Mapa` | `Mapa` | Sem docstring própria na release. |
-| `criar_mapa` | método | `criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] \| None = None) -> Mapa` | `Mapa` | Sem docstring própria na release. |
-| `buscar_mapa` | método | `buscar_mapa(nome: str) -> Mapa \| None` | `Mapa \| None` | Sem docstring própria na release. |
-| `exigir_mapa` | método | `exigir_mapa(nome: str) -> Mapa` | `Mapa` | Sem docstring própria na release. |
-| `remover_mapa` | método | `remover_mapa(mapa: Mapa \| str) -> bool` | `bool` | Sem docstring própria na release. |
-| `observar_regioes_mapa` | método | `observar_regioes_mapa(nome: str, alvo: Any, mapa: Mapa \| str, regioes, resolvedor, *, identificador_alvo: Any = None) -> ObservadorRegiaoMapa` | `ObservadorRegiaoMapa` | Sem docstring própria na release. |
-| `adicionar` | método | `adicionar(entidade: Entidade) -> Entidade` | `Entidade` | Sem docstring própria na release. |
-| `criar_entidade` | método | `criar_entidade(nome: str, **atributos: Any) -> Entidade` | `Entidade` | Sem docstring própria na release. |
-| `buscar` | método | `buscar(nome: str) -> Entidade \| None` | `Entidade \| None` | Sem docstring própria na release. |
-| `exigir` | método | `exigir(nome: str) -> Entidade` | `Entidade` | Sem docstring própria na release. |
-| `remover` | método | `remover(entidade: Entidade \| str) -> bool` | `bool` | Sem docstring própria na release. |
-| `relacionar` | método | `relacionar(origem: Entidade \| str, destino: Entidade \| str, tipo: str, **dados: Any) -> Relacao` | `Relacao` | Sem docstring própria na release. |
-| `remover_relacao` | método | `remover_relacao(relacao: Relacao) -> bool` | `bool` | Sem docstring própria na release. |
-| `relacionados` | método | `relacionados(entidade: Entidade \| str, tipo: str \| None = None, *, direcao: str = 'saida') -> tuple[Entidade, ...]` | `tuple[Entidade, ...]` | Sem docstring própria na release. |
-| `caminho` | método | `caminho(origem: Entidade \| str, destino: Entidade \| str, *, tipo: str \| None = None, bidirecional: bool = True) -> tuple[Entidade, ...]` | `tuple[Entidade, ...]` | Sem docstring própria na release. |
-| `com_tag` | método | `com_tag(tag: str) -> tuple[Entidade, ...]` | `tuple[Entidade, ...]` | Sem docstring própria na release. |
-| `atualizar` | método | `atualizar(dt: float = 0.0) -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `atualizar_por_relogio` | método | `atualizar_por_relogio() -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `emitir` | método | `emitir(evento: str, *args, **kwargs) -> int` | `int` | Sem docstring própria na release. |
-| `emitir_evento` | método | `emitir_evento(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] \| None = None, **kwargs)` | `não declarado` | Sem docstring própria na release. |
-| `enfileirar_evento` | método | `enfileirar_evento(evento: str, *args, **kwargs)` | `não declarado` | Sem docstring própria na release. |
-| `processar_eventos` | método | `processar_eventos(limite: int \| None = None)` | `não declarado` | Sem docstring própria na release. |
-| `emitir_propagado` | método | `emitir_propagado(evento: str, *args, **kwargs) -> int` | `int` | Sem docstring própria na release. |
-| `emitir_evento_propagado` | método | `emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] \| None = None, **kwargs)` | `não declarado` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
-| `para_json` | método | `para_json(**kwargs) -> str` | `str` | Sem docstring própria na release. |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'mundo'` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos \| None` | `None` |
 
-#### `Entidade(nome: str, atributos: dict[str, Any] = field(default_factory=dict), tags: set[str] = field(default_factory=set), inventario: list[Any] = field(default_factory=list))`
+**Operações públicas da classe**
 
-Entrada pública `Entidade` da superfície `coral.mundo`.
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `atributos` | `dict[str, Any]` | `field(default_factory=dict)` |
-| `tags` | `set[str]` | `field(default_factory=set)` |
-| `inventario` | `list[Any]` | `field(default_factory=list)` |
+| `entidades` | Obtém entidades. | `tuple[Entidade, ...]` |
+| `relacoes` | Obtém relacoes. | `tuple[Relacao, ...]` |
+| `mapas` | Obtém mapas. | `tuple[Mapa, ...]` |
+| `adicionar_mapa` | Adiciona mapa. | `Mapa` |
+| `criar_mapa` | Cria mapa. | `Mapa` |
+| `buscar_mapa` | Procura mapa e devolve o resultado quando encontrado. | `Mapa \| None` |
+| `exigir_mapa` | Obtém mapa e sinaliza falha quando ele não está disponível. | `Mapa` |
+| `remover_mapa` | Remove mapa. | `bool` |
+| `observar_regioes_mapa` | Observa regioes mapa. | `ObservadorRegiaoMapa` |
+| `adicionar` | Adiciona o valor solicitado. | `Entidade` |
+| `criar_entidade` | Cria entidade. | `Entidade` |
+| `buscar` | Executa a operação `buscar` disponibilizada por `coral.mundo`. | `Entidade \| None` |
+| `exigir` | Executa a operação `exigir` disponibilizada por `coral.mundo`. | `Entidade` |
+| `remover` | Remove o valor solicitado. | `bool` |
+| `relacionar` | Relaciona o valor solicitado. | `Relacao` |
+| `remover_relacao` | Remove relacao. | `bool` |
+| `relacionados` | Executa a operação `relacionados` disponibilizada por `coral.mundo`. | `tuple[Entidade, ...]` |
+| `caminho` | Executa a operação `caminho` disponibilizada por `coral.mundo`. | `tuple[Entidade, ...]` |
+| `com_tag` | Executa a operação `com_tag` disponibilizada por `coral.mundo`. | `tuple[Entidade, ...]` |
+| `atualizar` | Atualiza o valor solicitado. | `tuple[str, ...]` |
+| `atualizar_por_relogio` | Atualiza por relogio. | `tuple[str, ...]` |
+| `emitir` | Emite o valor solicitado. | `int` |
+| `emitir_evento` | Emite evento. | `não declarado` |
+| `enfileirar_evento` | Enfileira evento. | `não declarado` |
+| `processar_eventos` | Processa eventos. | `não declarado` |
+| `emitir_propagado` | Emite propagado. | `int` |
+| `emitir_evento_propagado` | Emite evento propagado. | `não declarado` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
+| `para_json` | Converte o valor para JSON. | `str` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `definir` | método | `definir(nome: str, valor: Any) -> 'Entidade'` | `'Entidade'` | Sem docstring própria na release. |
-| `obter` | método | `obter(nome: str, padrao: Any = None) -> Any` | `Any` | Sem docstring própria na release. |
-| `adicionar_tag` | método | `adicionar_tag(tag: str) -> 'Entidade'` | `'Entidade'` | Sem docstring própria na release. |
-| `remover_tag` | método | `remover_tag(tag: str) -> None` | `None` | Sem docstring própria na release. |
-| `possui_tag` | método | `possui_tag(tag: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `guardar` | método | `guardar(item: Any) -> Any` | `Any` | Sem docstring própria na release. |
-| `remover_item` | método | `remover_item(item: Any) -> bool` | `bool` | Sem docstring própria na release. |
+**Assinatura:** `Mundo(nome: str = 'mundo', *, relogio: FonteTempo \| None = None, eventos: Eventos \| None = None)`
 
-#### `Relacao(origem: Entidade, destino: Entidade, tipo: str, dados: dict[str, Any] = field(default_factory=dict, compare=False))`
+**Origem da implementação:** `coral.mundo`
 
-Entrada pública `Relacao` da superfície `coral.mundo`.
+**Arquivo na release:** `coral/mundo.py`
 
-**Atributos declarados**
+**Modo dos parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `relogio` | nomeado |
+| `eventos` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `origem` | `Entidade` | obrigatório |
-| `destino` | `Entidade` | obrigatório |
-| `tipo` | `str` | obrigatório |
-| `dados` | `dict[str, Any]` | `field(default_factory=dict, compare=False)` |
+| `entidades` | propriedade | `entidades() -> tuple[Entidade, ...]` |
+| `relacoes` | propriedade | `relacoes() -> tuple[Relacao, ...]` |
+| `mapas` | propriedade | `mapas() -> tuple[Mapa, ...]` |
+| `adicionar_mapa` | método | `adicionar_mapa(mapa: Mapa) -> Mapa` |
+| `criar_mapa` | método | `criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] \| None = None) -> Mapa` |
+| `buscar_mapa` | método | `buscar_mapa(nome: str) -> Mapa \| None` |
+| `exigir_mapa` | método | `exigir_mapa(nome: str) -> Mapa` |
+| `remover_mapa` | método | `remover_mapa(mapa: Mapa \| str) -> bool` |
+| `observar_regioes_mapa` | método | `observar_regioes_mapa(nome: str, alvo: Any, mapa: Mapa \| str, regioes, resolvedor, *, identificador_alvo: Any = None) -> ObservadorRegiaoMapa` |
+| `adicionar` | método | `adicionar(entidade: Entidade) -> Entidade` |
+| `criar_entidade` | método | `criar_entidade(nome: str, **atributos: Any) -> Entidade` |
+| `buscar` | método | `buscar(nome: str) -> Entidade \| None` |
+| `exigir` | método | `exigir(nome: str) -> Entidade` |
+| `remover` | método | `remover(entidade: Entidade \| str) -> bool` |
+| `relacionar` | método | `relacionar(origem: Entidade \| str, destino: Entidade \| str, tipo: str, **dados: Any) -> Relacao` |
+| `remover_relacao` | método | `remover_relacao(relacao: Relacao) -> bool` |
+| `relacionados` | método | `relacionados(entidade: Entidade \| str, tipo: str \| None = None, *, direcao: str = 'saida') -> tuple[Entidade, ...]` |
+| `caminho` | método | `caminho(origem: Entidade \| str, destino: Entidade \| str, *, tipo: str \| None = None, bidirecional: bool = True) -> tuple[Entidade, ...]` |
+| `com_tag` | método | `com_tag(tag: str) -> tuple[Entidade, ...]` |
+| `atualizar` | método | `atualizar(dt: float = 0.0) -> tuple[str, ...]` |
+| `atualizar_por_relogio` | método | `atualizar_por_relogio() -> tuple[str, ...]` |
+| `emitir` | método | `emitir(evento: str, *args, **kwargs) -> int` |
+| `emitir_evento` | método | `emitir_evento(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] \| None = None, **kwargs)` |
+| `enfileirar_evento` | método | `enfileirar_evento(evento: str, *args, **kwargs)` |
+| `processar_eventos` | método | `processar_eventos(limite: int \| None = None)` |
+| `emitir_propagado` | método | `emitir_propagado(evento: str, *args, **kwargs) -> int` |
+| `emitir_evento_propagado` | método | `emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] \| None = None, **kwargs)` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
+| `para_json` | método | `para_json(**kwargs) -> str` |
 
-#### `Mapa(nome: str, topologia: Any, *, propriedades: Mapping[str, Any] | None = None, eventos: Eventos | None = None) -> None`
+:::
+
+#### `Entidade`
+
+Representa objeto do mundo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `atributos` | Valor correspondente a atributos. | `dict[str, Any]` | `field(default_factory=dict)` |
+| `tags` | Valor correspondente a tags. | `set[str]` | `field(default_factory=set)` |
+| `inventario` | Valor correspondente a inventario. | `list[Any]` | `field(default_factory=list)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `atributos` | Valor correspondente a atributos. | `dict[str, Any]` | `field(default_factory=dict)` |
+| `tags` | Valor correspondente a tags. | `set[str]` | `field(default_factory=set)` |
+| `inventario` | Valor correspondente a inventario. | `list[Any]` | `field(default_factory=list)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `definir` | Define o valor solicitado. | `'Entidade'` |
+| `obter` | Executa a operação `obter` disponibilizada por `coral.mundo`. | `Any` |
+| `adicionar_tag` | Adiciona tag. | `'Entidade'` |
+| `remover_tag` | Remove tag. | `None` |
+| `possui_tag` | Indica se possui tag. | `bool` |
+| `guardar` | Armazena o valor solicitado. | `Any` |
+| `remover_item` | Remove item. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Entidade(nome: str, atributos: dict[str, Any] = field(default_factory=dict), tags: set[str] = field(default_factory=set), inventario: list[Any] = field(default_factory=list))`
+
+**Origem da implementação:** `coral.mundo`
+
+**Arquivo na release:** `coral/mundo.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `definir` | método | `definir(nome: str, valor: Any) -> 'Entidade'` |
+| `obter` | método | `obter(nome: str, padrao: Any = None) -> Any` |
+| `adicionar_tag` | método | `adicionar_tag(tag: str) -> 'Entidade'` |
+| `remover_tag` | método | `remover_tag(tag: str) -> None` |
+| `possui_tag` | método | `possui_tag(tag: str) -> bool` |
+| `guardar` | método | `guardar(item: Any) -> Any` |
+| `remover_item` | método | `remover_item(item: Any) -> bool` |
+
+:::
+
+#### `Relacao`
+
+Representa ligação entre entidades.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `origem` | Origem usada pela operação. | `Entidade` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `Entidade` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | `field(default_factory=dict, compare=False)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `origem` | Origem usada pela operação. | `Entidade` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `Entidade` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | `field(default_factory=dict, compare=False)` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Relacao(origem: Entidade, destino: Entidade, tipo: str, dados: dict[str, Any] = field(default_factory=dict, compare=False))`
+
+**Origem da implementação:** `coral.mundo`
+
+**Arquivo na release:** `coral/mundo.py`
+
+:::
+
+#### `Mapa`
 
 Estrutura espacial discreta genérica, independente de visualização.
 
-**Implementação:** `coral._mapas.modelo`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `topologia` | Valor correspondente a topologia. | `Any` | obrigatório |
+| `propriedades` | Valor correspondente a propriedades. | `Mapping[str, Any] \| None` | `None` |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos \| None` | `None` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `eventos` | propriedade | `eventos() -> Eventos \| None` | `Eventos \| None` | Barramento associado, sem criar runtime oculto quando ausente. |
-| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` | `Mapping[str, Any]` | Sem docstring própria na release. |
-| `camadas` | propriedade | `camadas() -> tuple[CamadaMapa, ...]` | `tuple[CamadaMapa, ...]` | Sem docstring própria na release. |
-| `regioes` | propriedade | `regioes() -> tuple[Any, ...]` | `tuple[Any, ...]` | Sem docstring própria na release. |
-| `adicionar_camada` | método | `adicionar_camada(nome: str, *, ordem: int \| None = None, propriedades: Mapping[str, Any] \| None = None, participa_travessia: bool = True) -> CamadaMapa` | `CamadaMapa` | Sem docstring própria na release. |
-| `buscar_camada` | método | `buscar_camada(nome: str) -> CamadaMapa \| None` | `CamadaMapa \| None` | Sem docstring própria na release. |
-| `exigir_camada` | método | `exigir_camada(nome: str) -> CamadaMapa` | `CamadaMapa` | Sem docstring própria na release. |
-| `remover_camada` | método | `remover_camada(nome: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `adicionar_regiao` | método | `adicionar_regiao(regiao: Any) -> Any` | `Any` | Sem docstring própria na release. |
-| `criar_regiao` | método | `criar_regiao(nome: str, *, celulas: Iterable[object] \| None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] \| None = None) -> Any` | `Any` | Sem docstring própria na release. |
-| `buscar_regiao` | método | `buscar_regiao(nome: str) -> Any \| None` | `Any \| None` | Sem docstring própria na release. |
-| `exigir_regiao` | método | `exigir_regiao(nome: str) -> Any` | `Any` | Sem docstring própria na release. |
-| `remover_regiao` | método | `remover_regiao(nome: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `regioes_em` | método | `regioes_em(celula_ou_posicao: object) -> tuple[Any, ...]` | `tuple[Any, ...]` | Sem docstring própria na release. |
-| `celulas_da_regiao` | método | `celulas_da_regiao(nome: str, *, limites: object = None) -> tuple[CelulaMapa, ...]` | `tuple[CelulaMapa, ...]` | Sem docstring própria na release. |
-| `possui_valor` | método | `possui_valor(camada: str, celula: object) -> bool` | `bool` | Sem docstring própria na release. |
-| `conteudo_em` | método | `conteudo_em(camada: str, celula: object) -> ConteudoCelula \| None` | `ConteudoCelula \| None` | Sem docstring própria na release. |
-| `obter` | método | `obter(camada: str, celula: object, padrao: Any = None) -> Any` | `Any` | Sem docstring própria na release. |
-| `definir` | método | `definir(camada: str, celula: object, valor: Any, *, propriedades: Mapping[str, Any] \| None = None, travessia: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` | `MudancaMapa` | Sem docstring própria na release. |
-| `remover` | método | `remover(camada: str, celula: object, *, causa: Any = None) -> MudancaMapa \| None` | `MudancaMapa \| None` | Sem docstring própria na release. |
-| `definir_travessia` | método | `definir_travessia(camada: str, celula: object, *, permitida: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` | `MudancaMapa` | Sem docstring própria na release. |
-| `bloquear_travessia` | método | `bloquear_travessia(camada: str, celula: object, *, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` | `MudancaMapa` | Sem docstring própria na release. |
-| `permitir_travessia` | método | `permitir_travessia(camada: str, celula: object, *, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` | `MudancaMapa` | Sem docstring própria na release. |
-| `avaliar_travessia` | método | `avaliar_travessia(origem: object, destino: object) -> ResultadoPassagem` | `ResultadoPassagem` | Sem docstring própria na release. |
-| `tentar_travessia` | método | `tentar_travessia(origem: object, destino: object, *, causa: Any = None) -> ResultadoPassagem` | `ResultadoPassagem` | Avalia uma tentativa e publica bloqueio apenas quando a ação é explícita. |
-| `contexto_em` | método | `contexto_em(celula: object, *, origem: object \| None = None) -> ContextoLocalMapa` | `ContextoLocalMapa` | Sem docstring própria na release. |
-| `vizinhos` | método | `vizinhos(celula: object, **opcoes: Any) -> tuple[CelulaMapa, ...]` | `tuple[CelulaMapa, ...]` | Sem docstring própria na release. |
-| `aplicar_lote` | método | `aplicar_lote(operacoes: Iterable[Mapping[str, Any]]) -> tuple[MudancaMapa, ...]` | `tuple[MudancaMapa, ...]` | Valida todo o lote antes de aplicar qualquer escrita. |
+**Operações públicas da classe**
 
-#### `CamadaMapa(nome: str, *, ordem: int = 0, propriedades: Mapping[str, Any] | None = None, participa_travessia: bool = True, _sequencia: int = 0) -> None`
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `eventos` | Barramento associado, sem criar runtime oculto quando ausente. | `Eventos \| None` |
+| `propriedades` | Obtém propriedades. | `Mapping[str, Any]` |
+| `camadas` | Obtém camadas. | `tuple[CamadaMapa, ...]` |
+| `regioes` | Executa a operação `regioes` disponibilizada por `coral.mundo`. | `tuple[Any, ...]` |
+| `adicionar_camada` | Adiciona camada. | `CamadaMapa` |
+| `buscar_camada` | Procura camada e devolve o resultado quando encontrado. | `CamadaMapa \| None` |
+| `exigir_camada` | Obtém camada e sinaliza falha quando ele não está disponível. | `CamadaMapa` |
+| `remover_camada` | Remove camada. | `bool` |
+| `adicionar_regiao` | Adiciona regiao. | `Any` |
+| `criar_regiao` | Cria regiao. | `Any` |
+| `buscar_regiao` | Procura regiao e devolve o resultado quando encontrado. | `Any \| None` |
+| `exigir_regiao` | Obtém regiao e sinaliza falha quando ele não está disponível. | `Any` |
+| `remover_regiao` | Remove regiao. | `bool` |
+| `regioes_em` | Executa a operação `regioes_em` disponibilizada por `coral.mundo`. | `tuple[Any, ...]` |
+| `celulas_da_regiao` | Executa a operação `celulas_da_regiao` disponibilizada por `coral.mundo`. | `tuple[CelulaMapa, ...]` |
+| `possui_valor` | Indica se possui valor. | `bool` |
+| `conteudo_em` | Executa a operação `conteudo_em` disponibilizada por `coral.mundo`. | `ConteudoCelula \| None` |
+| `obter` | Executa a operação `obter` disponibilizada por `coral.mundo`. | `Any` |
+| `definir` | Define o valor solicitado. | `MudancaMapa` |
+| `remover` | Remove o valor solicitado. | `MudancaMapa \| None` |
+| `definir_travessia` | Define travessia. | `MudancaMapa` |
+| `bloquear_travessia` | Executa a operação `bloquear_travessia` disponibilizada por `coral.mundo`. | `MudancaMapa` |
+| `permitir_travessia` | Executa a operação `permitir_travessia` disponibilizada por `coral.mundo`. | `MudancaMapa` |
+| `avaliar_travessia` | Executa a operação `avaliar_travessia` disponibilizada por `coral.mundo`. | `ResultadoPassagem` |
+| `tentar_travessia` | Avalia uma tentativa e publica bloqueio apenas quando a ação é explícita. | `ResultadoPassagem` |
+| `contexto_em` | Executa a operação `contexto_em` disponibilizada por `coral.mundo`. | `ContextoLocalMapa` |
+| `vizinhos` | Executa a operação `vizinhos` disponibilizada por `coral.mundo`. | `tuple[CelulaMapa, ...]` |
+| `aplicar_lote` | Valida todo o lote antes de aplicar qualquer escrita. | `tuple[MudancaMapa, ...]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Mapa(nome: str, topologia: Any, *, propriedades: Mapping[str, Any] \| None = None, eventos: Eventos \| None = None) -> None`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `topologia` | posicional |
+| `propriedades` | nomeado |
+| `eventos` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `eventos` | propriedade | `eventos() -> Eventos \| None` |
+| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` |
+| `camadas` | propriedade | `camadas() -> tuple[CamadaMapa, ...]` |
+| `regioes` | propriedade | `regioes() -> tuple[Any, ...]` |
+| `adicionar_camada` | método | `adicionar_camada(nome: str, *, ordem: int \| None = None, propriedades: Mapping[str, Any] \| None = None, participa_travessia: bool = True) -> CamadaMapa` |
+| `buscar_camada` | método | `buscar_camada(nome: str) -> CamadaMapa \| None` |
+| `exigir_camada` | método | `exigir_camada(nome: str) -> CamadaMapa` |
+| `remover_camada` | método | `remover_camada(nome: str) -> bool` |
+| `adicionar_regiao` | método | `adicionar_regiao(regiao: Any) -> Any` |
+| `criar_regiao` | método | `criar_regiao(nome: str, *, celulas: Iterable[object] \| None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] \| None = None) -> Any` |
+| `buscar_regiao` | método | `buscar_regiao(nome: str) -> Any \| None` |
+| `exigir_regiao` | método | `exigir_regiao(nome: str) -> Any` |
+| `remover_regiao` | método | `remover_regiao(nome: str) -> bool` |
+| `regioes_em` | método | `regioes_em(celula_ou_posicao: object) -> tuple[Any, ...]` |
+| `celulas_da_regiao` | método | `celulas_da_regiao(nome: str, *, limites: object = None) -> tuple[CelulaMapa, ...]` |
+| `possui_valor` | método | `possui_valor(camada: str, celula: object) -> bool` |
+| `conteudo_em` | método | `conteudo_em(camada: str, celula: object) -> ConteudoCelula \| None` |
+| `obter` | método | `obter(camada: str, celula: object, padrao: Any = None) -> Any` |
+| `definir` | método | `definir(camada: str, celula: object, valor: Any, *, propriedades: Mapping[str, Any] \| None = None, travessia: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` |
+| `remover` | método | `remover(camada: str, celula: object, *, causa: Any = None) -> MudancaMapa \| None` |
+| `definir_travessia` | método | `definir_travessia(camada: str, celula: object, *, permitida: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` |
+| `bloquear_travessia` | método | `bloquear_travessia(camada: str, celula: object, *, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` |
+| `permitir_travessia` | método | `permitir_travessia(camada: str, celula: object, *, custo: float \| int \| None = None, motivo: str \| None = None, causa: Any = None) -> MudancaMapa` |
+| `avaliar_travessia` | método | `avaliar_travessia(origem: object, destino: object) -> ResultadoPassagem` |
+| `tentar_travessia` | método | `tentar_travessia(origem: object, destino: object, *, causa: Any = None) -> ResultadoPassagem` |
+| `contexto_em` | método | `contexto_em(celula: object, *, origem: object \| None = None) -> ContextoLocalMapa` |
+| `vizinhos` | método | `vizinhos(celula: object, **opcoes: Any) -> tuple[CelulaMapa, ...]` |
+| `aplicar_lote` | método | `aplicar_lote(operacoes: Iterable[Mapping[str, Any]]) -> tuple[MudancaMapa, ...]` |
+
+:::
+
+#### `CamadaMapa`
 
 Camada nomeada, ordenada e esparsa de um mapa.
 
-**Implementação:** `coral._mapas.modelo`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `ordem` | Valor correspondente a ordem. | `int` | `0` |
+| `propriedades` | Valor correspondente a propriedades. | `Mapping[str, Any] \| None` | `None` |
+| `participa_travessia` | Valor correspondente a participa travessia. | `bool` | `True` |
+| `_sequencia` | Valor correspondente a sequencia. | `int` | `0` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` | `Mapping[str, Any]` | Sem docstring própria na release. |
-| `quantidade` | propriedade | `quantidade() -> int` | `int` | Sem docstring própria na release. |
-| `celulas` | propriedade | `celulas() -> tuple[CelulaMapa, ...]` | `tuple[CelulaMapa, ...]` | Sem docstring própria na release. |
-| `possui` | método | `possui(celula: CelulaMapa) -> bool` | `bool` | Sem docstring própria na release. |
-| `conteudo` | método | `conteudo(celula: CelulaMapa) -> ConteudoCelula \| None` | `ConteudoCelula \| None` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `ConteudoCelula(valor: Any, propriedades: Mapping[str, Any] | None = None, *, travessia: bool | None = None, custo: float | int | None = None, motivo: str | None = None) -> None`
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `propriedades` | Obtém propriedades. | `Mapping[str, Any]` |
+| `quantidade` | Executa a operação `quantidade` disponibilizada por `coral.mundo`. | `int` |
+| `celulas` | Executa a operação `celulas` disponibilizada por `coral.mundo`. | `tuple[CelulaMapa, ...]` |
+| `possui` | Executa a operação `possui` disponibilizada por `coral.mundo`. | `bool` |
+| `conteudo` | Executa a operação `conteudo` disponibilizada por `coral.mundo`. | `ConteudoCelula \| None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CamadaMapa(nome: str, *, ordem: int = 0, propriedades: Mapping[str, Any] \| None = None, participa_travessia: bool = True, _sequencia: int = 0) -> None`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `ordem` | nomeado |
+| `propriedades` | nomeado |
+| `participa_travessia` | nomeado |
+| `_sequencia` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` |
+| `quantidade` | propriedade | `quantidade() -> int` |
+| `celulas` | propriedade | `celulas() -> tuple[CelulaMapa, ...]` |
+| `possui` | método | `possui(celula: CelulaMapa) -> bool` |
+| `conteudo` | método | `conteudo(celula: CelulaMapa) -> ConteudoCelula \| None` |
+
+:::
+
+#### `ConteudoCelula`
 
 Valor imutável associado a uma célula, com travessia opcional.
 
-**Implementação:** `coral._mapas.modelo`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `propriedades` | Valor correspondente a propriedades. | `Mapping[str, Any] \| None` | `None` |
+| `travessia` | Valor correspondente a travessia. | `bool \| None` | `None` |
+| `custo` | Valor correspondente a custo. | `float \| int \| None` | `None` |
+| `motivo` | Texto que descreve o motivo associado à operação. | `str \| None` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `travessia_permitida` | Valor correspondente a travessia permitida. | `bool \| None` | obrigatório |
+| `custo_travessia` | Valor correspondente a custo travessia. | `float \| None` | obrigatório |
+| `motivo_travessia` | Valor correspondente a motivo travessia. | `str \| None` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `travessia_permitida` | `bool \| None` | obrigatório |
-| `custo_travessia` | `float \| None` | obrigatório |
-| `motivo_travessia` | `str \| None` | obrigatório |
+| `valor` | Obtém valor. | `Any` |
+| `propriedades` | Obtém propriedades. | `Mapping[str, Any]` |
+| `declarou_travessia` | Executa a operação `declarou_travessia` disponibilizada por `coral.mundo`. | `bool` |
+| `com_valor` | Executa a operação `com_valor` disponibilizada por `coral.mundo`. | `'ConteudoCelula'` |
+| `com_propriedades` | Executa a operação `com_propriedades` disponibilizada por `coral.mundo`. | `'ConteudoCelula'` |
+| `com_travessia` | Executa a operação `com_travessia` disponibilizada por `coral.mundo`. | `'ConteudoCelula'` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `valor` | propriedade | `valor() -> Any` | `Any` | Sem docstring própria na release. |
-| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` | `Mapping[str, Any]` | Sem docstring própria na release. |
-| `declarou_travessia` | propriedade | `declarou_travessia() -> bool` | `bool` | Sem docstring própria na release. |
-| `com_valor` | método | `com_valor(valor: Any) -> 'ConteudoCelula'` | `'ConteudoCelula'` | Sem docstring própria na release. |
-| `com_propriedades` | método | `com_propriedades(propriedades: Mapping[str, Any]) -> 'ConteudoCelula'` | `'ConteudoCelula'` | Sem docstring própria na release. |
-| `com_travessia` | método | `com_travessia(*, permitida: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None) -> 'ConteudoCelula'` | `'ConteudoCelula'` | Sem docstring própria na release. |
+**Assinatura:** `ConteudoCelula(valor: Any, propriedades: Mapping[str, Any] \| None = None, *, travessia: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None) -> None`
 
-#### `BlocoMapa(identificador: str, propriedades: Mapping[str, Any] | None = None) -> None`
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `propriedades` | posicional |
+| `travessia` | nomeado |
+| `custo` | nomeado |
+| `motivo` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `valor` | propriedade | `valor() -> Any` |
+| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` |
+| `declarou_travessia` | propriedade | `declarou_travessia() -> bool` |
+| `com_valor` | método | `com_valor(valor: Any) -> 'ConteudoCelula'` |
+| `com_propriedades` | método | `com_propriedades(propriedades: Mapping[str, Any]) -> 'ConteudoCelula'` |
+| `com_travessia` | método | `com_travessia(*, permitida: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None) -> 'ConteudoCelula'` |
+
+:::
+
+#### `BlocoMapa`
 
 Conveniência para terreno, material, obstáculo ou tile.
 
-**Implementação:** `coral._mapas.modelo`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `identificador` | Valor correspondente a identificador. | `str` | obrigatório |
+| `propriedades` | Valor correspondente a propriedades. | `Mapping[str, Any] \| None` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `identificador` | Valor correspondente a identificador. | `str` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `identificador` | `str` | obrigatório |
+| `propriedades` | Obtém propriedades. | `Mapping[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` | `Mapping[str, Any]` | Sem docstring própria na release. |
+**Assinatura:** `BlocoMapa(identificador: str, propriedades: Mapping[str, Any] \| None = None) -> None`
 
-#### `MudancaMapa(mapa: str, camada: str, celula: CelulaMapa, operacao: str, anterior: ConteudoCelula | None, novo: ConteudoCelula | None, causa: Any = None, aplicada: bool = True, cancelada: bool = False, motivo_cancelamento: str | None = None, evento_sequencia: int | None = None)`
+**Origem da implementação:** `coral._mapas.modelo`
 
-Entrada pública `MudancaMapa` da superfície `coral.mundo`.
+**Arquivo na release:** `coral/_mapas/modelo.py`
 
-**Implementação:** `coral._mapas.modelo`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `mapa` | `str` | obrigatório |
-| `camada` | `str` | obrigatório |
-| `celula` | `CelulaMapa` | obrigatório |
-| `operacao` | `str` | obrigatório |
-| `anterior` | `ConteudoCelula \| None` | obrigatório |
-| `novo` | `ConteudoCelula \| None` | obrigatório |
-| `causa` | `Any` | `None` |
-| `aplicada` | `bool` | `True` |
-| `cancelada` | `bool` | `False` |
-| `motivo_cancelamento` | `str \| None` | `None` |
-| `evento_sequencia` | `int \| None` | `None` |
+| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` |
 
-#### `RegiaoMapa(mapa: Any, nome: str, *, celulas: Iterable[object] | None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] | None = None) -> None`
+:::
+
+#### `MudancaMapa`
+
+Representa MudancaMapa na API de `coral.mundo`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mapa` | Valor correspondente a mapa. | `str` | obrigatório |
+| `camada` | Valor correspondente a camada. | `str` | obrigatório |
+| `celula` | Valor correspondente a celula. | `CelulaMapa` | obrigatório |
+| `operacao` | Valor correspondente a operacao. | `str` | obrigatório |
+| `anterior` | Valor correspondente a anterior. | `ConteudoCelula \| None` | obrigatório |
+| `novo` | Valor correspondente a novo. | `ConteudoCelula \| None` | obrigatório |
+| `causa` | Valor correspondente a causa. | `Any` | `None` |
+| `aplicada` | Valor correspondente a aplicada. | `bool` | `True` |
+| `cancelada` | Valor correspondente a cancelada. | `bool` | `False` |
+| `motivo_cancelamento` | Valor correspondente a motivo cancelamento. | `str \| None` | `None` |
+| `evento_sequencia` | Valor correspondente a evento sequencia. | `int \| None` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mapa` | Valor correspondente a mapa. | `str` | obrigatório |
+| `camada` | Valor correspondente a camada. | `str` | obrigatório |
+| `celula` | Valor correspondente a celula. | `CelulaMapa` | obrigatório |
+| `operacao` | Valor correspondente a operacao. | `str` | obrigatório |
+| `anterior` | Valor correspondente a anterior. | `ConteudoCelula \| None` | obrigatório |
+| `novo` | Valor correspondente a novo. | `ConteudoCelula \| None` | obrigatório |
+| `causa` | Valor correspondente a causa. | `Any` | `None` |
+| `aplicada` | Valor correspondente a aplicada. | `bool` | `True` |
+| `cancelada` | Valor correspondente a cancelada. | `bool` | `False` |
+| `motivo_cancelamento` | Valor correspondente a motivo cancelamento. | `str \| None` | `None` |
+| `evento_sequencia` | Valor correspondente a evento sequencia. | `int \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `MudancaMapa(mapa: str, camada: str, celula: CelulaMapa, operacao: str, anterior: ConteudoCelula \| None, novo: ConteudoCelula \| None, causa: Any = None, aplicada: bool = True, cancelada: bool = False, motivo_cancelamento: str \| None = None, evento_sequencia: int \| None = None)`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+:::
+
+#### `RegiaoMapa`
 
 Região por conjunto de células ou por forma espacial oficial.
 
-**Implementação:** `coral._mapas.regioes`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mapa` | Valor correspondente a mapa. | `Any` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `celulas` | Valor correspondente a celulas. | `Iterable[object] \| None` | `None` |
+| `forma` | Forma ou dimensões da estrutura a criar. | `Any` | `None` |
+| `referencia` | Valor correspondente a referencia. | `str` | `'centro'` |
+| `propriedades` | Valor correspondente a propriedades. | `Mapping[str, Any] \| None` | `None` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `tipo` | propriedade | `tipo() -> str` | `str` | Sem docstring própria na release. |
-| `forma` | propriedade | `forma() -> Any` | `Any` | Sem docstring própria na release. |
-| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` | `Mapping[str, Any]` | Sem docstring própria na release. |
-| `celulas_explicitas` | propriedade | `celulas_explicitas() -> tuple[CelulaMapa, ...]` | `tuple[CelulaMapa, ...]` | Sem docstring própria na release. |
-| `contem` | método | `contem(celula_ou_posicao: object) -> bool` | `bool` | Sem docstring própria na release. |
-| `celulas` | método | `celulas(*, limites: object = None) -> tuple[CelulaMapa, ...]` | `tuple[CelulaMapa, ...]` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `ResultadoPassagem(permitida: bool, custo: float, motivo: str | None, camadas_responsaveis: tuple[str, ...], origem: CelulaMapa, destino: CelulaMapa)`
-
-Entrada pública `ResultadoPassagem` da superfície `coral.mundo`.
-
-**Implementação:** `coral._mapas.modelo`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `permitida` | `bool` | obrigatório |
-| `custo` | `float` | obrigatório |
-| `motivo` | `str \| None` | obrigatório |
-| `camadas_responsaveis` | `tuple[str, ...]` | obrigatório |
-| `origem` | `CelulaMapa` | obrigatório |
-| `destino` | `CelulaMapa` | obrigatório |
+| `tipo` | Executa a operação `tipo` disponibilizada por `coral.mundo`. | `str` |
+| `forma` | Obtém forma. | `Any` |
+| `propriedades` | Obtém propriedades. | `Mapping[str, Any]` |
+| `celulas_explicitas` | Executa a operação `celulas_explicitas` disponibilizada por `coral.mundo`. | `tuple[CelulaMapa, ...]` |
+| `contem` | Executa a operação `contem` disponibilizada por `coral.mundo`. | `bool` |
+| `celulas` | Executa a operação `celulas` disponibilizada por `coral.mundo`. | `tuple[CelulaMapa, ...]` |
 
-#### `ObservadorRegiaoMapa(nome: str, alvo: Any, mapa: Mapa, regioes: Iterable[RegiaoMapa | str], resolvedor: ResolvedorLocalizacao, eventos: Eventos, *, identificador_alvo: Any = None) -> None`
+:::details Detalhes técnicos
+
+**Assinatura:** `RegiaoMapa(mapa: Any, nome: str, *, celulas: Iterable[object] \| None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] \| None = None) -> None`
+
+**Origem da implementação:** `coral._mapas.regioes`
+
+**Arquivo na release:** `coral/_mapas/regioes.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mapa` | posicional |
+| `nome` | posicional |
+| `celulas` | nomeado |
+| `forma` | nomeado |
+| `referencia` | nomeado |
+| `propriedades` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `tipo` | propriedade | `tipo() -> str` |
+| `forma` | propriedade | `forma() -> Any` |
+| `propriedades` | propriedade | `propriedades() -> Mapping[str, Any]` |
+| `celulas_explicitas` | propriedade | `celulas_explicitas() -> tuple[CelulaMapa, ...]` |
+| `contem` | método | `contem(celula_ou_posicao: object) -> bool` |
+| `celulas` | método | `celulas(*, limites: object = None) -> tuple[CelulaMapa, ...]` |
+
+:::
+
+#### `ResultadoPassagem`
+
+Representa resultado de travessia.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `permitida` | Valor correspondente a permitida. | `bool` | obrigatório |
+| `custo` | Valor correspondente a custo. | `float` | obrigatório |
+| `motivo` | Texto que descreve o motivo associado à operação. | `str \| None` | obrigatório |
+| `camadas_responsaveis` | Valor correspondente a camadas responsaveis. | `tuple[str, ...]` | obrigatório |
+| `origem` | Origem usada pela operação. | `CelulaMapa` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `CelulaMapa` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `permitida` | Valor correspondente a permitida. | `bool` | obrigatório |
+| `custo` | Valor correspondente a custo. | `float` | obrigatório |
+| `motivo` | Texto que descreve o motivo associado à operação. | `str \| None` | obrigatório |
+| `camadas_responsaveis` | Valor correspondente a camadas responsaveis. | `tuple[str, ...]` | obrigatório |
+| `origem` | Origem usada pela operação. | `CelulaMapa` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `CelulaMapa` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ResultadoPassagem(permitida: bool, custo: float, motivo: str \| None, camadas_responsaveis: tuple[str, ...], origem: CelulaMapa, destino: CelulaMapa)`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+:::
+
+#### `ObservadorRegiaoMapa`
 
 Reconhece transições de entrada e saída entre avaliações sucessivas.
 
-**Implementação:** `coral._mapas.observacao`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `alvo` | Valor correspondente a alvo. | `Any` | obrigatório |
+| `mapa` | Valor correspondente a mapa. | `Mapa` | obrigatório |
+| `regioes` | Valor correspondente a regioes. | `Iterable[RegiaoMapa \| str]` | obrigatório |
+| `resolvedor` | Valor correspondente a resolvedor. | `ResolvedorLocalizacao` | obrigatório |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos` | obrigatório |
+| `identificador_alvo` | Valor correspondente a identificador alvo. | `Any` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `alvo` | Valor correspondente a alvo. | `Any` | obrigatório |
+| `mapa` | Valor correspondente a mapa. | `Mapa` | obrigatório |
+| `regioes` | Valor correspondente a regioes. | `tuple[RegiaoMapa, ...]` | obrigatório |
+| `resolvedor` | Valor correspondente a resolvedor. | `ResolvedorLocalizacao` | obrigatório |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos` | obrigatório |
+| `identificador_alvo` | Valor correspondente a identificador alvo. | `Any` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `alvo` | `Any` | obrigatório |
-| `mapa` | `Mapa` | obrigatório |
-| `regioes` | `tuple[RegiaoMapa, ...]` | obrigatório |
-| `resolvedor` | `ResolvedorLocalizacao` | obrigatório |
-| `eventos` | `Eventos` | obrigatório |
-| `identificador_alvo` | `Any` | `None` |
+| `regioes_anteriores` | Executa a operação `regioes_anteriores` disponibilizada por `coral.mundo`. | `tuple[str, ...]` |
+| `avaliar` | Executa a operação `avaliar` disponibilizada por `coral.mundo`. | `bool` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `regioes_anteriores` | propriedade | `regioes_anteriores() -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `avaliar` | método | `avaliar(contexto: Any) -> bool` | `bool` | Sem docstring própria na release. |
+**Assinatura:** `ObservadorRegiaoMapa(nome: str, alvo: Any, mapa: Mapa, regioes: Iterable[RegiaoMapa \| str], resolvedor: ResolvedorLocalizacao, eventos: Eventos, *, identificador_alvo: Any = None) -> None`
 
-#### `CelulaQuadrada(coluna: int, linha: int)`
+**Origem da implementação:** `coral._mapas.observacao`
 
-Entrada pública `CelulaQuadrada` da superfície `coral.mundo`.
+**Arquivo na release:** `coral/_mapas/observacao.py`
 
-**Implementação:** `coral._mapas.modelo`
+**Modo dos parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `alvo` | posicional |
+| `mapa` | posicional |
+| `regioes` | posicional |
+| `resolvedor` | posicional |
+| `eventos` | posicional |
+| `identificador_alvo` | nomeado |
 
-| Nome | Tipo | Padrão |
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `coluna` | `int` | obrigatório |
-| `linha` | `int` | obrigatório |
+| `regioes_anteriores` | propriedade | `regioes_anteriores() -> tuple[str, ...]` |
+| `avaliar` | método | `avaliar(contexto: Any) -> bool` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `como_tupla` | método | `como_tupla() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
+#### `CelulaQuadrada`
 
-#### `CelulaHexagonal(q: int, r: int)`
+Representa CelulaQuadrada na API de `coral.mundo`.
 
-Entrada pública `CelulaHexagonal` da superfície `coral.mundo`.
+**Parâmetros**
 
-**Implementação:** `coral._mapas.modelo`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `coluna` | Valor correspondente a coluna. | `int` | obrigatório |
+| `linha` | Valor correspondente a linha. | `int` | obrigatório |
 
-**Atributos declarados**
+**Atributos públicos**
 
-| Nome | Tipo | Padrão |
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `coluna` | Valor correspondente a coluna. | `int` | obrigatório |
+| `linha` | Valor correspondente a linha. | `int` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `q` | `int` | obrigatório |
-| `r` | `int` | obrigatório |
+| `como_tupla` | Representa o valor como tupla. | `tuple[int, int]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `como_tupla` | método | `como_tupla() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
+**Assinatura:** `CelulaQuadrada(coluna: int, linha: int)`
 
-#### `CelulaVoxel(x: int, y: int, z: int)`
+**Origem da implementação:** `coral._mapas.modelo`
 
-Entrada pública `CelulaVoxel` da superfície `coral.mundo`.
+**Arquivo na release:** `coral/_mapas/modelo.py`
 
-**Implementação:** `coral._mapas.modelo`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `x` | `int` | obrigatório |
-| `y` | `int` | obrigatório |
-| `z` | `int` | obrigatório |
+| `como_tupla` | método | `como_tupla() -> tuple[int, int]` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `como_tupla` | método | `como_tupla() -> tuple[int, int, int]` | `tuple[int, int, int]` | Sem docstring própria na release. |
+#### `CelulaHexagonal`
 
-#### `TopologiaQuadrada(largura_celula: float = 1.0, altura_celula: float = 1.0, origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+Representa CelulaHexagonal na API de `coral.mundo`.
 
-Entrada pública `TopologiaQuadrada` da superfície `coral.mundo`.
+**Parâmetros**
 
-**Implementação:** `coral._mapas.topologias`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `q` | Valor correspondente a q. | `int` | obrigatório |
+| `r` | Valor correspondente a r. | `int` | obrigatório |
 
-**Atributos declarados**
+**Atributos públicos**
 
-| Nome | Tipo | Padrão |
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `q` | Valor correspondente a q. | `int` | obrigatório |
+| `r` | Valor correspondente a r. | `int` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `largura_celula` | `float` | `1.0` |
-| `altura_celula` | `float` | `1.0` |
-| `origem` | `tuple[float, float]` | `(0.0, 0.0)` |
-| `limites_configurados` | `object` | `field(default=None, repr=False, compare=False)` |
+| `como_tupla` | Representa o valor como tupla. | `tuple[int, int]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `vizinhos` | método | `vizinhos(celula: object, *, incluir_diagonais: bool = False) -> tuple[CelulaQuadrada, ...]` | `tuple[CelulaQuadrada, ...]` | Sem docstring própria na release. |
-| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` | `ValorEspacial` | Sem docstring própria na release. |
-| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaQuadrada` | `CelulaQuadrada` | Sem docstring própria na release. |
+**Assinatura:** `CelulaHexagonal(q: int, r: int)`
 
-#### `TopologiaHexagonal(tamanho_celula: float = 1.0, orientacao: str = 'topo_plano', origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+**Origem da implementação:** `coral._mapas.modelo`
 
-Entrada pública `TopologiaHexagonal` da superfície `coral.mundo`.
+**Arquivo na release:** `coral/_mapas/modelo.py`
 
-**Implementação:** `coral._mapas.topologias`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `tamanho_celula` | `float` | `1.0` |
-| `orientacao` | `str` | `'topo_plano'` |
-| `origem` | `tuple[float, float]` | `(0.0, 0.0)` |
-| `limites_configurados` | `object` | `field(default=None, repr=False, compare=False)` |
+| `como_tupla` | método | `como_tupla() -> tuple[int, int]` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `vizinhos` | método | `vizinhos(celula: object, **_: object) -> tuple[CelulaHexagonal, ...]` | `tuple[CelulaHexagonal, ...]` | Sem docstring própria na release. |
-| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` | `ValorEspacial` | Sem docstring própria na release. |
-| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaHexagonal` | `CelulaHexagonal` | Sem docstring própria na release. |
+#### `CelulaVoxel`
 
-#### `TopologiaVoxel(tamanho_x: float = 1.0, tamanho_y: float = 1.0, tamanho_z: float = 1.0, origem: tuple[float, float, float] = (0.0, 0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+Representa CelulaVoxel na API de `coral.mundo`.
 
-Entrada pública `TopologiaVoxel` da superfície `coral.mundo`.
+**Parâmetros**
 
-**Implementação:** `coral._mapas.topologias`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `int` | obrigatório |
+| `y` | Coordenada vertical. | `int` | obrigatório |
+| `z` | Valor correspondente a z. | `int` | obrigatório |
 
-**Atributos declarados**
+**Atributos públicos**
 
-| Nome | Tipo | Padrão |
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `int` | obrigatório |
+| `y` | Coordenada vertical. | `int` | obrigatório |
+| `z` | Valor correspondente a z. | `int` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `tamanho_x` | `float` | `1.0` |
-| `tamanho_y` | `float` | `1.0` |
-| `tamanho_z` | `float` | `1.0` |
-| `origem` | `tuple[float, float, float]` | `(0.0, 0.0, 0.0)` |
-| `limites_configurados` | `object` | `field(default=None, repr=False, compare=False)` |
+| `como_tupla` | Representa o valor como tupla. | `tuple[int, int, int]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `vizinhos` | método | `vizinhos(celula: object, **_: object) -> tuple[CelulaVoxel, ...]` | `tuple[CelulaVoxel, ...]` | Sem docstring própria na release. |
-| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` | `ValorEspacial` | Sem docstring própria na release. |
-| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaVoxel` | `CelulaVoxel` | Sem docstring própria na release. |
+**Assinatura:** `CelulaVoxel(x: int, y: int, z: int)`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `como_tupla` | método | `como_tupla() -> tuple[int, int, int]` |
+
+:::
+
+#### `TopologiaQuadrada`
+
+Representa topologia 2D quadrada.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `largura_celula` | Largura de celula. | `float` | `1.0` |
+| `altura_celula` | Altura de celula. | `float` | `1.0` |
+| `origem` | Origem usada pela operação. | `tuple[float, float]` | `(0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `largura_celula` | Largura de celula. | `float` | `1.0` |
+| `altura_celula` | Altura de celula. | `float` | `1.0` |
+| `origem` | Origem usada pela operação. | `tuple[float, float]` | `(0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `vizinhos` | Executa a operação `vizinhos` disponibilizada por `coral.mundo`. | `tuple[CelulaQuadrada, ...]` |
+| `celula_para_mundo` | Executa a operação `celula_para_mundo` disponibilizada por `coral.mundo`. | `ValorEspacial` |
+| `mundo_para_celula` | Executa a operação `mundo_para_celula` disponibilizada por `coral.mundo`. | `CelulaQuadrada` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TopologiaQuadrada(largura_celula: float = 1.0, altura_celula: float = 1.0, origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+
+**Origem da implementação:** `coral._mapas.topologias`
+
+**Arquivo na release:** `coral/_mapas/topologias.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `vizinhos` | método | `vizinhos(celula: object, *, incluir_diagonais: bool = False) -> tuple[CelulaQuadrada, ...]` |
+| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` |
+| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaQuadrada` |
+
+:::
+
+#### `TopologiaHexagonal`
+
+Representa topologia 2D hexagonal.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tamanho_celula` | Valor correspondente a tamanho celula. | `float` | `1.0` |
+| `orientacao` | Valor correspondente a orientacao. | `str` | `'topo_plano'` |
+| `origem` | Origem usada pela operação. | `tuple[float, float]` | `(0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tamanho_celula` | Valor correspondente a tamanho celula. | `float` | `1.0` |
+| `orientacao` | Valor correspondente a orientacao. | `str` | `'topo_plano'` |
+| `origem` | Origem usada pela operação. | `tuple[float, float]` | `(0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `vizinhos` | Executa a operação `vizinhos` disponibilizada por `coral.mundo`. | `tuple[CelulaHexagonal, ...]` |
+| `celula_para_mundo` | Executa a operação `celula_para_mundo` disponibilizada por `coral.mundo`. | `ValorEspacial` |
+| `mundo_para_celula` | Executa a operação `mundo_para_celula` disponibilizada por `coral.mundo`. | `CelulaHexagonal` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TopologiaHexagonal(tamanho_celula: float = 1.0, orientacao: str = 'topo_plano', origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+
+**Origem da implementação:** `coral._mapas.topologias`
+
+**Arquivo na release:** `coral/_mapas/topologias.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `vizinhos` | método | `vizinhos(celula: object, **_: object) -> tuple[CelulaHexagonal, ...]` |
+| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` |
+| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaHexagonal` |
+
+:::
+
+#### `TopologiaVoxel`
+
+Representa topologia 3D.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tamanho_x` | Valor correspondente a tamanho x. | `float` | `1.0` |
+| `tamanho_y` | Valor correspondente a tamanho y. | `float` | `1.0` |
+| `tamanho_z` | Valor correspondente a tamanho z. | `float` | `1.0` |
+| `origem` | Origem usada pela operação. | `tuple[float, float, float]` | `(0.0, 0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `tamanho_x` | Valor correspondente a tamanho x. | `float` | `1.0` |
+| `tamanho_y` | Valor correspondente a tamanho y. | `float` | `1.0` |
+| `tamanho_z` | Valor correspondente a tamanho z. | `float` | `1.0` |
+| `origem` | Origem usada pela operação. | `tuple[float, float, float]` | `(0.0, 0.0, 0.0)` |
+| `limites_configurados` | Valor correspondente a limites configurados. | `object` | `field(default=None, repr=False, compare=False)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `vizinhos` | Executa a operação `vizinhos` disponibilizada por `coral.mundo`. | `tuple[CelulaVoxel, ...]` |
+| `celula_para_mundo` | Executa a operação `celula_para_mundo` disponibilizada por `coral.mundo`. | `ValorEspacial` |
+| `mundo_para_celula` | Executa a operação `mundo_para_celula` disponibilizada por `coral.mundo`. | `CelulaVoxel` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TopologiaVoxel(tamanho_x: float = 1.0, tamanho_y: float = 1.0, tamanho_z: float = 1.0, origem: tuple[float, float, float] = (0.0, 0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))`
+
+**Origem da implementação:** `coral._mapas.topologias`
+
+**Arquivo na release:** `coral/_mapas/topologias.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `vizinhos` | método | `vizinhos(celula: object, **_: object) -> tuple[CelulaVoxel, ...]` |
+| `celula_para_mundo` | método | `celula_para_mundo(celula: object, *, ancora: str = 'centro') -> ValorEspacial` |
+| `mundo_para_celula` | método | `mundo_para_celula(coordenada: object) -> CelulaVoxel` |
+
+:::
 
 ### Exceções
 
-#### `ErroMapaCoral(mensagem: str, *, codigo: str = 'mapa.invalido', contexto: dict[str, Any] | None = None) -> None`
+#### `ErroMapaCoral`
 
 Erro de domínio para operações inválidas de mapas Coral.
 
-**Implementação:** `coral._mapas.modelo`
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
+| `codigo` | Valor correspondente a codigo. | `str` | `'mapa.invalido'` |
+| `contexto` | Valor correspondente a contexto. | `dict[str, Any] \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroMapaCoral(mensagem: str, *, codigo: str = 'mapa.invalido', contexto: dict[str, Any] \| None = None) -> None`
+
+**Origem da implementação:** `coral._mapas.modelo`
+
+**Arquivo na release:** `coral/_mapas/modelo.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mensagem` | posicional |
+| `codigo` | nomeado |
+| `contexto` | nomeado |
+
+:::
 
 <!-- /AUTO:API -->
 

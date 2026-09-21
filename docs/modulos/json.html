@@ -173,62 +173,74 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="para-json-valor-identar-2" data-searchable><code>para_json(valor, identar = 2)</code></h4>
-<p data-searchable>Entrada pública <code>para_json</code> da superfície <code>coral.json</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.json</code></p>
+<h4 id="para-json" data-searchable><code>para_json</code></h4>
+<p data-searchable>Serializar valor.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>identar</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>2</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identar</code></td><td data-searchable>Valor correspondente a identar.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>2</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="de-json-texto" data-searchable><code>de_json(texto)</code></h4>
-<p data-searchable>Entrada pública <code>de_json</code> da superfície <code>coral.json</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_json(valor, identar = 2)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/json.py</code></p></div></details>
+<h4 id="de-json" data-searchable><code>de_json</code></h4>
+<p data-searchable>Interpretar texto JSON.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>_json.JSONDecodeError</code></p>
-<h4 id="ler-json-caminho" data-searchable><code>ler_json(caminho)</code></h4>
-<p data-searchable>Entrada pública <code>ler_json</code> da superfície <code>coral.json</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_json(texto)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/json.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>_json.JSONDecodeError</code></p></div></details>
+<h4 id="ler-json" data-searchable><code>ler_json</code></h4>
+<p data-searchable>Ler JSON de arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="escrever-json-caminho-valor-identar-2" data-searchable><code>escrever_json(caminho, valor, identar = 2)</code></h4>
-<p data-searchable>Entrada pública <code>escrever_json</code> da superfície <code>coral.json</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_json(caminho)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/json.py</code></p></div></details>
+<h4 id="escrever-json" data-searchable><code>escrever_json</code></h4>
+<p data-searchable>Gravar JSON em arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>identar</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>2</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identar</code></td><td data-searchable>Valor correspondente a identar.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>2</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escrever_json(caminho, valor, identar = 2)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.json</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/json.py</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="formatos.html"><span>Anterior</span><strong>coral.formatos</strong></a><a class="docs-page-nav-link next" href="matematica.html"><span>Próxima</span><strong>coral.matematica</strong></a></nav>
   </main>

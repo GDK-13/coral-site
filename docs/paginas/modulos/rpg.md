@@ -109,172 +109,397 @@ Personagens, rolagens e combate funcionam sem janela. Testes podem fixar semente
 
 ### Funções
 
-#### `rolar(expressao: str = '1d20', semente: int | None = None, *, gerador: random.Random | None = None) -> Rolagem`
+#### `rolar`
 
-Entrada pública `rolar` da superfície `coral.rpg`.
-
-**Parâmetros**
-
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `expressao` | `str` | `'1d20'` | posicional |
-| `semente` | `int \| None` | `None` | posicional |
-| `gerador` | `random.Random \| None` | `None` | nomeado |
-
-**Retorno:** `Rolagem`
-
-**Exceções observáveis no corpo:** `ValueError`
-
-#### `criar_personagem(mundo: Mundo, nome: str, vida: int = 10, **atributos: Any) -> Personagem`
-
-Entrada pública `criar_personagem` da superfície `coral.rpg`.
+Realizar rolagem.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
-| `nome` | `str` | obrigatório | posicional |
-| `vida` | `int` | `10` | posicional |
-| `**atributos` | `Any` | obrigatório | variádico nomeado |
+| `expressao` | Valor correspondente a expressao. | `str` | `'1d20'` |
+| `semente` | Semente usada para tornar a sequência reproduzível. | `int \| None` | `None` |
+| `gerador` | Valor correspondente a gerador. | `random.Random \| None` | `None` |
 
-**Retorno:** `Personagem`
+**Retorno**
 
-#### `registrar_combate(mundo: Mundo, nome: str, combate: 'CombateTurnos') -> 'CombateTurnos'`
+Retorna um valor declarado como `Rolagem`.
 
-Entrada pública `registrar_combate` da superfície `coral.rpg`.
+:::details Detalhes técnicos
+
+**Assinatura:** `rolar(expressao: str = '1d20', semente: int \| None = None, *, gerador: random.Random \| None = None) -> Rolagem`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `expressao` | posicional |
+| `semente` | posicional |
+| `gerador` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `criar_personagem`
+
+Criar personagem em um mundo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
-| `nome` | `str` | obrigatório | posicional |
-| `combate` | `'CombateTurnos'` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `vida` | Valor correspondente a vida. | `int` | `10` |
+| `**atributos` | Valor correspondente a atributos. | `Any` | obrigatório |
 
-**Retorno:** `'CombateTurnos'`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`, `ValueError`
+Retorna um valor declarado como `Personagem`.
 
-#### `buscar_combate(mundo: Mundo, nome: str) -> 'CombateTurnos | None'`
+:::details Detalhes técnicos
 
-Entrada pública `buscar_combate` da superfície `coral.rpg`.
+**Assinatura:** `criar_personagem(mundo: Mundo, nome: str, vida: int = 10, **atributos: Any) -> Personagem`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mundo` | posicional |
+| `nome` | posicional |
+| `vida` | posicional |
+| `**atributos` | variádico nomeado |
+
+:::
+
+#### `registrar_combate`
+
+Registrar combate.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
-| `nome` | `str` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `combate` | Valor correspondente a combate. | `'CombateTurnos'` | obrigatório |
 
-**Retorno:** `'CombateTurnos | None'`
+**Retorno**
 
-#### `combates_do_mundo(mundo: Mundo) -> tuple['CombateTurnos', ...]`
+Retorna um valor declarado como `'CombateTurnos'`.
 
-Entrada pública `combates_do_mundo` da superfície `coral.rpg`.
+:::details Detalhes técnicos
+
+**Assinatura:** `registrar_combate(mundo: Mundo, nome: str, combate: 'CombateTurnos') -> 'CombateTurnos'`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `buscar_combate`
+
+Procura combate e devolve o resultado quando encontrado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
 
-**Retorno:** `tuple['CombateTurnos', ...]`
+**Retorno**
 
-#### `estado_rpg(mundo: Mundo) -> EstadoRPG`
+Retorna um valor declarado como `'CombateTurnos | None'`.
 
-Entrada pública `estado_rpg` da superfície `coral.rpg`.
+:::details Detalhes técnicos
+
+**Assinatura:** `buscar_combate(mundo: Mundo, nome: str) -> 'CombateTurnos \| None'`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
+
+#### `combates_do_mundo`
+
+Obtém combates do mundo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
 
-**Retorno:** `EstadoRPG`
+**Retorno**
 
-#### `salvar_estado_rpg(mundo: Mundo, caminho: str | Path) -> Path`
+Retorna um valor declarado como `tuple['CombateTurnos', ...]`.
 
-Entrada pública `salvar_estado_rpg` da superfície `coral.rpg`.
+:::details Detalhes técnicos
+
+**Assinatura:** `combates_do_mundo(mundo: Mundo) -> tuple['CombateTurnos', ...]`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
+
+#### `estado_rpg`
+
+Obtém o agregado de estado RPG associado ao mundo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mundo` | `Mundo` | obrigatório | posicional |
-| `caminho` | `str \| Path` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `carregar_estado_rpg(caminho: str | Path) -> Mundo`
+Retorna um valor declarado como `EstadoRPG`.
 
-Entrada pública `carregar_estado_rpg` da superfície `coral.rpg`.
+:::details Detalhes técnicos
+
+**Assinatura:** `estado_rpg(mundo: Mundo) -> EstadoRPG`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
+
+#### `salvar_estado_rpg`
+
+Persistir estado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `str \| Path` | obrigatório | posicional |
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
 
-**Retorno:** `Mundo`
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `salvar_estado_rpg(mundo: Mundo, caminho: str \| Path) -> Path`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
+
+#### `carregar_estado_rpg`
+
+Restaurar mundo de RPG.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `Mundo`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `carregar_estado_rpg(caminho: str \| Path) -> Mundo`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `Rolagem(expressao: str, dados: tuple[int, ...], modificador: int = 0)`
+#### `Rolagem`
 
-Entrada pública `Rolagem` da superfície `coral.rpg`.
+Representa resultado de dados.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `expressao` | Valor correspondente a expressao. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `tuple[int, ...]` | obrigatório |
+| `modificador` | Valor correspondente a modificador. | `int` | `0` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `expressao` | Valor correspondente a expressao. | `str` | obrigatório |
+| `dados` | Dados processados pela operação. | `tuple[int, ...]` | obrigatório |
+| `modificador` | Valor correspondente a modificador. | `int` | `0` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `expressao` | `str` | obrigatório |
-| `dados` | `tuple[int, ...]` | obrigatório |
-| `modificador` | `int` | `0` |
+| `total` | Obtém total. | `int` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `total` | propriedade | `total() -> int` | `int` | Sem docstring própria na release. |
+**Assinatura:** `Rolagem(expressao: str, dados: tuple[int, ...], modificador: int = 0)`
 
-#### `Personagem(nome: str, vida: int = 10, *, vida_max: int | None = None, **atributos: Any)`
+**Origem da implementação:** `coral.rpg`
 
-Entrada pública `Personagem` da superfície `coral.rpg`.
+**Arquivo na release:** `coral/rpg.py`
 
-**Métodos e propriedades públicas**
+**Assinaturas de métodos e propriedades**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `mundo` | propriedade | `mundo()` | `não declarado` | Sem docstring própria na release. |
-| `vivo` | propriedade | `vivo() -> bool` | `bool` | Sem docstring própria na release. |
-| `receber_dano` | método | `receber_dano(quantidade: int) -> int` | `int` | Sem docstring própria na release. |
-| `curar` | método | `curar(quantidade: int) -> int` | `int` | Sem docstring própria na release. |
-| `teste` | método | `teste(atributo: str, dificuldade: int = 10, *, semente: int \| None = None) -> tuple[Rolagem, bool]` | `tuple[Rolagem, bool]` | Sem docstring própria na release. |
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `total` | propriedade | `total() -> int` |
 
-#### `CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str | None = None)`
+:::
 
-Entrada pública `CombateTurnos` da superfície `coral.rpg`.
+#### `Personagem`
 
-**Métodos e propriedades públicas**
+Representa entidade de RPG.
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `adicionar` | método | `adicionar(personagem: Personagem) -> Personagem` | `Personagem` | Sem docstring própria na release. |
-| `iniciar` | método | `iniciar(*, iniciativas: dict[str, int] \| None = None, semente: int \| None = None) -> tuple[Personagem, ...]` | `tuple[Personagem, ...]` | Sem docstring própria na release. |
-| `atual` | propriedade | `atual() -> Personagem \| None` | `Personagem \| None` | Sem docstring própria na release. |
-| `proximo` | método | `proximo() -> Personagem \| None` | `Personagem \| None` | Sem docstring própria na release. |
-| `terminou` | propriedade | `terminou() -> bool` | `bool` | Sem docstring própria na release. |
+**Parâmetros**
 
-#### `EstadoRPG(mundo: Mundo)`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `vida` | Valor correspondente a vida. | `int` | `10` |
+| `vida_max` | Valor correspondente a vida max. | `int \| None` | `None` |
+| `**atributos` | Valor correspondente a atributos. | `Any` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `mundo` | Obtém mundo. | `não declarado` |
+| `vivo` | Indica o estado de vivo. | `bool` |
+| `receber_dano` | Executa a operação `receber_dano` disponibilizada por `coral.rpg`. | `int` |
+| `curar` | Executa a operação `curar` disponibilizada por `coral.rpg`. | `int` |
+| `teste` | Executa a operação `teste` disponibilizada por `coral.rpg`. | `tuple[Rolagem, bool]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Personagem(nome: str, vida: int = 10, *, vida_max: int \| None = None, **atributos: Any)`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `vida` | posicional |
+| `vida_max` | nomeado |
+| `**atributos` | variádico nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `mundo` | propriedade | `mundo()` |
+| `vivo` | propriedade | `vivo() -> bool` |
+| `receber_dano` | método | `receber_dano(quantidade: int) -> int` |
+| `curar` | método | `curar(quantidade: int) -> int` |
+| `teste` | método | `teste(atributo: str, dificuldade: int = 10, *, semente: int \| None = None) -> tuple[Rolagem, bool]` |
+
+:::
+
+#### `CombateTurnos`
+
+Representa CombateTurnos na API de `coral.rpg`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `participantes` | Valor correspondente a participantes. | `Iterable[Personagem]` | `()` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `adicionar` | Adiciona o valor solicitado. | `Personagem` |
+| `iniciar` | Inicia o valor solicitado. | `tuple[Personagem, ...]` |
+| `atual` | Obtém atual. | `Personagem \| None` |
+| `proximo` | Executa a operação `proximo` disponibilizada por `coral.rpg`. | `Personagem \| None` |
+| `terminou` | Indica o estado de terminou. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str \| None = None)`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `participantes` | posicional |
+| `nome` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `adicionar` | método | `adicionar(personagem: Personagem) -> Personagem` |
+| `iniciar` | método | `iniciar(*, iniciativas: dict[str, int] \| None = None, semente: int \| None = None) -> tuple[Personagem, ...]` |
+| `atual` | propriedade | `atual() -> Personagem \| None` |
+| `proximo` | método | `proximo() -> Personagem \| None` |
+| `terminou` | propriedade | `terminou() -> bool` |
+
+:::
+
+#### `EstadoRPG`
 
 Agregado persistente do domínio RPG sobre um Mundo genérico.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
-|---|---|---|
-| `mundo` | `Mundo` | obrigatório |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mundo` | Mundo associado à operação. | `Mundo` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `EstadoRPG(mundo: Mundo)`
+
+**Origem da implementação:** `coral.rpg`
+
+**Arquivo na release:** `coral/rpg.py`
+
+:::
 
 <!-- /AUTO:API -->
 

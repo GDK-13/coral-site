@@ -106,75 +106,173 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `ler_linha(mensagem: str | None = None, *, fonte: FonteEntrada | FonteEntradaFuncao | None = None) -> str`
+#### `ler_linha`
 
 Lê uma linha usando a fonte explícita, contextual ou o terminal.
 
+**Exemplo**
+
+```coral
+de coral.formatacao importe montar_texto
+
+defina nome como ler_linha("Nome: ")
+defina idade como inteiro(ler_linha("Idade: "))
+defina altura como decimal(ler_linha("Altura em metros: "))
+mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
+```
+
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mensagem` | `str \| None` | `None` | posicional |
-| `fonte` | `FonteEntrada \| FonteEntradaFuncao \| None` | `None` | nomeado |
+| `mensagem` | Valor correspondente a mensagem. | `str \| None` | `None` |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteEntrada \| FonteEntradaFuncao \| None` | `None` |
 
-**Retorno:** `str`
+**Retorno**
 
-**Exceções observáveis no corpo:** `FimDeEntrada`
+Retorna um valor declarado como `str`.
 
-#### `usar_fonte_entrada(fonte: FonteEntrada | FonteEntradaFuncao)`
+:::details Detalhes técnicos
+
+**Assinatura:** `ler_linha(mensagem: str \| None = None, *, fonte: FonteEntrada \| FonteEntradaFuncao \| None = None) -> str`
+
+**Origem da implementação:** `coral.entrada`
+
+**Arquivo na release:** `coral/entrada.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mensagem` | posicional |
+| `fonte` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `FimDeEntrada`
+
+:::
+
+#### `usar_fonte_entrada`
 
 Instala temporariamente uma fonte de entrada no contexto corrente.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fonte` | `FonteEntrada \| FonteEntradaFuncao` | obrigatório | posicional |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteEntrada \| FonteEntradaFuncao` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `usar_fonte_entrada(fonte: FonteEntrada \| FonteEntradaFuncao)`
+
+**Origem da implementação:** `coral.entrada`
+
+**Arquivo na release:** `coral/entrada.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `FonteEntrada(...)`
+#### `FonteEntrada`
 
-Entrada pública `FonteEntrada` da superfície `coral.entrada`.
+Define protocolo de fonte.
 
-**Métodos e propriedades públicas**
+**Operações públicas da classe**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `ler_linha` | método | `ler_linha(mensagem: str = '') -> str` | `str` | Sem docstring própria na release. |
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `ler_linha` | Ler uma linha. | `str` |
 
-#### `FonteEntradaSequencial(linhas: Iterable[str])`
+:::details Detalhes técnicos
+
+**Assinatura:** `FonteEntrada(...)`
+
+**Origem da implementação:** `coral.entrada`
+
+**Arquivo na release:** `coral/entrada.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `ler_linha` | método | `ler_linha(mensagem: str = '') -> str` |
+
+:::
+
+#### `FonteEntradaSequencial`
 
 Fonte determinística útil em testes, REPLs e ferramentas.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `Iterable[str]` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `Iterable[str]` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `linhas` | `Iterable[str]` | obrigatório |
+| `ler_linha` | Ler uma linha. | `str` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `ler_linha` | método | `ler_linha(mensagem: str = '') -> str` | `str` | Sem docstring própria na release. |
+**Assinatura:** `FonteEntradaSequencial(linhas: Iterable[str])`
+
+**Origem da implementação:** `coral.entrada`
+
+**Arquivo na release:** `coral/entrada.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `ler_linha` | método | `ler_linha(mensagem: str = '') -> str` |
+
+:::
 
 ### Exceções
 
-#### `FimDeEntrada(...)`
+#### `FimDeEntrada`
 
 A fonte de entrada terminou antes de produzir outra linha.
 
-**Implementação:** `coral.erros`
+:::details Detalhes técnicos
+
+**Assinatura:** `FimDeEntrada(...)`
+
+**Origem da implementação:** `coral.erros`
+
+**Arquivo na release:** `coral/erros.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `FonteEntradaFuncao`
 
-Alias público de tipo ou valor.
+Expõe `FonteEntradaFuncao` como parte da API pública do módulo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `FonteEntradaFuncao`
+
+**Origem da implementação:** `coral.entrada`
+
+**Arquivo na release:** `coral/entrada.py`
 
 **Valor declarado:** `Callable[[str], str]`
+
+:::
 
 <!-- /AUTO:API -->

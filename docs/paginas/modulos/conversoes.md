@@ -109,70 +109,170 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `inteiro(valor: Any, padrao: Any = _AUSENTE) -> int | Any`
+#### `inteiro`
 
 Converte para inteiro de forma estrita, com padrão opcional.
 
+**Exemplo**
+
+```coral
+de coral.entrada importe ler_linha
+de coral.conversoes importe inteiro, decimal
+de coral.formatacao importe montar_texto
+
+defina nome como ler_linha("Nome: ")
+defina idade como inteiro(ler_linha("Idade: "))
+defina altura como decimal(ler_linha("Altura em metros: "))
+mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
+```
+
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `padrao` | `Any` | `_AUSENTE` | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `Any` | `_AUSENTE` |
 
-**Retorno:** `int | Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`, `ValueError`
+Retorna o número inteiro sorteado.
 
-#### `decimal(valor: Any, padrao: Any = _AUSENTE) -> float | Any`
+:::details Detalhes técnicos
+
+**Assinatura:** `inteiro(valor: Any, padrao: Any = _AUSENTE) -> int \| Any`
+
+**Origem da implementação:** `coral.conversoes`
+
+**Arquivo na release:** `coral/conversoes.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `decimal`
 
 Converte para decimal finito, aceitando ponto ou vírgula decimal em texto.
 
+**Exemplo**
+
+```coral
+de coral.entrada importe ler_linha
+de coral.conversoes importe inteiro, decimal
+de coral.formatacao importe montar_texto
+
+defina nome como ler_linha("Nome: ")
+defina idade como inteiro(ler_linha("Idade: "))
+defina altura como decimal(ler_linha("Altura em metros: "))
+mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
+```
+
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `padrao` | `Any` | `_AUSENTE` | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `Any` | `_AUSENTE` |
 
-**Retorno:** `float | Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`, `TypeError`
+Retorna o número decimal sorteado.
 
-#### `texto(valor: Any, padrao: Any = _AUSENTE) -> str | Any`
+:::details Detalhes técnicos
+
+**Assinatura:** `decimal(valor: Any, padrao: Any = _AUSENTE) -> float \| Any`
+
+**Origem da implementação:** `coral.conversoes`
+
+**Arquivo na release:** `coral/conversoes.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `TypeError`
+
+:::
+
+#### `texto`
 
 Produz texto com grafia coerente para os literais básicos da Coral.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `padrao` | `Any` | `_AUSENTE` | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `Any` | `_AUSENTE` |
 
-**Retorno:** `str | Any`
+**Retorno**
 
-#### `booleano(valor: Any, padrao: Any = _AUSENTE) -> bool | Any`
+Retorna um valor declarado como `str | Any`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `texto(valor: Any, padrao: Any = _AUSENTE) -> str \| Any`
+
+**Origem da implementação:** `coral.conversoes`
+
+**Arquivo na release:** `coral/conversoes.py`
+
+:::
+
+#### `booleano`
 
 Converte apenas representações booleanas explícitas e não vazias.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `padrao` | `Any` | `_AUSENTE` | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `Any` | `_AUSENTE` |
 
-**Retorno:** `bool | Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`, `ValueError`
+Retorna um valor declarado como `bool | Any`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `booleano(valor: Any, padrao: Any = _AUSENTE) -> bool \| Any`
+
+**Origem da implementação:** `coral.conversoes`
+
+**Arquivo na release:** `coral/conversoes.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
 
 ### Exceções
 
-#### `ErroConversao(valor: Any, destino: str, mensagem: str | None = None, *, causa: BaseException | None = None)`
+#### `ErroConversao`
 
 Um valor não pôde ser convertido para o tipo Coral solicitado.
 
-**Implementação:** `coral.erros`
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `destino` | Destino que receberá o resultado da operação. | `str` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str \| None` | `None` |
+| `causa` | Valor correspondente a causa. | `BaseException \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroConversao(valor: Any, destino: str, mensagem: str \| None = None, *, causa: BaseException \| None = None)`
+
+**Origem da implementação:** `coral.erros`
+
+**Arquivo na release:** `coral/erros.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `destino` | posicional |
+| `mensagem` | posicional |
+| `causa` | nomeado |
+
+:::
 
 <!-- /AUTO:API -->

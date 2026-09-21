@@ -105,81 +105,196 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `traduzir_tipo(tipo: str) -> str`
+#### `traduzir_tipo`
 
-Entrada pública `traduzir_tipo` da superfície `coral.tipos`.
-
-**Parâmetros**
-
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `tipo` | `str` | obrigatório | posicional |
-
-**Retorno:** `str`
-
-#### `tipo_de(valor: Any) -> TipoCoral`
-
-Entrada pública `tipo_de` da superfície `coral.tipos`.
+Traduzir nome.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
 
-**Retorno:** `TipoCoral`
+**Retorno**
 
-#### `nome_tipo(valor: Any) -> str`
+Retorna um valor declarado como `str`.
 
-Entrada pública `nome_tipo` da superfície `coral.tipos`.
+:::details Detalhes técnicos
+
+**Assinatura:** `traduzir_tipo(tipo: str) -> str`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
+
+:::
+
+#### `tipo_de`
+
+Descobrir categoria.
+
+**Exemplo**
+
+```coral
+de coral.tipos importe tipo_de, nome_tipo, e_tipo
+
+defina valor como 42
+mostre tipo_de(valor)
+mostre nome_tipo(valor)
+garanta que e_tipo(valor, "inteiro") for igual a verdadeiro
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `e_tipo(valor: Any, esperado: str | type | TipoCoral) -> bool`
+Retorna um valor declarado como `TipoCoral`.
 
-Entrada pública `e_tipo` da superfície `coral.tipos`.
+:::details Detalhes técnicos
+
+**Assinatura:** `tipo_de(valor: Any) -> TipoCoral`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
+
+:::
+
+#### `nome_tipo`
+
+Obter nome Coral.
+
+**Exemplo**
+
+```coral
+de coral.tipos importe tipo_de, nome_tipo, e_tipo
+
+defina valor como 42
+mostre tipo_de(valor)
+mostre nome_tipo(valor)
+garanta que e_tipo(valor, "inteiro") for igual a verdadeiro
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `esperado` | `str \| type \| TipoCoral` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `bool`
+**Retorno**
+
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `nome_tipo(valor: Any) -> str`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
+
+:::
+
+#### `e_tipo`
+
+Testar categoria.
+
+**Exemplo**
+
+```coral
+de coral.tipos importe tipo_de, nome_tipo, e_tipo
+
+defina valor como 42
+mostre tipo_de(valor)
+mostre nome_tipo(valor)
+garanta que e_tipo(valor, "inteiro") for igual a verdadeiro
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `esperado` | Valor correspondente a esperado. | `str \| type \| TipoCoral` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `bool`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `e_tipo(valor: Any, esperado: str \| type \| TipoCoral) -> bool`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `TipoCoral(nome: str, tipos_python: tuple[type, ...] = (), aliases: tuple[str, ...] = ())`
+#### `TipoCoral`
 
-Entrada pública `TipoCoral` da superfície `coral.tipos`.
+Representa descritor.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `tipos_python` | Valor correspondente a tipos python. | `tuple[type, ...]` | `()` |
+| `aliases` | Valor correspondente a aliases. | `tuple[str, ...]` | `()` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `tipos_python` | Valor correspondente a tipos python. | `tuple[type, ...]` | `()` |
+| `aliases` | Valor correspondente a aliases. | `tuple[str, ...]` | `()` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `tipos_python` | `tuple[type, ...]` | `()` |
-| `aliases` | `tuple[str, ...]` | `()` |
+| `aceita` | Executa a operação `aceita` disponibilizada por `coral.tipos`. | `bool` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `aceita` | método | `aceita(valor: Any) -> bool` | `bool` | Sem docstring própria na release. |
+**Assinatura:** `TipoCoral(nome: str, tipos_python: tuple[type, ...] = (), aliases: tuple[str, ...] = ())`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `aceita` | método | `aceita(valor: Any) -> bool` |
+
+:::
 
 ### Constantes e aliases
 
 #### `TIPOS_CORAL`
 
-Constante pública do módulo.
+Expõe a constante pública `TIPOS_CORAL`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TIPOS_CORAL`
+
+**Origem da implementação:** `coral.tipos`
+
+**Arquivo na release:** `coral/tipos.py`
 
 **Valor declarado:** `{'inteiro': 'int', 'decimal': 'float', 'número': 'float', 'numero': 'float', 'texto': 'str', 'booleano': 'bool', 'lógico': 'bool', 'logico': 'bool', 'lista': 'list', 'dicionário': 'dict', 'dicionario': 'dict', 'conjunto': 'set', 'tupla': 't`
+
+:::
 
 <!-- /AUTO:API -->

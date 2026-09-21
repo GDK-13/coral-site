@@ -176,73 +176,129 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="ler-linha-mensagem-str-none-none-fonte-fonteentrada-fonteentradafuncao-none-none-str" data-searchable><code>ler_linha(mensagem: str | None = None, *, fonte: FonteEntrada | FonteEntradaFuncao | None = None) -&gt; str</code></h4>
+<h4 id="ler-linha" data-searchable><code>ler_linha</code></h4>
 <p data-searchable>Lê uma linha usando a fonte explícita, contextual ou o terminal.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe</span> montar_texto
+
+<span class="code-key">defina</span> nome como <span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Nome: &quot;</span>)
+<span class="code-key">defina</span> idade como <span class="code-fn">inteiro</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Idade: &quot;</span>))
+<span class="code-key">defina</span> altura como <span class="code-fn">decimal</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Altura em metros: &quot;</span>))
+<span class="code-key">mostre</span> <span class="code-fn">montar_texto</span>(<span class="code-str">&quot;Olá, &quot;</span>, nome, <span class="code-str">&quot;. Idade: &quot;</span>, idade, <span class="code-str">&quot;. Altura: &quot;</span>, altura)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteEntrada | FonteEntradaFuncao | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_linha(mensagem: str \| None = None, *, fonte: FonteEntrada \| FonteEntradaFuncao \| None = None) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.entrada</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/entrada.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mensagem</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteEntrada | FonteEntradaFuncao | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>FimDeEntrada</code></p>
-<h4 id="usar-fonte-entrada-fonte-fonteentrada-fonteentradafuncao" data-searchable><code>usar_fonte_entrada(fonte: FonteEntrada | FonteEntradaFuncao)</code></h4>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>FimDeEntrada</code></p></div></details>
+<h4 id="usar-fonte-entrada" data-searchable><code>usar_fonte_entrada</code></h4>
 <p data-searchable>Instala temporariamente uma fonte de entrada no contexto corrente.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteEntrada | FonteEntradaFuncao</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteEntrada | FonteEntradaFuncao</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>usar_fonte_entrada(fonte: FonteEntrada \| FonteEntradaFuncao)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.entrada</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/entrada.py</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="fonteentrada" data-searchable><code>FonteEntrada(...)</code></h4>
-<p data-searchable>Entrada pública <code>FonteEntrada</code> da superfície <code>coral.entrada</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<h4 id="fonteentrada" data-searchable><code>FonteEntrada</code></h4>
+<p data-searchable>Define protocolo de fonte.</p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>Ler uma linha.</td><td data-searchable><code>str</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FonteEntrada(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.entrada</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/entrada.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha(mensagem: str = '') -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="fonteentradasequencial-linhas-iterable-str" data-searchable><code>FonteEntradaSequencial(linhas: Iterable[str])</code></h4>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha(mensagem: str = '') -&gt; str</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="fonteentradasequencial" data-searchable><code>FonteEntradaSequencial</code></h4>
 <p data-searchable>Fonte determinística útil em testes, REPLs e ferramentas.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>linhas</code></td><td data-searchable><code>Iterable[str]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Linhas usadas para construir ou processar a estrutura.</td><td data-searchable><code>Iterable[str]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Linhas usadas para construir ou processar a estrutura.</td><td data-searchable><code>Iterable[str]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>Ler uma linha.</td><td data-searchable><code>str</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FonteEntradaSequencial(linhas: Iterable[str])</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.entrada</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/entrada.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha(mensagem: str = '') -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha(mensagem: str = '') -&gt; str</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="fimdeentrada" data-searchable><code>FimDeEntrada(...)</code></h4>
+<h4 id="fimdeentrada" data-searchable><code>FimDeEntrada</code></h4>
 <p data-searchable>A fonte de entrada terminou antes de produzir outra linha.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.erros</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FimDeEntrada(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.erros</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/erros.py</code></p></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="fonteentradafuncao" data-searchable><code>FonteEntradaFuncao</code></h4>
-<p data-searchable>Alias público de tipo ou valor.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[str], str]</code></p>
+<p data-searchable>Expõe <code>FonteEntradaFuncao</code> como parte da API pública do módulo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FonteEntradaFuncao</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.entrada</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/entrada.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[str], str]</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="datas.html"><span>Anterior</span><strong>coral.datas</strong></a><a class="docs-page-nav-link next" href="formatacao.html"><span>Próxima</span><strong>coral.formatacao</strong></a></nav>
   </main>

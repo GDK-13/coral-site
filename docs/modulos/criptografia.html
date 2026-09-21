@@ -183,124 +183,183 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="resumir-dados-algoritmo-sha256-formato-hex" data-searchable><code>resumir(dados, algoritmo = 'sha256', formato = 'hex')</code></h4>
-<p data-searchable>Entrada pública <code>resumir</code> da superfície <code>coral.criptografia</code>.</p>
+<h4 id="resumir" data-searchable><code>resumir</code></h4>
+<p data-searchable>Calcula um resumo criptográfico dos dados usando o algoritmo solicitado.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>algoritmo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="verificar-resumo-dados-esperado-algoritmo-sha256-formato-hex-bool" data-searchable><code>verificar_resumo(dados, esperado, algoritmo = 'sha256', formato = 'hex') -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>verificar_resumo</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resumir(dados, algoritmo = 'sha256', formato = 'hex')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p></div></details>
+<h4 id="verificar-resumo" data-searchable><code>verificar_resumo</code></h4>
+<p data-searchable>Verificar hash.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
+
+garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>esperado</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>algoritmo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>esperado</code></td><td data-searchable>Valor correspondente a esperado.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<h4 id="autenticar-dados-chave-algoritmo-sha256-formato-hex" data-searchable><code>autenticar(dados, chave, algoritmo = 'sha256', formato = 'hex')</code></h4>
-<p data-searchable>Entrada pública <code>autenticar</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>verificar_resumo(dados, esperado, algoritmo = 'sha256', formato = 'hex') -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p></div></details>
+<h4 id="autenticar" data-searchable><code>autenticar</code></h4>
+<p data-searchable>Calcula um código de autenticação para os dados usando uma chave.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
+
+garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>chave</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>algoritmo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>chave</code></td><td data-searchable>Chave usada para localizar ou identificar um valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code></p>
-<h4 id="verificar-autenticacao-dados-chave-esperado-algoritmo-sha256-formato-hex-bool" data-searchable><code>verificar_autenticacao(dados, chave, esperado, algoritmo = 'sha256', formato = 'hex') -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>verificar_autenticacao</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>autenticar(dados, chave, algoritmo = 'sha256', formato = 'hex')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="verificar-autenticacao" data-searchable><code>verificar_autenticacao</code></h4>
+<p data-searchable>Verificar HMAC.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>chave</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>esperado</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>algoritmo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>chave</code></td><td data-searchable>Chave usada para localizar ou identificar um valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>esperado</code></td><td data-searchable>Valor correspondente a esperado.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'sha256'</code></td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'hex'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code></p>
-<h4 id="gerar-bytes-seguros-quantidade-32-bytes" data-searchable><code>gerar_bytes_seguros(quantidade = 32) -&gt; bytes</code></h4>
-<p data-searchable>Entrada pública <code>gerar_bytes_seguros</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>verificar_autenticacao(dados, chave, esperado, algoritmo = 'sha256', formato = 'hex') -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="gerar-bytes-seguros" data-searchable><code>gerar_bytes_seguros</code></h4>
+<p data-searchable>Gera bytes aleatórios adequados a usos criptográficos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>quantidade</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>32</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>32</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code></p>
-<h4 id="gerar-token-seguro-bytes-de-entropia-32-formato-url" data-searchable><code>gerar_token_seguro(bytes_de_entropia = 32, formato = 'url')</code></h4>
-<p data-searchable>Entrada pública <code>gerar_token_seguro</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bytes</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>gerar_bytes_seguros(quantidade = 32) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="gerar-token-seguro" data-searchable><code>gerar_token_seguro</code></h4>
+<p data-searchable>Gera um token textual aleatório adequado a usos criptográficos.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>bytes_de_entropia</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>32</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'url'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>bytes_de_entropia</code></td><td data-searchable>Valor correspondente a bytes de entropia.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>32</code></td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'url'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroFormato</code>, <code>ErroValor</code></p>
-<h4 id="comparar-com-seguranca-primeiro-segundo-bool" data-searchable><code>comparar_com_seguranca(primeiro, segundo) -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>comparar_com_seguranca</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>gerar_token_seguro(bytes_de_entropia = 32, formato = 'url')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroFormato</code>, <code>ErroValor</code></p></div></details>
+<h4 id="comparar-com-seguranca" data-searchable><code>comparar_com_seguranca</code></h4>
+<p data-searchable>Compara valores sensíveis usando uma comparação apropriada para material criptográfico.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>primeiro</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>segundo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>primeiro</code></td><td data-searchable>Valor correspondente a primeiro.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>segundo</code></td><td data-searchable>Valor correspondente a segundo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<h4 id="listar-algoritmos-list-str" data-searchable><code>listar_algoritmos() -&gt; list[str]</code></h4>
-<p data-searchable>Entrada pública <code>listar_algoritmos</code> da superfície <code>coral.criptografia</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>list[str]</code></p>
-<h4 id="explicar-algoritmo-nome-dict-str-any" data-searchable><code>explicar_algoritmo(nome) -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>explicar_algoritmo</code> da superfície <code>coral.criptografia</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>comparar_com_seguranca(primeiro, segundo) -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p></div></details>
+<h4 id="listar-algoritmos" data-searchable><code>listar_algoritmos</code></h4>
+<p data-searchable>Lista algoritmos.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>list[str]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>listar_algoritmos() -&gt; list[str]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p></div></details>
+<h4 id="explicar-algoritmo" data-searchable><code>explicar_algoritmo</code></h4>
+<p data-searchable>Retorna uma explicação do algoritmo criptográfico solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>explicar_algoritmo(nome) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="conversoes.html"><span>Anterior</span><strong>coral.conversoes</strong></a><a class="docs-page-nav-link next" href="datas.html"><span>Próxima</span><strong>coral.datas</strong></a></nav>
   </main>

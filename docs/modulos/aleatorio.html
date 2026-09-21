@@ -178,135 +178,244 @@ garanta que primeiro for igual a segundo
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="fonte-semente-none-fontealeatoria" data-searchable><code>fonte(semente = None) -&gt; FonteAleatoria</code></h4>
-<p data-searchable>Entrada pública <code>fonte</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<h4 id="fonte" data-searchable><code>fonte</code></h4>
+<p data-searchable>Criar uma fonte reproduzível.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
+
+<span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>semente</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>FonteAleatoria</code></p>
-<h4 id="inteiro-minimo-maximo-fonte-fontealeatoria-none-none" data-searchable><code>inteiro(minimo, maximo, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>inteiro</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna a fonte de aleatoriedade criada.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>fonte(semente = None) -&gt; FonteAleatoria</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p></div></details>
+<h4 id="inteiro" data-searchable><code>inteiro</code></h4>
+<p data-searchable>Sortear inteiro em intervalo.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+garanta que primeiro for igual a segundo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o número inteiro sorteado.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>inteiro(minimo, maximo, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>minimo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>maximo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="decimal-minimo-0-0-maximo-1-0-fonte-fontealeatoria-none-none" data-searchable><code>decimal(minimo = 0.0, maximo = 1.0, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>decimal</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="decimal" data-searchable><code>decimal</code></h4>
+<p data-searchable>Sortear decimal em intervalo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o número decimal sorteado.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>decimal(minimo = 0.0, maximo = 1.0, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>minimo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>0.0</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>maximo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1.0</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="escolher-valores-fonte-fontealeatoria-none-none" data-searchable><code>escolher(valores, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>escolher</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="escolher" data-searchable><code>escolher</code></h4>
+<p data-searchable>Escolher um elemento.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um dos valores fornecidos.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escolher(valores, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="amostra-valores-quantidade-fonte-fontealeatoria-none-none" data-searchable><code>amostra(valores, quantidade, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>amostra</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="amostra" data-searchable><code>amostra</code></h4>
+<p data-searchable>Selecionar vários elementos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna a amostra selecionada.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>amostra(valores, quantidade, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>quantidade</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="escolha-ponderada-valores-pesos-fonte-fontealeatoria-none-none" data-searchable><code>escolha_ponderada(valores, pesos, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>escolha_ponderada</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="escolha-ponderada" data-searchable><code>escolha_ponderada</code></h4>
+<p data-searchable>Sortear com pesos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pesos</code></td><td data-searchable>Pesos associados aos valores usados na escolha.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o valor escolhido segundo os pesos.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escolha_ponderada(valores, pesos, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>pesos</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>pesos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="embaralhar-valores-fonte-fontealeatoria-none-none" data-searchable><code>embaralhar(valores, *, fonte: FonteAleatoria | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>embaralhar</code> da superfície <code>coral.aleatorio</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="embaralhar" data-searchable><code>embaralhar</code></h4>
+<p data-searchable>Reordenar valores.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>embaralhar(valores, *, fonte: FonteAleatoria \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fonte</code></td><td data-searchable><code>FonteAleatoria | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="fontealeatoria-semente-any-none" data-searchable><code>FonteAleatoria(semente: Any = None)</code></h4>
+<h4 id="fontealeatoria" data-searchable><code>FonteAleatoria</code></h4>
 <p data-searchable>Fonte reproduzível quando criada com semente explícita.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>semente</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inteiro</code></td><td data-searchable>Sortear inteiro em intervalo.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>decimal</code></td><td data-searchable>Sortear decimal em intervalo.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>escolher</code></td><td data-searchable>Escolher um elemento.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>amostra</code></td><td data-searchable>Selecionar vários elementos.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>escolha_ponderada</code></td><td data-searchable>Sortear com pesos.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>embaralhar</code></td><td data-searchable>Reordenar valores.</td><td data-searchable><code>não declarado</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FonteAleatoria(semente: Any = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.aleatorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/aleatorio.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>inteiro</code></td><td data-searchable>método</td><td data-searchable><code>inteiro(minimo, maximo)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>decimal</code></td><td data-searchable>método</td><td data-searchable><code>decimal(minimo = 0.0, maximo = 1.0)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>escolher</code></td><td data-searchable>método</td><td data-searchable><code>escolher(valores)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>amostra</code></td><td data-searchable>método</td><td data-searchable><code>amostra(valores, quantidade)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>escolha_ponderada</code></td><td data-searchable>método</td><td data-searchable><code>escolha_ponderada(valores, pesos)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>embaralhar</code></td><td data-searchable>método</td><td data-searchable><code>embaralhar(valores)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>inteiro</code></td><td data-searchable>método</td><td data-searchable><code>inteiro(minimo, maximo)</code></td></tr>
+<tr><td data-searchable><code>decimal</code></td><td data-searchable>método</td><td data-searchable><code>decimal(minimo = 0.0, maximo = 1.0)</code></td></tr>
+<tr><td data-searchable><code>escolher</code></td><td data-searchable>método</td><td data-searchable><code>escolher(valores)</code></td></tr>
+<tr><td data-searchable><code>amostra</code></td><td data-searchable>método</td><td data-searchable><code>amostra(valores, quantidade)</code></td></tr>
+<tr><td data-searchable><code>escolha_ponderada</code></td><td data-searchable>método</td><td data-searchable><code>escolha_ponderada(valores, pesos)</code></td></tr>
+<tr><td data-searchable><code>embaralhar</code></td><td data-searchable>método</td><td data-searchable><code>embaralhar(valores)</code></td></tr>
+</tbody></table></div></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="jogos.html"><span>Anterior</span><strong>coral.jogos</strong></a><a class="docs-page-nav-link next" href="arquivos.html"><span>Próxima</span><strong>coral.arquivos</strong></a></nav>
   </main>

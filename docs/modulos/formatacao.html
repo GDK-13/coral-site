@@ -169,37 +169,64 @@ de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="formatar-valor-valor-any-str" data-searchable><code>formatar_valor(valor: Any) -&gt; str</code></h4>
+<h4 id="formatar-valor" data-searchable><code>formatar_valor</code></h4>
 <p data-searchable>Representação textual básica usando convenções de literais Coral.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="montar-texto-partes-any-separador-str-final-str-str" data-searchable><code>montar_texto(*partes: Any, separador: str = '', final: str = '') -&gt; str</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>formatar_valor(valor: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.formatacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/formatacao.py</code></p></div></details>
+<h4 id="montar-texto" data-searchable><code>montar_texto</code></h4>
 <p data-searchable>Monta texto convertendo as partes de modo explícito e previsível.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro, decimal
+de <span class="code-mod">coral.formatacao</span> <span class="code-key">importe</span> montar_texto
+
+<span class="code-key">defina</span> nome como <span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Nome: &quot;</span>)
+<span class="code-key">defina</span> idade como <span class="code-fn">inteiro</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Idade: &quot;</span>))
+<span class="code-key">defina</span> altura como <span class="code-fn">decimal</span>(<span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Altura em metros: &quot;</span>))
+<span class="code-key">mostre</span> <span class="code-fn">montar_texto</span>(<span class="code-str">&quot;Olá, &quot;</span>, nome, <span class="code-str">&quot;. Idade: &quot;</span>, idade, <span class="code-str">&quot;. Altura: &quot;</span>, altura)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*partes</code></td><td data-searchable>Valor correspondente a partes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>separador</code></td><td data-searchable>Texto usado para separar partes do resultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>final</code></td><td data-searchable>Valor correspondente a final.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>montar_texto(*partes: Any, separador: str = '', final: str = '') -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.formatacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/formatacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>*partes</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>variádico</td></tr>
-<tr><td data-searchable><code>separador</code></td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>final</code></td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>*partes</code></td><td data-searchable>variádico</td></tr>
+<tr><td data-searchable><code>separador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>final</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroFormato</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroFormato</code></p></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="erroformato" data-searchable><code>ErroFormato(...)</code></h4>
+<h4 id="erroformato" data-searchable><code>ErroFormato</code></h4>
 <p data-searchable>Dados ou texto não obedecem ao formato esperado.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.erros</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroFormato(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.erros</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/erros.py</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="entrada.html"><span>Anterior</span><strong>coral.entrada</strong></a><a class="docs-page-nav-link next" href="formatos.html"><span>Próxima</span><strong>coral.formatos</strong></a></nav>
   </main>

@@ -13,7 +13,10 @@ from pathlib import Path
 from typing import Any
 
 from api_docs import enrich_modules_from_zip, render_api_markdown
-from site_renderer import PRIMARY_GROUP, OTHER_GROUP, PRIMARY_MODULE_ORDER, render_docs as render_docs_multipage, source_to_public
+from site_renderer import (
+    PRIMARY_GROUP, OTHER_GROUP, PRIMARY_MODULE_ORDER,
+    render_docs as render_docs_multipage, source_to_public, split_table_row,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -347,6 +350,74 @@ def diff_release(old: dict[str, Any], new: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _clean_symbol_cell(text: str) -> list[str]:
+    # Células da API essencial podem agrupar símbolos com `/`.
+    return [part.strip().strip("`") for part in text.split("/") if part.strip().strip("`")]
+
+
+def extract_api_editorial(text: str, module: dict[str, Any]) -> dict[str, Any]:
+    """Extrai evidência editorial já escrita na página do módulo.
+
+    O importador usa apenas conteúdo manual já existente como apoio didático.
+    Ele não cria fatos novos sobre a API. A tabela "API essencial" fornece
+    descrições curtas e os blocos Coral fornecem exemplos somente quando o
+    símbolo aparece literalmente no código.
+    """
+    purposes: dict[str, str] = {}
+    match = re.search(r"^## API essencial\s*$\n(.*?)(?=^##\s|\Z)", text, flags=re.M | re.S)
+    if match:
+        lines = match.group(1).splitlines()
+        for i, line in enumerate(lines):
+            if not line.strip().startswith("|") or i + 1 >= len(lines):
+                continue
+            if not re.match(r"^\s*\|?\s*:?-+", lines[i + 1]):
+                continue
+            headers = [re.sub(r"[`*]", "", cell).strip().lower() for cell in split_table_row(line)]
+            try:
+                entry_col = headers.index("entrada")
+            except ValueError:
+                break
+            role_col = headers.index("papel") if "papel" in headers else None
+            for row_line in lines[i + 2:]:
+                if not row_line.strip().startswith("|"):
+                    break
+                row = split_table_row(row_line)
+                if len(row) <= entry_col:
+                    continue
+                role = row[role_col].strip() if role_col is not None and len(row) > role_col else ""
+                role = re.sub(r"[`*]", "", role).strip()
+                for symbol in _clean_symbol_cell(row[entry_col]):
+                    if symbol:
+                        purposes[symbol] = role
+            break
+
+    code_blocks = re.findall(r"```coral(?:-[^\n]*)?\n(.*?)\n```", text, flags=re.S | re.I)
+    examples: dict[str, str] = {}
+    names = [str(entry.get("nome", "")) for entry in module.get("api", [])]
+    for name in names:
+        if not name:
+            continue
+        pattern = re.compile(rf"(?<![\wÀ-ÿ]){re.escape(name)}(?![\wÀ-ÿ])")
+        for block in code_blocks:
+            lines = block.strip().splitlines()
+            usage_hits = [
+                j for j, ln in enumerate(lines)
+                if pattern.search(ln)
+                and not ln.lstrip().startswith(("de ", "importe ", "#", "comentário:", "observação:"))
+            ]
+            if usage_hits:
+                hit = usage_hits[0]
+                # Exemplo curto: preserva contexto, mas evita transformar cada
+                # entrada da referência em um segundo tutorial longo.
+                if len(lines) <= 8:
+                    examples[name] = block.strip()
+                else:
+                    start = max(0, hit - 2)
+                    examples[name] = "\n".join(lines[start:start + 6]).strip()
+                break
+    return {"purposes": purposes, "examples": examples}
+
+
 def module_auto_block(module: dict[str, Any]) -> str:
     ops = module.get("operacoes", [])
     lines = [AUTO_START, "", f"**Importação:** `{module['importacao']}`  ", f"**Categoria:** {module.get('categoria', 'geral')}  "]
@@ -367,7 +438,13 @@ def sync_module_pages(modules: list[dict[str, Any]]) -> None:
     for module in modules:
         path = MODULOS_DIR / f"{module['nome']}.md"
         block = module_auto_block(module)
-        api_block = "<!-- AUTO:API -->\n\n" + render_api_markdown(module) + "\n\n<!-- /AUTO:API -->"
+        module_for_api = dict(module)
+        if path.exists():
+            existing = path.read_text(encoding="utf-8")
+            editorial = extract_api_editorial(existing, module)
+            module_for_api["editorial_api"] = editorial["purposes"]
+            module_for_api["editorial_examples"] = editorial["examples"]
+        api_block = "<!-- AUTO:API -->\n\n" + render_api_markdown(module_for_api) + "\n\n<!-- /AUTO:API -->"
         if not path.exists():
             title = module["importacao"]
             manual = (

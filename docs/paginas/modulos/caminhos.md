@@ -108,75 +108,179 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `normalizar_caminho(valor: CaminhoAceito, *, expandir_usuario: bool = False, resolver: bool = False) -> Path`
+#### `normalizar_caminho`
 
 Converte uma entrada para ``Path`` nativo com regras explícitas.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `CaminhoAceito` | obrigatório | posicional |
-| `expandir_usuario` | `bool` | `False` | nomeado |
-| `resolver` | `bool` | `False` | nomeado |
+| `valor` | Valor processado pela operação. | `CaminhoAceito` | obrigatório |
+| `expandir_usuario` | Valor correspondente a expandir usuario. | `bool` | `False` |
+| `resolver` | Valor correspondente a resolver. | `bool` | `False` |
 
-**Retorno:** `Path`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`, `TypeError`
+Retorna um valor declarado como `Path`.
 
-#### `juntar_caminho(*partes: Any, expandir_usuario: bool = True) -> Path`
+:::details Detalhes técnicos
 
-Entrada pública `juntar_caminho` da superfície `coral.caminhos`.
+**Assinatura:** `normalizar_caminho(valor: CaminhoAceito, *, expandir_usuario: bool = False, resolver: bool = False) -> Path`
+
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `expandir_usuario` | nomeado |
+| `resolver` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `TypeError`
+
+:::
+
+#### `juntar_caminho`
+
+Combina partes de caminho sem concatenar separadores manualmente.
+
+**Exemplo**
+
+```coral
+de coral.caminhos importe juntar_caminho
+
+defina caminho_texto como juntar_caminho("dados", "mensagem.txt")
+mostre caminho_texto
+
+execute escrever_texto("mensagem.txt", "Olá, arquivo!")
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*partes` | `Any` | obrigatório | variádico |
-| `expandir_usuario` | `bool` | `True` | nomeado |
+| `*partes` | Valor correspondente a partes. | `Any` | obrigatório |
+| `expandir_usuario` | Valor correspondente a expandir usuario. | `bool` | `True` |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `estilo_caminho(valor: PurePath) -> str`
+Retorna um valor declarado como `Path`.
 
-Entrada pública `estilo_caminho` da superfície `coral.caminhos`.
+:::details Detalhes técnicos
+
+**Assinatura:** `juntar_caminho(*partes: Any, expandir_usuario: bool = True) -> Path`
+
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*partes` | variádico |
+| `expandir_usuario` | nomeado |
+
+:::
+
+#### `estilo_caminho`
+
+Identificar estilo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `PurePath` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `PurePath` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `estilo_nativo() -> str`
+Retorna um valor declarado como `str`.
 
-Entrada pública `estilo_nativo` da superfície `coral.caminhos`.
+:::details Detalhes técnicos
 
-**Retorno:** `str`
+**Assinatura:** `estilo_caminho(valor: PurePath) -> str`
 
-#### `caminho_portatil(texto: str, estilo: str, *, concreto: bool = True) -> PurePath`
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
+
+:::
+
+#### `estilo_nativo`
+
+Consultar estilo local.
+
+**Retorno**
+
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `estilo_nativo() -> str`
+
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
+
+:::
+
+#### `caminho_portatil`
 
 Reconstrói a categoria caminho sem fingir compatibilidade entre SOs.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `str` | obrigatório | posicional |
-| `estilo` | `str` | obrigatório | posicional |
-| `concreto` | `bool` | `True` | nomeado |
+| `texto` | Texto processado pela operação. | `str` | obrigatório |
+| `estilo` | Valor correspondente a estilo. | `str` | obrigatório |
+| `concreto` | Valor correspondente a concreto. | `bool` | `True` |
 
-**Retorno:** `PurePath`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna um valor declarado como `PurePath`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `caminho_portatil(texto: str, estilo: str, *, concreto: bool = True) -> PurePath`
+
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `texto` | posicional |
+| `estilo` | posicional |
+| `concreto` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
 
 ### Constantes e aliases
 
 #### `CaminhoAceito`
 
-Alias público de tipo ou valor.
+Expõe `CaminhoAceito` como parte da API pública do módulo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CaminhoAceito`
+
+**Origem da implementação:** `coral.caminhos`
+
+**Arquivo na release:** `coral/caminhos.py`
 
 **Valor declarado:** `str | os.PathLike[str]`
+
+:::
 
 <!-- /AUTO:API -->

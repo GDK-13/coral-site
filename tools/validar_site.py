@@ -170,6 +170,33 @@ def audit_syntax_contract() -> list[str]:
 
 
 
+def audit_api_didactic() -> list[str]:
+    """Valida a dupla camada da referência: leitura humana + detalhes técnicos."""
+    errors: list[str] = []
+    modules_path = ROOT / "docs" / "dados" / "modulos.json"
+    if not modules_path.exists():
+        return ["docs/dados/modulos.json ausente"]
+    modules = json.loads(modules_path.read_text(encoding="utf-8"))
+    expected = sum(len(m.get("api", [])) for m in modules)
+    md_files = sorted((ROOT / "docs" / "paginas" / "modulos").glob("*.md"))
+    md_text = "\n".join(p.read_text(encoding="utf-8") for p in md_files)
+    html_files = sorted((ROOT / "docs" / "modulos").glob("*.html"))
+    html_text = "\n".join(p.read_text(encoding="utf-8") for p in html_files)
+    if "Entrada pública `" in md_text:
+        errors.append("referência da API ainda contém descrições mecânicas 'Entrada pública'")
+    details_md = md_text.count(":::details Detalhes técnicos")
+    details_html = html_text.count('class="api-tech-details"')
+    if details_md != expected:
+        errors.append(f"detalhes técnicos no Markdown: {details_md} != {expected} símbolos")
+    if details_html != expected:
+        errors.append(f"detalhes técnicos no HTML: {details_html} != {expected} símbolos")
+    if "| Parâmetro | Significado | Tipo | Padrão |" not in md_text:
+        errors.append("tabela didática de parâmetros não encontrada")
+    if "api-tech-body" not in html_text:
+        errors.append("camada técnica recolhível não foi renderizada")
+    return errors
+
+
 def audit_header_layout_contract() -> list[str]:
     """Impede regressão do cabeçalho claro quando rótulos ficam mais largos."""
     errors: list[str] = []
@@ -221,6 +248,7 @@ def main() -> int:
     failures.extend(code_errors)
     failures.extend(audit_syntax_contract())
     failures.extend(audit_header_layout_contract())
+    failures.extend(audit_api_didactic())
     failures.extend(audit_residues())
 
     if failures:
@@ -233,7 +261,7 @@ def main() -> int:
     print(f"HTML verificados: {html_count}")
     print(f"Blocos de código comparados: {code_count}")
     print("Realce Coral: whitelist, fidelidade, strings, comentários, números, módulos e chamadas tradicionais OK")
-    print("Links, âncoras, IDs, contrato sintático e cabeçalho responsivo: OK")
+    print("Links, âncoras, IDs, contrato sintático, referência didática de API e cabeçalho responsivo: OK")
     return 0
 
 

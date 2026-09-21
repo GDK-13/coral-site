@@ -173,74 +173,116 @@
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="ordenar-valores-reverso-false" data-searchable><code>ordenar(valores, reverso = False)</code></h4>
-<p data-searchable>Entrada pública <code>ordenar</code> da superfície <code>coral.colecoes</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<h4 id="ordenar" data-searchable><code>ordenar</code></h4>
+<p data-searchable>Ordenar valores.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.colecoes</span> <span class="code-key">importe</span> ordenar, unicos, primeiro
+
+<span class="code-key">defina</span> valores como [<span class="code-num">3</span>, <span class="code-num">1</span>, <span class="code-num">3</span>, <span class="code-num">2</span>]
+<span class="code-key">defina</span> ordenados como <span class="code-fn">ordenar</span>(valores)
+<span class="code-key">defina</span> sem_repeticao como <span class="code-fn">unicos</span>(valores)
+<span class="code-key">mostre</span> ordenados
+<span class="code-key">mostre</span> sem_repeticao
+<span class="code-key">mostre</span> <span class="code-fn">primeiro</span>(ordenados, nulo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>reverso</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>reverso</code></td><td data-searchable>Valor correspondente a reverso.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="unicos-valores" data-searchable><code>unicos(valores)</code></h4>
-<p data-searchable>Entrada pública <code>unicos</code> da superfície <code>coral.colecoes</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ordenar(valores, reverso = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/colecoes.py</code></p></div></details>
+<h4 id="unicos" data-searchable><code>unicos</code></h4>
+<p data-searchable>Obter valores únicos.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.colecoes</span> <span class="code-key">importe</span> ordenar, unicos, primeiro
+
+<span class="code-key">defina</span> valores como [<span class="code-num">3</span>, <span class="code-num">1</span>, <span class="code-num">3</span>, <span class="code-num">2</span>]
+<span class="code-key">defina</span> ordenados como <span class="code-fn">ordenar</span>(valores)
+<span class="code-key">defina</span> sem_repeticao como <span class="code-fn">unicos</span>(valores)
+<span class="code-key">mostre</span> ordenados
+<span class="code-key">mostre</span> sem_repeticao
+<span class="code-key">mostre</span> <span class="code-fn">primeiro</span>(ordenados, nulo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="contar-valores" data-searchable><code>contar(valores)</code></h4>
-<p data-searchable>Entrada pública <code>contar</code> da superfície <code>coral.colecoes</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>unicos(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/colecoes.py</code></p></div></details>
+<h4 id="contar" data-searchable><code>contar</code></h4>
+<p data-searchable>Contar elementos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="primeiro-valores-padrao-none" data-searchable><code>primeiro(valores, padrao = None)</code></h4>
-<p data-searchable>Entrada pública <code>primeiro</code> da superfície <code>coral.colecoes</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>contar(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/colecoes.py</code></p></div></details>
+<h4 id="primeiro" data-searchable><code>primeiro</code></h4>
+<p data-searchable>Obter primeiro ou padrão.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.colecoes</span> <span class="code-key">importe</span> ordenar, unicos, primeiro
+
+<span class="code-key">defina</span> valores como [<span class="code-num">3</span>, <span class="code-num">1</span>, <span class="code-num">3</span>, <span class="code-num">2</span>]
+<span class="code-key">defina</span> ordenados como <span class="code-fn">ordenar</span>(valores)
+<span class="code-key">defina</span> sem_repeticao como <span class="code-fn">unicos</span>(valores)
+<span class="code-key">mostre</span> ordenados
+<span class="code-key">mostre</span> sem_repeticao
+<span class="code-key">mostre</span> <span class="code-fn">primeiro</span>(ordenados, nulo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable>Valor usado quando não há resultado específico disponível.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="agrupar-pares-chaves-valores" data-searchable><code>agrupar_pares(chaves, valores)</code></h4>
-<p data-searchable>Entrada pública <code>agrupar_pares</code> da superfície <code>coral.colecoes</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>primeiro(valores, padrao = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/colecoes.py</code></p></div></details>
+<h4 id="agrupar-pares" data-searchable><code>agrupar_pares</code></h4>
+<p data-searchable>Associar chaves e valores.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>chaves</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>valores</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>chaves</code></td><td data-searchable>Valor correspondente a chaves.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>agrupar_pares(chaves, valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.colecoes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/colecoes.py</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="caminhos.html"><span>Anterior</span><strong>coral.caminhos</strong></a><a class="docs-page-nav-link next" href="comum.html"><span>Próxima</span><strong>coral.comum</strong></a></nav>
   </main>

@@ -1257,3 +1257,40 @@ a { transition: color .15s ease, text-decoration-color .15s ease; }
   .module-card-link:hover, .docs-page-nav-link:hover { transform: none; }
 }
 
+
+/* Referência da API: camada técnica recolhível. */
+.api-tech-details {
+  margin: 0.8rem 0 1.7rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--bg-alt) 45%, var(--bg));
+}
+.api-tech-details > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.9rem;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+.api-tech-details > summary::-webkit-details-marker { display: none; }
+.api-tech-details > summary::before {
+  content: '›';
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.25rem;
+  transform: rotate(0deg);
+  transition: transform 0.12s ease;
+}
+.api-tech-details[open] > summary::before { transform: rotate(90deg); }
+.api-tech-details > summary:hover { color: var(--text); }
+.api-tech-body {
+  border-top: 1px solid var(--border);
+  padding: 0.25rem 0.95rem 0.8rem;
+}
+.api-tech-body p,
+.api-tech-body li,
+.api-tech-body td,
+.api-tech-body th { font-size: 13.5px; }
+.api-tech-body .table-wrap { margin: 0.65rem 0; }

@@ -174,82 +174,143 @@ garanta que <span class="code-fn">e_tipo</span>(valor, <span class="code-str">&q
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="traduzir-tipo-tipo-str-str" data-searchable><code>traduzir_tipo(tipo: str) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>traduzir_tipo</code> da superfície <code>coral.tipos</code>.</p>
+<h4 id="traduzir-tipo" data-searchable><code>traduzir_tipo</code></h4>
+<p data-searchable>Traduzir nome.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="tipo-de-valor-any-tipocoral" data-searchable><code>tipo_de(valor: Any) -&gt; TipoCoral</code></h4>
-<p data-searchable>Entrada pública <code>tipo_de</code> da superfície <code>coral.tipos</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>traduzir_tipo(tipo: str) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p></div></details>
+<h4 id="tipo-de" data-searchable><code>tipo_de</code></h4>
+<p data-searchable>Descobrir categoria.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tipos</span> <span class="code-key">importe</span> tipo_de, nome_tipo, e_tipo
+
+<span class="code-key">defina</span> valor como <span class="code-num">42</span>
+<span class="code-key">mostre</span> <span class="code-fn">tipo_de</span>(valor)
+<span class="code-key">mostre</span> <span class="code-fn">nome_tipo</span>(valor)
+garanta que <span class="code-fn">e_tipo</span>(valor, <span class="code-str">&quot;inteiro&quot;</span>) for igual a verdadeiro</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>TipoCoral</code></p>
-<h4 id="nome-tipo-valor-any-str" data-searchable><code>nome_tipo(valor: Any) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>nome_tipo</code> da superfície <code>coral.tipos</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>TipoCoral</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tipo_de(valor: Any) -&gt; TipoCoral</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p></div></details>
+<h4 id="nome-tipo" data-searchable><code>nome_tipo</code></h4>
+<p data-searchable>Obter nome Coral.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tipos</span> <span class="code-key">importe</span> tipo_de, nome_tipo, e_tipo
+
+<span class="code-key">defina</span> valor como <span class="code-num">42</span>
+<span class="code-key">mostre</span> <span class="code-fn">tipo_de</span>(valor)
+<span class="code-key">mostre</span> <span class="code-fn">nome_tipo</span>(valor)
+garanta que <span class="code-fn">e_tipo</span>(valor, <span class="code-str">&quot;inteiro&quot;</span>) for igual a verdadeiro</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="e-tipo-valor-any-esperado-str-type-tipocoral-bool" data-searchable><code>e_tipo(valor: Any, esperado: str | type | TipoCoral) -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>e_tipo</code> da superfície <code>coral.tipos</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>nome_tipo(valor: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p></div></details>
+<h4 id="e-tipo" data-searchable><code>e_tipo</code></h4>
+<p data-searchable>Testar categoria.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tipos</span> <span class="code-key">importe</span> tipo_de, nome_tipo, e_tipo
+
+<span class="code-key">defina</span> valor como <span class="code-num">42</span>
+<span class="code-key">mostre</span> <span class="code-fn">tipo_de</span>(valor)
+<span class="code-key">mostre</span> <span class="code-fn">nome_tipo</span>(valor)
+garanta que <span class="code-fn">e_tipo</span>(valor, <span class="code-str">&quot;inteiro&quot;</span>) for igual a verdadeiro</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>esperado</code></td><td data-searchable><code>str | type | TipoCoral</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>esperado</code></td><td data-searchable>Valor correspondente a esperado.</td><td data-searchable><code>str | type | TipoCoral</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>e_tipo(valor: Any, esperado: str \| type \| TipoCoral) -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="tipocoral-nome-str-tipos-python-tuple-type-aliases-tuple-str" data-searchable><code>TipoCoral(nome: str, tipos_python: tuple[type, ...] = (), aliases: tuple[str, ...] = ())</code></h4>
-<p data-searchable>Entrada pública <code>TipoCoral</code> da superfície <code>coral.tipos</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="tipocoral" data-searchable><code>TipoCoral</code></h4>
+<p data-searchable>Representa descritor.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>tipos_python</code></td><td data-searchable><code>tuple[type, ...]</code></td><td data-searchable><code>()</code></td></tr>
-<tr><td data-searchable><code>aliases</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipos_python</code></td><td data-searchable>Valor correspondente a tipos python.</td><td data-searchable><code>tuple[type, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>aliases</code></td><td data-searchable>Valor correspondente a aliases.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipos_python</code></td><td data-searchable>Valor correspondente a tipos python.</td><td data-searchable><code>tuple[type, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>aliases</code></td><td data-searchable>Valor correspondente a aliases.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>aceita</code></td><td data-searchable>Executa a operação <code>aceita</code> disponibilizada por <code>coral.tipos</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TipoCoral(nome: str, tipos_python: tuple[type, ...] = (), aliases: tuple[str, ...] = ())</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>aceita</code></td><td data-searchable>método</td><td data-searchable><code>aceita(valor: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>aceita</code></td><td data-searchable>método</td><td data-searchable><code>aceita(valor: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="tipos-coral" data-searchable><code>TIPOS_CORAL</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>{'inteiro': 'int', 'decimal': 'float', 'número': 'float', 'numero': 'float', 'texto': 'str', 'booleano': 'bool', 'lógico': 'bool', 'logico': 'bool', 'lista': 'list', 'dicionário': 'dict', 'dicionario': 'dict', 'conjunto': 'set', 'tupla': 't</code></p>
+<p data-searchable>Expõe a constante pública <code>TIPOS_CORAL</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TIPOS_CORAL</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tipos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tipos.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>{'inteiro': 'int', 'decimal': 'float', 'número': 'float', 'numero': 'float', 'texto': 'str', 'booleano': 'bool', 'lógico': 'bool', 'logico': 'bool', 'lista': 'list', 'dicionário': 'dict', 'dicionario': 'dict', 'conjunto': 'set', 'tupla': 't</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="texto.html"><span>Anterior</span><strong>coral.texto</strong></a><span></span></nav>
   </main>

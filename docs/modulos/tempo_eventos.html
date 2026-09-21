@@ -178,158 +178,342 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="validar-duracao-valor-any-nome-str-duracao-permitir-none-bool-false-permitir-zero-bool-true-float-none" data-searchable><code>validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -&gt; float | None</code></h4>
+<h4 id="validar-duracao" data-searchable><code>validar_duracao</code></h4>
 <p data-searchable>Normaliza uma duração pública para segundos finitos não negativos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'duração'</code></td></tr>
+<tr><td data-searchable><code>permitir_none</code></td><td data-searchable>Controla se deve permitir none.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>permitir_zero</code></td><td data-searchable>Controla se deve permitir zero.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>float | None</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -&gt; float \| None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'duração'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>permitir_none</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>permitir_zero</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>permitir_none</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>permitir_zero</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>float | None</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="normalizar-dt-valor-any-compatibilidade-negativo-zero-bool-true-float" data-searchable><code>normalizar_dt(valor: Any, *, compatibilidade_negativo_zero: bool = True) -&gt; float</code></h4>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="normalizar-dt" data-searchable><code>normalizar_dt</code></h4>
 <p data-searchable>Normaliza avanço de simulação.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>compatibilidade_negativo_zero</code></td><td data-searchable>Valor correspondente a compatibilidade negativo zero.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>float</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>normalizar_dt(valor: Any, *, compatibilidade_negativo_zero: bool = True) -&gt; float</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>compatibilidade_negativo_zero</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>compatibilidade_negativo_zero</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>float</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="fontetempo" data-searchable><code>FonteTempo(...)</code></h4>
-<p data-searchable>Entrada pública <code>FonteTempo</code> da superfície <code>coral.tempo_eventos</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<h4 id="fontetempo" data-searchable><code>FonteTempo</code></h4>
+<p data-searchable>Define o contrato público de FonteTempo.</p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>Obtém o instante civil atual.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>Avança o estado controlado por um passo.</td><td data-searchable><code>float</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FonteTempo(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="relogiomonotonico-fonte-callable-float-time-perf-counter" data-searchable><code>RelogioMonotonico(fonte: Callable[[], float] = time.perf_counter)</code></h4>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="relogiomonotonico" data-searchable><code>RelogioMonotonico</code></h4>
 <p data-searchable>Relógio real baseado em `<code>perf_counter</code>` e apropriado para durações.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
-<th>Tipo</th>
-<th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
-</tr></thead><tbody>
-<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="relogiosimulado-inicial-float-0-0" data-searchable><code>RelogioSimulado(inicial: float = 0.0)</code></h4>
-<p data-searchable>Relógio controlado pelo programa, sem dormir nem consultar o sistema.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
-<div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
-<th>Tipo</th>
-<th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
-</tr></thead><tbody>
-<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(dt: Any) -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(instante: Any) -&gt; float</code></td><td data-searchable><code>float</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="tokencancelamento" data-searchable><code>TokenCancelamento()</code></h4>
-<p data-searchable>Entrada pública <code>TokenCancelamento</code> da superfície <code>coral.tempo_eventos</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
-<div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
-<th>Tipo</th>
-<th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
-</tr></thead><tbody>
-<tr><td data-searchable><code>cancelado</code></td><td data-searchable>propriedade</td><td data-searchable><code>cancelado() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>motivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>motivo() -&gt; str | None</code></td><td data-searchable><code>str | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str = 'Operação cancelada pelo usuário.') -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>verificar</code></td><td data-searchable>método</td><td data-searchable><code>verificar() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="evento-nome-str-args-tuple-any-kwargs-mapping-str-any-field-default-factory-dict-origem-str-none-none-sequencia-int-0-instante-float-none-none-cancelavel-bool-false-cancelado-bool-false-motivo-cancelamento-str-none-none-consumido-bool-false-metadados-mapping-str-any-field-default-factory-dict-causa-sequencia-int-none-none" data-searchable><code>Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str | None = None, sequencia: int = 0, instante: float | None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str | None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>Evento</code> da superfície <code>coral.tempo_eventos</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
-<div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>args</code></td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
-<tr><td data-searchable><code>kwargs</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>sequencia</code></td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
-<tr><td data-searchable><code>instante</code></td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>cancelavel</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
-<tr><td data-searchable><code>cancelado</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
-<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>consumido</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
-<tr><td data-searchable><code>metadados</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
-<tr><td data-searchable><code>causa_sequencia</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>Callable[[], float]</code></td><td data-searchable><code>time.perf_counter</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>Obtém o instante civil atual.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>Avança o estado controlado por um passo.</td><td data-searchable><code>float</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RelogioMonotonico(fonte: Callable[[], float] = time.perf_counter)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str | None = None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>consumir</code></td><td data-searchable>método</td><td data-searchable><code>consumir() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="relogiosimulado" data-searchable><code>RelogioSimulado</code></h4>
+<p data-searchable>Relógio controlado pelo programa, sem dormir nem consultar o sistema.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> RelogioSimulado, Eventos
+
+<span class="code-key">defina</span> relogio como <span class="code-fn">RelogioSimulado</span>(<span class="code-num">0</span>)
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>(relogio=relogio)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()
+execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5</span>)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inicial</code></td><td data-searchable>Valor correspondente a inicial.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
 </tbody></table></div>
-<h4 id="eventos-pai-eventos-none-none-relogio-fontetempo-none-none-fonte-instante-callable-float-none-none" data-searchable><code>Eventos(*, pai: 'Eventos | None' = None, relogio: FonteTempo | None = None, fonte_instante: Callable[[], float] | None = None)</code></h4>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>Obtém o instante civil atual.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>Avança o estado controlado por um passo.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>Define o valor solicitado.</td><td data-searchable><code>float</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RelogioSimulado(inicial: float = 0.0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(dt: Any) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>método</td><td data-searchable><code>passo() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(instante: Any) -&gt; float</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="tokencancelamento" data-searchable><code>TokenCancelamento</code></h4>
+<p data-searchable>Representa cancelamento cooperativo.</p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>Indica o estado de cancelado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Obtém motivo.</td><td data-searchable><code>str | None</code></td></tr>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>Cancela o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>verificar</code></td><td data-searchable>Executa a operação <code>verificar</code> disponibilizada por <code>coral.tempo_eventos</code>.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TokenCancelamento()</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>propriedade</td><td data-searchable><code>cancelado() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>motivo() -&gt; str | None</code></td></tr>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str = 'Operação cancelada pelo usuário.') -&gt; None</code></td></tr>
+<tr><td data-searchable><code>verificar</code></td><td data-searchable>método</td><td data-searchable><code>verificar() -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="evento" data-searchable><code>Evento</code></h4>
+<p data-searchable>Representa registro de evento.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>args</code></td><td data-searchable>Valor correspondente a args.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>kwargs</code></td><td data-searchable>Valor correspondente a kwargs.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sequencia</code></td><td data-searchable>Valor correspondente a sequencia.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>cancelavel</code></td><td data-searchable>Valor correspondente a cancelavel.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>Valor correspondente a cancelado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable>Valor correspondente a motivo cancelamento.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>consumido</code></td><td data-searchable>Valor correspondente a consumido.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>causa_sequencia</code></td><td data-searchable>Valor correspondente a causa sequencia.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>args</code></td><td data-searchable>Valor correspondente a args.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>kwargs</code></td><td data-searchable>Valor correspondente a kwargs.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sequencia</code></td><td data-searchable>Valor correspondente a sequencia.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>cancelavel</code></td><td data-searchable>Valor correspondente a cancelavel.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>Valor correspondente a cancelado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable>Valor correspondente a motivo cancelamento.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>consumido</code></td><td data-searchable>Valor correspondente a consumido.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>causa_sequencia</code></td><td data-searchable>Valor correspondente a causa sequencia.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>Cancela o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>consumir</code></td><td data-searchable>Executa a operação <code>consumir</code> disponibilizada por <code>coral.tempo_eventos</code>.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str \| None = None, sequencia: int = 0, instante: float \| None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str \| None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str | None = None) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>consumir</code></td><td data-searchable>método</td><td data-searchable><code>consumir() -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="eventos-2" data-searchable><code>Eventos</code></h4>
 <p data-searchable>Barramento local compatível com `<code>coral.regras.Eventos</code>`.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> RelogioSimulado, Eventos
+
+<span class="code-key">defina</span> relogio como <span class="code-fn">RelogioSimulado</span>(<span class="code-num">0</span>)
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>(relogio=relogio)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()
+execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5</span>)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pai</code></td><td data-searchable>Valor correspondente a pai.</td><td data-searchable><code>'Eventos | None'</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Relógio usado para controlar tempo ou atualização.</td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>fonte_instante</code></td><td data-searchable>Valor correspondente a fonte instante.</td><td data-searchable><code>Callable[[], float] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pendentes</code></td><td data-searchable>Obtém pendentes.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>pai</code></td><td data-searchable>Obtém pai.</td><td data-searchable><code>'Eventos | None'</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Obtém relogio.</td><td data-searchable><code>FonteTempo | None</code></td></tr>
+<tr><td data-searchable><code>definir_fonte_instante</code></td><td data-searchable>Define fonte instante.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>possui_fonte_instante</code></td><td data-searchable>Indica se possui fonte instante.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>definir_pai</code></td><td data-searchable>Define pai.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>quando</code></td><td data-searchable>Executa a operação <code>quando</code> disponibilizada por <code>coral.tempo_eventos</code>.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>Remove o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>emitir</code></td><td data-searchable>Emite o valor solicitado.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>Emite evento.</td><td data-searchable><code>Evento</code></td></tr>
+<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>Enfileira o valor solicitado.</td><td data-searchable><code>Evento</code></td></tr>
+<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>Enfileira evento.</td><td data-searchable><code>Evento</code></td></tr>
+<tr><td data-searchable><code>processar</code></td><td data-searchable>Processa o valor solicitado.</td><td data-searchable><code>tuple[Evento, ...]</code></td></tr>
+<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>Emite propagado.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>Emite evento propagado.</td><td data-searchable><code>Evento</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Eventos(*, pai: 'Eventos \| None' = None, relogio: FonteTempo \| None = None, fonte_instante: Callable[[], float] \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pai</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>fonte_instante</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>pendentes</code></td><td data-searchable>propriedade</td><td data-searchable><code>pendentes() -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>pai</code></td><td data-searchable>propriedade</td><td data-searchable><code>pai() -&gt; 'Eventos | None'</code></td><td data-searchable><code>'Eventos | None'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; FonteTempo | None</code></td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>definir_fonte_instante</code></td><td data-searchable>método</td><td data-searchable><code>definir_fonte_instante(fonte: Callable[[], float] | None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>possui_fonte_instante</code></td><td data-searchable>propriedade</td><td data-searchable><code>possui_fonte_instante() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>definir_pai</code></td><td data-searchable>método</td><td data-searchable><code>definir_pai(pai: 'Eventos | None') -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>quando</code></td><td data-searchable>método</td><td data-searchable><code>quando(nome: str, funcao: Callable[..., Any], *, prioridade: str | int = 'normal', receber_evento: bool = False, max_execucoes: int | None = None, cooldown: float = 0.0)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(nome: str, funcao: Callable[..., Any]) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir</code></td><td data-searchable>método</td><td data-searchable><code>emitir(nome: str, *args, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar(nome: str, *args, origem: str | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>processar</code></td><td data-searchable>método</td><td data-searchable><code>processar(limite: int | None = None) -&gt; tuple[Evento, ...]</code></td><td data-searchable><code>tuple[Evento, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(nome: str, *args, origem: str | None = None, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td><td data-searchable><code>Evento</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>pendentes</code></td><td data-searchable>propriedade</td><td data-searchable><code>pendentes() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>pai</code></td><td data-searchable>propriedade</td><td data-searchable><code>pai() -&gt; 'Eventos | None'</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; FonteTempo | None</code></td></tr>
+<tr><td data-searchable><code>definir_fonte_instante</code></td><td data-searchable>método</td><td data-searchable><code>definir_fonte_instante(fonte: Callable[[], float] | None) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>possui_fonte_instante</code></td><td data-searchable>propriedade</td><td data-searchable><code>possui_fonte_instante() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>definir_pai</code></td><td data-searchable>método</td><td data-searchable><code>definir_pai(pai: 'Eventos | None') -&gt; None</code></td></tr>
+<tr><td data-searchable><code>quando</code></td><td data-searchable>método</td><td data-searchable><code>quando(nome: str, funcao: Callable[..., Any], *, prioridade: str | int = 'normal', receber_evento: bool = False, max_execucoes: int | None = None, cooldown: float = 0.0)</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(nome: str, funcao: Callable[..., Any]) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>emitir</code></td><td data-searchable>método</td><td data-searchable><code>emitir(nome: str, *args, **kwargs) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td></tr>
+<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar(nome: str, *args, origem: str | None = None, **kwargs) -&gt; Evento</code></td></tr>
+<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar_evento(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td></tr>
+<tr><td data-searchable><code>processar</code></td><td data-searchable>método</td><td data-searchable><code>processar(limite: int | None = None) -&gt; tuple[Evento, ...]</code></td></tr>
+<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(nome: str, *args, origem: str | None = None, **kwargs) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(nome: str, *args, origem: str | None = None, cancelavel: bool = False, metadados: Mapping[str, Any] | None = None, **kwargs) -&gt; Evento</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="operacaocancelada" data-searchable><code>OperacaoCancelada(...)</code></h4>
+<h4 id="operacaocancelada" data-searchable><code>OperacaoCancelada</code></h4>
 <p data-searchable>Operação cooperativa interrompida antes de uma fase segura.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>OperacaoCancelada(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
-<p data-searchable>Constante pública do módulo.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>'coral.tempo_eventos/1'</code></p>
+<p data-searchable>Expõe a constante pública <code>CONTRATO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/tempo_eventos.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.tempo_eventos/1'</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="sequencias_reativas.html"><span>Anterior</span><strong>coral.sequencias_reativas</strong></a><a class="docs-page-nav-link next" href="texto.html"><span>Próxima</span><strong>coral.texto</strong></a></nav>
   </main>

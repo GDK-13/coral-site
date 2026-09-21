@@ -107,139 +107,301 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `fonte(semente = None) -> FonteAleatoria`
+#### `fonte`
 
-Entrada pública `fonte` da superfície `coral.aleatorio`.
+Criar uma fonte reproduzível.
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Exemplo**
 
-**Parâmetros**
+```coral
+de coral.persistencia importe salvar, carregar
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `semente` | `não declarado` | `None` | posicional |
-
-**Retorno:** `FonteAleatoria`
-
-#### `inteiro(minimo, maximo, *, fonte: FonteAleatoria | None = None)`
-
-Entrada pública `inteiro` da superfície `coral.aleatorio`.
-
-**Implementação:** `coral.stdlib.aleatorio`
+defina gerador_a como fonte(42)
+defina gerador_b como fonte(42)
+defina primeiro como gerador_a.inteiro(1, 100)
+defina segundo como gerador_b.inteiro(1, 100)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `minimo` | `não declarado` | obrigatório | posicional |
-| `maximo` | `não declarado` | obrigatório | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `semente` | Semente usada para tornar a sequência reproduzível. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `decimal(minimo = 0.0, maximo = 1.0, *, fonte: FonteAleatoria | None = None)`
+Retorna a fonte de aleatoriedade criada.
 
-Entrada pública `decimal` da superfície `coral.aleatorio`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Assinatura:** `fonte(semente = None) -> FonteAleatoria`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+:::
+
+#### `inteiro`
+
+Sortear inteiro em intervalo.
+
+**Exemplo**
+
+```coral
+defina gerador_a como fonte(42)
+defina gerador_b como fonte(42)
+defina primeiro como gerador_a.inteiro(1, 100)
+defina segundo como gerador_b.inteiro(1, 100)
+garanta que primeiro for igual a segundo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `minimo` | `não declarado` | `0.0` | posicional |
-| `maximo` | `não declarado` | `1.0` | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `minimo` | Limite mínimo considerado pela operação. | `não declarado` | obrigatório |
+| `maximo` | Limite máximo considerado pela operação. | `não declarado` | obrigatório |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `escolher(valores, *, fonte: FonteAleatoria | None = None)`
+Retorna o número inteiro sorteado.
 
-Entrada pública `escolher` da superfície `coral.aleatorio`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Assinatura:** `inteiro(minimo, maximo, *, fonte: FonteAleatoria \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `minimo` | posicional |
+| `maximo` | posicional |
+| `fonte` | nomeado |
+
+:::
+
+#### `decimal`
+
+Sortear decimal em intervalo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `minimo` | Limite mínimo considerado pela operação. | `não declarado` | `0.0` |
+| `maximo` | Limite máximo considerado pela operação. | `não declarado` | `1.0` |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `amostra(valores, quantidade, *, fonte: FonteAleatoria | None = None)`
+Retorna o número decimal sorteado.
 
-Entrada pública `amostra` da superfície `coral.aleatorio`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Assinatura:** `decimal(minimo = 0.0, maximo = 1.0, *, fonte: FonteAleatoria \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `minimo` | posicional |
+| `maximo` | posicional |
+| `fonte` | nomeado |
+
+:::
+
+#### `escolher`
+
+Escolher um elemento.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `quantidade` | `não declarado` | obrigatório | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `escolha_ponderada(valores, pesos, *, fonte: FonteAleatoria | None = None)`
+Retorna um dos valores fornecidos.
 
-Entrada pública `escolha_ponderada` da superfície `coral.aleatorio`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Assinatura:** `escolher(valores, *, fonte: FonteAleatoria \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valores` | posicional |
+| `fonte` | nomeado |
+
+:::
+
+#### `amostra`
+
+Selecionar vários elementos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `pesos` | `não declarado` | obrigatório | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `quantidade` | Quantidade de itens solicitada. | `não declarado` | obrigatório |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna a amostra selecionada.
 
-#### `embaralhar(valores, *, fonte: FonteAleatoria | None = None)`
+:::details Detalhes técnicos
 
-Entrada pública `embaralhar` da superfície `coral.aleatorio`.
+**Assinatura:** `amostra(valores, quantidade, *, fonte: FonteAleatoria \| None = None)`
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valores` | posicional |
+| `quantidade` | posicional |
+| `fonte` | nomeado |
+
+:::
+
+#### `escolha_ponderada`
+
+Sortear com pesos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `fonte` | `FonteAleatoria \| None` | `None` | nomeado |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `pesos` | Pesos associados aos valores usados na escolha. | `não declarado` | obrigatório |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Retorna o valor escolhido segundo os pesos.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `escolha_ponderada(valores, pesos, *, fonte: FonteAleatoria \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valores` | posicional |
+| `pesos` | posicional |
+| `fonte` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `embaralhar`
+
+Reordenar valores.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `FonteAleatoria \| None` | `None` |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `embaralhar(valores, *, fonte: FonteAleatoria \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valores` | posicional |
+| `fonte` | nomeado |
+
+:::
 
 ### Classes e protocolos
 
-#### `FonteAleatoria(semente: Any = None)`
+#### `FonteAleatoria`
 
 Fonte reproduzível quando criada com semente explícita.
 
-**Implementação:** `coral.stdlib.aleatorio`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `semente` | Semente usada para tornar a sequência reproduzível. | `Any` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `semente` | Semente usada para tornar a sequência reproduzível. | `Any` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `semente` | `Any` | `None` |
+| `inteiro` | Sortear inteiro em intervalo. | `não declarado` |
+| `decimal` | Sortear decimal em intervalo. | `não declarado` |
+| `escolher` | Escolher um elemento. | `não declarado` |
+| `amostra` | Selecionar vários elementos. | `não declarado` |
+| `escolha_ponderada` | Sortear com pesos. | `não declarado` |
+| `embaralhar` | Reordenar valores. | `não declarado` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `inteiro` | método | `inteiro(minimo, maximo)` | `não declarado` | Sem docstring própria na release. |
-| `decimal` | método | `decimal(minimo = 0.0, maximo = 1.0)` | `não declarado` | Sem docstring própria na release. |
-| `escolher` | método | `escolher(valores)` | `não declarado` | Sem docstring própria na release. |
-| `amostra` | método | `amostra(valores, quantidade)` | `não declarado` | Sem docstring própria na release. |
-| `escolha_ponderada` | método | `escolha_ponderada(valores, pesos)` | `não declarado` | Sem docstring própria na release. |
-| `embaralhar` | método | `embaralhar(valores)` | `não declarado` | Sem docstring própria na release. |
+**Assinatura:** `FonteAleatoria(semente: Any = None)`
+
+**Origem da implementação:** `coral.stdlib.aleatorio`
+
+**Arquivo na release:** `coral/stdlib/aleatorio.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `inteiro` | método | `inteiro(minimo, maximo)` |
+| `decimal` | método | `decimal(minimo = 0.0, maximo = 1.0)` |
+| `escolher` | método | `escolher(valores)` |
+| `amostra` | método | `amostra(valores, quantidade)` |
+| `escolha_ponderada` | método | `escolha_ponderada(valores, pesos)` |
+| `embaralhar` | método | `embaralhar(valores)` |
+
+:::
 
 <!-- /AUTO:API -->

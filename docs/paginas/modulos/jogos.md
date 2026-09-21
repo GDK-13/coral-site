@@ -137,913 +137,1975 @@ O backend nulo existe para execução determinística em testes, servidores e CI
 
 ### Funções
 
-#### `criar_jogo(titulo: str, largura: int = 800, altura: int = 450, fps: int = 60, *, backend = None, mundo = None, relogio = None, eventos = None, tela_cheia: bool = False) -> Jogo`
+#### `criar_jogo`
 
-Entrada pública `criar_jogo` da superfície `coral.jogos`.
+Criar jogo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `titulo` | `str` | obrigatório | posicional |
-| `largura` | `int` | `800` | posicional |
-| `altura` | `int` | `450` | posicional |
-| `fps` | `int` | `60` | posicional |
-| `backend` | `não declarado` | `None` | nomeado |
-| `mundo` | `não declarado` | `None` | nomeado |
-| `relogio` | `não declarado` | `None` | nomeado |
-| `eventos` | `não declarado` | `None` | nomeado |
-| `tela_cheia` | `bool` | `False` | nomeado |
+| `titulo` | Valor correspondente a titulo. | `str` | obrigatório |
+| `largura` | Largura usada pela operação. | `int` | `800` |
+| `altura` | Altura usada pela operação. | `int` | `450` |
+| `fps` | Quantidade alvo de quadros por segundo. | `int` | `60` |
+| `backend` | Backend usado para executar a operação. | `não declarado` | `None` |
+| `mundo` | Mundo associado à operação. | `não declarado` | `None` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `não declarado` | `None` |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `não declarado` | `None` |
+| `tela_cheia` | Define se a janela deve usar tela cheia. | `bool` | `False` |
 
-**Retorno:** `Jogo`
+**Retorno**
 
-#### `pygame_disponivel() -> bool`
+Retorna um valor declarado como `Jogo`.
 
-Entrada pública `pygame_disponivel` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Retorno:** `bool`
+**Assinatura:** `criar_jogo(titulo: str, largura: int = 800, altura: int = 450, fps: int = 60, *, backend = None, mundo = None, relogio = None, eventos = None, tela_cheia: bool = False) -> Jogo`
 
-#### `carregar_spritesheet(caminho: str | Path, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, *, margem: int = 0, espacamento: int = 0) -> Spritesheet`
+**Origem da implementação:** `coral.jogos`
+
+**Arquivo na release:** `coral/jogos/__init__.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `titulo` | posicional |
+| `largura` | posicional |
+| `altura` | posicional |
+| `fps` | posicional |
+| `backend` | nomeado |
+| `mundo` | nomeado |
+| `relogio` | nomeado |
+| `eventos` | nomeado |
+| `tela_cheia` | nomeado |
+
+:::
+
+#### `pygame_disponivel`
+
+Indica se pygame está disponível ou atende à condição esperada.
+
+**Retorno**
+
+Retorna um valor lógico que indica o resultado da verificação.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pygame_disponivel() -> bool`
+
+**Origem da implementação:** `coral.jogos`
+
+**Arquivo na release:** `coral/jogos/__init__.py`
+
+:::
+
+#### `carregar_spritesheet`
 
 Atalho funcional para criar uma spritesheet em grade uniforme.
 
-**Implementação:** `coral.jogos.spritesheet`
-
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `str \| Path` | obrigatório | posicional |
-| `largura_imagem` | `int` | obrigatório | posicional |
-| `altura_imagem` | `int` | obrigatório | posicional |
-| `largura_quadro` | `int` | obrigatório | posicional |
-| `altura_quadro` | `int` | obrigatório | posicional |
-| `margem` | `int` | `0` | nomeado |
-| `espacamento` | `int` | `0` | nomeado |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
+| `largura_imagem` | Largura de imagem. | `int` | obrigatório |
+| `altura_imagem` | Altura de imagem. | `int` | obrigatório |
+| `largura_quadro` | Largura de quadro. | `int` | obrigatório |
+| `altura_quadro` | Altura de quadro. | `int` | obrigatório |
+| `margem` | Valor correspondente a margem. | `int` | `0` |
+| `espacamento` | Valor correspondente a espacamento. | `int` | `0` |
 
-**Retorno:** `Spritesheet`
+**Retorno**
 
-#### `formas_colidem(a: FormaTransformada, b: FormaTransformada) -> bool`
+Retorna um valor declarado como `Spritesheet`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `carregar_spritesheet(caminho: str \| Path, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, *, margem: int = 0, espacamento: int = 0) -> Spritesheet`
+
+**Origem da implementação:** `coral.jogos.spritesheet`
+
+**Arquivo na release:** `coral/jogos/spritesheet.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `largura_imagem` | posicional |
+| `altura_imagem` | posicional |
+| `largura_quadro` | posicional |
+| `altura_quadro` | posicional |
+| `margem` | nomeado |
+| `espacamento` | nomeado |
+
+:::
+
+#### `formas_colidem`
 
 Colisão convexa por SAT. Toque de borda não conta como colisão.
 
-**Implementação:** `coral.jogos.transformacoes`
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `a` | Valor correspondente a a. | `FormaTransformada` | obrigatório |
+| `b` | Valor correspondente a b. | `FormaTransformada` | obrigatório |
+
+**Retorno**
+
+Retorna um valor lógico que indica o resultado da verificação.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `formas_colidem(a: FormaTransformada, b: FormaTransformada) -> bool`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `onda_seno`
+
+Calcula uma onda de seno.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `a` | `FormaTransformada` | obrigatório | posicional |
-| `b` | `FormaTransformada` | obrigatório | posicional |
+| `fase` | Valor correspondente a fase. | `float` | obrigatório |
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `onda_seno(fase: float) -> float`
+Retorna um valor declarado como `float`.
 
-Entrada pública `onda_seno` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.transformacoes`
+**Assinatura:** `onda_seno(fase: float) -> float`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `onda_cosseno`
+
+Calcula uma onda de cosseno.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fase` | `float` | obrigatório | posicional |
+| `fase` | Valor correspondente a fase. | `float` | obrigatório |
 
-**Retorno:** `float`
+**Retorno**
 
-#### `onda_cosseno(fase: float) -> float`
+Retorna um valor declarado como `float`.
 
-Entrada pública `onda_cosseno` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.transformacoes`
+**Assinatura:** `onda_cosseno(fase: float) -> float`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `onda_triangular`
+
+Calcula uma onda de triangular.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fase` | `float` | obrigatório | posicional |
+| `fase` | Valor correspondente a fase. | `float` | obrigatório |
 
-**Retorno:** `float`
+**Retorno**
 
-#### `onda_triangular(fase: float) -> float`
+Retorna um valor declarado como `float`.
 
-Entrada pública `onda_triangular` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.transformacoes`
+**Assinatura:** `onda_triangular(fase: float) -> float`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `onda_serra`
+
+Calcula uma onda de serra.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fase` | `float` | obrigatório | posicional |
+| `fase` | Valor correspondente a fase. | `float` | obrigatório |
 
-**Retorno:** `float`
+**Retorno**
 
-#### `onda_serra(fase: float) -> float`
+Retorna um valor declarado como `float`.
 
-Entrada pública `onda_serra` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.transformacoes`
+**Assinatura:** `onda_serra(fase: float) -> float`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `onda_pulso`
+
+Calcula uma onda de pulso.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fase` | `float` | obrigatório | posicional |
+| `fase` | Valor correspondente a fase. | `float` | obrigatório |
 
-**Retorno:** `float`
+**Retorno**
 
-#### `onda_pulso(fase: float) -> float`
+Retorna um valor declarado como `float`.
 
-Entrada pública `onda_pulso` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.transformacoes`
+**Assinatura:** `onda_pulso(fase: float) -> float`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+:::
+
+#### `forma_espacial_sprite`
+
+Converte a geometria de um sprite para uma forma espacial usada em consultas e colisões.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fase` | `float` | obrigatório | posicional |
+| `sprite` | Valor correspondente a sprite. | `Any` | obrigatório |
 
-**Retorno:** `float`
+**Retorno**
 
-#### `forma_espacial_sprite(sprite: Any) -> Poligono`
+Retorna um valor declarado como `Poligono`.
 
-Entrada pública `forma_espacial_sprite` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.espacial`
+**Assinatura:** `forma_espacial_sprite(sprite: Any) -> Poligono`
+
+**Origem da implementação:** `coral.jogos.espacial`
+
+**Arquivo na release:** `coral/jogos/espacial.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `posicao_espacial_sprite`
+
+Obtém a posição espacial correspondente ao sprite.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `sprite` | `Any` | obrigatório | posicional |
+| `sprite` | Valor correspondente a sprite. | `Any` | obrigatório |
 
-**Retorno:** `Poligono`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `posicao_espacial_sprite(sprite: Any)`
+:::details Detalhes técnicos
 
-Entrada pública `posicao_espacial_sprite` da superfície `coral.jogos`.
+**Assinatura:** `posicao_espacial_sprite(sprite: Any)`
 
-**Implementação:** `coral.jogos.espacial`
+**Origem da implementação:** `coral.jogos.espacial`
 
-**Parâmetros**
+**Arquivo na release:** `coral/jogos/espacial.py`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `sprite` | `Any` | obrigatório | posicional |
+:::
 
-**Retorno:** `não declarado`
-
-#### `sprites_colidem(a: Any, b: Any) -> bool`
+#### `sprites_colidem`
 
 Colisão 2D de Jogos usando sobreposição interior da baseline.
 
-**Implementação:** `coral.jogos.espacial`
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `a` | Valor correspondente a a. | `Any` | obrigatório |
+| `b` | Valor correspondente a b. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor lógico que indica o resultado da verificação.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `sprites_colidem(a: Any, b: Any) -> bool`
+
+**Origem da implementação:** `coral.jogos.espacial`
+
+**Arquivo na release:** `coral/jogos/espacial.py`
+
+:::
+
+#### `adaptar_eventos`
+
+Adapta eventos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `a` | `Any` | obrigatório | posicional |
-| `b` | `Any` | obrigatório | posicional |
+| `jogo` | Valor correspondente a jogo. | `Jogo` | obrigatório |
+| `teclas` | Valor correspondente a teclas. | `Iterable[str]` | `()` |
+| `botoes_mouse` | Valor correspondente a botoes mouse. | `Iterable[str]` | `()` |
+| `observar_mouse` | Valor correspondente a observar mouse. | `bool` | `False` |
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `adaptar_eventos(jogo: Jogo, *, teclas: Iterable[str] = (), botoes_mouse: Iterable[str] = (), observar_mouse: bool = False) -> AdaptadorEventosJogo`
+Retorna um valor declarado como `AdaptadorEventosJogo`.
 
-Entrada pública `adaptar_eventos` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.eventos`
+**Assinatura:** `adaptar_eventos(jogo: Jogo, *, teclas: Iterable[str] = (), botoes_mouse: Iterable[str] = (), observar_mouse: bool = False) -> AdaptadorEventosJogo`
+
+**Origem da implementação:** `coral.jogos.eventos`
+
+**Arquivo na release:** `coral/jogos/eventos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `jogo` | posicional |
+| `teclas` | nomeado |
+| `botoes_mouse` | nomeado |
+| `observar_mouse` | nomeado |
+
+:::
+
+#### `celula_para_tela`
+
+Converte coordenadas de celula para tela.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `jogo` | `Jogo` | obrigatório | posicional |
-| `teclas` | `Iterable[str]` | `()` | nomeado |
-| `botoes_mouse` | `Iterable[str]` | `()` | nomeado |
-| `observar_mouse` | `bool` | `False` | nomeado |
+| `mapa` | Valor correspondente a mapa. | `Mapa` | obrigatório |
+| `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
+| `celula` | Valor correspondente a celula. | `Any` | obrigatório |
+| `ancora` | Valor correspondente a ancora. | `str` | `'centro'` |
 
-**Retorno:** `AdaptadorEventosJogo`
+**Retorno**
 
-#### `celula_para_tela(mapa: Mapa, camera: Camera | None, celula: Any, *, ancora: str = 'centro') -> tuple[float, float]`
+Retorna um valor declarado como `tuple[float, float]`.
 
-Entrada pública `celula_para_tela` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.mapas`
+**Assinatura:** `celula_para_tela(mapa: Mapa, camera: Camera \| None, celula: Any, *, ancora: str = 'centro') -> tuple[float, float]`
+
+**Origem da implementação:** `coral.jogos.mapas`
+
+**Arquivo na release:** `coral/jogos/mapas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mapa` | posicional |
+| `camera` | posicional |
+| `celula` | posicional |
+| `ancora` | nomeado |
+
+:::
+
+#### `mundo_para_tela`
+
+Converte coordenadas de mundo para tela.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mapa` | `Mapa` | obrigatório | posicional |
-| `camera` | `Camera \| None` | obrigatório | posicional |
-| `celula` | `Any` | obrigatório | posicional |
-| `ancora` | `str` | `'centro'` | nomeado |
+| `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
+| `coordenada` | Valor correspondente a coordenada. | `Any` | obrigatório |
 
-**Retorno:** `tuple[float, float]`
+**Retorno**
 
-#### `mundo_para_tela(camera: Camera | None, coordenada: Any) -> tuple[float, float]`
+Retorna um valor declarado como `tuple[float, float]`.
 
-Entrada pública `mundo_para_tela` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.mapas`
+**Assinatura:** `mundo_para_tela(camera: Camera \| None, coordenada: Any) -> tuple[float, float]`
+
+**Origem da implementação:** `coral.jogos.mapas`
+
+**Arquivo na release:** `coral/jogos/mapas.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroMapaCoral`
+
+:::
+
+#### `tela_para_celula`
+
+Converte coordenadas de tela para celula.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `camera` | `Camera \| None` | obrigatório | posicional |
-| `coordenada` | `Any` | obrigatório | posicional |
+| `mapa` | Valor correspondente a mapa. | `Mapa` | obrigatório |
+| `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
 
-**Retorno:** `tuple[float, float]`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroMapaCoral`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `tela_para_celula(mapa: Mapa, camera: Camera | None, x: float, y: float)`
+:::details Detalhes técnicos
 
-Entrada pública `tela_para_celula` da superfície `coral.jogos`.
+**Assinatura:** `tela_para_celula(mapa: Mapa, camera: Camera \| None, x: float, y: float)`
 
-**Implementação:** `coral.jogos.mapas`
+**Origem da implementação:** `coral.jogos.mapas`
+
+**Arquivo na release:** `coral/jogos/mapas.py`
+
+:::
+
+#### `tela_para_mundo`
+
+Converte coordenadas de tela para mundo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `mapa` | `Mapa` | obrigatório | posicional |
-| `camera` | `Camera \| None` | obrigatório | posicional |
-| `x` | `float` | obrigatório | posicional |
-| `y` | `float` | obrigatório | posicional |
+| `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `tela_para_mundo(camera: Camera | None, x: float, y: float)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `tela_para_mundo` da superfície `coral.jogos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.jogos.mapas`
+**Assinatura:** `tela_para_mundo(camera: Camera \| None, x: float, y: float)`
 
-**Parâmetros**
+**Origem da implementação:** `coral.jogos.mapas`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `camera` | `Camera \| None` | obrigatório | posicional |
-| `x` | `float` | obrigatório | posicional |
-| `y` | `float` | obrigatório | posicional |
+**Arquivo na release:** `coral/jogos/mapas.py`
 
-**Retorno:** `não declarado`
+**Exceções diretamente observáveis no corpo:** `ErroMapaCoral`
 
-**Exceções observáveis no corpo:** `ErroMapaCoral`
+:::
 
 ### Classes e protocolos
 
-#### `Jogo(titulo: str, largura: int = 800, altura: int = 450, fps: int = 60, *, backend: BackendJogos, mundo = None, relogio: FonteTempo | None = None, eventos: Eventos | None = None, tela_cheia: bool = False)`
+#### `Jogo`
 
-Entrada pública `Jogo` da superfície `coral.jogos`.
+Representa loop e entrada.
 
-**Implementação:** `coral.jogos.base`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `titulo` | Valor correspondente a titulo. | `str` | obrigatório |
+| `largura` | Largura usada pela operação. | `int` | `800` |
+| `altura` | Altura usada pela operação. | `int` | `450` |
+| `fps` | Quantidade alvo de quadros por segundo. | `int` | `60` |
+| `backend` | Backend usado para executar a operação. | `BackendJogos` | obrigatório |
+| `mundo` | Mundo associado à operação. | `não declarado` | `None` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos \| None` | `None` |
+| `tela_cheia` | Define se a janela deve usar tela cheia. | `bool` | `False` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `quando_iniciar` | método | `quando_iniciar(funcao: Callable[['Jogo'], Any])` | `não declarado` | Sem docstring própria na release. |
-| `quando_atualizar` | método | `quando_atualizar(funcao: Callable[['Jogo', float], Any])` | `não declarado` | Sem docstring própria na release. |
-| `quando_desenhar` | método | `quando_desenhar(funcao: Callable[['Jogo'], Any])` | `não declarado` | Sem docstring própria na release. |
-| `quando_encerrar` | método | `quando_encerrar(funcao: Callable[['Jogo'], Any])` | `não declarado` | Sem docstring própria na release. |
-| `parar` | método | `parar() -> None` | `None` | Sem docstring própria na release. |
-| `remover_mundo` | método | `remover_mundo()` | `não declarado` | Desassocia o Mundo atual e remove somente a propagação criada pelo Jogo. |
-| `usar_mundo` | método | `usar_mundo(mundo)` | `não declarado` | Associa um Mundo ao jogo e propaga eventos do Mundo para o Jogo. |
-| `tecla_pressionada` | método | `tecla_pressionada(tecla: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `posicao_mouse` | método | `posicao_mouse() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
-| `botao_mouse_pressionado` | método | `botao_mouse_pressionado(botao: str = 'esquerdo') -> bool` | `bool` | Sem docstring própria na release. |
-| `mouse_clicado` | método | `mouse_clicado(botao: str = 'esquerdo') -> bool` | `bool` | Sem docstring própria na release. |
-| `mouse_solto` | método | `mouse_solto(botao: str = 'esquerdo') -> bool` | `bool` | Sem docstring própria na release. |
-| `roda_mouse` | método | `roda_mouse() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
-| `em_tela_cheia` | método | `em_tela_cheia() -> bool` | `bool` | Sem docstring própria na release. |
-| `definir_tela_cheia` | método | `definir_tela_cheia(ativa: bool) -> None` | `None` | Sem docstring própria na release. |
-| `alternar_tela_cheia` | método | `alternar_tela_cheia() -> bool` | `bool` | Sem docstring própria na release. |
-| `limpar` | método | `limpar(cor: Cor = PRETO) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_retangulo` | método | `desenhar_retangulo(x: float, y: float, largura: float, altura: float, cor: Cor = BRANCO, *, contorno: int = 0, opacidade: float = 1.0) -> Retangulo` | `Retangulo` | Sem docstring própria na release. |
-| `desenhar_circulo` | método | `desenhar_circulo(x: float, y: float, raio: float, cor: Cor = BRANCO, *, contorno: int = 0, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_linha` | método | `desenhar_linha(x1: float, y1: float, x2: float, y2: float, cor: Cor = BRANCO, *, espessura: int = 1, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_ponto` | método | `desenhar_ponto(x: float, y: float, cor: Cor = BRANCO, *, tamanho: int = 1, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_texto` | método | `desenhar_texto(texto: str, x: float, y: float, tamanho: int = 24, cor: Cor = BRANCO, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_imagem` | método | `desenhar_imagem(caminho: str \| QuadroSprite, x: float, y: float, largura: float \| None = None, altura: float \| None = None, *, escala: float = 1.0, rotacao: float = 0.0, espelhar_horizontalmente: bool = False, espelhar_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] \| None = None, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `tocar_som` | método | `tocar_som(caminho: str, volume: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `mudar_cena` | método | `mudar_cena(cena) -> None` | `None` | Sem docstring própria na release. |
-| `executar` | método | `executar(*, max_quadros: int \| None = None) -> None` | `None` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `Cor(vermelho: int, verde: int, azul: int, alfa: int = 255)`
-
-Entrada pública `Cor` da superfície `coral.jogos`.
-
-**Implementação:** `coral.jogos.base`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `vermelho` | `int` | obrigatório |
-| `verde` | `int` | obrigatório |
-| `azul` | `int` | obrigatório |
-| `alfa` | `int` | `255` |
+| `quando_iniciar` | Registra uma ação para quando ocorrer iniciar. | `não declarado` |
+| `quando_atualizar` | Registra uma ação para quando ocorrer atualizar. | `não declarado` |
+| `quando_desenhar` | Registra uma ação para quando ocorrer desenhar. | `não declarado` |
+| `quando_encerrar` | Registra uma ação para quando ocorrer encerrar. | `não declarado` |
+| `parar` | Interrompe o valor solicitado. | `None` |
+| `remover_mundo` | Desassocia o Mundo atual e remove somente a propagação criada pelo Jogo. | `não declarado` |
+| `usar_mundo` | Associa um Mundo ao jogo e propaga eventos do Mundo para o Jogo. | `não declarado` |
+| `tecla_pressionada` | Executa a operação `tecla_pressionada` disponibilizada por `coral.jogos`. | `bool` |
+| `posicao_mouse` | Executa a operação `posicao_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `botao_mouse_pressionado` | Executa a operação `botao_mouse_pressionado` disponibilizada por `coral.jogos`. | `bool` |
+| `mouse_clicado` | Executa a operação `mouse_clicado` disponibilizada por `coral.jogos`. | `bool` |
+| `mouse_solto` | Executa a operação `mouse_solto` disponibilizada por `coral.jogos`. | `bool` |
+| `roda_mouse` | Executa a operação `roda_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `em_tela_cheia` | Indica o estado de em tela cheia. | `bool` |
+| `definir_tela_cheia` | Define tela cheia. | `None` |
+| `alternar_tela_cheia` | Alterna tela cheia. | `bool` |
+| `limpar` | Limpa o valor solicitado. | `None` |
+| `desenhar_retangulo` | Desenha retangulo. | `Retangulo` |
+| `desenhar_circulo` | Desenha circulo. | `None` |
+| `desenhar_linha` | Desenha linha. | `None` |
+| `desenhar_ponto` | Desenha ponto. | `None` |
+| `desenhar_texto` | Desenha texto. | `None` |
+| `desenhar_imagem` | Desenha imagem. | `None` |
+| `tocar_som` | Executa som. | `None` |
+| `mudar_cena` | Executa a operação `mudar_cena` disponibilizada por `coral.jogos`. | `None` |
+| `executar` | Executa o valor solicitado. | `None` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `rgb` | método | `rgb() -> tuple[int, int, int]` | `tuple[int, int, int]` | Sem docstring própria na release. |
+**Assinatura:** `Jogo(titulo: str, largura: int = 800, altura: int = 450, fps: int = 60, *, backend: BackendJogos, mundo = None, relogio: FonteTempo \| None = None, eventos: Eventos \| None = None, tela_cheia: bool = False)`
 
-#### `Retangulo(x: float, y: float, largura: float, altura: float)`
+**Origem da implementação:** `coral.jogos.base`
 
-Entrada pública `Retangulo` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/base.py`
 
-**Implementação:** `coral.jogos.base`
+**Modo dos parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Modo |
+|---|---|
+| `titulo` | posicional |
+| `largura` | posicional |
+| `altura` | posicional |
+| `fps` | posicional |
+| `backend` | nomeado |
+| `mundo` | nomeado |
+| `relogio` | nomeado |
+| `eventos` | nomeado |
+| `tela_cheia` | nomeado |
 
-| Nome | Tipo | Padrão |
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `x` | `float` | obrigatório |
-| `y` | `float` | obrigatório |
-| `largura` | `float` | obrigatório |
-| `altura` | `float` | obrigatório |
+| `quando_iniciar` | método | `quando_iniciar(funcao: Callable[['Jogo'], Any])` |
+| `quando_atualizar` | método | `quando_atualizar(funcao: Callable[['Jogo', float], Any])` |
+| `quando_desenhar` | método | `quando_desenhar(funcao: Callable[['Jogo'], Any])` |
+| `quando_encerrar` | método | `quando_encerrar(funcao: Callable[['Jogo'], Any])` |
+| `parar` | método | `parar() -> None` |
+| `remover_mundo` | método | `remover_mundo()` |
+| `usar_mundo` | método | `usar_mundo(mundo)` |
+| `tecla_pressionada` | método | `tecla_pressionada(tecla: str) -> bool` |
+| `posicao_mouse` | método | `posicao_mouse() -> tuple[int, int]` |
+| `botao_mouse_pressionado` | método | `botao_mouse_pressionado(botao: str = 'esquerdo') -> bool` |
+| `mouse_clicado` | método | `mouse_clicado(botao: str = 'esquerdo') -> bool` |
+| `mouse_solto` | método | `mouse_solto(botao: str = 'esquerdo') -> bool` |
+| `roda_mouse` | método | `roda_mouse() -> tuple[int, int]` |
+| `em_tela_cheia` | método | `em_tela_cheia() -> bool` |
+| `definir_tela_cheia` | método | `definir_tela_cheia(ativa: bool) -> None` |
+| `alternar_tela_cheia` | método | `alternar_tela_cheia() -> bool` |
+| `limpar` | método | `limpar(cor: Cor = PRETO) -> None` |
+| `desenhar_retangulo` | método | `desenhar_retangulo(x: float, y: float, largura: float, altura: float, cor: Cor = BRANCO, *, contorno: int = 0, opacidade: float = 1.0) -> Retangulo` |
+| `desenhar_circulo` | método | `desenhar_circulo(x: float, y: float, raio: float, cor: Cor = BRANCO, *, contorno: int = 0, opacidade: float = 1.0) -> None` |
+| `desenhar_linha` | método | `desenhar_linha(x1: float, y1: float, x2: float, y2: float, cor: Cor = BRANCO, *, espessura: int = 1, opacidade: float = 1.0) -> None` |
+| `desenhar_ponto` | método | `desenhar_ponto(x: float, y: float, cor: Cor = BRANCO, *, tamanho: int = 1, opacidade: float = 1.0) -> None` |
+| `desenhar_texto` | método | `desenhar_texto(texto: str, x: float, y: float, tamanho: int = 24, cor: Cor = BRANCO, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None` |
+| `desenhar_imagem` | método | `desenhar_imagem(caminho: str \| QuadroSprite, x: float, y: float, largura: float \| None = None, altura: float \| None = None, *, escala: float = 1.0, rotacao: float = 0.0, espelhar_horizontalmente: bool = False, espelhar_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] \| None = None, opacidade: float = 1.0) -> None` |
+| `tocar_som` | método | `tocar_som(caminho: str, volume: float = 1.0) -> None` |
+| `mudar_cena` | método | `mudar_cena(cena) -> None` |
+| `executar` | método | `executar(*, max_quadros: int \| None = None) -> None` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `colide_com` | método | `colide_com(outro: 'Retangulo') -> bool` | `bool` | Sem docstring própria na release. |
+#### `Cor`
 
-#### `BackendNulo(*, dt_fixo: float | None = None)`
+Representa Cor na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `vermelho` | Valor correspondente a vermelho. | `int` | obrigatório |
+| `verde` | Valor correspondente a verde. | `int` | obrigatório |
+| `azul` | Valor correspondente a azul. | `int` | obrigatório |
+| `alfa` | Valor correspondente a alfa. | `int` | `255` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `vermelho` | Valor correspondente a vermelho. | `int` | obrigatório |
+| `verde` | Valor correspondente a verde. | `int` | obrigatório |
+| `azul` | Valor correspondente a azul. | `int` | obrigatório |
+| `alfa` | Valor correspondente a alfa. | `int` | `255` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `rgb` | Cria uma cor a partir de componentes RGB. | `tuple[int, int, int]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Cor(vermelho: int, verde: int, azul: int, alfa: int = 255)`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `rgb` | método | `rgb() -> tuple[int, int, int]` |
+
+:::
+
+#### `Retangulo`
+
+Representa Retangulo na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
+| `largura` | Largura usada pela operação. | `float` | obrigatório |
+| `altura` | Altura usada pela operação. | `float` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
+| `largura` | Largura usada pela operação. | `float` | obrigatório |
+| `altura` | Altura usada pela operação. | `float` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `colide_com` | Executa a operação `colide_com` disponibilizada por `coral.jogos`. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Retangulo(x: float, y: float, largura: float, altura: float)`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `colide_com` | método | `colide_com(outro: 'Retangulo') -> bool` |
+
+:::
+
+#### `BackendNulo`
 
 Backend determinístico para testes, servidores e execução sem interface gráfica.
 
-**Implementação:** `coral.jogos.base`
+**Exemplo**
 
-**Métodos e propriedades públicas**
+```coral
+defina camera como Camera(0, 0, 64, 64)
+defina backend como BackendNulo()
+defina renderizador como RenderizadorMapa2D(sala, camera=camera)
+defina desenhadas como renderizador.desenhar(backend)
+```
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `definir_teclas` | método | `definir_teclas(*teclas: str) -> None` | `None` | Substitui o estado atual de teclado do backend sem janela. |
-| `programar_teclas` | método | `programar_teclas(*quadros) -> None` | `None` | Programa estados de teclado por quadro para testes determinísticos. |
-| `definir_mouse` | método | `definir_mouse(*, posicao: tuple[int, int] = (0, 0), pressionados = (), clicados = (), soltos = (), roda: tuple[int, int] = (0, 0)) -> None` | `None` | Sem docstring própria na release. |
-| `programar_mouse` | método | `programar_mouse(*quadros: dict[str, Any]) -> None` | `None` | Sem docstring própria na release. |
-| `iniciar` | método | `iniciar(titulo: str, largura: int, altura: int, *, tela_cheia: bool = False) -> None` | `None` | Sem docstring própria na release. |
-| `processar_eventos` | método | `processar_eventos() -> bool` | `bool` | Sem docstring própria na release. |
-| `tecla_pressionada` | método | `tecla_pressionada(tecla: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `posicao_mouse` | método | `posicao_mouse() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
-| `botao_mouse_pressionado` | método | `botao_mouse_pressionado(botao: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `mouse_clicado` | método | `mouse_clicado(botao: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `mouse_solto` | método | `mouse_solto(botao: str) -> bool` | `bool` | Sem docstring própria na release. |
-| `roda_mouse` | método | `roda_mouse() -> tuple[int, int]` | `tuple[int, int]` | Sem docstring própria na release. |
-| `definir_tela_cheia` | método | `definir_tela_cheia(ativa: bool) -> None` | `None` | Sem docstring própria na release. |
-| `limpar` | método | `limpar(cor: Cor) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_retangulo` | método | `desenhar_retangulo(retangulo: Retangulo, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_circulo` | método | `desenhar_circulo(x: float, y: float, raio: float, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_linha` | método | `desenhar_linha(x1: float, y1: float, x2: float, y2: float, cor: Cor, *, espessura: int = 1, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_ponto` | método | `desenhar_ponto(x: float, y: float, cor: Cor, *, tamanho: int = 1, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_texto` | método | `desenhar_texto(texto: str, x: float, y: float, tamanho: int, cor: Cor, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `desenhar_imagem` | método | `desenhar_imagem(caminho: str \| QuadroSprite, x: float, y: float, largura: float \| None = None, altura: float \| None = None, *, escala: float = 1.0, rotacao: float = 0.0, espelhar_horizontalmente: bool = False, espelhar_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] \| None = None, opacidade: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `apresentar` | método | `apresentar() -> None` | `None` | Sem docstring própria na release. |
-| `tocar_som` | método | `tocar_som(caminho: str, *, volume: float = 1.0) -> None` | `None` | Sem docstring própria na release. |
-| `limitar_fps` | método | `limitar_fps(fps: int) -> float` | `float` | Sem docstring própria na release. |
-| `encerrar` | método | `encerrar() -> None` | `None` | Sem docstring própria na release. |
+**Parâmetros**
 
-#### `Assets(raiz: str | Path = 'assets')`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `dt_fixo` | Valor correspondente a dt fixo. | `float \| None` | `None` |
 
-Entrada pública `Assets` da superfície `coral.jogos`.
+**Operações públicas da classe**
 
-**Implementação:** `coral.jogos.objetos`
-
-**Métodos e propriedades públicas**
-
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `imagem` | método | `imagem(nome: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
-| `som` | método | `som(nome: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
-| `spritesheet` | método | `spritesheet(nome: str \| Path, *, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, margem: int = 0, espacamento: int = 0) -> Spritesheet` | `Spritesheet` | Sem docstring própria na release. |
-
-#### `Sprite(x: float, y: float, largura: float, altura: float, imagem: str | Path | QuadroSprite | None = None, cor: Cor = BRANCO, velocidade_x: float = 0.0, velocidade_y: float = 0.0, visivel: bool = True, nome: str = 'sprite', dados: dict[str, Any] = field(default_factory=dict), animacao: Any = None, escala: float = 1.0, rotacao: float = 0.0, espelhado_horizontalmente: bool = False, espelhado_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] | None = None, opacidade: float = 1.0, colisao_acompanha_escala: bool = False, colisao_acompanha_rotacao: bool = False)`
-
-Entrada pública `Sprite` da superfície `coral.jogos`.
-
-**Implementação:** `coral.jogos.objetos`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `x` | `float` | obrigatório |
-| `y` | `float` | obrigatório |
-| `largura` | `float` | obrigatório |
-| `altura` | `float` | obrigatório |
-| `imagem` | `str \| Path \| QuadroSprite \| None` | `None` |
-| `cor` | `Cor` | `BRANCO` |
-| `velocidade_x` | `float` | `0.0` |
-| `velocidade_y` | `float` | `0.0` |
-| `visivel` | `bool` | `True` |
-| `nome` | `str` | `'sprite'` |
-| `dados` | `dict[str, Any]` | `field(default_factory=dict)` |
-| `animacao` | `Any` | `None` |
-| `escala` | `float` | `1.0` |
-| `rotacao` | `float` | `0.0` |
-| `espelhado_horizontalmente` | `bool` | `False` |
-| `espelhado_verticalmente` | `bool` | `False` |
-| `origem` | `str` | `'topo_esquerdo'` |
-| `pivo` | `tuple[float, float] \| None` | `None` |
-| `opacidade` | `float` | `1.0` |
-| `colisao_acompanha_escala` | `bool` | `False` |
-| `colisao_acompanha_rotacao` | `bool` | `False` |
+| `definir_teclas` | Substitui o estado atual de teclado do backend sem janela. | `None` |
+| `programar_teclas` | Programa estados de teclado por quadro para testes determinísticos. | `None` |
+| `definir_mouse` | Define mouse. | `None` |
+| `programar_mouse` | Programa mouse. | `None` |
+| `iniciar` | Inicia o valor solicitado. | `None` |
+| `processar_eventos` | Processa eventos. | `bool` |
+| `tecla_pressionada` | Executa a operação `tecla_pressionada` disponibilizada por `coral.jogos`. | `bool` |
+| `posicao_mouse` | Executa a operação `posicao_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `botao_mouse_pressionado` | Executa a operação `botao_mouse_pressionado` disponibilizada por `coral.jogos`. | `bool` |
+| `mouse_clicado` | Executa a operação `mouse_clicado` disponibilizada por `coral.jogos`. | `bool` |
+| `mouse_solto` | Executa a operação `mouse_solto` disponibilizada por `coral.jogos`. | `bool` |
+| `roda_mouse` | Executa a operação `roda_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `definir_tela_cheia` | Define tela cheia. | `None` |
+| `limpar` | Limpa o valor solicitado. | `None` |
+| `desenhar_retangulo` | Desenha retangulo. | `None` |
+| `desenhar_circulo` | Desenha circulo. | `None` |
+| `desenhar_linha` | Desenha linha. | `None` |
+| `desenhar_ponto` | Desenha ponto. | `None` |
+| `desenhar_texto` | Desenha texto. | `None` |
+| `desenhar_imagem` | Desenha imagem. | `None` |
+| `apresentar` | Executa a operação `apresentar` disponibilizada por `coral.jogos`. | `None` |
+| `tocar_som` | Executa som. | `None` |
+| `limitar_fps` | Executa a operação `limitar_fps` disponibilizada por `coral.jogos`. | `float` |
+| `encerrar` | Encerra o valor solicitado. | `None` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `retangulo` | propriedade | `retangulo() -> Retangulo` | `Retangulo` | Sem docstring própria na release. |
-| `forma_colisao` | propriedade | `forma_colisao()` | `não declarado` | Sem docstring própria na release. |
-| `mover` | método | `mover(dx: float, dy: float) -> None` | `None` | Sem docstring própria na release. |
-| `definir_escala` | método | `definir_escala(escala: float)` | `não declarado` | Sem docstring própria na release. |
-| `aumentar` | método | `aumentar(percentual: float)` | `não declarado` | Sem docstring própria na release. |
-| `diminuir` | método | `diminuir(percentual: float)` | `não declarado` | Sem docstring própria na release. |
-| `definir_rotacao` | método | `definir_rotacao(graus: float)` | `não declarado` | Sem docstring própria na release. |
-| `girar` | método | `girar(graus: float)` | `não declarado` | Sem docstring própria na release. |
-| `definir_opacidade` | método | `definir_opacidade(opacidade: float)` | `não declarado` | Sem docstring própria na release. |
-| `alternar_espelhamento` | método | `alternar_espelhamento(eixo: str)` | `não declarado` | Sem docstring própria na release. |
-| `remover_espelhamento` | método | `remover_espelhamento(eixo: str)` | `não declarado` | Sem docstring própria na release. |
-| `restaurar_transformacoes` | método | `restaurar_transformacoes()` | `não declarado` | Sem docstring própria na release. |
-| `configurar_colisao` | método | `configurar_colisao(*, acompanhar_escala: bool \| None = None, acompanhar_rotacao: bool \| None = None)` | `não declarado` | Sem docstring própria na release. |
-| `manter_colisao_fixa` | método | `manter_colisao_fixa()` | `não declarado` | Sem docstring própria na release. |
-| `animar_transformacoes` | método | `animar_transformacoes(**canais)` | `não declarado` | Sem docstring própria na release. |
-| `pausar_automacao` | método | `pausar_automacao(automacao = None)` | `não declarado` | Sem docstring própria na release. |
-| `retomar_automacao` | método | `retomar_automacao(automacao = None)` | `não declarado` | Sem docstring própria na release. |
-| `reiniciar_automacao` | método | `reiniciar_automacao(automacao = None)` | `não declarado` | Sem docstring própria na release. |
-| `remover_automacao` | método | `remover_automacao(automacao, *, restaurar_base: bool = False)` | `não declarado` | Sem docstring própria na release. |
-| `atualizar` | método | `atualizar(dt: float) -> None` | `None` | Sem docstring própria na release. |
-| `colide_com` | método | `colide_com(outro: 'Sprite') -> bool` | `bool` | Sem docstring própria na release. |
+**Assinatura:** `BackendNulo(*, dt_fixo: float \| None = None)`
 
-#### `Cena(nome: str)`
+**Origem da implementação:** `coral.jogos.base`
 
-Entrada pública `Cena` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/base.py`
 
-**Implementação:** `coral.jogos.objetos`
+**Modo dos parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Modo |
+|---|---|
+| `dt_fixo` | nomeado |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `representacoes` | propriedade | `representacoes() -> tuple[RepresentacaoEntidade, ...]` | `tuple[RepresentacaoEntidade, ...]` | Sem docstring própria na release. |
-| `adicionar` | método | `adicionar(sprite: Sprite) -> Sprite` | `Sprite` | Sem docstring própria na release. |
-| `representar` | método | `representar(entidade: Any, sprite: Sprite, *, atributo_x: str = 'x', atributo_y: str = 'y') -> RepresentacaoEntidade` | `RepresentacaoEntidade` | Sem docstring própria na release. |
-| `remover` | método | `remover(sprite: Sprite) -> None` | `None` | Sem docstring própria na release. |
-| `quando_entrar` | método | `quando_entrar(f)` | `não declarado` | Sem docstring própria na release. |
-| `quando_sair` | método | `quando_sair(f)` | `não declarado` | Sem docstring própria na release. |
-| `quando_atualizar` | método | `quando_atualizar(f)` | `não declarado` | Sem docstring própria na release. |
-| `quando_desenhar` | método | `quando_desenhar(f)` | `não declarado` | Sem docstring própria na release. |
-| `entrar` | método | `entrar(jogo)` | `não declarado` | Sem docstring própria na release. |
-| `sair` | método | `sair(jogo)` | `não declarado` | Sem docstring própria na release. |
-| `atualizar` | método | `atualizar(jogo, dt: float)` | `não declarado` | Sem docstring própria na release. |
-| `desenhar` | método | `desenhar(jogo)` | `não declarado` | Sem docstring própria na release. |
+**Assinaturas de métodos e propriedades**
 
-#### `RepresentacaoEntidade(entidade: Any, sprite: Sprite, atributo_x: str = 'x', atributo_y: str = 'y')`
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `definir_teclas` | método | `definir_teclas(*teclas: str) -> None` |
+| `programar_teclas` | método | `programar_teclas(*quadros) -> None` |
+| `definir_mouse` | método | `definir_mouse(*, posicao: tuple[int, int] = (0, 0), pressionados = (), clicados = (), soltos = (), roda: tuple[int, int] = (0, 0)) -> None` |
+| `programar_mouse` | método | `programar_mouse(*quadros: dict[str, Any]) -> None` |
+| `iniciar` | método | `iniciar(titulo: str, largura: int, altura: int, *, tela_cheia: bool = False) -> None` |
+| `processar_eventos` | método | `processar_eventos() -> bool` |
+| `tecla_pressionada` | método | `tecla_pressionada(tecla: str) -> bool` |
+| `posicao_mouse` | método | `posicao_mouse() -> tuple[int, int]` |
+| `botao_mouse_pressionado` | método | `botao_mouse_pressionado(botao: str) -> bool` |
+| `mouse_clicado` | método | `mouse_clicado(botao: str) -> bool` |
+| `mouse_solto` | método | `mouse_solto(botao: str) -> bool` |
+| `roda_mouse` | método | `roda_mouse() -> tuple[int, int]` |
+| `definir_tela_cheia` | método | `definir_tela_cheia(ativa: bool) -> None` |
+| `limpar` | método | `limpar(cor: Cor) -> None` |
+| `desenhar_retangulo` | método | `desenhar_retangulo(retangulo: Retangulo, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` |
+| `desenhar_circulo` | método | `desenhar_circulo(x: float, y: float, raio: float, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` |
+| `desenhar_linha` | método | `desenhar_linha(x1: float, y1: float, x2: float, y2: float, cor: Cor, *, espessura: int = 1, opacidade: float = 1.0) -> None` |
+| `desenhar_ponto` | método | `desenhar_ponto(x: float, y: float, cor: Cor, *, tamanho: int = 1, opacidade: float = 1.0) -> None` |
+| `desenhar_texto` | método | `desenhar_texto(texto: str, x: float, y: float, tamanho: int, cor: Cor, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None` |
+| `desenhar_imagem` | método | `desenhar_imagem(caminho: str \| QuadroSprite, x: float, y: float, largura: float \| None = None, altura: float \| None = None, *, escala: float = 1.0, rotacao: float = 0.0, espelhar_horizontalmente: bool = False, espelhar_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] \| None = None, opacidade: float = 1.0) -> None` |
+| `apresentar` | método | `apresentar() -> None` |
+| `tocar_som` | método | `tocar_som(caminho: str, *, volume: float = 1.0) -> None` |
+| `limitar_fps` | método | `limitar_fps(fps: int) -> float` |
+| `encerrar` | método | `encerrar() -> None` |
+
+:::
+
+#### `Assets`
+
+Representa Assets na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `raiz` | Valor correspondente a raiz. | `str \| Path` | `'assets'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `imagem` | Obtém imagem. | `Path` |
+| `som` | Obtém som. | `Path` |
+| `spritesheet` | Obtém spritesheet. | `Spritesheet` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Assets(raiz: str \| Path = 'assets')`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `imagem` | método | `imagem(nome: str \| Path) -> Path` |
+| `som` | método | `som(nome: str \| Path) -> Path` |
+| `spritesheet` | método | `spritesheet(nome: str \| Path, *, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, margem: int = 0, espacamento: int = 0) -> Spritesheet` |
+
+:::
+
+#### `Sprite`
+
+Representa objeto visual.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
+| `largura` | Largura usada pela operação. | `float` | obrigatório |
+| `altura` | Altura usada pela operação. | `float` | obrigatório |
+| `imagem` | Valor correspondente a imagem. | `str \| Path \| QuadroSprite \| None` | `None` |
+| `cor` | Valor correspondente a cor. | `Cor` | `BRANCO` |
+| `velocidade_x` | Valor correspondente a velocidade x. | `float` | `0.0` |
+| `velocidade_y` | Valor correspondente a velocidade y. | `float` | `0.0` |
+| `visivel` | Valor correspondente a visivel. | `bool` | `True` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'sprite'` |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | `field(default_factory=dict)` |
+| `animacao` | Valor correspondente a animacao. | `Any` | `None` |
+| `escala` | Valor correspondente a escala. | `float` | `1.0` |
+| `rotacao` | Valor correspondente a rotacao. | `float` | `0.0` |
+| `espelhado_horizontalmente` | Valor correspondente a espelhado horizontalmente. | `bool` | `False` |
+| `espelhado_verticalmente` | Valor correspondente a espelhado verticalmente. | `bool` | `False` |
+| `origem` | Origem usada pela operação. | `str` | `'topo_esquerdo'` |
+| `pivo` | Valor correspondente a pivo. | `tuple[float, float] \| None` | `None` |
+| `opacidade` | Valor correspondente a opacidade. | `float` | `1.0` |
+| `colisao_acompanha_escala` | Valor correspondente a colisao acompanha escala. | `bool` | `False` |
+| `colisao_acompanha_rotacao` | Valor correspondente a colisao acompanha rotacao. | `bool` | `False` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | obrigatório |
+| `y` | Coordenada vertical. | `float` | obrigatório |
+| `largura` | Largura usada pela operação. | `float` | obrigatório |
+| `altura` | Altura usada pela operação. | `float` | obrigatório |
+| `imagem` | Valor correspondente a imagem. | `str \| Path \| QuadroSprite \| None` | `None` |
+| `cor` | Valor correspondente a cor. | `Cor` | `BRANCO` |
+| `velocidade_x` | Valor correspondente a velocidade x. | `float` | `0.0` |
+| `velocidade_y` | Valor correspondente a velocidade y. | `float` | `0.0` |
+| `visivel` | Valor correspondente a visivel. | `bool` | `True` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'sprite'` |
+| `dados` | Dados processados pela operação. | `dict[str, Any]` | `field(default_factory=dict)` |
+| `animacao` | Valor correspondente a animacao. | `Any` | `None` |
+| `escala` | Valor correspondente a escala. | `float` | `1.0` |
+| `rotacao` | Valor correspondente a rotacao. | `float` | `0.0` |
+| `espelhado_horizontalmente` | Valor correspondente a espelhado horizontalmente. | `bool` | `False` |
+| `espelhado_verticalmente` | Valor correspondente a espelhado verticalmente. | `bool` | `False` |
+| `origem` | Origem usada pela operação. | `str` | `'topo_esquerdo'` |
+| `pivo` | Valor correspondente a pivo. | `tuple[float, float] \| None` | `None` |
+| `opacidade` | Valor correspondente a opacidade. | `float` | `1.0` |
+| `colisao_acompanha_escala` | Valor correspondente a colisao acompanha escala. | `bool` | `False` |
+| `colisao_acompanha_rotacao` | Valor correspondente a colisao acompanha rotacao. | `bool` | `False` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `retangulo` | Obtém retangulo. | `Retangulo` |
+| `forma_colisao` | Executa a operação `forma_colisao` disponibilizada por `coral.jogos`. | `não declarado` |
+| `mover` | Move o valor solicitado. | `None` |
+| `definir_escala` | Define escala. | `não declarado` |
+| `aumentar` | Aumenta o valor solicitado. | `não declarado` |
+| `diminuir` | Diminui o valor solicitado. | `não declarado` |
+| `definir_rotacao` | Define rotacao. | `não declarado` |
+| `girar` | Gira o valor solicitado. | `não declarado` |
+| `definir_opacidade` | Define opacidade. | `não declarado` |
+| `alternar_espelhamento` | Alterna espelhamento. | `não declarado` |
+| `remover_espelhamento` | Remove espelhamento. | `não declarado` |
+| `restaurar_transformacoes` | Restaura transformacoes. | `não declarado` |
+| `configurar_colisao` | Configura colisao. | `não declarado` |
+| `manter_colisao_fixa` | Executa a operação `manter_colisao_fixa` disponibilizada por `coral.jogos`. | `não declarado` |
+| `animar_transformacoes` | Executa a operação `animar_transformacoes` disponibilizada por `coral.jogos`. | `não declarado` |
+| `pausar_automacao` | Pausa automacao. | `não declarado` |
+| `retomar_automacao` | Retoma automacao. | `não declarado` |
+| `reiniciar_automacao` | Reinicia automacao. | `não declarado` |
+| `remover_automacao` | Remove automacao. | `não declarado` |
+| `atualizar` | Atualiza o valor solicitado. | `None` |
+| `colide_com` | Executa a operação `colide_com` disponibilizada por `coral.jogos`. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Sprite(x: float, y: float, largura: float, altura: float, imagem: str \| Path \| QuadroSprite \| None = None, cor: Cor = BRANCO, velocidade_x: float = 0.0, velocidade_y: float = 0.0, visivel: bool = True, nome: str = 'sprite', dados: dict[str, Any] = field(default_factory=dict), animacao: Any = None, escala: float = 1.0, rotacao: float = 0.0, espelhado_horizontalmente: bool = False, espelhado_verticalmente: bool = False, origem: str = 'topo_esquerdo', pivo: tuple[float, float] \| None = None, opacidade: float = 1.0, colisao_acompanha_escala: bool = False, colisao_acompanha_rotacao: bool = False)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `retangulo` | propriedade | `retangulo() -> Retangulo` |
+| `forma_colisao` | propriedade | `forma_colisao()` |
+| `mover` | método | `mover(dx: float, dy: float) -> None` |
+| `definir_escala` | método | `definir_escala(escala: float)` |
+| `aumentar` | método | `aumentar(percentual: float)` |
+| `diminuir` | método | `diminuir(percentual: float)` |
+| `definir_rotacao` | método | `definir_rotacao(graus: float)` |
+| `girar` | método | `girar(graus: float)` |
+| `definir_opacidade` | método | `definir_opacidade(opacidade: float)` |
+| `alternar_espelhamento` | método | `alternar_espelhamento(eixo: str)` |
+| `remover_espelhamento` | método | `remover_espelhamento(eixo: str)` |
+| `restaurar_transformacoes` | método | `restaurar_transformacoes()` |
+| `configurar_colisao` | método | `configurar_colisao(*, acompanhar_escala: bool \| None = None, acompanhar_rotacao: bool \| None = None)` |
+| `manter_colisao_fixa` | método | `manter_colisao_fixa()` |
+| `animar_transformacoes` | método | `animar_transformacoes(**canais)` |
+| `pausar_automacao` | método | `pausar_automacao(automacao = None)` |
+| `retomar_automacao` | método | `retomar_automacao(automacao = None)` |
+| `reiniciar_automacao` | método | `reiniciar_automacao(automacao = None)` |
+| `remover_automacao` | método | `remover_automacao(automacao, *, restaurar_base: bool = False)` |
+| `atualizar` | método | `atualizar(dt: float) -> None` |
+| `colide_com` | método | `colide_com(outro: 'Sprite') -> bool` |
+
+:::
+
+#### `Cena`
+
+Representa Cena na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `representacoes` | Obtém representacoes. | `tuple[RepresentacaoEntidade, ...]` |
+| `adicionar` | Adiciona o valor solicitado. | `Sprite` |
+| `representar` | Cria uma representação de o valor solicitado. | `RepresentacaoEntidade` |
+| `remover` | Remove o valor solicitado. | `None` |
+| `quando_entrar` | Registra uma ação para quando ocorrer entrar. | `não declarado` |
+| `quando_sair` | Registra uma ação para quando ocorrer sair. | `não declarado` |
+| `quando_atualizar` | Registra uma ação para quando ocorrer atualizar. | `não declarado` |
+| `quando_desenhar` | Registra uma ação para quando ocorrer desenhar. | `não declarado` |
+| `entrar` | Executa a operação `entrar` disponibilizada por `coral.jogos`. | `não declarado` |
+| `sair` | Executa a operação `sair` disponibilizada por `coral.jogos`. | `não declarado` |
+| `atualizar` | Atualiza o valor solicitado. | `não declarado` |
+| `desenhar` | Executa a operação `desenhar` disponibilizada por `coral.jogos`. | `não declarado` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Cena(nome: str)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `representacoes` | propriedade | `representacoes() -> tuple[RepresentacaoEntidade, ...]` |
+| `adicionar` | método | `adicionar(sprite: Sprite) -> Sprite` |
+| `representar` | método | `representar(entidade: Any, sprite: Sprite, *, atributo_x: str = 'x', atributo_y: str = 'y') -> RepresentacaoEntidade` |
+| `remover` | método | `remover(sprite: Sprite) -> None` |
+| `quando_entrar` | método | `quando_entrar(f)` |
+| `quando_sair` | método | `quando_sair(f)` |
+| `quando_atualizar` | método | `quando_atualizar(f)` |
+| `quando_desenhar` | método | `quando_desenhar(f)` |
+| `entrar` | método | `entrar(jogo)` |
+| `sair` | método | `sair(jogo)` |
+| `atualizar` | método | `atualizar(jogo, dt: float)` |
+| `desenhar` | método | `desenhar(jogo)` |
+
+:::
+
+#### `RepresentacaoEntidade`
 
 Liga uma entidade de mundo a um Sprite sem acoplar coral.mundo a jogos.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `entidade` | Valor correspondente a entidade. | `Any` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `atributo_x` | Nome do atributo usado como x. | `str` | `'x'` |
+| `atributo_y` | Nome do atributo usado como y. | `str` | `'y'` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `entidade` | Valor correspondente a entidade. | `Any` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `atributo_x` | Nome do atributo usado como x. | `str` | `'x'` |
+| `atributo_y` | Nome do atributo usado como y. | `str` | `'y'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `entidade` | `Any` | obrigatório |
-| `sprite` | `Sprite` | obrigatório |
-| `atributo_x` | `str` | `'x'` |
-| `atributo_y` | `str` | `'y'` |
+| `sincronizar` | Sincroniza o valor solicitado. | `Sprite` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `sincronizar` | método | `sincronizar() -> Sprite` | `Sprite` | Sem docstring própria na release. |
+**Assinatura:** `RepresentacaoEntidade(entidade: Any, sprite: Sprite, atributo_x: str = 'x', atributo_y: str = 'y')`
 
-#### `Animacao(quadros: tuple[str | Path | QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False)`
+**Origem da implementação:** `coral.jogos.objetos`
 
-Entrada pública `Animacao` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/objetos.py`
 
-**Implementação:** `coral.jogos.objetos`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `quadros` | `tuple[str \| Path \| QuadroSprite, ...]` | obrigatório |
-| `fps` | `float` | `10.0` |
-| `repetir` | `bool` | `True` |
-| `finalizada` | `bool` | `False` |
+| `sincronizar` | método | `sincronizar() -> Sprite` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `quadro_atual` | propriedade | `quadro_atual()` | `não declarado` | Sem docstring própria na release. |
-| `reiniciar` | método | `reiniciar()` | `não declarado` | Sem docstring própria na release. |
-| `atualizar` | método | `atualizar(dt: float)` | `não declarado` | Sem docstring própria na release. |
+#### `Animacao`
 
-#### `AnimacoesDirecionais(animacoes: dict[str, Animacao])`
+Representa sequência de quadros.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `quadros` | Valor correspondente a quadros. | `tuple[str \| Path \| QuadroSprite, ...]` | obrigatório |
+| `fps` | Quantidade alvo de quadros por segundo. | `float` | `10.0` |
+| `repetir` | Valor correspondente a repetir. | `bool` | `True` |
+| `finalizada` | Valor correspondente a finalizada. | `bool` | `False` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `quadros` | Valor correspondente a quadros. | `tuple[str \| Path \| QuadroSprite, ...]` | obrigatório |
+| `fps` | Quantidade alvo de quadros por segundo. | `float` | `10.0` |
+| `repetir` | Valor correspondente a repetir. | `bool` | `True` |
+| `finalizada` | Valor correspondente a finalizada. | `bool` | `False` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `quadro_atual` | Obtém quadro atual. | `não declarado` |
+| `reiniciar` | Reinicia o valor solicitado. | `não declarado` |
+| `atualizar` | Atualiza o valor solicitado. | `não declarado` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Animacao(quadros: tuple[str \| Path \| QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `quadro_atual` | propriedade | `quadro_atual()` |
+| `reiniciar` | método | `reiniciar()` |
+| `atualizar` | método | `atualizar(dt: float)` |
+
+:::
+
+#### `AnimacoesDirecionais`
 
 Conjunto nomeado de animações para direções de movimento.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `animacoes` | Valor correspondente a animacoes. | `dict[str, Animacao]` | obrigatório |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `animacoes` | Valor correspondente a animacoes. | `dict[str, Animacao]` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `animacoes` | `dict[str, Animacao]` | obrigatório |
+| `direcoes` | Obtém direcoes. | `tuple[str, ...]` |
+| `para` | Executa a operação `para` disponibilizada por `coral.jogos`. | `Animacao` |
+| `usar` | Seleciona o valor solicitado. | `Animacao` |
+| `ligar` | Liga o valor solicitado. | `VinculoAnimacaoMovimento` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `direcoes` | propriedade | `direcoes() -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `para` | método | `para(direcao: str) -> Animacao` | `Animacao` | Sem docstring própria na release. |
-| `usar` | método | `usar(sprite: Sprite, direcao: str) -> Animacao` | `Animacao` | Sem docstring própria na release. |
-| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoAnimacaoMovimento` | `VinculoAnimacaoMovimento` | Sem docstring própria na release. |
+**Assinatura:** `AnimacoesDirecionais(animacoes: dict[str, Animacao])`
 
-#### `VinculoAnimacaoMovimento(grupo: 'AnimacoesDirecionais', movimento: MovimentoDirecional, sprite: Sprite, direcoes_compativeis: tuple[str, ...], direcao_visual: str | None = None)`
+**Origem da implementação:** `coral.jogos.objetos`
 
-Entrada pública `VinculoAnimacaoMovimento` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/objetos.py`
 
-**Implementação:** `coral.jogos.objetos`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `grupo` | `'AnimacoesDirecionais'` | obrigatório |
-| `movimento` | `MovimentoDirecional` | obrigatório |
-| `sprite` | `Sprite` | obrigatório |
-| `direcoes_compativeis` | `tuple[str, ...]` | obrigatório |
-| `direcao_visual` | `str \| None` | `None` |
+| `direcoes` | propriedade | `direcoes() -> tuple[str, ...]` |
+| `para` | método | `para(direcao: str) -> Animacao` |
+| `usar` | método | `usar(sprite: Sprite, direcao: str) -> Animacao` |
+| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoAnimacaoMovimento` |
 
-#### `EstadosAnimacao(estados: dict[str, Animacao | AnimacoesDirecionais])`
+:::
+
+#### `VinculoAnimacaoMovimento`
+
+Representa VinculoAnimacaoMovimento na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'AnimacoesDirecionais'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `direcoes_compativeis` | Valor correspondente a direcoes compativeis. | `tuple[str, ...]` | obrigatório |
+| `direcao_visual` | Valor correspondente a direcao visual. | `str \| None` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'AnimacoesDirecionais'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `direcoes_compativeis` | Valor correspondente a direcoes compativeis. | `tuple[str, ...]` | obrigatório |
+| `direcao_visual` | Valor correspondente a direcao visual. | `str \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `VinculoAnimacaoMovimento(grupo: 'AnimacoesDirecionais', movimento: MovimentoDirecional, sprite: Sprite, direcoes_compativeis: tuple[str, ...], direcao_visual: str \| None = None)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+:::
+
+#### `EstadosAnimacao`
 
 Agrupa estados visuais sem fixar quantidades de direções ou políticas de movimento.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `estados` | Valor correspondente a estados. | `dict[str, Animacao \| AnimacoesDirecionais]` | obrigatório |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `estados` | propriedade | `estados() -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `para` | método | `para(estado: str) -> Animacao \| AnimacoesDirecionais` | `Animacao \| AnimacoesDirecionais` | Sem docstring própria na release. |
-| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoEstadosAnimacaoMovimento` | `VinculoEstadosAnimacaoMovimento` | Sem docstring própria na release. |
-| `usar` | método | `usar(sprite: Sprite, estado: str, *, direcao: str \| None = None) -> Animacao` | `Animacao` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `VinculoEstadosAnimacaoMovimento(grupo: 'EstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, estado_atual: str | None = None, direcao_visual: str | None = None)`
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `estados` | Obtém estados. | `tuple[str, ...]` |
+| `para` | Executa a operação `para` disponibilizada por `coral.jogos`. | `Animacao \| AnimacoesDirecionais` |
+| `ligar` | Liga o valor solicitado. | `VinculoEstadosAnimacaoMovimento` |
+| `usar` | Seleciona o valor solicitado. | `Animacao` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `EstadosAnimacao(estados: dict[str, Animacao \| AnimacoesDirecionais])`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `estados` | propriedade | `estados() -> tuple[str, ...]` |
+| `para` | método | `para(estado: str) -> Animacao \| AnimacoesDirecionais` |
+| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoEstadosAnimacaoMovimento` |
+| `usar` | método | `usar(sprite: Sprite, estado: str, *, direcao: str \| None = None) -> Animacao` |
+
+:::
+
+#### `VinculoEstadosAnimacaoMovimento`
 
 Mantém estado visual e direção de movimento como dimensões independentes.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'EstadosAnimacao'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `estado_atual` | Valor correspondente a estado atual. | `str \| None` | `None` |
+| `direcao_visual` | Valor correspondente a direcao visual. | `str \| None` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'EstadosAnimacao'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `estado_atual` | Valor correspondente a estado atual. | `str \| None` | `None` |
+| `direcao_visual` | Valor correspondente a direcao visual. | `str \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `grupo` | `'EstadosAnimacao'` | obrigatório |
-| `movimento` | `MovimentoDirecional` | obrigatório |
-| `sprite` | `Sprite` | obrigatório |
-| `estado_atual` | `str \| None` | `None` |
-| `direcao_visual` | `str \| None` | `None` |
+| `usar` | Seleciona o valor solicitado. | `Animacao` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `usar` | método | `usar(estado: str, *, direcao: str \| None = None) -> Animacao` | `Animacao` | Sem docstring própria na release. |
+**Assinatura:** `VinculoEstadosAnimacaoMovimento(grupo: 'EstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, estado_atual: str \| None = None, direcao_visual: str \| None = None)`
 
-#### `TransicoesEstadosAnimacao(estados: EstadosAnimacao, transicoes: dict[str, str])`
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `usar` | método | `usar(estado: str, *, direcao: str \| None = None) -> Animacao` |
+
+:::
+
+#### `TransicoesEstadosAnimacao`
 
 Mapeia eventos nomeados para estados visuais; automação de movimento é opcional.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `estados` | Valor correspondente a estados. | `EstadosAnimacao` | obrigatório |
+| `transicoes` | Valor correspondente a transicoes. | `dict[str, str]` | obrigatório |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `eventos` | propriedade | `eventos() -> tuple[str, ...]` | `tuple[str, ...]` | Sem docstring própria na release. |
-| `para` | método | `para(evento: str) -> str` | `str` | Sem docstring própria na release. |
-| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoTransicoesEstadosMovimento` | `VinculoTransicoesEstadosMovimento` | Sem docstring própria na release. |
-| `ligar_eventos` | método | `ligar_eventos(eventos: Any, sprite: Sprite) -> VinculoTransicoesEventos` | `VinculoTransicoesEventos` | Sem docstring própria na release. |
-| `acionar` | método | `acionar(sprite: Sprite, evento: str) -> Animacao` | `Animacao` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `VinculoTransicoesEstadosMovimento(grupo: 'TransicoesEstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, vinculo_estados: VinculoEstadosAnimacaoMovimento, ultimo_evento: str | None = None)`
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `eventos` | Obtém eventos. | `tuple[str, ...]` |
+| `para` | Executa a operação `para` disponibilizada por `coral.jogos`. | `str` |
+| `ligar` | Liga o valor solicitado. | `VinculoTransicoesEstadosMovimento` |
+| `ligar_eventos` | Liga eventos. | `VinculoTransicoesEventos` |
+| `acionar` | Aciona o valor solicitado. | `Animacao` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TransicoesEstadosAnimacao(estados: EstadosAnimacao, transicoes: dict[str, str])`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `eventos` | propriedade | `eventos() -> tuple[str, ...]` |
+| `para` | método | `para(evento: str) -> str` |
+| `ligar` | método | `ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoTransicoesEstadosMovimento` |
+| `ligar_eventos` | método | `ligar_eventos(eventos: Any, sprite: Sprite) -> VinculoTransicoesEventos` |
+| `acionar` | método | `acionar(sprite: Sprite, evento: str) -> Animacao` |
+
+:::
+
+#### `VinculoTransicoesEstadosMovimento`
 
 Aplica transições opt-in sem confundir mudança de direção com início de movimento.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'TransicoesEstadosAnimacao'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `vinculo_estados` | Valor correspondente a vinculo estados. | `VinculoEstadosAnimacaoMovimento` | obrigatório |
+| `ultimo_evento` | Valor correspondente a ultimo evento. | `str \| None` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'TransicoesEstadosAnimacao'` | obrigatório |
+| `movimento` | Valor correspondente a movimento. | `MovimentoDirecional` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `vinculo_estados` | Valor correspondente a vinculo estados. | `VinculoEstadosAnimacaoMovimento` | obrigatório |
+| `ultimo_evento` | Valor correspondente a ultimo evento. | `str \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `grupo` | `'TransicoesEstadosAnimacao'` | obrigatório |
-| `movimento` | `MovimentoDirecional` | obrigatório |
-| `sprite` | `Sprite` | obrigatório |
-| `vinculo_estados` | `VinculoEstadosAnimacaoMovimento` | obrigatório |
-| `ultimo_evento` | `str \| None` | `None` |
+| `acionar` | Aciona o valor solicitado. | `Animacao` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `acionar` | método | `acionar(evento: str) -> Animacao` | `Animacao` | Sem docstring própria na release. |
+**Assinatura:** `VinculoTransicoesEstadosMovimento(grupo: 'TransicoesEstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, vinculo_estados: VinculoEstadosAnimacaoMovimento, ultimo_evento: str \| None = None)`
 
-#### `VinculoTransicoesEventos(grupo: 'TransicoesEstadosAnimacao', eventos: Any, sprite: Sprite, vinculo_movimento: VinculoTransicoesEstadosMovimento, ativo: bool = field(default=True, init=False))`
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `acionar` | método | `acionar(evento: str) -> Animacao` |
+
+:::
+
+#### `VinculoTransicoesEventos`
 
 Escuta um barramento genérico e encaminha eventos declarados para transições visuais.
 
-**Implementação:** `coral.jogos.objetos`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'TransicoesEstadosAnimacao'` | obrigatório |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Any` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `vinculo_movimento` | Valor correspondente a vinculo movimento. | `VinculoTransicoesEstadosMovimento` | obrigatório |
+| `ativo` | Valor correspondente a ativo. | `bool` | `field(default=True, init=False)` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `grupo` | Valor correspondente a grupo. | `'TransicoesEstadosAnimacao'` | obrigatório |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Any` | obrigatório |
+| `sprite` | Valor correspondente a sprite. | `Sprite` | obrigatório |
+| `vinculo_movimento` | Valor correspondente a vinculo movimento. | `VinculoTransicoesEstadosMovimento` | obrigatório |
+| `ativo` | Valor correspondente a ativo. | `bool` | `field(default=True, init=False)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `grupo` | `'TransicoesEstadosAnimacao'` | obrigatório |
-| `eventos` | `Any` | obrigatório |
-| `sprite` | `Sprite` | obrigatório |
-| `vinculo_movimento` | `VinculoTransicoesEstadosMovimento` | obrigatório |
-| `ativo` | `bool` | `field(default=True, init=False)` |
+| `desligar` | Desliga o valor solicitado. | `None` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `desligar` | método | `desligar() -> None` | `None` | Sem docstring própria na release. |
+**Assinatura:** `VinculoTransicoesEventos(grupo: 'TransicoesEstadosAnimacao', eventos: Any, sprite: Sprite, vinculo_movimento: VinculoTransicoesEstadosMovimento, ativo: bool = field(default=True, init=False))`
 
-#### `Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite | None = None, suavidade: float = 1.0)`
+**Origem da implementação:** `coral.jogos.objetos`
 
-Entrada pública `Camera` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/objetos.py`
 
-**Implementação:** `coral.jogos.objetos`
+**Assinaturas de métodos e propriedades**
 
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `x` | `float` | `0.0` |
-| `y` | `float` | `0.0` |
-| `largura` | `float` | `800.0` |
-| `altura` | `float` | `450.0` |
-| `alvo` | `Sprite \| None` | `None` |
-| `suavidade` | `float` | `1.0` |
+| `desligar` | método | `desligar() -> None` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `seguir` | método | `seguir(sprite: Sprite, suavidade: float = 1.0)` | `não declarado` | Sem docstring própria na release. |
-| `atualizar` | método | `atualizar()` | `não declarado` | Sem docstring própria na release. |
-| `mundo_para_tela` | método | `mundo_para_tela(x: float, y: float) -> tuple[float, float]` | `tuple[float, float]` | Sem docstring própria na release. |
-| `tela_para_mundo` | método | `tela_para_mundo(x: float, y: float) -> tuple[float, float]` | `tuple[float, float]` | Sem docstring própria na release. |
-| `tela` | método | `tela(x: float, y: float) -> tuple[float, float]` | `tuple[float, float]` | Compatibilidade histórica: converte coordenadas de mundo para tela. |
+#### `Camera`
 
-#### `QuadroSprite(caminho: Path, x: int, y: int, largura: int, altura: int, indice: int | None = None, linha: int | None = None, coluna: int | None = None, nome: str | None = None)`
+Representa conversão mundo tela.
+
+**Exemplo**
+
+```coral
+coloque o bloco "parede" na célula (1, 1) da camada terreno do mapa sala
+
+defina camera como Camera(0, 0, 64, 64)
+defina backend como BackendNulo()
+defina renderizador como RenderizadorMapa2D(sala, camera=camera)
+defina desenhadas como renderizador.desenhar(backend)
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | `0.0` |
+| `y` | Coordenada vertical. | `float` | `0.0` |
+| `largura` | Largura usada pela operação. | `float` | `800.0` |
+| `altura` | Altura usada pela operação. | `float` | `450.0` |
+| `alvo` | Valor correspondente a alvo. | `Sprite \| None` | `None` |
+| `suavidade` | Valor correspondente a suavidade. | `float` | `1.0` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `x` | Coordenada horizontal. | `float` | `0.0` |
+| `y` | Coordenada vertical. | `float` | `0.0` |
+| `largura` | Largura usada pela operação. | `float` | `800.0` |
+| `altura` | Altura usada pela operação. | `float` | `450.0` |
+| `alvo` | Valor correspondente a alvo. | `Sprite \| None` | `None` |
+| `suavidade` | Valor correspondente a suavidade. | `float` | `1.0` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `seguir` | Passa a seguir o valor solicitado. | `não declarado` |
+| `atualizar` | Atualiza o valor solicitado. | `não declarado` |
+| `mundo_para_tela` | Converte coordenadas de mundo para tela. | `tuple[float, float]` |
+| `tela_para_mundo` | Converte coordenadas de tela para mundo. | `tuple[float, float]` |
+| `tela` | Compatibilidade histórica: converte coordenadas de mundo para tela. | `tuple[float, float]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite \| None = None, suavidade: float = 1.0)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `seguir` | método | `seguir(sprite: Sprite, suavidade: float = 1.0)` |
+| `atualizar` | método | `atualizar()` |
+| `mundo_para_tela` | método | `mundo_para_tela(x: float, y: float) -> tuple[float, float]` |
+| `tela_para_mundo` | método | `tela_para_mundo(x: float, y: float) -> tuple[float, float]` |
+| `tela` | método | `tela(x: float, y: float) -> tuple[float, float]` |
+
+:::
+
+#### `QuadroSprite`
 
 Região imutável de uma imagem usada como quadro de sprite.
 
-**Implementação:** `coral.jogos.spritesheet`
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `Path` | obrigatório |
+| `x` | Coordenada horizontal. | `int` | obrigatório |
+| `y` | Coordenada vertical. | `int` | obrigatório |
+| `largura` | Largura usada pela operação. | `int` | obrigatório |
+| `altura` | Altura usada pela operação. | `int` | obrigatório |
+| `indice` | Valor correspondente a indice. | `int \| None` | `None` |
+| `linha` | Valor correspondente a linha. | `int \| None` | `None` |
+| `coluna` | Valor correspondente a coluna. | `int \| None` | `None` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str \| None` | `None` |
 
-| Nome | Tipo | Padrão |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `Path` | obrigatório |
+| `x` | Coordenada horizontal. | `int` | obrigatório |
+| `y` | Coordenada vertical. | `int` | obrigatório |
+| `largura` | Largura usada pela operação. | `int` | obrigatório |
+| `altura` | Altura usada pela operação. | `int` | obrigatório |
+| `indice` | Valor correspondente a indice. | `int \| None` | `None` |
+| `linha` | Valor correspondente a linha. | `int \| None` | `None` |
+| `coluna` | Valor correspondente a coluna. | `int \| None` | `None` |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `caminho` | `Path` | obrigatório |
-| `x` | `int` | obrigatório |
-| `y` | `int` | obrigatório |
-| `largura` | `int` | obrigatório |
-| `altura` | `int` | obrigatório |
-| `indice` | `int \| None` | `None` |
-| `linha` | `int \| None` | `None` |
-| `coluna` | `int \| None` | `None` |
-| `nome` | `str \| None` | `None` |
+| `retangulo` | Obtém retangulo. | `tuple[int, int, int, int]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `retangulo` | propriedade | `retangulo() -> tuple[int, int, int, int]` | `tuple[int, int, int, int]` | Sem docstring própria na release. |
+**Assinatura:** `QuadroSprite(caminho: Path, x: int, y: int, largura: int, altura: int, indice: int \| None = None, linha: int \| None = None, coluna: int \| None = None, nome: str \| None = None)`
 
-#### `Spritesheet(caminho: str | Path, *, largura_imagem: int, altura_imagem: int) -> None`
+**Origem da implementação:** `coral.jogos.spritesheet`
+
+**Arquivo na release:** `coral/jogos/spritesheet.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `retangulo` | propriedade | `retangulo() -> tuple[int, int, int, int]` |
+
+:::
+
+#### `Spritesheet`
 
 Descrição headless de uma spritesheet ou atlas de imagens.
 
-**Implementação:** `coral.jogos.spritesheet`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
+| `largura_imagem` | Largura de imagem. | `int` | obrigatório |
+| `altura_imagem` | Altura de imagem. | `int` | obrigatório |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `em_grade` | método | `em_grade(caminho: str \| Path, *, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, margem: int = 0, espacamento: int = 0) -> 'Spritesheet'` | `'Spritesheet'` | Sem docstring própria na release. |
-| `quadro` | método | `quadro(indice: int) -> QuadroSprite` | `QuadroSprite` | Sem docstring própria na release. |
-| `quadro_em` | método | `quadro_em(linha: int, coluna: int) -> QuadroSprite` | `QuadroSprite` | Sem docstring própria na release. |
-| `quadros_de` | método | `quadros_de(inicio: int, fim: int) -> tuple[QuadroSprite, ...]` | `tuple[QuadroSprite, ...]` | Sem docstring própria na release. |
-| `quadros_da_linha` | método | `quadros_da_linha(linha: int, coluna_inicial: int = 0, coluna_final: int \| None = None) -> tuple[QuadroSprite, ...]` | `tuple[QuadroSprite, ...]` | Sem docstring própria na release. |
-| `animacao_da_linha` | método | `animacao_da_linha(linha: int, coluna_inicial: int = 0, coluna_final: int \| None = None, *, fps: float = 10.0, repetir: bool = True)` | `não declarado` | Sem docstring própria na release. |
-| `animacao` | método | `animacao(inicio: int, fim: int, *, fps: float = 10.0, repetir: bool = True)` | `não declarado` | Cria uma Animacao usando um intervalo inclusivo de quadros. |
-| `animacoes_direcionais` | método | `animacoes_direcionais(linhas: dict[str, int], coluna_inicial: int = 0, coluna_final: int \| None = None, *, fps: float = 10.0, repetir: bool = True)` | `não declarado` | Cria um grupo de animações a partir de linhas nomeadas da grade. |
-| `regiao` | método | `regiao(x: int, y: int, largura: int, altura: int, *, nome: str \| None = None) -> QuadroSprite` | `QuadroSprite` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `FormaTransformada(vertices: tuple[tuple[float, float], ...])`
-
-Entrada pública `FormaTransformada` da superfície `coral.jogos`.
-
-**Implementação:** `coral.jogos.transformacoes`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `vertices` | `tuple[tuple[float, float], ...]` | obrigatório |
+| `em_grade` | Executa a operação `em_grade` disponibilizada por `coral.jogos`. | `'Spritesheet'` |
+| `quadro` | Executa a operação `quadro` disponibilizada por `coral.jogos`. | `QuadroSprite` |
+| `quadro_em` | Obtém quadro em. | `QuadroSprite` |
+| `quadros_de` | Obtém quadros de. | `tuple[QuadroSprite, ...]` |
+| `quadros_da_linha` | Obtém quadros da linha. | `tuple[QuadroSprite, ...]` |
+| `animacao_da_linha` | Executa a operação `animacao_da_linha` disponibilizada por `coral.jogos`. | `não declarado` |
+| `animacao` | Cria uma Animacao usando um intervalo inclusivo de quadros. | `não declarado` |
+| `animacoes_direcionais` | Cria um grupo de animações a partir de linhas nomeadas da grade. | `não declarado` |
+| `regiao` | Obtém regiao. | `QuadroSprite` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `limites` | propriedade | `limites() -> tuple[float, float, float, float]` | `tuple[float, float, float, float]` | Sem docstring própria na release. |
+**Assinatura:** `Spritesheet(caminho: str \| Path, *, largura_imagem: int, altura_imagem: int) -> None`
 
-#### `CanalAnimado(canal: str, base: float, amplitude: float, frequencia: float, fase: float = 0.0, modo: str = 'absoluto', onda: str | Callable[[float], float] = 'seno')`
+**Origem da implementação:** `coral.jogos.spritesheet`
 
-Entrada pública `CanalAnimado` da superfície `coral.jogos`.
+**Arquivo na release:** `coral/jogos/spritesheet.py`
 
-**Implementação:** `coral.jogos.transformacoes`
+**Modo dos parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `largura_imagem` | nomeado |
+| `altura_imagem` | nomeado |
 
-| Nome | Tipo | Padrão |
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `canal` | `str` | obrigatório |
-| `base` | `float` | obrigatório |
-| `amplitude` | `float` | obrigatório |
-| `frequencia` | `float` | obrigatório |
-| `fase` | `float` | `0.0` |
-| `modo` | `str` | `'absoluto'` |
-| `onda` | `str \| Callable[[float], float]` | `'seno'` |
+| `em_grade` | método | `em_grade(caminho: str \| Path, *, largura_imagem: int, altura_imagem: int, largura_quadro: int, altura_quadro: int, margem: int = 0, espacamento: int = 0) -> 'Spritesheet'` |
+| `quadro` | método | `quadro(indice: int) -> QuadroSprite` |
+| `quadro_em` | método | `quadro_em(linha: int, coluna: int) -> QuadroSprite` |
+| `quadros_de` | método | `quadros_de(inicio: int, fim: int) -> tuple[QuadroSprite, ...]` |
+| `quadros_da_linha` | método | `quadros_da_linha(linha: int, coluna_inicial: int = 0, coluna_final: int \| None = None) -> tuple[QuadroSprite, ...]` |
+| `animacao_da_linha` | método | `animacao_da_linha(linha: int, coluna_inicial: int = 0, coluna_final: int \| None = None, *, fps: float = 10.0, repetir: bool = True)` |
+| `animacao` | método | `animacao(inicio: int, fim: int, *, fps: float = 10.0, repetir: bool = True)` |
+| `animacoes_direcionais` | método | `animacoes_direcionais(linhas: dict[str, int], coluna_inicial: int = 0, coluna_final: int \| None = None, *, fps: float = 10.0, repetir: bool = True)` |
+| `regiao` | método | `regiao(x: int, y: int, largura: int, altura: int, *, nome: str \| None = None) -> QuadroSprite` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `valor` | método | `valor(tempo: float, *, referencia: float = 0.0) -> float` | `float` | Sem docstring própria na release. |
+#### `FormaTransformada`
 
-#### `AnimacaoTransformacao(canais: tuple[CanalAnimado, ...], tempo: float = 0.0, estado: str = 'ativo')`
+Representa FormaTransformada na API de `coral.jogos`.
 
-Entrada pública `AnimacaoTransformacao` da superfície `coral.jogos`.
+**Parâmetros**
 
-**Implementação:** `coral.jogos.transformacoes`
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `vertices` | Valor correspondente a vertices. | `tuple[tuple[float, float], ...]` | obrigatório |
 
-**Atributos declarados**
+**Atributos públicos**
 
-| Nome | Tipo | Padrão |
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `vertices` | Valor correspondente a vertices. | `tuple[tuple[float, float], ...]` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `canais` | `tuple[CanalAnimado, ...]` | obrigatório |
-| `tempo` | `float` | `0.0` |
-| `estado` | `str` | `'ativo'` |
+| `limites` | Obtém limites. | `tuple[float, float, float, float]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `pausar` | método | `pausar() -> None` | `None` | Sem docstring própria na release. |
-| `retomar` | método | `retomar() -> None` | `None` | Sem docstring própria na release. |
-| `reiniciar` | método | `reiniciar() -> None` | `None` | Sem docstring própria na release. |
-| `encerrar` | método | `encerrar() -> None` | `None` | Sem docstring própria na release. |
-| `avancar` | método | `avancar(dt: float) -> None` | `None` | Sem docstring própria na release. |
+**Assinatura:** `FormaTransformada(vertices: tuple[tuple[float, float], ...])`
 
-#### `AdaptadorEventosJogo(jogo: Jogo, *, teclas: Iterable[str] = (), botoes_mouse: Iterable[str] = (), observar_mouse: bool = False)`
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `limites` | propriedade | `limites() -> tuple[float, float, float, float]` |
+
+:::
+
+#### `CanalAnimado`
+
+Representa CanalAnimado na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `canal` | Valor correspondente a canal. | `str` | obrigatório |
+| `base` | Base usada pela conversão ou cálculo. | `float` | obrigatório |
+| `amplitude` | Valor correspondente a amplitude. | `float` | obrigatório |
+| `frequencia` | Valor correspondente a frequencia. | `float` | obrigatório |
+| `fase` | Valor correspondente a fase. | `float` | `0.0` |
+| `modo` | Valor correspondente a modo. | `str` | `'absoluto'` |
+| `onda` | Valor correspondente a onda. | `str \| Callable[[float], float]` | `'seno'` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `canal` | Valor correspondente a canal. | `str` | obrigatório |
+| `base` | Base usada pela conversão ou cálculo. | `float` | obrigatório |
+| `amplitude` | Valor correspondente a amplitude. | `float` | obrigatório |
+| `frequencia` | Valor correspondente a frequencia. | `float` | obrigatório |
+| `fase` | Valor correspondente a fase. | `float` | `0.0` |
+| `modo` | Valor correspondente a modo. | `str` | `'absoluto'` |
+| `onda` | Valor correspondente a onda. | `str \| Callable[[float], float]` | `'seno'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `valor` | Obtém valor. | `float` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CanalAnimado(canal: str, base: float, amplitude: float, frequencia: float, fase: float = 0.0, modo: str = 'absoluto', onda: str \| Callable[[float], float] = 'seno')`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `valor` | método | `valor(tempo: float, *, referencia: float = 0.0) -> float` |
+
+:::
+
+#### `AnimacaoTransformacao`
+
+Representa AnimacaoTransformacao na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `canais` | Valor correspondente a canais. | `tuple[CanalAnimado, ...]` | obrigatório |
+| `tempo` | Valor correspondente a tempo. | `float` | `0.0` |
+| `estado` | Estado usado ou atualizado pela operação. | `str` | `'ativo'` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `canais` | Valor correspondente a canais. | `tuple[CanalAnimado, ...]` | obrigatório |
+| `tempo` | Valor correspondente a tempo. | `float` | `0.0` |
+| `estado` | Estado usado ou atualizado pela operação. | `str` | `'ativo'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `pausar` | Pausa o valor solicitado. | `None` |
+| `retomar` | Retoma o valor solicitado. | `None` |
+| `reiniciar` | Reinicia o valor solicitado. | `None` |
+| `encerrar` | Encerra o valor solicitado. | `None` |
+| `avancar` | Avança o valor solicitado. | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `AnimacaoTransformacao(canais: tuple[CanalAnimado, ...], tempo: float = 0.0, estado: str = 'ativo')`
+
+**Origem da implementação:** `coral.jogos.transformacoes`
+
+**Arquivo na release:** `coral/jogos/transformacoes.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `pausar` | método | `pausar() -> None` |
+| `retomar` | método | `retomar() -> None` |
+| `reiniciar` | método | `reiniciar() -> None` |
+| `encerrar` | método | `encerrar() -> None` |
+| `avancar` | método | `avancar(dt: float) -> None` |
+
+:::
+
+#### `AdaptadorEventosJogo`
 
 Publica acontecimentos de Jogos no barramento reativo do próprio Jogo.
 
-**Implementação:** `coral.jogos.eventos`
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `jogo` | Valor correspondente a jogo. | `Jogo` | obrigatório |
+| `teclas` | Valor correspondente a teclas. | `Iterable[str]` | `()` |
+| `botoes_mouse` | Valor correspondente a botoes mouse. | `Iterable[str]` | `()` |
+| `observar_mouse` | Valor correspondente a observar mouse. | `bool` | `False` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `ativo` | propriedade | `ativo() -> bool` | `bool` | Sem docstring própria na release. |
-| `desligar` | método | `desligar() -> None` | `None` | Sem docstring própria na release. |
-| `ligar` | método | `ligar() -> None` | `None` | Sem docstring própria na release. |
-| `observar_colisao` | método | `observar_colisao(primeiro: Sprite, segundo: Sprite, *, nome: str \| None = None) -> _ColisaoObservada` | `_ColisaoObservada` | Sem docstring própria na release. |
-| `publicar_transicao_visual` | método | `publicar_transicao_visual(sprite: Sprite, transicao: str, *, estado: str \| None = None)` | `não declarado` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `EstiloCelula(cor: Cor | None = None, imagem: str | QuadroSprite | None = None, texto: str | None = None, cor_texto: Cor = BRANCO, tamanho_texto: int = 16, contorno: int = 0, opacidade: float = 1.0)`
-
-Entrada pública `EstiloCelula` da superfície `coral.jogos`.
-
-**Implementação:** `coral.jogos.mapas`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `cor` | `Cor \| None` | `None` |
-| `imagem` | `str \| QuadroSprite \| None` | `None` |
-| `texto` | `str \| None` | `None` |
-| `cor_texto` | `Cor` | `BRANCO` |
-| `tamanho_texto` | `int` | `16` |
-| `contorno` | `int` | `0` |
-| `opacidade` | `float` | `1.0` |
+| `ativo` | Indica o estado de ativo. | `bool` |
+| `desligar` | Desliga o valor solicitado. | `None` |
+| `ligar` | Liga o valor solicitado. | `None` |
+| `observar_colisao` | Observa colisao. | `_ColisaoObservada` |
+| `publicar_transicao_visual` | Publica transicao visual. | `não declarado` |
 
-#### `RenderizadorMapa2D(mapa: Mapa, *, camadas: Iterable[str] | None = None, camera: Camera | None = None, resolvedor_estilo: ResolvedorEstiloMapa | None = None, area_visivel: tuple[float, float, float, float] | None = None) -> None`
+:::details Detalhes técnicos
 
-Entrada pública `RenderizadorMapa2D` da superfície `coral.jogos`.
+**Assinatura:** `AdaptadorEventosJogo(jogo: Jogo, *, teclas: Iterable[str] = (), botoes_mouse: Iterable[str] = (), observar_mouse: bool = False)`
 
-**Implementação:** `coral.jogos.mapas`
+**Origem da implementação:** `coral.jogos.eventos`
 
-**Métodos e propriedades públicas**
+**Arquivo na release:** `coral/jogos/eventos.py`
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `camadas` | propriedade | `camadas() -> tuple[CamadaMapa, ...]` | `tuple[CamadaMapa, ...]` | Sem docstring própria na release. |
-| `celulas_visiveis` | método | `celulas_visiveis() -> tuple[Any, ...]` | `tuple[Any, ...]` | Sem docstring própria na release. |
-| `desenhar` | método | `desenhar(backend: BackendJogos) -> int` | `int` | Sem docstring própria na release. |
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `jogo` | posicional |
+| `teclas` | nomeado |
+| `botoes_mouse` | nomeado |
+| `observar_mouse` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `ativo` | propriedade | `ativo() -> bool` |
+| `desligar` | método | `desligar() -> None` |
+| `ligar` | método | `ligar() -> None` |
+| `observar_colisao` | método | `observar_colisao(primeiro: Sprite, segundo: Sprite, *, nome: str \| None = None) -> _ColisaoObservada` |
+| `publicar_transicao_visual` | método | `publicar_transicao_visual(sprite: Sprite, transicao: str, *, estado: str \| None = None)` |
+
+:::
+
+#### `EstiloCelula`
+
+Representa EstiloCelula na API de `coral.jogos`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `cor` | Valor correspondente a cor. | `Cor \| None` | `None` |
+| `imagem` | Valor correspondente a imagem. | `str \| QuadroSprite \| None` | `None` |
+| `texto` | Texto processado pela operação. | `str \| None` | `None` |
+| `cor_texto` | Valor correspondente a cor texto. | `Cor` | `BRANCO` |
+| `tamanho_texto` | Valor correspondente a tamanho texto. | `int` | `16` |
+| `contorno` | Valor correspondente a contorno. | `int` | `0` |
+| `opacidade` | Valor correspondente a opacidade. | `float` | `1.0` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `cor` | Valor correspondente a cor. | `Cor \| None` | `None` |
+| `imagem` | Valor correspondente a imagem. | `str \| QuadroSprite \| None` | `None` |
+| `texto` | Texto processado pela operação. | `str \| None` | `None` |
+| `cor_texto` | Valor correspondente a cor texto. | `Cor` | `BRANCO` |
+| `tamanho_texto` | Valor correspondente a tamanho texto. | `int` | `16` |
+| `contorno` | Valor correspondente a contorno. | `int` | `0` |
+| `opacidade` | Valor correspondente a opacidade. | `float` | `1.0` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `EstiloCelula(cor: Cor \| None = None, imagem: str \| QuadroSprite \| None = None, texto: str \| None = None, cor_texto: Cor = BRANCO, tamanho_texto: int = 16, contorno: int = 0, opacidade: float = 1.0)`
+
+**Origem da implementação:** `coral.jogos.mapas`
+
+**Arquivo na release:** `coral/jogos/mapas.py`
+
+:::
+
+#### `RenderizadorMapa2D`
+
+Representa RenderizadorMapa2D na API de `coral.jogos`.
+
+**Exemplo**
+
+```coral
+defina camera como Camera(0, 0, 64, 64)
+defina backend como BackendNulo()
+defina renderizador como RenderizadorMapa2D(sala, camera=camera)
+defina desenhadas como renderizador.desenhar(backend)
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `mapa` | Valor correspondente a mapa. | `Mapa` | obrigatório |
+| `camadas` | Valor correspondente a camadas. | `Iterable[str] \| None` | `None` |
+| `camera` | Valor correspondente a camera. | `Camera \| None` | `None` |
+| `resolvedor_estilo` | Valor correspondente a resolvedor estilo. | `ResolvedorEstiloMapa \| None` | `None` |
+| `area_visivel` | Valor correspondente a area visivel. | `tuple[float, float, float, float] \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `camadas` | Obtém camadas. | `tuple[CamadaMapa, ...]` |
+| `celulas_visiveis` | Executa a operação `celulas_visiveis` disponibilizada por `coral.jogos`. | `tuple[Any, ...]` |
+| `desenhar` | Executa a operação `desenhar` disponibilizada por `coral.jogos`. | `int` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `RenderizadorMapa2D(mapa: Mapa, *, camadas: Iterable[str] \| None = None, camera: Camera \| None = None, resolvedor_estilo: ResolvedorEstiloMapa \| None = None, area_visivel: tuple[float, float, float, float] \| None = None) -> None`
+
+**Origem da implementação:** `coral.jogos.mapas`
+
+**Arquivo na release:** `coral/jogos/mapas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mapa` | posicional |
+| `camadas` | nomeado |
+| `camera` | nomeado |
+| `resolvedor_estilo` | nomeado |
+| `area_visivel` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `camadas` | propriedade | `camadas() -> tuple[CamadaMapa, ...]` |
+| `celulas_visiveis` | método | `celulas_visiveis() -> tuple[Any, ...]` |
+| `desenhar` | método | `desenhar(backend: BackendJogos) -> int` |
+
+:::
 
 ### Exceções
 
-#### `ErroJogosCoral(...)`
+#### `ErroJogosCoral`
 
-Entrada pública `ErroJogosCoral` da superfície `coral.jogos`.
+Representa a condição de erro ErroJogosCoral.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
 
-#### `DependenciaJogosAusente(...)`
+**Assinatura:** `ErroJogosCoral(...)`
 
-Entrada pública `DependenciaJogosAusente` da superfície `coral.jogos`.
+**Origem da implementação:** `coral.jogos.base`
 
-**Implementação:** `coral.jogos.base`
+**Arquivo na release:** `coral/jogos/base.py`
 
-#### `ErroAssetCoral(...)`
+:::
 
-Entrada pública `ErroAssetCoral` da superfície `coral.jogos`.
+#### `DependenciaJogosAusente`
 
-**Implementação:** `coral.jogos.objetos`
+Representa a condição de erro DependenciaJogosAusente.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `DependenciaJogosAusente(...)`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
+
+:::
+
+#### `ErroAssetCoral`
+
+Representa a condição de erro ErroAssetCoral.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroAssetCoral(...)`
+
+**Origem da implementação:** `coral.jogos.objetos`
+
+**Arquivo na release:** `coral/jogos/objetos.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `PRETO`
 
-Constante pública do módulo.
+Expõe a constante pública `PRETO`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `PRETO`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(0, 0, 0)`
 
+:::
+
 #### `BRANCO`
 
-Constante pública do módulo.
+Expõe a constante pública `BRANCO`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `BRANCO`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(255, 255, 255)`
 
+:::
+
 #### `VERMELHO`
 
-Constante pública do módulo.
+Expõe a constante pública `VERMELHO`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `VERMELHO`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(220, 50, 47)`
 
+:::
+
 #### `VERDE`
 
-Constante pública do módulo.
+Expõe a constante pública `VERDE`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `VERDE`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(46, 160, 67)`
 
+:::
+
 #### `AZUL`
 
-Constante pública do módulo.
+Expõe a constante pública `AZUL`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `AZUL`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(38, 139, 210)`
 
+:::
+
 #### `AMARELO`
 
-Constante pública do módulo.
+Expõe a constante pública `AMARELO`.
 
-**Implementação:** `coral.jogos.base`
+:::details Detalhes técnicos
+
+**Assinatura:** `AMARELO`
+
+**Origem da implementação:** `coral.jogos.base`
+
+**Arquivo na release:** `coral/jogos/base.py`
 
 **Valor declarado:** `Cor(255, 215, 0)`
+
+:::
 
 <!-- /AUTO:API -->
 

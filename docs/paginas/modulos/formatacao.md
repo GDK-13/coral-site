@@ -97,40 +97,92 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `formatar_valor(valor: Any) -> str`
+#### `formatar_valor`
 
 Representação textual básica usando convenções de literais Coral.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `montar_texto(*partes: Any, separador: str = '', final: str = '') -> str`
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `formatar_valor(valor: Any) -> str`
+
+**Origem da implementação:** `coral.formatacao`
+
+**Arquivo na release:** `coral/formatacao.py`
+
+:::
+
+#### `montar_texto`
 
 Monta texto convertendo as partes de modo explícito e previsível.
 
+**Exemplo**
+
+```coral
+de coral.conversoes importe inteiro, decimal
+de coral.formatacao importe montar_texto
+
+defina nome como ler_linha("Nome: ")
+defina idade como inteiro(ler_linha("Idade: "))
+defina altura como decimal(ler_linha("Altura em metros: "))
+mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
+```
+
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*partes` | `Any` | obrigatório | variádico |
-| `separador` | `str` | `''` | nomeado |
-| `final` | `str` | `''` | nomeado |
+| `*partes` | Valor correspondente a partes. | `Any` | obrigatório |
+| `separador` | Texto usado para separar partes do resultado. | `str` | `''` |
+| `final` | Valor correspondente a final. | `str` | `''` |
 
-**Retorno:** `str`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroFormato`
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `montar_texto(*partes: Any, separador: str = '', final: str = '') -> str`
+
+**Origem da implementação:** `coral.formatacao`
+
+**Arquivo na release:** `coral/formatacao.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*partes` | variádico |
+| `separador` | nomeado |
+| `final` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ErroFormato`
+
+:::
 
 ### Exceções
 
-#### `ErroFormato(...)`
+#### `ErroFormato`
 
 Dados ou texto não obedecem ao formato esperado.
 
-**Implementação:** `coral.erros`
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroFormato(...)`
+
+**Origem da implementação:** `coral.erros`
+
+**Arquivo na release:** `coral/erros.py`
+
+:::
 
 <!-- /AUTO:API -->

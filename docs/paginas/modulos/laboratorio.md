@@ -105,105 +105,223 @@ Resultados de tempo variam com máquina, carga, sistema operacional, temperatura
 
 ### Funções
 
-#### `grade_parametros(parametros: Mapping[str, Iterable[Any]] | None) -> list[dict[str, Any]]`
+#### `grade_parametros`
 
-Entrada pública `grade_parametros` da superfície `coral.laboratorio`.
-
-**Parâmetros**
-
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `parametros` | `Mapping[str, Iterable[Any]] \| None` | obrigatório | posicional |
-
-**Retorno:** `list[dict[str, Any]]`
-
-**Exceções observáveis no corpo:** `ValueError`
-
-#### `executar_experimento(nome: str, funcao: Callable[..., Any], *, repeticoes: int = 1, parametros: Mapping[str, Iterable[Any]] | None = None, semente: int | None = None, metricas: Callable[[Any], Mapping[str, Any]] | None = None, continuar_em_erro: bool = True, relogio: FonteTempo | None = None) -> ResultadoExperimento`
-
-Entrada pública `executar_experimento` da superfície `coral.laboratorio`.
+Gerar combinações de parâmetros.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `nome` | `str` | obrigatório | posicional |
-| `funcao` | `Callable[..., Any]` | obrigatório | posicional |
-| `repeticoes` | `int` | `1` | nomeado |
-| `parametros` | `Mapping[str, Iterable[Any]] \| None` | `None` | nomeado |
-| `semente` | `int \| None` | `None` | nomeado |
-| `metricas` | `Callable[[Any], Mapping[str, Any]] \| None` | `None` | nomeado |
-| `continuar_em_erro` | `bool` | `True` | nomeado |
-| `relogio` | `FonteTempo \| None` | `None` | nomeado |
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Iterable[Any]] \| None` | obrigatório |
 
-**Retorno:** `ResultadoExperimento`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`, `propagar`
+Retorna um valor declarado como `list[dict[str, Any]]`.
 
-#### `diagnosticar_laboratorio() -> dict[str, Any]`
+:::details Detalhes técnicos
 
-Entrada pública `diagnosticar_laboratorio` da superfície `coral.laboratorio`.
+**Assinatura:** `grade_parametros(parametros: Mapping[str, Iterable[Any]] \| None) -> list[dict[str, Any]]`
 
-**Retorno:** `dict[str, Any]`
+**Origem da implementação:** `coral.laboratorio`
 
-#### `protocolo_medicao(relogio: FonteTempo | None = None) -> dict[str, Any]`
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `executar_experimento`
+
+Executar e medir.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `funcao` | Função fornecida para executar a operação. | `Callable[..., Any]` | obrigatório |
+| `repeticoes` | Valor correspondente a repeticoes. | `int` | `1` |
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Iterable[Any]] \| None` | `None` |
+| `semente` | Semente usada para tornar a sequência reproduzível. | `int \| None` | `None` |
+| `metricas` | Valor correspondente a metricas. | `Callable[[Any], Mapping[str, Any]] \| None` | `None` |
+| `continuar_em_erro` | Valor correspondente a continuar em erro. | `bool` | `True` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+
+**Retorno**
+
+Retorna um valor declarado como `ResultadoExperimento`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `executar_experimento(nome: str, funcao: Callable[..., Any], *, repeticoes: int = 1, parametros: Mapping[str, Iterable[Any]] \| None = None, semente: int \| None = None, metricas: Callable[[Any], Mapping[str, Any]] \| None = None, continuar_em_erro: bool = True, relogio: FonteTempo \| None = None) -> ResultadoExperimento`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `funcao` | posicional |
+| `repeticoes` | nomeado |
+| `parametros` | nomeado |
+| `semente` | nomeado |
+| `metricas` | nomeado |
+| `continuar_em_erro` | nomeado |
+| `relogio` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `propagar`
+
+:::
+
+#### `diagnosticar_laboratorio`
+
+Diagnosticar capacidade.
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `diagnosticar_laboratorio() -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+:::
+
+#### `protocolo_medicao`
 
 Descreve o protocolo usado pelo runtime sem prometer estabilidade de benchmark.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `relogio` | `FonteTempo \| None` | `None` | posicional |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `protocolo_medicao(relogio: FonteTempo \| None = None) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `Medicao(repeticao: int, parametros: dict[str, Any], semente: int | None, tempo_segundos: float, memoria_atual_bytes: int, memoria_pico_bytes: int, retorno: Any = None, erro: str | None = None, metricas: dict[str, Any] = field(default_factory=dict))`
+#### `Medicao`
 
-Entrada pública `Medicao` da superfície `coral.laboratorio`.
+Representa registro de uma repetição.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `repeticao` | Valor correspondente a repeticao. | `int` | obrigatório |
+| `parametros` | Valor correspondente a parametros. | `dict[str, Any]` | obrigatório |
+| `semente` | Semente usada para tornar a sequência reproduzível. | `int \| None` | obrigatório |
+| `tempo_segundos` | Valor correspondente a tempo segundos. | `float` | obrigatório |
+| `memoria_atual_bytes` | Valor correspondente a memoria atual bytes. | `int` | obrigatório |
+| `memoria_pico_bytes` | Valor correspondente a memoria pico bytes. | `int` | obrigatório |
+| `retorno` | Valor correspondente a retorno. | `Any` | `None` |
+| `erro` | Valor correspondente a erro. | `str \| None` | `None` |
+| `metricas` | Valor correspondente a metricas. | `dict[str, Any]` | `field(default_factory=dict)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `repeticao` | Valor correspondente a repeticao. | `int` | obrigatório |
+| `parametros` | Valor correspondente a parametros. | `dict[str, Any]` | obrigatório |
+| `semente` | Semente usada para tornar a sequência reproduzível. | `int \| None` | obrigatório |
+| `tempo_segundos` | Valor correspondente a tempo segundos. | `float` | obrigatório |
+| `memoria_atual_bytes` | Valor correspondente a memoria atual bytes. | `int` | obrigatório |
+| `memoria_pico_bytes` | Valor correspondente a memoria pico bytes. | `int` | obrigatório |
+| `retorno` | Valor correspondente a retorno. | `Any` | `None` |
+| `erro` | Valor correspondente a erro. | `str \| None` | `None` |
+| `metricas` | Valor correspondente a metricas. | `dict[str, Any]` | `field(default_factory=dict)` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Medicao(repeticao: int, parametros: dict[str, Any], semente: int \| None, tempo_segundos: float, memoria_atual_bytes: int, memoria_pico_bytes: int, retorno: Any = None, erro: str \| None = None, metricas: dict[str, Any] = field(default_factory=dict))`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+:::
+
+#### `ResultadoExperimento`
+
+Representa agregado do experimento.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `medicoes` | Valor correspondente a medicoes. | `list[Medicao]` | obrigatório |
+| `metadados` | Valor correspondente a metadados. | `dict[str, Any]` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `medicoes` | Valor correspondente a medicoes. | `list[Medicao]` | obrigatório |
+| `metadados` | Valor correspondente a metadados. | `dict[str, Any]` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `repeticao` | `int` | obrigatório |
-| `parametros` | `dict[str, Any]` | obrigatório |
-| `semente` | `int \| None` | obrigatório |
-| `tempo_segundos` | `float` | obrigatório |
-| `memoria_atual_bytes` | `int` | obrigatório |
-| `memoria_pico_bytes` | `int` | obrigatório |
-| `retorno` | `Any` | `None` |
-| `erro` | `str \| None` | `None` |
-| `metricas` | `dict[str, Any]` | `field(default_factory=dict)` |
+| `passou` | Executa a operação `passou` disponibilizada por `coral.laboratorio`. | `bool` |
+| `adicionar_metadados` | Adiciona metadados. | `None` |
+| `retornos` | Obtém retornos. | `list[Any]` |
+| `resumo` | Executa a operação `resumo` disponibilizada por `coral.laboratorio`. | `dict[str, Any]` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
+| `resultado_operacao` | Executa a operação `resultado_operacao` disponibilizada por `coral.laboratorio`. | `ResultadoOperacao` |
+| `salvar_json` | Salva JSON. | `Path` |
+| `salvar_csv` | Salva csv. | `Path` |
+| `salvar` | Salva o valor solicitado. | `Path` |
+| `salvar_markdown` | Salva markdown. | `Path` |
 
-#### `ResultadoExperimento(nome: str, medicoes: list[Medicao], metadados: dict[str, Any])`
+:::details Detalhes técnicos
 
-Entrada pública `ResultadoExperimento` da superfície `coral.laboratorio`.
+**Assinatura:** `ResultadoExperimento(nome: str, medicoes: list[Medicao], metadados: dict[str, Any])`
 
-**Atributos declarados**
+**Origem da implementação:** `coral.laboratorio`
 
-| Nome | Tipo | Padrão |
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `medicoes` | `list[Medicao]` | obrigatório |
-| `metadados` | `dict[str, Any]` | obrigatório |
+| `passou` | propriedade | `passou() -> bool` |
+| `adicionar_metadados` | método | `adicionar_metadados(nome: str, valor: Any) -> None` |
+| `retornos` | método | `retornos(*, incluir_falhas: bool = False) -> list[Any]` |
+| `resumo` | método | `resumo() -> dict[str, Any]` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
+| `resultado_operacao` | método | `resultado_operacao() -> ResultadoOperacao` |
+| `salvar_json` | método | `salvar_json(caminho: str \| Path) -> Path` |
+| `salvar_csv` | método | `salvar_csv(caminho: str \| Path) -> Path` |
+| `salvar` | método | `salvar(caminho: str \| Path) -> Path` |
+| `salvar_markdown` | método | `salvar_markdown(caminho: str \| Path) -> Path` |
 
-**Métodos e propriedades públicas**
-
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `passou` | propriedade | `passou() -> bool` | `bool` | Sem docstring própria na release. |
-| `adicionar_metadados` | método | `adicionar_metadados(nome: str, valor: Any) -> None` | `None` | Sem docstring própria na release. |
-| `retornos` | método | `retornos(*, incluir_falhas: bool = False) -> list[Any]` | `list[Any]` | Sem docstring própria na release. |
-| `resumo` | método | `resumo() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
-| `resultado_operacao` | método | `resultado_operacao() -> ResultadoOperacao` | `ResultadoOperacao` | Sem docstring própria na release. |
-| `salvar_json` | método | `salvar_json(caminho: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
-| `salvar_csv` | método | `salvar_csv(caminho: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
-| `salvar` | método | `salvar(caminho: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
-| `salvar_markdown` | método | `salvar_markdown(caminho: str \| Path) -> Path` | `Path` | Sem docstring própria na release. |
+:::
 
 <!-- /AUTO:API -->
 

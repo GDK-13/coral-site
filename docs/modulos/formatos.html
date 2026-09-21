@@ -175,96 +175,163 @@ de <span class="code-mod">coral.criptografia</span> <span class="code-key">impor
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="para-hex-dados-maiusculas-false-str" data-searchable><code>para_hex(dados, *, maiusculas = False) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>para_hex</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<h4 id="para-hex" data-searchable><code>para_hex</code></h4>
+<p data-searchable>Converte o valor para hex.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maiusculas</code></td><td data-searchable>Valor correspondente a maiusculas.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_hex(dados, *, maiusculas = False) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>maiusculas</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>maiusculas</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
-<h4 id="de-hex-texto-bytes" data-searchable><code>de_hex(texto) -&gt; bytes</code></h4>
-<p data-searchable>Entrada pública <code>de_hex</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="de-hex" data-searchable><code>de_hex</code></h4>
+<p data-searchable>Interpreta ou reconstrói um valor a partir de hex.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="para-base64-dados-url-false-sem-padding-false-str" data-searchable><code>para_base64(dados, *, url = False, sem_padding = False) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>para_base64</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bytes</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_hex(texto) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="para-base64" data-searchable><code>para_base64</code></h4>
+<p data-searchable>Converte o valor para base64.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span></code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>sem_padding</code></td><td data-searchable>Valor correspondente a sem padding.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_base64(dados, *, url = False, sem_padding = False) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>url</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>sem_padding</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sem_padding</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
-<h4 id="de-base64-texto-url-false-bytes" data-searchable><code>de_base64(texto, *, url = False) -&gt; bytes</code></h4>
-<p data-searchable>Entrada pública <code>de_base64</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="de-base64" data-searchable><code>de_base64</code></h4>
+<p data-searchable>Interpreta ou reconstrói um valor a partir de base64.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bytes</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_base64(texto, *, url = False) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>url</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="para-csv-linhas-iterable-mapping-str-any-iterable-any-colunas-none-delimitador-str" data-searchable><code>para_csv(linhas: Iterable[Mapping[str, Any] | Iterable[Any]], *, colunas = None, delimitador = ',') -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>para_csv</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="para-csv" data-searchable><code>para_csv</code></h4>
+<p data-searchable>Gerar CSV.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Linhas usadas para construir ou processar a estrutura.</td><td data-searchable><code>Iterable[Mapping[str, Any] | Iterable[Any]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>Valor correspondente a delimitador.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_csv(linhas: Iterable[Mapping[str, Any] \| Iterable[Any]], *, colunas = None, delimitador = ',') -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>linhas</code></td><td data-searchable><code>Iterable[Mapping[str, Any] | Iterable[Any]]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>colunas</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>delimitador</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="de-csv-texto-cabecalho-true-delimitador" data-searchable><code>de_csv(texto, *, cabecalho = True, delimitador = ',')</code></h4>
-<p data-searchable>Entrada pública <code>de_csv</code> da superfície <code>coral.formatos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="de-csv" data-searchable><code>de_csv</code></h4>
+<p data-searchable>Ler CSV.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Valor correspondente a cabecalho.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>Valor correspondente a delimitador.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_csv(texto, *, cabecalho = True, delimitador = ',')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.formatos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/formatos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>cabecalho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>delimitador</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="formatacao.html"><span>Anterior</span><strong>coral.formatacao</strong></a><a class="docs-page-nav-link next" href="json.html"><span>Próxima</span><strong>coral.json</strong></a></nav>
   </main>

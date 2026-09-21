@@ -101,65 +101,105 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `para_json(valor, identar = 2)`
+#### `para_json`
 
-Entrada pública `para_json` da superfície `coral.json`.
-
-**Implementação:** `coral.stdlib.json`
+Serializar valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `identar` | `não declarado` | `2` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `identar` | Valor correspondente a identar. | `não declarado` | `2` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `de_json(texto)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `de_json` da superfície `coral.json`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.json`
+**Assinatura:** `para_json(valor, identar = 2)`
+
+**Origem da implementação:** `coral.stdlib.json`
+
+**Arquivo na release:** `coral/stdlib/json.py`
+
+:::
+
+#### `de_json`
+
+Interpretar texto JSON.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `não declarado` | obrigatório | posicional |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `_json.JSONDecodeError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `ler_json(caminho)`
+:::details Detalhes técnicos
 
-Entrada pública `ler_json` da superfície `coral.json`.
+**Assinatura:** `de_json(texto)`
 
-**Implementação:** `coral.stdlib.json`
+**Origem da implementação:** `coral.stdlib.json`
+
+**Arquivo na release:** `coral/stdlib/json.py`
+
+**Exceções diretamente observáveis no corpo:** `_json.JSONDecodeError`
+
+:::
+
+#### `ler_json`
+
+Ler JSON de arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `escrever_json(caminho, valor, identar = 2)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `escrever_json` da superfície `coral.json`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.json`
+**Assinatura:** `ler_json(caminho)`
+
+**Origem da implementação:** `coral.stdlib.json`
+
+**Arquivo na release:** `coral/stdlib/json.py`
+
+:::
+
+#### `escrever_json`
+
+Gravar JSON em arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `não declarado` | obrigatório | posicional |
-| `valor` | `não declarado` | obrigatório | posicional |
-| `identar` | `não declarado` | `2` | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `identar` | Valor correspondente a identar. | `não declarado` | `2` |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `escrever_json(caminho, valor, identar = 2)`
+
+**Origem da implementação:** `coral.stdlib.json`
+
+**Arquivo na release:** `coral/stdlib/json.py`
+
+:::
 
 <!-- /AUTO:API -->

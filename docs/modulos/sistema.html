@@ -174,156 +174,315 @@
 <p data-searchable>Encapsule chamadas externas em funções pequenas. Assim, a lógica do programa pode ser testada sem lançar processos reais em todos os casos. Para código de biblioteca, prefira aceitar resultados ou adaptadores como dependência quando a interação externa for complexa.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="informacoes-informacoessistema" data-searchable><code>informacoes() -&gt; InformacoesSistema</code></h4>
-<p data-searchable>Entrada pública <code>informacoes</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>InformacoesSistema</code></p>
-<h4 id="diagnosticar-sistema-dict-str-any" data-searchable><code>diagnosticar_sistema() -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>diagnosticar_sistema</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="variavel-ambiente-nome-str-padrao-str-none-none-str-none" data-searchable><code>variavel_ambiente(nome: str, padrao: str | None = None) -&gt; str | None</code></h4>
-<p data-searchable>Entrada pública <code>variavel_ambiente</code> da superfície <code>coral.sistema</code>.</p>
+<h4 id="informacoes" data-searchable><code>informacoes</code></h4>
+<p data-searchable>Obter retrato do host.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sistema</span> <span class="code-key">importe</span> informacoes, pasta_atual, variavel_ambiente
+
+<span class="code-key">defina</span> ambiente como <span class="code-fn">informacoes</span>()
+<span class="code-key">mostre</span> ambiente.sistema
+<span class="code-key">mostre</span> <span class="code-fn">pasta_atual</span>()
+<span class="code-key">mostre</span> <span class="code-fn">variavel_ambiente</span>(<span class="code-str">&quot;HOME&quot;</span>, <span class="code-str">&quot;&quot;</span>)</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>InformacoesSistema</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>informacoes() -&gt; InformacoesSistema</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="diagnosticar-sistema" data-searchable><code>diagnosticar_sistema</code></h4>
+<p data-searchable>Produz informações de diagnóstico para sistema.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>diagnosticar_sistema() -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="variavel-ambiente" data-searchable><code>variavel_ambiente</code></h4>
+<p data-searchable>Ler variável.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sistema</span> <span class="code-key">importe</span> informacoes, pasta_atual, variavel_ambiente
+
+<span class="code-key">defina</span> ambiente como <span class="code-fn">informacoes</span>()
+<span class="code-key">mostre</span> ambiente.sistema
+<span class="code-key">mostre</span> <span class="code-fn">pasta_atual</span>()
+<span class="code-key">mostre</span> <span class="code-fn">variavel_ambiente</span>(<span class="code-str">&quot;HOME&quot;</span>, <span class="code-str">&quot;&quot;</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>padrao</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>padrao</code></td><td data-searchable>Valor usado quando não há resultado específico disponível.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str | None</code></p>
-<h4 id="definir-variavel-ambiente-nome-str-valor-any-none" data-searchable><code>definir_variavel_ambiente(nome: str, valor: Any) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>definir_variavel_ambiente</code> da superfície <code>coral.sistema</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str | None</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>variavel_ambiente(nome: str, padrao: str \| None = None) -&gt; str \| None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="definir-variavel-ambiente" data-searchable><code>definir_variavel_ambiente</code></h4>
+<p data-searchable>Definir variável no processo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<h4 id="remover-variavel-ambiente-nome-str-bool" data-searchable><code>remover_variavel_ambiente(nome: str) -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>remover_variavel_ambiente</code> da superfície <code>coral.sistema</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>definir_variavel_ambiente(nome: str, valor: Any) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="remover-variavel-ambiente" data-searchable><code>remover_variavel_ambiente</code></h4>
+<p data-searchable>Remove variavel ambiente.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<h4 id="variaveis-ambiente-dict-str-str" data-searchable><code>variaveis_ambiente() -&gt; dict[str, str]</code></h4>
-<p data-searchable>Entrada pública <code>variaveis_ambiente</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, str]</code></p>
-<h4 id="pasta-atual-path" data-searchable><code>pasta_atual() -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>pasta_atual</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="pasta-usuario-path" data-searchable><code>pasta_usuario() -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>pasta_usuario</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="caminho-partes-any-path" data-searchable><code>caminho(*partes: Any) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>caminho</code> da superfície <code>coral.sistema</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>remover_variavel_ambiente(nome: str) -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="variaveis-ambiente" data-searchable><code>variaveis_ambiente</code></h4>
+<p data-searchable>Obtém variaveis ambiente.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, str]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>variaveis_ambiente() -&gt; dict[str, str]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="pasta-atual" data-searchable><code>pasta_atual</code></h4>
+<p data-searchable>Obter diretório atual.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sistema</span> <span class="code-key">importe</span> informacoes, pasta_atual, variavel_ambiente
+
+<span class="code-key">defina</span> ambiente como <span class="code-fn">informacoes</span>()
+<span class="code-key">mostre</span> ambiente.sistema
+<span class="code-key">mostre</span> <span class="code-fn">pasta_atual</span>()
+<span class="code-key">mostre</span> <span class="code-fn">variavel_ambiente</span>(<span class="code-str">&quot;HOME&quot;</span>, <span class="code-str">&quot;&quot;</span>)</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>pasta_atual() -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="pasta-usuario" data-searchable><code>pasta_usuario</code></h4>
+<p data-searchable>Obter diretório do usuário.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>pasta_usuario() -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="caminho" data-searchable><code>caminho</code></h4>
+<p data-searchable>Montar caminho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*partes</code></td><td data-searchable>Valor correspondente a partes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>caminho(*partes: Any) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>*partes</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>variádico</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="executar-comando-programa-str-argumentos-iterable-any-pasta-str-path-none-none-timeout-float-none-none-ambiente-mapping-str-any-none-none-entrada-str-none-none-relogio-fontetempo-none-none-resultadocomando" data-searchable><code>executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str | Path | None = None, timeout: float | None = None, ambiente: Mapping[str, Any] | None = None, entrada: str | None = None, relogio: FonteTempo | None = None) -&gt; ResultadoComando</code></h4>
+<tr><td data-searchable><code>*partes</code></td><td data-searchable>variádico</td></tr>
+</tbody></table></div></div></details>
+<h4 id="executar-comando" data-searchable><code>executar_comando</code></h4>
 <p data-searchable>Executa um processo sem shell por padrão.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>programa</code></td><td data-searchable>Valor correspondente a programa.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>argumentos</code></td><td data-searchable>Valor correspondente a argumentos.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>Valor correspondente a pasta.</td><td data-searchable><code>str | Path | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>ambiente</code></td><td data-searchable>Valor correspondente a ambiente.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>entrada</code></td><td data-searchable>Valor correspondente a entrada.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Relógio usado para controlar tempo ou atualização.</td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ResultadoComando</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str \| Path \| None = None, timeout: float \| None = None, ambiente: Mapping[str, Any] \| None = None, entrada: str \| None = None, relogio: FonteTempo \| None = None) -&gt; ResultadoComando</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>programa</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>argumentos</code></td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable><code>()</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>pasta</code></td><td data-searchable><code>str | Path | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>timeout</code></td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>ambiente</code></td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>entrada</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>relogio</code></td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>programa</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>argumentos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>ambiente</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>entrada</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>ResultadoComando</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code>, <code>ProgramaNaoEncontrado</code>, <code>TempoLimiteExcedido</code>, <code>FalhaSistemaOperacional</code></p>
-<h4 id="processo-atual-dict-str-any" data-searchable><code>processo_atual() -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>processo_atual</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>ProgramaNaoEncontrado</code>, <code>TempoLimiteExcedido</code>, <code>FalhaSistemaOperacional</code></p></div></details>
+<h4 id="processo-atual" data-searchable><code>processo_atual</code></h4>
+<p data-searchable>Inspecionar processo Coral.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>processo_atual() -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="tempolimiteexcedido-comando-tuple-str-timeout-float-none-mensagem-str" data-searchable><code>TempoLimiteExcedido(comando: tuple[str, ...], timeout: float | None, mensagem: str)</code></h4>
+<h4 id="tempolimiteexcedido" data-searchable><code>TempoLimiteExcedido</code></h4>
 <p data-searchable>Timeout de processo, compatível com subprocess.TimeoutExpired da linha 1.4.1.</p>
-<h4 id="informacoessistema-sistema-str-versao-str-arquitetura-str-maquina-str-processador-str-python-str-pid-int-pasta-atual-str" data-searchable><code>InformacoesSistema(sistema: str, versao: str, arquitetura: str, maquina: str, processador: str, python: str, pid: int, pasta_atual: str)</code></h4>
-<p data-searchable>Entrada pública <code>InformacoesSistema</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>sistema</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>versao</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>arquitetura</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>maquina</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>processador</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>python</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>pid</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>pasta_atual</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>comando</code></td><td data-searchable>Valor correspondente a comando.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TempoLimiteExcedido(comando: tuple[str, ...], timeout: float \| None, mensagem: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="informacoessistema" data-searchable><code>InformacoesSistema</code></h4>
+<p data-searchable>Representa InformacoesSistema na API de <code>coral.sistema</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>versao</code></td><td data-searchable>Valor correspondente a versao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>arquitetura</code></td><td data-searchable>Valor correspondente a arquitetura.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maquina</code></td><td data-searchable>Valor correspondente a maquina.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>processador</code></td><td data-searchable>Valor correspondente a processador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>python</code></td><td data-searchable>Valor correspondente a python.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pid</code></td><td data-searchable>Valor correspondente a pid.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pasta_atual</code></td><td data-searchable>Valor correspondente a pasta atual.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>versao</code></td><td data-searchable>Valor correspondente a versao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>arquitetura</code></td><td data-searchable>Valor correspondente a arquitetura.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maquina</code></td><td data-searchable>Valor correspondente a maquina.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>processador</code></td><td data-searchable>Valor correspondente a processador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>python</code></td><td data-searchable>Valor correspondente a python.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pid</code></td><td data-searchable>Valor correspondente a pid.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pasta_atual</code></td><td data-searchable>Valor correspondente a pasta atual.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>InformacoesSistema(sistema: str, versao: str, arquitetura: str, maquina: str, processador: str, python: str, pid: int, pasta_atual: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="resultadocomando-comando-tuple-str-codigo-int-saida-str-erro-str-duracao-segundos-float" data-searchable><code>ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float)</code></h4>
-<p data-searchable>Entrada pública <code>ResultadoComando</code> da superfície <code>coral.sistema</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="resultadocomando" data-searchable><code>ResultadoComando</code></h4>
+<p data-searchable>Representa ResultadoComando na API de <code>coral.sistema</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>comando</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>codigo</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>saida</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>erro</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>duracao_segundos</code></td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>comando</code></td><td data-searchable>Valor correspondente a comando.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>Valor correspondente a codigo.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>saida</code></td><td data-searchable>Valor correspondente a saida.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>Valor correspondente a erro.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao_segundos</code></td><td data-searchable>Valor correspondente a duracao segundos.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>comando</code></td><td data-searchable>Valor correspondente a comando.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>Valor correspondente a codigo.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>saida</code></td><td data-searchable>Valor correspondente a saida.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>Valor correspondente a erro.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao_segundos</code></td><td data-searchable>Valor correspondente a duracao segundos.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>Indica o estado de sucesso.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>resultado_operacao</code></td><td data-searchable>Executa a operação <code>resultado_operacao</code> disponibilizada por <code>coral.sistema</code>.</td><td data-searchable><code>ResultadoOperacao</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>sucesso</code></td><td data-searchable>propriedade</td><td data-searchable><code>sucesso() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>resultado_operacao</code></td><td data-searchable>método</td><td data-searchable><code>resultado_operacao() -&gt; ResultadoOperacao</code></td><td data-searchable><code>ResultadoOperacao</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>propriedade</td><td data-searchable><code>sucesso() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>resultado_operacao</code></td><td data-searchable>método</td><td data-searchable><code>resultado_operacao() -&gt; ResultadoOperacao</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="errosistema" data-searchable><code>ErroSistema(...)</code></h4>
+<h4 id="errosistema" data-searchable><code>ErroSistema</code></h4>
 <p data-searchable>Falha operacional do sistema hospedeiro traduzida para a superfície Coral.</p>
-<h4 id="programanaoencontrado" data-searchable><code>ProgramaNaoEncontrado(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroSistema(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="programanaoencontrado" data-searchable><code>ProgramaNaoEncontrado</code></h4>
 <p data-searchable>Executável ausente, compatível com o FileNotFoundError exposto até a 1.4.2.</p>
-<h4 id="falhasistemaoperacional" data-searchable><code>FalhaSistemaOperacional(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ProgramaNaoEncontrado(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
+<h4 id="falhasistemaoperacional" data-searchable><code>FalhaSistemaOperacional</code></h4>
 <p data-searchable>Demais falhas do SO, mantendo compatibilidade com captura por OSError.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FalhaSistemaOperacional(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sistema</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sistema.py</code></p></div></details>
 <h2 id="compatibilidade" data-searchable>Compatibilidade</h2>
 <p data-searchable>Os contratos são portáveis, mas os valores refletem o sistema hospedeiro. Nome de sistema, caminhos, variáveis, disponibilidade de executáveis e comportamento de ferramentas externas variam entre Windows, Linux e outros ambientes.</p>
     </article>

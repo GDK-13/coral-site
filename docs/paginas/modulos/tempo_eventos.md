@@ -109,152 +109,400 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -> float | None`
+#### `validar_duracao`
 
 Normaliza uma duração pública para segundos finitos não negativos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `nome` | `str` | `'duração'` | posicional |
-| `permitir_none` | `bool` | `False` | nomeado |
-| `permitir_zero` | `bool` | `True` | nomeado |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'duração'` |
+| `permitir_none` | Controla se deve permitir none. | `bool` | `False` |
+| `permitir_zero` | Controla se deve permitir zero. | `bool` | `True` |
 
-**Retorno:** `float | None`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna um valor declarado como `float | None`.
 
-#### `normalizar_dt(valor: Any, *, compatibilidade_negativo_zero: bool = True) -> float`
+:::details Detalhes técnicos
+
+**Assinatura:** `validar_duracao(valor: Any, nome: str = 'duração', *, permitir_none: bool = False, permitir_zero: bool = True) -> float \| None`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `nome` | posicional |
+| `permitir_none` | nomeado |
+| `permitir_zero` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `normalizar_dt`
 
 Normaliza avanço de simulação.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
-| `compatibilidade_negativo_zero` | `bool` | `True` | nomeado |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+| `compatibilidade_negativo_zero` | Valor correspondente a compatibilidade negativo zero. | `bool` | `True` |
 
-**Retorno:** `float`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna um valor declarado como `float`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `normalizar_dt(valor: Any, *, compatibilidade_negativo_zero: bool = True) -> float`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `compatibilidade_negativo_zero` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
 
 ### Classes e protocolos
 
-#### `FonteTempo(...)`
+#### `FonteTempo`
 
-Entrada pública `FonteTempo` da superfície `coral.tempo_eventos`.
+Define o contrato público de FonteTempo.
 
-**Métodos e propriedades públicas**
+**Operações públicas da classe**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `agora` | método | `agora() -> float` | `float` | Sem docstring própria na release. |
-| `passo` | método | `passo() -> float` | `float` | Sem docstring própria na release. |
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `agora` | Obtém o instante civil atual. | `float` |
+| `passo` | Avança o estado controlado por um passo. | `float` |
 
-#### `RelogioMonotonico(fonte: Callable[[], float] = time.perf_counter)`
+:::details Detalhes técnicos
+
+**Assinatura:** `FonteTempo(...)`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `agora` | método | `agora() -> float` |
+| `passo` | método | `passo() -> float` |
+
+:::
+
+#### `RelogioMonotonico`
 
 Relógio real baseado em ``perf_counter`` e apropriado para durações.
 
-**Métodos e propriedades públicas**
+**Parâmetros**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `agora` | método | `agora() -> float` | `float` | Sem docstring própria na release. |
-| `passo` | método | `passo() -> float` | `float` | Sem docstring própria na release. |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `fonte` | Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo. | `Callable[[], float]` | `time.perf_counter` |
 
-#### `RelogioSimulado(inicial: float = 0.0)`
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `agora` | Obtém o instante civil atual. | `float` |
+| `passo` | Avança o estado controlado por um passo. | `float` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `RelogioMonotonico(fonte: Callable[[], float] = time.perf_counter)`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `agora` | método | `agora() -> float` |
+| `passo` | método | `passo() -> float` |
+
+:::
+
+#### `RelogioSimulado`
 
 Relógio controlado pelo programa, sem dormir nem consultar o sistema.
 
-**Métodos e propriedades públicas**
+**Exemplo**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `agora` | método | `agora() -> float` | `float` | Sem docstring própria na release. |
-| `avancar` | método | `avancar(dt: Any) -> float` | `float` | Sem docstring própria na release. |
-| `passo` | método | `passo() -> float` | `float` | Sem docstring própria na release. |
-| `definir` | método | `definir(instante: Any) -> float` | `float` | Sem docstring própria na release. |
+```coral
+de coral.tempo_eventos importe RelogioSimulado, Eventos
 
-#### `TokenCancelamento()`
+defina relogio como RelogioSimulado(0)
+defina eventos como Eventos(relogio=relogio)
+mostre relogio.agora()
+execute relogio.avancar(0.5)
+mostre relogio.agora()
+```
 
-Entrada pública `TokenCancelamento` da superfície `coral.tempo_eventos`.
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `inicial` | Valor correspondente a inicial. | `float` | `0.0` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `cancelado` | propriedade | `cancelado() -> bool` | `bool` | Sem docstring própria na release. |
-| `motivo` | propriedade | `motivo() -> str \| None` | `str \| None` | Sem docstring própria na release. |
-| `cancelar` | método | `cancelar(motivo: str = 'Operação cancelada pelo usuário.') -> None` | `None` | Sem docstring própria na release. |
-| `verificar` | método | `verificar() -> None` | `None` | Sem docstring própria na release. |
+**Operações públicas da classe**
 
-#### `Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str | None = None, sequencia: int = 0, instante: float | None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str | None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int | None = None)`
-
-Entrada pública `Evento` da superfície `coral.tempo_eventos`.
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `args` | `tuple[Any, ...]` | `()` |
-| `kwargs` | `Mapping[str, Any]` | `field(default_factory=dict)` |
-| `origem` | `str \| None` | `None` |
-| `sequencia` | `int` | `0` |
-| `instante` | `float \| None` | `None` |
-| `cancelavel` | `bool` | `False` |
-| `cancelado` | `bool` | `False` |
-| `motivo_cancelamento` | `str \| None` | `None` |
-| `consumido` | `bool` | `False` |
-| `metadados` | `Mapping[str, Any]` | `field(default_factory=dict)` |
-| `causa_sequencia` | `int \| None` | `None` |
+| `agora` | Obtém o instante civil atual. | `float` |
+| `avancar` | Avança o valor solicitado. | `float` |
+| `passo` | Avança o estado controlado por um passo. | `float` |
+| `definir` | Define o valor solicitado. | `float` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `cancelar` | método | `cancelar(motivo: str \| None = None) -> None` | `None` | Sem docstring própria na release. |
-| `consumir` | método | `consumir() -> None` | `None` | Sem docstring própria na release. |
+**Assinatura:** `RelogioSimulado(inicial: float = 0.0)`
 
-#### `Eventos(*, pai: 'Eventos | None' = None, relogio: FonteTempo | None = None, fonte_instante: Callable[[], float] | None = None)`
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `agora` | método | `agora() -> float` |
+| `avancar` | método | `avancar(dt: Any) -> float` |
+| `passo` | método | `passo() -> float` |
+| `definir` | método | `definir(instante: Any) -> float` |
+
+:::
+
+#### `TokenCancelamento`
+
+Representa cancelamento cooperativo.
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `cancelado` | Indica o estado de cancelado. | `bool` |
+| `motivo` | Obtém motivo. | `str \| None` |
+| `cancelar` | Cancela o valor solicitado. | `None` |
+| `verificar` | Executa a operação `verificar` disponibilizada por `coral.tempo_eventos`. | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `TokenCancelamento()`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `cancelado` | propriedade | `cancelado() -> bool` |
+| `motivo` | propriedade | `motivo() -> str \| None` |
+| `cancelar` | método | `cancelar(motivo: str = 'Operação cancelada pelo usuário.') -> None` |
+| `verificar` | método | `verificar() -> None` |
+
+:::
+
+#### `Evento`
+
+Representa registro de evento.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `args` | Valor correspondente a args. | `tuple[Any, ...]` | `()` |
+| `kwargs` | Valor correspondente a kwargs. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `origem` | Origem usada pela operação. | `str \| None` | `None` |
+| `sequencia` | Valor correspondente a sequencia. | `int` | `0` |
+| `instante` | Valor correspondente a instante. | `float \| None` | `None` |
+| `cancelavel` | Valor correspondente a cancelavel. | `bool` | `False` |
+| `cancelado` | Valor correspondente a cancelado. | `bool` | `False` |
+| `motivo_cancelamento` | Valor correspondente a motivo cancelamento. | `str \| None` | `None` |
+| `consumido` | Valor correspondente a consumido. | `bool` | `False` |
+| `metadados` | Valor correspondente a metadados. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `causa_sequencia` | Valor correspondente a causa sequencia. | `int \| None` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `args` | Valor correspondente a args. | `tuple[Any, ...]` | `()` |
+| `kwargs` | Valor correspondente a kwargs. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `origem` | Origem usada pela operação. | `str \| None` | `None` |
+| `sequencia` | Valor correspondente a sequencia. | `int` | `0` |
+| `instante` | Valor correspondente a instante. | `float \| None` | `None` |
+| `cancelavel` | Valor correspondente a cancelavel. | `bool` | `False` |
+| `cancelado` | Valor correspondente a cancelado. | `bool` | `False` |
+| `motivo_cancelamento` | Valor correspondente a motivo cancelamento. | `str \| None` | `None` |
+| `consumido` | Valor correspondente a consumido. | `bool` | `False` |
+| `metadados` | Valor correspondente a metadados. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `causa_sequencia` | Valor correspondente a causa sequencia. | `int \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `cancelar` | Cancela o valor solicitado. | `None` |
+| `consumir` | Executa a operação `consumir` disponibilizada por `coral.tempo_eventos`. | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str \| None = None, sequencia: int = 0, instante: float \| None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str \| None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int \| None = None)`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `cancelar` | método | `cancelar(motivo: str \| None = None) -> None` |
+| `consumir` | método | `consumir() -> None` |
+
+:::
+
+#### `Eventos`
 
 Barramento local compatível com ``coral.regras.Eventos``.
 
-**Métodos e propriedades públicas**
+**Exemplo**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `pendentes` | propriedade | `pendentes() -> int` | `int` | Sem docstring própria na release. |
-| `pai` | propriedade | `pai() -> 'Eventos \| None'` | `'Eventos \| None'` | Sem docstring própria na release. |
-| `relogio` | propriedade | `relogio() -> FonteTempo \| None` | `FonteTempo \| None` | Sem docstring própria na release. |
-| `definir_fonte_instante` | método | `definir_fonte_instante(fonte: Callable[[], float] \| None) -> None` | `None` | Sem docstring própria na release. |
-| `possui_fonte_instante` | propriedade | `possui_fonte_instante() -> bool` | `bool` | Sem docstring própria na release. |
-| `definir_pai` | método | `definir_pai(pai: 'Eventos \| None') -> None` | `None` | Sem docstring própria na release. |
-| `quando` | método | `quando(nome: str, funcao: Callable[..., Any], *, prioridade: str \| int = 'normal', receber_evento: bool = False, max_execucoes: int \| None = None, cooldown: float = 0.0)` | `não declarado` | Sem docstring própria na release. |
-| `remover` | método | `remover(nome: str, funcao: Callable[..., Any]) -> bool` | `bool` | Sem docstring própria na release. |
-| `emitir` | método | `emitir(nome: str, *args, **kwargs) -> int` | `int` | Sem docstring própria na release. |
-| `emitir_evento` | método | `emitir_evento(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` | `Evento` | Sem docstring própria na release. |
-| `enfileirar` | método | `enfileirar(nome: str, *args, origem: str \| None = None, **kwargs) -> Evento` | `Evento` | Sem docstring própria na release. |
-| `enfileirar_evento` | método | `enfileirar_evento(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` | `Evento` | Sem docstring própria na release. |
-| `processar` | método | `processar(limite: int \| None = None) -> tuple[Evento, ...]` | `tuple[Evento, ...]` | Sem docstring própria na release. |
-| `emitir_propagado` | método | `emitir_propagado(nome: str, *args, origem: str \| None = None, **kwargs) -> int` | `int` | Sem docstring própria na release. |
-| `emitir_evento_propagado` | método | `emitir_evento_propagado(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` | `Evento` | Sem docstring própria na release. |
+```coral
+de coral.tempo_eventos importe RelogioSimulado, Eventos
+
+defina relogio como RelogioSimulado(0)
+defina eventos como Eventos(relogio=relogio)
+mostre relogio.agora()
+execute relogio.avancar(0.5)
+mostre relogio.agora()
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `pai` | Valor correspondente a pai. | `'Eventos \| None'` | `None` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+| `fonte_instante` | Valor correspondente a fonte instante. | `Callable[[], float] \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `pendentes` | Obtém pendentes. | `int` |
+| `pai` | Obtém pai. | `'Eventos \| None'` |
+| `relogio` | Obtém relogio. | `FonteTempo \| None` |
+| `definir_fonte_instante` | Define fonte instante. | `None` |
+| `possui_fonte_instante` | Indica se possui fonte instante. | `bool` |
+| `definir_pai` | Define pai. | `None` |
+| `quando` | Executa a operação `quando` disponibilizada por `coral.tempo_eventos`. | `não declarado` |
+| `remover` | Remove o valor solicitado. | `bool` |
+| `emitir` | Emite o valor solicitado. | `int` |
+| `emitir_evento` | Emite evento. | `Evento` |
+| `enfileirar` | Enfileira o valor solicitado. | `Evento` |
+| `enfileirar_evento` | Enfileira evento. | `Evento` |
+| `processar` | Processa o valor solicitado. | `tuple[Evento, ...]` |
+| `emitir_propagado` | Emite propagado. | `int` |
+| `emitir_evento_propagado` | Emite evento propagado. | `Evento` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Eventos(*, pai: 'Eventos \| None' = None, relogio: FonteTempo \| None = None, fonte_instante: Callable[[], float] \| None = None)`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `pai` | nomeado |
+| `relogio` | nomeado |
+| `fonte_instante` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `pendentes` | propriedade | `pendentes() -> int` |
+| `pai` | propriedade | `pai() -> 'Eventos \| None'` |
+| `relogio` | propriedade | `relogio() -> FonteTempo \| None` |
+| `definir_fonte_instante` | método | `definir_fonte_instante(fonte: Callable[[], float] \| None) -> None` |
+| `possui_fonte_instante` | propriedade | `possui_fonte_instante() -> bool` |
+| `definir_pai` | método | `definir_pai(pai: 'Eventos \| None') -> None` |
+| `quando` | método | `quando(nome: str, funcao: Callable[..., Any], *, prioridade: str \| int = 'normal', receber_evento: bool = False, max_execucoes: int \| None = None, cooldown: float = 0.0)` |
+| `remover` | método | `remover(nome: str, funcao: Callable[..., Any]) -> bool` |
+| `emitir` | método | `emitir(nome: str, *args, **kwargs) -> int` |
+| `emitir_evento` | método | `emitir_evento(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` |
+| `enfileirar` | método | `enfileirar(nome: str, *args, origem: str \| None = None, **kwargs) -> Evento` |
+| `enfileirar_evento` | método | `enfileirar_evento(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` |
+| `processar` | método | `processar(limite: int \| None = None) -> tuple[Evento, ...]` |
+| `emitir_propagado` | método | `emitir_propagado(nome: str, *args, origem: str \| None = None, **kwargs) -> int` |
+| `emitir_evento_propagado` | método | `emitir_evento_propagado(nome: str, *args, origem: str \| None = None, cancelavel: bool = False, metadados: Mapping[str, Any] \| None = None, **kwargs) -> Evento` |
+
+:::
 
 ### Exceções
 
-#### `OperacaoCancelada(...)`
+#### `OperacaoCancelada`
 
 Operação cooperativa interrompida antes de uma fase segura.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `OperacaoCancelada(...)`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `CONTRATO`
 
-Constante pública do módulo.
+Expõe a constante pública `CONTRATO`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO`
+
+**Origem da implementação:** `coral.tempo_eventos`
+
+**Arquivo na release:** `coral/tempo_eventos.py`
 
 **Valor declarado:** `'coral.tempo_eventos/1'`
+
+:::
 
 <!-- /AUTO:API -->

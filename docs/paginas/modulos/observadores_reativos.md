@@ -102,82 +102,213 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Classes e protocolos
 
-#### `ObservadorMudanca(nome: str, leitor: LeitorValor, acao: AcaoMudanca, modo: str = 'mudanca', limite: Any = None)`
+#### `ObservadorMudanca`
 
-Entrada pública `ObservadorMudanca` da superfície `coral.observadores_reativos`.
+Representa ObservadorMudanca na API de `coral.observadores_reativos`.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `leitor` | Valor correspondente a leitor. | `LeitorValor` | obrigatório |
+| `acao` | Valor correspondente a acao. | `AcaoMudanca` | obrigatório |
+| `modo` | Valor correspondente a modo. | `str` | `'mudanca'` |
+| `limite` | Valor correspondente a limite. | `Any` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `leitor` | Valor correspondente a leitor. | `LeitorValor` | obrigatório |
+| `acao` | Valor correspondente a acao. | `AcaoMudanca` | obrigatório |
+| `modo` | Valor correspondente a modo. | `str` | `'mudanca'` |
+| `limite` | Valor correspondente a limite. | `Any` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `leitor` | `LeitorValor` | obrigatório |
-| `acao` | `AcaoMudanca` | obrigatório |
-| `modo` | `str` | `'mudanca'` |
-| `limite` | `Any` | `None` |
+| `passar_de` | Executa a operação `passar_de` disponibilizada por `coral.observadores_reativos`. | `'ObservadorMudanca'` |
+| `cair_abaixo_de` | Executa a operação `cair_abaixo_de` disponibilizada por `coral.observadores_reativos`. | `'ObservadorMudanca'` |
+| `inicializado` | Indica o estado de inicializado. | `bool` |
+| `valor_anterior` | Obtém valor anterior. | `Any` |
+| `avaliar` | Executa a operação `avaliar` disponibilizada por `coral.observadores_reativos`. | `bool` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `passar_de` | método | `passar_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -> 'ObservadorMudanca'` | `'ObservadorMudanca'` | Sem docstring própria na release. |
-| `cair_abaixo_de` | método | `cair_abaixo_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -> 'ObservadorMudanca'` | `'ObservadorMudanca'` | Sem docstring própria na release. |
-| `inicializado` | propriedade | `inicializado() -> bool` | `bool` | Sem docstring própria na release. |
-| `valor_anterior` | propriedade | `valor_anterior() -> Any` | `Any` | Sem docstring própria na release. |
-| `avaliar` | método | `avaliar(contexto: Any) -> bool` | `bool` | Sem docstring própria na release. |
+**Assinatura:** `ObservadorMudanca(nome: str, leitor: LeitorValor, acao: AcaoMudanca, modo: str = 'mudanca', limite: Any = None)`
 
-#### `ObservadorEspacial(nome: str, leitor: LeitorValor, referencia: Any, acao: Callable[[Any, Any, Any], Any], relacao: str, transicao: str = 'entrar', limite: Any = None, obter: Callable[[Any], Any] | None = None, obter_referencia: Callable[[Any], Any] | None = None)`
+**Origem da implementação:** `coral.observadores_reativos`
 
-Entrada pública `ObservadorEspacial` da superfície `coral.observadores_reativos`.
+**Arquivo na release:** `coral/observadores_reativos.py`
 
-**Atributos declarados**
+**Assinaturas de métodos e propriedades**
 
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `nome` | `str` | obrigatório |
-| `leitor` | `LeitorValor` | obrigatório |
-| `referencia` | `Any` | obrigatório |
-| `acao` | `Callable[[Any, Any, Any], Any]` | obrigatório |
-| `relacao` | `str` | obrigatório |
-| `transicao` | `str` | `'entrar'` |
-| `limite` | `Any` | `None` |
-| `obter` | `Callable[[Any], Any] \| None` | `None` |
-| `obter_referencia` | `Callable[[Any], Any] \| None` | `None` |
+| `passar_de` | método | `passar_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -> 'ObservadorMudanca'` |
+| `cair_abaixo_de` | método | `cair_abaixo_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -> 'ObservadorMudanca'` |
+| `inicializado` | propriedade | `inicializado() -> bool` |
+| `valor_anterior` | propriedade | `valor_anterior() -> Any` |
+| `avaliar` | método | `avaliar(contexto: Any) -> bool` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `entrar_em_regiao` | método | `entrar_em_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)` | `não declarado` | Sem docstring própria na release. |
-| `sair_de_regiao` | método | `sair_de_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)` | `não declarado` | Sem docstring própria na release. |
-| `chegar_a_menos_de` | método | `chegar_a_menos_de(nome, leitor, referencia, limite, acao, *, obter = None, obter_referencia = None)` | `não declarado` | Sem docstring própria na release. |
-| `tocar` | método | `tocar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)` | `não declarado` | Sem docstring própria na release. |
-| `intersectar` | método | `intersectar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)` | `não declarado` | Sem docstring própria na release. |
-| `avaliar` | método | `avaliar(contexto: Any) -> bool` | `bool` | Sem docstring própria na release. |
+#### `ObservadorEspacial`
 
-#### `EstadoObservavel(nome: str, valor_inicial: Any, *, eventos: Eventos | None = None, enfileirar: bool = False) -> None`
+Representa ObservadorEspacial na API de `coral.observadores_reativos`.
 
-Entrada pública `EstadoObservavel` da superfície `coral.observadores_reativos`.
+**Parâmetros**
 
-**Métodos e propriedades públicas**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `leitor` | Valor correspondente a leitor. | `LeitorValor` | obrigatório |
+| `referencia` | Valor correspondente a referencia. | `Any` | obrigatório |
+| `acao` | Valor correspondente a acao. | `Callable[[Any, Any, Any], Any]` | obrigatório |
+| `relacao` | Valor correspondente a relacao. | `str` | obrigatório |
+| `transicao` | Valor correspondente a transicao. | `str` | `'entrar'` |
+| `limite` | Valor correspondente a limite. | `Any` | `None` |
+| `obter` | Valor correspondente a obter. | `Callable[[Any], Any] \| None` | `None` |
+| `obter_referencia` | Valor correspondente a obter referencia. | `Callable[[Any], Any] \| None` | `None` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `valor` | propriedade | `valor() -> Any` | `Any` | Sem docstring própria na release. |
-| `mudar` | método | `mudar(novo: Any) -> bool` | `bool` | Sem docstring própria na release. |
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `leitor` | Valor correspondente a leitor. | `LeitorValor` | obrigatório |
+| `referencia` | Valor correspondente a referencia. | `Any` | obrigatório |
+| `acao` | Valor correspondente a acao. | `Callable[[Any, Any, Any], Any]` | obrigatório |
+| `relacao` | Valor correspondente a relacao. | `str` | obrigatório |
+| `transicao` | Valor correspondente a transicao. | `str` | `'entrar'` |
+| `limite` | Valor correspondente a limite. | `Any` | `None` |
+| `obter` | Valor correspondente a obter. | `Callable[[Any], Any] \| None` | `None` |
+| `obter_referencia` | Valor correspondente a obter referencia. | `Callable[[Any], Any] \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `entrar_em_regiao` | Executa a operação `entrar_em_regiao` disponibilizada por `coral.observadores_reativos`. | `não declarado` |
+| `sair_de_regiao` | Executa a operação `sair_de_regiao` disponibilizada por `coral.observadores_reativos`. | `não declarado` |
+| `chegar_a_menos_de` | Executa a operação `chegar_a_menos_de` disponibilizada por `coral.observadores_reativos`. | `não declarado` |
+| `tocar` | Executa o valor solicitado. | `não declarado` |
+| `intersectar` | Verifica a interseção de o valor solicitado. | `não declarado` |
+| `avaliar` | Executa a operação `avaliar` disponibilizada por `coral.observadores_reativos`. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ObservadorEspacial(nome: str, leitor: LeitorValor, referencia: Any, acao: Callable[[Any, Any, Any], Any], relacao: str, transicao: str = 'entrar', limite: Any = None, obter: Callable[[Any], Any] \| None = None, obter_referencia: Callable[[Any], Any] \| None = None)`
+
+**Origem da implementação:** `coral.observadores_reativos`
+
+**Arquivo na release:** `coral/observadores_reativos.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `entrar_em_regiao` | método | `entrar_em_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)` |
+| `sair_de_regiao` | método | `sair_de_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)` |
+| `chegar_a_menos_de` | método | `chegar_a_menos_de(nome, leitor, referencia, limite, acao, *, obter = None, obter_referencia = None)` |
+| `tocar` | método | `tocar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)` |
+| `intersectar` | método | `intersectar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)` |
+| `avaliar` | método | `avaliar(contexto: Any) -> bool` |
+
+:::
+
+#### `EstadoObservavel`
+
+Representa estado que publica mudança.
+
+**Exemplo**
+
+```coral
+de coral.observadores_reativos importe EstadoObservavel
+de coral.tempo_eventos importe Eventos
+
+defina eventos como Eventos()
+defina estado como EstadoObservavel("energia", 10, eventos=eventos)
+mostre estado
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `valor_inicial` | Valor correspondente a valor inicial. | `Any` | obrigatório |
+| `eventos` | Fonte ou conjunto de eventos associado à operação. | `Eventos \| None` | `None` |
+| `enfileirar` | Valor correspondente a enfileirar. | `bool` | `False` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `valor` | Obtém valor. | `Any` |
+| `mudar` | Executa a operação `mudar` disponibilizada por `coral.observadores_reativos`. | `bool` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `EstadoObservavel(nome: str, valor_inicial: Any, *, eventos: Eventos \| None = None, enfileirar: bool = False) -> None`
+
+**Origem da implementação:** `coral.observadores_reativos`
+
+**Arquivo na release:** `coral/observadores_reativos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `valor_inicial` | posicional |
+| `eventos` | nomeado |
+| `enfileirar` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `valor` | propriedade | `valor() -> Any` |
+| `mudar` | método | `mudar(novo: Any) -> bool` |
+
+:::
 
 ### Constantes e aliases
 
 #### `LeitorValor`
 
-Alias público de tipo ou valor.
+Expõe `LeitorValor` como parte da API pública do módulo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `LeitorValor`
+
+**Origem da implementação:** `coral.observadores_reativos`
+
+**Arquivo na release:** `coral/observadores_reativos.py`
 
 **Valor declarado:** `Callable[[Any], Any]`
 
+:::
+
 #### `AcaoMudanca`
 
-Alias público de tipo ou valor.
+Expõe `AcaoMudanca` como parte da API pública do módulo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `AcaoMudanca`
+
+**Origem da implementação:** `coral.observadores_reativos`
+
+**Arquivo na release:** `coral/observadores_reativos.py`
 
 **Valor declarado:** `Callable[[Any, Any, Any], Any]`
+
+:::
 
 <!-- /AUTO:API -->

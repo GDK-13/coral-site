@@ -177,225 +177,474 @@
 <p data-searchable><code>coral.sistema</code> descreve o host de forma geral. <code>coral.laboratorio</code> pode medir experimentos dependentes de hardware. <code>coral.tempo_eventos</code> ajuda a controlar polling e timeouts em fluxos mais amplos.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="psutil-disponivel-bool" data-searchable><code>psutil_disponivel() -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>psutil_disponivel</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<h4 id="serial-disponivel-bool" data-searchable><code>serial_disponivel() -&gt; bool</code></h4>
-<p data-searchable>Entrada pública <code>serial_disponivel</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<h4 id="cpu-cpu" data-searchable><code>cpu() -&gt; CPU</code></h4>
-<p data-searchable>Entrada pública <code>cpu</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>CPU</code></p>
-<h4 id="memoria-memoria" data-searchable><code>memoria() -&gt; Memoria</code></h4>
-<p data-searchable>Entrada pública <code>memoria</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>Memoria</code></p>
-<h4 id="discos-tuple-disco" data-searchable><code>discos() -&gt; tuple[Disco, ...]</code></h4>
-<p data-searchable>Entrada pública <code>discos</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>tuple[Disco, ...]</code></p>
-<h4 id="bateria-bateria-none" data-searchable><code>bateria() -&gt; Bateria | None</code></h4>
-<p data-searchable>Entrada pública <code>bateria</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>Bateria | None</code></p>
-<h4 id="diagnosticar-hardware-dict-str-any" data-searchable><code>diagnosticar_hardware() -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>diagnosticar_hardware</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="auditar-hardware-dict-str-any" data-searchable><code>auditar_hardware() -&gt; dict[str, Any]</code></h4>
+<h4 id="psutil-disponivel" data-searchable><code>psutil_disponivel</code></h4>
+<p data-searchable>Detectar inventário avançado.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.hardware</span> <span class="code-key">importe</span> cpu, memoria, discos, psutil_disponivel
+
+<span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+    <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+    <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor lógico que indica o resultado da verificação.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>psutil_disponivel() -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="serial-disponivel" data-searchable><code>serial_disponivel</code></h4>
+<p data-searchable>Detectar backend serial real.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor lógico que indica o resultado da verificação.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>serial_disponivel() -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="cpu" data-searchable><code>cpu</code></h4>
+<p data-searchable>Consultar CPU.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+    <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+    <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
+    <span class="code-key">mostre</span> processador.nucleos_logicos</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>CPU</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>cpu() -&gt; CPU</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="memoria" data-searchable><code>memoria</code></h4>
+<p data-searchable>Consultar RAM.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+    <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+    <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
+    <span class="code-key">mostre</span> processador.nucleos_logicos
+    <span class="code-key">mostre</span> ram.total_bytes</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Memoria</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>memoria() -&gt; Memoria</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="discos" data-searchable><code>discos</code></h4>
+<p data-searchable>Listar discos.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+    <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
+    <span class="code-key">mostre</span> processador.nucleos_logicos
+    <span class="code-key">mostre</span> ram.total_bytes
+    <span class="code-key">mostre</span> quantidade de unidades</code></pre></div></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[Disco, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>discos() -&gt; tuple[Disco, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="bateria" data-searchable><code>bateria</code></h4>
+<p data-searchable>Consultar bateria.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Bateria | None</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>bateria() -&gt; Bateria \| None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="diagnosticar-hardware" data-searchable><code>diagnosticar_hardware</code></h4>
+<p data-searchable>Produz informações de diagnóstico para hardware.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>diagnosticar_hardware() -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="auditar-hardware" data-searchable><code>auditar_hardware</code></h4>
 <p data-searchable>Inventário observável e estado dos gates de coesão de Hardware 1.4.9.</p>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="usar-backend-serial-backend-backendserial" data-searchable><code>usar_backend_serial(backend: BackendSerial)</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>auditar_hardware() -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="usar-backend-serial" data-searchable><code>usar_backend_serial</code></h4>
 <p data-searchable>Usa temporariamente um backend serial como padrão do contexto atual.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>Backend usado para executar a operação.</td><td data-searchable><code>BackendSerial</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="portas-seriais-backend-backendserial-none-none-tuple-portaserial" data-searchable><code>portas_seriais(*, backend: BackendSerial | None = None) -&gt; tuple[PortaSerial, ...]</code></h4>
-<p data-searchable>Entrada pública <code>portas_seriais</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>usar_backend_serial(backend: BackendSerial)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
+<h4 id="portas-seriais" data-searchable><code>portas_seriais</code></h4>
+<p data-searchable>Obtém portas seriais.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>Backend usado para executar a operação.</td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[PortaSerial, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>portas_seriais(*, backend: BackendSerial \| None = None) -&gt; tuple[PortaSerial, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>tuple[PortaSerial, ...]</code></p>
-<h4 id="conectar-serial-porta-str-velocidade-int-115200-timeout-float-none-1-0-codificacao-str-utf-8-backend-backendserial-none-none-conexaoserial" data-searchable><code>conectar_serial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None) -&gt; ConexaoSerial</code></h4>
-<p data-searchable>Entrada pública <code>conectar_serial</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="conectar-serial" data-searchable><code>conectar_serial</code></h4>
+<p data-searchable>Abrir conexão serial.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>velocidade</code></td><td data-searchable>Valor correspondente a velocidade.</td><td data-searchable><code>int</code></td><td data-searchable><code>115200</code></td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>str</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>Backend usado para executar a operação.</td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ConexaoSerial</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>conectar_serial(porta: str, velocidade: int = 115200, timeout: float \| None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial \| None = None) -&gt; ConexaoSerial</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>porta</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>velocidade</code></td><td data-searchable><code>int</code></td><td data-searchable><code>115200</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>timeout</code></td><td data-searchable><code>float | None</code></td><td data-searchable><code>1.0</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>backend</code></td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>ConexaoSerial</code></p>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>velocidade</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="cpu-nome-str-nucleos-logicos-int-none-nucleos-fisicos-int-none-frequencia-mhz-float-none" data-searchable><code>CPU(nome: str, nucleos_logicos: int | None, nucleos_fisicos: int | None, frequencia_mhz: float | None)</code></h4>
-<p data-searchable>Entrada pública <code>CPU</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="cpu-2" data-searchable><code>CPU</code></h4>
+<p data-searchable>Representa CPU na API de <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>nucleos_logicos</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>nucleos_fisicos</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>frequencia_mhz</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_logicos</code></td><td data-searchable>Valor correspondente a nucleos logicos.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_fisicos</code></td><td data-searchable>Valor correspondente a nucleos fisicos.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>frequencia_mhz</code></td><td data-searchable>Valor correspondente a frequencia mhz.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="memoria-total-bytes-int-none-disponivel-bytes-int-none-percentual-usado-float-none" data-searchable><code>Memoria(total_bytes: int | None, disponivel_bytes: int | None, percentual_usado: float | None)</code></h4>
-<p data-searchable>Entrada pública <code>Memoria</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>total_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>disponivel_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>percentual_usado</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_logicos</code></td><td data-searchable>Valor correspondente a nucleos logicos.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nucleos_fisicos</code></td><td data-searchable>Valor correspondente a nucleos fisicos.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>frequencia_mhz</code></td><td data-searchable>Valor correspondente a frequencia mhz.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="disco-dispositivo-str-ponto-montagem-str-sistema-arquivos-str-total-bytes-int-none-none-livre-bytes-int-none-none" data-searchable><code>Disco(dispositivo: str, ponto_montagem: str, sistema_arquivos: str, total_bytes: int | None = None, livre_bytes: int | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>Disco</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CPU(nome: str, nucleos_logicos: int \| None, nucleos_fisicos: int \| None, frequencia_mhz: float \| None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="memoria-2" data-searchable><code>Memoria</code></h4>
+<p data-searchable>Representa Memoria na API de <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dispositivo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>ponto_montagem</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>sistema_arquivos</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>total_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>livre_bytes</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable>Valor correspondente a total bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>disponivel_bytes</code></td><td data-searchable>Valor correspondente a disponivel bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>percentual_usado</code></td><td data-searchable>Valor correspondente a percentual usado.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="bateria-percentual-float-none-conectada-bool-none-segundos-restantes-int-none" data-searchable><code>Bateria(percentual: float | None, conectada: bool | None, segundos_restantes: int | None)</code></h4>
-<p data-searchable>Entrada pública <code>Bateria</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>percentual</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>conectada</code></td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>segundos_restantes</code></td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable>Valor correspondente a total bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>disponivel_bytes</code></td><td data-searchable>Valor correspondente a disponivel bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>percentual_usado</code></td><td data-searchable>Valor correspondente a percentual usado.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="conexaoserialfechada" data-searchable><code>ConexaoSerialFechada(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Memoria(total_bytes: int \| None, disponivel_bytes: int \| None, percentual_usado: float \| None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="disco" data-searchable><code>Disco</code></h4>
+<p data-searchable>Representa Disco na API de <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable>Valor correspondente a dispositivo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_montagem</code></td><td data-searchable>Valor correspondente a ponto montagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sistema_arquivos</code></td><td data-searchable>Valor correspondente a sistema arquivos.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable>Valor correspondente a total bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>livre_bytes</code></td><td data-searchable>Valor correspondente a livre bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable>Valor correspondente a dispositivo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_montagem</code></td><td data-searchable>Valor correspondente a ponto montagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sistema_arquivos</code></td><td data-searchable>Valor correspondente a sistema arquivos.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>total_bytes</code></td><td data-searchable>Valor correspondente a total bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>livre_bytes</code></td><td data-searchable>Valor correspondente a livre bytes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Disco(dispositivo: str, ponto_montagem: str, sistema_arquivos: str, total_bytes: int \| None = None, livre_bytes: int \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="bateria-2" data-searchable><code>Bateria</code></h4>
+<p data-searchable>Representa Bateria na API de <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>percentual</code></td><td data-searchable>Valor correspondente a percentual.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>conectada</code></td><td data-searchable>Valor correspondente a conectada.</td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>segundos_restantes</code></td><td data-searchable>Valor correspondente a segundos restantes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>percentual</code></td><td data-searchable>Valor correspondente a percentual.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>conectada</code></td><td data-searchable>Valor correspondente a conectada.</td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>segundos_restantes</code></td><td data-searchable>Valor correspondente a segundos restantes.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Bateria(percentual: float \| None, conectada: bool \| None, segundos_restantes: int \| None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="conexaoserialfechada" data-searchable><code>ConexaoSerialFechada</code></h4>
 <p data-searchable>Uma operação foi solicitada depois do fechamento da conexão.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<h4 id="desconexaoserial" data-searchable><code>DesconexaoSerial(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ConexaoSerialFechada(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
+<h4 id="desconexaoserial" data-searchable><code>DesconexaoSerial</code></h4>
 <p data-searchable>A porta deixou de estar conectada durante a sessão.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<h4 id="backendserial" data-searchable><code>BackendSerial(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DesconexaoSerial(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
+<h4 id="backendserial" data-searchable><code>BackendSerial</code></h4>
 <p data-searchable>Contrato mínimo de backend serial usado por `<code>ConexaoSerial</code>`.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>Abre o valor solicitado.</td><td data-searchable><code>TransporteSerial</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>Lista portas.</td><td data-searchable><code>tuple[PortaSerial, ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>BackendSerial(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="backendserialreal" data-searchable><code>BackendSerialReal(...)</code></h4>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="backendserialreal" data-searchable><code>BackendSerialReal</code></h4>
 <p data-searchable>Adaptador do pyserial, carregado apenas quando realmente necessário.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>Abre o valor solicitado.</td><td data-searchable><code>TransporteSerial</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>Lista portas.</td><td data-searchable><code>tuple[PortaSerial, ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>BackendSerialReal(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="backendserialsimulado-none" data-searchable><code>BackendSerialSimulado() -&gt; None</code></h4>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="backendserialsimulado" data-searchable><code>BackendSerialSimulado</code></h4>
 <p data-searchable>Backend serial em memória, sem espera real e sem dependências externas.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registrar_porta</code></td><td data-searchable>Registra porta.</td><td data-searchable><code>PortaSerial</code></td></tr>
+<tr><td data-searchable><code>remover_porta</code></td><td data-searchable>Remove porta.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>desconectar</code></td><td data-searchable>Executa a operação <code>desconectar</code> disponibilizada por <code>coral.hardware</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>reconectar</code></td><td data-searchable>Executa a operação <code>reconectar</code> disponibilizada por <code>coral.hardware</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>injetar_recebimento</code></td><td data-searchable>Executa a operação <code>injetar_recebimento</code> disponibilizada por <code>coral.hardware</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>dados_enviados</code></td><td data-searchable>Obtém dados enviados.</td><td data-searchable><code>bytes</code></td></tr>
+<tr><td data-searchable><code>limpar</code></td><td data-searchable>Limpa o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>Lista portas.</td><td data-searchable><code>tuple[PortaSerial, ...]</code></td></tr>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>Abre o valor solicitado.</td><td data-searchable><code>TransporteSerial</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>BackendSerialSimulado() -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>registrar_porta</code></td><td data-searchable>método</td><td data-searchable><code>registrar_porta(dispositivo: str = 'SIM0', *, descricao: str = 'Porta serial simulada', fabricante: str | None = 'Coral', vid: int | None = None, pid: int | None = None) -&gt; PortaSerial</code></td><td data-searchable><code>PortaSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_porta</code></td><td data-searchable>método</td><td data-searchable><code>remover_porta(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>desconectar</code></td><td data-searchable>método</td><td data-searchable><code>desconectar(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>reconectar</code></td><td data-searchable>método</td><td data-searchable><code>reconectar(dispositivo: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>injetar_recebimento</code></td><td data-searchable>método</td><td data-searchable><code>injetar_recebimento(dispositivo: str, dados: bytes | bytearray | str, *, codificacao: str = 'utf-8') -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>dados_enviados</code></td><td data-searchable>método</td><td data-searchable><code>dados_enviados(dispositivo: str, *, limpar: bool = False) -&gt; bytes</code></td><td data-searchable><code>bytes</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>limpar</code></td><td data-searchable>método</td><td data-searchable><code>limpar(dispositivo: str | None = None) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td><td data-searchable><code>tuple[PortaSerial, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td><td data-searchable><code>TransporteSerial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="conexaoserial-porta-str-velocidade-int-115200-timeout-float-none-1-0-codificacao-str-utf-8-backend-backendserial-none-none" data-searchable><code>ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>ConexaoSerial</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<tr><td data-searchable><code>registrar_porta</code></td><td data-searchable>método</td><td data-searchable><code>registrar_porta(dispositivo: str = 'SIM0', *, descricao: str = 'Porta serial simulada', fabricante: str | None = 'Coral', vid: int | None = None, pid: int | None = None) -&gt; PortaSerial</code></td></tr>
+<tr><td data-searchable><code>remover_porta</code></td><td data-searchable>método</td><td data-searchable><code>remover_porta(dispositivo: str) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>desconectar</code></td><td data-searchable>método</td><td data-searchable><code>desconectar(dispositivo: str) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>reconectar</code></td><td data-searchable>método</td><td data-searchable><code>reconectar(dispositivo: str) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>injetar_recebimento</code></td><td data-searchable>método</td><td data-searchable><code>injetar_recebimento(dispositivo: str, dados: bytes | bytearray | str, *, codificacao: str = 'utf-8') -&gt; int</code></td></tr>
+<tr><td data-searchable><code>dados_enviados</code></td><td data-searchable>método</td><td data-searchable><code>dados_enviados(dispositivo: str, *, limpar: bool = False) -&gt; bytes</code></td></tr>
+<tr><td data-searchable><code>limpar</code></td><td data-searchable>método</td><td data-searchable><code>limpar(dispositivo: str | None = None) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>listar_portas</code></td><td data-searchable>método</td><td data-searchable><code>listar_portas() -&gt; tuple[PortaSerial, ...]</code></td></tr>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>método</td><td data-searchable><code>abrir(porta: str, velocidade: int, timeout: float | None) -&gt; TransporteSerial</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="conexaoserial" data-searchable><code>ConexaoSerial</code></h4>
+<p data-searchable>Representa sessão serial.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
-<th>Tipo</th>
-<th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
-</tr></thead><tbody>
-<tr><td data-searchable><code>aberta</code></td><td data-searchable>propriedade</td><td data-searchable><code>aberta() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>enviar_bytes</code></td><td data-searchable>método</td><td data-searchable><code>enviar_bytes(dados: bytes | bytearray) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>enviar</code></td><td data-searchable>método</td><td data-searchable><code>enviar(texto: Any, *, terminar_linha: bool = False) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>ler</code></td><td data-searchable>método</td><td data-searchable><code>ler(quantidade: int = 1) -&gt; bytes</code></td><td data-searchable><code>bytes</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>fechar</code></td><td data-searchable>método</td><td data-searchable><code>fechar() -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="portaserial-dispositivo-str-descricao-str-fabricante-str-none-none-vid-int-none-none-pid-int-none-none" data-searchable><code>PortaSerial(dispositivo: str, descricao: str = '', fabricante: str | None = None, vid: int | None = None, pid: int | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>PortaSerial</code> da superfície <code>coral.hardware</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
-<div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>dispositivo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>descricao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
-<tr><td data-searchable><code>fabricante</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>vid</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>pid</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>velocidade</code></td><td data-searchable>Valor correspondente a velocidade.</td><td data-searchable><code>int</code></td><td data-searchable><code>115200</code></td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>str</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>Backend usado para executar a operação.</td><td data-searchable><code>BackendSerial | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>aberta</code></td><td data-searchable>Indica o estado de aberta.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>enviar_bytes</code></td><td data-searchable>Executa a operação <code>enviar_bytes</code> disponibilizada por <code>coral.hardware</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>enviar</code></td><td data-searchable>Executa a operação <code>enviar</code> disponibilizada por <code>coral.hardware</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>ler</code></td><td data-searchable>Lê o valor solicitado.</td><td data-searchable><code>bytes</code></td></tr>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>Lê linha.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>Fecha o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float \| None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>velocidade</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>backend</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>aberta</code></td><td data-searchable>propriedade</td><td data-searchable><code>aberta() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>enviar_bytes</code></td><td data-searchable>método</td><td data-searchable><code>enviar_bytes(dados: bytes | bytearray) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>enviar</code></td><td data-searchable>método</td><td data-searchable><code>enviar(texto: Any, *, terminar_linha: bool = False) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>ler</code></td><td data-searchable>método</td><td data-searchable><code>ler(quantidade: int = 1) -&gt; bytes</code></td></tr>
+<tr><td data-searchable><code>ler_linha</code></td><td data-searchable>método</td><td data-searchable><code>ler_linha() -&gt; str</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>método</td><td data-searchable><code>fechar() -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="portaserial" data-searchable><code>PortaSerial</code></h4>
+<p data-searchable>Representa PortaSerial na API de <code>coral.hardware</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable>Valor correspondente a dispositivo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>descricao</code></td><td data-searchable>Valor correspondente a descricao.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>fabricante</code></td><td data-searchable>Valor correspondente a fabricante.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>vid</code></td><td data-searchable>Valor correspondente a vid.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>pid</code></td><td data-searchable>Valor correspondente a pid.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dispositivo</code></td><td data-searchable>Valor correspondente a dispositivo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>descricao</code></td><td data-searchable>Valor correspondente a descricao.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>fabricante</code></td><td data-searchable>Valor correspondente a fabricante.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>vid</code></td><td data-searchable>Valor correspondente a vid.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>pid</code></td><td data-searchable>Valor correspondente a pid.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>PortaSerial(dispositivo: str, descricao: str = '', fabricante: str \| None = None, vid: int \| None = None, pid: int \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="dependenciahardwareausente" data-searchable><code>DependenciaHardwareAusente(...)</code></h4>
-<p data-searchable>Entrada pública <code>DependenciaHardwareAusente</code> da superfície <code>coral.hardware</code>.</p>
-<h4 id="erroserial" data-searchable><code>ErroSerial(...)</code></h4>
+<h4 id="dependenciahardwareausente" data-searchable><code>DependenciaHardwareAusente</code></h4>
+<p data-searchable>Representa a condição de erro DependenciaHardwareAusente.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DependenciaHardwareAusente(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/__init__.py</code></p></div></details>
+<h4 id="erroserial" data-searchable><code>ErroSerial</code></h4>
 <p data-searchable>Erro público base da camada serial Coral.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<h4 id="dependenciaserialausente" data-searchable><code>DependenciaSerialAusente(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroSerial(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
+<h4 id="dependenciaserialausente" data-searchable><code>DependenciaSerialAusente</code></h4>
 <p data-searchable>pyserial não está disponível para o backend real.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
-<h4 id="erroconfiguracaoserial" data-searchable><code>ErroConfiguracaoSerial(...)</code></h4>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DependenciaSerialAusente(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
+<h4 id="erroconfiguracaoserial" data-searchable><code>ErroConfiguracaoSerial</code></h4>
 <p data-searchable>Parâmetro serial inválido antes da abertura da porta.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.hardware.serial</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroConfiguracaoSerial(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.hardware.serial</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/hardware/serial.py</code></p></div></details>
 <h2 id="compatibilidade-e-dependencias" data-searchable>Compatibilidade e dependências</h2>
 <p data-searchable><code>psutil</code> e <code>pyserial</code> são opcionais. A importação do módulo permanece possível sem elas; a capacidade específica informa a ausência quando necessária. Informações disponíveis também variam por sistema operacional e máquina.</p>
     </article>

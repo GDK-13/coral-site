@@ -28,7 +28,14 @@
         "documentacao": "Fonte reproduzível quando criada com semente explícita.\n\nNão deve ser usada para senhas, chaves, tokens ou outros segredos.",
         "origem": "coral.stdlib.aleatorio",
         "arquivo": "coral/stdlib/aleatorio.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "semente",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -102,7 +109,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "inteiro",
@@ -135,7 +143,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "decimal",
@@ -168,7 +177,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "escolher",
@@ -195,7 +205,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "amostra",
@@ -228,7 +239,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "escolha_ponderada",
@@ -263,7 +275,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "embaralhar",
@@ -290,7 +303,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.aleatorio."
@@ -353,7 +367,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "escrever_texto",
@@ -386,7 +401,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "adicionar_texto",
@@ -419,7 +435,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "ler_bytes",
@@ -440,7 +457,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "escrever_bytes",
@@ -469,7 +487,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "existe",
@@ -490,7 +509,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "listar",
@@ -511,7 +531,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "listar_recursivo",
@@ -547,7 +568,8 @@
           "_erro_arquivo_em_portugues"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "criar_pasta",
@@ -568,7 +590,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "remover",
@@ -595,7 +618,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "renomear",
@@ -622,7 +646,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "copiar",
@@ -657,7 +682,8 @@
           "IsADirectoryError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "mover",
@@ -684,7 +710,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "tamanho",
@@ -705,7 +732,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "metadados",
@@ -726,7 +754,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "arquivo_temporario",
@@ -759,7 +788,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pasta_temporaria",
@@ -786,7 +816,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "nome",
@@ -807,7 +838,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "extensao",
@@ -828,7 +860,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pai",
@@ -849,7 +882,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "resolver",
@@ -876,7 +910,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.arquivos."
@@ -943,7 +978,8 @@
           "ErroTempoEsgotado"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "cancelar_tarefa",
@@ -972,7 +1008,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "grupo_tarefas",
@@ -993,7 +1030,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Utilidades assíncronas pequenas e gerais da Coral 1.5.8.\n\nA sintaxe existente de ``aguarde``, tarefas e funções assíncronas continua sendo\na base da linguagem. Este módulo apenas cobre três lacunas práticas sem criar um\nsegundo modelo de concorrência: timeout, cancelamento e agrupamento."
@@ -1064,7 +1102,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "juntar_caminho",
@@ -1091,7 +1130,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "estilo_caminho",
@@ -1112,7 +1152,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "estilo_nativo",
@@ -1126,7 +1167,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "caminho_portatil",
@@ -1161,7 +1203,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Contrato único de caminhos usado pelas APIs públicas da Coral.\n\nTexto recebido por uma operação local é interpretado como caminho nativo do\nsistema atual. Objetos ``PurePath`` de outro estilo continuam sendo caminhos\nportáteis, mas não são usados silenciosamente em operações locais."
@@ -1208,7 +1251,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "unicos",
@@ -1229,7 +1273,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "contar",
@@ -1250,7 +1295,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "primeiro",
@@ -1277,7 +1323,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "agrupar_pares",
@@ -1304,7 +1351,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.colecoes."
@@ -1420,7 +1468,44 @@
         "documentacao": "",
         "origem": "coral.comum",
         "arquivo": "coral/comum.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "codigo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mensagem",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dominio",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": "'operacional'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "causa",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "detalhe",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -1481,7 +1566,32 @@
         "documentacao": "Representação transversal sem substituir resultados ricos de domínio.",
         "origem": "coral.comum",
         "arquivo": "coral/comum.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "ok",
+            "tipo": "bool",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "falha",
+            "tipo": "FalhaOperacao | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -1539,7 +1649,50 @@
         "documentacao": "",
         "origem": "coral.comum",
         "arquivo": "coral/comum.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "id",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dominio",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ok",
+            "tipo": "bool",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mensagem",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "capacidade",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "sugestao",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "detalhe",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -1651,7 +1804,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "agregar_diagnosticos",
@@ -1678,7 +1832,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Contratos transversais pequenos do runtime Coral.\n\nA camada comum não substitui APIs de domínio. Ela fornece a gramática\narquitetural compartilhada do ciclo 1.5 para erro operacional, resultado e\ndiagnóstico, preservando os nomes públicos existentes em cada biblioteca."
@@ -1709,7 +1864,32 @@
         "documentacao": "Um valor não pôde ser convertido para o tipo Coral solicitado.",
         "origem": "coral.erros",
         "arquivo": "coral/erros.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "destino",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mensagem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "causa",
+            "tipo": "BaseException | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [],
@@ -1746,7 +1926,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "decimal",
@@ -1776,7 +1957,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "texto",
@@ -1803,7 +1985,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "booleano",
@@ -1833,7 +2016,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": ""
@@ -1890,7 +2074,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "verificar_resumo",
@@ -1929,7 +2114,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "autenticar",
@@ -1970,7 +2156,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "verificar_autenticacao",
@@ -2017,7 +2204,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "gerar_bytes_seguros",
@@ -2040,7 +2228,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "gerar_token_seguro",
@@ -2070,7 +2259,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "comparar_com_seguranca",
@@ -2097,7 +2287,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "listar_algoritmos",
@@ -2111,7 +2302,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "explicar_algoritmo",
@@ -2134,7 +2326,8 @@
           "ErroValor"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Fundação criptográfica introdutória da Coral 1.5.8.\n\nEsta superfície usa somente primitivas criptográficas da biblioteca padrão do\nPython. Hash, HMAC, codificação e geração de tokens são conceitos distintos;\nestas funções não formam, isoladamente, um protocolo de segurança completo."
@@ -2184,7 +2377,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "hoje",
@@ -2205,7 +2399,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "dias",
@@ -2226,7 +2421,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "segundos",
@@ -2247,7 +2443,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "minutos",
@@ -2268,7 +2465,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "horas",
@@ -2289,7 +2487,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "semanas",
@@ -2310,7 +2509,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "formatar",
@@ -2337,7 +2537,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "analisar",
@@ -2366,7 +2567,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_iso",
@@ -2387,7 +2589,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "para_iso",
@@ -2416,7 +2619,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "fuso_horario",
@@ -2437,7 +2641,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "converter_fuso",
@@ -2467,7 +2672,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "diferenca",
@@ -2496,7 +2702,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.datas."
@@ -2567,7 +2774,14 @@
         "documentacao": "Fonte determinística útil em testes, REPLs e ferramentas.",
         "origem": "coral.entrada",
         "arquivo": "coral/entrada.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "linhas",
+            "tipo": "Iterable[str]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -2632,7 +2846,8 @@
           "FimDeEntrada"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "usar_fonte_entrada",
@@ -2653,7 +2868,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       }
     ],
     "doc_modulo": ""
@@ -2692,7 +2908,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "montar_texto",
@@ -2727,7 +2944,8 @@
           "ErroFormato"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "ErroFormato",
@@ -2795,7 +3013,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_hex",
@@ -2818,7 +3037,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "para_base64",
@@ -2853,7 +3073,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_base64",
@@ -2882,7 +3103,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "para_csv",
@@ -2915,7 +3137,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_csv",
@@ -2948,7 +3171,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.formatos."
@@ -3017,7 +3241,32 @@
         "documentacao": "",
         "origem": "coral.hardware",
         "arquivo": "coral/hardware/__init__.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nucleos_logicos",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nucleos_fisicos",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "frequencia_mhz",
+            "tipo": "float | None",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -3053,7 +3302,26 @@
         "documentacao": "",
         "origem": "coral.hardware",
         "arquivo": "coral/hardware/__init__.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "total_bytes",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "disponivel_bytes",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "percentual_usado",
+            "tipo": "float | None",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -3084,7 +3352,38 @@
         "documentacao": "",
         "origem": "coral.hardware",
         "arquivo": "coral/hardware/__init__.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "dispositivo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ponto_montagem",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sistema_arquivos",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "total_bytes",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "livre_bytes",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -3125,7 +3424,26 @@
         "documentacao": "",
         "origem": "coral.hardware",
         "arquivo": "coral/hardware/__init__.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "percentual",
+            "tipo": "float | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "conectada",
+            "tipo": "bool | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "segundos_restantes",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -3159,7 +3477,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "serial_disponivel",
@@ -3173,7 +3492,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "cpu",
@@ -3187,7 +3507,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "memoria",
@@ -3201,7 +3522,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "discos",
@@ -3215,7 +3537,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "bateria",
@@ -3229,7 +3552,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "diagnosticar_hardware",
@@ -3243,7 +3567,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "auditar_hardware",
@@ -3257,7 +3582,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "ErroSerial",
@@ -3505,7 +3831,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "ConexaoSerial",
@@ -3516,7 +3843,38 @@
         "documentacao": "",
         "origem": "coral.hardware.serial",
         "arquivo": "coral/hardware/serial.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "porta",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "velocidade",
+            "tipo": "int",
+            "padrao": "115200",
+            "modo": "posicional"
+          },
+          {
+            "nome": "timeout",
+            "tipo": "float | None",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "str",
+            "padrao": "'utf-8'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "backend",
+            "tipo": "BackendSerial | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -3574,7 +3932,38 @@
         "documentacao": "",
         "origem": "coral.hardware.serial",
         "arquivo": "coral/hardware/serial.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "dispositivo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "descricao",
+            "tipo": "str",
+            "padrao": "''",
+            "modo": "posicional"
+          },
+          {
+            "nome": "fabricante",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "vid",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "pid",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -3625,7 +4014,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "conectar_serial",
@@ -3670,7 +4060,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Informações e comunicação de hardware para Coral 1.3.\n\n`psutil` e `pyserial` são dependências opcionais. O pacote pode ser importado\nsem elas e expõe diagnósticos claros para cada capacidade."
@@ -3747,7 +4138,62 @@
         "documentacao": "",
         "origem": "coral.jogos.base",
         "arquivo": "coral/jogos/base.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "titulo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura",
+            "tipo": "int",
+            "padrao": "800",
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "int",
+            "padrao": "450",
+            "modo": "posicional"
+          },
+          {
+            "nome": "fps",
+            "tipo": "int",
+            "padrao": "60",
+            "modo": "posicional"
+          },
+          {
+            "nome": "backend",
+            "tipo": "BackendJogos",
+            "padrao": null,
+            "modo": "nomeado"
+          },
+          {
+            "nome": "mundo",
+            "tipo": "não declarado",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "relogio",
+            "tipo": "FonteTempo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "tela_cheia",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -3945,7 +4391,32 @@
         "documentacao": "",
         "origem": "coral.jogos.base",
         "arquivo": "coral/jogos/base.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "vermelho",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "verde",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "azul",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "alfa",
+            "tipo": "int",
+            "padrao": "255",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -3989,7 +4460,32 @@
         "documentacao": "",
         "origem": "coral.jogos.base",
         "arquivo": "coral/jogos/base.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4033,7 +4529,14 @@
         "documentacao": "Backend determinístico para testes, servidores e execução sem interface gráfica.",
         "origem": "coral.jogos.base",
         "arquivo": "coral/jogos/base.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "dt_fixo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4393,7 +4896,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pygame_disponivel",
@@ -4407,7 +4911,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "Assets",
@@ -4418,7 +4923,14 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "raiz",
+            "tipo": "str | Path",
+            "padrao": "'assets'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4455,7 +4967,134 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "imagem",
+            "tipo": "str | Path | QuadroSprite | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cor",
+            "tipo": "Cor",
+            "padrao": "BRANCO",
+            "modo": "posicional"
+          },
+          {
+            "nome": "velocidade_x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "velocidade_y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "visivel",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'sprite'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "dados",
+            "tipo": "dict[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "animacao",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "escala",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "rotacao",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espelhado_horizontalmente",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espelhado_verticalmente",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str",
+            "padrao": "'topo_esquerdo'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "pivo",
+            "tipo": "tuple[float, float] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "colisao_acompanha_escala",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "colisao_acompanha_rotacao",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4724,7 +5363,14 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4824,7 +5470,32 @@
         "documentacao": "Liga uma entidade de mundo a um Sprite sem acoplar coral.mundo a jogos.\n\nA entidade é a fonte de verdade para a posição. O adaptador apenas lê\natributos nomeados e atualiza o sprite visual correspondente.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "entidade",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sprite",
+            "tipo": "Sprite",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "atributo_x",
+            "tipo": "str",
+            "padrao": "'x'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "atributo_y",
+            "tipo": "str",
+            "padrao": "'y'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4885,7 +5556,32 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "quadros",
+            "tipo": "tuple[str | Path | QuadroSprite, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fps",
+            "tipo": "float",
+            "padrao": "10.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "repetir",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "finalizada",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4943,7 +5639,14 @@
         "documentacao": "Conjunto nomeado de animações para direções de movimento.\n\nA classe não decide como uma entidade se move. Ela apenas seleciona a\nanimação correspondente à direção informada e a liga ao Sprite visual.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "animacoes",
+            "tipo": "dict[str, Animacao]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -4993,7 +5696,38 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "grupo",
+            "tipo": "'AnimacoesDirecionais'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "movimento",
+            "tipo": "MovimentoDirecional",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sprite",
+            "tipo": "Sprite",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "direcoes_compativeis",
+            "tipo": "tuple[str, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "direcao_visual",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -5034,7 +5768,14 @@
         "documentacao": "Agrupa estados visuais sem fixar quantidades de direções ou políticas de movimento.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "estados",
+            "tipo": "dict[str, Animacao | AnimacoesDirecionais]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5078,7 +5819,38 @@
         "documentacao": "Mantém estado visual e direção de movimento como dimensões independentes.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "grupo",
+            "tipo": "'EstadosAnimacao'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "movimento",
+            "tipo": "MovimentoDirecional",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sprite",
+            "tipo": "Sprite",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado_atual",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "direcao_visual",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5127,7 +5899,20 @@
         "documentacao": "Mapeia eventos nomeados para estados visuais; automação de movimento é opcional.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "estados",
+            "tipo": "EstadosAnimacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "transicoes",
+            "tipo": "dict[str, str]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5178,7 +5963,38 @@
         "documentacao": "Aplica transições opt-in sem confundir mudança de direção com início de movimento.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "grupo",
+            "tipo": "'TransicoesEstadosAnimacao'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "movimento",
+            "tipo": "MovimentoDirecional",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sprite",
+            "tipo": "Sprite",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "vinculo_estados",
+            "tipo": "VinculoEstadosAnimacaoMovimento",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ultimo_evento",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5227,7 +6043,38 @@
         "documentacao": "Escuta um barramento genérico e encaminha eventos declarados para transições visuais.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "grupo",
+            "tipo": "'TransicoesEstadosAnimacao'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sprite",
+            "tipo": "Sprite",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "vinculo_movimento",
+            "tipo": "VinculoTransicoesEstadosMovimento",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "field(default=True, init=False)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5276,7 +6123,44 @@
         "documentacao": "",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura",
+            "tipo": "float",
+            "padrao": "800.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "float",
+            "padrao": "450.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "alvo",
+            "tipo": "Sprite | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "suavidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5358,7 +6242,62 @@
         "documentacao": "Região imutável de uma imagem usada como quadro de sprite.",
         "origem": "coral.jogos.spritesheet",
         "arquivo": "coral/jogos/spritesheet.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "Path",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "x",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "indice",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "linha",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "coluna",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5427,7 +6366,26 @@
         "documentacao": "Descrição headless de uma spritesheet ou atlas de imagens.",
         "origem": "coral.jogos.spritesheet",
         "arquivo": "coral/jogos/spritesheet.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "str | Path",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura_imagem",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "nomeado"
+          },
+          {
+            "nome": "altura_imagem",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5552,7 +6510,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "FormaTransformada",
@@ -5563,7 +6522,14 @@
         "documentacao": "",
         "origem": "coral.jogos.transformacoes",
         "arquivo": "coral/jogos/transformacoes.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "vertices",
+            "tipo": "tuple[tuple[float, float], ...]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5608,7 +6574,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "CanalAnimado",
@@ -5619,7 +6586,50 @@
         "documentacao": "",
         "origem": "coral.jogos.transformacoes",
         "arquivo": "coral/jogos/transformacoes.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "canal",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "base",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "amplitude",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "frequencia",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fase",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'absoluto'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "onda",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'seno'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5678,7 +6688,26 @@
         "documentacao": "",
         "origem": "coral.jogos.transformacoes",
         "arquivo": "coral/jogos/transformacoes.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "canais",
+            "tipo": "tuple[CanalAnimado, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -5755,7 +6784,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "onda_cosseno",
@@ -5776,7 +6806,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "onda_triangular",
@@ -5797,7 +6828,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "onda_serra",
@@ -5818,7 +6850,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "onda_pulso",
@@ -5839,7 +6872,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "forma_espacial_sprite",
@@ -5862,7 +6896,8 @@
           "TypeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "posicao_espacial_sprite",
@@ -5883,7 +6918,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "sprites_colidem",
@@ -5910,7 +6946,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "AdaptadorEventosJogo",
@@ -5921,7 +6958,32 @@
         "documentacao": "Publica acontecimentos de Jogos no barramento reativo do próprio Jogo.\n\nO adaptador é deliberadamente opcional e depende apenas da API pública de\n``Jogo``/``Sprite``. O núcleo reativo não importa Jogos e este módulo não\nimporta Pygame.",
         "origem": "coral.jogos.eventos",
         "arquivo": "coral/jogos/eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "jogo",
+            "tipo": "Jogo",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "teclas",
+            "tipo": "Iterable[str]",
+            "padrao": "()",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "botoes_mouse",
+            "tipo": "Iterable[str]",
+            "padrao": "()",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "observar_mouse",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -6000,7 +7062,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "EstiloCelula",
@@ -6011,7 +7074,50 @@
         "documentacao": "",
         "origem": "coral.jogos.mapas",
         "arquivo": "coral/jogos/mapas.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "cor",
+            "tipo": "Cor | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "imagem",
+            "tipo": "str | QuadroSprite | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "texto",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cor_texto",
+            "tipo": "Cor",
+            "padrao": "BRANCO",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_texto",
+            "tipo": "int",
+            "padrao": "16",
+            "modo": "posicional"
+          },
+          {
+            "nome": "contorno",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -6062,7 +7168,38 @@
         "documentacao": "",
         "origem": "coral.jogos.mapas",
         "arquivo": "coral/jogos/mapas.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "mapa",
+            "tipo": "Mapa",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "camadas",
+            "tipo": "Iterable[str] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "camera",
+            "tipo": "Camera | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "resolvedor_estilo",
+            "tipo": "ResolvedorEstiloMapa | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "area_visivel",
+            "tipo": "tuple[float, float, float, float] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -6127,7 +7264,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "mundo_para_tela",
@@ -6156,7 +7294,8 @@
           "ErroMapaCoral"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "tela_para_celula",
@@ -6195,7 +7334,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "tela_para_mundo",
@@ -6230,7 +7370,8 @@
           "ErroMapaCoral"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": ""
@@ -6276,7 +7417,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_json",
@@ -6299,7 +7441,8 @@
           "_json.JSONDecodeError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "ler_json",
@@ -6320,7 +7463,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "escrever_json",
@@ -6353,7 +7497,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       }
     ],
     "doc_modulo": "Superfície pública de coral.json."
@@ -6385,7 +7530,62 @@
         "documentacao": "",
         "origem": "coral.laboratorio",
         "arquivo": "coral/laboratorio.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "repeticao",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "parametros",
+            "tipo": "dict[str, Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "semente",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo_segundos",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "memoria_atual_bytes",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "memoria_pico_bytes",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "retorno",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "erro",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "metricas",
+            "tipo": "dict[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -6446,7 +7646,26 @@
         "documentacao": "",
         "origem": "coral.laboratorio",
         "arquivo": "coral/laboratorio.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "medicoes",
+            "tipo": "list[Medicao]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "dict[str, Any]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -6560,7 +7779,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "executar_experimento",
@@ -6626,7 +7846,8 @@
           "propagar"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "diagnosticar_laboratorio",
@@ -6640,7 +7861,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "protocolo_medicao",
@@ -6661,7 +7883,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Experimentos reprodutíveis e medições para Coral 1.3."
@@ -6721,7 +7944,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "potencia",
@@ -6748,7 +7972,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "absoluto",
@@ -6769,7 +7994,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "arredondar",
@@ -6796,7 +8022,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "minimo",
@@ -6817,7 +8044,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "maximo",
@@ -6838,7 +8066,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "soma",
@@ -6859,7 +8088,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "media",
@@ -6882,7 +8112,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "seno",
@@ -6903,7 +8134,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "cosseno",
@@ -6924,7 +8156,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "tangente",
@@ -6945,7 +8178,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "piso",
@@ -6966,7 +8200,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "teto",
@@ -6987,7 +8222,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "truncar",
@@ -7008,7 +8244,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "log",
@@ -7035,7 +8272,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "exp",
@@ -7056,7 +8294,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "graus",
@@ -7077,7 +8316,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "radianos",
@@ -7098,7 +8338,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "limitar",
@@ -7133,7 +8374,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "finito",
@@ -7154,7 +8396,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "mdc",
@@ -7175,7 +8418,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "mmc",
@@ -7196,7 +8440,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pi",
@@ -7269,7 +8514,26 @@
         "documentacao": "Mundo leve para jogos, RPGs e simulações Coral.\n\nA API mantém entidades e relações como um grafo dirigido. Relações podem\nser consultadas nos dois sentidos e o método ``caminho`` usa BFS.",
         "origem": "coral.mundo",
         "arquivo": "coral/mundo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'mundo'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "relogio",
+            "tipo": "FonteTempo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7488,7 +8752,32 @@
         "documentacao": "",
         "origem": "coral.mundo",
         "arquivo": "coral/mundo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "atributos",
+            "tipo": "dict[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tags",
+            "tipo": "set[str]",
+            "padrao": "field(default_factory=set)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "inventario",
+            "tipo": "list[Any]",
+            "padrao": "field(default_factory=list)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7574,7 +8863,32 @@
         "documentacao": "",
         "origem": "coral.mundo",
         "arquivo": "coral/mundo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "origem",
+            "tipo": "Entidade",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "destino",
+            "tipo": "Entidade",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dados",
+            "tipo": "dict[str, Any]",
+            "padrao": "field(default_factory=dict, compare=False)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -7620,7 +8934,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "Mapa",
@@ -7631,7 +8946,32 @@
         "documentacao": "Estrutura espacial discreta genérica, independente de visualização.",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "topologia",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "propriedades",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7843,7 +9183,38 @@
         "documentacao": "Camada nomeada, ordenada e esparsa de um mapa.",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ordem",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "propriedades",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "participa_travessia",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "_sequencia",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7894,7 +9265,38 @@
         "documentacao": "Valor imutável associado a uma célula, com travessia opcional.",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "propriedades",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "travessia",
+            "tipo": "bool | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "custo",
+            "tipo": "float | int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "motivo",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7968,7 +9370,20 @@
         "documentacao": "Conveniência para terreno, material, obstáculo ou tile.",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "identificador",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "propriedades",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -7997,7 +9412,74 @@
         "documentacao": "",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "mapa",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "camada",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "celula",
+            "tipo": "CelulaMapa",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "operacao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "anterior",
+            "tipo": "ConteudoCelula | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "novo",
+            "tipo": "ConteudoCelula | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "causa",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "aplicada",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cancelada",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "motivo_cancelamento",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "evento_sequencia",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -8068,7 +9550,44 @@
         "documentacao": "Região por conjunto de células ou por forma espacial oficial.",
         "origem": "coral._mapas.regioes",
         "arquivo": "coral/_mapas/regioes.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "mapa",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "celulas",
+            "tipo": "Iterable[object] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "forma",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "referencia",
+            "tipo": "str",
+            "padrao": "'centro'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "propriedades",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8126,7 +9645,44 @@
         "documentacao": "",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "permitida",
+            "tipo": "bool",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "custo",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "motivo",
+            "tipo": "str | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "camadas_responsaveis",
+            "tipo": "tuple[str, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "CelulaMapa",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "destino",
+            "tipo": "CelulaMapa",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -8172,7 +9728,50 @@
         "documentacao": "Reconhece transições de entrada e saída entre avaliações sucessivas.",
         "origem": "coral._mapas.observacao",
         "arquivo": "coral/_mapas/observacao.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mapa",
+            "tipo": "Mapa",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "regioes",
+            "tipo": "Iterable[RegiaoMapa | str]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "resolvedor",
+            "tipo": "ResolvedorLocalizacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "identificador_alvo",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8238,7 +9837,20 @@
         "documentacao": "",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "coluna",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "linha",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8272,7 +9884,20 @@
         "documentacao": "",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "q",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "r",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8306,7 +9931,26 @@
         "documentacao": "",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "x",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "z",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8345,7 +9989,32 @@
         "documentacao": "",
         "origem": "coral._mapas.topologias",
         "arquivo": "coral/_mapas/topologias.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "largura_celula",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura_celula",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "tuple[float, float]",
+            "padrao": "(0.0, 0.0)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limites_configurados",
+            "tipo": "object",
+            "padrao": "field(default=None, repr=False, compare=False)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8405,7 +10074,32 @@
         "documentacao": "",
         "origem": "coral._mapas.topologias",
         "arquivo": "coral/_mapas/topologias.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "tamanho_celula",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "orientacao",
+            "tipo": "str",
+            "padrao": "'topo_plano'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "tuple[float, float]",
+            "padrao": "(0.0, 0.0)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limites_configurados",
+            "tipo": "object",
+            "padrao": "field(default=None, repr=False, compare=False)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8465,7 +10159,38 @@
         "documentacao": "",
         "origem": "coral._mapas.topologias",
         "arquivo": "coral/_mapas/topologias.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "tamanho_x",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_y",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_z",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "tuple[float, float, float]",
+            "padrao": "(0.0, 0.0, 0.0)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limites_configurados",
+            "tipo": "object",
+            "padrao": "field(default=None, repr=False, compare=False)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -8530,7 +10255,26 @@
         "documentacao": "Erro de domínio para operações inválidas de mapas Coral.",
         "origem": "coral._mapas.modelo",
         "arquivo": "coral/_mapas/modelo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "mensagem",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codigo",
+            "tipo": "str",
+            "padrao": "'mapa.invalido'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "contexto",
+            "tipo": "dict[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [],
@@ -8625,7 +10369,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "diagnosticar_numerico",
@@ -8639,7 +10384,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "vetor",
@@ -8668,7 +10414,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "matriz",
@@ -8697,7 +10444,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "zeros",
@@ -8726,7 +10474,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "uns",
@@ -8755,7 +10504,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "intervalo",
@@ -8796,7 +10546,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "espaco_linear",
@@ -8831,7 +10582,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "soma",
@@ -8852,7 +10604,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "media",
@@ -8873,7 +10626,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "mediana",
@@ -8894,7 +10648,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "variancia",
@@ -8923,7 +10678,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "desvio_padrao",
@@ -8952,7 +10708,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "minimo",
@@ -8973,7 +10730,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "maximo",
@@ -8994,7 +10752,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "transposta",
@@ -9015,7 +10774,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "produto_escalar",
@@ -9044,7 +10804,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "multiplicar_matrizes",
@@ -9073,7 +10834,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "determinante",
@@ -9096,7 +10858,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "inversa",
@@ -9119,7 +10882,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "resolver_sistema",
@@ -9148,7 +10912,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "autovalores",
@@ -9171,7 +10936,8 @@
           "ErroNumerico"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "forma",
@@ -9192,7 +10958,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Computação numérica oficial do Coral 1.3.\n\nNumPy é opcional: importar ``coral.numerico`` não torna NumPy uma dependência\nobrigatória do compilador. As operações que precisam dele emitem um diagnóstico\nem português com instrução de instalação."
@@ -9251,7 +11018,38 @@
         "documentacao": "",
         "origem": "coral.observadores_reativos",
         "arquivo": "coral/observadores_reativos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "leitor",
+            "tipo": "LeitorValor",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "AcaoMudanca",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'mudanca'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limite",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -9328,7 +11126,62 @@
         "documentacao": "",
         "origem": "coral.observadores_reativos",
         "arquivo": "coral/observadores_reativos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "leitor",
+            "tipo": "LeitorValor",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "referencia",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Callable[[Any, Any, Any], Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "relacao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "transicao",
+            "tipo": "str",
+            "padrao": "'entrar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limite",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "obter",
+            "tipo": "Callable[[Any], Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "obter_referencia",
+            "tipo": "Callable[[Any], Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -9432,7 +11285,32 @@
         "documentacao": "",
         "origem": "coral.observadores_reativos",
         "arquivo": "coral/observadores_reativos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor_inicial",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "enfileirar",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -9567,7 +11445,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "registrar_extensao_persistente",
@@ -9608,7 +11487,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "extensoes_para_dados",
@@ -9629,7 +11509,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "aplicar_extensoes_persistentes",
@@ -9658,7 +11539,8 @@
           "ErroPersistencia"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "valor_portatil",
@@ -9679,7 +11561,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "para_dados",
@@ -9700,7 +11583,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "de_dados",
@@ -9723,7 +11607,8 @@
           "ErroPersistencia"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "texto_canonico",
@@ -9744,7 +11629,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "serializar_canonico",
@@ -9765,7 +11651,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "salvar",
@@ -9794,7 +11681,8 @@
           "ErroPersistencia"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "carregar",
@@ -9817,7 +11705,8 @@
           "ErroPersistencia"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "carregar_como",
@@ -9852,7 +11741,8 @@
           "ErroPersistencia"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Persistência portátil e versionada da Coral.\n\nO contrato ``coral.persistencia/1`` armazena somente dados semânticos\nreconstruíveis. Estado de execução, handles e objetos arbitrários são\nrecusados explicitamente."
@@ -9913,7 +11803,68 @@
         "documentacao": "",
         "origem": "coral.rastreamento_reativo",
         "arquivo": "coral/rastreamento_reativo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "sequencia",
+            "tipo": "int | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "instante",
+            "tipo": "float | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "decisao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "causa_sequencia",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "condicao",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "resultado_condicao",
+            "tipo": "bool | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "detalhes",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -9987,7 +11938,14 @@
         "documentacao": "",
         "origem": "coral.rastreamento_reativo",
         "arquivo": "coral/rastreamento_reativo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'desligado'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10108,7 +12066,86 @@
         "documentacao": "",
         "origem": "coral.regras",
         "arquivo": "coral/regras.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "condicao",
+            "tipo": "Condicao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Acao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'ao_ativar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "habilitada",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ativa",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "execucoes",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "str | int",
+            "padrao": "'normal'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "max_execucoes",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cooldown",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ultimo_disparo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "motivo_ultima_supressao",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ultima_condicao",
+            "tipo": "bool | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10197,7 +12234,20 @@
         "documentacao": "",
         "origem": "coral.regras",
         "arquivo": "coral/regras.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "regras",
+            "tipo": "tuple[Regra, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10238,7 +12288,44 @@
         "documentacao": "",
         "origem": "coral.regras",
         "arquivo": "coral/regras.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "intervalo",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Acao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'debounce'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "restante",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "pendente",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "contexto_mais_recente",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10299,7 +12386,44 @@
         "documentacao": "",
         "origem": "coral.regras",
         "arquivo": "coral/regras.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "intervalo",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Acao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "repetir",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'temporizador'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "restante",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10353,7 +12477,26 @@
         "documentacao": "Barramento local compatível com ``coral.regras.Eventos``.\n\n``emitir`` mantém a chamada histórica de ouvintes via ``*args`` e\n``**kwargs``. Inscrições novas podem receber o objeto :class:`Evento`\ncompleto e declarar prioridade sem alterar consumidores antigos.",
         "origem": "coral.tempo_eventos",
         "arquivo": "coral/tempo_eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "pai",
+            "tipo": "'Eventos | None'",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "relogio",
+            "tipo": "FonteTempo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "fonte_instante",
+            "tipo": "Callable[[], float] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10474,7 +12617,26 @@
         "documentacao": "",
         "origem": "coral.regras",
         "arquivo": "coral/regras.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "relogio",
+            "tipo": "FonteTempo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "rastreamento",
+            "tipo": "RastreamentoReativo | str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10700,7 +12862,38 @@
         "documentacao": "",
         "origem": "coral.observadores_reativos",
         "arquivo": "coral/observadores_reativos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "leitor",
+            "tipo": "LeitorValor",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "AcaoMudanca",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'mudanca'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limite",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10777,7 +12970,62 @@
         "documentacao": "",
         "origem": "coral.observadores_reativos",
         "arquivo": "coral/observadores_reativos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "leitor",
+            "tipo": "LeitorValor",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "referencia",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Callable[[Any, Any, Any], Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "relacao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "transicao",
+            "tipo": "str",
+            "padrao": "'entrar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limite",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "obter",
+            "tipo": "Callable[[Any], Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "obter_referencia",
+            "tipo": "Callable[[Any], Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10881,7 +13129,44 @@
         "documentacao": "",
         "origem": "coral.sequencias_reativas",
         "arquivo": "coral/sequencias_reativas.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "eventos",
+            "tipo": "Eventos",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "primeiro",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "segundo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "AcaoSequencia",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "janela",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'sequencia'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -10981,7 +13266,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": ""
@@ -11011,7 +13297,20 @@
         "documentacao": "",
         "origem": "coral.replay_reativo",
         "arquivo": "coral/replay_reativo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dados",
+            "tipo": "dict[str, Any]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -11037,7 +13336,26 @@
         "documentacao": "",
         "origem": "coral.replay_reativo",
         "arquivo": "coral/replay_reativo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "processados",
+            "tipo": "tuple[str, ...]",
+            "padrao": "()",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -11119,7 +13437,14 @@
         "documentacao": "",
         "origem": "coral.replay_reativo",
         "arquivo": "coral/replay_reativo.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "registros",
+            "tipo": "Iterable[RegistroReplay | dict[str, Any]]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11169,7 +13494,26 @@
         "documentacao": "",
         "origem": "coral.rpg",
         "arquivo": "coral/rpg.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "expressao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dados",
+            "tipo": "tuple[int, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modificador",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11232,7 +13576,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "Personagem",
@@ -11243,7 +13588,32 @@
         "documentacao": "",
         "origem": "coral.rpg",
         "arquivo": "coral/rpg.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "vida",
+            "tipo": "int",
+            "padrao": "10",
+            "modo": "posicional"
+          },
+          {
+            "nome": "vida_max",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "**atributos",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "variádico nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11296,7 +13666,20 @@
         "documentacao": "",
         "origem": "coral.rpg",
         "arquivo": "coral/rpg.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "participantes",
+            "tipo": "Iterable[Personagem]",
+            "padrao": "()",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11375,7 +13758,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "registrar_combate",
@@ -11411,7 +13795,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "buscar_combate",
@@ -11438,7 +13823,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "combates_do_mundo",
@@ -11459,7 +13845,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "EstadoRPG",
@@ -11470,7 +13857,14 @@
         "documentacao": "Agregado persistente do domínio RPG sobre um Mundo genérico.",
         "origem": "coral.rpg",
         "arquivo": "coral/rpg.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "mundo",
+            "tipo": "Mundo",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [
@@ -11501,7 +13895,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "salvar_estado_rpg",
@@ -11528,7 +13923,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "carregar_estado_rpg",
@@ -11549,7 +13945,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": ""
@@ -11591,7 +13988,44 @@
         "documentacao": "",
         "origem": "coral.sequencias_reativas",
         "arquivo": "coral/sequencias_reativas.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "eventos",
+            "tipo": "Eventos",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "primeiro",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "segundo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "AcaoSequencia",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "janela",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'sequencia'",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11712,7 +14146,26 @@
         "documentacao": "Timeout de processo, compatível com subprocess.TimeoutExpired da linha 1.4.1.",
         "origem": "coral.sistema",
         "arquivo": "coral/sistema.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "comando",
+            "tipo": "tuple[str, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "timeout",
+            "tipo": "float | None",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mensagem",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [],
         "atributos": [],
@@ -11748,7 +14201,56 @@
         "documentacao": "",
         "origem": "coral.sistema",
         "arquivo": "coral/sistema.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "sistema",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "versao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "arquitetura",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "maquina",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "processador",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "python",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "pid",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "pasta_atual",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11812,7 +14314,38 @@
         "documentacao": "",
         "origem": "coral.sistema",
         "arquivo": "coral/sistema.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "comando",
+            "tipo": "tuple[str, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codigo",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "saida",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "erro",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao_segundos",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -11878,7 +14411,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "diagnosticar_sistema",
@@ -11892,7 +14426,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "variavel_ambiente",
@@ -11919,7 +14454,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "definir_variavel_ambiente",
@@ -11946,7 +14482,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "remover_variavel_ambiente",
@@ -11967,7 +14504,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "variaveis_ambiente",
@@ -11981,7 +14519,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pasta_atual",
@@ -11995,7 +14534,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "pasta_usuario",
@@ -12009,7 +14549,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "caminho",
@@ -12030,7 +14571,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "executar_comando",
@@ -12092,7 +14634,8 @@
           "FalhaSistemaOperacional"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "processo_atual",
@@ -12106,7 +14649,8 @@
         "parametros": [],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Integração segura e portátil do Coral com o sistema operacional."
@@ -12186,7 +14730,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "normalizar_dt",
@@ -12215,7 +14760,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "FonteTempo",
@@ -12258,7 +14804,14 @@
         "documentacao": "Relógio real baseado em ``perf_counter`` e apropriado para durações.",
         "origem": "coral.tempo_eventos",
         "arquivo": "coral/tempo_eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "fonte",
+            "tipo": "Callable[[], float]",
+            "padrao": "time.perf_counter",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -12288,7 +14841,14 @@
         "documentacao": "Relógio controlado pelo programa, sem dormir nem consultar o sistema.",
         "origem": "coral.tempo_eventos",
         "arquivo": "coral/tempo_eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "inicial",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -12393,7 +14953,80 @@
         "documentacao": "",
         "origem": "coral.tempo_eventos",
         "arquivo": "coral/tempo_eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "args",
+            "tipo": "tuple[Any, ...]",
+            "padrao": "()",
+            "modo": "posicional"
+          },
+          {
+            "nome": "kwargs",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "sequencia",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "instante",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cancelavel",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cancelado",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "motivo_cancelamento",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "consumido",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "causa_sequencia",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -12484,7 +15117,26 @@
         "documentacao": "Barramento local compatível com ``coral.regras.Eventos``.\n\n``emitir`` mantém a chamada histórica de ouvintes via ``*args`` e\n``**kwargs``. Inscrições novas podem receber o objeto :class:`Evento`\ncompleto e declarar prioridade sem alterar consumidores antigos.",
         "origem": "coral.tempo_eventos",
         "arquivo": "coral/tempo_eventos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "pai",
+            "tipo": "'Eventos | None'",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "relogio",
+            "tipo": "FonteTempo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "fonte_instante",
+            "tipo": "Callable[[], float] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -12646,7 +15298,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "minusculas",
@@ -12667,7 +15320,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "aparar",
@@ -12688,7 +15342,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "dividir",
@@ -12715,7 +15370,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "juntar",
@@ -12742,7 +15398,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "substituir",
@@ -12775,7 +15432,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "comeca_com",
@@ -12802,7 +15460,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "termina_com",
@@ -12829,7 +15488,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "localizar",
@@ -12862,7 +15522,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "contar",
@@ -12901,7 +15562,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "normalizar_unicode",
@@ -12930,7 +15592,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "linhas",
@@ -12957,7 +15620,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "remover_prefixo",
@@ -12984,7 +15648,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "remover_sufixo",
@@ -13011,7 +15676,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "preencher",
@@ -13052,7 +15718,8 @@
           "ValueError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "formatar",
@@ -13089,7 +15756,8 @@
           "KeyError"
         ],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": "Superfície pública de coral.texto."
@@ -13145,7 +15813,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "TipoCoral",
@@ -13156,7 +15825,26 @@
         "documentacao": "",
         "origem": "coral.tipos",
         "arquivo": "coral/tipos.py",
-        "parametros": [],
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tipos_python",
+            "tipo": "tuple[type, ...]",
+            "padrao": "()",
+            "modo": "posicional"
+          },
+          {
+            "nome": "aliases",
+            "tipo": "tuple[str, ...]",
+            "padrao": "()",
+            "modo": "posicional"
+          }
+        ],
         "excecoes": [],
         "metodos": [
           {
@@ -13205,7 +15893,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "nome_tipo",
@@ -13226,7 +15915,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "e_tipo",
@@ -13253,7 +15943,8 @@
         ],
         "excecoes": [],
         "metodos": [],
-        "atributos": []
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
     "doc_modulo": ""

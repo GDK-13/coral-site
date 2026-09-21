@@ -171,57 +171,131 @@
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="registroreplay-tipo-str-dados-dict-str-any" data-searchable><code>RegistroReplay(tipo: str, dados: dict[str, Any])</code></h4>
-<p data-searchable>Entrada pública <code>RegistroReplay</code> da superfície <code>coral.replay_reativo</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="registroreplay" data-searchable><code>RegistroReplay</code></h4>
+<p data-searchable>Representa registro persistível.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="resultadoreplay-tipo-str-instante-float-processados-tuple-str" data-searchable><code>ResultadoReplay(tipo: str, instante: float, processados: tuple[str, ...] = ())</code></h4>
-<p data-searchable>Entrada pública <code>ResultadoReplay</code> da superfície <code>coral.replay_reativo</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>instante</code></td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>processados</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="gravadorreplay-none" data-searchable><code>GravadorReplay() -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>GravadorReplay</code> da superfície <code>coral.replay_reativo</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RegistroReplay(tipo: str, dados: dict[str, Any])</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.replay_reativo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/replay_reativo.py</code></p></div></details>
+<h4 id="resultadoreplay" data-searchable><code>ResultadoReplay</code></h4>
+<p data-searchable>Representa resultado da reprodução.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>processados</code></td><td data-searchable>Valor correspondente a processados.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>processados</code></td><td data-searchable>Valor correspondente a processados.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoReplay(tipo: str, instante: float, processados: tuple[str, ...] = ())</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.replay_reativo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/replay_reativo.py</code></p></div></details>
+<h4 id="gravadorreplay" data-searchable><code>GravadorReplay</code></h4>
+<p data-searchable>Representa GravadorReplay na API de <code>coral.replay_reativo</code>.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.replay_reativo</span> <span class="code-key">importe</span> GravadorReplay, ReplayReativo
+
+<span class="code-key">defina</span> gravador como <span class="code-fn">GravadorReplay</span>()
+<span class="code-key">mostre</span> gravador
+<span class="code-key">defina</span> replay como <span class="code-fn">ReplayReativo</span>([])
+<span class="code-key">mostre</span> replay</code></pre></div></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Executa a operação <code>registros</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>tuple[RegistroReplay, ...]</code></td></tr>
+<tr><td data-searchable><code>evento</code></td><td data-searchable>Executa a operação <code>evento</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>mudanca_mapa</code></td><td data-searchable>Registra uma mudança aplicada para reconstrução determinística posterior.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>como_json</code></td><td data-searchable>Representa o valor como JSON.</td><td data-searchable><code>str</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>GravadorReplay() -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.replay_reativo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/replay_reativo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>registros</code></td><td data-searchable>propriedade</td><td data-searchable><code>registros() -&gt; tuple[RegistroReplay, ...]</code></td><td data-searchable><code>tuple[RegistroReplay, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>evento</code></td><td data-searchable>método</td><td data-searchable><code>evento(nome: str, *args: Any, origem: str | None = None, **kwargs: Any) -&gt; RegistroReplay</code></td><td data-searchable><code>RegistroReplay</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mudanca_mapa</code></td><td data-searchable>método</td><td data-searchable><code>mudanca_mapa(mudanca: Any) -&gt; RegistroReplay</code></td><td data-searchable><code>RegistroReplay</code></td><td data-searchable>Registra uma mudança aplicada para reconstrução determinística posterior.</td></tr>
-<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(segundos: Any) -&gt; RegistroReplay</code></td><td data-searchable><code>RegistroReplay</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>como_json</code></td><td data-searchable>método</td><td data-searchable><code>como_json() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>propriedade</td><td data-searchable><code>registros() -&gt; tuple[RegistroReplay, ...]</code></td></tr>
+<tr><td data-searchable><code>evento</code></td><td data-searchable>método</td><td data-searchable><code>evento(nome: str, *args: Any, origem: str | None = None, **kwargs: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>mudanca_mapa</code></td><td data-searchable>método</td><td data-searchable><code>mudanca_mapa(mudanca: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(segundos: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>como_json</code></td><td data-searchable>método</td><td data-searchable><code>como_json() -&gt; str</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="replayreativo" data-searchable><code>ReplayReativo</code></h4>
+<p data-searchable>Representa ReplayReativo na API de <code>coral.replay_reativo</code>.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.replay_reativo</span> <span class="code-key">importe</span> GravadorReplay, ReplayReativo
+
+<span class="code-key">defina</span> gravador como <span class="code-fn">GravadorReplay</span>()
+<span class="code-key">mostre</span> gravador
+<span class="code-key">defina</span> replay como <span class="code-fn">ReplayReativo</span>([])
+<span class="code-key">mostre</span> replay</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>Iterable[RegistroReplay | dict[str, Any]]</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="replayreativo-registros-iterable-registroreplay-dict-str-any-none" data-searchable><code>ReplayReativo(registros: Iterable[RegistroReplay | dict[str, Any]]) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>ReplayReativo</code> da superfície <code>coral.replay_reativo</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>reproduzir</code></td><td data-searchable>Reproduz o valor solicitado.</td><td data-searchable><code>tuple[ResultadoReplay, ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ReplayReativo(registros: Iterable[RegistroReplay \| dict[str, Any]]) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.replay_reativo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/replay_reativo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>reproduzir</code></td><td data-searchable>método</td><td data-searchable><code>reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -&gt; tuple[ResultadoReplay, ...]</code></td><td data-searchable><code>tuple[ResultadoReplay, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>reproduzir</code></td><td data-searchable>método</td><td data-searchable><code>reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -&gt; tuple[ResultadoReplay, ...]</code></td></tr>
+</tbody></table></div></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="rastreamento_reativo.html"><span>Anterior</span><strong>coral.rastreamento_reativo</strong></a><a class="docs-page-nav-link next" href="sequencias_reativas.html"><span>Próxima</span><strong>coral.sequencias_reativas</strong></a></nav>
   </main>

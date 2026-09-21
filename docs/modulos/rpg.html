@@ -177,178 +177,329 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <p data-searchable>Personagens, rolagens e combate funcionam sem janela. Testes podem fixar sementes e verificar estado final antes de testar animações ou interface.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="rolar-expressao-str-1d20-semente-int-none-none-gerador-random-random-none-none-rolagem" data-searchable><code>rolar(expressao: str = '1d20', semente: int | None = None, *, gerador: random.Random | None = None) -&gt; Rolagem</code></h4>
-<p data-searchable>Entrada pública <code>rolar</code> da superfície <code>coral.rpg</code>.</p>
+<h4 id="rolar" data-searchable><code>rolar</code></h4>
+<p data-searchable>Realizar rolagem.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>expressao</code></td><td data-searchable>Valor correspondente a expressao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'1d20'</code></td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>gerador</code></td><td data-searchable>Valor correspondente a gerador.</td><td data-searchable><code>random.Random | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Rolagem</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>rolar(expressao: str = '1d20', semente: int \| None = None, *, gerador: random.Random \| None = None) -&gt; Rolagem</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>expressao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'1d20'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>semente</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>gerador</code></td><td data-searchable><code>random.Random | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>expressao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>gerador</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Rolagem</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="criar-personagem-mundo-mundo-nome-str-vida-int-10-atributos-any-personagem" data-searchable><code>criar_personagem(mundo: Mundo, nome: str, vida: int = 10, **atributos: Any) -&gt; Personagem</code></h4>
-<p data-searchable>Entrada pública <code>criar_personagem</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="criar-personagem" data-searchable><code>criar_personagem</code></h4>
+<p data-searchable>Criar personagem em um mundo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>Valor correspondente a vida.</td><td data-searchable><code>int</code></td><td data-searchable><code>10</code></td></tr>
+<tr><td data-searchable><code>**atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Personagem</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_personagem(mundo: Mundo, nome: str, vida: int = 10, **atributos: Any) -&gt; Personagem</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>vida</code></td><td data-searchable><code>int</code></td><td data-searchable><code>10</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>**atributos</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>variádico nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Personagem</code></p>
-<h4 id="registrar-combate-mundo-mundo-nome-str-combate-combateturnos-combateturnos" data-searchable><code>registrar_combate(mundo: Mundo, nome: str, combate: 'CombateTurnos') -&gt; 'CombateTurnos'</code></h4>
-<p data-searchable>Entrada pública <code>registrar_combate</code> da superfície <code>coral.rpg</code>.</p>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>**atributos</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="registrar-combate" data-searchable><code>registrar_combate</code></h4>
+<p data-searchable>Registrar combate.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>combate</code></td><td data-searchable><code>'CombateTurnos'</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>combate</code></td><td data-searchable>Valor correspondente a combate.</td><td data-searchable><code>'CombateTurnos'</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>'CombateTurnos'</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p>
-<h4 id="buscar-combate-mundo-mundo-nome-str-combateturnos-none" data-searchable><code>buscar_combate(mundo: Mundo, nome: str) -&gt; 'CombateTurnos | None'</code></h4>
-<p data-searchable>Entrada pública <code>buscar_combate</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>'CombateTurnos'</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>registrar_combate(mundo: Mundo, nome: str, combate: 'CombateTurnos') -&gt; 'CombateTurnos'</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="buscar-combate" data-searchable><code>buscar_combate</code></h4>
+<p data-searchable>Procura combate e devolve o resultado quando encontrado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>'CombateTurnos | None'</code></p>
-<h4 id="combates-do-mundo-mundo-mundo-tuple-combateturnos" data-searchable><code>combates_do_mundo(mundo: Mundo) -&gt; tuple['CombateTurnos', ...]</code></h4>
-<p data-searchable>Entrada pública <code>combates_do_mundo</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>'CombateTurnos | None'</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>buscar_combate(mundo: Mundo, nome: str) -&gt; 'CombateTurnos \| None'</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
+<h4 id="combates-do-mundo" data-searchable><code>combates_do_mundo</code></h4>
+<p data-searchable>Obtém combates do mundo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>tuple['CombateTurnos', ...]</code></p>
-<h4 id="estado-rpg-mundo-mundo-estadorpg" data-searchable><code>estado_rpg(mundo: Mundo) -&gt; EstadoRPG</code></h4>
-<p data-searchable>Entrada pública <code>estado_rpg</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple['CombateTurnos', ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>combates_do_mundo(mundo: Mundo) -&gt; tuple['CombateTurnos', ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
+<h4 id="estado-rpg" data-searchable><code>estado_rpg</code></h4>
+<p data-searchable>Obtém o agregado de estado RPG associado ao mundo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>EstadoRPG</code></p>
-<h4 id="salvar-estado-rpg-mundo-mundo-caminho-str-path-path" data-searchable><code>salvar_estado_rpg(mundo: Mundo, caminho: str | Path) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>salvar_estado_rpg</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>EstadoRPG</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>estado_rpg(mundo: Mundo) -&gt; EstadoRPG</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
+<h4 id="salvar-estado-rpg" data-searchable><code>salvar_estado_rpg</code></h4>
+<p data-searchable>Persistir estado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="carregar-estado-rpg-caminho-str-path-mundo" data-searchable><code>carregar_estado_rpg(caminho: str | Path) -&gt; Mundo</code></h4>
-<p data-searchable>Entrada pública <code>carregar_estado_rpg</code> da superfície <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>salvar_estado_rpg(mundo: Mundo, caminho: str \| Path) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
+<h4 id="carregar-estado-rpg" data-searchable><code>carregar_estado_rpg</code></h4>
+<p data-searchable>Restaurar mundo de RPG.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Mundo</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Mundo</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>carregar_estado_rpg(caminho: str \| Path) -&gt; Mundo</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="rolagem-expressao-str-dados-tuple-int-modificador-int-0" data-searchable><code>Rolagem(expressao: str, dados: tuple[int, ...], modificador: int = 0)</code></h4>
-<p data-searchable>Entrada pública <code>Rolagem</code> da superfície <code>coral.rpg</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="rolagem-2" data-searchable><code>Rolagem</code></h4>
+<p data-searchable>Representa resultado de dados.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>expressao</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>tuple[int, ...]</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>modificador</code></td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>expressao</code></td><td data-searchable>Valor correspondente a expressao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>tuple[int, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modificador</code></td><td data-searchable>Valor correspondente a modificador.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>expressao</code></td><td data-searchable>Valor correspondente a expressao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>tuple[int, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modificador</code></td><td data-searchable>Valor correspondente a modificador.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>total</code></td><td data-searchable>Obtém total.</td><td data-searchable><code>int</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Rolagem(expressao: str, dados: tuple[int, ...], modificador: int = 0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>total</code></td><td data-searchable>propriedade</td><td data-searchable><code>total() -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>total</code></td><td data-searchable>propriedade</td><td data-searchable><code>total() -&gt; int</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="personagem-2" data-searchable><code>Personagem</code></h4>
+<p data-searchable>Representa entidade de RPG.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>Valor correspondente a vida.</td><td data-searchable><code>int</code></td><td data-searchable><code>10</code></td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>Valor correspondente a vida max.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>**atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="personagem-nome-str-vida-int-10-vida-max-int-none-none-atributos-any" data-searchable><code>Personagem(nome: str, vida: int = 10, *, vida_max: int | None = None, **atributos: Any)</code></h4>
-<p data-searchable>Entrada pública <code>Personagem</code> da superfície <code>coral.rpg</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Obtém mundo.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>vivo</code></td><td data-searchable>Indica o estado de vivo.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>Executa a operação <code>receber_dano</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>curar</code></td><td data-searchable>Executa a operação <code>curar</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>teste</code></td><td data-searchable>Executa a operação <code>teste</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>tuple[Rolagem, bool]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Personagem(nome: str, vida: int = 10, *, vida_max: int \| None = None, **atributos: Any)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>**atributos</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable>propriedade</td><td data-searchable><code>mundo()</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>vivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>vivo() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>método</td><td data-searchable><code>receber_dano(quantidade: int) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>curar</code></td><td data-searchable>método</td><td data-searchable><code>curar(quantidade: int) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>teste</code></td><td data-searchable>método</td><td data-searchable><code>teste(atributo: str, dificuldade: int = 10, *, semente: int | None = None) -&gt; tuple[Rolagem, bool]</code></td><td data-searchable><code>tuple[Rolagem, bool]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>propriedade</td><td data-searchable><code>mundo()</code></td></tr>
+<tr><td data-searchable><code>vivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>vivo() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>método</td><td data-searchable><code>receber_dano(quantidade: int) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>curar</code></td><td data-searchable>método</td><td data-searchable><code>curar(quantidade: int) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>teste</code></td><td data-searchable>método</td><td data-searchable><code>teste(atributo: str, dificuldade: int = 10, *, semente: int | None = None) -&gt; tuple[Rolagem, bool]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="combateturnos" data-searchable><code>CombateTurnos</code></h4>
+<p data-searchable>Representa CombateTurnos na API de <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>participantes</code></td><td data-searchable>Valor correspondente a participantes.</td><td data-searchable><code>Iterable[Personagem]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<h4 id="combateturnos-participantes-iterable-personagem-nome-str-none-none" data-searchable><code>CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>CombateTurnos</code> da superfície <code>coral.rpg</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Personagem</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>Inicia o valor solicitado.</td><td data-searchable><code>tuple[Personagem, ...]</code></td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>Obtém atual.</td><td data-searchable><code>Personagem | None</code></td></tr>
+<tr><td data-searchable><code>proximo</code></td><td data-searchable>Executa a operação <code>proximo</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>Personagem | None</code></td></tr>
+<tr><td data-searchable><code>terminou</code></td><td data-searchable>Indica o estado de terminou.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>participantes</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(personagem: Personagem) -&gt; Personagem</code></td><td data-searchable><code>Personagem</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>iniciar</code></td><td data-searchable>método</td><td data-searchable><code>iniciar(*, iniciativas: dict[str, int] | None = None, semente: int | None = None) -&gt; tuple[Personagem, ...]</code></td><td data-searchable><code>tuple[Personagem, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>atual</code></td><td data-searchable>propriedade</td><td data-searchable><code>atual() -&gt; Personagem | None</code></td><td data-searchable><code>Personagem | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>proximo</code></td><td data-searchable>método</td><td data-searchable><code>proximo() -&gt; Personagem | None</code></td><td data-searchable><code>Personagem | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>terminou</code></td><td data-searchable>propriedade</td><td data-searchable><code>terminou() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="estadorpg-mundo-mundo" data-searchable><code>EstadoRPG(mundo: Mundo)</code></h4>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(personagem: Personagem) -&gt; Personagem</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>método</td><td data-searchable><code>iniciar(*, iniciativas: dict[str, int] | None = None, semente: int | None = None) -&gt; tuple[Personagem, ...]</code></td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>propriedade</td><td data-searchable><code>atual() -&gt; Personagem | None</code></td></tr>
+<tr><td data-searchable><code>proximo</code></td><td data-searchable>método</td><td data-searchable><code>proximo() -&gt; Personagem | None</code></td></tr>
+<tr><td data-searchable><code>terminou</code></td><td data-searchable>propriedade</td><td data-searchable><code>terminou() -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="estadorpg" data-searchable><code>EstadoRPG</code></h4>
 <p data-searchable>Agregado persistente do domínio RPG sobre um Mundo genérico.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>EstadoRPG(mundo: Mundo)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
 <h2 id="compatibilidade" data-searchable>Compatibilidade</h2>
 <p data-searchable>O módulo faz parte do runtime padrão e pode ser usado headless. A apresentação visual não é requisito para o domínio de RPG.</p>
     </article>

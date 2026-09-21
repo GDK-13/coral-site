@@ -79,6 +79,13 @@ def markdown_to_html(md: str, syntax: CoralSyntax | None = None) -> tuple[str, l
     i = 0
     list_type: str | None = None
     first_h1_skipped = False
+    used_ids: dict[str, int] = {}
+
+    def unique_id(title: str) -> str:
+        base = slugify(title)
+        count = used_ids.get(base, 0) + 1
+        used_ids[base] = count
+        return base if count == 1 else f"{base}-{count}"
 
     def close_list() -> None:
         nonlocal list_type
@@ -92,6 +99,25 @@ def markdown_to_html(md: str, syntax: CoralSyntax | None = None) -> tuple[str, l
 
         if stripped.startswith("<!--"):
             i += 1
+            continue
+
+        if stripped.startswith(":::details"):
+            close_list()
+            title = stripped[len(":::details"):].strip() or "Detalhes"
+            i += 1
+            inner: list[str] = []
+            while i < len(lines) and lines[i].strip() != ":::":
+                inner.append(lines[i])
+                i += 1
+            if i < len(lines):
+                i += 1
+            inner_html, _ = markdown_to_html("\n".join(inner), syntax)
+            out.append(
+                '<details class="api-tech-details">'
+                f'<summary>{html.escape(title)}</summary>'
+                f'<div class="api-tech-body">{inner_html}</div>'
+                '</details>'
+            )
             continue
 
         if stripped.startswith("```"):
@@ -124,7 +150,7 @@ def markdown_to_html(md: str, syntax: CoralSyntax | None = None) -> tuple[str, l
             close_list()
             if first_h1_skipped:
                 title = line[2:].strip()
-                ident = slugify(title)
+                ident = unique_id(title)
                 out.append(f'<h2 id="{ident}" data-searchable>{inline_markup(title)}</h2>')
                 toc.append({"level": 2, "id": ident, "title": title})
             first_h1_skipped = True
@@ -138,7 +164,7 @@ def markdown_to_html(md: str, syntax: CoralSyntax | None = None) -> tuple[str, l
             level = len(marks)
             # Remove a markdown code wrapper only for slug generation.
             plain_title = re.sub(r"`([^`]+)`", r"\1", title)
-            ident = slugify(plain_title)
+            ident = unique_id(plain_title)
             out.append(f'<h{level} id="{ident}" data-searchable>{inline_markup(title)}</h{level}>')
             if level in (2, 3):
                 toc.append({"level": level, "id": ident, "title": plain_title})
@@ -453,7 +479,7 @@ def render_docs(root: Path, version: dict[str, Any], modules: list[dict[str, Any
         sidebar = build_sidebar(nav, modules, item, public_rel)
         docs_home = href_between(public_rel, "index.html")
         home_href = site_root + "index.html"
-        toc_visible = [entry for entry in toc if entry["level"] == 2] if meta.get("destaque") else toc
+        toc_visible = [entry for entry in toc if entry["level"] == 2] if is_module else toc
         out = template
         replacements = {
             "{{SITE_ROOT}}": site_root,

@@ -105,176 +105,464 @@ Encapsule chamadas externas em funções pequenas. Assim, a lógica do programa 
 
 ### Funções
 
-#### `informacoes() -> InformacoesSistema`
+#### `informacoes`
 
-Entrada pública `informacoes` da superfície `coral.sistema`.
+Obter retrato do host.
 
-**Retorno:** `InformacoesSistema`
+**Exemplo**
 
-#### `diagnosticar_sistema() -> dict[str, Any]`
+```coral
+de coral.sistema importe informacoes, pasta_atual, variavel_ambiente
 
-Entrada pública `diagnosticar_sistema` da superfície `coral.sistema`.
+defina ambiente como informacoes()
+mostre ambiente.sistema
+mostre pasta_atual()
+mostre variavel_ambiente("HOME", "")
+```
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-#### `variavel_ambiente(nome: str, padrao: str | None = None) -> str | None`
+Retorna um valor declarado como `InformacoesSistema`.
 
-Entrada pública `variavel_ambiente` da superfície `coral.sistema`.
+:::details Detalhes técnicos
 
-**Parâmetros**
+**Assinatura:** `informacoes() -> InformacoesSistema`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `nome` | `str` | obrigatório | posicional |
-| `padrao` | `str \| None` | `None` | posicional |
+**Origem da implementação:** `coral.sistema`
 
-**Retorno:** `str | None`
+**Arquivo na release:** `coral/sistema.py`
 
-#### `definir_variavel_ambiente(nome: str, valor: Any) -> None`
+:::
 
-Entrada pública `definir_variavel_ambiente` da superfície `coral.sistema`.
+#### `diagnosticar_sistema`
 
-**Parâmetros**
+Produz informações de diagnóstico para sistema.
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `nome` | `str` | obrigatório | posicional |
-| `valor` | `Any` | obrigatório | posicional |
+**Retorno**
 
-**Retorno:** `None`
+Retorna um valor declarado como `dict[str, Any]`.
 
-#### `remover_variavel_ambiente(nome: str) -> bool`
+:::details Detalhes técnicos
 
-Entrada pública `remover_variavel_ambiente` da superfície `coral.sistema`.
+**Assinatura:** `diagnosticar_sistema() -> dict[str, Any]`
 
-**Parâmetros**
+**Origem da implementação:** `coral.sistema`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `nome` | `str` | obrigatório | posicional |
+**Arquivo na release:** `coral/sistema.py`
 
-**Retorno:** `bool`
+:::
 
-#### `variaveis_ambiente() -> dict[str, str]`
+#### `variavel_ambiente`
 
-Entrada pública `variaveis_ambiente` da superfície `coral.sistema`.
+Ler variável.
 
-**Retorno:** `dict[str, str]`
+**Exemplo**
 
-#### `pasta_atual() -> Path`
+```coral
+de coral.sistema importe informacoes, pasta_atual, variavel_ambiente
 
-Entrada pública `pasta_atual` da superfície `coral.sistema`.
-
-**Retorno:** `Path`
-
-#### `pasta_usuario() -> Path`
-
-Entrada pública `pasta_usuario` da superfície `coral.sistema`.
-
-**Retorno:** `Path`
-
-#### `caminho(*partes: Any) -> Path`
-
-Entrada pública `caminho` da superfície `coral.sistema`.
+defina ambiente como informacoes()
+mostre ambiente.sistema
+mostre pasta_atual()
+mostre variavel_ambiente("HOME", "")
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*partes` | `Any` | obrigatório | variádico |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `padrao` | Valor usado quando não há resultado específico disponível. | `str \| None` | `None` |
 
-**Retorno:** `Path`
+**Retorno**
 
-#### `executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str | Path | None = None, timeout: float | None = None, ambiente: Mapping[str, Any] | None = None, entrada: str | None = None, relogio: FonteTempo | None = None) -> ResultadoComando`
+Retorna um valor declarado como `str | None`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `variavel_ambiente(nome: str, padrao: str \| None = None) -> str \| None`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `definir_variavel_ambiente`
+
+Definir variável no processo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
+
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `definir_variavel_ambiente(nome: str, valor: Any) -> None`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `remover_variavel_ambiente`
+
+Remove variavel ambiente.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `bool`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `remover_variavel_ambiente(nome: str) -> bool`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `variaveis_ambiente`
+
+Obtém variaveis ambiente.
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, str]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `variaveis_ambiente() -> dict[str, str]`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `pasta_atual`
+
+Obter diretório atual.
+
+**Exemplo**
+
+```coral
+de coral.sistema importe informacoes, pasta_atual, variavel_ambiente
+
+defina ambiente como informacoes()
+mostre ambiente.sistema
+mostre pasta_atual()
+mostre variavel_ambiente("HOME", "")
+```
+
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pasta_atual() -> Path`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `pasta_usuario`
+
+Obter diretório do usuário.
+
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pasta_usuario() -> Path`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `caminho`
+
+Montar caminho.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `*partes` | Valor correspondente a partes. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `caminho(*partes: Any) -> Path`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*partes` | variádico |
+
+:::
+
+#### `executar_comando`
 
 Executa um processo sem shell por padrão.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `programa` | `str` | obrigatório | posicional |
-| `argumentos` | `Iterable[Any]` | `()` | posicional |
-| `pasta` | `str \| Path \| None` | `None` | nomeado |
-| `timeout` | `float \| None` | `None` | nomeado |
-| `ambiente` | `Mapping[str, Any] \| None` | `None` | nomeado |
-| `entrada` | `str \| None` | `None` | nomeado |
-| `relogio` | `FonteTempo \| None` | `None` | nomeado |
+| `programa` | Valor correspondente a programa. | `str` | obrigatório |
+| `argumentos` | Valor correspondente a argumentos. | `Iterable[Any]` | `()` |
+| `pasta` | Valor correspondente a pasta. | `str \| Path \| None` | `None` |
+| `timeout` | Valor correspondente a timeout. | `float \| None` | `None` |
+| `ambiente` | Valor correspondente a ambiente. | `Mapping[str, Any] \| None` | `None` |
+| `entrada` | Valor correspondente a entrada. | `str \| None` | `None` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
 
-**Retorno:** `ResultadoComando`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`, `ProgramaNaoEncontrado`, `TempoLimiteExcedido`, `FalhaSistemaOperacional`
+Retorna um valor declarado como `ResultadoComando`.
 
-#### `processo_atual() -> dict[str, Any]`
+:::details Detalhes técnicos
 
-Entrada pública `processo_atual` da superfície `coral.sistema`.
+**Assinatura:** `executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str \| Path \| None = None, timeout: float \| None = None, ambiente: Mapping[str, Any] \| None = None, entrada: str \| None = None, relogio: FonteTempo \| None = None) -> ResultadoComando`
 
-**Retorno:** `dict[str, Any]`
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `programa` | posicional |
+| `argumentos` | posicional |
+| `pasta` | nomeado |
+| `timeout` | nomeado |
+| `ambiente` | nomeado |
+| `entrada` | nomeado |
+| `relogio` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `ProgramaNaoEncontrado`, `TempoLimiteExcedido`, `FalhaSistemaOperacional`
+
+:::
+
+#### `processo_atual`
+
+Inspecionar processo Coral.
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `processo_atual() -> dict[str, Any]`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
 
 ### Classes e protocolos
 
-#### `TempoLimiteExcedido(comando: tuple[str, ...], timeout: float | None, mensagem: str)`
+#### `TempoLimiteExcedido`
 
 Timeout de processo, compatível com subprocess.TimeoutExpired da linha 1.4.1.
 
-#### `InformacoesSistema(sistema: str, versao: str, arquitetura: str, maquina: str, processador: str, python: str, pid: int, pasta_atual: str)`
+**Parâmetros**
 
-Entrada pública `InformacoesSistema` da superfície `coral.sistema`.
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `comando` | Valor correspondente a comando. | `tuple[str, ...]` | obrigatório |
+| `timeout` | Valor correspondente a timeout. | `float \| None` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
 
-**Atributos declarados**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Padrão |
+**Assinatura:** `TempoLimiteExcedido(comando: tuple[str, ...], timeout: float \| None, mensagem: str)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `InformacoesSistema`
+
+Representa InformacoesSistema na API de `coral.sistema`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `sistema` | Valor correspondente a sistema. | `str` | obrigatório |
+| `versao` | Valor correspondente a versao. | `str` | obrigatório |
+| `arquitetura` | Valor correspondente a arquitetura. | `str` | obrigatório |
+| `maquina` | Valor correspondente a maquina. | `str` | obrigatório |
+| `processador` | Valor correspondente a processador. | `str` | obrigatório |
+| `python` | Valor correspondente a python. | `str` | obrigatório |
+| `pid` | Valor correspondente a pid. | `int` | obrigatório |
+| `pasta_atual` | Valor correspondente a pasta atual. | `str` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `sistema` | Valor correspondente a sistema. | `str` | obrigatório |
+| `versao` | Valor correspondente a versao. | `str` | obrigatório |
+| `arquitetura` | Valor correspondente a arquitetura. | `str` | obrigatório |
+| `maquina` | Valor correspondente a maquina. | `str` | obrigatório |
+| `processador` | Valor correspondente a processador. | `str` | obrigatório |
+| `python` | Valor correspondente a python. | `str` | obrigatório |
+| `pid` | Valor correspondente a pid. | `int` | obrigatório |
+| `pasta_atual` | Valor correspondente a pasta atual. | `str` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `sistema` | `str` | obrigatório |
-| `versao` | `str` | obrigatório |
-| `arquitetura` | `str` | obrigatório |
-| `maquina` | `str` | obrigatório |
-| `processador` | `str` | obrigatório |
-| `python` | `str` | obrigatório |
-| `pid` | `int` | obrigatório |
-| `pasta_atual` | `str` | obrigatório |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
+**Assinatura:** `InformacoesSistema(sistema: str, versao: str, arquitetura: str, maquina: str, processador: str, python: str, pid: int, pasta_atual: str)`
 
-#### `ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float)`
+**Origem da implementação:** `coral.sistema`
 
-Entrada pública `ResultadoComando` da superfície `coral.sistema`.
+**Arquivo na release:** `coral/sistema.py`
 
-**Atributos declarados**
+**Assinaturas de métodos e propriedades**
 
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `comando` | `tuple[str, ...]` | obrigatório |
-| `codigo` | `int` | obrigatório |
-| `saida` | `str` | obrigatório |
-| `erro` | `str` | obrigatório |
-| `duracao_segundos` | `float` | obrigatório |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `sucesso` | propriedade | `sucesso() -> bool` | `bool` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
-| `resultado_operacao` | método | `resultado_operacao() -> ResultadoOperacao` | `ResultadoOperacao` | Sem docstring própria na release. |
+#### `ResultadoComando`
+
+Representa ResultadoComando na API de `coral.sistema`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `comando` | Valor correspondente a comando. | `tuple[str, ...]` | obrigatório |
+| `codigo` | Valor correspondente a codigo. | `int` | obrigatório |
+| `saida` | Valor correspondente a saida. | `str` | obrigatório |
+| `erro` | Valor correspondente a erro. | `str` | obrigatório |
+| `duracao_segundos` | Valor correspondente a duracao segundos. | `float` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `comando` | Valor correspondente a comando. | `tuple[str, ...]` | obrigatório |
+| `codigo` | Valor correspondente a codigo. | `int` | obrigatório |
+| `saida` | Valor correspondente a saida. | `str` | obrigatório |
+| `erro` | Valor correspondente a erro. | `str` | obrigatório |
+| `duracao_segundos` | Valor correspondente a duracao segundos. | `float` | obrigatório |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `sucesso` | Indica o estado de sucesso. | `bool` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
+| `resultado_operacao` | Executa a operação `resultado_operacao` disponibilizada por `coral.sistema`. | `ResultadoOperacao` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `sucesso` | propriedade | `sucesso() -> bool` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
+| `resultado_operacao` | método | `resultado_operacao() -> ResultadoOperacao` |
+
+:::
 
 ### Exceções
 
-#### `ErroSistema(...)`
+#### `ErroSistema`
 
 Falha operacional do sistema hospedeiro traduzida para a superfície Coral.
 
-#### `ProgramaNaoEncontrado(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroSistema(...)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `ProgramaNaoEncontrado`
 
 Executável ausente, compatível com o FileNotFoundError exposto até a 1.4.2.
 
-#### `FalhaSistemaOperacional(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `ProgramaNaoEncontrado(...)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `FalhaSistemaOperacional`
 
 Demais falhas do SO, mantendo compatibilidade com captura por OSError.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `FalhaSistemaOperacional(...)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
 
 <!-- /AUTO:API -->
 

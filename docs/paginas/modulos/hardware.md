@@ -105,267 +105,686 @@ Antes de concluir que há defeito no programa, consulte `diagnosticar_hardware()
 
 ### Funções
 
-#### `psutil_disponivel() -> bool`
+#### `psutil_disponivel`
 
-Entrada pública `psutil_disponivel` da superfície `coral.hardware`.
+Detectar inventário avançado.
 
-**Retorno:** `bool`
+**Exemplo**
 
-#### `serial_disponivel() -> bool`
+```coral
+de coral.hardware importe cpu, memoria, discos, psutil_disponivel
 
-Entrada pública `serial_disponivel` da superfície `coral.hardware`.
+se psutil_disponivel() então
+    defina processador como cpu()
+    defina ram como memoria()
+    defina unidades como discos()
+```
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `cpu() -> CPU`
+Retorna um valor lógico que indica o resultado da verificação.
 
-Entrada pública `cpu` da superfície `coral.hardware`.
+:::details Detalhes técnicos
 
-**Retorno:** `CPU`
+**Assinatura:** `psutil_disponivel() -> bool`
 
-#### `memoria() -> Memoria`
+**Origem da implementação:** `coral.hardware`
 
-Entrada pública `memoria` da superfície `coral.hardware`.
+**Arquivo na release:** `coral/hardware/__init__.py`
 
-**Retorno:** `Memoria`
+:::
 
-#### `discos() -> tuple[Disco, ...]`
+#### `serial_disponivel`
 
-Entrada pública `discos` da superfície `coral.hardware`.
+Detectar backend serial real.
 
-**Retorno:** `tuple[Disco, ...]`
+**Retorno**
 
-#### `bateria() -> Bateria | None`
+Retorna um valor lógico que indica o resultado da verificação.
 
-Entrada pública `bateria` da superfície `coral.hardware`.
+:::details Detalhes técnicos
 
-**Retorno:** `Bateria | None`
+**Assinatura:** `serial_disponivel() -> bool`
 
-#### `diagnosticar_hardware() -> dict[str, Any]`
+**Origem da implementação:** `coral.hardware`
 
-Entrada pública `diagnosticar_hardware` da superfície `coral.hardware`.
+**Arquivo na release:** `coral/hardware/__init__.py`
 
-**Retorno:** `dict[str, Any]`
+:::
 
-#### `auditar_hardware() -> dict[str, Any]`
+#### `cpu`
+
+Consultar CPU.
+
+**Exemplo**
+
+```coral
+se psutil_disponivel() então
+    defina processador como cpu()
+    defina ram como memoria()
+    defina unidades como discos()
+    mostre processador.nucleos_logicos
+```
+
+**Retorno**
+
+Retorna um valor declarado como `CPU`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `cpu() -> CPU`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `memoria`
+
+Consultar RAM.
+
+**Exemplo**
+
+```coral
+se psutil_disponivel() então
+    defina processador como cpu()
+    defina ram como memoria()
+    defina unidades como discos()
+    mostre processador.nucleos_logicos
+    mostre ram.total_bytes
+```
+
+**Retorno**
+
+Retorna um valor declarado como `Memoria`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `memoria() -> Memoria`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `discos`
+
+Listar discos.
+
+**Exemplo**
+
+```coral
+defina processador como cpu()
+    defina ram como memoria()
+    defina unidades como discos()
+    mostre processador.nucleos_logicos
+    mostre ram.total_bytes
+    mostre quantidade de unidades
+```
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[Disco, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `discos() -> tuple[Disco, ...]`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `bateria`
+
+Consultar bateria.
+
+**Retorno**
+
+Retorna um valor declarado como `Bateria | None`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `bateria() -> Bateria \| None`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `diagnosticar_hardware`
+
+Produz informações de diagnóstico para hardware.
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `diagnosticar_hardware() -> dict[str, Any]`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `auditar_hardware`
 
 Inventário observável e estado dos gates de coesão de Hardware 1.4.9.
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-#### `usar_backend_serial(backend: BackendSerial)`
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `auditar_hardware() -> dict[str, Any]`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `usar_backend_serial`
 
 Usa temporariamente um backend serial como padrão do contexto atual.
 
-**Implementação:** `coral.hardware.serial`
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `backend` | Backend usado para executar a operação. | `BackendSerial` | obrigatório |
+
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `usar_backend_serial(backend: BackendSerial)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
+
+#### `portas_seriais`
+
+Obtém portas seriais.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `backend` | `BackendSerial` | obrigatório | posicional |
+| `backend` | Backend usado para executar a operação. | `BackendSerial \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `portas_seriais(*, backend: BackendSerial | None = None) -> tuple[PortaSerial, ...]`
+Retorna um valor declarado como `tuple[PortaSerial, ...]`.
 
-Entrada pública `portas_seriais` da superfície `coral.hardware`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.hardware.serial`
+**Assinatura:** `portas_seriais(*, backend: BackendSerial \| None = None) -> tuple[PortaSerial, ...]`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `backend` | nomeado |
+
+:::
+
+#### `conectar_serial`
+
+Abrir conexão serial.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `backend` | `BackendSerial \| None` | `None` | nomeado |
+| `porta` | Valor correspondente a porta. | `str` | obrigatório |
+| `velocidade` | Valor correspondente a velocidade. | `int` | `115200` |
+| `timeout` | Valor correspondente a timeout. | `float \| None` | `1.0` |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `str` | `'utf-8'` |
+| `backend` | Backend usado para executar a operação. | `BackendSerial \| None` | `None` |
 
-**Retorno:** `tuple[PortaSerial, ...]`
+**Retorno**
 
-#### `conectar_serial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None) -> ConexaoSerial`
+Retorna um valor declarado como `ConexaoSerial`.
 
-Entrada pública `conectar_serial` da superfície `coral.hardware`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.hardware.serial`
+**Assinatura:** `conectar_serial(porta: str, velocidade: int = 115200, timeout: float \| None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial \| None = None) -> ConexaoSerial`
 
-**Parâmetros**
+**Origem da implementação:** `coral.hardware.serial`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `porta` | `str` | obrigatório | posicional |
-| `velocidade` | `int` | `115200` | posicional |
-| `timeout` | `float \| None` | `1.0` | posicional |
-| `codificacao` | `str` | `'utf-8'` | nomeado |
-| `backend` | `BackendSerial \| None` | `None` | nomeado |
+**Arquivo na release:** `coral/hardware/serial.py`
 
-**Retorno:** `ConexaoSerial`
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `porta` | posicional |
+| `velocidade` | posicional |
+| `timeout` | posicional |
+| `codificacao` | nomeado |
+| `backend` | nomeado |
+
+:::
 
 ### Classes e protocolos
 
-#### `CPU(nome: str, nucleos_logicos: int | None, nucleos_fisicos: int | None, frequencia_mhz: float | None)`
+#### `CPU`
 
-Entrada pública `CPU` da superfície `coral.hardware`.
+Representa CPU na API de `coral.hardware`.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
-|---|---|---|
-| `nome` | `str` | obrigatório |
-| `nucleos_logicos` | `int \| None` | obrigatório |
-| `nucleos_fisicos` | `int \| None` | obrigatório |
-| `frequencia_mhz` | `float \| None` | obrigatório |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `nucleos_logicos` | Valor correspondente a nucleos logicos. | `int \| None` | obrigatório |
+| `nucleos_fisicos` | Valor correspondente a nucleos fisicos. | `int \| None` | obrigatório |
+| `frequencia_mhz` | Valor correspondente a frequencia mhz. | `float \| None` | obrigatório |
 
-#### `Memoria(total_bytes: int | None, disponivel_bytes: int | None, percentual_usado: float | None)`
+**Atributos públicos**
 
-Entrada pública `Memoria` da superfície `coral.hardware`.
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `nucleos_logicos` | Valor correspondente a nucleos logicos. | `int \| None` | obrigatório |
+| `nucleos_fisicos` | Valor correspondente a nucleos fisicos. | `int \| None` | obrigatório |
+| `frequencia_mhz` | Valor correspondente a frequencia mhz. | `float \| None` | obrigatório |
 
-**Atributos declarados**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Padrão |
-|---|---|---|
-| `total_bytes` | `int \| None` | obrigatório |
-| `disponivel_bytes` | `int \| None` | obrigatório |
-| `percentual_usado` | `float \| None` | obrigatório |
+**Assinatura:** `CPU(nome: str, nucleos_logicos: int \| None, nucleos_fisicos: int \| None, frequencia_mhz: float \| None)`
 
-#### `Disco(dispositivo: str, ponto_montagem: str, sistema_arquivos: str, total_bytes: int | None = None, livre_bytes: int | None = None)`
+**Origem da implementação:** `coral.hardware`
 
-Entrada pública `Disco` da superfície `coral.hardware`.
+**Arquivo na release:** `coral/hardware/__init__.py`
 
-**Atributos declarados**
+:::
 
-| Nome | Tipo | Padrão |
-|---|---|---|
-| `dispositivo` | `str` | obrigatório |
-| `ponto_montagem` | `str` | obrigatório |
-| `sistema_arquivos` | `str` | obrigatório |
-| `total_bytes` | `int \| None` | `None` |
-| `livre_bytes` | `int \| None` | `None` |
+#### `Memoria`
 
-#### `Bateria(percentual: float | None, conectada: bool | None, segundos_restantes: int | None)`
+Representa Memoria na API de `coral.hardware`.
 
-Entrada pública `Bateria` da superfície `coral.hardware`.
+**Parâmetros**
 
-**Atributos declarados**
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `total_bytes` | Valor correspondente a total bytes. | `int \| None` | obrigatório |
+| `disponivel_bytes` | Valor correspondente a disponivel bytes. | `int \| None` | obrigatório |
+| `percentual_usado` | Valor correspondente a percentual usado. | `float \| None` | obrigatório |
 
-| Nome | Tipo | Padrão |
-|---|---|---|
-| `percentual` | `float \| None` | obrigatório |
-| `conectada` | `bool \| None` | obrigatório |
-| `segundos_restantes` | `int \| None` | obrigatório |
+**Atributos públicos**
 
-#### `ConexaoSerialFechada(...)`
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `total_bytes` | Valor correspondente a total bytes. | `int \| None` | obrigatório |
+| `disponivel_bytes` | Valor correspondente a disponivel bytes. | `int \| None` | obrigatório |
+| `percentual_usado` | Valor correspondente a percentual usado. | `float \| None` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Memoria(total_bytes: int \| None, disponivel_bytes: int \| None, percentual_usado: float \| None)`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `Disco`
+
+Representa Disco na API de `coral.hardware`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `dispositivo` | Valor correspondente a dispositivo. | `str` | obrigatório |
+| `ponto_montagem` | Valor correspondente a ponto montagem. | `str` | obrigatório |
+| `sistema_arquivos` | Valor correspondente a sistema arquivos. | `str` | obrigatório |
+| `total_bytes` | Valor correspondente a total bytes. | `int \| None` | `None` |
+| `livre_bytes` | Valor correspondente a livre bytes. | `int \| None` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `dispositivo` | Valor correspondente a dispositivo. | `str` | obrigatório |
+| `ponto_montagem` | Valor correspondente a ponto montagem. | `str` | obrigatório |
+| `sistema_arquivos` | Valor correspondente a sistema arquivos. | `str` | obrigatório |
+| `total_bytes` | Valor correspondente a total bytes. | `int \| None` | `None` |
+| `livre_bytes` | Valor correspondente a livre bytes. | `int \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Disco(dispositivo: str, ponto_montagem: str, sistema_arquivos: str, total_bytes: int \| None = None, livre_bytes: int \| None = None)`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `Bateria`
+
+Representa Bateria na API de `coral.hardware`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `percentual` | Valor correspondente a percentual. | `float \| None` | obrigatório |
+| `conectada` | Valor correspondente a conectada. | `bool \| None` | obrigatório |
+| `segundos_restantes` | Valor correspondente a segundos restantes. | `int \| None` | obrigatório |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `percentual` | Valor correspondente a percentual. | `float \| None` | obrigatório |
+| `conectada` | Valor correspondente a conectada. | `bool \| None` | obrigatório |
+| `segundos_restantes` | Valor correspondente a segundos restantes. | `int \| None` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Bateria(percentual: float \| None, conectada: bool \| None, segundos_restantes: int \| None)`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `ConexaoSerialFechada`
 
 Uma operação foi solicitada depois do fechamento da conexão.
 
-**Implementação:** `coral.hardware.serial`
+:::details Detalhes técnicos
 
-#### `DesconexaoSerial(...)`
+**Assinatura:** `ConexaoSerialFechada(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
+
+#### `DesconexaoSerial`
 
 A porta deixou de estar conectada durante a sessão.
 
-**Implementação:** `coral.hardware.serial`
+:::details Detalhes técnicos
 
-#### `BackendSerial(...)`
+**Assinatura:** `DesconexaoSerial(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
+
+#### `BackendSerial`
 
 Contrato mínimo de backend serial usado por ``ConexaoSerial``.
 
-**Implementação:** `coral.hardware.serial`
+**Operações públicas da classe**
 
-**Métodos e propriedades públicas**
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `abrir` | Abre o valor solicitado. | `TransporteSerial` |
+| `listar_portas` | Lista portas. | `tuple[PortaSerial, ...]` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` | `TransporteSerial` | Sem docstring própria na release. |
-| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` | `tuple[PortaSerial, ...]` | Sem docstring própria na release. |
+:::details Detalhes técnicos
 
-#### `BackendSerialReal(...)`
+**Assinatura:** `BackendSerial(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` |
+| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` |
+
+:::
+
+#### `BackendSerialReal`
 
 Adaptador do pyserial, carregado apenas quando realmente necessário.
 
-**Implementação:** `coral.hardware.serial`
+**Operações públicas da classe**
 
-**Métodos e propriedades públicas**
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `abrir` | Abre o valor solicitado. | `TransporteSerial` |
+| `listar_portas` | Lista portas. | `tuple[PortaSerial, ...]` |
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` | `TransporteSerial` | Sem docstring própria na release. |
-| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` | `tuple[PortaSerial, ...]` | Sem docstring própria na release. |
+:::details Detalhes técnicos
 
-#### `BackendSerialSimulado() -> None`
+**Assinatura:** `BackendSerialReal(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` |
+| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` |
+
+:::
+
+#### `BackendSerialSimulado`
 
 Backend serial em memória, sem espera real e sem dependências externas.
 
-**Implementação:** `coral.hardware.serial`
+**Operações públicas da classe**
 
-**Métodos e propriedades públicas**
-
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `registrar_porta` | método | `registrar_porta(dispositivo: str = 'SIM0', *, descricao: str = 'Porta serial simulada', fabricante: str \| None = 'Coral', vid: int \| None = None, pid: int \| None = None) -> PortaSerial` | `PortaSerial` | Sem docstring própria na release. |
-| `remover_porta` | método | `remover_porta(dispositivo: str) -> None` | `None` | Sem docstring própria na release. |
-| `desconectar` | método | `desconectar(dispositivo: str) -> None` | `None` | Sem docstring própria na release. |
-| `reconectar` | método | `reconectar(dispositivo: str) -> None` | `None` | Sem docstring própria na release. |
-| `injetar_recebimento` | método | `injetar_recebimento(dispositivo: str, dados: bytes \| bytearray \| str, *, codificacao: str = 'utf-8') -> int` | `int` | Sem docstring própria na release. |
-| `dados_enviados` | método | `dados_enviados(dispositivo: str, *, limpar: bool = False) -> bytes` | `bytes` | Sem docstring própria na release. |
-| `limpar` | método | `limpar(dispositivo: str \| None = None) -> None` | `None` | Sem docstring própria na release. |
-| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` | `tuple[PortaSerial, ...]` | Sem docstring própria na release. |
-| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` | `TransporteSerial` | Sem docstring própria na release. |
-
-#### `ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float | None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial | None = None)`
-
-Entrada pública `ConexaoSerial` da superfície `coral.hardware`.
-
-**Implementação:** `coral.hardware.serial`
-
-**Métodos e propriedades públicas**
-
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `aberta` | propriedade | `aberta() -> bool` | `bool` | Sem docstring própria na release. |
-| `enviar_bytes` | método | `enviar_bytes(dados: bytes \| bytearray) -> int` | `int` | Sem docstring própria na release. |
-| `enviar` | método | `enviar(texto: Any, *, terminar_linha: bool = False) -> int` | `int` | Sem docstring própria na release. |
-| `ler` | método | `ler(quantidade: int = 1) -> bytes` | `bytes` | Sem docstring própria na release. |
-| `ler_linha` | método | `ler_linha() -> str` | `str` | Sem docstring própria na release. |
-| `fechar` | método | `fechar() -> None` | `None` | Sem docstring própria na release. |
-
-#### `PortaSerial(dispositivo: str, descricao: str = '', fabricante: str | None = None, vid: int | None = None, pid: int | None = None)`
-
-Entrada pública `PortaSerial` da superfície `coral.hardware`.
-
-**Implementação:** `coral.hardware.serial`
-
-**Atributos declarados**
-
-| Nome | Tipo | Padrão |
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `dispositivo` | `str` | obrigatório |
-| `descricao` | `str` | `''` |
-| `fabricante` | `str \| None` | `None` |
-| `vid` | `int \| None` | `None` |
-| `pid` | `int \| None` | `None` |
+| `registrar_porta` | Registra porta. | `PortaSerial` |
+| `remover_porta` | Remove porta. | `None` |
+| `desconectar` | Executa a operação `desconectar` disponibilizada por `coral.hardware`. | `None` |
+| `reconectar` | Executa a operação `reconectar` disponibilizada por `coral.hardware`. | `None` |
+| `injetar_recebimento` | Executa a operação `injetar_recebimento` disponibilizada por `coral.hardware`. | `int` |
+| `dados_enviados` | Obtém dados enviados. | `bytes` |
+| `limpar` | Limpa o valor solicitado. | `None` |
+| `listar_portas` | Lista portas. | `tuple[PortaSerial, ...]` |
+| `abrir` | Abre o valor solicitado. | `TransporteSerial` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `BackendSerialSimulado() -> None`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `registrar_porta` | método | `registrar_porta(dispositivo: str = 'SIM0', *, descricao: str = 'Porta serial simulada', fabricante: str \| None = 'Coral', vid: int \| None = None, pid: int \| None = None) -> PortaSerial` |
+| `remover_porta` | método | `remover_porta(dispositivo: str) -> None` |
+| `desconectar` | método | `desconectar(dispositivo: str) -> None` |
+| `reconectar` | método | `reconectar(dispositivo: str) -> None` |
+| `injetar_recebimento` | método | `injetar_recebimento(dispositivo: str, dados: bytes \| bytearray \| str, *, codificacao: str = 'utf-8') -> int` |
+| `dados_enviados` | método | `dados_enviados(dispositivo: str, *, limpar: bool = False) -> bytes` |
+| `limpar` | método | `limpar(dispositivo: str \| None = None) -> None` |
+| `listar_portas` | método | `listar_portas() -> tuple[PortaSerial, ...]` |
+| `abrir` | método | `abrir(porta: str, velocidade: int, timeout: float \| None) -> TransporteSerial` |
+
+:::
+
+#### `ConexaoSerial`
+
+Representa sessão serial.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `porta` | Valor correspondente a porta. | `str` | obrigatório |
+| `velocidade` | Valor correspondente a velocidade. | `int` | `115200` |
+| `timeout` | Valor correspondente a timeout. | `float \| None` | `1.0` |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `str` | `'utf-8'` |
+| `backend` | Backend usado para executar a operação. | `BackendSerial \| None` | `None` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `aberta` | Indica o estado de aberta. | `bool` |
+| `enviar_bytes` | Executa a operação `enviar_bytes` disponibilizada por `coral.hardware`. | `int` |
+| `enviar` | Executa a operação `enviar` disponibilizada por `coral.hardware`. | `int` |
+| `ler` | Lê o valor solicitado. | `bytes` |
+| `ler_linha` | Lê linha. | `str` |
+| `fechar` | Fecha o valor solicitado. | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ConexaoSerial(porta: str, velocidade: int = 115200, timeout: float \| None = 1.0, *, codificacao: str = 'utf-8', backend: BackendSerial \| None = None)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `porta` | posicional |
+| `velocidade` | posicional |
+| `timeout` | posicional |
+| `codificacao` | nomeado |
+| `backend` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `aberta` | propriedade | `aberta() -> bool` |
+| `enviar_bytes` | método | `enviar_bytes(dados: bytes \| bytearray) -> int` |
+| `enviar` | método | `enviar(texto: Any, *, terminar_linha: bool = False) -> int` |
+| `ler` | método | `ler(quantidade: int = 1) -> bytes` |
+| `ler_linha` | método | `ler_linha() -> str` |
+| `fechar` | método | `fechar() -> None` |
+
+:::
+
+#### `PortaSerial`
+
+Representa PortaSerial na API de `coral.hardware`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `dispositivo` | Valor correspondente a dispositivo. | `str` | obrigatório |
+| `descricao` | Valor correspondente a descricao. | `str` | `''` |
+| `fabricante` | Valor correspondente a fabricante. | `str \| None` | `None` |
+| `vid` | Valor correspondente a vid. | `int \| None` | `None` |
+| `pid` | Valor correspondente a pid. | `int \| None` | `None` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `dispositivo` | Valor correspondente a dispositivo. | `str` | obrigatório |
+| `descricao` | Valor correspondente a descricao. | `str` | `''` |
+| `fabricante` | Valor correspondente a fabricante. | `str \| None` | `None` |
+| `vid` | Valor correspondente a vid. | `int \| None` | `None` |
+| `pid` | Valor correspondente a pid. | `int \| None` | `None` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `PortaSerial(dispositivo: str, descricao: str = '', fabricante: str \| None = None, vid: int \| None = None, pid: int \| None = None)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
 
 ### Exceções
 
-#### `DependenciaHardwareAusente(...)`
+#### `DependenciaHardwareAusente`
 
-Entrada pública `DependenciaHardwareAusente` da superfície `coral.hardware`.
+Representa a condição de erro DependenciaHardwareAusente.
 
-#### `ErroSerial(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `DependenciaHardwareAusente(...)`
+
+**Origem da implementação:** `coral.hardware`
+
+**Arquivo na release:** `coral/hardware/__init__.py`
+
+:::
+
+#### `ErroSerial`
 
 Erro público base da camada serial Coral.
 
-**Implementação:** `coral.hardware.serial`
+:::details Detalhes técnicos
 
-#### `DependenciaSerialAusente(...)`
+**Assinatura:** `ErroSerial(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
+
+#### `DependenciaSerialAusente`
 
 pyserial não está disponível para o backend real.
 
-**Implementação:** `coral.hardware.serial`
+:::details Detalhes técnicos
 
-#### `ErroConfiguracaoSerial(...)`
+**Assinatura:** `DependenciaSerialAusente(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
+
+#### `ErroConfiguracaoSerial`
 
 Parâmetro serial inválido antes da abertura da porta.
 
-**Implementação:** `coral.hardware.serial`
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroConfiguracaoSerial(...)`
+
+**Origem da implementação:** `coral.hardware.serial`
+
+**Arquivo na release:** `coral/hardware/serial.py`
+
+:::
 
 <!-- /AUTO:API -->
 

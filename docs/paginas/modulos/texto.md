@@ -123,254 +123,440 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `maiusculas(valor)`
+#### `maiusculas`
 
-Entrada pública `maiusculas` da superfície `coral.texto`.
+Converte o texto para maiusculas.
 
-**Implementação:** `coral.stdlib.texto`
+**Exemplo**
 
-**Parâmetros**
+```coral
+calcule a média de dados como media_dados
+mostre media_dados
+mostre maiusculas("Coral")
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-
-**Retorno:** `não declarado`
-
-#### `minusculas(valor)`
-
-Entrada pública `minusculas` da superfície `coral.texto`.
-
-**Implementação:** `coral.stdlib.texto`
+python: import math
+defina raiz como math.sqrt(81)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `aparar(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `aparar` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `maiusculas(valor)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `minusculas`
+
+Converte o texto para minusculas.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `dividir(valor, separador = None)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `dividir` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `minusculas(valor)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `aparar`
+
+Remover bordas de espaço.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `separador` | `não declarado` | `None` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `juntar(separador, valores)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `juntar` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `aparar(valor)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `dividir`
+
+Segmentar e recompor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `separador` | `não declarado` | obrigatório | posicional |
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `separador` | Texto usado para separar partes do resultado. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `substituir(valor, antigo, novo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `substituir` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `dividir(valor, separador = None)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `juntar`
+
+Segmentar e recompor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `antigo` | `não declarado` | obrigatório | posicional |
-| `novo` | `não declarado` | obrigatório | posicional |
+| `separador` | Texto usado para separar partes do resultado. | `não declarado` | obrigatório |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `comeca_com(valor, prefixo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `comeca_com` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `juntar(separador, valores)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `substituir`
+
+Trocar trecho.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `prefixo` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `antigo` | Valor correspondente a antigo. | `não declarado` | obrigatório |
+| `novo` | Valor correspondente a novo. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `termina_com(valor, sufixo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `termina_com` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `substituir(valor, antigo, novo)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `comeca_com`
+
+Indica se o texto começa com o trecho informado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `sufixo` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `prefixo` | Valor correspondente a prefixo. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `localizar(valor, trecho, inicio = 0)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `localizar` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `comeca_com(valor, prefixo)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `termina_com`
+
+Indica se o texto termina com o trecho informado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `trecho` | `não declarado` | obrigatório | posicional |
-| `inicio` | `não declarado` | `0` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `sufixo` | Valor correspondente a sufixo. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `contar(valor, trecho, inicio = 0, fim = None)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `contar` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `termina_com(valor, sufixo)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `localizar`
+
+Buscar ocorrências.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `trecho` | `não declarado` | obrigatório | posicional |
-| `inicio` | `não declarado` | `0` | posicional |
-| `fim` | `não declarado` | `None` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `trecho` | Valor correspondente a trecho. | `não declarado` | obrigatório |
+| `inicio` | Valor inicial do intervalo ou processo. | `não declarado` | `0` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `normalizar_unicode(valor, forma = 'NFC')`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `normalizar_unicode` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `localizar(valor, trecho, inicio = 0)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `contar`
+
+Buscar ocorrências.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `forma` | `não declarado` | `'NFC'` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `trecho` | Valor correspondente a trecho. | `não declarado` | obrigatório |
+| `inicio` | Valor inicial do intervalo ou processo. | `não declarado` | `0` |
+| `fim` | Valor final do intervalo ou processo. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `linhas(valor, *, manter_quebras = False)`
+:::details Detalhes técnicos
 
-Entrada pública `linhas` da superfície `coral.texto`.
+**Assinatura:** `contar(valor, trecho, inicio = 0, fim = None)`
 
-**Implementação:** `coral.stdlib.texto`
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `normalizar_unicode`
+
+Normalizar Unicode.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `manter_quebras` | `não declarado` | `False` | nomeado |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `forma` | Forma ou dimensões da estrutura a criar. | `não declarado` | `'NFC'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `remover_prefixo(valor, prefixo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `remover_prefixo` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `normalizar_unicode(valor, forma = 'NFC')`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `linhas`
+
+Separar linhas.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `prefixo` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `manter_quebras` | Valor correspondente a manter quebras. | `não declarado` | `False` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `remover_sufixo(valor, sufixo)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `remover_sufixo` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `linhas(valor, *, manter_quebras = False)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `manter_quebras` | nomeado |
+
+:::
+
+#### `remover_prefixo`
+
+Remove prefixo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `sufixo` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `prefixo` | Valor correspondente a prefixo. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `preencher(valor, largura, caractere = ' ', alinhamento = 'direita')`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `preencher` da superfície `coral.texto`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.texto`
+**Assinatura:** `remover_prefixo(valor, prefixo)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `remover_sufixo`
+
+Remove sufixo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `largura` | `não declarado` | obrigatório | posicional |
-| `caractere` | `não declarado` | `' '` | posicional |
-| `alinhamento` | `não declarado` | `'direita'` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `sufixo` | Valor correspondente a sufixo. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `formatar(modelo, valores = None, **campos)`
+:::details Detalhes técnicos
+
+**Assinatura:** `remover_sufixo(valor, sufixo)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+:::
+
+#### `preencher`
+
+Alinhar/preencher.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `largura` | Largura usada pela operação. | `não declarado` | obrigatório |
+| `caractere` | Valor correspondente a caractere. | `não declarado` | `' '` |
+| `alinhamento` | Valor correspondente a alinhamento. | `não declarado` | `'direita'` |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `preencher(valor, largura, caractere = ' ', alinhamento = 'direita')`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `formatar`
 
 Formata placeholders simples sem avaliar expressões ou atributos.
 
-**Implementação:** `coral.stdlib.texto`
-
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `modelo` | `não declarado` | obrigatório | posicional |
-| `valores` | `não declarado` | `None` | posicional |
-| `**campos` | `não declarado` | obrigatório | variádico nomeado |
+| `modelo` | Valor correspondente a modelo. | `não declarado` | obrigatório |
+| `valores` | Coleção de valores processada. | `não declarado` | `None` |
+| `**campos` | Valor correspondente a campos. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`, `ValueError`, `KeyError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `formatar(modelo, valores = None, **campos)`
+
+**Origem da implementação:** `coral.stdlib.texto`
+
+**Arquivo na release:** `coral/stdlib/texto.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `modelo` | posicional |
+| `valores` | posicional |
+| `**campos` | variádico nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`, `KeyError`
+
+:::
 
 <!-- /AUTO:API -->

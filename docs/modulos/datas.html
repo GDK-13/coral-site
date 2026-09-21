@@ -176,197 +176,268 @@
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="agora-fuso-str-tzinfo-none-none" data-searchable><code>agora(fuso: str | tzinfo | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>agora</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<h4 id="agora" data-searchable><code>agora</code></h4>
+<p data-searchable>Obtém o instante civil atual.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, para_iso, horas
+
+<span class="code-key">defina</span> inicio como <span class="code-fn">agora</span>(<span class="code-str">&quot;UTC&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">para_iso</span>(inicio)
+<span class="code-key">defina</span> intervalo como <span class="code-fn">horas</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> intervalo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable>Valor correspondente a fuso.</td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="hoje-fuso-str-tzinfo-none-none" data-searchable><code>hoje(fuso: str | tzinfo | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>hoje</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>agora(fuso: str \| tzinfo \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="hoje" data-searchable><code>hoje</code></h4>
+<p data-searchable>Obtém a data civil atual.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable>Valor correspondente a fuso.</td><td data-searchable><code>str | tzinfo | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="dias-valor" data-searchable><code>dias(valor)</code></h4>
-<p data-searchable>Entrada pública <code>dias</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>hoje(fuso: str \| tzinfo \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="dias" data-searchable><code>dias</code></h4>
+<p data-searchable>Construir duração.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="segundos-valor" data-searchable><code>segundos(valor)</code></h4>
-<p data-searchable>Entrada pública <code>segundos</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>dias(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="segundos" data-searchable><code>segundos</code></h4>
+<p data-searchable>Cria uma duração expressa em segundos.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="minutos-valor" data-searchable><code>minutos(valor)</code></h4>
-<p data-searchable>Entrada pública <code>minutos</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>segundos(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="minutos" data-searchable><code>minutos</code></h4>
+<p data-searchable>Construir duração.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="horas-valor" data-searchable><code>horas(valor)</code></h4>
-<p data-searchable>Entrada pública <code>horas</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>minutos(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="horas" data-searchable><code>horas</code></h4>
+<p data-searchable>Construir duração.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, para_iso, horas
+
+<span class="code-key">defina</span> inicio como <span class="code-fn">agora</span>(<span class="code-str">&quot;UTC&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">para_iso</span>(inicio)
+<span class="code-key">defina</span> intervalo como <span class="code-fn">horas</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> intervalo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="semanas-valor" data-searchable><code>semanas(valor)</code></h4>
-<p data-searchable>Entrada pública <code>semanas</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>horas(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="semanas" data-searchable><code>semanas</code></h4>
+<p data-searchable>Cria uma duração expressa em semanas.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="formatar-valor-formato-d-m-y" data-searchable><code>formatar(valor, formato = '%d/%m/%Y')</code></h4>
-<p data-searchable>Entrada pública <code>formatar</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>semanas(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="formatar" data-searchable><code>formatar</code></h4>
+<p data-searchable>Formata o valor usando a representação solicitada.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'%d/%m/%Y'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'%d/%m/%Y'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="analisar-texto-str-formato-str-none-none" data-searchable><code>analisar(texto: str, formato: str | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>analisar</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>formatar(valor, formato = '%d/%m/%Y')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="analisar" data-searchable><code>analisar</code></h4>
+<p data-searchable>Interpreta o texto e produz o valor correspondente.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>formato</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>formato</code></td><td data-searchable>Formato usado para interpretar ou produzir o valor.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code></p>
-<h4 id="de-iso-texto-str" data-searchable><code>de_iso(texto: str)</code></h4>
-<p data-searchable>Entrada pública <code>de_iso</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>analisar(texto: str, formato: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="de-iso" data-searchable><code>de_iso</code></h4>
+<p data-searchable>Interpreta ou reconstrói um valor a partir de iso.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="para-iso-valor-vezespec-auto-str" data-searchable><code>para_iso(valor, *, vezespec = 'auto') -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>para_iso</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>de_iso(texto: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="para-iso" data-searchable><code>para_iso</code></h4>
+<p data-searchable>Converte o valor para iso.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.datas</span> <span class="code-key">importe</span> agora, para_iso, horas
+
+<span class="code-key">defina</span> inicio como <span class="code-fn">agora</span>(<span class="code-str">&quot;UTC&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">para_iso</span>(inicio)
+<span class="code-key">defina</span> intervalo como <span class="code-fn">horas</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> intervalo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>vezespec</code></td><td data-searchable>Valor correspondente a vezespec.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'auto'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_iso(valor, *, vezespec = 'auto') -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>vezespec</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'auto'</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>vezespec</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
-<h4 id="fuso-horario-nome-str-utc-tzinfo" data-searchable><code>fuso_horario(nome: str = 'UTC') -&gt; tzinfo</code></h4>
-<p data-searchable>Entrada pública <code>fuso_horario</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="fuso-horario" data-searchable><code>fuso_horario</code></h4>
+<p data-searchable>Obter fuso.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'UTC'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'UTC'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>tzinfo</code></p>
-<h4 id="converter-fuso-valor-datetime-fuso-str-tzinfo-datetime" data-searchable><code>converter_fuso(valor: datetime, fuso: str | tzinfo) -&gt; datetime</code></h4>
-<p data-searchable>Entrada pública <code>converter_fuso</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tzinfo</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>fuso_horario(nome: str = 'UTC') -&gt; tzinfo</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p></div></details>
+<h4 id="converter-fuso" data-searchable><code>converter_fuso</code></h4>
+<p data-searchable>Converter fuso.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable><code>datetime</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>fuso</code></td><td data-searchable><code>str | tzinfo</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>datetime</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fuso</code></td><td data-searchable>Valor correspondente a fuso.</td><td data-searchable><code>str | tzinfo</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>datetime</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p>
-<h4 id="diferenca-final-inicial" data-searchable><code>diferenca(final, inicial)</code></h4>
-<p data-searchable>Entrada pública <code>diferenca</code> da superfície <code>coral.datas</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>datetime</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>converter_fuso(valor: datetime, fuso: str \| tzinfo) -&gt; datetime</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="diferenca-2" data-searchable><code>diferenca</code></h4>
+<p data-searchable>Calcular duração.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>final</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>inicial</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>final</code></td><td data-searchable>Valor correspondente a final.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inicial</code></td><td data-searchable>Valor correspondente a inicial.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>diferenca(final, inicial)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.datas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/datas.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="criptografia.html"><span>Anterior</span><strong>coral.criptografia</strong></a><a class="docs-page-nav-link next" href="entrada.html"><span>Próxima</span><strong>coral.entrada</strong></a></nav>
   </main>

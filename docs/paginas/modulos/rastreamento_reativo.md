@@ -98,57 +98,143 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Classes e protocolos
 
-#### `EntradaRastreamentoReativo(sequencia: int | None, instante: float | None, tipo: str, nome: str, decisao: str, causa_sequencia: int | None = None, prioridade: int | None = None, condicao: str | None = None, resultado_condicao: bool | None = None, detalhes: Mapping[str, Any] = field(default_factory=dict))`
+#### `EntradaRastreamentoReativo`
 
-Entrada pública `EntradaRastreamentoReativo` da superfície `coral.rastreamento_reativo`.
+Representa registro estruturado.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `sequencia` | Valor correspondente a sequencia. | `int \| None` | obrigatório |
+| `instante` | Valor correspondente a instante. | `float \| None` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `decisao` | Valor correspondente a decisao. | `str` | obrigatório |
+| `causa_sequencia` | Valor correspondente a causa sequencia. | `int \| None` | `None` |
+| `prioridade` | Valor correspondente a prioridade. | `int \| None` | `None` |
+| `condicao` | Valor correspondente a condicao. | `str \| None` | `None` |
+| `resultado_condicao` | Valor correspondente a resultado condicao. | `bool \| None` | `None` |
+| `detalhes` | Valor correspondente a detalhes. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `sequencia` | Valor correspondente a sequencia. | `int \| None` | obrigatório |
+| `instante` | Valor correspondente a instante. | `float \| None` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `decisao` | Valor correspondente a decisao. | `str` | obrigatório |
+| `causa_sequencia` | Valor correspondente a causa sequencia. | `int \| None` | `None` |
+| `prioridade` | Valor correspondente a prioridade. | `int \| None` | `None` |
+| `condicao` | Valor correspondente a condicao. | `str \| None` | `None` |
+| `resultado_condicao` | Valor correspondente a resultado condicao. | `bool \| None` | `None` |
+| `detalhes` | Valor correspondente a detalhes. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `sequencia` | `int \| None` | obrigatório |
-| `instante` | `float \| None` | obrigatório |
-| `tipo` | `str` | obrigatório |
-| `nome` | `str` | obrigatório |
-| `decisao` | `str` | obrigatório |
-| `causa_sequencia` | `int \| None` | `None` |
-| `prioridade` | `int \| None` | `None` |
-| `condicao` | `str \| None` | `None` |
-| `resultado_condicao` | `bool \| None` | `None` |
-| `detalhes` | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `como_dict` | Representa o valor como dict. | `dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `como_dict` | método | `como_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
+**Assinatura:** `EntradaRastreamentoReativo(sequencia: int \| None, instante: float \| None, tipo: str, nome: str, decisao: str, causa_sequencia: int \| None = None, prioridade: int \| None = None, condicao: str \| None = None, resultado_condicao: bool \| None = None, detalhes: Mapping[str, Any] = field(default_factory=dict))`
 
-#### `RastreamentoReativo(modo: str = 'desligado')`
+**Origem da implementação:** `coral.rastreamento_reativo`
 
-Entrada pública `RastreamentoReativo` da superfície `coral.rastreamento_reativo`.
+**Arquivo na release:** `coral/rastreamento_reativo.py`
 
-**Métodos e propriedades públicas**
+**Assinaturas de métodos e propriedades**
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `historico` | propriedade | `historico() -> tuple[EntradaRastreamentoReativo, ...]` | `tuple[EntradaRastreamentoReativo, ...]` | Sem docstring própria na release. |
-| `limpar` | método | `limpar() -> None` | `None` | Sem docstring própria na release. |
-| `registrar` | método | `registrar(*, sequencia: int \| None, instante: float \| None, tipo: str, nome: str, decisao: str, causa_sequencia: int \| None = None, prioridade: int \| None = None, condicao: str \| None = None, resultado_condicao: bool \| None = None, detalhes: Mapping[str, Any] \| None = None) -> EntradaRastreamentoReativo \| None` | `EntradaRastreamentoReativo \| None` | Sem docstring própria na release. |
-| `como_dados` | método | `como_dados() -> list[dict[str, Any]]` | `list[dict[str, Any]]` | Sem docstring própria na release. |
-| `resumo_texto` | método | `resumo_texto() -> str` | `str` | Sem docstring própria na release. |
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `como_dict` | método | `como_dict() -> dict[str, Any]` |
+
+:::
+
+#### `RastreamentoReativo`
+
+Representa RastreamentoReativo na API de `coral.rastreamento_reativo`.
+
+**Exemplo**
+
+```coral
+de coral.rastreamento_reativo importe RastreamentoReativo
+
+defina rastreamento como RastreamentoReativo("resumo")
+mostre rastreamento
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `modo` | Valor correspondente a modo. | `str` | `'desligado'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `historico` | Obtém historico. | `tuple[EntradaRastreamentoReativo, ...]` |
+| `limpar` | Limpa o valor solicitado. | `None` |
+| `registrar` | Registra o valor solicitado. | `EntradaRastreamentoReativo \| None` |
+| `como_dados` | Representa o valor como dados. | `list[dict[str, Any]]` |
+| `resumo_texto` | Executa a operação `resumo_texto` disponibilizada por `coral.rastreamento_reativo`. | `str` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `RastreamentoReativo(modo: str = 'desligado')`
+
+**Origem da implementação:** `coral.rastreamento_reativo`
+
+**Arquivo na release:** `coral/rastreamento_reativo.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `historico` | propriedade | `historico() -> tuple[EntradaRastreamentoReativo, ...]` |
+| `limpar` | método | `limpar() -> None` |
+| `registrar` | método | `registrar(*, sequencia: int \| None, instante: float \| None, tipo: str, nome: str, decisao: str, causa_sequencia: int \| None = None, prioridade: int \| None = None, condicao: str \| None = None, resultado_condicao: bool \| None = None, detalhes: Mapping[str, Any] \| None = None) -> EntradaRastreamentoReativo \| None` |
+| `como_dados` | método | `como_dados() -> list[dict[str, Any]]` |
+| `resumo_texto` | método | `resumo_texto() -> str` |
+
+:::
 
 ### Exceções
 
-#### `ErroCicloReativo(...)`
+#### `ErroCicloReativo`
 
 O ciclo reativo excedeu o limite seguro configurado.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroCicloReativo(...)`
+
+**Origem da implementação:** `coral.rastreamento_reativo`
+
+**Arquivo na release:** `coral/rastreamento_reativo.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `MODOS_RASTREAMENTO`
 
-Constante pública do módulo.
+Expõe a constante pública `MODOS_RASTREAMENTO`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `MODOS_RASTREAMENTO`
+
+**Origem da implementação:** `coral.rastreamento_reativo`
+
+**Arquivo na release:** `coral/rastreamento_reativo.py`
 
 **Valor declarado:** `frozenset({'desligado', 'resumido', 'detalhado'})`
+
+:::
 
 <!-- /AUTO:API -->

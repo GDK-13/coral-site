@@ -181,299 +181,423 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="ler-texto-caminho-codificacao-utf-8" data-searchable><code>ler_texto(caminho, codificacao = 'utf-8')</code></h4>
-<p data-searchable>Entrada pública <code>ler_texto</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<h4 id="ler-texto" data-searchable><code>ler_texto</code></h4>
+<p data-searchable>Lê o conteúdo textual de um arquivo.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
+<span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> conteudo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="escrever-texto-caminho-texto-codificacao-utf-8" data-searchable><code>escrever_texto(caminho, texto, codificacao = 'utf-8')</code></h4>
-<p data-searchable>Entrada pública <code>escrever_texto</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o texto lido.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_texto(caminho, codificacao = 'utf-8')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="escrever-texto" data-searchable><code>escrever_texto</code></h4>
+<p data-searchable>Escreve texto em um arquivo, substituindo o conteúdo anterior.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">mostre</span> caminho_texto
+
+execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
+<span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> conteudo</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="adicionar-texto-caminho-texto-codificacao-utf-8" data-searchable><code>adicionar_texto(caminho, texto, codificacao = 'utf-8')</code></h4>
-<p data-searchable>Entrada pública <code>adicionar_texto</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escrever_texto(caminho, texto, codificacao = 'utf-8')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="adicionar-texto" data-searchable><code>adicionar_texto</code></h4>
+<p data-searchable>Acrescenta texto ao final de um arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>texto</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>codificacao</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="ler-bytes-caminho-bytes" data-searchable><code>ler_bytes(caminho) -&gt; bytes</code></h4>
-<p data-searchable>Entrada pública <code>ler_bytes</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>adicionar_texto(caminho, texto, codificacao = 'utf-8')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="ler-bytes" data-searchable><code>ler_bytes</code></h4>
+<p data-searchable>Lê o conteúdo binário de um arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bytes</code></p>
-<h4 id="escrever-bytes-caminho-dados-none" data-searchable><code>escrever_bytes(caminho, dados) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>escrever_bytes</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna os bytes lidos.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_bytes(caminho) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="escrever-bytes" data-searchable><code>escrever_bytes</code></h4>
+<p data-searchable>Escreve dados binários em um arquivo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>TypeError</code></p>
-<h4 id="existe-caminho" data-searchable><code>existe(caminho)</code></h4>
-<p data-searchable>Entrada pública <code>existe</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escrever_bytes(caminho, dados) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="existe" data-searchable><code>existe</code></h4>
+<p data-searchable>Verifica se o caminho indicado existe.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="listar-caminho" data-searchable><code>listar(caminho = '.')</code></h4>
-<p data-searchable>Entrada pública <code>listar</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor lógico que indica o resultado da verificação.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>existe(caminho)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="listar" data-searchable><code>listar</code></h4>
+<p data-searchable>Lista os itens do diretório indicado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="listar-recursivo-caminho-profundidade-int-none-none-incluir-pastas-bool-false" data-searchable><code>listar_recursivo(caminho = '.', *, profundidade: int | None = None, incluir_pastas: bool = False)</code></h4>
-<p data-searchable>Entrada pública <code>listar_recursivo</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>listar(caminho = '.')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="listar-recursivo" data-searchable><code>listar_recursivo</code></h4>
+<p data-searchable>Lista o conteúdo de um diretório incluindo subdiretórios.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td></tr>
+<tr><td data-searchable><code>profundidade</code></td><td data-searchable>Valor correspondente a profundidade.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>incluir_pastas</code></td><td data-searchable>Controla se deve incluir pastas.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>listar_recursivo(caminho = '.', *, profundidade: int \| None = None, incluir_pastas: bool = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'.'</code></td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>profundidade</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>incluir_pastas</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>profundidade</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>incluir_pastas</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ValueError</code>, <code>_erro_arquivo_em_portugues</code></p>
-<h4 id="criar-pasta-caminho" data-searchable><code>criar_pasta(caminho)</code></h4>
-<p data-searchable>Entrada pública <code>criar_pasta</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>_erro_arquivo_em_portugues</code></p></div></details>
+<h4 id="criar-pasta" data-searchable><code>criar_pasta</code></h4>
+<p data-searchable>Cria pasta.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<h4 id="remover-caminho-recursivo-bool-false-none" data-searchable><code>remover(caminho, *, recursivo: bool = False) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>remover</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_pasta(caminho)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="remover" data-searchable><code>remover</code></h4>
+<p data-searchable>Remove o valor solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable>Valor correspondente a recursivo.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>remover(caminho, *, recursivo: bool = False) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>recursivo</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>None</code></p>
-<h4 id="renomear-caminho-destino-path" data-searchable><code>renomear(caminho, destino) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>renomear</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="renomear" data-searchable><code>renomear</code></h4>
+<p data-searchable>Renomeia o valor solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="copiar-caminho-destino-recursivo-bool-false-path" data-searchable><code>copiar(caminho, destino, *, recursivo: bool = False) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>copiar</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>renomear(caminho, destino) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="copiar" data-searchable><code>copiar</code></h4>
+<p data-searchable>Copia o valor solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable>Valor correspondente a recursivo.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>copiar(caminho, destino, *, recursivo: bool = False) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>recursivo</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>recursivo</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>IsADirectoryError</code></p>
-<h4 id="mover-caminho-destino-path" data-searchable><code>mover(caminho, destino) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>mover</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>IsADirectoryError</code></p></div></details>
+<h4 id="mover" data-searchable><code>mover</code></h4>
+<p data-searchable>Move o valor solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>destino</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="tamanho-caminho-int" data-searchable><code>tamanho(caminho) -&gt; int</code></h4>
-<p data-searchable>Entrada pública <code>tamanho</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mover(caminho, destino) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="tamanho" data-searchable><code>tamanho</code></h4>
+<p data-searchable>Obtém o tamanho do recurso indicado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>int</code></p>
-<h4 id="metadados-caminho-dict-str-any" data-searchable><code>metadados(caminho) -&gt; dict[str, Any]</code></h4>
-<p data-searchable>Entrada pública <code>metadados</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>int</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tamanho(caminho) -&gt; int</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="metadados" data-searchable><code>metadados</code></h4>
+<p data-searchable>Obtém metadados do arquivo ou diretório indicado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>dict[str, Any]</code></p>
-<h4 id="arquivo-temporario-prefixo-coral-sufixo-pasta-none-path" data-searchable><code>arquivo_temporario(*, prefixo = 'coral_', sufixo = '', pasta = None) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>arquivo_temporario</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>metadados(caminho) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="arquivo-temporario" data-searchable><code>arquivo_temporario</code></h4>
+<p data-searchable>Cria um arquivo temporário e retorna seu caminho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable>Valor correspondente a prefixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td></tr>
+<tr><td data-searchable><code>sufixo</code></td><td data-searchable>Valor correspondente a sufixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>Valor correspondente a pasta.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>arquivo_temporario(*, prefixo = 'coral_', sufixo = '', pasta = None) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>prefixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>sufixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>''</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>pasta</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="pasta-temporaria-prefixo-coral-pasta-none-path" data-searchable><code>pasta_temporaria(*, prefixo = 'coral_', pasta = None) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>pasta_temporaria</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>sufixo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="pasta-temporaria" data-searchable><code>pasta_temporaria</code></h4>
+<p data-searchable>Cria uma pasta temporária e retorna seu caminho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable>Valor correspondente a prefixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>Valor correspondente a pasta.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>pasta_temporaria(*, prefixo = 'coral_', pasta = None) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>prefixo</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'coral_'</code></td><td data-searchable>nomeado</td></tr>
-<tr><td data-searchable><code>pasta</code></td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="nome-caminho-str" data-searchable><code>nome(caminho) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>nome</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<tr><td data-searchable><code>prefixo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>pasta</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="nome" data-searchable><code>nome</code></h4>
+<p data-searchable>Obtém o nome final do caminho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="extensao-caminho-str" data-searchable><code>extensao(caminho) -&gt; str</code></h4>
-<p data-searchable>Entrada pública <code>extensao</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>nome(caminho) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="extensao" data-searchable><code>extensao</code></h4>
+<p data-searchable>Obtém a extensão do caminho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>str</code></p>
-<h4 id="pai-caminho-path" data-searchable><code>pai(caminho) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>pai</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>extensao(caminho) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="pai" data-searchable><code>pai</code></h4>
+<p data-searchable>Obtém pai.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
-<h4 id="resolver-caminho-estrito-bool-false-path" data-searchable><code>resolver(caminho, *, estrito: bool = False) -&gt; Path</code></h4>
-<p data-searchable>Entrada pública <code>resolver</code> da superfície <code>coral.arquivos</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>pai(caminho) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="resolver" data-searchable><code>resolver</code></h4>
+<p data-searchable>Resolve o valor solicitado.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estrito</code></td><td data-searchable>Valor correspondente a estrito.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resolver(caminho, *, estrito: bool = False) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>estrito</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td><td data-searchable>nomeado</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Path</code></p>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>estrito</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="aleatorio.html"><span>Anterior</span><strong>coral.aleatorio</strong></a><a class="docs-page-nav-link next" href="assincrono.html"><span>Próxima</span><strong>coral.assincrono</strong></a></nav>
   </main>

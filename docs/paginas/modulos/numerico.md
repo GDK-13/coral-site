@@ -127,321 +127,646 @@ A parte determinística do módulo deve receber dados já preparados. Se a gera�
 
 ### Funções
 
-#### `numpy_disponivel() -> bool`
+#### `numpy_disponivel`
 
-Entrada pública `numpy_disponivel` da superfície `coral.numerico`.
+Descobrir se a capacidade NumPy está disponível.
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `diagnosticar_numerico() -> dict[str, Any]`
+Retorna um valor lógico que indica o resultado da verificação.
 
-Entrada pública `diagnosticar_numerico` da superfície `coral.numerico`.
+:::details Detalhes técnicos
 
-**Retorno:** `dict[str, Any]`
+**Assinatura:** `numpy_disponivel() -> bool`
 
-#### `vetor(valores: Iterable[Any], tipo: Any | None = None)`
+**Origem da implementação:** `coral.numerico`
 
-Entrada pública `vetor` da superfície `coral.numerico`.
+**Arquivo na release:** `coral/numerico.py`
 
-**Parâmetros**
+:::
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `valores` | `Iterable[Any]` | obrigatório | posicional |
-| `tipo` | `Any \| None` | `None` | posicional |
+#### `diagnosticar_numerico`
 
-**Retorno:** `não declarado`
+Obter diagnóstico estruturado.
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+**Retorno**
 
-#### `matriz(linhas: Iterable[Iterable[Any]], tipo: Any | None = None)`
+Retorna um valor declarado como `dict[str, Any]`.
 
-Entrada pública `matriz` da superfície `coral.numerico`.
+:::details Detalhes técnicos
 
-**Parâmetros**
+**Assinatura:** `diagnosticar_numerico() -> dict[str, Any]`
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `linhas` | `Iterable[Iterable[Any]]` | obrigatório | posicional |
-| `tipo` | `Any \| None` | `None` | posicional |
+**Origem da implementação:** `coral.numerico`
 
-**Retorno:** `não declarado`
+**Arquivo na release:** `coral/numerico.py`
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+:::
 
-#### `zeros(forma, tipo = float)`
+#### `vetor`
 
-Entrada pública `zeros` da superfície `coral.numerico`.
+Construir vetor.
 
-**Parâmetros**
+**Exemplo**
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `forma` | `não declarado` | obrigatório | posicional |
-| `tipo` | `não declarado` | `float` | posicional |
-
-**Retorno:** `não declarado`
-
-**Exceções observáveis no corpo:** `ErroNumerico`
-
-#### `uns(forma, tipo = float)`
-
-Entrada pública `uns` da superfície `coral.numerico`.
+```coral
+defina relatorio como ler_json(caminho)
+    defina tempos como [medicao["tempo_segundos"] para cada medicao em relatorio["medicoes"] se medicao["erro"] for igual a nada]
+    crie um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
+    calcule o desvio padrão de serie como desvio_serie
+    retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `forma` | `não declarado` | obrigatório | posicional |
-| `tipo` | `não declarado` | `float` | posicional |
+| `valores` | Coleção de valores processada. | `Iterable[Any]` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `Any \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o vetor criado.
 
-#### `intervalo(inicio, fim = None, passo = 1, tipo = None)`
+:::details Detalhes técnicos
 
-Entrada pública `intervalo` da superfície `coral.numerico`.
+**Assinatura:** `vetor(valores: Iterable[Any], tipo: Any \| None = None)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `matriz`
+
+Construir matriz.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `inicio` | `não declarado` | obrigatório | posicional |
-| `fim` | `não declarado` | `None` | posicional |
-| `passo` | `não declarado` | `1` | posicional |
-| `tipo` | `não declarado` | `None` | posicional |
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `Iterable[Iterable[Any]]` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `Any \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna a matriz criada.
 
-#### `espaco_linear(inicio, fim, quantidade = 50)`
+:::details Detalhes técnicos
 
-Entrada pública `espaco_linear` da superfície `coral.numerico`.
+**Assinatura:** `matriz(linhas: Iterable[Iterable[Any]], tipo: Any \| None = None)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `zeros`
+
+Cria uma estrutura numérica preenchida com zeros.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `inicio` | `não declarado` | obrigatório | posicional |
-| `fim` | `não declarado` | obrigatório | posicional |
-| `quantidade` | `não declarado` | `50` | posicional |
+| `forma` | Forma ou dimensões da estrutura a criar. | `não declarado` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `não declarado` | `float` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna a estrutura preenchida com zeros.
 
-#### `soma(valores)`
+:::details Detalhes técnicos
 
-Entrada pública `soma` da superfície `coral.numerico`.
+**Assinatura:** `zeros(forma, tipo = float)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `uns`
+
+Cria uma estrutura numérica preenchida com uns.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `forma` | Forma ou dimensões da estrutura a criar. | `não declarado` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `não declarado` | `float` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `media(valores)`
+Retorna a estrutura preenchida com uns.
 
-Entrada pública `media` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `uns(forma, tipo = float)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `intervalo`
+
+Cria uma sequência numérica definida por início, fim e passo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `inicio` | Valor inicial do intervalo ou processo. | `não declarado` | obrigatório |
+| `fim` | Valor final do intervalo ou processo. | `não declarado` | `None` |
+| `passo` | Incremento aplicado entre valores sucessivos. | `não declarado` | `1` |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `não declarado` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `mediana(valores)`
+Retorna a sequência numérica criada.
 
-Entrada pública `mediana` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `intervalo(inicio, fim = None, passo = 1, tipo = None)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `espaco_linear`
+
+Cria valores igualmente espaçados entre dois limites.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `inicio` | Valor inicial do intervalo ou processo. | `não declarado` | obrigatório |
+| `fim` | Valor final do intervalo ou processo. | `não declarado` | obrigatório |
+| `quantidade` | Quantidade de itens solicitada. | `não declarado` | `50` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `variancia(valores, populacional = True)`
+Retorna a sequência de valores igualmente espaçados.
 
-Entrada pública `variancia` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `espaco_linear(inicio, fim, quantidade = 50)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `soma`
+
+Calcula a soma dos valores.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `populacional` | `não declarado` | `True` | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado da soma.
 
-#### `desvio_padrao(valores, populacional = True)`
+:::details Detalhes técnicos
 
-Entrada pública `desvio_padrao` da superfície `coral.numerico`.
+**Assinatura:** `soma(valores)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `media`
+
+Calcular média.
+
+**Exemplo**
+
+```coral
+calcule a média de serie como media_serie
+    calcule o desvio padrão de serie como desvio_serie
+    retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
+fim
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
-| `populacional` | `não declarado` | `True` | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna a média calculada.
 
-#### `minimo(valores)`
+:::details Detalhes técnicos
 
-Entrada pública `minimo` da superfície `coral.numerico`.
+**Assinatura:** `media(valores)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `mediana`
+
+Calcular mediana.
+
+**Exemplo**
+
+```coral
+calcule a média de serie como media_serie
+    calcule o desvio padrão de serie como desvio_serie
+    retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
+fim
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `maximo(valores)`
+Retorna a mediana calculada.
 
-Entrada pública `maximo` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `mediana(valores)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `variancia`
+
+Calcula a variância dos valores.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valores` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `populacional` | Valor correspondente a populacional. | `não declarado` | `True` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `transposta(valor)`
+Retorna a variância calculada.
 
-Entrada pública `transposta` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `variancia(valores, populacional = True)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `desvio_padrao`
+
+Calcular dispersão.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+| `populacional` | Valor correspondente a populacional. | `não declarado` | `True` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `produto_escalar(a, b)`
+Retorna o desvio padrão calculado.
 
-Entrada pública `produto_escalar` da superfície `coral.numerico`.
+:::details Detalhes técnicos
+
+**Assinatura:** `desvio_padrao(valores, populacional = True)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `minimo`
+
+Obtém o menor valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `a` | `não declarado` | obrigatório | posicional |
-| `b` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `multiplicar_matrizes(a, b)`
+:::details Detalhes técnicos
 
-Entrada pública `multiplicar_matrizes` da superfície `coral.numerico`.
+**Assinatura:** `minimo(valores)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `maximo`
+
+Obtém o maior valor.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `a` | `não declarado` | obrigatório | posicional |
-| `b` | `não declarado` | obrigatório | posicional |
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `determinante(m)`
+:::details Detalhes técnicos
 
-Entrada pública `determinante` da superfície `coral.numerico`.
+**Assinatura:** `maximo(valores)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `transposta`
+
+Obtém a matriz transposta.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `m` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `inversa(m)`
+:::details Detalhes técnicos
 
-Entrada pública `inversa` da superfície `coral.numerico`.
+**Assinatura:** `transposta(valor)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `produto_escalar`
+
+Combinar dois vetores.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `m` | `não declarado` | obrigatório | posicional |
+| `a` | Valor correspondente a a. | `não declarado` | obrigatório |
+| `b` | Valor correspondente a b. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `resolver_sistema(coeficientes, termos)`
+:::details Detalhes técnicos
 
-Entrada pública `resolver_sistema` da superfície `coral.numerico`.
+**Assinatura:** `produto_escalar(a, b)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `multiplicar_matrizes`
+
+Multiplica duas matrizes compatíveis.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `coeficientes` | `não declarado` | obrigatório | posicional |
-| `termos` | `não declarado` | obrigatório | posicional |
+| `a` | Valor correspondente a a. | `não declarado` | obrigatório |
+| `b` | Valor correspondente a b. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `autovalores(m)`
+:::details Detalhes técnicos
 
-Entrada pública `autovalores` da superfície `coral.numerico`.
+**Assinatura:** `multiplicar_matrizes(a, b)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `determinante`
+
+Medir determinante de matriz.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `m` | `não declarado` | obrigatório | posicional |
+| `m` | Valor correspondente a m. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroNumerico`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `forma(valor) -> tuple[int, ...]`
+:::details Detalhes técnicos
 
-Entrada pública `forma` da superfície `coral.numerico`.
+**Assinatura:** `determinante(m)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `inversa`
+
+Calcula a matriz inversa quando ela existe.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `m` | Valor correspondente a m. | `não declarado` | obrigatório |
 
-**Retorno:** `tuple[int, ...]`
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `inversa(m)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `resolver_sistema`
+
+Resolver sistema linear.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `coeficientes` | Valor correspondente a coeficientes. | `não declarado` | obrigatório |
+| `termos` | Valor correspondente a termos. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `resolver_sistema(coeficientes, termos)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `autovalores`
+
+Calcula os autovalores da matriz.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `m` | Valor correspondente a m. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `autovalores(m)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroNumerico`
+
+:::
+
+#### `forma`
+
+Obtém forma.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[int, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `forma(valor) -> tuple[int, ...]`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
 
 ### Exceções
 
-#### `DependenciaNumericaAusente(...)`
+#### `DependenciaNumericaAusente`
 
-Entrada pública `DependenciaNumericaAusente` da superfície `coral.numerico`.
+Representa a condição de erro DependenciaNumericaAusente.
 
-#### `ErroNumerico(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `DependenciaNumericaAusente(...)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
+
+#### `ErroNumerico`
 
 Erro público para entradas numéricas inválidas ou operações incompatíveis.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroNumerico(...)`
+
+**Origem da implementação:** `coral.numerico`
+
+**Arquivo na release:** `coral/numerico.py`
+
+:::
 
 <!-- /AUTO:API -->
 

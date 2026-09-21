@@ -107,213 +107,393 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `agora(fuso: str | tzinfo | None = None)`
+#### `agora`
 
-Entrada pública `agora` da superfície `coral.datas`.
+Obtém o instante civil atual.
 
-**Implementação:** `coral.stdlib.datas`
+**Exemplo**
 
-**Parâmetros**
+```coral
+de coral.datas importe agora, para_iso, horas
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `fuso` | `str \| tzinfo \| None` | `None` | posicional |
-
-**Retorno:** `não declarado`
-
-#### `hoje(fuso: str | tzinfo | None = None)`
-
-Entrada pública `hoje` da superfície `coral.datas`.
-
-**Implementação:** `coral.stdlib.datas`
+defina inicio como agora("UTC")
+mostre para_iso(inicio)
+defina intervalo como horas(2)
+mostre intervalo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `fuso` | `str \| tzinfo \| None` | `None` | posicional |
+| `fuso` | Valor correspondente a fuso. | `str \| tzinfo \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `dias(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `dias` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `agora(fuso: str \| tzinfo \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `hoje`
+
+Obtém a data civil atual.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `fuso` | Valor correspondente a fuso. | `str \| tzinfo \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `segundos(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `segundos` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `hoje(fuso: str \| tzinfo \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `dias`
+
+Construir duração.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `minutos(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `minutos` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `dias(valor)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `segundos`
+
+Cria uma duração expressa em segundos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `horas(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `horas` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `segundos(valor)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `minutos`
+
+Construir duração.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `semanas(valor)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `semanas` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `minutos(valor)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `horas`
+
+Construir duração.
+
+**Exemplo**
+
+```coral
+de coral.datas importe agora, para_iso, horas
+
+defina inicio como agora("UTC")
+mostre para_iso(inicio)
+defina intervalo como horas(2)
+mostre intervalo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `formatar(valor, formato = '%d/%m/%Y')`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `formatar` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `horas(valor)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `semanas`
+
+Cria uma duração expressa em semanas.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `formato` | `não declarado` | `'%d/%m/%Y'` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `analisar(texto: str, formato: str | None = None)`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `analisar` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `semanas(valor)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `formatar`
+
+Formata o valor usando a representação solicitada.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `str` | obrigatório | posicional |
-| `formato` | `str \| None` | `None` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'%d/%m/%Y'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `de_iso(texto: str)`
+:::details Detalhes técnicos
 
-Entrada pública `de_iso` da superfície `coral.datas`.
+**Assinatura:** `formatar(valor, formato = '%d/%m/%Y')`
 
-**Implementação:** `coral.stdlib.datas`
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `analisar`
+
+Interpreta o texto e produz o valor correspondente.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `str` | obrigatório | posicional |
+| `texto` | Texto processado pela operação. | `str` | obrigatório |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `str \| None` | `None` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-#### `para_iso(valor, *, vezespec = 'auto') -> str`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `para_iso` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `analisar(texto: str, formato: str \| None = None)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `de_iso`
+
+Interpreta ou reconstrói um valor a partir de iso.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `não declarado` | obrigatório | posicional |
-| `vezespec` | `não declarado` | `'auto'` | nomeado |
+| `texto` | Texto processado pela operação. | `str` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `fuso_horario(nome: str = 'UTC') -> tzinfo`
+:::details Detalhes técnicos
 
-Entrada pública `fuso_horario` da superfície `coral.datas`.
+**Assinatura:** `de_iso(texto: str)`
 
-**Implementação:** `coral.stdlib.datas`
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `para_iso`
+
+Converte o valor para iso.
+
+**Exemplo**
+
+```coral
+de coral.datas importe agora, para_iso, horas
+
+defina inicio como agora("UTC")
+mostre para_iso(inicio)
+defina intervalo como horas(2)
+mostre intervalo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `nome` | `str` | `'UTC'` | posicional |
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `vezespec` | Valor correspondente a vezespec. | `não declarado` | `'auto'` |
 
-**Retorno:** `tzinfo`
+**Retorno**
 
-#### `converter_fuso(valor: datetime, fuso: str | tzinfo) -> datetime`
+Retorna um valor declarado como `str`.
 
-Entrada pública `converter_fuso` da superfície `coral.datas`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.datas`
+**Assinatura:** `para_iso(valor, *, vezespec = 'auto') -> str`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `valor` | posicional |
+| `vezespec` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `fuso_horario`
+
+Obter fuso.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `datetime` | obrigatório | posicional |
-| `fuso` | `str \| tzinfo` | obrigatório | posicional |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'UTC'` |
 
-**Retorno:** `datetime`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`, `ValueError`
+Retorna um valor declarado como `tzinfo`.
 
-#### `diferenca(final, inicial)`
+:::details Detalhes técnicos
 
-Entrada pública `diferenca` da superfície `coral.datas`.
+**Assinatura:** `fuso_horario(nome: str = 'UTC') -> tzinfo`
 
-**Implementação:** `coral.stdlib.datas`
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+:::
+
+#### `converter_fuso`
+
+Converter fuso.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `final` | `não declarado` | obrigatório | posicional |
-| `inicial` | `não declarado` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `datetime` | obrigatório |
+| `fuso` | Valor correspondente a fuso. | `str \| tzinfo` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna um valor declarado como `datetime`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `converter_fuso(valor: datetime, fuso: str \| tzinfo) -> datetime`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `diferenca`
+
+Calcular duração.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `final` | Valor correspondente a final. | `não declarado` | obrigatório |
+| `inicial` | Valor correspondente a inicial. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `diferenca(final, inicial)`
+
+**Origem da implementação:** `coral.stdlib.datas`
+
+**Arquivo na release:** `coral/stdlib/datas.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
 
 <!-- /AUTO:API -->

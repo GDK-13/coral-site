@@ -116,130 +116,277 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `resumir(dados, algoritmo = 'sha256', formato = 'hex')`
+#### `resumir`
 
-Entrada pública `resumir` da superfície `coral.criptografia`.
+Calcula um resumo criptográfico dos dados usando o algoritmo solicitado.
 
-**Parâmetros**
+**Exemplo**
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `algoritmo` | `não declarado` | `'sha256'` | posicional |
-| `formato` | `não declarado` | `'hex'` | posicional |
-
-**Retorno:** `não declarado`
-
-#### `verificar_resumo(dados, esperado, algoritmo = 'sha256', formato = 'hex') -> bool`
-
-Entrada pública `verificar_resumo` da superfície `coral.criptografia`.
+```coral
+defina mensagem como "Coral"
+defina codificado como para_base64(mensagem.encode("utf-8"))
+defina resumo como resumir(mensagem, "sha256")
+defina token como gerar_token_seguro(16, "hex")
+defina chave como "chave de exemplo"
+defina etiqueta como autenticar(mensagem, chave, "sha256")
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `esperado` | `não declarado` | obrigatório | posicional |
-| `algoritmo` | `não declarado` | `'sha256'` | posicional |
-| `formato` | `não declarado` | `'hex'` | posicional |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `algoritmo` | Valor correspondente a algoritmo. | `não declarado` | `'sha256'` |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'hex'` |
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `autenticar(dados, chave, algoritmo = 'sha256', formato = 'hex')`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `autenticar` da superfície `coral.criptografia`.
+:::details Detalhes técnicos
+
+**Assinatura:** `resumir(dados, algoritmo = 'sha256', formato = 'hex')`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+:::
+
+#### `verificar_resumo`
+
+Verificar hash.
+
+**Exemplo**
+
+```coral
+defina etiqueta como autenticar(mensagem, chave, "sha256")
+
+garanta que verificar_resumo(mensagem, resumo)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `chave` | `não declarado` | obrigatório | posicional |
-| `algoritmo` | `não declarado` | `'sha256'` | posicional |
-| `formato` | `não declarado` | `'hex'` | posicional |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `esperado` | Valor correspondente a esperado. | `não declarado` | obrigatório |
+| `algoritmo` | Valor correspondente a algoritmo. | `não declarado` | `'sha256'` |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'hex'` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`
+Retorna um valor declarado como `bool`.
 
-#### `verificar_autenticacao(dados, chave, esperado, algoritmo = 'sha256', formato = 'hex') -> bool`
+:::details Detalhes técnicos
 
-Entrada pública `verificar_autenticacao` da superfície `coral.criptografia`.
+**Assinatura:** `verificar_resumo(dados, esperado, algoritmo = 'sha256', formato = 'hex') -> bool`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+:::
+
+#### `autenticar`
+
+Calcula um código de autenticação para os dados usando uma chave.
+
+**Exemplo**
+
+```coral
+defina token como gerar_token_seguro(16, "hex")
+defina chave como "chave de exemplo"
+defina etiqueta como autenticar(mensagem, chave, "sha256")
+
+garanta que verificar_resumo(mensagem, resumo)
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `chave` | `não declarado` | obrigatório | posicional |
-| `esperado` | `não declarado` | obrigatório | posicional |
-| `algoritmo` | `não declarado` | `'sha256'` | posicional |
-| `formato` | `não declarado` | `'hex'` | posicional |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `chave` | Chave usada para localizar ou identificar um valor. | `não declarado` | obrigatório |
+| `algoritmo` | Valor correspondente a algoritmo. | `não declarado` | `'sha256'` |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'hex'` |
 
-**Retorno:** `bool`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `gerar_bytes_seguros(quantidade = 32) -> bytes`
+:::details Detalhes técnicos
 
-Entrada pública `gerar_bytes_seguros` da superfície `coral.criptografia`.
+**Assinatura:** `autenticar(dados, chave, algoritmo = 'sha256', formato = 'hex')`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`
+
+:::
+
+#### `verificar_autenticacao`
+
+Verificar HMAC.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `quantidade` | `não declarado` | `32` | posicional |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `chave` | Chave usada para localizar ou identificar um valor. | `não declarado` | obrigatório |
+| `esperado` | Valor correspondente a esperado. | `não declarado` | obrigatório |
+| `algoritmo` | Valor correspondente a algoritmo. | `não declarado` | `'sha256'` |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'hex'` |
 
-**Retorno:** `bytes`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`
+Retorna um valor declarado como `bool`.
 
-#### `gerar_token_seguro(bytes_de_entropia = 32, formato = 'url')`
+:::details Detalhes técnicos
 
-Entrada pública `gerar_token_seguro` da superfície `coral.criptografia`.
+**Assinatura:** `verificar_autenticacao(dados, chave, esperado, algoritmo = 'sha256', formato = 'hex') -> bool`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`
+
+:::
+
+#### `gerar_bytes_seguros`
+
+Gera bytes aleatórios adequados a usos criptográficos.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `bytes_de_entropia` | `não declarado` | `32` | posicional |
-| `formato` | `não declarado` | `'url'` | posicional |
+| `quantidade` | Quantidade de itens solicitada. | `não declarado` | `32` |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroFormato`, `ErroValor`
+Retorna um valor declarado como `bytes`.
 
-#### `comparar_com_seguranca(primeiro, segundo) -> bool`
+:::details Detalhes técnicos
 
-Entrada pública `comparar_com_seguranca` da superfície `coral.criptografia`.
+**Assinatura:** `gerar_bytes_seguros(quantidade = 32) -> bytes`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`
+
+:::
+
+#### `gerar_token_seguro`
+
+Gera um token textual aleatório adequado a usos criptográficos.
+
+**Exemplo**
+
+```coral
+defina codificado como para_base64(mensagem.encode("utf-8"))
+defina resumo como resumir(mensagem, "sha256")
+defina token como gerar_token_seguro(16, "hex")
+defina chave como "chave de exemplo"
+defina etiqueta como autenticar(mensagem, chave, "sha256")
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `primeiro` | `não declarado` | obrigatório | posicional |
-| `segundo` | `não declarado` | obrigatório | posicional |
+| `bytes_de_entropia` | Valor correspondente a bytes de entropia. | `não declarado` | `32` |
+| `formato` | Formato usado para interpretar ou produzir o valor. | `não declarado` | `'url'` |
 
-**Retorno:** `bool`
+**Retorno**
 
-#### `listar_algoritmos() -> list[str]`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-Entrada pública `listar_algoritmos` da superfície `coral.criptografia`.
+:::details Detalhes técnicos
 
-**Retorno:** `list[str]`
+**Assinatura:** `gerar_token_seguro(bytes_de_entropia = 32, formato = 'url')`
 
-#### `explicar_algoritmo(nome) -> dict[str, Any]`
+**Origem da implementação:** `coral.criptografia`
 
-Entrada pública `explicar_algoritmo` da superfície `coral.criptografia`.
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroFormato`, `ErroValor`
+
+:::
+
+#### `comparar_com_seguranca`
+
+Compara valores sensíveis usando uma comparação apropriada para material criptográfico.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `nome` | `não declarado` | obrigatório | posicional |
+| `primeiro` | Valor correspondente a primeiro. | `não declarado` | obrigatório |
+| `segundo` | Valor correspondente a segundo. | `não declarado` | obrigatório |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`
+Retorna um valor declarado como `bool`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `comparar_com_seguranca(primeiro, segundo) -> bool`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+:::
+
+#### `listar_algoritmos`
+
+Lista algoritmos.
+
+**Retorno**
+
+Retorna um valor declarado como `list[str]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `listar_algoritmos() -> list[str]`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+:::
+
+#### `explicar_algoritmo`
+
+Retorna uma explicação do algoritmo criptográfico solicitado.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `explicar_algoritmo(nome) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.criptografia`
+
+**Arquivo na release:** `coral/criptografia/__init__.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`
+
+:::
 
 <!-- /AUTO:API -->

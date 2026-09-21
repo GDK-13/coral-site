@@ -195,440 +195,961 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <p data-searchable>O modelo de mundo é independente de Pygame e pode ser exercitado headless. Prefira testar caminhos, travessia, relações e regiões diretamente antes de adicionar apresentação.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="criar-mundo-nome-str-mundo-mundo" data-searchable><code>criar_mundo(nome: str = 'mundo') -&gt; Mundo</code></h4>
-<p data-searchable>Entrada pública <code>criar_mundo</code> da superfície <code>coral.mundo</code>.</p>
+<h4 id="criar-mundo" data-searchable><code>criar_mundo</code></h4>
+<p data-searchable>Criar mundo via API.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'mundo'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Mundo</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_mundo(nome: str = 'mundo') -&gt; Mundo</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.mundo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/mundo.py</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="mundo" data-searchable><code>Mundo</code></h4>
+<p data-searchable>Mundo leve para jogos, RPGs e simulações Coral.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'mundo'</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Relógio usado para controlar tempo ou atualização.</td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>entidades</code></td><td data-searchable>Obtém entidades.</td><td data-searchable><code>tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>relacoes</code></td><td data-searchable>Obtém relacoes.</td><td data-searchable><code>tuple[Relacao, ...]</code></td></tr>
+<tr><td data-searchable><code>mapas</code></td><td data-searchable>Obtém mapas.</td><td data-searchable><code>tuple[Mapa, ...]</code></td></tr>
+<tr><td data-searchable><code>adicionar_mapa</code></td><td data-searchable>Adiciona mapa.</td><td data-searchable><code>Mapa</code></td></tr>
+<tr><td data-searchable><code>criar_mapa</code></td><td data-searchable>Cria mapa.</td><td data-searchable><code>Mapa</code></td></tr>
+<tr><td data-searchable><code>buscar_mapa</code></td><td data-searchable>Procura mapa e devolve o resultado quando encontrado.</td><td data-searchable><code>Mapa | None</code></td></tr>
+<tr><td data-searchable><code>exigir_mapa</code></td><td data-searchable>Obtém mapa e sinaliza falha quando ele não está disponível.</td><td data-searchable><code>Mapa</code></td></tr>
+<tr><td data-searchable><code>remover_mapa</code></td><td data-searchable>Remove mapa.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>observar_regioes_mapa</code></td><td data-searchable>Observa regioes mapa.</td><td data-searchable><code>ObservadorRegiaoMapa</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Entidade</code></td></tr>
+<tr><td data-searchable><code>criar_entidade</code></td><td data-searchable>Cria entidade.</td><td data-searchable><code>Entidade</code></td></tr>
+<tr><td data-searchable><code>buscar</code></td><td data-searchable>Executa a operação <code>buscar</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>Entidade | None</code></td></tr>
+<tr><td data-searchable><code>exigir</code></td><td data-searchable>Executa a operação <code>exigir</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>Entidade</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>Remove o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>relacionar</code></td><td data-searchable>Relaciona o valor solicitado.</td><td data-searchable><code>Relacao</code></td></tr>
+<tr><td data-searchable><code>remover_relacao</code></td><td data-searchable>Remove relacao.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>relacionados</code></td><td data-searchable>Executa a operação <code>relacionados</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Executa a operação <code>caminho</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>com_tag</code></td><td data-searchable>Executa a operação <code>com_tag</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar_por_relogio</code></td><td data-searchable>Atualiza por relogio.</td><td data-searchable><code>tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>emitir</code></td><td data-searchable>Emite o valor solicitado.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>Emite evento.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>Enfileira evento.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>processar_eventos</code></td><td data-searchable>Processa eventos.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>Emite propagado.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>Emite evento propagado.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_json</code></td><td data-searchable>Converte o valor para JSON.</td><td data-searchable><code>str</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Mundo(nome: str = 'mundo', *, relogio: FonteTempo \| None = None, eventos: Eventos \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.mundo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/mundo.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'mundo'</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>Mundo</code></p>
-<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="mundo-nome-str-mundo-relogio-fontetempo-none-none-eventos-eventos-none-none" data-searchable><code>Mundo(nome: str = 'mundo', *, relogio: FonteTempo | None = None, eventos: Eventos | None = None)</code></h4>
-<p data-searchable>Mundo leve para jogos, RPGs e simulações Coral.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>entidades</code></td><td data-searchable>propriedade</td><td data-searchable><code>entidades() -&gt; tuple[Entidade, ...]</code></td><td data-searchable><code>tuple[Entidade, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>relacoes</code></td><td data-searchable>propriedade</td><td data-searchable><code>relacoes() -&gt; tuple[Relacao, ...]</code></td><td data-searchable><code>tuple[Relacao, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mapas</code></td><td data-searchable>propriedade</td><td data-searchable><code>mapas() -&gt; tuple[Mapa, ...]</code></td><td data-searchable><code>tuple[Mapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>adicionar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_mapa(mapa: Mapa) -&gt; Mapa</code></td><td data-searchable><code>Mapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>criar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] | None = None) -&gt; Mapa</code></td><td data-searchable><code>Mapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>buscar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>buscar_mapa(nome: str) -&gt; Mapa | None</code></td><td data-searchable><code>Mapa | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>exigir_mapa</code></td><td data-searchable>método</td><td data-searchable><code>exigir_mapa(nome: str) -&gt; Mapa</code></td><td data-searchable><code>Mapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_mapa</code></td><td data-searchable>método</td><td data-searchable><code>remover_mapa(mapa: Mapa | str) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>observar_regioes_mapa</code></td><td data-searchable>método</td><td data-searchable><code>observar_regioes_mapa(nome: str, alvo: Any, mapa: Mapa | str, regioes, resolvedor, *, identificador_alvo: Any = None) -&gt; ObservadorRegiaoMapa</code></td><td data-searchable><code>ObservadorRegiaoMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(entidade: Entidade) -&gt; Entidade</code></td><td data-searchable><code>Entidade</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>criar_entidade</code></td><td data-searchable>método</td><td data-searchable><code>criar_entidade(nome: str, **atributos: Any) -&gt; Entidade</code></td><td data-searchable><code>Entidade</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>buscar</code></td><td data-searchable>método</td><td data-searchable><code>buscar(nome: str) -&gt; Entidade | None</code></td><td data-searchable><code>Entidade | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>exigir</code></td><td data-searchable>método</td><td data-searchable><code>exigir(nome: str) -&gt; Entidade</code></td><td data-searchable><code>Entidade</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(entidade: Entidade | str) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>relacionar</code></td><td data-searchable>método</td><td data-searchable><code>relacionar(origem: Entidade | str, destino: Entidade | str, tipo: str, **dados: Any) -&gt; Relacao</code></td><td data-searchable><code>Relacao</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_relacao</code></td><td data-searchable>método</td><td data-searchable><code>remover_relacao(relacao: Relacao) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>relacionados</code></td><td data-searchable>método</td><td data-searchable><code>relacionados(entidade: Entidade | str, tipo: str | None = None, *, direcao: str = 'saida') -&gt; tuple[Entidade, ...]</code></td><td data-searchable><code>tuple[Entidade, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>caminho</code></td><td data-searchable>método</td><td data-searchable><code>caminho(origem: Entidade | str, destino: Entidade | str, *, tipo: str | None = None, bidirecional: bool = True) -&gt; tuple[Entidade, ...]</code></td><td data-searchable><code>tuple[Entidade, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>com_tag</code></td><td data-searchable>método</td><td data-searchable><code>com_tag(tag: str) -&gt; tuple[Entidade, ...]</code></td><td data-searchable><code>tuple[Entidade, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt: float = 0.0) -&gt; tuple[str, ...]</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>atualizar_por_relogio</code></td><td data-searchable>método</td><td data-searchable><code>atualizar_por_relogio() -&gt; tuple[str, ...]</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir</code></td><td data-searchable>método</td><td data-searchable><code>emitir(evento: str, *args, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] | None = None, **kwargs)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar_evento(evento: str, *args, **kwargs)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>processar_eventos</code></td><td data-searchable>método</td><td data-searchable><code>processar_eventos(limite: int | None = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(evento: str, *args, **kwargs) -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] | None = None, **kwargs)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>para_json</code></td><td data-searchable>método</td><td data-searchable><code>para_json(**kwargs) -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="entidade-nome-str-atributos-dict-str-any-field-default-factory-dict-tags-set-str-field-default-factory-set-inventario-list-any-field-default-factory-list" data-searchable><code>Entidade(nome: str, atributos: dict[str, Any] = field(default_factory=dict), tags: set[str] = field(default_factory=set), inventario: list[Any] = field(default_factory=list))</code></h4>
-<p data-searchable>Entrada pública <code>Entidade</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>entidades</code></td><td data-searchable>propriedade</td><td data-searchable><code>entidades() -&gt; tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>relacoes</code></td><td data-searchable>propriedade</td><td data-searchable><code>relacoes() -&gt; tuple[Relacao, ...]</code></td></tr>
+<tr><td data-searchable><code>mapas</code></td><td data-searchable>propriedade</td><td data-searchable><code>mapas() -&gt; tuple[Mapa, ...]</code></td></tr>
+<tr><td data-searchable><code>adicionar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_mapa(mapa: Mapa) -&gt; Mapa</code></td></tr>
+<tr><td data-searchable><code>criar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] | None = None) -&gt; Mapa</code></td></tr>
+<tr><td data-searchable><code>buscar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>buscar_mapa(nome: str) -&gt; Mapa | None</code></td></tr>
+<tr><td data-searchable><code>exigir_mapa</code></td><td data-searchable>método</td><td data-searchable><code>exigir_mapa(nome: str) -&gt; Mapa</code></td></tr>
+<tr><td data-searchable><code>remover_mapa</code></td><td data-searchable>método</td><td data-searchable><code>remover_mapa(mapa: Mapa | str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>observar_regioes_mapa</code></td><td data-searchable>método</td><td data-searchable><code>observar_regioes_mapa(nome: str, alvo: Any, mapa: Mapa | str, regioes, resolvedor, *, identificador_alvo: Any = None) -&gt; ObservadorRegiaoMapa</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(entidade: Entidade) -&gt; Entidade</code></td></tr>
+<tr><td data-searchable><code>criar_entidade</code></td><td data-searchable>método</td><td data-searchable><code>criar_entidade(nome: str, **atributos: Any) -&gt; Entidade</code></td></tr>
+<tr><td data-searchable><code>buscar</code></td><td data-searchable>método</td><td data-searchable><code>buscar(nome: str) -&gt; Entidade | None</code></td></tr>
+<tr><td data-searchable><code>exigir</code></td><td data-searchable>método</td><td data-searchable><code>exigir(nome: str) -&gt; Entidade</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(entidade: Entidade | str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>relacionar</code></td><td data-searchable>método</td><td data-searchable><code>relacionar(origem: Entidade | str, destino: Entidade | str, tipo: str, **dados: Any) -&gt; Relacao</code></td></tr>
+<tr><td data-searchable><code>remover_relacao</code></td><td data-searchable>método</td><td data-searchable><code>remover_relacao(relacao: Relacao) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>relacionados</code></td><td data-searchable>método</td><td data-searchable><code>relacionados(entidade: Entidade | str, tipo: str | None = None, *, direcao: str = 'saida') -&gt; tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>método</td><td data-searchable><code>caminho(origem: Entidade | str, destino: Entidade | str, *, tipo: str | None = None, bidirecional: bool = True) -&gt; tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>com_tag</code></td><td data-searchable>método</td><td data-searchable><code>com_tag(tag: str) -&gt; tuple[Entidade, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt: float = 0.0) -&gt; tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar_por_relogio</code></td><td data-searchable>método</td><td data-searchable><code>atualizar_por_relogio() -&gt; tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>emitir</code></td><td data-searchable>método</td><td data-searchable><code>emitir(evento: str, *args, **kwargs) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] | None = None, **kwargs)</code></td></tr>
+<tr><td data-searchable><code>enfileirar_evento</code></td><td data-searchable>método</td><td data-searchable><code>enfileirar_evento(evento: str, *args, **kwargs)</code></td></tr>
+<tr><td data-searchable><code>processar_eventos</code></td><td data-searchable>método</td><td data-searchable><code>processar_eventos(limite: int | None = None)</code></td></tr>
+<tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(evento: str, *args, **kwargs) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] | None = None, **kwargs)</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_json</code></td><td data-searchable>método</td><td data-searchable><code>para_json(**kwargs) -&gt; str</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="entidade" data-searchable><code>Entidade</code></h4>
+<p data-searchable>Representa objeto do mundo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>atributos</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
-<tr><td data-searchable><code>tags</code></td><td data-searchable><code>set[str]</code></td><td data-searchable><code>field(default_factory=set)</code></td></tr>
-<tr><td data-searchable><code>inventario</code></td><td data-searchable><code>list[Any]</code></td><td data-searchable><code>field(default_factory=list)</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>tags</code></td><td data-searchable>Valor correspondente a tags.</td><td data-searchable><code>set[str]</code></td><td data-searchable><code>field(default_factory=set)</code></td></tr>
+<tr><td data-searchable><code>inventario</code></td><td data-searchable>Valor correspondente a inventario.</td><td data-searchable><code>list[Any]</code></td><td data-searchable><code>field(default_factory=list)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>tags</code></td><td data-searchable>Valor correspondente a tags.</td><td data-searchable><code>set[str]</code></td><td data-searchable><code>field(default_factory=set)</code></td></tr>
+<tr><td data-searchable><code>inventario</code></td><td data-searchable>Valor correspondente a inventario.</td><td data-searchable><code>list[Any]</code></td><td data-searchable><code>field(default_factory=list)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>Define o valor solicitado.</td><td data-searchable><code>'Entidade'</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>Executa a operação <code>obter</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_tag</code></td><td data-searchable>Adiciona tag.</td><td data-searchable><code>'Entidade'</code></td></tr>
+<tr><td data-searchable><code>remover_tag</code></td><td data-searchable>Remove tag.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>possui_tag</code></td><td data-searchable>Indica se possui tag.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>guardar</code></td><td data-searchable>Armazena o valor solicitado.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>remover_item</code></td><td data-searchable>Remove item.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Entidade(nome: str, atributos: dict[str, Any] = field(default_factory=dict), tags: set[str] = field(default_factory=set), inventario: list[Any] = field(default_factory=list))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.mundo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/mundo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(nome: str, valor: Any) -&gt; 'Entidade'</code></td><td data-searchable><code>'Entidade'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>obter</code></td><td data-searchable>método</td><td data-searchable><code>obter(nome: str, padrao: Any = None) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>adicionar_tag</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_tag(tag: str) -&gt; 'Entidade'</code></td><td data-searchable><code>'Entidade'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_tag</code></td><td data-searchable>método</td><td data-searchable><code>remover_tag(tag: str) -&gt; None</code></td><td data-searchable><code>None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>possui_tag</code></td><td data-searchable>método</td><td data-searchable><code>possui_tag(tag: str) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>guardar</code></td><td data-searchable>método</td><td data-searchable><code>guardar(item: Any) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_item</code></td><td data-searchable>método</td><td data-searchable><code>remover_item(item: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="relacao-origem-entidade-destino-entidade-tipo-str-dados-dict-str-any-field-default-factory-dict-compare-false" data-searchable><code>Relacao(origem: Entidade, destino: Entidade, tipo: str, dados: dict[str, Any] = field(default_factory=dict, compare=False))</code></h4>
-<p data-searchable>Entrada pública <code>Relacao</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(nome: str, valor: Any) -&gt; 'Entidade'</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>método</td><td data-searchable><code>obter(nome: str, padrao: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_tag</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_tag(tag: str) -&gt; 'Entidade'</code></td></tr>
+<tr><td data-searchable><code>remover_tag</code></td><td data-searchable>método</td><td data-searchable><code>remover_tag(tag: str) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>possui_tag</code></td><td data-searchable>método</td><td data-searchable><code>possui_tag(tag: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>guardar</code></td><td data-searchable>método</td><td data-searchable><code>guardar(item: Any) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>remover_item</code></td><td data-searchable>método</td><td data-searchable><code>remover_item(item: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="relacao" data-searchable><code>Relacao</code></h4>
+<p data-searchable>Representa ligação entre entidades.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>destino</code></td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>dados</code></td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict, compare=False)</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict, compare=False)</code></td></tr>
 </tbody></table></div>
-<h4 id="mapa-nome-str-topologia-any-propriedades-mapping-str-any-none-none-eventos-eventos-none-none-none" data-searchable><code>Mapa(nome: str, topologia: Any, *, propriedades: Mapping[str, Any] | None = None, eventos: Eventos | None = None) -&gt; None</code></h4>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>Entidade</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>dict[str, Any]</code></td><td data-searchable><code>field(default_factory=dict, compare=False)</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Relacao(origem: Entidade, destino: Entidade, tipo: str, dados: dict[str, Any] = field(default_factory=dict, compare=False))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.mundo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/mundo.py</code></p></div></details>
+<h4 id="mapa" data-searchable><code>Mapa</code></h4>
 <p data-searchable>Estrutura espacial discreta genérica, independente de visualização.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>topologia</code></td><td data-searchable>Valor correspondente a topologia.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Valor correspondente a propriedades.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Barramento associado, sem criar runtime oculto quando ausente.</td><td data-searchable><code>Eventos | None</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Obtém propriedades.</td><td data-searchable><code>Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>camadas</code></td><td data-searchable>Obtém camadas.</td><td data-searchable><code>tuple[CamadaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>regioes</code></td><td data-searchable>Executa a operação <code>regioes</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>adicionar_camada</code></td><td data-searchable>Adiciona camada.</td><td data-searchable><code>CamadaMapa</code></td></tr>
+<tr><td data-searchable><code>buscar_camada</code></td><td data-searchable>Procura camada e devolve o resultado quando encontrado.</td><td data-searchable><code>CamadaMapa | None</code></td></tr>
+<tr><td data-searchable><code>exigir_camada</code></td><td data-searchable>Obtém camada e sinaliza falha quando ele não está disponível.</td><td data-searchable><code>CamadaMapa</code></td></tr>
+<tr><td data-searchable><code>remover_camada</code></td><td data-searchable>Remove camada.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>adicionar_regiao</code></td><td data-searchable>Adiciona regiao.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>criar_regiao</code></td><td data-searchable>Cria regiao.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>buscar_regiao</code></td><td data-searchable>Procura regiao e devolve o resultado quando encontrado.</td><td data-searchable><code>Any | None</code></td></tr>
+<tr><td data-searchable><code>exigir_regiao</code></td><td data-searchable>Obtém regiao e sinaliza falha quando ele não está disponível.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>remover_regiao</code></td><td data-searchable>Remove regiao.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>regioes_em</code></td><td data-searchable>Executa a operação <code>regioes_em</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>celulas_da_regiao</code></td><td data-searchable>Executa a operação <code>celulas_da_regiao</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>possui_valor</code></td><td data-searchable>Indica se possui valor.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>conteudo_em</code></td><td data-searchable>Executa a operação <code>conteudo_em</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ConteudoCelula | None</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>Executa a operação <code>obter</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>Define o valor solicitado.</td><td data-searchable><code>MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>Remove o valor solicitado.</td><td data-searchable><code>MudancaMapa | None</code></td></tr>
+<tr><td data-searchable><code>definir_travessia</code></td><td data-searchable>Define travessia.</td><td data-searchable><code>MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>bloquear_travessia</code></td><td data-searchable>Executa a operação <code>bloquear_travessia</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>permitir_travessia</code></td><td data-searchable>Executa a operação <code>permitir_travessia</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>avaliar_travessia</code></td><td data-searchable>Executa a operação <code>avaliar_travessia</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ResultadoPassagem</code></td></tr>
+<tr><td data-searchable><code>tentar_travessia</code></td><td data-searchable>Avalia uma tentativa e publica bloqueio apenas quando a ação é explícita.</td><td data-searchable><code>ResultadoPassagem</code></td></tr>
+<tr><td data-searchable><code>contexto_em</code></td><td data-searchable>Executa a operação <code>contexto_em</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ContextoLocalMapa</code></td></tr>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>Executa a operação <code>vizinhos</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>aplicar_lote</code></td><td data-searchable>Valida todo o lote antes de aplicar qualquer escrita.</td><td data-searchable><code>tuple[MudancaMapa, ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Mapa(nome: str, topologia: Any, *, propriedades: Mapping[str, Any] \| None = None, eventos: Eventos \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>topologia</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>eventos</code></td><td data-searchable>propriedade</td><td data-searchable><code>eventos() -&gt; Eventos | None</code></td><td data-searchable><code>Eventos | None</code></td><td data-searchable>Barramento associado, sem criar runtime oculto quando ausente.</td></tr>
-<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>camadas</code></td><td data-searchable>propriedade</td><td data-searchable><code>camadas() -&gt; tuple[CamadaMapa, ...]</code></td><td data-searchable><code>tuple[CamadaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>regioes</code></td><td data-searchable>propriedade</td><td data-searchable><code>regioes() -&gt; tuple[Any, ...]</code></td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>adicionar_camada</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_camada(nome: str, *, ordem: int | None = None, propriedades: Mapping[str, Any] | None = None, participa_travessia: bool = True) -&gt; CamadaMapa</code></td><td data-searchable><code>CamadaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>buscar_camada</code></td><td data-searchable>método</td><td data-searchable><code>buscar_camada(nome: str) -&gt; CamadaMapa | None</code></td><td data-searchable><code>CamadaMapa | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>exigir_camada</code></td><td data-searchable>método</td><td data-searchable><code>exigir_camada(nome: str) -&gt; CamadaMapa</code></td><td data-searchable><code>CamadaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_camada</code></td><td data-searchable>método</td><td data-searchable><code>remover_camada(nome: str) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>adicionar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_regiao(regiao: Any) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>criar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>criar_regiao(nome: str, *, celulas: Iterable[object] | None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] | None = None) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>buscar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>buscar_regiao(nome: str) -&gt; Any | None</code></td><td data-searchable><code>Any | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>exigir_regiao</code></td><td data-searchable>método</td><td data-searchable><code>exigir_regiao(nome: str) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover_regiao</code></td><td data-searchable>método</td><td data-searchable><code>remover_regiao(nome: str) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>regioes_em</code></td><td data-searchable>método</td><td data-searchable><code>regioes_em(celula_ou_posicao: object) -&gt; tuple[Any, ...]</code></td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celulas_da_regiao</code></td><td data-searchable>método</td><td data-searchable><code>celulas_da_regiao(nome: str, *, limites: object = None) -&gt; tuple[CelulaMapa, ...]</code></td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>possui_valor</code></td><td data-searchable>método</td><td data-searchable><code>possui_valor(camada: str, celula: object) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>conteudo_em</code></td><td data-searchable>método</td><td data-searchable><code>conteudo_em(camada: str, celula: object) -&gt; ConteudoCelula | None</code></td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>obter</code></td><td data-searchable>método</td><td data-searchable><code>obter(camada: str, celula: object, padrao: Any = None) -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(camada: str, celula: object, valor: Any, *, propriedades: Mapping[str, Any] | None = None, travessia: bool | None = None, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td><td data-searchable><code>MudancaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(camada: str, celula: object, *, causa: Any = None) -&gt; MudancaMapa | None</code></td><td data-searchable><code>MudancaMapa | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>definir_travessia</code></td><td data-searchable>método</td><td data-searchable><code>definir_travessia(camada: str, celula: object, *, permitida: bool | None = None, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td><td data-searchable><code>MudancaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>bloquear_travessia</code></td><td data-searchable>método</td><td data-searchable><code>bloquear_travessia(camada: str, celula: object, *, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td><td data-searchable><code>MudancaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>permitir_travessia</code></td><td data-searchable>método</td><td data-searchable><code>permitir_travessia(camada: str, celula: object, *, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td><td data-searchable><code>MudancaMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>avaliar_travessia</code></td><td data-searchable>método</td><td data-searchable><code>avaliar_travessia(origem: object, destino: object) -&gt; ResultadoPassagem</code></td><td data-searchable><code>ResultadoPassagem</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>tentar_travessia</code></td><td data-searchable>método</td><td data-searchable><code>tentar_travessia(origem: object, destino: object, *, causa: Any = None) -&gt; ResultadoPassagem</code></td><td data-searchable><code>ResultadoPassagem</code></td><td data-searchable>Avalia uma tentativa e publica bloqueio apenas quando a ação é explícita.</td></tr>
-<tr><td data-searchable><code>contexto_em</code></td><td data-searchable>método</td><td data-searchable><code>contexto_em(celula: object, *, origem: object | None = None) -&gt; ContextoLocalMapa</code></td><td data-searchable><code>ContextoLocalMapa</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **opcoes: Any) -&gt; tuple[CelulaMapa, ...]</code></td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>aplicar_lote</code></td><td data-searchable>método</td><td data-searchable><code>aplicar_lote(operacoes: Iterable[Mapping[str, Any]]) -&gt; tuple[MudancaMapa, ...]</code></td><td data-searchable><code>tuple[MudancaMapa, ...]</code></td><td data-searchable>Valida todo o lote antes de aplicar qualquer escrita.</td></tr>
-</tbody></table></div>
-<h4 id="camadamapa-nome-str-ordem-int-0-propriedades-mapping-str-any-none-none-participa-travessia-bool-true-sequencia-int-0-none" data-searchable><code>CamadaMapa(nome: str, *, ordem: int = 0, propriedades: Mapping[str, Any] | None = None, participa_travessia: bool = True, _sequencia: int = 0) -&gt; None</code></h4>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>propriedade</td><td data-searchable><code>eventos() -&gt; Eventos | None</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>camadas</code></td><td data-searchable>propriedade</td><td data-searchable><code>camadas() -&gt; tuple[CamadaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>regioes</code></td><td data-searchable>propriedade</td><td data-searchable><code>regioes() -&gt; tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>adicionar_camada</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_camada(nome: str, *, ordem: int | None = None, propriedades: Mapping[str, Any] | None = None, participa_travessia: bool = True) -&gt; CamadaMapa</code></td></tr>
+<tr><td data-searchable><code>buscar_camada</code></td><td data-searchable>método</td><td data-searchable><code>buscar_camada(nome: str) -&gt; CamadaMapa | None</code></td></tr>
+<tr><td data-searchable><code>exigir_camada</code></td><td data-searchable>método</td><td data-searchable><code>exigir_camada(nome: str) -&gt; CamadaMapa</code></td></tr>
+<tr><td data-searchable><code>remover_camada</code></td><td data-searchable>método</td><td data-searchable><code>remover_camada(nome: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>adicionar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_regiao(regiao: Any) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>criar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>criar_regiao(nome: str, *, celulas: Iterable[object] | None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] | None = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>buscar_regiao</code></td><td data-searchable>método</td><td data-searchable><code>buscar_regiao(nome: str) -&gt; Any | None</code></td></tr>
+<tr><td data-searchable><code>exigir_regiao</code></td><td data-searchable>método</td><td data-searchable><code>exigir_regiao(nome: str) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>remover_regiao</code></td><td data-searchable>método</td><td data-searchable><code>remover_regiao(nome: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>regioes_em</code></td><td data-searchable>método</td><td data-searchable><code>regioes_em(celula_ou_posicao: object) -&gt; tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>celulas_da_regiao</code></td><td data-searchable>método</td><td data-searchable><code>celulas_da_regiao(nome: str, *, limites: object = None) -&gt; tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>possui_valor</code></td><td data-searchable>método</td><td data-searchable><code>possui_valor(camada: str, celula: object) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>conteudo_em</code></td><td data-searchable>método</td><td data-searchable><code>conteudo_em(camada: str, celula: object) -&gt; ConteudoCelula | None</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>método</td><td data-searchable><code>obter(camada: str, celula: object, padrao: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(camada: str, celula: object, valor: Any, *, propriedades: Mapping[str, Any] | None = None, travessia: bool | None = None, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(camada: str, celula: object, *, causa: Any = None) -&gt; MudancaMapa | None</code></td></tr>
+<tr><td data-searchable><code>definir_travessia</code></td><td data-searchable>método</td><td data-searchable><code>definir_travessia(camada: str, celula: object, *, permitida: bool | None = None, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>bloquear_travessia</code></td><td data-searchable>método</td><td data-searchable><code>bloquear_travessia(camada: str, celula: object, *, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>permitir_travessia</code></td><td data-searchable>método</td><td data-searchable><code>permitir_travessia(camada: str, celula: object, *, custo: float | int | None = None, motivo: str | None = None, causa: Any = None) -&gt; MudancaMapa</code></td></tr>
+<tr><td data-searchable><code>avaliar_travessia</code></td><td data-searchable>método</td><td data-searchable><code>avaliar_travessia(origem: object, destino: object) -&gt; ResultadoPassagem</code></td></tr>
+<tr><td data-searchable><code>tentar_travessia</code></td><td data-searchable>método</td><td data-searchable><code>tentar_travessia(origem: object, destino: object, *, causa: Any = None) -&gt; ResultadoPassagem</code></td></tr>
+<tr><td data-searchable><code>contexto_em</code></td><td data-searchable>método</td><td data-searchable><code>contexto_em(celula: object, *, origem: object | None = None) -&gt; ContextoLocalMapa</code></td></tr>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **opcoes: Any) -&gt; tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>aplicar_lote</code></td><td data-searchable>método</td><td data-searchable><code>aplicar_lote(operacoes: Iterable[Mapping[str, Any]]) -&gt; tuple[MudancaMapa, ...]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="camadamapa" data-searchable><code>CamadaMapa</code></h4>
 <p data-searchable>Camada nomeada, ordenada e esparsa de um mapa.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>Valor correspondente a ordem.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Valor correspondente a propriedades.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>participa_travessia</code></td><td data-searchable>Valor correspondente a participa travessia.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>_sequencia</code></td><td data-searchable>Valor correspondente a sequencia.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Obtém propriedades.</td><td data-searchable><code>Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Executa a operação <code>quantidade</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>Executa a operação <code>celulas</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>possui</code></td><td data-searchable>Executa a operação <code>possui</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>conteudo</code></td><td data-searchable>Executa a operação <code>conteudo</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ConteudoCelula | None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CamadaMapa(nome: str, *, ordem: int = 0, propriedades: Mapping[str, Any] \| None = None, participa_travessia: bool = True, _sequencia: int = 0) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>participa_travessia</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>_sequencia</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>quantidade</code></td><td data-searchable>propriedade</td><td data-searchable><code>quantidade() -&gt; int</code></td><td data-searchable><code>int</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celulas</code></td><td data-searchable>propriedade</td><td data-searchable><code>celulas() -&gt; tuple[CelulaMapa, ...]</code></td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>possui</code></td><td data-searchable>método</td><td data-searchable><code>possui(celula: CelulaMapa) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>conteudo</code></td><td data-searchable>método</td><td data-searchable><code>conteudo(celula: CelulaMapa) -&gt; ConteudoCelula | None</code></td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="conteudocelula-valor-any-propriedades-mapping-str-any-none-none-travessia-bool-none-none-custo-float-int-none-none-motivo-str-none-none-none" data-searchable><code>ConteudoCelula(valor: Any, propriedades: Mapping[str, Any] | None = None, *, travessia: bool | None = None, custo: float | int | None = None, motivo: str | None = None) -&gt; None</code></h4>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>propriedade</td><td data-searchable><code>quantidade() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>propriedade</td><td data-searchable><code>celulas() -&gt; tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>possui</code></td><td data-searchable>método</td><td data-searchable><code>possui(celula: CelulaMapa) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>conteudo</code></td><td data-searchable>método</td><td data-searchable><code>conteudo(celula: CelulaMapa) -&gt; ConteudoCelula | None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="conteudocelula" data-searchable><code>ConteudoCelula</code></h4>
 <p data-searchable>Valor imutável associado a uma célula, com travessia opcional.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>travessia_permitida</code></td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>custo_travessia</code></td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>motivo_travessia</code></td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Valor correspondente a propriedades.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>travessia</code></td><td data-searchable>Valor correspondente a travessia.</td><td data-searchable><code>bool | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>custo</code></td><td data-searchable>Valor correspondente a custo.</td><td data-searchable><code>float | int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>travessia_permitida</code></td><td data-searchable>Valor correspondente a travessia permitida.</td><td data-searchable><code>bool | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo_travessia</code></td><td data-searchable>Valor correspondente a custo travessia.</td><td data-searchable><code>float | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo_travessia</code></td><td data-searchable>Valor correspondente a motivo travessia.</td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Obtém valor.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Obtém propriedades.</td><td data-searchable><code>Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>declarou_travessia</code></td><td data-searchable>Executa a operação <code>declarou_travessia</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>com_valor</code></td><td data-searchable>Executa a operação <code>com_valor</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>'ConteudoCelula'</code></td></tr>
+<tr><td data-searchable><code>com_propriedades</code></td><td data-searchable>Executa a operação <code>com_propriedades</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>'ConteudoCelula'</code></td></tr>
+<tr><td data-searchable><code>com_travessia</code></td><td data-searchable>Executa a operação <code>com_travessia</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>'ConteudoCelula'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ConteudoCelula(valor: Any, propriedades: Mapping[str, Any] \| None = None, *, travessia: bool \| None = None, custo: float \| int \| None = None, motivo: str \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>travessia</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>custo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>declarou_travessia</code></td><td data-searchable>propriedade</td><td data-searchable><code>declarou_travessia() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>com_valor</code></td><td data-searchable>método</td><td data-searchable><code>com_valor(valor: Any) -&gt; 'ConteudoCelula'</code></td><td data-searchable><code>'ConteudoCelula'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>com_propriedades</code></td><td data-searchable>método</td><td data-searchable><code>com_propriedades(propriedades: Mapping[str, Any]) -&gt; 'ConteudoCelula'</code></td><td data-searchable><code>'ConteudoCelula'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>com_travessia</code></td><td data-searchable>método</td><td data-searchable><code>com_travessia(*, permitida: bool | None = None, custo: float | int | None = None, motivo: str | None = None) -&gt; 'ConteudoCelula'</code></td><td data-searchable><code>'ConteudoCelula'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="blocomapa-identificador-str-propriedades-mapping-str-any-none-none-none" data-searchable><code>BlocoMapa(identificador: str, propriedades: Mapping[str, Any] | None = None) -&gt; None</code></h4>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>declarou_travessia</code></td><td data-searchable>propriedade</td><td data-searchable><code>declarou_travessia() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>com_valor</code></td><td data-searchable>método</td><td data-searchable><code>com_valor(valor: Any) -&gt; 'ConteudoCelula'</code></td></tr>
+<tr><td data-searchable><code>com_propriedades</code></td><td data-searchable>método</td><td data-searchable><code>com_propriedades(propriedades: Mapping[str, Any]) -&gt; 'ConteudoCelula'</code></td></tr>
+<tr><td data-searchable><code>com_travessia</code></td><td data-searchable>método</td><td data-searchable><code>com_travessia(*, permitida: bool | None = None, custo: float | int | None = None, motivo: str | None = None) -&gt; 'ConteudoCelula'</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="blocomapa" data-searchable><code>BlocoMapa</code></h4>
 <p data-searchable>Conveniência para terreno, material, obstáculo ou tile.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>identificador</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Valor correspondente a propriedades.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Obtém propriedades.</td><td data-searchable><code>Mapping[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>BlocoMapa(identificador: str, propriedades: Mapping[str, Any] \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="mudancamapa-mapa-str-camada-str-celula-celulamapa-operacao-str-anterior-conteudocelula-none-novo-conteudocelula-none-causa-any-none-aplicada-bool-true-cancelada-bool-false-motivo-cancelamento-str-none-none-evento-sequencia-int-none-none" data-searchable><code>MudancaMapa(mapa: str, camada: str, celula: CelulaMapa, operacao: str, anterior: ConteudoCelula | None, novo: ConteudoCelula | None, causa: Any = None, aplicada: bool = True, cancelada: bool = False, motivo_cancelamento: str | None = None, evento_sequencia: int | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>MudancaMapa</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="mudancamapa" data-searchable><code>MudancaMapa</code></h4>
+<p data-searchable>Representa MudancaMapa na API de <code>coral.mundo</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mapa</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>camada</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>celula</code></td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>operacao</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>anterior</code></td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>novo</code></td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>causa</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>aplicada</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
-<tr><td data-searchable><code>cancelada</code></td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
-<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>evento_sequencia</code></td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>Valor correspondente a mapa.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>camada</code></td><td data-searchable>Valor correspondente a camada.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>celula</code></td><td data-searchable>Valor correspondente a celula.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>operacao</code></td><td data-searchable>Valor correspondente a operacao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>anterior</code></td><td data-searchable>Valor correspondente a anterior.</td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>novo</code></td><td data-searchable>Valor correspondente a novo.</td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>causa</code></td><td data-searchable>Valor correspondente a causa.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>aplicada</code></td><td data-searchable>Valor correspondente a aplicada.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>cancelada</code></td><td data-searchable>Valor correspondente a cancelada.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable>Valor correspondente a motivo cancelamento.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>evento_sequencia</code></td><td data-searchable>Valor correspondente a evento sequencia.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<h4 id="regiaomapa-mapa-any-nome-str-celulas-iterable-object-none-none-forma-any-none-referencia-str-centro-propriedades-mapping-str-any-none-none-none" data-searchable><code>RegiaoMapa(mapa: Any, nome: str, *, celulas: Iterable[object] | None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] | None = None) -&gt; None</code></h4>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>Valor correspondente a mapa.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>camada</code></td><td data-searchable>Valor correspondente a camada.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>celula</code></td><td data-searchable>Valor correspondente a celula.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>operacao</code></td><td data-searchable>Valor correspondente a operacao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>anterior</code></td><td data-searchable>Valor correspondente a anterior.</td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>novo</code></td><td data-searchable>Valor correspondente a novo.</td><td data-searchable><code>ConteudoCelula | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>causa</code></td><td data-searchable>Valor correspondente a causa.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>aplicada</code></td><td data-searchable>Valor correspondente a aplicada.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>cancelada</code></td><td data-searchable>Valor correspondente a cancelada.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>motivo_cancelamento</code></td><td data-searchable>Valor correspondente a motivo cancelamento.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>evento_sequencia</code></td><td data-searchable>Valor correspondente a evento sequencia.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>MudancaMapa(mapa: str, camada: str, celula: CelulaMapa, operacao: str, anterior: ConteudoCelula \| None, novo: ConteudoCelula \| None, causa: Any = None, aplicada: bool = True, cancelada: bool = False, motivo_cancelamento: str \| None = None, evento_sequencia: int \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p></div></details>
+<h4 id="regiaomapa" data-searchable><code>RegiaoMapa</code></h4>
 <p data-searchable>Região por conjunto de células ou por forma espacial oficial.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.regioes</code></p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>Valor correspondente a mapa.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>Valor correspondente a celulas.</td><td data-searchable><code>Iterable[object] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>Forma ou dimensões da estrutura a criar.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>referencia</code></td><td data-searchable>Valor correspondente a referencia.</td><td data-searchable><code>str</code></td><td data-searchable><code>'centro'</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Valor correspondente a propriedades.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Executa a operação <code>tipo</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>Obtém forma.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>Obtém propriedades.</td><td data-searchable><code>Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>celulas_explicitas</code></td><td data-searchable>Executa a operação <code>celulas_explicitas</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>contem</code></td><td data-searchable>Executa a operação <code>contem</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>Executa a operação <code>celulas</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RegiaoMapa(mapa: Any, nome: str, *, celulas: Iterable[object] \| None = None, forma: Any = None, referencia: str = 'centro', propriedades: Mapping[str, Any] \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.regioes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/regioes.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>referencia</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tipo</code></td><td data-searchable>propriedade</td><td data-searchable><code>tipo() -&gt; str</code></td><td data-searchable><code>str</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>forma</code></td><td data-searchable>propriedade</td><td data-searchable><code>forma() -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celulas_explicitas</code></td><td data-searchable>propriedade</td><td data-searchable><code>celulas_explicitas() -&gt; tuple[CelulaMapa, ...]</code></td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>contem</code></td><td data-searchable>método</td><td data-searchable><code>contem(celula_ou_posicao: object) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celulas</code></td><td data-searchable>método</td><td data-searchable><code>celulas(*, limites: object = None) -&gt; tuple[CelulaMapa, ...]</code></td><td data-searchable><code>tuple[CelulaMapa, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="resultadopassagem-permitida-bool-custo-float-motivo-str-none-camadas-responsaveis-tuple-str-origem-celulamapa-destino-celulamapa" data-searchable><code>ResultadoPassagem(permitida: bool, custo: float, motivo: str | None, camadas_responsaveis: tuple[str, ...], origem: CelulaMapa, destino: CelulaMapa)</code></h4>
-<p data-searchable>Entrada pública <code>ResultadoPassagem</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>propriedade</td><td data-searchable><code>tipo() -&gt; str</code></td></tr>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>propriedade</td><td data-searchable><code>forma() -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>propriedades</code></td><td data-searchable>propriedade</td><td data-searchable><code>propriedades() -&gt; Mapping[str, Any]</code></td></tr>
+<tr><td data-searchable><code>celulas_explicitas</code></td><td data-searchable>propriedade</td><td data-searchable><code>celulas_explicitas() -&gt; tuple[CelulaMapa, ...]</code></td></tr>
+<tr><td data-searchable><code>contem</code></td><td data-searchable>método</td><td data-searchable><code>contem(celula_ou_posicao: object) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>celulas</code></td><td data-searchable>método</td><td data-searchable><code>celulas(*, limites: object = None) -&gt; tuple[CelulaMapa, ...]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="resultadopassagem" data-searchable><code>ResultadoPassagem</code></h4>
+<p data-searchable>Representa resultado de travessia.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>permitida</code></td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>custo</code></td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>motivo</code></td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>camadas_responsaveis</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>destino</code></td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>permitida</code></td><td data-searchable>Valor correspondente a permitida.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo</code></td><td data-searchable>Valor correspondente a custo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>camadas_responsaveis</code></td><td data-searchable>Valor correspondente a camadas responsaveis.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<h4 id="observadorregiaomapa-nome-str-alvo-any-mapa-mapa-regioes-iterable-regiaomapa-str-resolvedor-resolvedorlocalizacao-eventos-eventos-identificador-alvo-any-none-none" data-searchable><code>ObservadorRegiaoMapa(nome: str, alvo: Any, mapa: Mapa, regioes: Iterable[RegiaoMapa | str], resolvedor: ResolvedorLocalizacao, eventos: Eventos, *, identificador_alvo: Any = None) -&gt; None</code></h4>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>permitida</code></td><td data-searchable>Valor correspondente a permitida.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo</code></td><td data-searchable>Valor correspondente a custo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>camadas_responsaveis</code></td><td data-searchable>Valor correspondente a camadas responsaveis.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>destino</code></td><td data-searchable>Destino que receberá o resultado da operação.</td><td data-searchable><code>CelulaMapa</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoPassagem(permitida: bool, custo: float, motivo: str \| None, camadas_responsaveis: tuple[str, ...], origem: CelulaMapa, destino: CelulaMapa)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p></div></details>
+<h4 id="observadorregiaomapa" data-searchable><code>ObservadorRegiaoMapa</code></h4>
 <p data-searchable>Reconhece transições de entrada e saída entre avaliações sucessivas.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.observacao</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>alvo</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>mapa</code></td><td data-searchable><code>Mapa</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>regioes</code></td><td data-searchable><code>tuple[RegiaoMapa, ...]</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>resolvedor</code></td><td data-searchable><code>ResolvedorLocalizacao</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>eventos</code></td><td data-searchable><code>Eventos</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>identificador_alvo</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>alvo</code></td><td data-searchable>Valor correspondente a alvo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>Valor correspondente a mapa.</td><td data-searchable><code>Mapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>regioes</code></td><td data-searchable>Valor correspondente a regioes.</td><td data-searchable><code>Iterable[RegiaoMapa | str]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>resolvedor</code></td><td data-searchable>Valor correspondente a resolvedor.</td><td data-searchable><code>ResolvedorLocalizacao</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador_alvo</code></td><td data-searchable>Valor correspondente a identificador alvo.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>alvo</code></td><td data-searchable>Valor correspondente a alvo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>Valor correspondente a mapa.</td><td data-searchable><code>Mapa</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>regioes</code></td><td data-searchable>Valor correspondente a regioes.</td><td data-searchable><code>tuple[RegiaoMapa, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>resolvedor</code></td><td data-searchable>Valor correspondente a resolvedor.</td><td data-searchable><code>ResolvedorLocalizacao</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador_alvo</code></td><td data-searchable>Valor correspondente a identificador alvo.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>regioes_anteriores</code></td><td data-searchable>Executa a operação <code>regioes_anteriores</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>Executa a operação <code>avaliar</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ObservadorRegiaoMapa(nome: str, alvo: Any, mapa: Mapa, regioes: Iterable[RegiaoMapa \| str], resolvedor: ResolvedorLocalizacao, eventos: Eventos, *, identificador_alvo: Any = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.observacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/observacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>alvo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>regioes</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>resolvedor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>identificador_alvo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>regioes_anteriores</code></td><td data-searchable>propriedade</td><td data-searchable><code>regioes_anteriores() -&gt; tuple[str, ...]</code></td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="celulaquadrada-coluna-int-linha-int" data-searchable><code>CelulaQuadrada(coluna: int, linha: int)</code></h4>
-<p data-searchable>Entrada pública <code>CelulaQuadrada</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>regioes_anteriores</code></td><td data-searchable>propriedade</td><td data-searchable><code>regioes_anteriores() -&gt; tuple[str, ...]</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="celulaquadrada" data-searchable><code>CelulaQuadrada</code></h4>
+<p data-searchable>Representa CelulaQuadrada na API de <code>coral.mundo</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>coluna</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>linha</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>coluna</code></td><td data-searchable>Valor correspondente a coluna.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>linha</code></td><td data-searchable>Valor correspondente a linha.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>coluna</code></td><td data-searchable>Valor correspondente a coluna.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>linha</code></td><td data-searchable>Valor correspondente a linha.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>Representa o valor como tupla.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CelulaQuadrada(coluna: int, linha: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int]</code></td><td data-searchable><code>tuple[int, int]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="celulahexagonal-q-int-r-int" data-searchable><code>CelulaHexagonal(q: int, r: int)</code></h4>
-<p data-searchable>Entrada pública <code>CelulaHexagonal</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="celulahexagonal" data-searchable><code>CelulaHexagonal</code></h4>
+<p data-searchable>Representa CelulaHexagonal na API de <code>coral.mundo</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>q</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>r</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>q</code></td><td data-searchable>Valor correspondente a q.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>r</code></td><td data-searchable>Valor correspondente a r.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>q</code></td><td data-searchable>Valor correspondente a q.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>r</code></td><td data-searchable>Valor correspondente a r.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>Representa o valor como tupla.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CelulaHexagonal(q: int, r: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int]</code></td><td data-searchable><code>tuple[int, int]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="celulavoxel-x-int-y-int-z-int" data-searchable><code>CelulaVoxel(x: int, y: int, z: int)</code></h4>
-<p data-searchable>Entrada pública <code>CelulaVoxel</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="celulavoxel" data-searchable><code>CelulaVoxel</code></h4>
+<p data-searchable>Representa CelulaVoxel na API de <code>coral.mundo</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>x</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>y</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>z</code></td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>Representa o valor como tupla.</td><td data-searchable><code>tuple[int, int, int]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CelulaVoxel(x: int, y: int, z: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int, int]</code></td><td data-searchable><code>tuple[int, int, int]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="topologiaquadrada-largura-celula-float-1-0-altura-celula-float-1-0-origem-tuple-float-float-0-0-0-0-limites-configurados-object-field-default-none-repr-false-compare-false" data-searchable><code>TopologiaQuadrada(largura_celula: float = 1.0, altura_celula: float = 1.0, origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></h4>
-<p data-searchable>Entrada pública <code>TopologiaQuadrada</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.topologias</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>como_tupla</code></td><td data-searchable>método</td><td data-searchable><code>como_tupla() -&gt; tuple[int, int, int]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="topologiaquadrada" data-searchable><code>TopologiaQuadrada</code></h4>
+<p data-searchable>Representa topologia 2D quadrada.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>largura_celula</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>altura_celula</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
-<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+<tr><td data-searchable><code>largura_celula</code></td><td data-searchable>Largura de celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>altura_celula</code></td><td data-searchable>Altura de celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>largura_celula</code></td><td data-searchable>Largura de celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>altura_celula</code></td><td data-searchable>Altura de celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>Executa a operação <code>vizinhos</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaQuadrada, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>Executa a operação <code>celula_para_mundo</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>Executa a operação <code>mundo_para_celula</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>CelulaQuadrada</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TopologiaQuadrada(largura_celula: float = 1.0, altura_celula: float = 1.0, origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.topologias</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/topologias.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, *, incluir_diagonais: bool = False) -&gt; tuple[CelulaQuadrada, ...]</code></td><td data-searchable><code>tuple[CelulaQuadrada, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td><td data-searchable><code>ValorEspacial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaQuadrada</code></td><td data-searchable><code>CelulaQuadrada</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="topologiahexagonal-tamanho-celula-float-1-0-orientacao-str-topo-plano-origem-tuple-float-float-0-0-0-0-limites-configurados-object-field-default-none-repr-false-compare-false" data-searchable><code>TopologiaHexagonal(tamanho_celula: float = 1.0, orientacao: str = 'topo_plano', origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></h4>
-<p data-searchable>Entrada pública <code>TopologiaHexagonal</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.topologias</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, *, incluir_diagonais: bool = False) -&gt; tuple[CelulaQuadrada, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaQuadrada</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="topologiahexagonal" data-searchable><code>TopologiaHexagonal</code></h4>
+<p data-searchable>Representa topologia 2D hexagonal.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tamanho_celula</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>orientacao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'topo_plano'</code></td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
-<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+<tr><td data-searchable><code>tamanho_celula</code></td><td data-searchable>Valor correspondente a tamanho celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>orientacao</code></td><td data-searchable>Valor correspondente a orientacao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'topo_plano'</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tamanho_celula</code></td><td data-searchable>Valor correspondente a tamanho celula.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>orientacao</code></td><td data-searchable>Valor correspondente a orientacao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'topo_plano'</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>Executa a operação <code>vizinhos</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaHexagonal, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>Executa a operação <code>celula_para_mundo</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>Executa a operação <code>mundo_para_celula</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>CelulaHexagonal</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TopologiaHexagonal(tamanho_celula: float = 1.0, orientacao: str = 'topo_plano', origem: tuple[float, float] = (0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.topologias</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/topologias.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **_: object) -&gt; tuple[CelulaHexagonal, ...]</code></td><td data-searchable><code>tuple[CelulaHexagonal, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td><td data-searchable><code>ValorEspacial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaHexagonal</code></td><td data-searchable><code>CelulaHexagonal</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="topologiavoxel-tamanho-x-float-1-0-tamanho-y-float-1-0-tamanho-z-float-1-0-origem-tuple-float-float-float-0-0-0-0-0-0-limites-configurados-object-field-default-none-repr-false-compare-false" data-searchable><code>TopologiaVoxel(tamanho_x: float = 1.0, tamanho_y: float = 1.0, tamanho_z: float = 1.0, origem: tuple[float, float, float] = (0.0, 0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></h4>
-<p data-searchable>Entrada pública <code>TopologiaVoxel</code> da superfície <code>coral.mundo</code>.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.topologias</code></p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **_: object) -&gt; tuple[CelulaHexagonal, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaHexagonal</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="topologiavoxel" data-searchable><code>TopologiaVoxel</code></h4>
+<p data-searchable>Representa topologia 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tamanho_x</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>tamanho_y</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>tamanho_z</code></td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
-<tr><td data-searchable><code>origem</code></td><td data-searchable><code>tuple[float, float, float]</code></td><td data-searchable><code>(0.0, 0.0, 0.0)</code></td></tr>
-<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+<tr><td data-searchable><code>tamanho_x</code></td><td data-searchable>Valor correspondente a tamanho x.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>tamanho_y</code></td><td data-searchable>Valor correspondente a tamanho y.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>tamanho_z</code></td><td data-searchable>Valor correspondente a tamanho z.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float, float]</code></td><td data-searchable><code>(0.0, 0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tamanho_x</code></td><td data-searchable>Valor correspondente a tamanho x.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>tamanho_y</code></td><td data-searchable>Valor correspondente a tamanho y.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>tamanho_z</code></td><td data-searchable>Valor correspondente a tamanho z.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>tuple[float, float, float]</code></td><td data-searchable><code>(0.0, 0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>limites_configurados</code></td><td data-searchable>Valor correspondente a limites configurados.</td><td data-searchable><code>object</code></td><td data-searchable><code>field(default=None, repr=False, compare=False)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>Executa a operação <code>vizinhos</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>tuple[CelulaVoxel, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>Executa a operação <code>celula_para_mundo</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>Executa a operação <code>mundo_para_celula</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>CelulaVoxel</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TopologiaVoxel(tamanho_x: float = 1.0, tamanho_y: float = 1.0, tamanho_z: float = 1.0, origem: tuple[float, float, float] = (0.0, 0.0, 0.0), limites_configurados: object = field(default=None, repr=False, compare=False))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.topologias</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/topologias.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **_: object) -&gt; tuple[CelulaVoxel, ...]</code></td><td data-searchable><code>tuple[CelulaVoxel, ...]</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td><td data-searchable><code>ValorEspacial</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaVoxel</code></td><td data-searchable><code>CelulaVoxel</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
+<tr><td data-searchable><code>vizinhos</code></td><td data-searchable>método</td><td data-searchable><code>vizinhos(celula: object, **_: object) -&gt; tuple[CelulaVoxel, ...]</code></td></tr>
+<tr><td data-searchable><code>celula_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>celula_para_mundo(celula: object, *, ancora: str = 'centro') -&gt; ValorEspacial</code></td></tr>
+<tr><td data-searchable><code>mundo_para_celula</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_celula(coordenada: object) -&gt; CelulaVoxel</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="erromapacoral-mensagem-str-codigo-str-mapa-invalido-contexto-dict-str-any-none-none-none" data-searchable><code>ErroMapaCoral(mensagem: str, *, codigo: str = 'mapa.invalido', contexto: dict[str, Any] | None = None) -&gt; None</code></h4>
+<h4 id="erromapacoral" data-searchable><code>ErroMapaCoral</code></h4>
 <p data-searchable>Erro de domínio para operações inválidas de mapas Coral.</p>
-<p data-searchable><strong>Implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>Valor correspondente a mensagem.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>Valor correspondente a codigo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'mapa.invalido'</code></td></tr>
+<tr><td data-searchable><code>contexto</code></td><td data-searchable>Valor correspondente a contexto.</td><td data-searchable><code>dict[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroMapaCoral(mensagem: str, *, codigo: str = 'mapa.invalido', contexto: dict[str, Any] \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._mapas.modelo</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_mapas/modelo.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mensagem</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codigo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>contexto</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h2 id="compatibilidade" data-searchable>Compatibilidade</h2>
 <p data-searchable>O núcleo é independente do backend gráfico. Topologias e mapas são estruturas de domínio e podem ser usados em scripts, testes, servidores ou aplicações visuais.</p>
     </article>

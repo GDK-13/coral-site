@@ -101,131 +101,330 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] | None = None) -> DiagnosticoOperacional`
+#### `diagnostico`
 
-Entrada pública `diagnostico` da superfície `coral.comum`.
+Construir diagnóstico.
 
-**Parâmetros**
+**Exemplo**
 
-| Nome | Tipo | Padrão | Modo |
-|---|---|---|---|
-| `id` | `str` | obrigatório | posicional |
-| `dominio` | `str` | obrigatório | posicional |
-| `ok` | `bool` | obrigatório | posicional |
-| `mensagem` | `Any` | obrigatório | posicional |
-| `capacidade` | `str \| None` | `None` | nomeado |
-| `sugestao` | `str \| None` | `None` | nomeado |
-| `detalhe` | `Mapping[str, Any] \| None` | `None` | nomeado |
+```coral
+de coral.comum importe diagnostico, agregar_diagnosticos
 
-**Retorno:** `DiagnosticoOperacional`
-
-#### `agregar_diagnosticos(itens: Iterable[DiagnosticoOperacional | Mapping[str, Any]], *, origem: str = 'coral') -> dict[str, Any]`
-
-Entrada pública `agregar_diagnosticos` da superfície `coral.comum`.
+defina d1 como diagnostico("runtime", "exemplo", verdadeiro, "pronto")
+defina d2 como diagnostico("arquivo", "exemplo", falso, "ausente", sugestao="crie o arquivo")
+defina resumo como agregar_diagnosticos([d1, d2], origem="tutorial")
+mostre resumo
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `itens` | `Iterable[DiagnosticoOperacional \| Mapping[str, Any]]` | obrigatório | posicional |
-| `origem` | `str` | `'coral'` | nomeado |
+| `id` | Valor correspondente a identificador. | `str` | obrigatório |
+| `dominio` | Valor correspondente a dominio. | `str` | obrigatório |
+| `ok` | Valor correspondente a ok. | `bool` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `Any` | obrigatório |
+| `capacidade` | Valor correspondente a capacidade. | `str \| None` | `None` |
+| `sugestao` | Valor correspondente a sugestao. | `str \| None` | `None` |
+| `detalhe` | Valor correspondente a detalhe. | `Mapping[str, Any] \| None` | `None` |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
+
+Retorna um valor declarado como `DiagnosticoOperacional`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `diagnostico(id: str, dominio: str, ok: bool, mensagem: Any, *, capacidade: str \| None = None, sugestao: str \| None = None, detalhe: Mapping[str, Any] \| None = None) -> DiagnosticoOperacional`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `id` | posicional |
+| `dominio` | posicional |
+| `ok` | posicional |
+| `mensagem` | posicional |
+| `capacidade` | nomeado |
+| `sugestao` | nomeado |
+| `detalhe` | nomeado |
+
+:::
+
+#### `agregar_diagnosticos`
+
+Agregar vários diagnósticos.
+
+**Exemplo**
+
+```coral
+de coral.comum importe diagnostico, agregar_diagnosticos
+
+defina d1 como diagnostico("runtime", "exemplo", verdadeiro, "pronto")
+defina d2 como diagnostico("arquivo", "exemplo", falso, "ausente", sugestao="crie o arquivo")
+defina resumo como agregar_diagnosticos([d1, d2], origem="tutorial")
+mostre resumo
+```
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `itens` | Valor correspondente a itens. | `Iterable[DiagnosticoOperacional \| Mapping[str, Any]]` | obrigatório |
+| `origem` | Origem usada pela operação. | `str` | `'coral'` |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `agregar_diagnosticos(itens: Iterable[DiagnosticoOperacional \| Mapping[str, Any]], *, origem: str = 'coral') -> dict[str, Any]`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `itens` | posicional |
+| `origem` | nomeado |
+
+:::
 
 ### Classes e protocolos
 
-#### `FalhaOperacao(codigo: str, mensagem: str, dominio: str, tipo: str = 'operacional', causa: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))`
+#### `FalhaOperacao`
 
-Entrada pública `FalhaOperacao` da superfície `coral.comum`.
+Representa descrição de falha.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `codigo` | Valor correspondente a codigo. | `str` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
+| `dominio` | Valor correspondente a dominio. | `str` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | `'operacional'` |
+| `causa` | Valor correspondente a causa. | `str \| None` | `None` |
+| `detalhe` | Valor correspondente a detalhe. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `codigo` | Valor correspondente a codigo. | `str` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
+| `dominio` | Valor correspondente a dominio. | `str` | obrigatório |
+| `tipo` | Tipo solicitado para o resultado, quando o módulo oferece essa escolha. | `str` | `'operacional'` |
+| `causa` | Valor correspondente a causa. | `str \| None` | `None` |
+| `detalhe` | Valor correspondente a detalhe. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `codigo` | `str` | obrigatório |
-| `mensagem` | `str` | obrigatório |
-| `dominio` | `str` | obrigatório |
-| `tipo` | `str` | `'operacional'` |
-| `causa` | `str \| None` | `None` |
-| `detalhe` | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `de_excecao` | Interpreta ou reconstrói um valor a partir de excecao. | `'FalhaOperacao'` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `de_excecao` | método | `de_excecao(exc: BaseException, *, codigo: str, dominio: str, tipo: str = 'operacional', detalhe: Mapping[str, Any] \| None = None) -> 'FalhaOperacao'` | `'FalhaOperacao'` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
+**Assinatura:** `FalhaOperacao(codigo: str, mensagem: str, dominio: str, tipo: str = 'operacional', causa: str \| None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))`
 
-#### `ResultadoOperacao(ok: bool, valor: Any = None, falha: FalhaOperacao | None = None, metadados: Mapping[str, Any] = field(default_factory=dict))`
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `de_excecao` | método | `de_excecao(exc: BaseException, *, codigo: str, dominio: str, tipo: str = 'operacional', detalhe: Mapping[str, Any] \| None = None) -> 'FalhaOperacao'` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
+
+:::
+
+#### `ResultadoOperacao`
 
 Representação transversal sem substituir resultados ricos de domínio.
 
-**Atributos declarados**
+**Parâmetros**
 
-| Nome | Tipo | Padrão |
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `ok` | Valor correspondente a ok. | `bool` | obrigatório |
+| `valor` | Valor processado pela operação. | `Any` | `None` |
+| `falha` | Valor correspondente a falha. | `FalhaOperacao \| None` | `None` |
+| `metadados` | Valor correspondente a metadados. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `ok` | Valor correspondente a ok. | `bool` | obrigatório |
+| `valor` | Valor processado pela operação. | `Any` | `None` |
+| `falha` | Valor correspondente a falha. | `FalhaOperacao \| None` | `None` |
+| `metadados` | Valor correspondente a metadados. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
 |---|---|---|
-| `ok` | `bool` | obrigatório |
-| `valor` | `Any` | `None` |
-| `falha` | `FalhaOperacao \| None` | `None` |
-| `metadados` | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `sucesso` | Indica o estado de sucesso. | `'ResultadoOperacao'` |
+| `erro` | Executa a operação `erro` disponibilizada por `coral.comum`. | `'ResultadoOperacao'` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::details Detalhes técnicos
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `sucesso` | método | `sucesso(valor: Any = None, **metadados: Any) -> 'ResultadoOperacao'` | `'ResultadoOperacao'` | Sem docstring própria na release. |
-| `erro` | método | `erro(falha: FalhaOperacao, **metadados: Any) -> 'ResultadoOperacao'` | `'ResultadoOperacao'` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
+**Assinatura:** `ResultadoOperacao(ok: bool, valor: Any = None, falha: FalhaOperacao \| None = None, metadados: Mapping[str, Any] = field(default_factory=dict))`
 
-#### `DiagnosticoOperacional(id: str, dominio: str, ok: bool, mensagem: str, capacidade: str | None = None, sugestao: str | None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))`
+**Origem da implementação:** `coral.comum`
 
-Entrada pública `DiagnosticoOperacional` da superfície `coral.comum`.
+**Arquivo na release:** `coral/comum.py`
 
-**Atributos declarados**
+**Assinaturas de métodos e propriedades**
 
-| Nome | Tipo | Padrão |
+| Nome | Tipo | Assinatura |
 |---|---|---|
-| `id` | `str` | obrigatório |
-| `dominio` | `str` | obrigatório |
-| `ok` | `bool` | obrigatório |
-| `mensagem` | `str` | obrigatório |
-| `capacidade` | `str \| None` | `None` |
-| `sugestao` | `str \| None` | `None` |
-| `detalhe` | `Mapping[str, Any]` | `field(default_factory=dict)` |
+| `sucesso` | método | `sucesso(valor: Any = None, **metadados: Any) -> 'ResultadoOperacao'` |
+| `erro` | método | `erro(falha: FalhaOperacao, **metadados: Any) -> 'ResultadoOperacao'` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
 
-**Métodos e propriedades públicas**
+:::
 
-| Nome | Tipo | Assinatura | Retorno | Descrição |
-|---|---|---|---|---|
-| `nivel` | propriedade | `nivel() -> str` | `str` | Sem docstring própria na release. |
-| `para_dict` | método | `para_dict() -> dict[str, Any]` | `dict[str, Any]` | Sem docstring própria na release. |
+#### `DiagnosticoOperacional`
+
+Representa diagnóstico estruturado.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `id` | Valor correspondente a identificador. | `str` | obrigatório |
+| `dominio` | Valor correspondente a dominio. | `str` | obrigatório |
+| `ok` | Valor correspondente a ok. | `bool` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
+| `capacidade` | Valor correspondente a capacidade. | `str \| None` | `None` |
+| `sugestao` | Valor correspondente a sugestao. | `str \| None` | `None` |
+| `detalhe` | Valor correspondente a detalhe. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `id` | Valor correspondente a identificador. | `str` | obrigatório |
+| `dominio` | Valor correspondente a dominio. | `str` | obrigatório |
+| `ok` | Valor correspondente a ok. | `bool` | obrigatório |
+| `mensagem` | Valor correspondente a mensagem. | `str` | obrigatório |
+| `capacidade` | Valor correspondente a capacidade. | `str \| None` | `None` |
+| `sugestao` | Valor correspondente a sugestao. | `str \| None` | `None` |
+| `detalhe` | Valor correspondente a detalhe. | `Mapping[str, Any]` | `field(default_factory=dict)` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `nivel` | Executa a operação `nivel` disponibilizada por `coral.comum`. | `str` |
+| `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `DiagnosticoOperacional(id: str, dominio: str, ok: bool, mensagem: str, capacidade: str \| None = None, sugestao: str \| None = None, detalhe: Mapping[str, Any] = field(default_factory=dict))`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `nivel` | propriedade | `nivel() -> str` |
+| `para_dict` | método | `para_dict() -> dict[str, Any]` |
+
+:::
 
 ### Exceções
 
-#### `ErroCoral(...)`
+#### `ErroCoral`
 
 Raiz pública dos erros controlados pela linguagem e bibliotecas Coral.
 
-#### `ErroOperacaoCoral(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroCoral(...)`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+:::
+
+#### `ErroOperacaoCoral`
 
 Falha operacional de um recurso Coral ou de seu backend.
 
-#### `ErroDependenciaCoral(...)`
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroOperacaoCoral(...)`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+:::
+
+#### `ErroDependenciaCoral`
 
 Uma capacidade opcional não pode operar por ausência de dependência.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroDependenciaCoral(...)`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `CONTRATO`
 
-Constante pública do módulo.
+Expõe a constante pública `CONTRATO`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
 
 **Valor declarado:** `'coral.comum/1'`
 
+:::
+
 #### `CONTRATO_DIAGNOSTICO`
 
-Constante pública do módulo.
+Expõe a constante pública `CONTRATO_DIAGNOSTICO`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO_DIAGNOSTICO`
+
+**Origem da implementação:** `coral.comum`
+
+**Arquivo na release:** `coral/comum.py`
 
 **Valor declarado:** `'coral.diagnostico.operacional/1'`
+
+:::
 
 <!-- /AUTO:API -->

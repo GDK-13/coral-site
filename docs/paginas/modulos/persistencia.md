@@ -115,192 +115,373 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `registrar_adaptador(tipo_python: type, identificador: str, para_dados: Callable[[Any], dict[str, Any]], de_dados: Callable[[dict[str, Any]], Any]) -> None`
+#### `registrar_adaptador`
 
-Entrada pública `registrar_adaptador` da superfície `coral.persistencia`.
+Ensinar novo tipo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `tipo_python` | `type` | obrigatório | posicional |
-| `identificador` | `str` | obrigatório | posicional |
-| `para_dados` | `Callable[[Any], dict[str, Any]]` | obrigatório | posicional |
-| `de_dados` | `Callable[[dict[str, Any]], Any]` | obrigatório | posicional |
+| `tipo_python` | Valor correspondente a tipo python. | `type` | obrigatório |
+| `identificador` | Valor correspondente a identificador. | `str` | obrigatório |
+| `para_dados` | Valor correspondente a para dados. | `Callable[[Any], dict[str, Any]]` | obrigatório |
+| `de_dados` | Valor correspondente a de dados. | `Callable[[dict[str, Any]], Any]` | obrigatório |
 
-**Retorno:** `None`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-#### `registrar_extensao_persistente(tipo_python: type, identificador: str, para_dados: Callable[[Any], Any], aplicar_dados: Callable[[Any, Any], None]) -> None`
+:::details Detalhes técnicos
+
+**Assinatura:** `registrar_adaptador(tipo_python: type, identificador: str, para_dados: Callable[[Any], dict[str, Any]], de_dados: Callable[[dict[str, Any]], Any]) -> None`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `registrar_extensao_persistente`
 
 Registra uma extensão de domínio sem acoplar o tipo hospedeiro ao módulo dono.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `tipo_python` | `type` | obrigatório | posicional |
-| `identificador` | `str` | obrigatório | posicional |
-| `para_dados` | `Callable[[Any], Any]` | obrigatório | posicional |
-| `aplicar_dados` | `Callable[[Any, Any], None]` | obrigatório | posicional |
+| `tipo_python` | Valor correspondente a tipo python. | `type` | obrigatório |
+| `identificador` | Valor correspondente a identificador. | `str` | obrigatório |
+| `para_dados` | Valor correspondente a para dados. | `Callable[[Any], Any]` | obrigatório |
+| `aplicar_dados` | Valor correspondente a aplicar dados. | `Callable[[Any, Any], None]` | obrigatório |
 
-**Retorno:** `None`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-#### `extensoes_para_dados(objeto: Any) -> dict[str, Any]`
+:::details Detalhes técnicos
 
-Entrada pública `extensoes_para_dados` da superfície `coral.persistencia`.
+**Assinatura:** `registrar_extensao_persistente(tipo_python: type, identificador: str, para_dados: Callable[[Any], Any], aplicar_dados: Callable[[Any, Any], None]) -> None`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `extensoes_para_dados`
+
+Converte extensões persistentes registradas para dados portáteis.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `objeto` | `Any` | obrigatório | posicional |
+| `objeto` | Objeto processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-#### `aplicar_extensoes_persistentes(objeto: Any, extensoes: Any) -> None`
+Retorna um valor declarado como `dict[str, Any]`.
 
-Entrada pública `aplicar_extensoes_persistentes` da superfície `coral.persistencia`.
+:::details Detalhes técnicos
+
+**Assinatura:** `extensoes_para_dados(objeto: Any) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
+
+#### `aplicar_extensoes_persistentes`
+
+Aplica ao objeto as extensões persistentes presentes nos dados carregados.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `objeto` | `Any` | obrigatório | posicional |
-| `extensoes` | `Any` | obrigatório | posicional |
+| `objeto` | Objeto processado pela operação. | `Any` | obrigatório |
+| `extensoes` | Valor correspondente a extensoes. | `Any` | obrigatório |
 
-**Retorno:** `None`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroPersistencia`
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
 
-#### `valor_portatil(valor: Any) -> Any`
+:::details Detalhes técnicos
+
+**Assinatura:** `aplicar_extensoes_persistentes(objeto: Any, extensoes: Any) -> None`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroPersistencia`
+
+:::
+
+#### `valor_portatil`
 
 Normaliza um valor isolado segundo o contrato portátil da Coral.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `Any`
+**Retorno**
 
-#### `para_dados(objeto: Any) -> dict[str, Any]`
+Retorna um valor declarado como `Any`.
 
-Entrada pública `para_dados` da superfície `coral.persistencia`.
+:::details Detalhes técnicos
+
+**Assinatura:** `valor_portatil(valor: Any) -> Any`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
+
+#### `para_dados`
+
+Converter documento.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `objeto` | `Any` | obrigatório | posicional |
+| `objeto` | Objeto processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `dict[str, Any]`
+**Retorno**
 
-#### `de_dados(documento: dict[str, Any]) -> Any`
+Retorna um valor declarado como `dict[str, Any]`.
 
-Entrada pública `de_dados` da superfície `coral.persistencia`.
+:::details Detalhes técnicos
+
+**Assinatura:** `para_dados(objeto: Any) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
+
+#### `de_dados`
+
+Converter documento.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `documento` | `dict[str, Any]` | obrigatório | posicional |
+| `documento` | Valor correspondente a documento. | `dict[str, Any]` | obrigatório |
 
-**Retorno:** `Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroPersistencia`
+Retorna um valor declarado como `Any`.
 
-#### `texto_canonico(valor: Any) -> str`
+:::details Detalhes técnicos
+
+**Assinatura:** `de_dados(documento: dict[str, Any]) -> Any`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroPersistencia`
+
+:::
+
+#### `texto_canonico`
 
 Serialização JSON canônica para hash, cache, replay e equivalência.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `serializar_canonico(valor: Any) -> bytes`
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `texto_canonico(valor: Any) -> str`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
+
+#### `serializar_canonico`
 
 Versão UTF 8 explícita da serialização canônica.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `valor` | `Any` | obrigatório | posicional |
+| `valor` | Valor processado pela operação. | `Any` | obrigatório |
 
-**Retorno:** `bytes`
+**Retorno**
 
-#### `salvar(objeto: Any, caminho: str | Path) -> Path`
+Retorna um valor declarado como `bytes`.
 
-Entrada pública `salvar` da superfície `coral.persistencia`.
+:::details Detalhes técnicos
+
+**Assinatura:** `serializar_canonico(valor: Any) -> bytes`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
+
+#### `salvar`
+
+Persistir arquivo.
+
+**Exemplo**
+
+```coral
+defina dados como {"ponto": (3, 4), "tags": {"a", "b"}}
+execute salvar(dados, "exemplo.coraldata")
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `objeto` | `Any` | obrigatório | posicional |
-| `caminho` | `str \| Path` | obrigatório | posicional |
+| `objeto` | Objeto processado pela operação. | `Any` | obrigatório |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
 
-**Retorno:** `Path`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroPersistencia`
+Retorna um valor declarado como `Path`.
 
-#### `carregar(caminho: str | Path) -> Any`
+:::details Detalhes técnicos
 
-Entrada pública `carregar` da superfície `coral.persistencia`.
+**Assinatura:** `salvar(objeto: Any, caminho: str \| Path) -> Path`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroPersistencia`
+
+:::
+
+#### `carregar`
+
+Persistir arquivo.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `str \| Path` | obrigatório | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
 
-**Retorno:** `Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroPersistencia`
+Retorna um valor declarado como `Any`.
 
-#### `carregar_como(caminho: str | Path, tipo_esperado: type, nome_tipo: str | None = None) -> Any`
+:::details Detalhes técnicos
 
-Entrada pública `carregar_como` da superfície `coral.persistencia`.
+**Assinatura:** `carregar(caminho: str \| Path) -> Any`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroPersistencia`
+
+:::
+
+#### `carregar_como`
+
+Validar tipo esperado.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `caminho` | `str \| Path` | obrigatório | posicional |
-| `tipo_esperado` | `type` | obrigatório | posicional |
-| `nome_tipo` | `str \| None` | `None` | posicional |
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
+| `tipo_esperado` | Valor correspondente a tipo esperado. | `type` | obrigatório |
+| `nome_tipo` | Valor correspondente a nome tipo. | `str \| None` | `None` |
 
-**Retorno:** `Any`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroPersistencia`
+Retorna um valor declarado como `Any`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `carregar_como(caminho: str \| Path, tipo_esperado: type, nome_tipo: str \| None = None) -> Any`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroPersistencia`
+
+:::
 
 ### Exceções
 
-#### `ErroPersistencia(...)`
+#### `ErroPersistencia`
 
 Falha de validação, codificação ou reconstrução persistente.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroPersistencia(...)`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
 
 ### Constantes e aliases
 
 #### `CONTRATO`
 
-Constante pública do módulo.
+Expõe a constante pública `CONTRATO`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
 
 **Valor declarado:** `'coral.persistencia/1'`
 
+:::
+
 #### `VERSAO_ESQUEMA`
 
-Constante pública do módulo.
+Expõe a constante pública `VERSAO_ESQUEMA`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `VERSAO_ESQUEMA`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
 
 **Valor declarado:** `1`
+
+:::
 
 <!-- /AUTO:API -->

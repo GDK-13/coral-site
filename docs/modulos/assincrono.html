@@ -175,49 +175,76 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
-<h4 id="async-aguardar-com-timeout-esperavel-awaitable-any-segundos-float" data-searchable><code>async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)</code></h4>
+<h4 id="aguardar-com-timeout" data-searchable><code>aguardar_com_timeout</code></h4>
 <p data-searchable>Aguarda `<code>esperavel</code><code> por no máximo </code><code>segundos</code>`.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> <span class="code-key">assíncrona</span> principal
+    <span class="code-key">defina</span> resultado como <span class="code-key">aguarde</span> <span class="code-fn">aguardar_com_timeout</span>(<span class="code-fn">leia_dados</span>(), <span class="code-num">2</span>)
+    <span class="code-key">mostre</span> resultado
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>esperavel</code></td><td data-searchable><code>Awaitable[Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>segundos</code></td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>esperavel</code></td><td data-searchable>Valor correspondente a esperavel.</td><td data-searchable><code>Awaitable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>segundos</code></td><td data-searchable>Valor correspondente a segundos.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>não declarado</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code>, <code>ErroTempoEsgotado</code></p>
-<h4 id="cancelar-tarefa-tarefa-any-motivo-str-none-none-bool" data-searchable><code>cancelar_tarefa(tarefa: Any, motivo: str | None = None) -&gt; bool</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code>, <code>ErroTempoEsgotado</code></p></div></details>
+<h4 id="cancelar-tarefa" data-searchable><code>cancelar_tarefa</code></h4>
 <p data-searchable>Solicita cancelamento cooperativo de uma tarefa asyncio.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
-<th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>tarefa</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td><td data-searchable>posicional</td></tr>
-<tr><td data-searchable><code>motivo</code></td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tarefa</code></td><td data-searchable>Valor correspondente a tarefa.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>bool</code></p>
-<p data-searchable><strong>Exceções observáveis no corpo:</strong> <code>ErroValor</code></p>
-<h4 id="async-grupo-tarefas-esperaveis-awaitable-any-tuple-any" data-searchable><code>async grupo_tarefas(*esperaveis: Awaitable[Any]) -&gt; tuple[Any, ...]</code></h4>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bool</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>cancelar_tarefa(tarefa: Any, motivo: str \| None = None) -&gt; bool</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="grupo-tarefas" data-searchable><code>grupo_tarefas</code></h4>
 <p data-searchable>Aguarda vários awaitables e preserva a ordem dos resultados.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*esperaveis</code></td><td data-searchable>Valor correspondente a esperaveis.</td><td data-searchable><code>Awaitable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[Any, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>async grupo_tarefas(*esperaveis: Awaitable[Any]) -&gt; tuple[Any, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
 <th>Modo</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>*esperaveis</code></td><td data-searchable><code>Awaitable[Any]</code></td><td data-searchable>obrigatório</td><td data-searchable>variádico</td></tr>
-</tbody></table></div>
-<p data-searchable><strong>Retorno:</strong> <code>tuple[Any, ...]</code></p>
+<tr><td data-searchable><code>*esperaveis</code></td><td data-searchable>variádico</td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
-<h4 id="errotempoesgotado" data-searchable><code>ErroTempoEsgotado(...)</code></h4>
+<h4 id="errotempoesgotado" data-searchable><code>ErroTempoEsgotado</code></h4>
 <p data-searchable>Uma operação assíncrona excedeu o limite solicitado.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroTempoEsgotado(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="arquivos.html"><span>Anterior</span><strong>coral.arquivos</strong></a><a class="docs-page-nav-link next" href="caminhos.html"><span>Próxima</span><strong>coral.caminhos</strong></a></nav>
   </main>

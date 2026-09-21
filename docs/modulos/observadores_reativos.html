@@ -173,87 +173,191 @@ de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">impo
 <p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
-<h4 id="observadormudanca-nome-str-leitor-leitorvalor-acao-acaomudanca-modo-str-mudanca-limite-any-none" data-searchable><code>ObservadorMudanca(nome: str, leitor: LeitorValor, acao: AcaoMudanca, modo: str = 'mudanca', limite: Any = None)</code></h4>
-<p data-searchable>Entrada pública <code>ObservadorMudanca</code> da superfície <code>coral.observadores_reativos</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
+<h4 id="observadormudanca" data-searchable><code>ObservadorMudanca</code></h4>
+<p data-searchable>Representa ObservadorMudanca na API de <code>coral.observadores_reativos</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Parâmetro</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>leitor</code></td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>acao</code></td><td data-searchable><code>AcaoMudanca</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>modo</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'mudanca'</code></td></tr>
-<tr><td data-searchable><code>limite</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>leitor</code></td><td data-searchable>Valor correspondente a leitor.</td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>AcaoMudanca</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'mudanca'</code></td></tr>
+<tr><td data-searchable><code>limite</code></td><td data-searchable>Valor correspondente a limite.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
-<th>Tipo</th>
-<th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
-</tr></thead><tbody>
-<tr><td data-searchable><code>passar_de</code></td><td data-searchable>método</td><td data-searchable><code>passar_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -&gt; 'ObservadorMudanca'</code></td><td data-searchable><code>'ObservadorMudanca'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>cair_abaixo_de</code></td><td data-searchable>método</td><td data-searchable><code>cair_abaixo_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -&gt; 'ObservadorMudanca'</code></td><td data-searchable><code>'ObservadorMudanca'</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>inicializado</code></td><td data-searchable>propriedade</td><td data-searchable><code>inicializado() -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>valor_anterior</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor_anterior() -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-</tbody></table></div>
-<h4 id="observadorespacial-nome-str-leitor-leitorvalor-referencia-any-acao-callable-any-any-any-any-relacao-str-transicao-str-entrar-limite-any-none-obter-callable-any-any-none-none-obter-referencia-callable-any-any-none-none" data-searchable><code>ObservadorEspacial(nome: str, leitor: LeitorValor, referencia: Any, acao: Callable[[Any, Any, Any], Any], relacao: str, transicao: str = 'entrar', limite: Any = None, obter: Callable[[Any], Any] | None = None, obter_referencia: Callable[[Any], Any] | None = None)</code></h4>
-<p data-searchable>Entrada pública <code>ObservadorEspacial</code> da superfície <code>coral.observadores_reativos</code>.</p>
-<p data-searchable><strong>Atributos declarados</strong></p>
-<div class="table-wrap"><table><thead><tr>
-<th>Nome</th>
+<th>Significado</th>
 <th>Tipo</th>
 <th>Padrão</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>nome</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>leitor</code></td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>referencia</code></td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>acao</code></td><td data-searchable><code>Callable[[Any, Any, Any], Any]</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>relacao</code></td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
-<tr><td data-searchable><code>transicao</code></td><td data-searchable><code>str</code></td><td data-searchable><code>'entrar'</code></td></tr>
-<tr><td data-searchable><code>limite</code></td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>obter</code></td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
-<tr><td data-searchable><code>obter_referencia</code></td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>leitor</code></td><td data-searchable>Valor correspondente a leitor.</td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>AcaoMudanca</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'mudanca'</code></td></tr>
+<tr><td data-searchable><code>limite</code></td><td data-searchable>Valor correspondente a limite.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>passar_de</code></td><td data-searchable>Executa a operação <code>passar_de</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>'ObservadorMudanca'</code></td></tr>
+<tr><td data-searchable><code>cair_abaixo_de</code></td><td data-searchable>Executa a operação <code>cair_abaixo_de</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>'ObservadorMudanca'</code></td></tr>
+<tr><td data-searchable><code>inicializado</code></td><td data-searchable>Indica o estado de inicializado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>valor_anterior</code></td><td data-searchable>Obtém valor anterior.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>Executa a operação <code>avaliar</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ObservadorMudanca(nome: str, leitor: LeitorValor, acao: AcaoMudanca, modo: str = 'mudanca', limite: Any = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.observadores_reativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/observadores_reativos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>entrar_em_regiao</code></td><td data-searchable>método</td><td data-searchable><code>entrar_em_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>sair_de_regiao</code></td><td data-searchable>método</td><td data-searchable><code>sair_de_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>chegar_a_menos_de</code></td><td data-searchable>método</td><td data-searchable><code>chegar_a_menos_de(nome, leitor, referencia, limite, acao, *, obter = None, obter_referencia = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>tocar</code></td><td data-searchable>método</td><td data-searchable><code>tocar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>intersectar</code></td><td data-searchable>método</td><td data-searchable><code>intersectar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)</code></td><td data-searchable><code>não declarado</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>passar_de</code></td><td data-searchable>método</td><td data-searchable><code>passar_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -&gt; 'ObservadorMudanca'</code></td></tr>
+<tr><td data-searchable><code>cair_abaixo_de</code></td><td data-searchable>método</td><td data-searchable><code>cair_abaixo_de(nome: str, leitor: LeitorValor, limite: Any, acao: AcaoMudanca) -&gt; 'ObservadorMudanca'</code></td></tr>
+<tr><td data-searchable><code>inicializado</code></td><td data-searchable>propriedade</td><td data-searchable><code>inicializado() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>valor_anterior</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor_anterior() -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="observadorespacial" data-searchable><code>ObservadorEspacial</code></h4>
+<p data-searchable>Representa ObservadorEspacial na API de <code>coral.observadores_reativos</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>leitor</code></td><td data-searchable>Valor correspondente a leitor.</td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>referencia</code></td><td data-searchable>Valor correspondente a referencia.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>Callable[[Any, Any, Any], Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>relacao</code></td><td data-searchable>Valor correspondente a relacao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transicao</code></td><td data-searchable>Valor correspondente a transicao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'entrar'</code></td></tr>
+<tr><td data-searchable><code>limite</code></td><td data-searchable>Valor correspondente a limite.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>Valor correspondente a obter.</td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>obter_referencia</code></td><td data-searchable>Valor correspondente a obter referencia.</td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
-<h4 id="estadoobservavel-nome-str-valor-inicial-any-eventos-eventos-none-none-enfileirar-bool-false-none" data-searchable><code>EstadoObservavel(nome: str, valor_inicial: Any, *, eventos: Eventos | None = None, enfileirar: bool = False) -&gt; None</code></h4>
-<p data-searchable>Entrada pública <code>EstadoObservavel</code> da superfície <code>coral.observadores_reativos</code>.</p>
-<p data-searchable><strong>Métodos e propriedades públicas</strong></p>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>leitor</code></td><td data-searchable>Valor correspondente a leitor.</td><td data-searchable><code>LeitorValor</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>referencia</code></td><td data-searchable>Valor correspondente a referencia.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>Callable[[Any, Any, Any], Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>relacao</code></td><td data-searchable>Valor correspondente a relacao.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transicao</code></td><td data-searchable>Valor correspondente a transicao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'entrar'</code></td></tr>
+<tr><td data-searchable><code>limite</code></td><td data-searchable>Valor correspondente a limite.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>obter</code></td><td data-searchable>Valor correspondente a obter.</td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>obter_referencia</code></td><td data-searchable>Valor correspondente a obter referencia.</td><td data-searchable><code>Callable[[Any], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>entrar_em_regiao</code></td><td data-searchable>Executa a operação <code>entrar_em_regiao</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>sair_de_regiao</code></td><td data-searchable>Executa a operação <code>sair_de_regiao</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>chegar_a_menos_de</code></td><td data-searchable>Executa a operação <code>chegar_a_menos_de</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>tocar</code></td><td data-searchable>Executa o valor solicitado.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>intersectar</code></td><td data-searchable>Verifica a interseção de o valor solicitado.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>Executa a operação <code>avaliar</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ObservadorEspacial(nome: str, leitor: LeitorValor, referencia: Any, acao: Callable[[Any, Any, Any], Any], relacao: str, transicao: str = 'entrar', limite: Any = None, obter: Callable[[Any], Any] \| None = None, obter_referencia: Callable[[Any], Any] \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.observadores_reativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/observadores_reativos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Nome</th>
 <th>Tipo</th>
 <th>Assinatura</th>
-<th>Retorno</th>
-<th>Descrição</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; Any</code></td><td data-searchable><code>Any</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
-<tr><td data-searchable><code>mudar</code></td><td data-searchable>método</td><td data-searchable><code>mudar(novo: Any) -&gt; bool</code></td><td data-searchable><code>bool</code></td><td data-searchable>Sem docstring própria na release.</td></tr>
+<tr><td data-searchable><code>entrar_em_regiao</code></td><td data-searchable>método</td><td data-searchable><code>entrar_em_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)</code></td></tr>
+<tr><td data-searchable><code>sair_de_regiao</code></td><td data-searchable>método</td><td data-searchable><code>sair_de_regiao(nome, leitor, regiao_alvo, acao, *, obter = None, obter_referencia = None)</code></td></tr>
+<tr><td data-searchable><code>chegar_a_menos_de</code></td><td data-searchable>método</td><td data-searchable><code>chegar_a_menos_de(nome, leitor, referencia, limite, acao, *, obter = None, obter_referencia = None)</code></td></tr>
+<tr><td data-searchable><code>tocar</code></td><td data-searchable>método</td><td data-searchable><code>tocar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)</code></td></tr>
+<tr><td data-searchable><code>intersectar</code></td><td data-searchable>método</td><td data-searchable><code>intersectar(nome, leitor, referencia, acao, *, obter = None, obter_referencia = None)</code></td></tr>
+<tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="estadoobservavel" data-searchable><code>EstadoObservavel</code></h4>
+<p data-searchable>Representa estado que publica mudança.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.observadores_reativos</span> <span class="code-key">importe</span> EstadoObservavel
+de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> Eventos
+
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>()
+<span class="code-key">defina</span> estado como <span class="code-fn">EstadoObservavel</span>(<span class="code-str">&quot;energia&quot;</span>, <span class="code-num">10</span>, eventos=eventos)
+<span class="code-key">mostre</span> estado</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor_inicial</code></td><td data-searchable>Valor correspondente a valor inicial.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>Valor correspondente a enfileirar.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
 </tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Obtém valor.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>mudar</code></td><td data-searchable>Executa a operação <code>mudar</code> disponibilizada por <code>coral.observadores_reativos</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>EstadoObservavel(nome: str, valor_inicial: Any, *, eventos: Eventos \| None = None, enfileirar: bool = False) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.observadores_reativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/observadores_reativos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor_inicial</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>enfileirar</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>mudar</code></td><td data-searchable>método</td><td data-searchable><code>mudar(novo: Any) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="leitorvalor" data-searchable><code>LeitorValor</code></h4>
-<p data-searchable>Alias público de tipo ou valor.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[Any], Any]</code></p>
+<p data-searchable>Expõe <code>LeitorValor</code> como parte da API pública do módulo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>LeitorValor</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.observadores_reativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/observadores_reativos.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[Any], Any]</code></p></div></details>
 <h4 id="acaomudanca" data-searchable><code>AcaoMudanca</code></h4>
-<p data-searchable>Alias público de tipo ou valor.</p>
-<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[Any, Any, Any], Any]</code></p>
+<p data-searchable>Expõe <code>AcaoMudanca</code> como parte da API pública do módulo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>AcaoMudanca</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.observadores_reativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/observadores_reativos.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>Callable[[Any, Any, Any], Any]</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="matematica.html"><span>Anterior</span><strong>coral.matematica</strong></a><a class="docs-page-nav-link next" href="persistencia.html"><span>Próxima</span><strong>coral.persistencia</strong></a></nav>
   </main>

@@ -104,104 +104,212 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `para_hex(dados, *, maiusculas = False) -> str`
+#### `para_hex`
 
-Entrada pública `para_hex` da superfície `coral.formatos`.
-
-**Implementação:** `coral.stdlib.formatos`
+Converte o valor para hex.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `maiusculas` | `não declarado` | `False` | nomeado |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `maiusculas` | Valor correspondente a maiusculas. | `não declarado` | `False` |
 
-**Retorno:** `str`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna um valor declarado como `str`.
 
-#### `de_hex(texto) -> bytes`
+:::details Detalhes técnicos
 
-Entrada pública `de_hex` da superfície `coral.formatos`.
+**Assinatura:** `para_hex(dados, *, maiusculas = False) -> str`
 
-**Implementação:** `coral.stdlib.formatos`
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `dados` | posicional |
+| `maiusculas` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `de_hex`
+
+Interpreta ou reconstrói um valor a partir de hex.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `não declarado` | obrigatório | posicional |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
 
-**Retorno:** `bytes`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna um valor declarado como `bytes`.
 
-#### `para_base64(dados, *, url = False, sem_padding = False) -> str`
+:::details Detalhes técnicos
 
-Entrada pública `para_base64` da superfície `coral.formatos`.
+**Assinatura:** `de_hex(texto) -> bytes`
 
-**Implementação:** `coral.stdlib.formatos`
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `para_base64`
+
+Converte o valor para base64.
+
+**Exemplo**
+
+```coral
+defina mensagem como "Coral"
+defina codificado como para_base64(mensagem.encode("utf-8"))
+defina resumo como resumir(mensagem, "sha256")
+defina token como gerar_token_seguro(16, "hex")
+defina chave como "chave de exemplo"
+```
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `dados` | `não declarado` | obrigatório | posicional |
-| `url` | `não declarado` | `False` | nomeado |
-| `sem_padding` | `não declarado` | `False` | nomeado |
+| `dados` | Dados processados pela operação. | `não declarado` | obrigatório |
+| `url` | Valor correspondente a url. | `não declarado` | `False` |
+| `sem_padding` | Valor correspondente a sem padding. | `não declarado` | `False` |
 
-**Retorno:** `str`
+**Retorno**
 
-**Exceções observáveis no corpo:** `TypeError`
+Retorna um valor declarado como `str`.
 
-#### `de_base64(texto, *, url = False) -> bytes`
+:::details Detalhes técnicos
 
-Entrada pública `de_base64` da superfície `coral.formatos`.
+**Assinatura:** `para_base64(dados, *, url = False, sem_padding = False) -> str`
 
-**Implementação:** `coral.stdlib.formatos`
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `dados` | posicional |
+| `url` | nomeado |
+| `sem_padding` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `de_base64`
+
+Interpreta ou reconstrói um valor a partir de base64.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `não declarado` | obrigatório | posicional |
-| `url` | `não declarado` | `False` | nomeado |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
+| `url` | Valor correspondente a url. | `não declarado` | `False` |
 
-**Retorno:** `bytes`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ValueError`
+Retorna um valor declarado como `bytes`.
 
-#### `para_csv(linhas: Iterable[Mapping[str, Any] | Iterable[Any]], *, colunas = None, delimitador = ',') -> str`
+:::details Detalhes técnicos
 
-Entrada pública `para_csv` da superfície `coral.formatos`.
+**Assinatura:** `de_base64(texto, *, url = False) -> bytes`
 
-**Implementação:** `coral.stdlib.formatos`
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `texto` | posicional |
+| `url` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `para_csv`
+
+Gerar CSV.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `linhas` | `Iterable[Mapping[str, Any] \| Iterable[Any]]` | obrigatório | posicional |
-| `colunas` | `não declarado` | `None` | nomeado |
-| `delimitador` | `não declarado` | `','` | nomeado |
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `Iterable[Mapping[str, Any] \| Iterable[Any]]` | obrigatório |
+| `colunas` | Valor correspondente a colunas. | `não declarado` | `None` |
+| `delimitador` | Valor correspondente a delimitador. | `não declarado` | `','` |
 
-**Retorno:** `str`
+**Retorno**
 
-#### `de_csv(texto, *, cabecalho = True, delimitador = ',')`
+Retorna um valor declarado como `str`.
 
-Entrada pública `de_csv` da superfície `coral.formatos`.
+:::details Detalhes técnicos
 
-**Implementação:** `coral.stdlib.formatos`
+**Assinatura:** `para_csv(linhas: Iterable[Mapping[str, Any] \| Iterable[Any]], *, colunas = None, delimitador = ',') -> str`
+
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `linhas` | posicional |
+| `colunas` | nomeado |
+| `delimitador` | nomeado |
+
+:::
+
+#### `de_csv`
+
+Ler CSV.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `texto` | `não declarado` | obrigatório | posicional |
-| `cabecalho` | `não declarado` | `True` | nomeado |
-| `delimitador` | `não declarado` | `','` | nomeado |
+| `texto` | Texto processado pela operação. | `não declarado` | obrigatório |
+| `cabecalho` | Valor correspondente a cabecalho. | `não declarado` | `True` |
+| `delimitador` | Valor correspondente a delimitador. | `não declarado` | `','` |
 
-**Retorno:** `não declarado`
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `de_csv(texto, *, cabecalho = True, delimitador = ',')`
+
+**Origem da implementação:** `coral.stdlib.formatos`
+
+**Arquivo na release:** `coral/stdlib/formatos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `texto` | posicional |
+| `cabecalho` | nomeado |
+| `delimitador` | nomeado |
+
+:::
 
 <!-- /AUTO:API -->

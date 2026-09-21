@@ -48,6 +48,7 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 * `templates/docs.html`: estrutura HTML da documentação
 * `tools/atualizar_docs.py`: importador de releases e orquestrador (gera também sitemap/robots)
 * `tools/api_docs.py`: extrator estático da API pública da release
+  e gerador da referência em duas camadas: leitura didática + detalhes técnicos recolhíveis
 * `tools/site_renderer.py`: renderer multipágina, navegação e índice de busca
 * `.vscode/tasks.json`: tarefas rápidas do VS Code
 * `WORKFLOW_SITE_CORAL.md`: workflow completo de manutenção e publicação

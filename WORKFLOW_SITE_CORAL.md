@@ -205,7 +205,9 @@ Páginas de módulos usam dois blocos mecânicos:
 <!-- /AUTO:API -->
 ```
 
-`AUTO:MODULO` mantém metadados da superfície publicada. `AUTO:API` é construído por `tools/api_docs.py` a partir do código da própria release e pode conter assinaturas, parâmetros, tipos declarados, valores padrão, retornos, classes, métodos, propriedades, docstrings, origem da implementação e exceções diretamente observáveis.
+`AUTO:MODULO` mantém metadados da superfície publicada. `AUTO:API` é construído por `tools/api_docs.py` a partir do código da própria release e combina duas camadas. A primeira é didática e prioriza descrição curta, exemplo quando houver uso real na página, parâmetros com significado e retorno em linguagem legível. A segunda fica recolhida em **Detalhes técnicos** e preserva assinatura exata, origem, arquivo da implementação, modo dos parâmetros, exceções diretamente observáveis e outras evidências estruturais.
+
+`Quando usar`, `Em palavras`, `Cuidados` e `Erros comuns` não são repetidos mecanicamente em cada símbolo. Eles entram apenas quando o conteúdo editorial acrescenta contexto real. O gerador também reaproveita a tabela manual **API essencial** como evidência editorial, sem substituir a informação técnica da release nem inventar tipos ausentes.
 
 Somente esses blocos são substituídos durante a importação. Conceitos, tutoriais, decisões de uso, exemplos comentados, erros comuns e boas práticas permanecem sob revisão humana.
 

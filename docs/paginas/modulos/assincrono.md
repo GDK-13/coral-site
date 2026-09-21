@@ -102,52 +102,113 @@ A documentação desta página descreve a superfície detectada na **Coral 1.5.9
 
 ### Funções
 
-#### `async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)`
+#### `aguardar_com_timeout`
 
 Aguarda ``esperavel`` por no máximo ``segundos``.
 
+**Exemplo**
+
+```coral
+crie a função assíncrona principal
+    defina resultado como aguarde aguardar_com_timeout(leia_dados(), 2)
+    mostre resultado
+fim
+```
+
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `esperavel` | `Awaitable[Any]` | obrigatório | posicional |
-| `segundos` | `float` | obrigatório | posicional |
+| `esperavel` | Valor correspondente a esperavel. | `Awaitable[Any]` | obrigatório |
+| `segundos` | Valor correspondente a segundos. | `float` | obrigatório |
 
-**Retorno:** `não declarado`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`, `ErroTempoEsgotado`
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
 
-#### `cancelar_tarefa(tarefa: Any, motivo: str | None = None) -> bool`
+:::details Detalhes técnicos
+
+**Assinatura:** `async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)`
+
+**Origem da implementação:** `coral.assincrono`
+
+**Arquivo na release:** `coral/assincrono.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`, `ErroTempoEsgotado`
+
+:::
+
+#### `cancelar_tarefa`
 
 Solicita cancelamento cooperativo de uma tarefa asyncio.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `tarefa` | `Any` | obrigatório | posicional |
-| `motivo` | `str \| None` | `None` | posicional |
+| `tarefa` | Valor correspondente a tarefa. | `Any` | obrigatório |
+| `motivo` | Texto que descreve o motivo associado à operação. | `str \| None` | `None` |
 
-**Retorno:** `bool`
+**Retorno**
 
-**Exceções observáveis no corpo:** `ErroValor`
+Retorna um valor declarado como `bool`.
 
-#### `async grupo_tarefas(*esperaveis: Awaitable[Any]) -> tuple[Any, ...]`
+:::details Detalhes técnicos
+
+**Assinatura:** `cancelar_tarefa(tarefa: Any, motivo: str \| None = None) -> bool`
+
+**Origem da implementação:** `coral.assincrono`
+
+**Arquivo na release:** `coral/assincrono.py`
+
+**Exceções diretamente observáveis no corpo:** `ErroValor`
+
+:::
+
+#### `grupo_tarefas`
 
 Aguarda vários awaitables e preserva a ordem dos resultados.
 
 **Parâmetros**
 
-| Nome | Tipo | Padrão | Modo |
+| Parâmetro | Significado | Tipo | Padrão |
 |---|---|---|---|
-| `*esperaveis` | `Awaitable[Any]` | obrigatório | variádico |
+| `*esperaveis` | Valor correspondente a esperaveis. | `Awaitable[Any]` | obrigatório |
 
-**Retorno:** `tuple[Any, ...]`
+**Retorno**
+
+Retorna um valor declarado como `tuple[Any, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `async grupo_tarefas(*esperaveis: Awaitable[Any]) -> tuple[Any, ...]`
+
+**Origem da implementação:** `coral.assincrono`
+
+**Arquivo na release:** `coral/assincrono.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `*esperaveis` | variádico |
+
+:::
 
 ### Exceções
 
-#### `ErroTempoEsgotado(...)`
+#### `ErroTempoEsgotado`
 
 Uma operação assíncrona excedeu o limite solicitado.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ErroTempoEsgotado(...)`
+
+**Origem da implementação:** `coral.assincrono`
+
+**Arquivo na release:** `coral/assincrono.py`
+
+:::
 
 <!-- /AUTO:API -->
