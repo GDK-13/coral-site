@@ -13,7 +13,7 @@ python tools/atualizar_docs.py
 Importar uma nova release:
 
 ```bash
-python tools/atualizar_docs.py /caminho/Coral_1.5.10_Completo.zip
+python tools/atualizar_docs.py /caminho/Coral_1.5.12_Completo.zip
 ```
 
 Gerar sitemap/robots com o domínio real (antes de publicar):

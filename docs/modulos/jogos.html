@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a class="active" aria-current="page" href="jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -116,7 +120,7 @@
 <p data-searchable><strong>Importação:</strong> <code>coral.jogos</code> <strong>Categoria:</strong> jogos</p>
 <p data-searchable>janela, desenho, sprites, animação, cenas, mapas e eventos de jogo</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>Jogo</code>, <code>Cor</code>, <code>Retangulo</code>, <code>BackendNulo</code>, <code>ErroJogosCoral</code>, <code>DependenciaJogosAusente</code>, <code>PRETO</code>, <code>BRANCO</code>, <code>VERMELHO</code>, <code>VERDE</code>, <code>AZUL</code>, <code>AMARELO</code>, <code>criar_jogo</code>, <code>pygame_disponivel</code>, <code>Assets</code>, <code>Sprite</code>, <code>Cena</code>, <code>RepresentacaoEntidade</code>, <code>ErroAssetCoral</code>, <code>Animacao</code>, <code>AnimacoesDirecionais</code>, <code>VinculoAnimacaoMovimento</code>, <code>EstadosAnimacao</code>, <code>VinculoEstadosAnimacaoMovimento</code>, <code>TransicoesEstadosAnimacao</code>, <code>VinculoTransicoesEstadosMovimento</code>, <code>VinculoTransicoesEventos</code>, <code>Camera</code>, <code>QuadroSprite</code>, <code>Spritesheet</code>, <code>carregar_spritesheet</code>, <code>FormaTransformada</code>, <code>formas_colidem</code>, <code>CanalAnimado</code>, <code>AnimacaoTransformacao</code>, <code>onda_seno</code>, <code>onda_cosseno</code>, <code>onda_triangular</code>, <code>onda_serra</code>, <code>onda_pulso</code>, <code>forma_espacial_sprite</code>, <code>posicao_espacial_sprite</code>, <code>sprites_colidem</code>, <code>AdaptadorEventosJogo</code>, <code>adaptar_eventos</code>, <code>EstiloCelula</code>, <code>RenderizadorMapa2D</code>, <code>celula_para_tela</code>, <code>mundo_para_tela</code>, <code>tela_para_celula</code>, <code>tela_para_mundo</code></p>
+<p data-searchable><code>Jogo</code>, <code>Cor</code>, <code>Retangulo</code>, <code>BackendNulo</code>, <code>ErroJogosCoral</code>, <code>DependenciaJogosAusente</code>, <code>PRETO</code>, <code>BRANCO</code>, <code>VERMELHO</code>, <code>VERDE</code>, <code>AZUL</code>, <code>AMARELO</code>, <code>criar_jogo</code>, <code>pygame_disponivel</code>, <code>Assets</code>, <code>Sprite</code>, <code>Cena</code>, <code>RepresentacaoEntidade</code>, <code>ErroAssetCoral</code>, <code>Animacao</code>, <code>AnimacoesDirecionais</code>, <code>VinculoAnimacaoMovimento</code>, <code>EstadosAnimacao</code>, <code>VinculoEstadosAnimacaoMovimento</code>, <code>TransicoesEstadosAnimacao</code>, <code>VinculoTransicoesEstadosMovimento</code>, <code>VinculoTransicoesEventos</code>, <code>Camera</code>, <code>QuadroSprite</code>, <code>Spritesheet</code>, <code>carregar_spritesheet</code>, <code>FormaTransformada</code>, <code>formas_colidem</code>, <code>CanalAnimado</code>, <code>AnimacaoTransformacao</code>, <code>onda_seno</code>, <code>onda_cosseno</code>, <code>onda_triangular</code>, <code>onda_serra</code>, <code>onda_pulso</code>, <code>forma_espacial_sprite</code>, <code>posicao_espacial_sprite</code>, <code>sprites_colidem</code>, <code>AdaptadorEventosJogo</code>, <code>adaptar_eventos</code>, <code>Viewport</code>, <code>EstiloCelula</code>, <code>RenderizadorMapa2D</code>, <code>celula_para_tela</code>, <code>mundo_para_tela</code>, <code>tela_para_celula</code>, <code>tela_para_mundo</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>O módulo deve apresentar e controlar interação. Estado persistente e semântica do domínio pertencem a <code>coral.mundo</code>, <code>coral.rpg</code> ou outro módulo. <code>RepresentacaoEntidade</code> existe justamente para ligar uma entidade a um <code>Sprite</code> sem acoplar os dois sistemas.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
@@ -128,8 +132,8 @@
 <p data-searchable>Sprites suportam escala, rotação, opacidade e espelhamento. Colisão pode acompanhar escala e rotação de maneira configurável, evitando que apresentação e hitbox precisem ser sempre idênticas.</p>
 <h3 id="animacao" data-searchable>Animação</h3>
 <p data-searchable><code>Animacao</code>, <code>AnimacoesDirecionais</code>, <code>EstadosAnimacao</code> e transições de estado separam quadro visual, direção e estado. Canais animados permitem automatizar propriedades por ondas matemáticas.</p>
-<h3 id="camera-e-mapas" data-searchable>Câmera e mapas</h3>
-<p data-searchable><code>Camera</code> converte entre coordenadas de mundo e tela. <code>RenderizadorMapa2D</code> consome mapas genéricos de <code>coral.mundo</code>, preservando a separação entre domínio e apresentação.</p>
+<h3 id="camera-viewport-e-mapas" data-searchable>Câmera, viewport e mapas</h3>
+<p data-searchable><code>Camera</code> converte entre coordenadas de mundo e tela e também decide visibilidade para culling. <code>Viewport</code> separa a resolução lógica do tamanho físico da janela, incluindo redimensionamento e conversão de coordenadas. <code>RenderizadorMapa2D</code> consome mapas genéricos de <code>coral.mundo</code>, preservando a separação entre domínio e apresentação.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
 <p data-searchable>Use para jogos 2D, protótipos interativos, visualizações e interfaces que precisam de entrada em tempo real. Se você só precisa modelar um mapa ou simulação sem janela, <code>coral.mundo</code> pode ser suficiente.</p>
 <h2 id="comecando-sem-janela" data-searchable>Começando sem janela</h2>
@@ -142,7 +146,7 @@ execute jogo.backend.<span class="code-fn">definir_mouse</span>(posicao=[<span c
 
 garanta que jogo.<span class="code-fn">tecla_pressionada</span>(<span class="code-str">&quot;direita&quot;</span>) for igual a verdadeiro
 garanta que jogo.<span class="code-fn">botao_mouse_pressionado</span>(<span class="code-str">&quot;esquerdo&quot;</span>) for igual a verdadeiro</code></pre></div></div>
-<h2 id="mapas-e-camera" data-searchable>Mapas e câmera</h2>
+<h2 id="mapas-camera-e-viewport" data-searchable>Mapas, câmera e viewport</h2>
 <p data-searchable>Trecho oficial de <code>Exemplos/Jogos/03_tilemap_e_camera.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> Camera, RenderizadorMapa2D, BackendNulo
 
@@ -168,7 +172,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>RepresentacaoEntidade</code></td><td data-searchable>ligar mundo a sprite</td><td data-searchable><code>RepresentacaoEntidade(entidade: Any, sprite: Sprite, atributo_x: str = 'x', atributo_y: str = 'y')</code></td></tr>
 <tr><td data-searchable><code>Animacao</code></td><td data-searchable>sequência de quadros</td><td data-searchable><code>Animacao(quadros: tuple[str | Path | QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False)</code></td></tr>
 <tr><td data-searchable><code>EstadosAnimacao</code></td><td data-searchable>estados visuais</td><td data-searchable><code>EstadosAnimacao(estados: dict[str, Animacao | AnimacoesDirecionais])</code></td></tr>
-<tr><td data-searchable><code>Camera</code></td><td data-searchable>conversão mundo tela</td><td data-searchable><code>Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite | None = None, suavidade: float = 1.0)</code></td></tr>
+<tr><td data-searchable><code>Camera</code></td><td data-searchable>conversão mundo tela e culling</td><td data-searchable><code>Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite | None = None, suavidade: float = 1.0)</code></td></tr>
+<tr><td data-searchable><code>Viewport</code></td><td data-searchable>resolução lógica, área física e conversão de tela</td><td data-searchable><code>Viewport(largura_logica: float, altura_logica: float, largura_fisica: float, altura_fisica: float, *, modo: str = 'ajustar')</code></td></tr>
 <tr><td data-searchable><code>Spritesheet</code></td><td data-searchable>atlas de quadros</td><td data-searchable><code>Spritesheet(caminho: str | Path, *, largura_imagem: int, altura_imagem: int) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>formas_colidem</code></td><td data-searchable>colisão convexa</td><td data-searchable><code>formas_colidem(a: FormaTransformada, b: FormaTransformada) -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>sprites_colidem</code></td><td data-searchable>colisão entre sprites</td><td data-searchable><code>sprites_colidem(a: Any, b: Any) -&gt; bool</code></td></tr>
@@ -180,6 +185,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <p data-searchable><code>CanalAnimado</code> e <code>AnimacaoTransformacao</code> podem dirigir propriedades com seno, cosseno, onda triangular, serra ou pulso. Isso atende animações como flutuação, respiração, idle e movimentos repetitivos sem criar contadores manuais para cada propriedade.</p>
 <h2 id="estados-e-eventos" data-searchable>Estados e eventos</h2>
 <p data-searchable>As classes de estados e transições permitem mapear eventos para animações. O vínculo com <code>Eventos</code> é opcional, então um sprite pode ser dirigido por movimento, por eventos de regras ou explicitamente pelo programa.</p>
+<h2 id="janela-tela-cheia-e-redimensionamento" data-searchable>Janela, tela cheia e redimensionamento</h2>
+<p data-searchable><code>Jogo</code> pode iniciar em tela cheia, alternar esse estado em execução e atualizar o tamanho físico quando a janela é redimensionada. O <code>Viewport</code> mantém as conversões entre coordenadas físicas e lógicas, evitando que a lógica do jogo dependa diretamente da resolução real da janela.</p>
 <h2 id="erros-e-diagnostico" data-searchable>Erros e diagnóstico</h2>
 <p data-searchable><code>DependenciaJogosAusente</code> representa ausência do backend gráfico real quando ele é necessário. <code>pygame_disponivel()</code> permite detectar a capacidade. Para lógica de jogo, prefira provar comportamento com <code>BackendNulo</code> antes de depender de uma janela real.</p>
 <p data-searchable>Assets inválidos usam <code>ErroAssetCoral</code>. Separar assets, sprites e domínio ajuda a localizar rapidamente se a falha está no arquivo, na transformação ou na lógica do mundo.</p>
@@ -192,7 +199,7 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <li data-searchable>Use estados e eventos em vez de uma cadeia grande de <code>se</code> para animação complexa.</li>
 </ul>
 <h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
-<p data-searchable><code>coral.mundo</code> fornece mapas e entidades. <code>coral.regras</code> pode emitir eventos para transições visuais. <code>coral.rpg</code> fornece personagens. <code>coral.aleatorio</code> ajuda em geração procedural. <code>coral.laboratorio</code> pode medir algoritmos e visualizações sem misturar a medição ao loop.</p>
+<p data-searchable><code>coral.mundo</code> fornece mapas e entidades. <code>coral.regras</code> pode emitir eventos para transições visuais. <code>coral.rpg</code> fornece personagens. <code>coral.procedural</code> cuida de geração determinística e <code>coral.simulacao</code> pode evoluir o estado temporal sem depender da janela. <code>coral.laboratorio</code> pode medir algoritmos e visualizações sem misturar a medição ao loop.</p>
 <h2 id="testabilidade-e-ambientes" data-searchable>Testabilidade e ambientes</h2>
 <p data-searchable>O backend nulo existe para execução determinística em testes, servidores e CI. Gates gráficos reais continuam necessários para validar janela, driver, renderização, áudio e entrada física.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
@@ -467,10 +474,11 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>camera</code></td><td data-searchable>Valor correspondente a camera.</td><td data-searchable><code>Camera | None</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>celula</code></td><td data-searchable>Valor correspondente a celula.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>ancora</code></td><td data-searchable>Valor correspondente a ancora.</td><td data-searchable><code>str</code></td><td data-searchable><code>'centro'</code></td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>Valor correspondente a viewport.</td><td data-searchable><code>Viewport | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>tuple[float, float]</code>.</p>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>celula_para_tela(mapa: Mapa, camera: Camera \| None, celula: Any, *, ancora: str = 'centro') -&gt; tuple[float, float]</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>celula_para_tela(mapa: Mapa, camera: Camera \| None, celula: Any, *, ancora: str = 'centro', viewport: Viewport \| None = None) -&gt; tuple[float, float]</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.mapas</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p>
 <p data-searchable><strong>Modo dos parâmetros</strong></p>
@@ -482,6 +490,7 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>camera</code></td><td data-searchable>posicional</td></tr>
 <tr><td data-searchable><code>celula</code></td><td data-searchable>posicional</td></tr>
 <tr><td data-searchable><code>ancora</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div></div></details>
 <h4 id="mundo-para-tela" data-searchable><code>mundo_para_tela</code></h4>
 <p data-searchable>Converte coordenadas de mundo para tela.</p>
@@ -494,12 +503,22 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 </tr></thead><tbody>
 <tr><td data-searchable><code>camera</code></td><td data-searchable>Valor correspondente a camera.</td><td data-searchable><code>Camera | None</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>coordenada</code></td><td data-searchable>Valor correspondente a coordenada.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>Valor correspondente a viewport.</td><td data-searchable><code>Viewport | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>tuple[float, float]</code>.</p>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mundo_para_tela(camera: Camera \| None, coordenada: Any) -&gt; tuple[float, float]</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mundo_para_tela(camera: Camera \| None, coordenada: Any, *, viewport: Viewport \| None = None) -&gt; tuple[float, float]</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.mapas</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>camera</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>coordenada</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroMapaCoral</code></p></div></details>
 <h4 id="tela-para-celula" data-searchable><code>tela_para_celula</code></h4>
 <p data-searchable>Converte coordenadas de tela para celula.</p>
@@ -514,12 +533,24 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>camera</code></td><td data-searchable>Valor correspondente a camera.</td><td data-searchable><code>Camera | None</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>Valor correspondente a viewport.</td><td data-searchable><code>Viewport | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tela_para_celula(mapa: Mapa, camera: Camera \| None, x: float, y: float)</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tela_para_celula(mapa: Mapa, camera: Camera \| None, x: float, y: float, *, viewport: Viewport \| None = None)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.mapas</code></p>
-<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p></div></details>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mapa</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>camera</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h4 id="tela-para-mundo" data-searchable><code>tela_para_mundo</code></h4>
 <p data-searchable>Converte coordenadas de tela para mundo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -532,12 +563,23 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>camera</code></td><td data-searchable>Valor correspondente a camera.</td><td data-searchable><code>Camera | None</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>Valor correspondente a viewport.</td><td data-searchable><code>Viewport | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tela_para_mundo(camera: Camera \| None, x: float, y: float)</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tela_para_mundo(camera: Camera \| None, x: float, y: float, *, viewport: Viewport \| None = None)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.mapas</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>camera</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroMapaCoral</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="jogo" data-searchable><code>Jogo</code></h4>
@@ -574,6 +616,11 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>usar_mundo</code></td><td data-searchable>Associa um Mundo ao jogo e propaga eventos do Mundo para o Jogo.</td><td data-searchable><code>não declarado</code></td></tr>
 <tr><td data-searchable><code>tecla_pressionada</code></td><td data-searchable>Executa a operação <code>tecla_pressionada</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>posicao_mouse</code></td><td data-searchable>Executa a operação <code>posicao_mouse</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>tamanho_logico</code></td><td data-searchable>Executa a operação <code>tamanho_logico</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>tamanho_fisico</code></td><td data-searchable>Executa a operação <code>tamanho_fisico</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>Executa a operação <code>viewport</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>Viewport</code></td></tr>
+<tr><td data-searchable><code>posicao_mouse_logica</code></td><td data-searchable>Executa a operação <code>posicao_mouse_logica</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>redimensionar_janela</code></td><td data-searchable>Executa a operação <code>redimensionar_janela</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>botao_mouse_pressionado</code></td><td data-searchable>Executa a operação <code>botao_mouse_pressionado</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>mouse_clicado</code></td><td data-searchable>Executa a operação <code>mouse_clicado</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>mouse_solto</code></td><td data-searchable>Executa a operação <code>mouse_solto</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
@@ -625,6 +672,11 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>usar_mundo</code></td><td data-searchable>método</td><td data-searchable><code>usar_mundo(mundo)</code></td></tr>
 <tr><td data-searchable><code>tecla_pressionada</code></td><td data-searchable>método</td><td data-searchable><code>tecla_pressionada(tecla: str) -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>posicao_mouse</code></td><td data-searchable>método</td><td data-searchable><code>posicao_mouse() -&gt; tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>tamanho_logico</code></td><td data-searchable>método</td><td data-searchable><code>tamanho_logico() -&gt; tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>tamanho_fisico</code></td><td data-searchable>método</td><td data-searchable><code>tamanho_fisico() -&gt; tuple[int, int]</code></td></tr>
+<tr><td data-searchable><code>viewport</code></td><td data-searchable>método</td><td data-searchable><code>viewport(*, modo: str = 'ajustar') -&gt; Viewport</code></td></tr>
+<tr><td data-searchable><code>posicao_mouse_logica</code></td><td data-searchable>método</td><td data-searchable><code>posicao_mouse_logica(*, limitar: bool = False, modo: str = 'ajustar') -&gt; tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>redimensionar_janela</code></td><td data-searchable>método</td><td data-searchable><code>redimensionar_janela(largura: int, altura: int) -&gt; tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>botao_mouse_pressionado</code></td><td data-searchable>método</td><td data-searchable><code>botao_mouse_pressionado(botao: str = 'esquerdo') -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>mouse_clicado</code></td><td data-searchable>método</td><td data-searchable><code>mouse_clicado(botao: str = 'esquerdo') -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>mouse_solto</code></td><td data-searchable>método</td><td data-searchable><code>mouse_solto(botao: str = 'esquerdo') -&gt; bool</code></td></tr>
@@ -768,6 +820,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>mouse_solto</code></td><td data-searchable>Executa a operação <code>mouse_solto</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>roda_mouse</code></td><td data-searchable>Executa a operação <code>roda_mouse</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>definir_tela_cheia</code></td><td data-searchable>Define tela cheia.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>definir_tamanho_janela</code></td><td data-searchable>Define tamanho janela.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tamanho_fisico</code></td><td data-searchable>Executa a operação <code>tamanho_fisico</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>limpar</code></td><td data-searchable>Limpa o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>desenhar_retangulo</code></td><td data-searchable>Desenha retangulo.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>desenhar_circulo</code></td><td data-searchable>Desenha circulo.</td><td data-searchable><code>None</code></td></tr>
@@ -809,6 +863,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>mouse_solto</code></td><td data-searchable>método</td><td data-searchable><code>mouse_solto(botao: str) -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>roda_mouse</code></td><td data-searchable>método</td><td data-searchable><code>roda_mouse() -&gt; tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>definir_tela_cheia</code></td><td data-searchable>método</td><td data-searchable><code>definir_tela_cheia(ativa: bool) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>definir_tamanho_janela</code></td><td data-searchable>método</td><td data-searchable><code>definir_tamanho_janela(largura: int, altura: int) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>tamanho_fisico</code></td><td data-searchable>método</td><td data-searchable><code>tamanho_fisico() -&gt; tuple[int, int]</code></td></tr>
 <tr><td data-searchable><code>limpar</code></td><td data-searchable>método</td><td data-searchable><code>limpar(cor: Cor) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>desenhar_retangulo</code></td><td data-searchable>método</td><td data-searchable><code>desenhar_retangulo(retangulo: Retangulo, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>desenhar_circulo</code></td><td data-searchable>método</td><td data-searchable><code>desenhar_circulo(x: float, y: float, raio: float, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -&gt; None</code></td></tr>
@@ -922,6 +978,7 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <th>Retorno</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>retangulo</code></td><td data-searchable>Obtém retangulo.</td><td data-searchable><code>Retangulo</code></td></tr>
+<tr><td data-searchable><code>limites_visuais</code></td><td data-searchable>Retângulo conservador da imagem após escala, espelho e rotação.</td><td data-searchable><code>Retangulo</code></td></tr>
 <tr><td data-searchable><code>forma_colisao</code></td><td data-searchable>Executa a operação <code>forma_colisao</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>não declarado</code></td></tr>
 <tr><td data-searchable><code>mover</code></td><td data-searchable>Move o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>definir_escala</code></td><td data-searchable>Define escala.</td><td data-searchable><code>não declarado</code></td></tr>
@@ -953,6 +1010,7 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <th>Assinatura</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>retangulo</code></td><td data-searchable>propriedade</td><td data-searchable><code>retangulo() -&gt; Retangulo</code></td></tr>
+<tr><td data-searchable><code>limites_visuais</code></td><td data-searchable>propriedade</td><td data-searchable><code>limites_visuais() -&gt; Retangulo</code></td></tr>
 <tr><td data-searchable><code>forma_colisao</code></td><td data-searchable>propriedade</td><td data-searchable><code>forma_colisao()</code></td></tr>
 <tr><td data-searchable><code>mover</code></td><td data-searchable>método</td><td data-searchable><code>mover(dx: float, dy: float) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>definir_escala</code></td><td data-searchable>método</td><td data-searchable><code>definir_escala(escala: float)</code></td></tr>
@@ -1459,6 +1517,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>não declarado</code></td></tr>
 <tr><td data-searchable><code>mundo_para_tela</code></td><td data-searchable>Converte coordenadas de mundo para tela.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
 <tr><td data-searchable><code>tela_para_mundo</code></td><td data-searchable>Converte coordenadas de tela para mundo.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>area_visivel</code></td><td data-searchable>Executa a operação <code>area_visivel</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>Retangulo</code></td></tr>
+<tr><td data-searchable><code>visivel</code></td><td data-searchable>Executa a operação <code>visivel</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>tela</code></td><td data-searchable>Compatibilidade histórica: converte coordenadas de mundo para tela.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite \| None = None, suavidade: float = 1.0)</code></p>
@@ -1474,6 +1534,8 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar()</code></td></tr>
 <tr><td data-searchable><code>mundo_para_tela</code></td><td data-searchable>método</td><td data-searchable><code>mundo_para_tela(x: float, y: float) -&gt; tuple[float, float]</code></td></tr>
 <tr><td data-searchable><code>tela_para_mundo</code></td><td data-searchable>método</td><td data-searchable><code>tela_para_mundo(x: float, y: float) -&gt; tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>area_visivel</code></td><td data-searchable>propriedade</td><td data-searchable><code>area_visivel() -&gt; Retangulo</code></td></tr>
+<tr><td data-searchable><code>visivel</code></td><td data-searchable>método</td><td data-searchable><code>visivel(objeto: Sprite | Retangulo, *, margem: float = 0.0) -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>tela</code></td><td data-searchable>método</td><td data-searchable><code>tela(x: float, y: float) -&gt; tuple[float, float]</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="quadrosprite" data-searchable><code>QuadroSprite</code></h4>
@@ -1780,6 +1842,69 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <tr><td data-searchable><code>observar_colisao</code></td><td data-searchable>método</td><td data-searchable><code>observar_colisao(primeiro: Sprite, segundo: Sprite, *, nome: str | None = None) -&gt; _ColisaoObservada</code></td></tr>
 <tr><td data-searchable><code>publicar_transicao_visual</code></td><td data-searchable>método</td><td data-searchable><code>publicar_transicao_visual(sprite: Sprite, transicao: str, *, estado: str | None = None)</code></td></tr>
 </tbody></table></div></div></details>
+<h4 id="viewport" data-searchable><code>Viewport</code></h4>
+<p data-searchable>Transformação entre a superfície física e a área lógica de Jogos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>largura_logica</code></td><td data-searchable>Largura de logica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>altura_logica</code></td><td data-searchable>Altura de logica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>largura_fisica</code></td><td data-searchable>Largura de fisica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>altura_fisica</code></td><td data-searchable>Altura de fisica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'ajustar'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>largura_logica</code></td><td data-searchable>Largura de logica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>altura_logica</code></td><td data-searchable>Altura de logica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>largura_fisica</code></td><td data-searchable>Largura de fisica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>altura_fisica</code></td><td data-searchable>Altura de fisica.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'ajustar'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>escala_x</code></td><td data-searchable>Executa a operação <code>escala_x</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>escala_y</code></td><td data-searchable>Executa a operação <code>escala_y</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>deslocamento_x</code></td><td data-searchable>Executa a operação <code>deslocamento_x</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>deslocamento_y</code></td><td data-searchable>Executa a operação <code>deslocamento_y</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>area_fisica_util</code></td><td data-searchable>Executa a operação <code>area_fisica_util</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[float, float, float, float]</code></td></tr>
+<tr><td data-searchable><code>logica_para_tela</code></td><td data-searchable>Executa a operação <code>logica_para_tela</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>tela_para_logica</code></td><td data-searchable>Executa a operação <code>tela_para_logica</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>contem_tela</code></td><td data-searchable>Executa a operação <code>contem_tela</code> disponibilizada por <code>coral.jogos</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>ancorar</code></td><td data-searchable>Retorna o canto superior esquerdo de um elemento na área lógica.</td><td data-searchable><code>tuple[float, float]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Viewport(largura_logica: float, altura_logica: float, largura_fisica: float, altura_fisica: float, modo: str = 'ajustar')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.viewport</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/viewport.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>escala_x</code></td><td data-searchable>propriedade</td><td data-searchable><code>escala_x() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>escala_y</code></td><td data-searchable>propriedade</td><td data-searchable><code>escala_y() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>deslocamento_x</code></td><td data-searchable>propriedade</td><td data-searchable><code>deslocamento_x() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>deslocamento_y</code></td><td data-searchable>propriedade</td><td data-searchable><code>deslocamento_y() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>area_fisica_util</code></td><td data-searchable>propriedade</td><td data-searchable><code>area_fisica_util() -&gt; tuple[float, float, float, float]</code></td></tr>
+<tr><td data-searchable><code>logica_para_tela</code></td><td data-searchable>método</td><td data-searchable><code>logica_para_tela(x: float, y: float) -&gt; tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>tela_para_logica</code></td><td data-searchable>método</td><td data-searchable><code>tela_para_logica(x: float, y: float, *, limitar: bool = False) -&gt; tuple[float, float]</code></td></tr>
+<tr><td data-searchable><code>contem_tela</code></td><td data-searchable>método</td><td data-searchable><code>contem_tela(x: float, y: float) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>ancorar</code></td><td data-searchable>método</td><td data-searchable><code>ancorar(largura: float, altura: float, *, ancora: str = 'superior_esquerda', margem_x: float = 0.0, margem_y: float | None = None) -&gt; tuple[float, float]</code></td></tr>
+</tbody></table></div></div></details>
 <h4 id="estilocelula" data-searchable><code>EstiloCelula</code></h4>
 <p data-searchable>Representa EstiloCelula na API de <code>coral.jogos</code>.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -1925,7 +2050,7 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <h2 id="compatibilidade-e-dependencias" data-searchable>Compatibilidade e dependências</h2>
 <p data-searchable>O backend gráfico real é opcional. A camada headless continua disponível sem janela. Recursos visuais dependem do backend e do ambiente, enquanto mapas, regras e mundo permanecem independentes.</p>
     </article>
-    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="rpg.html"><span>Anterior</span><strong>coral.rpg</strong></a><a class="docs-page-nav-link next" href="aleatorio.html"><span>Próxima</span><strong>coral.aleatorio</strong></a></nav>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="rpg.html"><span>Anterior</span><strong>coral.rpg</strong></a><a class="docs-page-nav-link next" href="agentes.html"><span>Próxima</span><strong>coral.agentes</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
@@ -1935,11 +2060,12 @@ adicione uma camada <span class="code-key">chamada</span> terreno ao mapa sala
 <li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando-sem-janela" data-toc-link>Começando sem janela</a></li>
-<li class="toc-level-2"><a href="#mapas-e-camera" data-toc-link>Mapas e câmera</a></li>
+<li class="toc-level-2"><a href="#mapas-camera-e-viewport" data-toc-link>Mapas, câmera e viewport</a></li>
 <li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
 <li class="toc-level-2"><a href="#sprites-escala-e-colisao" data-toc-link>Sprites, escala e colisão</a></li>
 <li class="toc-level-2"><a href="#automacao-matematica" data-toc-link>Automação matemática</a></li>
 <li class="toc-level-2"><a href="#estados-e-eventos" data-toc-link>Estados e eventos</a></li>
+<li class="toc-level-2"><a href="#janela-tela-cheia-e-redimensionamento" data-toc-link>Janela, tela cheia e redimensionamento</a></li>
 <li class="toc-level-2"><a href="#erros-e-diagnostico" data-toc-link>Erros e diagnóstico</a></li>
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>

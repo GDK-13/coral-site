@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="modulos/jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="modulos/agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="modulos/arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="modulos/assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="modulos/procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -126,11 +130,11 @@ adicione <span class="code-num">5</span> a pontos
 <p data-searchable>O exemplo mostra saída, variável, alteração de valor e uma decisão condicional.</p>
 <h2 id="executar" data-searchable>Executar</h2>
 <p data-searchable>Com o runtime portátil:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.9.pyz executar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz executar ola.coral</code></pre></div></div>
 <p data-searchable>Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.</p>
 <h2 id="verificar-sem-executar" data-searchable>Verificar sem executar</h2>
 <p data-searchable>Para validar o programa sem rodar seus efeitos:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.9.pyz verificar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz verificar ola.coral</code></pre></div></div>
 <p data-searchable>Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.</p>
 <h2 id="proximo-passo" data-searchable>Próximo passo</h2>
 <p data-searchable>Quando o programa começar a crescer, separe funções e módulos. A página <strong>Projetos e módulos</strong> mostra quando criar <code>coral.toml</code> e como organizar vários arquivos.</p>

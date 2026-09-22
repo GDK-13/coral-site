@@ -55,7 +55,7 @@ Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesse
 
 ## Começando
 
-A release 1.5.9 usa `coral.numerico` no projeto de laboratório de algoritmos. O trecho abaixo vem de `Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral`:
+A release 1.5.12 usa `coral.numerico` no projeto de laboratório de algoritmos. O trecho abaixo vem de `Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral`:
 
 ```coral
 de coral.json importe ler_json

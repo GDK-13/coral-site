@@ -92,7 +92,7 @@ O teste mais forte é executar uma sequência, gravar, reproduzir e comparar um 
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.5.9**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.5.12**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -180,7 +180,12 @@ mostre replay
 | `registros` | Executa a operação `registros` disponibilizada por `coral.replay_reativo`. | `tuple[RegistroReplay, ...]` |
 | `evento` | Executa a operação `evento` disponibilizada por `coral.replay_reativo`. | `RegistroReplay` |
 | `mudanca_mapa` | Registra uma mudança aplicada para reconstrução determinística posterior. | `RegistroReplay` |
+| `recurso` | Executa a operação `recurso` disponibilizada por `coral.replay_reativo`. | `RegistroReplay` |
+| `efeito` | Executa a operação `efeito` disponibilizada por `coral.replay_reativo`. | `RegistroReplay` |
+| `ataque` | Executa a operação `ataque` disponibilizada por `coral.replay_reativo`. | `RegistroReplay` |
+| `avancar_combate` | Avança combate. | `RegistroReplay` |
 | `avancar` | Avança o valor solicitado. | `RegistroReplay` |
+| `avancar_simulacao` | Registra avanço explícito de uma ``coral.simulacao.Simulacao``. | `RegistroReplay` |
 | `como_json` | Representa o valor como JSON. | `str` |
 
 :::details Detalhes técnicos
@@ -198,7 +203,12 @@ mostre replay
 | `registros` | propriedade | `registros() -> tuple[RegistroReplay, ...]` |
 | `evento` | método | `evento(nome: str, *args: Any, origem: str \| None = None, **kwargs: Any) -> RegistroReplay` |
 | `mudanca_mapa` | método | `mudanca_mapa(mudanca: Any) -> RegistroReplay` |
+| `recurso` | método | `recurso(agente: Any, nome: str, operacao: str, quantidade: Any, *, origem: str \| None = None) -> RegistroReplay` |
+| `efeito` | método | `efeito(agente: Any, efeito: Any) -> RegistroReplay` |
+| `ataque` | método | `ataque(combate: Any, atacante: Any, alvo: Any, dano: Any, *, defesa: Any = None, chance_critico: Any = 0.0, multiplicador_critico: Any = 2.0, exigir_turno: bool = True) -> RegistroReplay` |
+| `avancar_combate` | método | `avancar_combate(combate: Any) -> RegistroReplay` |
 | `avancar` | método | `avancar(segundos: Any) -> RegistroReplay` |
+| `avancar_simulacao` | método | `avancar_simulacao(segundos: Any) -> RegistroReplay` |
 | `como_json` | método | `como_json() -> str` |
 
 :::
@@ -229,6 +239,7 @@ mostre replay
 | Nome | O que faz | Retorno |
 |---|---|---|
 | `reproduzir` | Reproduz o valor solicitado. | `tuple[ResultadoReplay, ...]` |
+| `reproduzir_simulacao` | Reproduz registros temporais diretamente em uma Simulacao preparada. | `tuple[ResultadoReplay, ...]` |
 
 :::details Detalhes técnicos
 
@@ -243,6 +254,7 @@ mostre replay
 | Nome | Tipo | Assinatura |
 |---|---|---|
 | `reproduzir` | método | `reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -> tuple[ResultadoReplay, ...]` |
+| `reproduzir_simulacao` | método | `reproduzir_simulacao(simulacao: Any, contexto: Any = None) -> tuple[ResultadoReplay, ...]` |
 
 :::
 

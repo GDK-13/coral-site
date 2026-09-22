@@ -543,7 +543,7 @@ def update_index_fallbacks(version: dict[str, Any]) -> None:
     text = path.read_text(encoding="utf-8")
     # asset paths from older starter package
     text = text.replace("assets/styles.css", "assets/css/styles.css").replace("assets/site.js", "assets/js/site.js")
-    # Insert data markers once and then update their fallback text deterministically.
+    # Insere marcadores em pacotes antigos que ainda não os possuam.
     text = re.sub(r"Release estável\s+[0-9.]+", f'Release estável <span data-version-key="coral">{version.get("coral", "?")}</span>', text, count=1)
     text = re.sub(r"<strong>Runtime</strong>\s*[0-9.]+", f'<strong>Runtime</strong> <span data-version-key="coral">{version.get("coral", "?")}</span>', text, count=1)
     text = re.sub(r"<strong>VS Code</strong>\s*[0-9.]+", f'<strong>VS Code</strong> <span data-version-key="extensao_vscode">{version.get("extensao_vscode", "?")}</span>', text, count=1)
@@ -555,15 +555,28 @@ def update_index_fallbacks(version: dict[str, Any]) -> None:
     text = re.sub(r"Princípio da\s+[0-9.]+", f'Princípio da <span data-version-key="coral">{version.get("coral", "?")}</span>', text, count=1)
     text = re.sub(r"coral-\d+\.\d+\.\d+\.pyz", f'coral-{version.get("coral", "?")}.pyz', text)
     text = re.sub(r">Release\s+[0-9.]+<", f'>Release <span data-version-key="coral">{version.get("coral", "?")}</span><', text, count=1)
-    # Avoid nesting markers on repeated runs.
+
+    # Atualiza também o fallback já marcado. Assim o HTML continua correto sem
+    # JavaScript e o gerador permanece idempotente em releases sucessivas.
+    for key, value in (
+        ("coral", version.get("coral", "?")),
+        ("extensao_vscode", version.get("extensao_vscode", "?")),
+        ("livro", version.get("livro", "?")),
+    ):
+        text = re.sub(
+            rf'(<span data-version-key="{re.escape(key)}">)[^<]*(</span>)',
+            rf'\g<1>{value}\g<2>',
+            text,
+        )
+
+    # Evita marcadores aninhados em pacotes muito antigos.
     text = re.sub(r'<span data-version-key="coral"><span data-version-key="coral">([^<]+)</span></span>', r'<span data-version-key="coral">\1</span>', text)
     path.write_text(text, encoding="utf-8")
-
 
 def ensure_base_pages() -> None:
     pages = {
         "introducao.md": '''# Introdução\n\nCoral é uma linguagem com sintaxe corrente em português. A intenção é manter o programa legível sem transformar a linguagem em simples substituição textual: parser, AST, tipos, módulos e ferramentas continuam sendo partes reais da implementação.\n\n> Comece pequeno. Um único arquivo `.coral` funciona sem projeto. Quando precisar de módulos, testes e configuração, use `coral.toml`.\n''',
-        "instalacao.md": '''# Instalação\n\nA distribuição oficial inclui runtime portátil, assistentes de instalação e a extensão Coral Language.\n\n## Linux\n\n```bash\nbash Instalacao/Coral_Setup.sh\npython Instalacao/Runtime/coral-1.5.9.pyz --versao\n```\n\n## Windows\n\n```text\nInstalacao\\Coral_Setup.cmd\npython Instalacao\\Runtime\\coral-1.5.9.pyz --versao\n```\n\nOs números de versão mostrados nesta página são atualizados pelo importador de releases.\n''',
+        "instalacao.md": '''# Instalação\n\nA distribuição oficial inclui runtime portátil, assistentes de instalação e a extensão Coral Language.\n\n## Linux\n\n```bash\nbash Instalacao/Coral_Setup.sh\npython Instalacao/Runtime/coral-<versao>.pyz --versao\n```\n\n## Windows\n\n```text\nInstalacao\\Coral_Setup.cmd\npython Instalacao\\Runtime\\coral-<versao>.pyz --versao\n```\n\nOs números de versão mostrados nesta página são atualizados pelo importador de releases.\n''',
         "primeiro_programa.md": '''# Seu primeiro programa\n\n```coral\nmostre "Olá, Coral!"\n\ndefina pontos como 10\nadicione 5 a pontos\n\nse pontos for maior ou igual a 15 então\n    mostre "Meta alcançada"\nsenão\n    mostre "Continue tentando"\nfim\n```\n\nPara executar diretamente, use o runtime portátil da release corrente.\n''',
         "projetos.md": '''# Projetos e módulos\n\nProjetos Coral usam `coral.toml` para declarar entrada, caminhos de módulos, testes e recursos. O LSP e o Project Explorer usam a mesma estrutura de projeto.\n\n## Formas naturais importadas\n\nFunções públicas podem declarar formas naturais. Quando importadas seletivamente, essas formas são reconhecidas pelo runtime e pelo editor.\n\n```coral\ncrie a função dobro com numero chamada como "dobre {numero}"\n    retorne numero vezes 2\nfim\n\nmostre dobre 21\n```\n''',
         "vscode.md": '''# VS Code\n\nA extensão Coral Language acompanha a linguagem com LSP, DAP/F5, IntelliSense contextual, diagnósticos, semantic tokens, Test Explorer, Project Explorer, Ambiente Coral e Biblioteca Coral.\n\n| Área | Comportamento |\n|---|---|\n| IntelliSense | Completion contextual, hover, definição, referências e rename |\n| Coloração | TextMate como fallback e semantic tokens como camada contextual |\n| Execução | Arquivo, projeto, REPL e debug integrados |\n| Projetos | `coral.toml`, multiroot e Project Explorer |\n| Testes | Integração com o runner e Test Explorer |\n''',
@@ -597,11 +610,51 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
     ext = str(version.get("extensao_vscode", "?"))
     livro = str(version.get("livro", "?"))
 
-    install = PAGINAS / "instalacao.md"
-    if install.exists():
-        text = install.read_text(encoding="utf-8")
-        text = re.sub(r"coral-\d+\.\d+\.\d+\.pyz", f"coral-{runtime}.pyz", text)
-        install.write_text(text, encoding="utf-8")
+    # Referências editoriais que apontam para o artefato corrente devem seguir
+    # a fonte única de versão, sem exigir manutenção manual a cada release.
+    for name in ("instalacao.md", "primeiro_programa.md", "repl_cli.md"):
+        path = PAGINAS / name
+        if not path.exists():
+            continue
+        page = path.read_text(encoding="utf-8")
+        page = re.sub(
+            r"coral-(?:\d+\.\d+\.\d+|<versao>)\.pyz",
+            f"coral-{runtime}.pyz",
+            page,
+        )
+        if name == "instalacao.md":
+            page = re.sub(
+                r"coral-language-(?:\d+\.\d+\.\d+|<versao>)\.vsix",
+                f"coral-language-{ext}.vsix",
+                page,
+            )
+        path.write_text(page, encoding="utf-8")
+
+    # Frases editoriais padronizadas que descrevem a release corrente também
+    # acompanham o runtime importado. Changelogs históricos ficam intocados.
+    for path in sorted(MODULOS_DIR.glob("*.md")):
+        page = path.read_text(encoding="utf-8")
+        page = re.sub(
+            r"(A documentação desta página descreve a superfície detectada na \*\*Coral )\d+\.\d+\.\d+(\*\*\.)",
+            rf"\g<1>{runtime}\g<2>",
+            page,
+        )
+        page = re.sub(
+            r"(O exemplo abaixo foi validado com o runtime )\d+\.\d+\.\d+(:)",
+            rf"\g<1>{runtime}\g<2>",
+            page,
+        )
+        page = re.sub(
+            r"(A release )\d+\.\d+\.\d+( usa `coral\.)",
+            rf"\g<1>{runtime}\g<2>",
+            page,
+        )
+        page = re.sub(
+            r"(Na )\d+\.\d+\.\d+( a superfície pública é)",
+            rf"\g<1>{runtime}\g<2>",
+            page,
+        )
+        path.write_text(page, encoding="utf-8")
 
     vscode = PAGINAS / "vscode.md"
     if vscode.exists():
@@ -630,7 +683,6 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
         # O título da release vira subtítulo dentro da página geral.
         change = re.sub(r"^#\s+", "## ", change, count=1)
         replace_auto_block(PAGINAS / "release.md", "CHANGELOG", change)
-
 
 def write_review_report(diff: dict[str, Any]) -> None:
     path = DOCS / "REVISAO_PENDENTE.md"
@@ -751,7 +803,7 @@ def main() -> int:
             parser.error(f"release não encontrada: {args.release}")
         diff = import_and_update(args.release)
 
-    version = read_json(VERSION_FILE, {"coral": "1.5.9", "extensao_vscode": "0.41.0", "livro": "1.5.8", "estavel": True})
+    version = read_json(VERSION_FILE, {"coral": "?", "extensao_vscode": "?", "livro": "?", "estavel": False})
     modules = read_json(MODULES_FILE, [])
     cli = read_json(CLI_FILE, {"opcoes": [], "subcomandos": []})
     examples_data = read_json(EXAMPLES_FILE, {"total": 0, "arquivos": []})

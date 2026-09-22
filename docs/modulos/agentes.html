@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.agentes — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.agentes — Documentação Coral">
+  <meta property="og:description" content="agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.agentes — Documentação Coral">
+  <meta name="twitter:description" content="agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a class="active" aria-current="page" href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.agentes</h1>
+      <p>agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable>agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.agentes</code> <strong>Categoria:</strong> agentes</p>
+<p data-searchable>agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>Agente</code>, <code>Atributo</code>, <code>Efeito</code>, <code>Habilidade</code>, <code>Modificador</code>, <code>MudancaRecurso</code>, <code>Recurso</code>, <code>criar_agente</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable><code>coral.agentes</code> fornece uma base neutra para entidades que possuem recursos, atributos, efeitos e habilidades. A abstração não depende de RPG nem de Jogos. Isso permite modelar personagens, robôs, máquinas, estoques, veículos ou qualquer outra entidade com estado próprio usando os mesmos contratos.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="recursos" data-searchable>Recursos</h3>
+<p data-searchable><code>Recurso</code> representa um valor limitado, como vida, energia, bateria, combustível ou estoque. O valor respeita mínimo e máximo e registra a alteração realmente aplicada quando uma operação tenta ultrapassar os limites.</p>
+<h3 id="atributos-e-modificadores" data-searchable>Atributos e modificadores</h3>
+<p data-searchable><code>Atributo</code> parte de um valor base e compõe <code>Modificador</code> em ordem determinística de prioridade. Modificadores podem somar, multiplicar ou substituir o valor, mantendo origem e explicação dos passos usados no cálculo.</p>
+<h3 id="efeitos" data-searchable>Efeitos</h3>
+<p data-searchable><code>Efeito</code> reúne duração, modificadores e política de empilhamento. Um efeito pode ser renovado, substituído, ignorado ou empilhado, e o agente pode declarar imunidades por nome.</p>
+<h3 id="habilidades" data-searchable>Habilidades</h3>
+<p data-searchable><code>Habilidade</code> representa uma ação reutilizável com custos de recursos, requisitos e recarga baseada em tempo simulado. O uso falha explicitamente quando a habilidade está em recarga, quando faltam recursos ou quando os requisitos não são satisfeitos.</p>
+<h3 id="agentes" data-searchable>Agentes</h3>
+<p data-searchable><code>Agente</code> estende a entidade de <code>coral.mundo</code> e reúne recursos, atributos, habilidades, efeitos, estados e uma política opcional de ação. Ele pode existir em um <code>Mundo</code> sem criar dependência de Jogos ou RPG.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use este módulo quando o programa precisa representar entidades com capacidades e estado mutável, mas você não quer acoplar a solução a combate ou apresentação gráfica. Ele é adequado para simulações, logística, automação, jogos, modelos de produção e agentes controlados por regras.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui <code>Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Recursos, atributos e efeitos sem depender de RPG ou Jogos.</span>
+de <span class="code-mod">coral.agentes</span> <span class="code-key">importe</span> Efeito, Modificador
+
+<span class="code-key">crie</span> um mundo chamado fabrica
+<span class="code-key">crie</span> um agente chamado robo no mundo fabrica
+<span class="code-key">defina</span> o recurso bateria de robo como <span class="code-num">80</span> de <span class="code-num">100</span>
+consuma <span class="code-num">25</span> do recurso bateria de robo
+recupere <span class="code-num">5</span> do recurso bateria de robo
+
+execute robo.<span class="code-fn">definir_atributo</span>(<span class="code-str">&quot;potencia&quot;</span>, <span class="code-num">10</span>)
+<span class="code-key">defina</span> turbo como <span class="code-fn">Efeito</span>(<span class="code-str">&quot;turbo&quot;</span>, <span class="code-num">2</span>, modificadores={<span class="code-str">&quot;potencia&quot;</span>: [<span class="code-fn">Modificador</span>(<span class="code-str">&quot;bonus&quot;</span>, <span class="code-num">5</span>)]})
+aplique o efeito turbo a robo
+
+execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> robo.<span class="code-fn">exigir_recurso</span>(<span class="code-str">&quot;bateria&quot;</span>).valor</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>Agente</code></td><td data-searchable>entidade com recursos, atributos, habilidades, efeitos e estado</td></tr>
+<tr><td data-searchable><code>Recurso</code></td><td data-searchable>valor limitado como energia, bateria, vida ou estoque</td></tr>
+<tr><td data-searchable><code>Atributo</code></td><td data-searchable>valor base com modificadores determinísticos</td></tr>
+<tr><td data-searchable><code>Modificador</code></td><td data-searchable>alteração rastreável aplicada a um atributo</td></tr>
+<tr><td data-searchable><code>Efeito</code></td><td data-searchable>modificação temporária ou persistente com política de empilhamento</td></tr>
+<tr><td data-searchable><code>Habilidade</code></td><td data-searchable>ação com custos, requisitos e recarga</td></tr>
+<tr><td data-searchable><code>criar_agente</code></td><td data-searchable>cria e registra um agente em <code>coral.mundo</code></td></tr>
+</tbody></table></div>
+<p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release.</p>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Crie ou receba um <code>Mundo</code> quando o agente precisar participar da camada de mundo.</li>
+<li data-searchable>Defina recursos e atributos permanentes do agente.</li>
+<li data-searchable>Registre habilidades e efeitos de acordo com a regra do domínio.</li>
+<li data-searchable>Avance <code>atualizar(dt)</code> quando recargas e efeitos temporais precisarem evoluir.</li>
+<li data-searchable>Consulte eventos e o estado portável quando precisar de auditoria, persistência ou replay.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Recursos rejeitam valores não finitos e impedem limites incoerentes. Custos negativos não são aceitos. Efeitos exigem uma política de empilhamento conhecida. Habilidades podem lançar erro quando ainda estão em recarga, quando faltam recursos ou quando um requisito não é atendido.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Modele conceitos neutros em <code>coral.agentes</code> e deixe regras específicas de RPG em <code>coral.rpg</code>.</li>
+<li data-searchable>Use nomes de recursos e atributos estáveis quando o estado será persistido.</li>
+<li data-searchable>Prefira modificadores com <code>origem</code> quando for importante explicar de onde veio um bônus ou penalidade.</li>
+<li data-searchable>Use tempo simulado para recargas e duração de efeitos em vez de misturar relógio real com estado de domínio.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.mundo</code> fornece identidade e participação em mundo. <code>coral.turnos</code> pode ordenar agentes sem depender de combate. <code>coral.simulacao</code> pode avançar regeneração, recargas e outros processos recorrentes. <code>coral.rpg</code> reutiliza esta fundação para especializações de personagem e combate.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Recursos, atributos e modificadores são determinísticos para o mesmo estado de entrada. Em testes, avance o agente com valores explícitos de <code>dt</code>, verifique mudanças de recursos e confira <code>explicar()</code> quando a composição de atributos fizer parte do contrato.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A superfície funcional foi introduzida na linha 1.5.10 e permanece publicada na <strong>Coral 1.5.12</strong>. A 1.5.12 preserva essa API enquanto reorganiza a infraestrutura de testes da linguagem.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="criar-agente" data-searchable><code>criar_agente</code></h4>
+<p data-searchable>Cria um agente genérico e o adiciona a um Mundo sem acoplar Mundo a agentes.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Mundo associado à operação.</td><td data-searchable><code>Mundo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>estados</code></td><td data-searchable>Valor correspondente a estados.</td><td data-searchable><code>Iterable[str]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Agente</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_agente(mundo: Mundo, nome: str, *, identificador: str \| None = None, atributos: Mapping[str, Any] \| None = None, estados: Iterable[str] = ()) -&gt; Agente</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>estados</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="agente" data-searchable><code>Agente</code></h4>
+<p data-searchable>Entidade com identidade persistente, recursos, atributos e estado.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>Valor correspondente a identificador.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>estados</code></td><td data-searchable>Valor correspondente a estados.</td><td data-searchable><code>Iterable[str]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>politica_acao</code></td><td data-searchable>Valor correspondente a politica acao.</td><td data-searchable><code>PoliticaAcao | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>Obtém mundo.</td><td data-searchable><code>Mundo | None</code></td></tr>
+<tr><td data-searchable><code>politica_acao</code></td><td data-searchable>Executa a operação <code>politica_acao</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>PoliticaAcao | None</code></td></tr>
+<tr><td data-searchable><code>definir_politica_acao</code></td><td data-searchable>Define politica acao.</td><td data-searchable><code>'Agente'</code></td></tr>
+<tr><td data-searchable><code>decidir</code></td><td data-searchable>Executa a operação <code>decidir</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_recurso</code></td><td data-searchable>Adiciona recurso.</td><td data-searchable><code>Recurso</code></td></tr>
+<tr><td data-searchable><code>definir_recurso</code></td><td data-searchable>Define recurso.</td><td data-searchable><code>Recurso</code></td></tr>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>Executa a operação <code>recurso</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Recurso | None</code></td></tr>
+<tr><td data-searchable><code>exigir_recurso</code></td><td data-searchable>Obtém recurso e sinaliza falha quando ele não está disponível.</td><td data-searchable><code>Recurso</code></td></tr>
+<tr><td data-searchable><code>adicionar_atributo</code></td><td data-searchable>Adiciona atributo.</td><td data-searchable><code>Atributo</code></td></tr>
+<tr><td data-searchable><code>definir_atributo</code></td><td data-searchable>Define atributo.</td><td data-searchable><code>Atributo</code></td></tr>
+<tr><td data-searchable><code>atributo</code></td><td data-searchable>Executa a operação <code>atributo</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Atributo | None</code></td></tr>
+<tr><td data-searchable><code>valor_atributo</code></td><td data-searchable>Executa a operação <code>valor_atributo</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_habilidade</code></td><td data-searchable>Adiciona habilidade.</td><td data-searchable><code>Habilidade</code></td></tr>
+<tr><td data-searchable><code>usar_habilidade</code></td><td data-searchable>Seleciona habilidade.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_estado</code></td><td data-searchable>Adiciona estado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>remover_estado</code></td><td data-searchable>Remove estado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>possui_estado</code></td><td data-searchable>Indica se possui estado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>adicionar_imunidade_efeito</code></td><td data-searchable>Adiciona imunidade efeito.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>remover_imunidade_efeito</code></td><td data-searchable>Remove imunidade efeito.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>imune_a</code></td><td data-searchable>Executa a operação <code>imune_a</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>aplicar_efeito</code></td><td data-searchable>Executa a operação <code>aplicar_efeito</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Efeito | None</code></td></tr>
+<tr><td data-searchable><code>remover_efeito</code></td><td data-searchable>Remove efeito.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>posicao</code></td><td data-searchable>Executa a operação <code>posicao</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>tuple[float, float] | None</code></td></tr>
+<tr><td data-searchable><code>definir_posicao</code></td><td data-searchable>Define posicao.</td><td data-searchable><code>'Agente'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Agente(nome: str, *, identificador: str \| None = None, atributos: Mapping[str, Any] \| None = None, estados: Iterable[str] = (), politica_acao: PoliticaAcao \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>identificador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>estados</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>politica_acao</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>mundo</code></td><td data-searchable>propriedade</td><td data-searchable><code>mundo() -&gt; Mundo | None</code></td></tr>
+<tr><td data-searchable><code>politica_acao</code></td><td data-searchable>propriedade</td><td data-searchable><code>politica_acao() -&gt; PoliticaAcao | None</code></td></tr>
+<tr><td data-searchable><code>definir_politica_acao</code></td><td data-searchable>método</td><td data-searchable><code>definir_politica_acao(politica: PoliticaAcao | None) -&gt; 'Agente'</code></td></tr>
+<tr><td data-searchable><code>decidir</code></td><td data-searchable>método</td><td data-searchable><code>decidir(contexto: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_recurso</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_recurso(recurso: Recurso) -&gt; Recurso</code></td></tr>
+<tr><td data-searchable><code>definir_recurso</code></td><td data-searchable>método</td><td data-searchable><code>definir_recurso(nome: str, valor: float = 0.0, *, minimo: float = 0.0, maximo: float | None = None, unidade: str | None = None) -&gt; Recurso</code></td></tr>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>método</td><td data-searchable><code>recurso(nome: str) -&gt; Recurso | None</code></td></tr>
+<tr><td data-searchable><code>exigir_recurso</code></td><td data-searchable>método</td><td data-searchable><code>exigir_recurso(nome: str) -&gt; Recurso</code></td></tr>
+<tr><td data-searchable><code>adicionar_atributo</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_atributo(atributo: Atributo) -&gt; Atributo</code></td></tr>
+<tr><td data-searchable><code>definir_atributo</code></td><td data-searchable>método</td><td data-searchable><code>definir_atributo(nome: str, base: float = 0.0) -&gt; Atributo</code></td></tr>
+<tr><td data-searchable><code>atributo</code></td><td data-searchable>método</td><td data-searchable><code>atributo(nome: str) -&gt; Atributo | None</code></td></tr>
+<tr><td data-searchable><code>valor_atributo</code></td><td data-searchable>método</td><td data-searchable><code>valor_atributo(nome: str, padrao: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_habilidade</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_habilidade(habilidade: Habilidade) -&gt; Habilidade</code></td></tr>
+<tr><td data-searchable><code>usar_habilidade</code></td><td data-searchable>método</td><td data-searchable><code>usar_habilidade(nome: str, alvo: Any = None, contexto: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>adicionar_estado</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_estado(estado: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>remover_estado</code></td><td data-searchable>método</td><td data-searchable><code>remover_estado(estado: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>possui_estado</code></td><td data-searchable>método</td><td data-searchable><code>possui_estado(estado: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>adicionar_imunidade_efeito</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_imunidade_efeito(nome: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>remover_imunidade_efeito</code></td><td data-searchable>método</td><td data-searchable><code>remover_imunidade_efeito(nome: str) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>imune_a</code></td><td data-searchable>método</td><td data-searchable><code>imune_a(efeito: str | Efeito) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>aplicar_efeito</code></td><td data-searchable>método</td><td data-searchable><code>aplicar_efeito(efeito: Efeito) -&gt; Efeito | None</code></td></tr>
+<tr><td data-searchable><code>remover_efeito</code></td><td data-searchable>método</td><td data-searchable><code>remover_efeito(efeito: Efeito) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt: float = 0.0) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>posicao</code></td><td data-searchable>propriedade</td><td data-searchable><code>posicao() -&gt; tuple[float, float] | None</code></td></tr>
+<tr><td data-searchable><code>definir_posicao</code></td><td data-searchable>método</td><td data-searchable><code>definir_posicao(x: float, y: float) -&gt; 'Agente'</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="atributo" data-searchable><code>Atributo</code></h4>
+<p data-searchable>Valor base com composição determinística de modificadores rastreáveis.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>base</code></td><td data-searchable>Base usada pela conversão ou cálculo.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>modificadores</code></td><td data-searchable>Executa a operação <code>modificadores</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>tuple[Modificador, ...]</code></td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Obtém valor.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>definir_base</code></td><td data-searchable>Define base.</td><td data-searchable><code>'Atributo'</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Modificador</code></td></tr>
+<tr><td data-searchable><code>modificar</code></td><td data-searchable>Executa a operação <code>modificar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>Modificador</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>Remove o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>remover_origem</code></td><td data-searchable>Remove origem.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>explicar</code></td><td data-searchable>Executa a operação <code>explicar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Atributo(nome: str, base: float = 0.0) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>modificadores</code></td><td data-searchable>propriedade</td><td data-searchable><code>modificadores() -&gt; tuple[Modificador, ...]</code></td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>definir_base</code></td><td data-searchable>método</td><td data-searchable><code>definir_base(valor: float) -&gt; 'Atributo'</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(modificador: Modificador) -&gt; Modificador</code></td></tr>
+<tr><td data-searchable><code>modificar</code></td><td data-searchable>método</td><td data-searchable><code>modificar(nome: str, valor: float, *, operacao: str = 'somar', prioridade: int = 0, origem: str | None = None, persistente: bool = True) -&gt; Modificador</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(modificador: Modificador) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>remover_origem</code></td><td data-searchable>método</td><td data-searchable><code>remover_origem(origem: str) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>explicar</code></td><td data-searchable>método</td><td data-searchable><code>explicar() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="efeito" data-searchable><code>Efeito</code></h4>
+<p data-searchable>Condição temporal neutra que pode aplicar modificadores a um agente.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>modificadores</code></td><td data-searchable>Valor correspondente a modificadores.</td><td data-searchable><code>Mapping[str, Iterable[Modificador]]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>empilhamento</code></td><td data-searchable>Valor correspondente a empilhamento.</td><td data-searchable><code>str</code></td><td data-searchable><code>'renovar'</code></td></tr>
+<tr><td data-searchable><code>persistente</code></td><td data-searchable>Valor correspondente a persistente.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>restante</code></td><td data-searchable>Valor correspondente a restante.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>modificadores</code></td><td data-searchable>Valor correspondente a modificadores.</td><td data-searchable><code>Mapping[str, Iterable[Modificador]]</code></td><td data-searchable><code>field(default_factory=dict)</code></td></tr>
+<tr><td data-searchable><code>empilhamento</code></td><td data-searchable>Valor correspondente a empilhamento.</td><td data-searchable><code>str</code></td><td data-searchable><code>'renovar'</code></td></tr>
+<tr><td data-searchable><code>persistente</code></td><td data-searchable>Valor correspondente a persistente.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>restante</code></td><td data-searchable>Valor correspondente a restante.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>Indica o estado de ativo.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>renovar</code></td><td data-searchable>Executa a operação <code>renovar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Efeito(nome: str, duracao: float \| None = None, modificadores: Mapping[str, Iterable[Modificador]] = field(default_factory=dict), empilhamento: str = 'renovar', persistente: bool = True, origem: str \| None = None, restante: float \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>propriedade</td><td data-searchable><code>ativo() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>renovar</code></td><td data-searchable>método</td><td data-searchable><code>renovar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(dt: float) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="habilidade" data-searchable><code>Habilidade</code></h4>
+<p data-searchable>Ação reutilizável com custos de recursos e recarga por tempo simulado.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>AcaoHabilidade | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>custos</code></td><td data-searchable>Valor correspondente a custos.</td><td data-searchable><code>Mapping[str, float] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>recarga</code></td><td data-searchable>Valor correspondente a recarga.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>requisitos</code></td><td data-searchable>Valor correspondente a requisitos.</td><td data-searchable><code>Iterable[RequisitoHabilidade]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pronta</code></td><td data-searchable>Executa a operação <code>pronta</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>pode_usar</code></td><td data-searchable>Executa a operação <code>pode_usar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>usar</code></td><td data-searchable>Seleciona o valor solicitado.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Habilidade(nome: str, acao: AcaoHabilidade \| None = None, *, custos: Mapping[str, float] \| None = None, recarga: float = 0.0, metadados: Mapping[str, Any] \| None = None, requisitos: Iterable[RequisitoHabilidade] = ()) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>custos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>recarga</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>requisitos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pronta</code></td><td data-searchable>propriedade</td><td data-searchable><code>pronta() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>pode_usar</code></td><td data-searchable>método</td><td data-searchable><code>pode_usar(agente: 'Agente', alvo: Any = None, contexto: Any = None) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>usar</code></td><td data-searchable>método</td><td data-searchable><code>usar(agente: 'Agente', alvo: Any = None, contexto: Any = None) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt: float) -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="modificador" data-searchable><code>Modificador</code></h4>
+<p data-searchable>Representa Modificador na API de <code>coral.agentes</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>operacao</code></td><td data-searchable>Valor correspondente a operacao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'somar'</code></td></tr>
+<tr><td data-searchable><code>prioridade</code></td><td data-searchable>Valor correspondente a prioridade.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>persistente</code></td><td data-searchable>Valor correspondente a persistente.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>operacao</code></td><td data-searchable>Valor correspondente a operacao.</td><td data-searchable><code>str</code></td><td data-searchable><code>'somar'</code></td></tr>
+<tr><td data-searchable><code>prioridade</code></td><td data-searchable>Valor correspondente a prioridade.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>persistente</code></td><td data-searchable>Valor correspondente a persistente.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Modificador(nome: str, valor: float, operacao: str = 'somar', prioridade: int = 0, origem: str \| None = None, persistente: bool = True)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p></div></details>
+<h4 id="mudancarecurso" data-searchable><code>MudancaRecurso</code></h4>
+<p data-searchable>Representa MudancaRecurso na API de <code>coral.agentes</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>Valor correspondente a recurso.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>anterior</code></td><td data-searchable>Valor correspondente a anterior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>Valor correspondente a atual.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>solicitado</code></td><td data-searchable>Valor correspondente a solicitado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>aplicado</code></td><td data-searchable>Valor correspondente a aplicado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>Valor correspondente a recurso.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>anterior</code></td><td data-searchable>Valor correspondente a anterior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>Valor correspondente a atual.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>solicitado</code></td><td data-searchable>Valor correspondente a solicitado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>aplicado</code></td><td data-searchable>Valor correspondente a aplicado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>MudancaRecurso(recurso: str, anterior: float, atual: float, solicitado: float, aplicado: float, origem: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p></div></details>
+<h4 id="recurso" data-searchable><code>Recurso</code></h4>
+<p data-searchable>Valor limitado reutilizável como vida, energia, bateria ou estoque.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>unidade</code></td><td data-searchable>Valor correspondente a unidade.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Obtém valor.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>cheio</code></td><td data-searchable>Executa a operação <code>cheio</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>vazio</code></td><td data-searchable>Executa a operação <code>vazio</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>fracao</code></td><td data-searchable>Executa a operação <code>fracao</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>float | None</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>Define o valor solicitado.</td><td data-searchable><code>MudancaRecurso</code></td></tr>
+<tr><td data-searchable><code>alterar</code></td><td data-searchable>Executa a operação <code>alterar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>MudancaRecurso</code></td></tr>
+<tr><td data-searchable><code>consumir</code></td><td data-searchable>Executa a operação <code>consumir</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>recuperar</code></td><td data-searchable>Executa a operação <code>recuperar</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>pode_consumir</code></td><td data-searchable>Executa a operação <code>pode_consumir</code> disponibilizada por <code>coral.agentes</code>.</td><td data-searchable><code>bool</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Recurso(nome: str, valor: float = 0.0, *, minimo: float = 0.0, maximo: float \| None = None, unidade: str \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.agentes</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/agentes.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>unidade</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>propriedade</td><td data-searchable><code>valor() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>cheio</code></td><td data-searchable>propriedade</td><td data-searchable><code>cheio() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>vazio</code></td><td data-searchable>propriedade</td><td data-searchable><code>vazio() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>fracao</code></td><td data-searchable>propriedade</td><td data-searchable><code>fracao() -&gt; float | None</code></td></tr>
+<tr><td data-searchable><code>definir</code></td><td data-searchable>método</td><td data-searchable><code>definir(valor: float, *, origem: str | None = None) -&gt; MudancaRecurso</code></td></tr>
+<tr><td data-searchable><code>alterar</code></td><td data-searchable>método</td><td data-searchable><code>alterar(quantidade: float, *, origem: str | None = None) -&gt; MudancaRecurso</code></td></tr>
+<tr><td data-searchable><code>consumir</code></td><td data-searchable>método</td><td data-searchable><code>consumir(quantidade: float, *, origem: str | None = None) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>recuperar</code></td><td data-searchable>método</td><td data-searchable><code>recuperar(quantidade: float, *, origem: str | None = None) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>pode_consumir</code></td><td data-searchable>método</td><td data-searchable><code>pode_consumir(quantidade: float) -&gt; bool</code></td></tr>
+</tbody></table></div></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="jogos.html"><span>Anterior</span><strong>coral.jogos</strong></a><a class="docs-page-nav-link next" href="aleatorio.html"><span>Próxima</span><strong>coral.aleatorio</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

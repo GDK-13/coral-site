@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -234,6 +238,10 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>entidades</code></td><td data-searchable>Obtém entidades.</td><td data-searchable><code>tuple[Entidade, ...]</code></td></tr>
 <tr><td data-searchable><code>relacoes</code></td><td data-searchable>Obtém relacoes.</td><td data-searchable><code>tuple[Relacao, ...]</code></td></tr>
 <tr><td data-searchable><code>mapas</code></td><td data-searchable>Obtém mapas.</td><td data-searchable><code>tuple[Mapa, ...]</code></td></tr>
+<tr><td data-searchable><code>simulacao</code></td><td data-searchable>Simulação temporal associada, quando criada explicitamente.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>criar_simulacao</code></td><td data-searchable>Cria ou devolve a simulação temporal do mundo sem exigir Jogos.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>avancar_tempo</code></td><td data-searchable>Avança a simulação e depois atualiza regras e temporizadores pelo mesmo delta.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>atualizar_simulacao</code></td><td data-searchable>Atualiza a simulação respeitando pausa e escala temporal.</td><td data-searchable><code>não declarado</code></td></tr>
 <tr><td data-searchable><code>adicionar_mapa</code></td><td data-searchable>Adiciona mapa.</td><td data-searchable><code>Mapa</code></td></tr>
 <tr><td data-searchable><code>criar_mapa</code></td><td data-searchable>Cria mapa.</td><td data-searchable><code>Mapa</code></td></tr>
 <tr><td data-searchable><code>buscar_mapa</code></td><td data-searchable>Procura mapa e devolve o resultado quando encontrado.</td><td data-searchable><code>Mapa | None</code></td></tr>
@@ -282,6 +290,10 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>entidades</code></td><td data-searchable>propriedade</td><td data-searchable><code>entidades() -&gt; tuple[Entidade, ...]</code></td></tr>
 <tr><td data-searchable><code>relacoes</code></td><td data-searchable>propriedade</td><td data-searchable><code>relacoes() -&gt; tuple[Relacao, ...]</code></td></tr>
 <tr><td data-searchable><code>mapas</code></td><td data-searchable>propriedade</td><td data-searchable><code>mapas() -&gt; tuple[Mapa, ...]</code></td></tr>
+<tr><td data-searchable><code>simulacao</code></td><td data-searchable>propriedade</td><td data-searchable><code>simulacao()</code></td></tr>
+<tr><td data-searchable><code>criar_simulacao</code></td><td data-searchable>método</td><td data-searchable><code>criar_simulacao(*, tempo = None)</code></td></tr>
+<tr><td data-searchable><code>avancar_tempo</code></td><td data-searchable>método</td><td data-searchable><code>avancar_tempo(duracao: float)</code></td></tr>
+<tr><td data-searchable><code>atualizar_simulacao</code></td><td data-searchable>método</td><td data-searchable><code>atualizar_simulacao(dt_externo: float)</code></td></tr>
 <tr><td data-searchable><code>adicionar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_mapa(mapa: Mapa) -&gt; Mapa</code></td></tr>
 <tr><td data-searchable><code>criar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] | None = None) -&gt; Mapa</code></td></tr>
 <tr><td data-searchable><code>buscar_mapa</code></td><td data-searchable>método</td><td data-searchable><code>buscar_mapa(nome: str) -&gt; Mapa | None</code></td></tr>

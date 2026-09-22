@@ -24,17 +24,19 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 42 arquivos `.coral`.
+**Total detectado na release:** 58 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
+| Agentes | 2 |
 | Dados | 5 |
 | Espaco | 1 |
 | Fundamentos | 4 |
 | Jogos | 8 |
-| Mundo | 3 |
+| Mundo | 4 |
 | Projetos_Completos | 16 |
 | Regras | 3 |
+| SimulacaoTemporal | 13 |
 | Simulacoes | 2 |
 
 <!-- /AUTO:EXEMPLOS -->

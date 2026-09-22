@@ -13,7 +13,7 @@ janela, desenho, sprites, animação, cenas, mapas e eventos de jogo
 
 ### Superfície pública detectada
 
-`Jogo`, `Cor`, `Retangulo`, `BackendNulo`, `ErroJogosCoral`, `DependenciaJogosAusente`, `PRETO`, `BRANCO`, `VERMELHO`, `VERDE`, `AZUL`, `AMARELO`, `criar_jogo`, `pygame_disponivel`, `Assets`, `Sprite`, `Cena`, `RepresentacaoEntidade`, `ErroAssetCoral`, `Animacao`, `AnimacoesDirecionais`, `VinculoAnimacaoMovimento`, `EstadosAnimacao`, `VinculoEstadosAnimacaoMovimento`, `TransicoesEstadosAnimacao`, `VinculoTransicoesEstadosMovimento`, `VinculoTransicoesEventos`, `Camera`, `QuadroSprite`, `Spritesheet`, `carregar_spritesheet`, `FormaTransformada`, `formas_colidem`, `CanalAnimado`, `AnimacaoTransformacao`, `onda_seno`, `onda_cosseno`, `onda_triangular`, `onda_serra`, `onda_pulso`, `forma_espacial_sprite`, `posicao_espacial_sprite`, `sprites_colidem`, `AdaptadorEventosJogo`, `adaptar_eventos`, `EstiloCelula`, `RenderizadorMapa2D`, `celula_para_tela`, `mundo_para_tela`, `tela_para_celula`, `tela_para_mundo`
+`Jogo`, `Cor`, `Retangulo`, `BackendNulo`, `ErroJogosCoral`, `DependenciaJogosAusente`, `PRETO`, `BRANCO`, `VERMELHO`, `VERDE`, `AZUL`, `AMARELO`, `criar_jogo`, `pygame_disponivel`, `Assets`, `Sprite`, `Cena`, `RepresentacaoEntidade`, `ErroAssetCoral`, `Animacao`, `AnimacoesDirecionais`, `VinculoAnimacaoMovimento`, `EstadosAnimacao`, `VinculoEstadosAnimacaoMovimento`, `TransicoesEstadosAnimacao`, `VinculoTransicoesEstadosMovimento`, `VinculoTransicoesEventos`, `Camera`, `QuadroSprite`, `Spritesheet`, `carregar_spritesheet`, `FormaTransformada`, `formas_colidem`, `CanalAnimado`, `AnimacaoTransformacao`, `onda_seno`, `onda_cosseno`, `onda_triangular`, `onda_serra`, `onda_pulso`, `forma_espacial_sprite`, `posicao_espacial_sprite`, `sprites_colidem`, `AdaptadorEventosJogo`, `adaptar_eventos`, `Viewport`, `EstiloCelula`, `RenderizadorMapa2D`, `celula_para_tela`, `mundo_para_tela`, `tela_para_celula`, `tela_para_mundo`
 
 <!-- /AUTO:MODULO -->
 
@@ -39,9 +39,9 @@ Sprites suportam escala, rotação, opacidade e espelhamento. Colisão pode acom
 
 `Animacao`, `AnimacoesDirecionais`, `EstadosAnimacao` e transições de estado separam quadro visual, direção e estado. Canais animados permitem automatizar propriedades por ondas matemáticas.
 
-### Câmera e mapas
+### Câmera, viewport e mapas
 
-`Camera` converte entre coordenadas de mundo e tela. `RenderizadorMapa2D` consome mapas genéricos de `coral.mundo`, preservando a separação entre domínio e apresentação.
+`Camera` converte entre coordenadas de mundo e tela e também decide visibilidade para culling. `Viewport` separa a resolução lógica do tamanho físico da janela, incluindo redimensionamento e conversão de coordenadas. `RenderizadorMapa2D` consome mapas genéricos de `coral.mundo`, preservando a separação entre domínio e apresentação.
 
 ## Quando usar
 
@@ -62,7 +62,7 @@ garanta que jogo.tecla_pressionada("direita") for igual a verdadeiro
 garanta que jogo.botao_mouse_pressionado("esquerdo") for igual a verdadeiro
 ```
 
-## Mapas e câmera
+## Mapas, câmera e viewport
 
 Trecho oficial de `Exemplos/Jogos/03_tilemap_e_camera.coral`:
 
@@ -91,7 +91,8 @@ defina desenhadas como renderizador.desenhar(backend)
 | `RepresentacaoEntidade` | ligar mundo a sprite | `RepresentacaoEntidade(entidade: Any, sprite: Sprite, atributo_x: str = 'x', atributo_y: str = 'y')` |
 | `Animacao` | sequência de quadros | `Animacao(quadros: tuple[str \| Path \| QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False)` |
 | `EstadosAnimacao` | estados visuais | `EstadosAnimacao(estados: dict[str, Animacao \| AnimacoesDirecionais])` |
-| `Camera` | conversão mundo tela | `Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite \| None = None, suavidade: float = 1.0)` |
+| `Camera` | conversão mundo tela e culling | `Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite \| None = None, suavidade: float = 1.0)` |
+| `Viewport` | resolução lógica, área física e conversão de tela | `Viewport(largura_logica: float, altura_logica: float, largura_fisica: float, altura_fisica: float, *, modo: str = 'ajustar')` |
 | `Spritesheet` | atlas de quadros | `Spritesheet(caminho: str \| Path, *, largura_imagem: int, altura_imagem: int) -> None` |
 | `formas_colidem` | colisão convexa | `formas_colidem(a: FormaTransformada, b: FormaTransformada) -> bool` |
 | `sprites_colidem` | colisão entre sprites | `sprites_colidem(a: Any, b: Any) -> bool` |
@@ -109,6 +110,10 @@ defina desenhadas como renderizador.desenhar(backend)
 
 As classes de estados e transições permitem mapear eventos para animações. O vínculo com `Eventos` é opcional, então um sprite pode ser dirigido por movimento, por eventos de regras ou explicitamente pelo programa.
 
+## Janela, tela cheia e redimensionamento
+
+`Jogo` pode iniciar em tela cheia, alternar esse estado em execução e atualizar o tamanho físico quando a janela é redimensionada. O `Viewport` mantém as conversões entre coordenadas físicas e lógicas, evitando que a lógica do jogo dependa diretamente da resolução real da janela.
+
 ## Erros e diagnóstico
 
 `DependenciaJogosAusente` representa ausência do backend gráfico real quando ele é necessário. `pygame_disponivel()` permite detectar a capacidade. Para lógica de jogo, prefira provar comportamento com `BackendNulo` antes de depender de uma janela real.
@@ -125,7 +130,7 @@ Assets inválidos usam `ErroAssetCoral`. Separar assets, sprites e domínio ajud
 
 ## Integração com outros módulos
 
-`coral.mundo` fornece mapas e entidades. `coral.regras` pode emitir eventos para transições visuais. `coral.rpg` fornece personagens. `coral.aleatorio` ajuda em geração procedural. `coral.laboratorio` pode medir algoritmos e visualizações sem misturar a medição ao loop.
+`coral.mundo` fornece mapas e entidades. `coral.regras` pode emitir eventos para transições visuais. `coral.rpg` fornece personagens. `coral.procedural` cuida de geração determinística e `coral.simulacao` pode evoluir o estado temporal sem depender da janela. `coral.laboratorio` pode medir algoritmos e visualizações sem misturar a medição ao loop.
 
 ## Testabilidade e ambientes
 
@@ -511,6 +516,7 @@ Converte coordenadas de celula para tela.
 | `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
 | `celula` | Valor correspondente a celula. | `Any` | obrigatório |
 | `ancora` | Valor correspondente a ancora. | `str` | `'centro'` |
+| `viewport` | Valor correspondente a viewport. | `Viewport \| None` | `None` |
 
 **Retorno**
 
@@ -518,7 +524,7 @@ Retorna um valor declarado como `tuple[float, float]`.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `celula_para_tela(mapa: Mapa, camera: Camera \| None, celula: Any, *, ancora: str = 'centro') -> tuple[float, float]`
+**Assinatura:** `celula_para_tela(mapa: Mapa, camera: Camera \| None, celula: Any, *, ancora: str = 'centro', viewport: Viewport \| None = None) -> tuple[float, float]`
 
 **Origem da implementação:** `coral.jogos.mapas`
 
@@ -532,6 +538,7 @@ Retorna um valor declarado como `tuple[float, float]`.
 | `camera` | posicional |
 | `celula` | posicional |
 | `ancora` | nomeado |
+| `viewport` | nomeado |
 
 :::
 
@@ -545,6 +552,7 @@ Converte coordenadas de mundo para tela.
 |---|---|---|---|
 | `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
 | `coordenada` | Valor correspondente a coordenada. | `Any` | obrigatório |
+| `viewport` | Valor correspondente a viewport. | `Viewport \| None` | `None` |
 
 **Retorno**
 
@@ -552,11 +560,19 @@ Retorna um valor declarado como `tuple[float, float]`.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `mundo_para_tela(camera: Camera \| None, coordenada: Any) -> tuple[float, float]`
+**Assinatura:** `mundo_para_tela(camera: Camera \| None, coordenada: Any, *, viewport: Viewport \| None = None) -> tuple[float, float]`
 
 **Origem da implementação:** `coral.jogos.mapas`
 
 **Arquivo na release:** `coral/jogos/mapas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `camera` | posicional |
+| `coordenada` | posicional |
+| `viewport` | nomeado |
 
 **Exceções diretamente observáveis no corpo:** `ErroMapaCoral`
 
@@ -574,6 +590,7 @@ Converte coordenadas de tela para celula.
 | `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
 | `x` | Coordenada horizontal. | `float` | obrigatório |
 | `y` | Coordenada vertical. | `float` | obrigatório |
+| `viewport` | Valor correspondente a viewport. | `Viewport \| None` | `None` |
 
 **Retorno**
 
@@ -581,11 +598,21 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 
 :::details Detalhes técnicos
 
-**Assinatura:** `tela_para_celula(mapa: Mapa, camera: Camera \| None, x: float, y: float)`
+**Assinatura:** `tela_para_celula(mapa: Mapa, camera: Camera \| None, x: float, y: float, *, viewport: Viewport \| None = None)`
 
 **Origem da implementação:** `coral.jogos.mapas`
 
 **Arquivo na release:** `coral/jogos/mapas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `mapa` | posicional |
+| `camera` | posicional |
+| `x` | posicional |
+| `y` | posicional |
+| `viewport` | nomeado |
 
 :::
 
@@ -600,6 +627,7 @@ Converte coordenadas de tela para mundo.
 | `camera` | Valor correspondente a camera. | `Camera \| None` | obrigatório |
 | `x` | Coordenada horizontal. | `float` | obrigatório |
 | `y` | Coordenada vertical. | `float` | obrigatório |
+| `viewport` | Valor correspondente a viewport. | `Viewport \| None` | `None` |
 
 **Retorno**
 
@@ -607,11 +635,20 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 
 :::details Detalhes técnicos
 
-**Assinatura:** `tela_para_mundo(camera: Camera \| None, x: float, y: float)`
+**Assinatura:** `tela_para_mundo(camera: Camera \| None, x: float, y: float, *, viewport: Viewport \| None = None)`
 
 **Origem da implementação:** `coral.jogos.mapas`
 
 **Arquivo na release:** `coral/jogos/mapas.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `camera` | posicional |
+| `x` | posicional |
+| `y` | posicional |
+| `viewport` | nomeado |
 
 **Exceções diretamente observáveis no corpo:** `ErroMapaCoral`
 
@@ -650,6 +687,11 @@ Representa loop e entrada.
 | `usar_mundo` | Associa um Mundo ao jogo e propaga eventos do Mundo para o Jogo. | `não declarado` |
 | `tecla_pressionada` | Executa a operação `tecla_pressionada` disponibilizada por `coral.jogos`. | `bool` |
 | `posicao_mouse` | Executa a operação `posicao_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `tamanho_logico` | Executa a operação `tamanho_logico` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `tamanho_fisico` | Executa a operação `tamanho_fisico` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
+| `viewport` | Executa a operação `viewport` disponibilizada por `coral.jogos`. | `Viewport` |
+| `posicao_mouse_logica` | Executa a operação `posicao_mouse_logica` disponibilizada por `coral.jogos`. | `tuple[float, float]` |
+| `redimensionar_janela` | Executa a operação `redimensionar_janela` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
 | `botao_mouse_pressionado` | Executa a operação `botao_mouse_pressionado` disponibilizada por `coral.jogos`. | `bool` |
 | `mouse_clicado` | Executa a operação `mouse_clicado` disponibilizada por `coral.jogos`. | `bool` |
 | `mouse_solto` | Executa a operação `mouse_solto` disponibilizada por `coral.jogos`. | `bool` |
@@ -703,6 +745,11 @@ Representa loop e entrada.
 | `usar_mundo` | método | `usar_mundo(mundo)` |
 | `tecla_pressionada` | método | `tecla_pressionada(tecla: str) -> bool` |
 | `posicao_mouse` | método | `posicao_mouse() -> tuple[int, int]` |
+| `tamanho_logico` | método | `tamanho_logico() -> tuple[int, int]` |
+| `tamanho_fisico` | método | `tamanho_fisico() -> tuple[int, int]` |
+| `viewport` | método | `viewport(*, modo: str = 'ajustar') -> Viewport` |
+| `posicao_mouse_logica` | método | `posicao_mouse_logica(*, limitar: bool = False, modo: str = 'ajustar') -> tuple[float, float]` |
+| `redimensionar_janela` | método | `redimensionar_janela(largura: int, altura: int) -> tuple[int, int]` |
 | `botao_mouse_pressionado` | método | `botao_mouse_pressionado(botao: str = 'esquerdo') -> bool` |
 | `mouse_clicado` | método | `mouse_clicado(botao: str = 'esquerdo') -> bool` |
 | `mouse_solto` | método | `mouse_solto(botao: str = 'esquerdo') -> bool` |
@@ -847,6 +894,8 @@ defina desenhadas como renderizador.desenhar(backend)
 | `mouse_solto` | Executa a operação `mouse_solto` disponibilizada por `coral.jogos`. | `bool` |
 | `roda_mouse` | Executa a operação `roda_mouse` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
 | `definir_tela_cheia` | Define tela cheia. | `None` |
+| `definir_tamanho_janela` | Define tamanho janela. | `None` |
+| `tamanho_fisico` | Executa a operação `tamanho_fisico` disponibilizada por `coral.jogos`. | `tuple[int, int]` |
 | `limpar` | Limpa o valor solicitado. | `None` |
 | `desenhar_retangulo` | Desenha retangulo. | `None` |
 | `desenhar_circulo` | Desenha circulo. | `None` |
@@ -890,6 +939,8 @@ defina desenhadas como renderizador.desenhar(backend)
 | `mouse_solto` | método | `mouse_solto(botao: str) -> bool` |
 | `roda_mouse` | método | `roda_mouse() -> tuple[int, int]` |
 | `definir_tela_cheia` | método | `definir_tela_cheia(ativa: bool) -> None` |
+| `definir_tamanho_janela` | método | `definir_tamanho_janela(largura: int, altura: int) -> None` |
+| `tamanho_fisico` | método | `tamanho_fisico() -> tuple[int, int]` |
 | `limpar` | método | `limpar(cor: Cor) -> None` |
 | `desenhar_retangulo` | método | `desenhar_retangulo(retangulo: Retangulo, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` |
 | `desenhar_circulo` | método | `desenhar_circulo(x: float, y: float, raio: float, cor: Cor, *, contorno: int = 0, opacidade: float = 1.0) -> None` |
@@ -1001,6 +1052,7 @@ Representa objeto visual.
 | Nome | O que faz | Retorno |
 |---|---|---|
 | `retangulo` | Obtém retangulo. | `Retangulo` |
+| `limites_visuais` | Retângulo conservador da imagem após escala, espelho e rotação. | `Retangulo` |
 | `forma_colisao` | Executa a operação `forma_colisao` disponibilizada por `coral.jogos`. | `não declarado` |
 | `mover` | Move o valor solicitado. | `None` |
 | `definir_escala` | Define escala. | `não declarado` |
@@ -1035,6 +1087,7 @@ Representa objeto visual.
 | Nome | Tipo | Assinatura |
 |---|---|---|
 | `retangulo` | propriedade | `retangulo() -> Retangulo` |
+| `limites_visuais` | propriedade | `limites_visuais() -> Retangulo` |
 | `forma_colisao` | propriedade | `forma_colisao()` |
 | `mover` | método | `mover(dx: float, dy: float) -> None` |
 | `definir_escala` | método | `definir_escala(escala: float)` |
@@ -1544,6 +1597,8 @@ defina desenhadas como renderizador.desenhar(backend)
 | `atualizar` | Atualiza o valor solicitado. | `não declarado` |
 | `mundo_para_tela` | Converte coordenadas de mundo para tela. | `tuple[float, float]` |
 | `tela_para_mundo` | Converte coordenadas de tela para mundo. | `tuple[float, float]` |
+| `area_visivel` | Executa a operação `area_visivel` disponibilizada por `coral.jogos`. | `Retangulo` |
+| `visivel` | Executa a operação `visivel` disponibilizada por `coral.jogos`. | `bool` |
 | `tela` | Compatibilidade histórica: converte coordenadas de mundo para tela. | `tuple[float, float]` |
 
 :::details Detalhes técnicos
@@ -1562,6 +1617,8 @@ defina desenhadas como renderizador.desenhar(backend)
 | `atualizar` | método | `atualizar()` |
 | `mundo_para_tela` | método | `mundo_para_tela(x: float, y: float) -> tuple[float, float]` |
 | `tela_para_mundo` | método | `tela_para_mundo(x: float, y: float) -> tuple[float, float]` |
+| `area_visivel` | propriedade | `area_visivel() -> Retangulo` |
+| `visivel` | método | `visivel(objeto: Sprite \| Retangulo, *, margem: float = 0.0) -> bool` |
 | `tela` | método | `tela(x: float, y: float) -> tuple[float, float]` |
 
 :::
@@ -1865,6 +1922,68 @@ Publica acontecimentos de Jogos no barramento reativo do próprio Jogo.
 | `ligar` | método | `ligar() -> None` |
 | `observar_colisao` | método | `observar_colisao(primeiro: Sprite, segundo: Sprite, *, nome: str \| None = None) -> _ColisaoObservada` |
 | `publicar_transicao_visual` | método | `publicar_transicao_visual(sprite: Sprite, transicao: str, *, estado: str \| None = None)` |
+
+:::
+
+#### `Viewport`
+
+Transformação entre a superfície física e a área lógica de Jogos.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `largura_logica` | Largura de logica. | `float` | obrigatório |
+| `altura_logica` | Altura de logica. | `float` | obrigatório |
+| `largura_fisica` | Largura de fisica. | `float` | obrigatório |
+| `altura_fisica` | Altura de fisica. | `float` | obrigatório |
+| `modo` | Valor correspondente a modo. | `str` | `'ajustar'` |
+
+**Atributos públicos**
+
+| Nome | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `largura_logica` | Largura de logica. | `float` | obrigatório |
+| `altura_logica` | Altura de logica. | `float` | obrigatório |
+| `largura_fisica` | Largura de fisica. | `float` | obrigatório |
+| `altura_fisica` | Altura de fisica. | `float` | obrigatório |
+| `modo` | Valor correspondente a modo. | `str` | `'ajustar'` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `escala_x` | Executa a operação `escala_x` disponibilizada por `coral.jogos`. | `float` |
+| `escala_y` | Executa a operação `escala_y` disponibilizada por `coral.jogos`. | `float` |
+| `deslocamento_x` | Executa a operação `deslocamento_x` disponibilizada por `coral.jogos`. | `float` |
+| `deslocamento_y` | Executa a operação `deslocamento_y` disponibilizada por `coral.jogos`. | `float` |
+| `area_fisica_util` | Executa a operação `area_fisica_util` disponibilizada por `coral.jogos`. | `tuple[float, float, float, float]` |
+| `logica_para_tela` | Executa a operação `logica_para_tela` disponibilizada por `coral.jogos`. | `tuple[float, float]` |
+| `tela_para_logica` | Executa a operação `tela_para_logica` disponibilizada por `coral.jogos`. | `tuple[float, float]` |
+| `contem_tela` | Executa a operação `contem_tela` disponibilizada por `coral.jogos`. | `bool` |
+| `ancorar` | Retorna o canto superior esquerdo de um elemento na área lógica. | `tuple[float, float]` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `Viewport(largura_logica: float, altura_logica: float, largura_fisica: float, altura_fisica: float, modo: str = 'ajustar')`
+
+**Origem da implementação:** `coral.jogos.viewport`
+
+**Arquivo na release:** `coral/jogos/viewport.py`
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `escala_x` | propriedade | `escala_x() -> float` |
+| `escala_y` | propriedade | `escala_y() -> float` |
+| `deslocamento_x` | propriedade | `deslocamento_x() -> float` |
+| `deslocamento_y` | propriedade | `deslocamento_y() -> float` |
+| `area_fisica_util` | propriedade | `area_fisica_util() -> tuple[float, float, float, float]` |
+| `logica_para_tela` | método | `logica_para_tela(x: float, y: float) -> tuple[float, float]` |
+| `tela_para_logica` | método | `tela_para_logica(x: float, y: float, *, limitar: bool = False) -> tuple[float, float]` |
+| `contem_tela` | método | `contem_tela(x: float, y: float) -> bool` |
+| `ancorar` | método | `ancorar(largura: float, altura: float, *, ancora: str = 'superior_esquerda', margem_x: float = 0.0, margem_y: float \| None = None) -> tuple[float, float]` |
 
 :::
 

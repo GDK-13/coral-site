@@ -20,19 +20,16 @@ O trecho abaixo vem diretamente do changelog da release importada.
 
 <!-- AUTO:CHANGELOG -->
 
-## 1.5.9 — integração oficial com VS Code e refinamento da distribuição
+## 1.5.12 — infraestrutura de testes, evidência e redução física
 
-* Promove Coral Language 0.41.0 como extensão oficial da Coral 1.5.9.
-* Amplia IntelliSense próprio, navegação, hovers, signature help, auto import, semantic tokens e diagnóstico contextual pelo LSP.
-* Corrige o reconhecimento de formas naturais importadas tanto na execução direta quanto nos diagnósticos do editor.
-* Consolida execução, Test Explorer, REPL, DAP/F5, restart, informações de ambiente e recuperação de falhas do servidor.
-* Evolui Project Explorer, suporte a `coral.toml`, projetos aninhados, multiroot, criação guiada de arquivos e Biblioteca Coral.
-* Refina a coloração em duas camadas, com TextMate como fallback e semantic tokens contextuais respeitando o tema do usuário.
-* Atualiza o limite de linha para 150 caracteres e mantém a sugestão segura de quebra com prévia fantasma no VS Code.
-* Reestrutura a biblioteca de exemplos, remove demonstrações redundantes ou excessivamente nichadas e separa fixtures de aceitação dos exemplos pedagógicos.
-* Faz `Livro/Exemplos` conter também cópias sincronizadas dos códigos citados no Livro, sem recompilação redundante nas validações.
-* Mantém o Livro Oficial na edição 1.5.8, desacoplando a edição editorial da versão técnica do runtime.
-* Incorpora a nova guideline oficial de identidade visual da Coral à documentação e ao gerador do Livro.
-* Preserva a política anti acúmulo: validações focadas durante o desenvolvimento e uma única bateria completa no congelamento da release.
+* Reduz a suíte coletável em relação à base física reconstruída da 1.5.11, mantendo a meta de até 1.350 casos no freeze.
+* Introduz grafo de impacto estático, estrutural e dinâmico com IDs estáveis e validação própria.
+* Adiciona Livro Razão de Evidências com invalidação por conteúdo e versões da infraestrutura.
+* Mantém o seletor de impacto em modo sombra, com fallback conservador e recall de falhas de 100% nas campanhas controladas.
+* Torna permanente o Harness de Mutação com 12 cenários obrigatórios.
+* Adiciona Pulso de dívida temporal, explicabilidade de impacto e controles aditivos.
+* Elimina recursão redundante dos gates históricos por orquestração plana baseada em evidência.
+* Reforça o pipeline final com compileall, Ruff crítico e reutilização de slow e histórico completos do mesmo freeze.
+* Preserva a superfície funcional da Coral 1.5.11, a extensão Coral Language 0.43.0 e o Livro Oficial na edição 1.5.8.
 
 <!-- /AUTO:CHANGELOG -->

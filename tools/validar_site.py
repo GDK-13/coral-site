@@ -163,7 +163,7 @@ def audit_syntax_contract() -> list[str]:
     if data.get("decimal") != ".":
         errors.append(f"separador decimal inesperado: {data.get('decimal')!r}")
     if set(data.get("aspas", [])) != {'"', "'"}:
-        errors.append("contrato de aspas divergente da release 1.5.9")
+        errors.append("contrato de aspas divergente da release importada")
     if not data.get("lexemas"):
         errors.append("lista de lexemas vazia")
     return errors

@@ -172,7 +172,7 @@ O gerador recria todas as páginas públicas, os links relativos, o índice loca
 Use o ZIP oficial completo:
 
 ```bash
-python tools/atualizar_docs.py /caminho/Coral_1.5.10_Completo.zip
+python tools/atualizar_docs.py /caminho/Coral_1.5.12_Completo.zip
 ```
 
 O importador atualiza:
@@ -257,8 +257,8 @@ Exemplo:
 
 ```json
 {
-  "coral": "1.5.9",
-  "extensao_vscode": "0.41.0",
+  "coral": "1.5.12",
+  "extensao_vscode": "0.43.0",
   "livro": "1.5.8",
   "estavel": true
 }
@@ -311,7 +311,7 @@ Depois da revisão:
 ```bash
 git status
 git add .
-git commit -m "Atualiza documentação para Coral 1.5.10"
+git commit -m "Atualiza documentação para Coral 1.5.12"
 git push
 ```
 

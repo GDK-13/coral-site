@@ -1,8 +1,18 @@
 {
-  "runtime": "1.5.9",
-  "extensao_vscode": "0.41.0",
+  "runtime": "1.5.12",
+  "extensao_vscode": "0.43.0",
   "livro": "1.5.8",
   "modulos": {
+    "agentes": [
+      "Agente",
+      "Atributo",
+      "Efeito",
+      "Habilidade",
+      "Modificador",
+      "MudancaRecurso",
+      "Recurso",
+      "criar_agente"
+    ],
     "aleatorio": [
       "FonteAleatoria",
       "fonte",
@@ -198,6 +208,7 @@
       "sprites_colidem",
       "AdaptadorEventosJogo",
       "adaptar_eventos",
+      "Viewport",
       "EstiloCelula",
       "RenderizadorMapa2D",
       "celula_para_tela",
@@ -317,6 +328,18 @@
       "carregar",
       "carregar_como"
     ],
+    "procedural": [
+      "CONTRATO",
+      "Semente",
+      "semente",
+      "derivar_semente",
+      "GeradorProcedural",
+      "SequenciaProcedural",
+      "CampoProcedural",
+      "campo_constante",
+      "campo_ruido",
+      "distribuir_pontos"
+    ],
     "rastreamento_reativo": [
       "MODOS_RASTREAMENTO",
       "ErroCicloReativo",
@@ -346,6 +369,7 @@
     ],
     "rpg": [
       "Rolagem",
+      "ResultadoAtaque",
       "rolar",
       "Personagem",
       "CombateTurnos",
@@ -361,6 +385,27 @@
     "sequencias_reativas": [
       "AcaoSequencia",
       "SequenciaDoisPassos"
+    ],
+    "simulacao": [
+      "CONTRATO",
+      "SEGUNDO",
+      "MINUTO",
+      "HORA",
+      "DIA",
+      "TempoMundo",
+      "FaseCiclo",
+      "EstadoCiclo",
+      "TransicaoCiclo",
+      "ResultadoTransicoesCiclo",
+      "Ciclo",
+      "PassoSistema",
+      "ResultadoSistema",
+      "ErroPassoExcessivo",
+      "Sistema",
+      "Simulacao",
+      "CampoAmbiental",
+      "ciclo_dia_noite",
+      "criar_simulacao"
     ],
     "sistema": [
       "ErroSistema",
@@ -418,6 +463,9 @@
       "tipo_de",
       "nome_tipo",
       "e_tipo"
+    ],
+    "turnos": [
+      "FilaTurnos"
     ]
   },
   "cli": {
@@ -526,6 +574,8 @@
     ]
   },
   "exemplos": [
+    "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
+    "Exemplos/Agentes/02_habilidades_e_fila.coral",
     "Exemplos/Dados/01_entrada_conversoes_e_texto.coral",
     "Exemplos/Dados/02_arquivos_json_e_caminhos.coral",
     "Exemplos/Dados/03_aleatorio_e_persistencia.coral",
@@ -547,6 +597,7 @@
     "Exemplos/Mundo/01_mundo_e_rpg.coral",
     "Exemplos/Mundo/02_mapas_camadas_e_topologias.coral",
     "Exemplos/Mundo/03_regioes_e_travessia.coral",
+    "Exemplos/Mundo/04_agente_mapa_regras_e_representacao.coral",
     "Exemplos/Projetos_Completos/Modulos/principal.coral",
     "Exemplos/Projetos_Completos/Modulos/util.coral",
     "Exemplos/Projetos_Completos/Notas/calculos.coral",
@@ -566,11 +617,24 @@
     "Exemplos/Regras/01_eventos_observacao_e_tempo.coral",
     "Exemplos/Regras/02_controle_de_eventos.coral",
     "Exemplos/Regras/03_grupos_e_sequencias.coral",
+    "Exemplos/SimulacaoTemporal/01_tempo_mundo.coral",
+    "Exemplos/SimulacaoTemporal/02_procedural.coral",
+    "Exemplos/SimulacaoTemporal/03_sistema_recorrente.coral",
+    "Exemplos/SimulacaoTemporal/04_termostato.coral",
+    "Exemplos/SimulacaoTemporal/05_estoque.coral",
+    "Exemplos/SimulacaoTemporal/06_ciclo_dia_noite.coral",
+    "Exemplos/SimulacaoTemporal/07_regeneracao_recurso.coral",
+    "Exemplos/SimulacaoTemporal/08_mapa_temperatura.coral",
+    "Exemplos/SimulacaoTemporal/09_umidade_procedural.coral",
+    "Exemplos/SimulacaoTemporal/10_vegetacao_procedural.coral",
+    "Exemplos/SimulacaoTemporal/11_demanda_logistica.coral",
+    "Exemplos/SimulacaoTemporal/12_subsementes_independentes.coral",
+    "Exemplos/SimulacaoTemporal/13_grade_ambiental_ruido.coral",
     "Exemplos/Simulacoes/01_grade_e_automato.coral",
     "Exemplos/Simulacoes/02_game_of_life_visual.coral"
   ],
   "sintaxe": {
-    "release": "1.5.9",
+    "release": "1.5.12",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -638,5 +702,5 @@
       "identificadores": "Projeto/coral/identificadores.py"
     }
   },
-  "source": "Coral_1.5.9_Completo.zip"
+  "source": "Coral_1.5.12_Completo.zip"
 }

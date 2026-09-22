@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="filas reutilizáveis de turnos, atendimento, produção e escalonamento">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.turnos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.turnos — Documentação Coral">
+  <meta property="og:description" content="filas reutilizáveis de turnos, atendimento, produção e escalonamento">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.turnos — Documentação Coral">
+  <meta name="twitter:description" content="filas reutilizáveis de turnos, atendimento, produção e escalonamento">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a class="active" aria-current="page" href="turnos.html"><code>coral.turnos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.turnos</h1>
+      <p>filas reutilizáveis de turnos, atendimento, produção e escalonamento</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable>filas reutilizáveis de turnos, atendimento, produção e escalonamento</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.turnos</code> <strong>Categoria:</strong> agentes</p>
+<p data-searchable>filas reutilizáveis de turnos, atendimento, produção e escalonamento</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>FilaTurnos</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable><code>coral.turnos</code> fornece uma fila circular genérica e persistível. Ela não conhece combate nem personagens: os participantes podem representar pessoas em atendimento, máquinas em produção, tarefas, unidades de jogo ou qualquer objeto que precise alternar execução em uma ordem controlada.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="participantes-e-ordem" data-searchable>Participantes e ordem</h3>
+<p data-searchable>A fila mantém a lista de participantes e uma ordem efetiva separada. A ordem pode seguir a inserção original, ser fornecida explicitamente ou ser calculada a partir de prioridades.</p>
+<h3 id="rodadas" data-searchable>Rodadas</h3>
+<p data-searchable>Quando o índice retorna ao início da ordem, <code>rodada</code> avança. Isso permite acompanhar ciclos completos sem impor significado específico ao domínio.</p>
+<h3 id="pausa-e-filtro-de-avanco" data-searchable>Pausa e filtro de avanço</h3>
+<p data-searchable>Uma fila pode ser pausada e retomada. <code>avancar</code> também pode receber um filtro que ignora participantes temporariamente indisponíveis.</p>
+<h3 id="historico" data-searchable>Histórico</h3>
+<p data-searchable>Mudanças de estrutura e avanço são registradas em um histórico simples, útil para inspeção e persistência.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use <code>FilaTurnos</code> sempre que houver uma sequência circular de participantes e o domínio precisar controlar quem é o atual, qual a rodada e como a ordem é montada. Para combate, ela pode ser combinada com <code>coral.rpg</code>, mas o módulo também serve a atendimento, filas de produção e escalonamento.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>A release inclui <code>Exemplos/Agentes/02_habilidades_e_fila.coral</code>:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um mundo chamado oficina
+<span class="code-key">crie</span> um agente chamado robo_a no mundo oficina
+<span class="code-key">crie</span> um agente chamado robo_b no mundo oficina
+
+<span class="code-key">crie</span> uma fila <span class="code-key">chamada</span> manutencao com robo_a e robo_b
+inicie a fila manutencao
+garanta que manutencao.atual for igual a robo_a
+avance a fila manutencao
+garanta que manutencao.atual for igual a robo_b
+<span class="code-key">mostre</span> manutencao.rodada</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>FilaTurnos</code></td><td data-searchable>fila circular com ordem, índice, rodada, pausa e histórico</td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>define a ordem inicial por lista explícita ou prioridades</td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>informa o participante corrente</td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>move para o próximo participante aceito</td></tr>
+<tr><td data-searchable><code>adicionar</code> / <code>remover</code></td><td data-searchable>altera a composição da fila</td></tr>
+<tr><td data-searchable><code>pausar</code> / <code>retomar</code></td><td data-searchable>controla o avanço sem destruir o estado</td></tr>
+</tbody></table></div>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Crie a fila com os participantes conhecidos.</li>
+<li data-searchable>Inicie usando a ordem original, uma ordem explícita ou prioridades.</li>
+<li data-searchable>Consulte <code>atual</code> antes de executar a ação do participante.</li>
+<li data-searchable>Chame <code>avancar</code> quando a etapa terminar.</li>
+<li data-searchable>Persista a fila quando precisar continuar o mesmo ciclo em outra execução.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>Não é permitido informar ordem explícita e prioridades ao mesmo tempo. Uma ordem explícita só pode conter participantes já registrados e não pode repetir o mesmo objeto. Remover o participante atual reajusta o índice para manter a fila consistente.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Deixe a fila cuidar apenas da ordem e mantenha as regras de ação no domínio correspondente.</li>
+<li data-searchable>Use prioridades somente para construir a ordem inicial; se a prioridade mudar continuamente, decida explicitamente quando reiniciar a fila.</li>
+<li data-searchable>Use o filtro de <code>avancar</code> para indisponibilidade temporária em vez de remover e adicionar participantes repetidamente.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.agentes</code> fornece participantes ricos sem criar dependência obrigatória. <code>coral.rpg</code> pode usar a mesma fila em combate. A persistência Coral registra o estado da fila e preserva ordem, índice, rodada e histórico.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>Para uma mesma lista e prioridades, a ordem é determinística e desempates preservam a ordem original. Testes devem verificar ordem, participante atual, avanço de rodada, pausa e restauração persistente.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A fila genérica foi introduzida na linha 1.5.10 e permanece publicada na <strong>Coral 1.5.12</strong> sem depender de RPG ou Jogos.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="filaturnos" data-searchable><code>FilaTurnos</code></h4>
+<p data-searchable>Fila circular persistível sem conhecimento de RPG ou combate.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>participantes</code></td><td data-searchable>Valor correspondente a participantes.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>identidade</code></td><td data-searchable>Executa a operação <code>identidade</code> disponibilizada por <code>coral.turnos</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>Remove o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>Inicia o valor solicitado.</td><td data-searchable><code>tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>Obtém atual.</td><td data-searchable><code>Any | None</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>Any | None</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>Pausa o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>Retoma o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limpar_historico</code></td><td data-searchable>Limpa historico.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FilaTurnos(participantes: Iterable[Any] = ()) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.turnos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/turnos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>identidade</code></td><td data-searchable>método</td><td data-searchable><code>identidade(participante: Any) -&gt; str</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(participante: Any) -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>remover</code></td><td data-searchable>método</td><td data-searchable><code>remover(participante: Any) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>método</td><td data-searchable><code>iniciar(*, ordem: Iterable[Any] | None = None, prioridades: Mapping[Any, float] | Callable[[Any], float] | None = None) -&gt; tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>atual</code></td><td data-searchable>propriedade</td><td data-searchable><code>atual() -&gt; Any | None</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(*, aceitar: Callable[[Any], bool] | None = None) -&gt; Any | None</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>método</td><td data-searchable><code>pausar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>método</td><td data-searchable><code>retomar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>limpar_historico</code></td><td data-searchable>método</td><td data-searchable><code>limpar_historico() -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="tipos.html"><span>Anterior</span><strong>coral.tipos</strong></a><span></span></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

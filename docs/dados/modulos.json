@@ -1,5 +1,858 @@
 [
   {
+    "nome": "agentes",
+    "importacao": "coral.agentes",
+    "categoria": "agentes",
+    "finalidade": "agentes genéricos, recursos, atributos, habilidades, efeitos e modificadores",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "Agente",
+      "Atributo",
+      "Efeito",
+      "Habilidade",
+      "Modificador",
+      "MudancaRecurso",
+      "Recurso",
+      "criar_agente"
+    ],
+    "destaque": false,
+    "pagina": "modulos/agentes",
+    "api": [
+      {
+        "nome": "Agente",
+        "tipo": "classe",
+        "assinatura": "Agente(nome: str, *, identificador: str | None = None, atributos: Mapping[str, Any] | None = None, estados: Iterable[str] = (), politica_acao: PoliticaAcao | None = None) -> None",
+        "retorno": "Agente",
+        "descricao": "Entidade com identidade persistente, recursos, atributos e estado.",
+        "documentacao": "Entidade com identidade persistente, recursos, atributos e estado.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "identificador",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "atributos",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "estados",
+            "tipo": "Iterable[str]",
+            "padrao": "()",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "politica_acao",
+            "tipo": "PoliticaAcao | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "mundo",
+            "tipo": "propriedade",
+            "assinatura": "mundo() -> Mundo | None",
+            "retorno": "Mundo | None",
+            "descricao": ""
+          },
+          {
+            "nome": "politica_acao",
+            "tipo": "propriedade",
+            "assinatura": "politica_acao() -> PoliticaAcao | None",
+            "retorno": "PoliticaAcao | None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_politica_acao",
+            "tipo": "método",
+            "assinatura": "definir_politica_acao(politica: PoliticaAcao | None) -> 'Agente'",
+            "retorno": "'Agente'",
+            "descricao": ""
+          },
+          {
+            "nome": "decidir",
+            "tipo": "método",
+            "assinatura": "decidir(contexto: Any = None) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_recurso",
+            "tipo": "método",
+            "assinatura": "adicionar_recurso(recurso: Recurso) -> Recurso",
+            "retorno": "Recurso",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_recurso",
+            "tipo": "método",
+            "assinatura": "definir_recurso(nome: str, valor: float = 0.0, *, minimo: float = 0.0, maximo: float | None = None, unidade: str | None = None) -> Recurso",
+            "retorno": "Recurso",
+            "descricao": ""
+          },
+          {
+            "nome": "recurso",
+            "tipo": "método",
+            "assinatura": "recurso(nome: str) -> Recurso | None",
+            "retorno": "Recurso | None",
+            "descricao": ""
+          },
+          {
+            "nome": "exigir_recurso",
+            "tipo": "método",
+            "assinatura": "exigir_recurso(nome: str) -> Recurso",
+            "retorno": "Recurso",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_atributo",
+            "tipo": "método",
+            "assinatura": "adicionar_atributo(atributo: Atributo) -> Atributo",
+            "retorno": "Atributo",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_atributo",
+            "tipo": "método",
+            "assinatura": "definir_atributo(nome: str, base: float = 0.0) -> Atributo",
+            "retorno": "Atributo",
+            "descricao": ""
+          },
+          {
+            "nome": "atributo",
+            "tipo": "método",
+            "assinatura": "atributo(nome: str) -> Atributo | None",
+            "retorno": "Atributo | None",
+            "descricao": ""
+          },
+          {
+            "nome": "valor_atributo",
+            "tipo": "método",
+            "assinatura": "valor_atributo(nome: str, padrao: Any = None) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_habilidade",
+            "tipo": "método",
+            "assinatura": "adicionar_habilidade(habilidade: Habilidade) -> Habilidade",
+            "retorno": "Habilidade",
+            "descricao": ""
+          },
+          {
+            "nome": "usar_habilidade",
+            "tipo": "método",
+            "assinatura": "usar_habilidade(nome: str, alvo: Any = None, contexto: Any = None) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_estado",
+            "tipo": "método",
+            "assinatura": "adicionar_estado(estado: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "remover_estado",
+            "tipo": "método",
+            "assinatura": "remover_estado(estado: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "possui_estado",
+            "tipo": "método",
+            "assinatura": "possui_estado(estado: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_imunidade_efeito",
+            "tipo": "método",
+            "assinatura": "adicionar_imunidade_efeito(nome: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "remover_imunidade_efeito",
+            "tipo": "método",
+            "assinatura": "remover_imunidade_efeito(nome: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "imune_a",
+            "tipo": "método",
+            "assinatura": "imune_a(efeito: str | Efeito) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "aplicar_efeito",
+            "tipo": "método",
+            "assinatura": "aplicar_efeito(efeito: Efeito) -> Efeito | None",
+            "retorno": "Efeito | None",
+            "descricao": ""
+          },
+          {
+            "nome": "remover_efeito",
+            "tipo": "método",
+            "assinatura": "remover_efeito(efeito: Efeito) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt: float = 0.0) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "posicao",
+            "tipo": "propriedade",
+            "assinatura": "posicao() -> tuple[float, float] | None",
+            "retorno": "tuple[float, float] | None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_posicao",
+            "tipo": "método",
+            "assinatura": "definir_posicao(x: float, y: float) -> 'Agente'",
+            "retorno": "'Agente'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": [
+          "Entidade"
+        ]
+      },
+      {
+        "nome": "Atributo",
+        "tipo": "classe",
+        "assinatura": "Atributo(nome: str, base: float = 0.0) -> None",
+        "retorno": "Atributo",
+        "descricao": "Valor base com composição determinística de modificadores rastreáveis.",
+        "documentacao": "Valor base com composição determinística de modificadores rastreáveis.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "base",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "modificadores",
+            "tipo": "propriedade",
+            "assinatura": "modificadores() -> tuple[Modificador, ...]",
+            "retorno": "tuple[Modificador, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "valor",
+            "tipo": "propriedade",
+            "assinatura": "valor() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_base",
+            "tipo": "método",
+            "assinatura": "definir_base(valor: float) -> 'Atributo'",
+            "retorno": "'Atributo'",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar",
+            "tipo": "método",
+            "assinatura": "adicionar(modificador: Modificador) -> Modificador",
+            "retorno": "Modificador",
+            "descricao": ""
+          },
+          {
+            "nome": "modificar",
+            "tipo": "método",
+            "assinatura": "modificar(nome: str, valor: float, *, operacao: str = 'somar', prioridade: int = 0, origem: str | None = None, persistente: bool = True) -> Modificador",
+            "retorno": "Modificador",
+            "descricao": ""
+          },
+          {
+            "nome": "remover",
+            "tipo": "método",
+            "assinatura": "remover(modificador: Modificador) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "remover_origem",
+            "tipo": "método",
+            "assinatura": "remover_origem(origem: str) -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "explicar",
+            "tipo": "método",
+            "assinatura": "explicar() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "Efeito",
+        "tipo": "classe",
+        "assinatura": "Efeito(nome: str, duracao: float | None = None, modificadores: Mapping[str, Iterable[Modificador]] = field(default_factory=dict), empilhamento: str = 'renovar', persistente: bool = True, origem: str | None = None, restante: float | None = None)",
+        "retorno": "Efeito",
+        "descricao": "Condição temporal neutra que pode aplicar modificadores a um agente.",
+        "documentacao": "Condição temporal neutra que pode aplicar modificadores a um agente.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "modificadores",
+            "tipo": "Mapping[str, Iterable[Modificador]]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "empilhamento",
+            "tipo": "str",
+            "padrao": "'renovar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "persistente",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "restante",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "ativo",
+            "tipo": "propriedade",
+            "assinatura": "ativo() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "renovar",
+            "tipo": "método",
+            "assinatura": "renovar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "modificadores",
+            "tipo": "Mapping[str, Iterable[Modificador]]",
+            "padrao": "field(default_factory=dict)"
+          },
+          {
+            "nome": "empilhamento",
+            "tipo": "str",
+            "padrao": "'renovar'"
+          },
+          {
+            "nome": "persistente",
+            "tipo": "bool",
+            "padrao": "True"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "restante",
+            "tipo": "float | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "Habilidade",
+        "tipo": "classe",
+        "assinatura": "Habilidade(nome: str, acao: AcaoHabilidade | None = None, *, custos: Mapping[str, float] | None = None, recarga: float = 0.0, metadados: Mapping[str, Any] | None = None, requisitos: Iterable[RequisitoHabilidade] = ()) -> None",
+        "retorno": "Habilidade",
+        "descricao": "Ação reutilizável com custos de recursos e recarga por tempo simulado.",
+        "documentacao": "Ação reutilizável com custos de recursos e recarga por tempo simulado.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "AcaoHabilidade | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "custos",
+            "tipo": "Mapping[str, float] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "recarga",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "requisitos",
+            "tipo": "Iterable[RequisitoHabilidade]",
+            "padrao": "()",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "pronta",
+            "tipo": "propriedade",
+            "assinatura": "pronta() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "pode_usar",
+            "tipo": "método",
+            "assinatura": "pode_usar(agente: 'Agente', alvo: Any = None, contexto: Any = None) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "usar",
+            "tipo": "método",
+            "assinatura": "usar(agente: 'Agente', alvo: Any = None, contexto: Any = None) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt: float) -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "Modificador",
+        "tipo": "classe",
+        "assinatura": "Modificador(nome: str, valor: float, operacao: str = 'somar', prioridade: int = 0, origem: str | None = None, persistente: bool = True)",
+        "retorno": "Modificador",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "operacao",
+            "tipo": "str",
+            "padrao": "'somar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "persistente",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "operacao",
+            "tipo": "str",
+            "padrao": "'somar'"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int",
+            "padrao": "0"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "persistente",
+            "tipo": "bool",
+            "padrao": "True"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "MudancaRecurso",
+        "tipo": "classe",
+        "assinatura": "MudancaRecurso(recurso: str, anterior: float, atual: float, solicitado: float, aplicado: float, origem: str | None = None)",
+        "retorno": "MudancaRecurso",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "recurso",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "anterior",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "atual",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "solicitado",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "aplicado",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "recurso",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "anterior",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "atual",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "solicitado",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "aplicado",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "Recurso",
+        "tipo": "classe",
+        "assinatura": "Recurso(nome: str, valor: float = 0.0, *, minimo: float = 0.0, maximo: float | None = None, unidade: str | None = None) -> None",
+        "retorno": "Recurso",
+        "descricao": "Valor limitado reutilizável como vida, energia, bateria ou estoque.",
+        "documentacao": "Valor limitado reutilizável como vida, energia, bateria ou estoque.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "minimo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "maximo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "unidade",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "valor",
+            "tipo": "propriedade",
+            "assinatura": "valor() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "cheio",
+            "tipo": "propriedade",
+            "assinatura": "cheio() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "vazio",
+            "tipo": "propriedade",
+            "assinatura": "vazio() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "fracao",
+            "tipo": "propriedade",
+            "assinatura": "fracao() -> float | None",
+            "retorno": "float | None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir",
+            "tipo": "método",
+            "assinatura": "definir(valor: float, *, origem: str | None = None) -> MudancaRecurso",
+            "retorno": "MudancaRecurso",
+            "descricao": ""
+          },
+          {
+            "nome": "alterar",
+            "tipo": "método",
+            "assinatura": "alterar(quantidade: float, *, origem: str | None = None) -> MudancaRecurso",
+            "retorno": "MudancaRecurso",
+            "descricao": ""
+          },
+          {
+            "nome": "consumir",
+            "tipo": "método",
+            "assinatura": "consumir(quantidade: float, *, origem: str | None = None) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "recuperar",
+            "tipo": "método",
+            "assinatura": "recuperar(quantidade: float, *, origem: str | None = None) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "pode_consumir",
+            "tipo": "método",
+            "assinatura": "pode_consumir(quantidade: float) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "criar_agente",
+        "tipo": "função",
+        "assinatura": "criar_agente(mundo: Mundo, nome: str, *, identificador: str | None = None, atributos: Mapping[str, Any] | None = None, estados: Iterable[str] = ()) -> Agente",
+        "retorno": "Agente",
+        "descricao": "Cria um agente genérico e o adiciona a um Mundo sem acoplar Mundo a agentes.",
+        "documentacao": "Cria um agente genérico e o adiciona a um Mundo sem acoplar Mundo a agentes.",
+        "origem": "coral.agentes",
+        "arquivo": "coral/agentes.py",
+        "parametros": [
+          {
+            "nome": "mundo",
+            "tipo": "Mundo",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "identificador",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "atributos",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "estados",
+            "tipo": "Iterable[str]",
+            "padrao": "()",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "TypeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      }
+    ],
+    "doc_modulo": "Contratos genéricos de agentes, recursos, atributos e efeitos.\n\nEste módulo não depende de RPG nem de Jogos. Ele reúne os mecanismos neutros\nintroduzidos na Coral 1.5.10 para que vida, bateria, combustível, estoque,\nrobôs, personagens e outras entidades compartilhem a mesma fundação."
+  },
+  {
     "nome": "aleatorio",
     "importacao": "coral.aleatorio",
     "categoria": "simulacao",
@@ -4119,6 +4972,7 @@
       "sprites_colidem",
       "AdaptadorEventosJogo",
       "adaptar_eventos",
+      "Viewport",
       "EstiloCelula",
       "RenderizadorMapa2D",
       "celula_para_tela",
@@ -4256,6 +5110,41 @@
             "nome": "posicao_mouse",
             "tipo": "método",
             "assinatura": "posicao_mouse() -> tuple[int, int]",
+            "retorno": "tuple[int, int]",
+            "descricao": ""
+          },
+          {
+            "nome": "tamanho_logico",
+            "tipo": "método",
+            "assinatura": "tamanho_logico() -> tuple[int, int]",
+            "retorno": "tuple[int, int]",
+            "descricao": ""
+          },
+          {
+            "nome": "tamanho_fisico",
+            "tipo": "método",
+            "assinatura": "tamanho_fisico() -> tuple[int, int]",
+            "retorno": "tuple[int, int]",
+            "descricao": ""
+          },
+          {
+            "nome": "viewport",
+            "tipo": "método",
+            "assinatura": "viewport(*, modo: str = 'ajustar') -> Viewport",
+            "retorno": "Viewport",
+            "descricao": ""
+          },
+          {
+            "nome": "posicao_mouse_logica",
+            "tipo": "método",
+            "assinatura": "posicao_mouse_logica(*, limitar: bool = False, modo: str = 'ajustar') -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "redimensionar_janela",
+            "tipo": "método",
+            "assinatura": "redimensionar_janela(largura: int, altura: int) -> tuple[int, int]",
             "retorno": "tuple[int, int]",
             "descricao": ""
           },
@@ -4628,6 +5517,20 @@
             "tipo": "método",
             "assinatura": "definir_tela_cheia(ativa: bool) -> None",
             "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_tamanho_janela",
+            "tipo": "método",
+            "assinatura": "definir_tamanho_janela(largura: int, altura: int) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "tamanho_fisico",
+            "tipo": "método",
+            "assinatura": "tamanho_fisico() -> tuple[int, int]",
+            "retorno": "tuple[int, int]",
             "descricao": ""
           },
           {
@@ -5103,6 +6006,13 @@
             "assinatura": "retangulo() -> Retangulo",
             "retorno": "Retangulo",
             "descricao": ""
+          },
+          {
+            "nome": "limites_visuais",
+            "tipo": "propriedade",
+            "assinatura": "limites_visuais() -> Retangulo",
+            "retorno": "Retangulo",
+            "descricao": "Retângulo conservador da imagem após escala, espelho e rotação."
           },
           {
             "nome": "forma_colisao",
@@ -6192,6 +7102,20 @@
             "descricao": ""
           },
           {
+            "nome": "area_visivel",
+            "tipo": "propriedade",
+            "assinatura": "area_visivel() -> Retangulo",
+            "retorno": "Retangulo",
+            "descricao": ""
+          },
+          {
+            "nome": "visivel",
+            "tipo": "método",
+            "assinatura": "visivel(objeto: Sprite | Retangulo, *, margem: float = 0.0) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
             "nome": "tela",
             "tipo": "método",
             "assinatura": "tela(x: float, y: float) -> tuple[float, float]",
@@ -7066,6 +7990,142 @@
         "tem_retorno_valor": true
       },
       {
+        "nome": "Viewport",
+        "tipo": "classe",
+        "assinatura": "Viewport(largura_logica: float, altura_logica: float, largura_fisica: float, altura_fisica: float, modo: str = 'ajustar')",
+        "retorno": "Viewport",
+        "descricao": "Transformação entre a superfície física e a área lógica de Jogos.",
+        "documentacao": "Transformação entre a superfície física e a área lógica de Jogos.\n\nO modo ``ajustar`` preserva a proporção lógica e centraliza a área útil.\nO modo ``esticar`` ocupa toda a superfície física usando escalas independentes.\nA classe não desenha nem altera estado de jogo, apenas converte coordenadas.",
+        "origem": "coral.jogos.viewport",
+        "arquivo": "coral/jogos/viewport.py",
+        "parametros": [
+          {
+            "nome": "largura_logica",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura_logica",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura_fisica",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura_fisica",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'ajustar'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "escala_x",
+            "tipo": "propriedade",
+            "assinatura": "escala_x() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "escala_y",
+            "tipo": "propriedade",
+            "assinatura": "escala_y() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "deslocamento_x",
+            "tipo": "propriedade",
+            "assinatura": "deslocamento_x() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "deslocamento_y",
+            "tipo": "propriedade",
+            "assinatura": "deslocamento_y() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "area_fisica_util",
+            "tipo": "propriedade",
+            "assinatura": "area_fisica_util() -> tuple[float, float, float, float]",
+            "retorno": "tuple[float, float, float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "logica_para_tela",
+            "tipo": "método",
+            "assinatura": "logica_para_tela(x: float, y: float) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "tela_para_logica",
+            "tipo": "método",
+            "assinatura": "tela_para_logica(x: float, y: float, *, limitar: bool = False) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "contem_tela",
+            "tipo": "método",
+            "assinatura": "contem_tela(x: float, y: float) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "ancorar",
+            "tipo": "método",
+            "assinatura": "ancorar(largura: float, altura: float, *, ancora: str = 'superior_esquerda', margem_x: float = 0.0, margem_y: float | None = None) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": "Retorna o canto superior esquerdo de um elemento na área lógica."
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "largura_logica",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "altura_logica",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "largura_fisica",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "altura_fisica",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'ajustar'"
+          }
+        ],
+        "bases": []
+      },
+      {
         "nome": "EstiloCelula",
         "tipo": "classe",
         "assinatura": "EstiloCelula(cor: Cor | None = None, imagem: str | QuadroSprite | None = None, texto: str | None = None, cor_texto: Cor = BRANCO, tamanho_texto: int = 16, contorno: int = 0, opacidade: float = 1.0)",
@@ -7230,7 +8290,7 @@
       {
         "nome": "celula_para_tela",
         "tipo": "função",
-        "assinatura": "celula_para_tela(mapa: Mapa, camera: Camera | None, celula: Any, *, ancora: str = 'centro') -> tuple[float, float]",
+        "assinatura": "celula_para_tela(mapa: Mapa, camera: Camera | None, celula: Any, *, ancora: str = 'centro', viewport: Viewport | None = None) -> tuple[float, float]",
         "retorno": "tuple[float, float]",
         "descricao": "",
         "documentacao": "",
@@ -7260,6 +8320,12 @@
             "tipo": "str",
             "padrao": "'centro'",
             "modo": "nomeado"
+          },
+          {
+            "nome": "viewport",
+            "tipo": "Viewport | None",
+            "padrao": "None",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [],
@@ -7270,7 +8336,7 @@
       {
         "nome": "mundo_para_tela",
         "tipo": "função",
-        "assinatura": "mundo_para_tela(camera: Camera | None, coordenada: Any) -> tuple[float, float]",
+        "assinatura": "mundo_para_tela(camera: Camera | None, coordenada: Any, *, viewport: Viewport | None = None) -> tuple[float, float]",
         "retorno": "tuple[float, float]",
         "descricao": "",
         "documentacao": "",
@@ -7288,6 +8354,12 @@
             "tipo": "Any",
             "padrao": null,
             "modo": "posicional"
+          },
+          {
+            "nome": "viewport",
+            "tipo": "Viewport | None",
+            "padrao": "None",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [
@@ -7300,7 +8372,7 @@
       {
         "nome": "tela_para_celula",
         "tipo": "função",
-        "assinatura": "tela_para_celula(mapa: Mapa, camera: Camera | None, x: float, y: float)",
+        "assinatura": "tela_para_celula(mapa: Mapa, camera: Camera | None, x: float, y: float, *, viewport: Viewport | None = None)",
         "retorno": "não declarado",
         "descricao": "",
         "documentacao": "",
@@ -7330,6 +8402,12 @@
             "tipo": "float",
             "padrao": null,
             "modo": "posicional"
+          },
+          {
+            "nome": "viewport",
+            "tipo": "Viewport | None",
+            "padrao": "None",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [],
@@ -7340,7 +8418,7 @@
       {
         "nome": "tela_para_mundo",
         "tipo": "função",
-        "assinatura": "tela_para_mundo(camera: Camera | None, x: float, y: float)",
+        "assinatura": "tela_para_mundo(camera: Camera | None, x: float, y: float, *, viewport: Viewport | None = None)",
         "retorno": "não declarado",
         "descricao": "",
         "documentacao": "",
@@ -7364,6 +8442,12 @@
             "tipo": "float",
             "padrao": null,
             "modo": "posicional"
+          },
+          {
+            "nome": "viewport",
+            "tipo": "Viewport | None",
+            "padrao": "None",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [
@@ -8556,6 +9640,34 @@
             "assinatura": "mapas() -> tuple[Mapa, ...]",
             "retorno": "tuple[Mapa, ...]",
             "descricao": ""
+          },
+          {
+            "nome": "simulacao",
+            "tipo": "propriedade",
+            "assinatura": "simulacao()",
+            "retorno": "não declarado",
+            "descricao": "Simulação temporal associada, quando criada explicitamente."
+          },
+          {
+            "nome": "criar_simulacao",
+            "tipo": "método",
+            "assinatura": "criar_simulacao(*, tempo = None)",
+            "retorno": "não declarado",
+            "descricao": "Cria ou devolve a simulação temporal do mundo sem exigir Jogos."
+          },
+          {
+            "nome": "avancar_tempo",
+            "tipo": "método",
+            "assinatura": "avancar_tempo(duracao: float)",
+            "retorno": "não declarado",
+            "descricao": "Avança a simulação e depois atualiza regras e temporizadores pelo mesmo delta."
+          },
+          {
+            "nome": "atualizar_simulacao",
+            "tipo": "método",
+            "assinatura": "atualizar_simulacao(dt_externo: float)",
+            "retorno": "não declarado",
+            "descricao": "Atualiza a simulação respeitando pausa e escala temporal."
           },
           {
             "nome": "adicionar_mapa",
@@ -11748,6 +12860,520 @@
     "doc_modulo": "Persistência portátil e versionada da Coral.\n\nO contrato ``coral.persistencia/1`` armazena somente dados semânticos\nreconstruíveis. Estado de execução, handles e objetos arbitrários são\nrecusados explicitamente."
   },
   {
+    "nome": "procedural",
+    "importacao": "coral.procedural",
+    "categoria": "simulacao",
+    "finalidade": "sementes derivadas, geração determinística, ruído, campos e distribuição procedural",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "CONTRATO",
+      "Semente",
+      "semente",
+      "derivar_semente",
+      "GeradorProcedural",
+      "SequenciaProcedural",
+      "CampoProcedural",
+      "campo_constante",
+      "campo_ruido",
+      "distribuir_pontos"
+    ],
+    "destaque": false,
+    "pagina": "modulos/procedural",
+    "api": [
+      {
+        "nome": "CONTRATO",
+        "tipo": "constante",
+        "assinatura": "CONTRATO",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "'coral.procedural/1'",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "Semente",
+        "tipo": "classe",
+        "assinatura": "Semente(valor: Any = 0)",
+        "retorno": "Semente",
+        "descricao": "Semente estável capaz de derivar sub sementes independentes.",
+        "documentacao": "Semente estável capaz de derivar sub sementes independentes.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "inteiro",
+            "tipo": "propriedade",
+            "assinatura": "inteiro() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "hexadecimal",
+            "tipo": "propriedade",
+            "assinatura": "hexadecimal() -> str",
+            "retorno": "str",
+            "descricao": ""
+          },
+          {
+            "nome": "derivar",
+            "tipo": "método",
+            "assinatura": "derivar(*rotulos: Any) -> 'Semente'",
+            "retorno": "'Semente'",
+            "descricao": ""
+          },
+          {
+            "nome": "fonte",
+            "tipo": "método",
+            "assinatura": "fonte(*rotulos: Any) -> FonteAleatoria",
+            "retorno": "FonteAleatoria",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "0"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "semente",
+        "tipo": "função",
+        "assinatura": "semente(valor: Any = 0) -> Semente",
+        "retorno": "Semente",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "derivar_semente",
+        "tipo": "função",
+        "assinatura": "derivar_semente(valor: Any, *rotulos: Any) -> Semente",
+        "retorno": "Semente",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "*rotulos",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "variádico"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "GeradorProcedural",
+        "tipo": "classe",
+        "assinatura": "GeradorProcedural(semente_raiz: Any = 0, *, namespace: str = 'gerador') -> None",
+        "retorno": "GeradorProcedural",
+        "descricao": "Gerador sem estado para consultas determinísticas por chave ou contexto.",
+        "documentacao": "Gerador sem estado para consultas determinísticas por chave ou contexto.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "semente_raiz",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "namespace",
+            "tipo": "str",
+            "padrao": "'gerador'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "derivar",
+            "tipo": "método",
+            "assinatura": "derivar(rotulo: Any) -> 'GeradorProcedural'",
+            "retorno": "'GeradorProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "fonte",
+            "tipo": "método",
+            "assinatura": "fonte(*chaves: Any) -> FonteAleatoria",
+            "retorno": "FonteAleatoria",
+            "descricao": ""
+          },
+          {
+            "nome": "decimal",
+            "tipo": "método",
+            "assinatura": "decimal(*chaves: Any, minimo: float = 0.0, maximo: float = 1.0) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "inteiro",
+            "tipo": "método",
+            "assinatura": "inteiro(minimo: int, maximo: int, *chaves: Any) -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "escolher",
+            "tipo": "método",
+            "assinatura": "escolher(valores: Iterable[Any], *chaves: Any) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "escolha_ponderada",
+            "tipo": "método",
+            "assinatura": "escolha_ponderada(valores: Iterable[Any], pesos: Iterable[float], *chaves: Any) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "amostra",
+            "tipo": "método",
+            "assinatura": "amostra(valores: Iterable[Any], quantidade: int, *chaves: Any) -> list[Any]",
+            "retorno": "list[Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "normal",
+            "tipo": "método",
+            "assinatura": "normal(*chaves: Any, media: float = 0.0, desvio: float = 1.0) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "triangular",
+            "tipo": "método",
+            "assinatura": "triangular(*chaves: Any, minimo: float = 0.0, maximo: float = 1.0, moda: float | None = None) -> float",
+            "retorno": "float",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "SequenciaProcedural",
+        "tipo": "classe",
+        "assinatura": "SequenciaProcedural(semente_raiz: Any = 0, gerador: Callable[[GeradorProcedural, int], Any] | None = None)",
+        "retorno": "SequenciaProcedural",
+        "descricao": "Sequência indexada cuja posição não depende das consultas anteriores.",
+        "documentacao": "Sequência indexada cuja posição não depende das consultas anteriores.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "semente_raiz",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "gerador",
+            "tipo": "Callable[[GeradorProcedural, int], Any] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "obter",
+            "tipo": "método",
+            "assinatura": "obter(indice: int) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "trecho",
+            "tipo": "método",
+            "assinatura": "trecho(inicio: int, quantidade: int) -> tuple[Any, ...]",
+            "retorno": "tuple[Any, ...]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "CampoProcedural",
+        "tipo": "classe",
+        "assinatura": "CampoProcedural(funcao: Callable[..., float], *, nome: str = 'campo', metadados: Mapping[str, Any] | None = None)",
+        "retorno": "CampoProcedural",
+        "descricao": "Campo numérico consultável por coordenadas e combinável por composição.",
+        "documentacao": "Campo numérico consultável por coordenadas e combinável por composição.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "funcao",
+            "tipo": "Callable[..., float]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'campo'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "valor",
+            "tipo": "método",
+            "assinatura": "valor(*coordenadas: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "transformar",
+            "tipo": "método",
+            "assinatura": "transformar(funcao: Callable[[float], float], *, nome: str | None = None) -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "limitar",
+            "tipo": "método",
+            "assinatura": "limitar(minimo: float, maximo: float) -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "normalizar",
+            "tipo": "método",
+            "assinatura": "normalizar(origem_min: float, origem_max: float, destino_min: float = 0.0, destino_max: float = 1.0) -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "somar",
+            "tipo": "método",
+            "assinatura": "somar(outro: 'CampoProcedural | float') -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "multiplicar",
+            "tipo": "método",
+            "assinatura": "multiplicar(outro: 'CampoProcedural | float') -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          },
+          {
+            "nome": "mascara",
+            "tipo": "método",
+            "assinatura": "mascara(*, minimo: float | None = None, maximo: float | None = None, dentro: float = 1.0, fora: float = 0.0) -> 'CampoProcedural'",
+            "retorno": "'CampoProcedural'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "campo_constante",
+        "tipo": "função",
+        "assinatura": "campo_constante(valor: float, *, nome: str = 'constante') -> CampoProcedural",
+        "retorno": "CampoProcedural",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'constante'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "campo_ruido",
+        "tipo": "função",
+        "assinatura": "campo_ruido(semente_raiz: Any = 0, *, escala: float = 1.0, oitavas: int = 1, persistencia: float = 0.5, lacunaridade: float = 2.0, nome: str = 'ruido') -> CampoProcedural",
+        "retorno": "CampoProcedural",
+        "descricao": "Cria ruído de valor suave para 1D, 2D ou 3D sem dependências externas.",
+        "documentacao": "Cria ruído de valor suave para 1D, 2D ou 3D sem dependências externas.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "semente_raiz",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "escala",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "oitavas",
+            "tipo": "int",
+            "padrao": "1",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "persistencia",
+            "tipo": "float",
+            "padrao": "0.5",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "lacunaridade",
+            "tipo": "float",
+            "padrao": "2.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'ruido'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "distribuir_pontos",
+        "tipo": "função",
+        "assinatura": "distribuir_pontos(largura: float, altura: float, quantidade: int, *, semente_raiz: Any = 0, margem: float = 0.0, distancia_minima: float = 0.0, restricao: Callable[[float, float], bool] | None = None, max_tentativas_por_ponto: int = 200) -> tuple[tuple[float, float], ...]",
+        "retorno": "tuple[tuple[float, float], ...]",
+        "descricao": "Distribui pontos 2D de forma determinística com restrições simples.",
+        "documentacao": "Distribui pontos 2D de forma determinística com restrições simples.",
+        "origem": "coral.procedural",
+        "arquivo": "coral/procedural.py",
+        "parametros": [
+          {
+            "nome": "largura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "altura",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "quantidade",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "semente_raiz",
+            "tipo": "Any",
+            "padrao": "0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "margem",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "distancia_minima",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "restricao",
+            "tipo": "Callable[[float, float], bool] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "max_tentativas_por_ponto",
+            "tipo": "int",
+            "padrao": "200",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "ValueError",
+          "RuntimeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      }
+    ],
+    "doc_modulo": "Fundação determinística de geração procedural da Coral 1.5.11.\n\nO módulo é deliberadamente independente de Jogos, Mundo e interfaces gráficas.\nA unidade central é uma semente estável que pode ser derivada em sub sementes\nindependentes. Consultas por índice ou coordenada não dependem da ordem em que\noutros valores foram consultados."
+  },
+  {
     "nome": "rastreamento_reativo",
     "importacao": "coral.rastreamento_reativo",
     "categoria": "reativo",
@@ -13411,11 +15037,46 @@
             "descricao": "Registra uma mudança aplicada para reconstrução determinística posterior."
           },
           {
+            "nome": "recurso",
+            "tipo": "método",
+            "assinatura": "recurso(agente: Any, nome: str, operacao: str, quantidade: Any, *, origem: str | None = None) -> RegistroReplay",
+            "retorno": "RegistroReplay",
+            "descricao": ""
+          },
+          {
+            "nome": "efeito",
+            "tipo": "método",
+            "assinatura": "efeito(agente: Any, efeito: Any) -> RegistroReplay",
+            "retorno": "RegistroReplay",
+            "descricao": ""
+          },
+          {
+            "nome": "ataque",
+            "tipo": "método",
+            "assinatura": "ataque(combate: Any, atacante: Any, alvo: Any, dano: Any, *, defesa: Any = None, chance_critico: Any = 0.0, multiplicador_critico: Any = 2.0, exigir_turno: bool = True) -> RegistroReplay",
+            "retorno": "RegistroReplay",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar_combate",
+            "tipo": "método",
+            "assinatura": "avancar_combate(combate: Any) -> RegistroReplay",
+            "retorno": "RegistroReplay",
+            "descricao": ""
+          },
+          {
             "nome": "avancar",
             "tipo": "método",
             "assinatura": "avancar(segundos: Any) -> RegistroReplay",
             "retorno": "RegistroReplay",
             "descricao": ""
+          },
+          {
+            "nome": "avancar_simulacao",
+            "tipo": "método",
+            "assinatura": "avancar_simulacao(segundos: Any) -> RegistroReplay",
+            "retorno": "RegistroReplay",
+            "descricao": "Registra avanço explícito de uma ``coral.simulacao.Simulacao``."
           },
           {
             "nome": "como_json",
@@ -13453,6 +15114,13 @@
             "assinatura": "reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -> tuple[ResultadoReplay, ...]",
             "retorno": "tuple[ResultadoReplay, ...]",
             "descricao": ""
+          },
+          {
+            "nome": "reproduzir_simulacao",
+            "tipo": "método",
+            "assinatura": "reproduzir_simulacao(simulacao: Any, contexto: Any = None) -> tuple[ResultadoReplay, ...]",
+            "retorno": "tuple[ResultadoReplay, ...]",
+            "descricao": "Reproduz registros temporais diretamente em uma Simulacao preparada."
           }
         ],
         "atributos": [],
@@ -13470,6 +15138,7 @@
     "advertencia": "",
     "operacoes": [
       "Rolagem",
+      "ResultadoAtaque",
       "rolar",
       "Personagem",
       "CombateTurnos",
@@ -13544,6 +15213,122 @@
         "bases": []
       },
       {
+        "nome": "ResultadoAtaque",
+        "tipo": "classe",
+        "assinatura": "ResultadoAtaque(atacante: 'Personagem', alvo: 'Personagem', dano_base: int, defesa: int, critico: bool, multiplicador_critico: float, dano_calculado: int, dano_aplicado: int | float, cancelado: bool = False)",
+        "retorno": "ResultadoAtaque",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.rpg",
+        "arquivo": "coral/rpg.py",
+        "parametros": [
+          {
+            "nome": "atacante",
+            "tipo": "'Personagem'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "alvo",
+            "tipo": "'Personagem'",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dano_base",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "defesa",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "critico",
+            "tipo": "bool",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "multiplicador_critico",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dano_calculado",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dano_aplicado",
+            "tipo": "int | float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "cancelado",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "atacante",
+            "tipo": "'Personagem'",
+            "padrao": null
+          },
+          {
+            "nome": "alvo",
+            "tipo": "'Personagem'",
+            "padrao": null
+          },
+          {
+            "nome": "dano_base",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "defesa",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "critico",
+            "tipo": "bool",
+            "padrao": null
+          },
+          {
+            "nome": "multiplicador_critico",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "dano_calculado",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "dano_aplicado",
+            "tipo": "int | float",
+            "padrao": null
+          },
+          {
+            "nome": "cancelado",
+            "tipo": "bool",
+            "padrao": "False"
+          }
+        ],
+        "bases": []
+      },
+      {
         "nome": "rolar",
         "tipo": "função",
         "assinatura": "rolar(expressao: str = '1d20', semente: int | None = None, *, gerador: random.Random | None = None) -> Rolagem",
@@ -13584,8 +15369,8 @@
         "tipo": "classe",
         "assinatura": "Personagem(nome: str, vida: int = 10, *, vida_max: int | None = None, **atributos: Any)",
         "retorno": "Personagem",
-        "descricao": "",
-        "documentacao": "",
+        "descricao": "Conveniência de RPG construída sobre :class:`coral.agentes.Agente`.",
+        "documentacao": "Conveniência de RPG construída sobre :class:`coral.agentes.Agente`.",
         "origem": "coral.rpg",
         "arquivo": "coral/rpg.py",
         "parametros": [
@@ -13617,10 +15402,31 @@
         "excecoes": [],
         "metodos": [
           {
-            "nome": "mundo",
+            "nome": "vida",
             "tipo": "propriedade",
-            "assinatura": "mundo()",
-            "retorno": "não declarado",
+            "assinatura": "vida() -> int | float",
+            "retorno": "int | float",
+            "descricao": ""
+          },
+          {
+            "nome": "vida",
+            "tipo": "método",
+            "assinatura": "vida(valor: int | float) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "vida_max",
+            "tipo": "propriedade",
+            "assinatura": "vida_max() -> int | float",
+            "retorno": "int | float",
+            "descricao": ""
+          },
+          {
+            "nome": "vida_max",
+            "tipo": "método",
+            "assinatura": "vida_max(valor: int | float) -> None",
+            "retorno": "None",
             "descricao": ""
           },
           {
@@ -13633,15 +15439,15 @@
           {
             "nome": "receber_dano",
             "tipo": "método",
-            "assinatura": "receber_dano(quantidade: int) -> int",
-            "retorno": "int",
+            "assinatura": "receber_dano(quantidade: int) -> int | float",
+            "retorno": "int | float",
             "descricao": ""
           },
           {
             "nome": "curar",
             "tipo": "método",
-            "assinatura": "curar(quantidade: int) -> int",
-            "retorno": "int",
+            "assinatura": "curar(quantidade: int) -> int | float",
+            "retorno": "int | float",
             "descricao": ""
           },
           {
@@ -13654,13 +15460,13 @@
         ],
         "atributos": [],
         "bases": [
-          "Entidade"
+          "Agente"
         ]
       },
       {
         "nome": "CombateTurnos",
         "tipo": "classe",
-        "assinatura": "CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str | None = None)",
+        "assinatura": "CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str | None = None, encerramento: str = 'ultimo_vivo')",
         "retorno": "CombateTurnos",
         "descricao": "",
         "documentacao": "",
@@ -13678,10 +15484,93 @@
             "tipo": "str | None",
             "padrao": "None",
             "modo": "nomeado"
+          },
+          {
+            "nome": "encerramento",
+            "tipo": "str",
+            "padrao": "'ultimo_vivo'",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "ordem",
+            "tipo": "propriedade",
+            "assinatura": "ordem() -> list[Personagem]",
+            "retorno": "list[Personagem]",
+            "descricao": ""
+          },
+          {
+            "nome": "ordem",
+            "tipo": "método",
+            "assinatura": "ordem(valor: Iterable[Personagem]) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "indice",
+            "tipo": "propriedade",
+            "assinatura": "indice() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "indice",
+            "tipo": "método",
+            "assinatura": "indice(valor: int) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "rodada",
+            "tipo": "propriedade",
+            "assinatura": "rodada() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "rodada",
+            "tipo": "método",
+            "assinatura": "rodada(valor: int) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "iniciado",
+            "tipo": "propriedade",
+            "assinatura": "iniciado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "iniciado",
+            "tipo": "método",
+            "assinatura": "iniciado(valor: bool) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "pausado",
+            "tipo": "propriedade",
+            "assinatura": "pausado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
           {
             "nome": "adicionar",
             "tipo": "método",
@@ -13708,6 +15597,20 @@
             "tipo": "método",
             "assinatura": "proximo() -> Personagem | None",
             "retorno": "Personagem | None",
+            "descricao": ""
+          },
+          {
+            "nome": "atacar",
+            "tipo": "método",
+            "assinatura": "atacar(atacante: Personagem, alvo: Personagem, dano: int, *, defesa: int | None = None, chance_critico: float = 0.0, multiplicador_critico: float = 2.0, exigir_turno: bool = True) -> ResultadoAtaque",
+            "retorno": "ResultadoAtaque",
+            "descricao": ""
+          },
+          {
+            "nome": "encerrar",
+            "tipo": "método",
+            "assinatura": "encerrar() -> None",
+            "retorno": "None",
             "descricao": ""
           },
           {
@@ -14072,6 +15975,1118 @@
       }
     ],
     "doc_modulo": ""
+  },
+  {
+    "nome": "simulacao",
+    "importacao": "coral.simulacao",
+    "categoria": "simulacao",
+    "finalidade": "tempo de mundo, ciclos, sistemas recorrentes e campos ambientais",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "CONTRATO",
+      "SEGUNDO",
+      "MINUTO",
+      "HORA",
+      "DIA",
+      "TempoMundo",
+      "FaseCiclo",
+      "EstadoCiclo",
+      "TransicaoCiclo",
+      "ResultadoTransicoesCiclo",
+      "Ciclo",
+      "PassoSistema",
+      "ResultadoSistema",
+      "ErroPassoExcessivo",
+      "Sistema",
+      "Simulacao",
+      "CampoAmbiental",
+      "ciclo_dia_noite",
+      "criar_simulacao"
+    ],
+    "destaque": false,
+    "pagina": "modulos/simulacao",
+    "api": [
+      {
+        "nome": "CONTRATO",
+        "tipo": "constante",
+        "assinatura": "CONTRATO",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "'coral.simulacao/1'",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "SEGUNDO",
+        "tipo": "constante",
+        "assinatura": "SEGUNDO",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "1.0",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "MINUTO",
+        "tipo": "constante",
+        "assinatura": "MINUTO",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "60.0",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "HORA",
+        "tipo": "constante",
+        "assinatura": "HORA",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "60.0 * MINUTO",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "DIA",
+        "tipo": "constante",
+        "assinatura": "DIA",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "24.0 * HORA",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "TempoMundo",
+        "tipo": "classe",
+        "assinatura": "TempoMundo(instante: float = 0.0, *, escala: float = 1.0, pausado: bool = False, eventos: Eventos | None = None, relogio: RelogioSimulado | None = None) -> None",
+        "retorno": "TempoMundo",
+        "descricao": "Relógio semântico de mundo sobre :class:`RelogioSimulado`.",
+        "documentacao": "Relógio semântico de mundo sobre :class:`RelogioSimulado`.\n\n``avancar`` move o mundo explicitamente pela duração informada.\n``atualizar`` recebe um delta externo e aplica pausa e escala temporal.\nDessa forma uma simulação pode ser dirigida tanto por comandos quanto por\num loop real sem misturar tempo de parede com tempo do mundo.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "escala",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "pausado",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "relogio",
+            "tipo": "RelogioSimulado | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "relogio",
+            "tipo": "propriedade",
+            "assinatura": "relogio() -> RelogioSimulado",
+            "retorno": "RelogioSimulado",
+            "descricao": ""
+          },
+          {
+            "nome": "agora",
+            "tipo": "método",
+            "assinatura": "agora() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "instante",
+            "tipo": "propriedade",
+            "assinatura": "instante() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "escala",
+            "tipo": "propriedade",
+            "assinatura": "escala() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "pausado",
+            "tipo": "propriedade",
+            "assinatura": "pausado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "dia",
+            "tipo": "propriedade",
+            "assinatura": "dia() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "hora",
+            "tipo": "propriedade",
+            "assinatura": "hora() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "minuto",
+            "tipo": "propriedade",
+            "assinatura": "minuto() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "segundo",
+            "tipo": "propriedade",
+            "assinatura": "segundo() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "calendario",
+            "tipo": "método",
+            "assinatura": "calendario() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(duracao: Any) -> float",
+            "retorno": "float",
+            "descricao": "Avança explicitamente o tempo do mundo, independentemente da pausa."
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt_externo: Any) -> float",
+            "retorno": "float",
+            "descricao": "Aplica um delta externo respeitando pausa e escala temporal."
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_escala",
+            "tipo": "método",
+            "assinatura": "definir_escala(escala: Any, *, emitir: bool = True) -> float",
+            "retorno": "float",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "FaseCiclo",
+        "tipo": "classe",
+        "assinatura": "FaseCiclo(nome: str, duracao: float, metadados: Mapping[str, Any] = field(default_factory=dict, compare=False))",
+        "retorno": "FaseCiclo",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict, compare=False)",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "metadados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict, compare=False)"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "EstadoCiclo",
+        "tipo": "classe",
+        "assinatura": "EstadoCiclo(ciclo: str, fase: str, indice_fase: int, progresso: float, instante_na_fase: float, volta: int, encerrado: bool = False)",
+        "retorno": "EstadoCiclo",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "ciclo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fase",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "indice_fase",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "instante_na_fase",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "volta",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "encerrado",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "ciclo",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "fase",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "indice_fase",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "instante_na_fase",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "volta",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "encerrado",
+            "tipo": "bool",
+            "padrao": "False"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "TransicaoCiclo",
+        "tipo": "classe",
+        "assinatura": "TransicaoCiclo(ciclo: str, instante: float, de_fase: str, para_fase: str, volta: int)",
+        "retorno": "TransicaoCiclo",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "ciclo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "de_fase",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "para_fase",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "volta",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "ciclo",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "de_fase",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "para_fase",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "volta",
+            "tipo": "int",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ResultadoTransicoesCiclo",
+        "tipo": "classe",
+        "assinatura": "ResultadoTransicoesCiclo(quantidade: int, transicoes: tuple[TransicaoCiclo, ...], agregado: bool, estado_inicial: EstadoCiclo, estado_final: EstadoCiclo)",
+        "retorno": "ResultadoTransicoesCiclo",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "quantidade",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "transicoes",
+            "tipo": "tuple[TransicaoCiclo, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "agregado",
+            "tipo": "bool",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado_inicial",
+            "tipo": "EstadoCiclo",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado_final",
+            "tipo": "EstadoCiclo",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "quantidade",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "transicoes",
+            "tipo": "tuple[TransicaoCiclo, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "agregado",
+            "tipo": "bool",
+            "padrao": null
+          },
+          {
+            "nome": "estado_inicial",
+            "tipo": "EstadoCiclo",
+            "padrao": null
+          },
+          {
+            "nome": "estado_final",
+            "tipo": "EstadoCiclo",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "Ciclo",
+        "tipo": "classe",
+        "assinatura": "Ciclo(nome: str, fases: Iterable[FaseCiclo | tuple[str, float]], *, inicio: float = 0.0, repetir: bool = True) -> None",
+        "retorno": "Ciclo",
+        "descricao": "Ciclo temporal configurável com consulta O(1) da fase corrente.",
+        "documentacao": "Ciclo temporal configurável com consulta O(1) da fase corrente.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fases",
+            "tipo": "Iterable[FaseCiclo | tuple[str, float]]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "inicio",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "repetir",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "estado_em",
+            "tipo": "método",
+            "assinatura": "estado_em(instante: Any) -> EstadoCiclo",
+            "retorno": "EstadoCiclo",
+            "descricao": ""
+          },
+          {
+            "nome": "transicoes_entre",
+            "tipo": "método",
+            "assinatura": "transicoes_entre(inicio: Any, fim: Any, *, limite_materializacao: int = 1024) -> ResultadoTransicoesCiclo",
+            "retorno": "ResultadoTransicoesCiclo",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "PassoSistema",
+        "tipo": "classe",
+        "assinatura": "PassoSistema(sistema: str, inicio: float, fim: float, duracao: float, execucoes: int, intervalo: float, contexto: Any = None)",
+        "retorno": "PassoSistema",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "sistema",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "inicio",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fim",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "execucoes",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "intervalo",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "contexto",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "sistema",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "inicio",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "fim",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "execucoes",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "intervalo",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "contexto",
+            "tipo": "Any",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ResultadoSistema",
+        "tipo": "classe",
+        "assinatura": "ResultadoSistema(sistema: str, execucoes: int, chamadas: int, resultados: tuple[Any, ...], proximo_instante: float)",
+        "retorno": "ResultadoSistema",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "sistema",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "execucoes",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "chamadas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "resultados",
+            "tipo": "tuple[Any, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "proximo_instante",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "sistema",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "execucoes",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "chamadas",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "resultados",
+            "tipo": "tuple[Any, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "proximo_instante",
+            "tipo": "float",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ErroPassoExcessivo",
+        "tipo": "exceção",
+        "assinatura": "ErroPassoExcessivo(...)",
+        "retorno": "ErroPassoExcessivo",
+        "descricao": "Um sistema de passo fixo exigiria chamadas demais em um único avanço.",
+        "documentacao": "Um sistema de passo fixo exigiria chamadas demais em um único avanço.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "RuntimeError"
+        ]
+      },
+      {
+        "nome": "Sistema",
+        "tipo": "classe",
+        "assinatura": "Sistema(nome: str, acao: Callable[[PassoSistema], Any], *, intervalo: float = 1.0, prioridade: int = 0, modo: str = 'agregado', ativo: bool = True, max_chamadas_por_avanco: int = 10000) -> None",
+        "retorno": "Sistema",
+        "descricao": "Processo temporal recorrente independente de RPG e de interface gráfica.",
+        "documentacao": "Processo temporal recorrente independente de RPG e de interface gráfica.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "acao",
+            "tipo": "Callable[[PassoSistema], Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "intervalo",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'agregado'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "max_chamadas_por_avanco",
+            "tipo": "int",
+            "padrao": "10000",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "preparar",
+            "tipo": "método",
+            "assinatura": "preparar(instante: float) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "ativar",
+            "tipo": "método",
+            "assinatura": "ativar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "desativar",
+            "tipo": "método",
+            "assinatura": "desativar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_portatil",
+            "tipo": "método",
+            "assinatura": "estado_portatil() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": "Retorna somente o estado temporal reconstruível do sistema."
+          },
+          {
+            "nome": "aplicar_estado_portatil",
+            "tipo": "método",
+            "assinatura": "aplicar_estado_portatil(dados: Mapping[str, Any]) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "executar_ate",
+            "tipo": "método",
+            "assinatura": "executar_ate(fim: float, *, contexto: Any = None) -> ResultadoSistema",
+            "retorno": "ResultadoSistema",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "Simulacao",
+        "tipo": "classe",
+        "assinatura": "Simulacao(*, tempo: TempoMundo | None = None, eventos: Eventos | None = None) -> None",
+        "retorno": "Simulacao",
+        "descricao": "Orquestrador leve para tempo, ciclos e sistemas recorrentes.",
+        "documentacao": "Orquestrador leve para tempo, ciclos e sistemas recorrentes.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "tempo",
+            "tipo": "TempoMundo | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Eventos | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "ciclos",
+            "tipo": "propriedade",
+            "assinatura": "ciclos() -> tuple[Ciclo, ...]",
+            "retorno": "tuple[Ciclo, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "sistemas",
+            "tipo": "propriedade",
+            "assinatura": "sistemas() -> tuple[Sistema, ...]",
+            "retorno": "tuple[Sistema, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "ciclo",
+            "tipo": "método",
+            "assinatura": "ciclo(nome: str) -> Ciclo",
+            "retorno": "Ciclo",
+            "descricao": ""
+          },
+          {
+            "nome": "sistema",
+            "tipo": "método",
+            "assinatura": "sistema(nome: str) -> Sistema",
+            "retorno": "Sistema",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_ciclo",
+            "tipo": "método",
+            "assinatura": "adicionar_ciclo(ciclo: Ciclo) -> Ciclo",
+            "retorno": "Ciclo",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_sistema",
+            "tipo": "método",
+            "assinatura": "adicionar_sistema(sistema: Sistema) -> Sistema",
+            "retorno": "Sistema",
+            "descricao": ""
+          },
+          {
+            "nome": "criar_sistema",
+            "tipo": "método",
+            "assinatura": "criar_sistema(nome: str, acao: Callable[[PassoSistema], Any], **opcoes: Any) -> Sistema",
+            "retorno": "Sistema",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(duracao: Any, *, contexto: Any = None) -> tuple[ResultadoSistema, ...]",
+            "retorno": "tuple[ResultadoSistema, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt_externo: Any, *, contexto: Any = None) -> tuple[ResultadoSistema, ...]",
+            "retorno": "tuple[ResultadoSistema, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_portatil",
+            "tipo": "método",
+            "assinatura": "estado_portatil() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": "Estado temporal sem callbacks, apropriado para persistência explícita."
+          },
+          {
+            "nome": "aplicar_estado_portatil",
+            "tipo": "método",
+            "assinatura": "aplicar_estado_portatil(estado: Mapping[str, Any]) -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "CampoAmbiental",
+        "tipo": "classe",
+        "assinatura": "CampoAmbiental(nome: str, fonte: CampoProcedural | Callable[..., float] | float, *, unidade: str | None = None, minimo: float | None = None, maximo: float | None = None) -> None",
+        "retorno": "CampoAmbiental",
+        "descricao": "Campo numérico de simulação que pode ser consultado ou materializado.",
+        "documentacao": "Campo numérico de simulação que pode ser consultado ou materializado.",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fonte",
+            "tipo": "CampoProcedural | Callable[..., float] | float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "unidade",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "minimo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "maximo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "valor_em",
+            "tipo": "método",
+            "assinatura": "valor_em(celula_ou_coordenadas: Any) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "materializar",
+            "tipo": "método",
+            "assinatura": "materializar(mapa: Any, *, camada: str | None = None, limites: Any = None, causa: Any = 'campo_ambiental') -> int",
+            "retorno": "int",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "ciclo_dia_noite",
+        "tipo": "função",
+        "assinatura": "ciclo_dia_noite(*, dia: float = 12 * HORA, noite: float = 12 * HORA, inicio: float = 0.0, nome: str = 'dia_noite') -> Ciclo",
+        "retorno": "Ciclo",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "dia",
+            "tipo": "float",
+            "padrao": "12 * HORA",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "noite",
+            "tipo": "float",
+            "padrao": "12 * HORA",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "inicio",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": "'dia_noite'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "criar_simulacao",
+        "tipo": "função",
+        "assinatura": "criar_simulacao(**opcoes: Any) -> Simulacao",
+        "retorno": "Simulacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.simulacao",
+        "arquivo": "coral/simulacao.py",
+        "parametros": [
+          {
+            "nome": "**opcoes",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "variádico nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      }
+    ],
+    "doc_modulo": "Simulação temporal genérica da Coral 1.5.11.\n\nA camada reutiliza o relógio e o barramento de eventos existentes. Ela não\nsubstitui ``coral.regras``: sistemas evoluem estado ao longo do tempo e regras\ncontinuam reagindo a eventos."
   },
   {
     "nome": "sistema",
@@ -15948,5 +18963,107 @@
       }
     ],
     "doc_modulo": ""
+  },
+  {
+    "nome": "turnos",
+    "importacao": "coral.turnos",
+    "categoria": "agentes",
+    "finalidade": "filas reutilizáveis de turnos, atendimento, produção e escalonamento",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "FilaTurnos"
+    ],
+    "destaque": false,
+    "pagina": "modulos/turnos",
+    "api": [
+      {
+        "nome": "FilaTurnos",
+        "tipo": "classe",
+        "assinatura": "FilaTurnos(participantes: Iterable[Any] = ()) -> None",
+        "retorno": "FilaTurnos",
+        "descricao": "Fila circular persistível sem conhecimento de RPG ou combate.",
+        "documentacao": "Fila circular persistível sem conhecimento de RPG ou combate.\n\nA fila pode representar turnos, atendimento, produção ou escalonamento.\nParticipantes são objetos arbitrários portáteis para a persistência Coral.",
+        "origem": "coral.turnos",
+        "arquivo": "coral/turnos.py",
+        "parametros": [
+          {
+            "nome": "participantes",
+            "tipo": "Iterable[Any]",
+            "padrao": "()",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "identidade",
+            "tipo": "método",
+            "assinatura": "identidade(participante: Any) -> str",
+            "retorno": "str",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar",
+            "tipo": "método",
+            "assinatura": "adicionar(participante: Any) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "remover",
+            "tipo": "método",
+            "assinatura": "remover(participante: Any) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "iniciar",
+            "tipo": "método",
+            "assinatura": "iniciar(*, ordem: Iterable[Any] | None = None, prioridades: Mapping[Any, float] | Callable[[Any], float] | None = None) -> tuple[Any, ...]",
+            "retorno": "tuple[Any, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "atual",
+            "tipo": "propriedade",
+            "assinatura": "atual() -> Any | None",
+            "retorno": "Any | None",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(*, aceitar: Callable[[Any], bool] | None = None) -> Any | None",
+            "retorno": "Any | None",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "limpar_historico",
+            "tipo": "método",
+            "assinatura": "limpar_historico() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      }
+    ],
+    "doc_modulo": "Fila genérica de turnos e escalonamento da Coral 1.5.10."
   }
 ]

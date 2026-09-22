@@ -5,16 +5,16 @@ A CLI é a interface de baixo nível para execução, verificação, projetos, t
 ## Uso cotidiano
 
 ```bash
-python coral-1.5.9.pyz --versao
-python coral-1.5.9.pyz --self-check
-python coral-1.5.9.pyz --ambiente
+python coral-1.5.12.pyz --versao
+python coral-1.5.12.pyz --self-check
+python coral-1.5.12.pyz --ambiente
 ```
 
 ## Executar e verificar arquivos
 
 ```bash
-python coral-1.5.9.pyz executar programa.coral
-python coral-1.5.9.pyz verificar programa.coral
+python coral-1.5.12.pyz executar programa.coral
+python coral-1.5.12.pyz verificar programa.coral
 ```
 
 ## REPL
@@ -22,7 +22,7 @@ python coral-1.5.9.pyz verificar programa.coral
 O REPL permite experimentar expressões e construções sem criar um arquivo novo.
 
 ```bash
-python coral-1.5.9.pyz --repl
+python coral-1.5.12.pyz --repl
 ```
 
 ## Projetos

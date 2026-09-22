@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="modulos/jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="modulos/agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="modulos/arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="modulos/assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="modulos/procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -113,15 +117,15 @@
     <article class="docs-section">
       <p data-searchable>A CLI é a interface de baixo nível para execução, verificação, projetos, testes, diagnóstico e ferramentas da Coral. O VS Code cobre o fluxo cotidiano, mas a CLI continua sendo a referência reproduzível para automação e manutenção.</p>
 <h2 id="uso-cotidiano" data-searchable>Uso cotidiano</h2>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.9.pyz --versao
-python coral-1.5.9.pyz --self-check
-python coral-1.5.9.pyz --ambiente</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz --versao
+python coral-1.5.12.pyz --self-check
+python coral-1.5.12.pyz --ambiente</code></pre></div></div>
 <h2 id="executar-e-verificar-arquivos" data-searchable>Executar e verificar arquivos</h2>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.9.pyz executar programa.coral
-python coral-1.5.9.pyz verificar programa.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz executar programa.coral
+python coral-1.5.12.pyz verificar programa.coral</code></pre></div></div>
 <h2 id="repl" data-searchable>REPL</h2>
 <p data-searchable>O REPL permite experimentar expressões e construções sem criar um arquivo novo.</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.9.pyz --repl</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz --repl</code></pre></div></div>
 <h2 id="projetos" data-searchable>Projetos</h2>
 <p data-searchable>A CLI oferece operações de informação, validação, construção e execução de projetos. Essas ações usam <code>coral.toml</code> como fonte de configuração.</p>
 <h2 id="diagnostico" data-searchable>Diagnóstico</h2>

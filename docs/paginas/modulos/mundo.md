@@ -181,6 +181,10 @@ Mundo leve para jogos, RPGs e simulações Coral.
 | `entidades` | Obtém entidades. | `tuple[Entidade, ...]` |
 | `relacoes` | Obtém relacoes. | `tuple[Relacao, ...]` |
 | `mapas` | Obtém mapas. | `tuple[Mapa, ...]` |
+| `simulacao` | Simulação temporal associada, quando criada explicitamente. | `não declarado` |
+| `criar_simulacao` | Cria ou devolve a simulação temporal do mundo sem exigir Jogos. | `não declarado` |
+| `avancar_tempo` | Avança a simulação e depois atualiza regras e temporizadores pelo mesmo delta. | `não declarado` |
+| `atualizar_simulacao` | Atualiza a simulação respeitando pausa e escala temporal. | `não declarado` |
 | `adicionar_mapa` | Adiciona mapa. | `Mapa` |
 | `criar_mapa` | Cria mapa. | `Mapa` |
 | `buscar_mapa` | Procura mapa e devolve o resultado quando encontrado. | `Mapa \| None` |
@@ -231,6 +235,10 @@ Mundo leve para jogos, RPGs e simulações Coral.
 | `entidades` | propriedade | `entidades() -> tuple[Entidade, ...]` |
 | `relacoes` | propriedade | `relacoes() -> tuple[Relacao, ...]` |
 | `mapas` | propriedade | `mapas() -> tuple[Mapa, ...]` |
+| `simulacao` | propriedade | `simulacao()` |
+| `criar_simulacao` | método | `criar_simulacao(*, tempo = None)` |
+| `avancar_tempo` | método | `avancar_tempo(duracao: float)` |
+| `atualizar_simulacao` | método | `atualizar_simulacao(dt_externo: float)` |
 | `adicionar_mapa` | método | `adicionar_mapa(mapa: Mapa) -> Mapa` |
 | `criar_mapa` | método | `criar_mapa(nome: str, topologia, *, propriedades: dict[str, Any] \| None = None) -> Mapa` |
 | `buscar_mapa` | método | `buscar_mapa(nome: str) -> Mapa \| None` |

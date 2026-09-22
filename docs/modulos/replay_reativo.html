@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a class="active" aria-current="page" href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -168,7 +172,7 @@
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>O teste mais forte é executar uma sequência, gravar, reproduzir e comparar um estado final ou resultados estruturados.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.9</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.12</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="registroreplay" data-searchable><code>RegistroReplay</code></h4>
@@ -241,7 +245,12 @@
 <tr><td data-searchable><code>registros</code></td><td data-searchable>Executa a operação <code>registros</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>tuple[RegistroReplay, ...]</code></td></tr>
 <tr><td data-searchable><code>evento</code></td><td data-searchable>Executa a operação <code>evento</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>mudanca_mapa</code></td><td data-searchable>Registra uma mudança aplicada para reconstrução determinística posterior.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>Executa a operação <code>recurso</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>efeito</code></td><td data-searchable>Executa a operação <code>efeito</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>ataque</code></td><td data-searchable>Executa a operação <code>ataque</code> disponibilizada por <code>coral.replay_reativo</code>.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar_combate</code></td><td data-searchable>Avança combate.</td><td data-searchable><code>RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar_simulacao</code></td><td data-searchable>Registra avanço explícito de uma `<code>coral.simulacao.Simulacao</code>`.</td><td data-searchable><code>RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>como_json</code></td><td data-searchable>Representa o valor como JSON.</td><td data-searchable><code>str</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>GravadorReplay() -&gt; None</code></p>
@@ -256,7 +265,12 @@
 <tr><td data-searchable><code>registros</code></td><td data-searchable>propriedade</td><td data-searchable><code>registros() -&gt; tuple[RegistroReplay, ...]</code></td></tr>
 <tr><td data-searchable><code>evento</code></td><td data-searchable>método</td><td data-searchable><code>evento(nome: str, *args: Any, origem: str | None = None, **kwargs: Any) -&gt; RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>mudanca_mapa</code></td><td data-searchable>método</td><td data-searchable><code>mudanca_mapa(mudanca: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>recurso</code></td><td data-searchable>método</td><td data-searchable><code>recurso(agente: Any, nome: str, operacao: str, quantidade: Any, *, origem: str | None = None) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>efeito</code></td><td data-searchable>método</td><td data-searchable><code>efeito(agente: Any, efeito: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>ataque</code></td><td data-searchable>método</td><td data-searchable><code>ataque(combate: Any, atacante: Any, alvo: Any, dano: Any, *, defesa: Any = None, chance_critico: Any = 0.0, multiplicador_critico: Any = 2.0, exigir_turno: bool = True) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar_combate</code></td><td data-searchable>método</td><td data-searchable><code>avancar_combate(combate: Any) -&gt; RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(segundos: Any) -&gt; RegistroReplay</code></td></tr>
+<tr><td data-searchable><code>avancar_simulacao</code></td><td data-searchable>método</td><td data-searchable><code>avancar_simulacao(segundos: Any) -&gt; RegistroReplay</code></td></tr>
 <tr><td data-searchable><code>como_json</code></td><td data-searchable>método</td><td data-searchable><code>como_json() -&gt; str</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="replayreativo" data-searchable><code>ReplayReativo</code></h4>
@@ -284,6 +298,7 @@
 <th>Retorno</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>reproduzir</code></td><td data-searchable>Reproduz o valor solicitado.</td><td data-searchable><code>tuple[ResultadoReplay, ...]</code></td></tr>
+<tr><td data-searchable><code>reproduzir_simulacao</code></td><td data-searchable>Reproduz registros temporais diretamente em uma Simulacao preparada.</td><td data-searchable><code>tuple[ResultadoReplay, ...]</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ReplayReativo(registros: Iterable[RegistroReplay \| dict[str, Any]]) -&gt; None</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.replay_reativo</code></p>
@@ -295,6 +310,7 @@
 <th>Assinatura</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>reproduzir</code></td><td data-searchable>método</td><td data-searchable><code>reproduzir(motor: MotorRegras, relogio: RelogioSimulado, contexto: Any = None) -&gt; tuple[ResultadoReplay, ...]</code></td></tr>
+<tr><td data-searchable><code>reproduzir_simulacao</code></td><td data-searchable>método</td><td data-searchable><code>reproduzir_simulacao(simulacao: Any, contexto: Any = None) -&gt; tuple[ResultadoReplay, ...]</code></td></tr>
 </tbody></table></div></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="rastreamento_reativo.html"><span>Anterior</span><strong>coral.rastreamento_reativo</strong></a><a class="docs-page-nav-link next" href="sequencias_reativas.html"><span>Próxima</span><strong>coral.sequencias_reativas</strong></a></nav>

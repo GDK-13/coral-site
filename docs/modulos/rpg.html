@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="coral.rpg acrescenta mecânicas de RPG ao modelo genérico de mundo: rolagens, personagens, vida, testes de atributo, combate por turnos e persistência do estado do domínio.">
+  <meta name="description" content="coral.rpg acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.">
   <meta name="theme-color" content="#EF362A">
   <title>coral.rpg — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="coral.rpg — Documentação Coral">
-  <meta property="og:description" content="coral.rpg acrescenta mecânicas de RPG ao modelo genérico de mundo: rolagens, personagens, vida, testes de atributo, combate por turnos e persistência do estado do domínio.">
+  <meta property="og:description" content="coral.rpg acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.">
   <meta property="og:image" content="../../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="coral.rpg — Documentação Coral">
-  <meta name="twitter:description" content="coral.rpg acrescenta mecânicas de RPG ao modelo genérico de mundo: rolagens, personagens, vida, testes de atributo, combate por turnos e persistência do estado do domínio.">
+  <meta name="twitter:description" content="coral.rpg acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.">
   <meta name="twitter:image" content="../../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -107,25 +111,25 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.rpg</h1>
-      <p>coral.rpg acrescenta mecânicas de RPG ao modelo genérico de mundo: rolagens, personagens, vida, testes de atributo, combate por turnos e persistência do estado do domínio.</p>
+      <p>coral.rpg acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.</p>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
-<p data-searchable><code>coral.rpg</code> acrescenta mecânicas de RPG ao modelo genérico de mundo: rolagens, personagens, vida, testes de atributo, combate por turnos e persistência do estado do domínio.</p>
+<p data-searchable><code>coral.rpg</code> acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.</p>
 <p data-searchable><strong>Importação:</strong> <code>coral.rpg</code> <strong>Categoria:</strong> rpg</p>
 <p data-searchable>rolagens, personagens, combate e estado de RPG</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>Rolagem</code>, <code>rolar</code>, <code>Personagem</code>, <code>CombateTurnos</code>, <code>criar_personagem</code>, <code>registrar_combate</code>, <code>buscar_combate</code>, <code>combates_do_mundo</code>, <code>EstadoRPG</code>, <code>estado_rpg</code>, <code>salvar_estado_rpg</code>, <code>carregar_estado_rpg</code></p>
+<p data-searchable><code>Rolagem</code>, <code>ResultadoAtaque</code>, <code>rolar</code>, <code>Personagem</code>, <code>CombateTurnos</code>, <code>criar_personagem</code>, <code>registrar_combate</code>, <code>buscar_combate</code>, <code>combates_do_mundo</code>, <code>EstadoRPG</code>, <code>estado_rpg</code>, <code>salvar_estado_rpg</code>, <code>carregar_estado_rpg</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
-<p data-searchable>O módulo não substitui <code>coral.mundo</code>. Personagens e combates vivem sobre um mundo reutilizável. A apresentação continua opcional e pode ser feita por <code>coral.jogos</code>.</p>
+<p data-searchable>O módulo não substitui <code>coral.mundo</code>, <code>coral.agentes</code> nem <code>coral.turnos</code>. <code>Personagem</code> especializa <code>Agente</code>, vida reutiliza <code>Recurso</code> e <code>CombateTurnos</code> usa <code>FilaTurnos</code>. A apresentação continua opcional e pode ser feita por <code>coral.jogos</code>.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
 <h3 id="rolagem" data-searchable>Rolagem</h3>
 <p data-searchable><code>rolar</code> interpreta uma expressão de dados e produz <code>Rolagem</code>, que preserva expressão, dados individuais, modificador e total. Semente ou gerador explícito tornam a rolagem reproduzível.</p>
 <h3 id="personagem" data-searchable>Personagem</h3>
-<p data-searchable><code>Personagem</code> possui nome, vida, vida máxima e atributos adicionais. Métodos de dano, cura e teste concentram regras básicas de estado.</p>
+<p data-searchable><code>Personagem</code> é uma conveniência de RPG construída sobre <code>coral.agentes.Agente</code>. A vida é armazenada como um <code>Recurso</code> chamado <code>vida</code>, enquanto atributos usam a mesma fundação genérica de atributos e modificadores. Métodos de dano, cura e teste concentram as regras específicas do domínio de RPG.</p>
 <h3 id="combate-por-turnos" data-searchable>Combate por turnos</h3>
-<p data-searchable><code>CombateTurnos</code> mantém participantes, inicia ordem de atuação e avança o personagem atual. Combates podem ser registrados no mundo e recuperados por nome.</p>
+<p data-searchable><code>CombateTurnos</code> delega ordem, índice, rodada e pausa a <code>coral.turnos.FilaTurnos</code>. O combate adiciona iniciativa, participantes vivos, condições de encerramento e eventos de domínio. Combates podem ser registrados no mundo e recuperados por nome.</p>
 <h3 id="estado-persistente" data-searchable>Estado persistente</h3>
 <p data-searchable><code>EstadoRPG</code> agrega o domínio sobre <code>Mundo</code>, com helpers para salvar e carregar o estado oficial.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
@@ -156,6 +160,8 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <tr><td data-searchable><code>salvar_estado_rpg</code></td><td data-searchable>persistir estado</td><td data-searchable><code>salvar_estado_rpg(mundo: Mundo, caminho: str | Path) -&gt; Path</code></td></tr>
 <tr><td data-searchable><code>carregar_estado_rpg</code></td><td data-searchable>restaurar mundo de RPG</td><td data-searchable><code>carregar_estado_rpg(caminho: str | Path) -&gt; Mundo</code></td></tr>
 </tbody></table></div>
+<h2 id="base-generica-compartilhada" data-searchable>Base genérica compartilhada</h2>
+<p data-searchable>Use <code>coral.agentes</code> quando o conceito não for especificamente de RPG. Recursos como energia, bateria ou combustível, efeitos genéricos e habilidades reutilizáveis pertencem à fundação de agentes. <code>coral.rpg</code> acrescenta a semântica de personagem, vida, rolagem e combate sem duplicar esses mecanismos.</p>
 <h2 id="fluxo-de-personagem" data-searchable>Fluxo de personagem</h2>
 <p data-searchable>Crie o personagem dentro de um <code>Mundo</code>, manipule vida e atributos pela API do domínio e use <code>teste()</code> ou rolagens explícitas quando precisar de incerteza. Isso mantém a entidade ligada ao mundo e evita duas fontes de verdade.</p>
 <h2 id="fluxo-de-combate" data-searchable>Fluxo de combate</h2>
@@ -172,9 +178,11 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <li data-searchable>Salve por meio da superfície oficial, não serializando internamente os objetos por conta própria.</li>
 </ul>
 <h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
-<p data-searchable><code>coral.mundo</code> é a base. <code>coral.aleatorio</code> ajuda em geração e sorteios. <code>coral.regras</code> modela gatilhos. <code>coral.persistencia</code> sustenta o armazenamento e <code>coral.jogos</code> apresenta personagens e combate.</p>
+<p data-searchable><code>coral.mundo</code> fornece o contexto de mundo. <code>coral.agentes</code> fornece recursos, atributos, efeitos e habilidades. <code>coral.turnos</code> fornece a fila genérica usada pelo combate. <code>coral.aleatorio</code> ajuda em sorteios, <code>coral.regras</code> modela gatilhos, <code>coral.persistencia</code> sustenta o armazenamento e <code>coral.jogos</code> apresenta personagens e combate.</p>
 <h2 id="testabilidade" data-searchable>Testabilidade</h2>
-<p data-searchable>Personagens, rolagens e combate funcionam sem janela. Testes podem fixar sementes e verificar estado final antes de testar animações ou interface.</p>
+<p data-searchable>Personagens, rolagens e combate funcionam sem janela. Testes podem fixar sementes, inspecionar o <code>Recurso</code> de vida e verificar estado e ordem da <code>FilaTurnos</code> antes de testar animações ou interface.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura permanece na <strong>Coral 1.5.12</strong>.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="rolar" data-searchable><code>rolar</code></h4>
@@ -379,8 +387,47 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 </tr></thead><tbody>
 <tr><td data-searchable><code>total</code></td><td data-searchable>propriedade</td><td data-searchable><code>total() -&gt; int</code></td></tr>
 </tbody></table></div></div></details>
+<h4 id="resultadoataque" data-searchable><code>ResultadoAtaque</code></h4>
+<p data-searchable>Representa ResultadoAtaque na API de <code>coral.rpg</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>atacante</code></td><td data-searchable>Valor correspondente a atacante.</td><td data-searchable><code>'Personagem'</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>alvo</code></td><td data-searchable>Valor correspondente a alvo.</td><td data-searchable><code>'Personagem'</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_base</code></td><td data-searchable>Valor correspondente a dano base.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>defesa</code></td><td data-searchable>Valor correspondente a defesa.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>critico</code></td><td data-searchable>Valor correspondente a critico.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>multiplicador_critico</code></td><td data-searchable>Valor correspondente a multiplicador critico.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_calculado</code></td><td data-searchable>Valor correspondente a dano calculado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_aplicado</code></td><td data-searchable>Valor correspondente a dano aplicado.</td><td data-searchable><code>int | float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>Valor correspondente a cancelado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>atacante</code></td><td data-searchable>Valor correspondente a atacante.</td><td data-searchable><code>'Personagem'</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>alvo</code></td><td data-searchable>Valor correspondente a alvo.</td><td data-searchable><code>'Personagem'</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_base</code></td><td data-searchable>Valor correspondente a dano base.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>defesa</code></td><td data-searchable>Valor correspondente a defesa.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>critico</code></td><td data-searchable>Valor correspondente a critico.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>multiplicador_critico</code></td><td data-searchable>Valor correspondente a multiplicador critico.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_calculado</code></td><td data-searchable>Valor correspondente a dano calculado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dano_aplicado</code></td><td data-searchable>Valor correspondente a dano aplicado.</td><td data-searchable><code>int | float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cancelado</code></td><td data-searchable>Valor correspondente a cancelado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoAtaque(atacante: 'Personagem', alvo: 'Personagem', dano_base: int, defesa: int, critico: bool, multiplicador_critico: float, dano_calculado: int, dano_aplicado: int \| float, cancelado: bool = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p></div></details>
 <h4 id="personagem-2" data-searchable><code>Personagem</code></h4>
-<p data-searchable>Representa entidade de RPG.</p>
+<p data-searchable>Conveniência de RPG construída sobre :class:<code>coral.agentes.Agente</code>.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -399,10 +446,13 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable>Obtém mundo.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>Executa a operação <code>vida</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int | float</code></td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>Executa a operação <code>vida</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>Executa a operação <code>vida_max</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int | float</code></td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>Executa a operação <code>vida_max</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>vivo</code></td><td data-searchable>Indica o estado de vivo.</td><td data-searchable><code>bool</code></td></tr>
-<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>Executa a operação <code>receber_dano</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
-<tr><td data-searchable><code>curar</code></td><td data-searchable>Executa a operação <code>curar</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>Executa a operação <code>receber_dano</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int | float</code></td></tr>
+<tr><td data-searchable><code>curar</code></td><td data-searchable>Executa a operação <code>curar</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int | float</code></td></tr>
 <tr><td data-searchable><code>teste</code></td><td data-searchable>Executa a operação <code>teste</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>tuple[Rolagem, bool]</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Personagem(nome: str, vida: int = 10, *, vida_max: int \| None = None, **atributos: Any)</code></p>
@@ -424,10 +474,13 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
-<tr><td data-searchable><code>mundo</code></td><td data-searchable>propriedade</td><td data-searchable><code>mundo()</code></td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>propriedade</td><td data-searchable><code>vida() -&gt; int | float</code></td></tr>
+<tr><td data-searchable><code>vida</code></td><td data-searchable>método</td><td data-searchable><code>vida(valor: int | float) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>propriedade</td><td data-searchable><code>vida_max() -&gt; int | float</code></td></tr>
+<tr><td data-searchable><code>vida_max</code></td><td data-searchable>método</td><td data-searchable><code>vida_max(valor: int | float) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>vivo</code></td><td data-searchable>propriedade</td><td data-searchable><code>vivo() -&gt; bool</code></td></tr>
-<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>método</td><td data-searchable><code>receber_dano(quantidade: int) -&gt; int</code></td></tr>
-<tr><td data-searchable><code>curar</code></td><td data-searchable>método</td><td data-searchable><code>curar(quantidade: int) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>receber_dano</code></td><td data-searchable>método</td><td data-searchable><code>receber_dano(quantidade: int) -&gt; int | float</code></td></tr>
+<tr><td data-searchable><code>curar</code></td><td data-searchable>método</td><td data-searchable><code>curar(quantidade: int) -&gt; int | float</code></td></tr>
 <tr><td data-searchable><code>teste</code></td><td data-searchable>método</td><td data-searchable><code>teste(atributo: str, dificuldade: int = 10, *, semente: int | None = None) -&gt; tuple[Rolagem, bool]</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="combateturnos" data-searchable><code>CombateTurnos</code></h4>
@@ -441,6 +494,7 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 </tr></thead><tbody>
 <tr><td data-searchable><code>participantes</code></td><td data-searchable>Valor correspondente a participantes.</td><td data-searchable><code>Iterable[Personagem]</code></td><td data-searchable><code>()</code></td></tr>
 <tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>encerramento</code></td><td data-searchable>Valor correspondente a encerramento.</td><td data-searchable><code>str</code></td><td data-searchable><code>'ultimo_vivo'</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Operações públicas da classe</strong></p>
 <div class="table-wrap"><table><thead><tr>
@@ -448,13 +502,26 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>Executa a operação <code>ordem</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>list[Personagem]</code></td></tr>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>Executa a operação <code>ordem</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Executa a operação <code>indice</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Executa a operação <code>indice</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>rodada</code></td><td data-searchable>Executa a operação <code>rodada</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>rodada</code></td><td data-searchable>Executa a operação <code>rodada</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>iniciado</code></td><td data-searchable>Executa a operação <code>iniciado</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>iniciado</code></td><td data-searchable>Executa a operação <code>iniciado</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>Pausa o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>Retoma o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>Executa a operação <code>pausado</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Personagem</code></td></tr>
 <tr><td data-searchable><code>iniciar</code></td><td data-searchable>Inicia o valor solicitado.</td><td data-searchable><code>tuple[Personagem, ...]</code></td></tr>
 <tr><td data-searchable><code>atual</code></td><td data-searchable>Obtém atual.</td><td data-searchable><code>Personagem | None</code></td></tr>
 <tr><td data-searchable><code>proximo</code></td><td data-searchable>Executa a operação <code>proximo</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>Personagem | None</code></td></tr>
+<tr><td data-searchable><code>atacar</code></td><td data-searchable>Executa a operação <code>atacar</code> disponibilizada por <code>coral.rpg</code>.</td><td data-searchable><code>ResultadoAtaque</code></td></tr>
+<tr><td data-searchable><code>encerrar</code></td><td data-searchable>Encerra o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>terminou</code></td><td data-searchable>Indica o estado de terminou.</td><td data-searchable><code>bool</code></td></tr>
 </tbody></table></div>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str \| None = None)</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CombateTurnos(participantes: Iterable[Personagem] = (), *, nome: str \| None = None, encerramento: str = 'ultimo_vivo')</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.rpg</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/rpg.py</code></p>
 <p data-searchable><strong>Modo dos parâmetros</strong></p>
@@ -464,6 +531,7 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 </tr></thead><tbody>
 <tr><td data-searchable><code>participantes</code></td><td data-searchable>posicional</td></tr>
 <tr><td data-searchable><code>nome</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>encerramento</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
@@ -471,10 +539,23 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>propriedade</td><td data-searchable><code>ordem() -&gt; list[Personagem]</code></td></tr>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>método</td><td data-searchable><code>ordem(valor: Iterable[Personagem]) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>propriedade</td><td data-searchable><code>indice() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>método</td><td data-searchable><code>indice(valor: int) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>rodada</code></td><td data-searchable>propriedade</td><td data-searchable><code>rodada() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>rodada</code></td><td data-searchable>método</td><td data-searchable><code>rodada(valor: int) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>iniciado</code></td><td data-searchable>propriedade</td><td data-searchable><code>iniciado() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>iniciado</code></td><td data-searchable>método</td><td data-searchable><code>iniciado(valor: bool) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>método</td><td data-searchable><code>pausar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>método</td><td data-searchable><code>retomar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>propriedade</td><td data-searchable><code>pausado() -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(personagem: Personagem) -&gt; Personagem</code></td></tr>
 <tr><td data-searchable><code>iniciar</code></td><td data-searchable>método</td><td data-searchable><code>iniciar(*, iniciativas: dict[str, int] | None = None, semente: int | None = None) -&gt; tuple[Personagem, ...]</code></td></tr>
 <tr><td data-searchable><code>atual</code></td><td data-searchable>propriedade</td><td data-searchable><code>atual() -&gt; Personagem | None</code></td></tr>
 <tr><td data-searchable><code>proximo</code></td><td data-searchable>método</td><td data-searchable><code>proximo() -&gt; Personagem | None</code></td></tr>
+<tr><td data-searchable><code>atacar</code></td><td data-searchable>método</td><td data-searchable><code>atacar(atacante: Personagem, alvo: Personagem, dano: int, *, defesa: int | None = None, chance_critico: float = 0.0, multiplicador_critico: float = 2.0, exigir_turno: bool = True) -&gt; ResultadoAtaque</code></td></tr>
+<tr><td data-searchable><code>encerrar</code></td><td data-searchable>método</td><td data-searchable><code>encerrar() -&gt; None</code></td></tr>
 <tr><td data-searchable><code>terminou</code></td><td data-searchable>propriedade</td><td data-searchable><code>terminou() -&gt; bool</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="estadorpg" data-searchable><code>EstadoRPG</code></h4>
@@ -514,6 +595,7 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
 <li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#base-generica-compartilhada" data-toc-link>Base genérica compartilhada</a></li>
 <li class="toc-level-2"><a href="#fluxo-de-personagem" data-toc-link>Fluxo de personagem</a></li>
 <li class="toc-level-2"><a href="#fluxo-de-combate" data-toc-link>Fluxo de combate</a></li>
 <li class="toc-level-2"><a href="#aleatoriedade-reproduzivel" data-toc-link>Aleatoriedade reproduzível</a></li>
@@ -521,6 +603,7 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
 <li class="toc-level-2"><a href="#testabilidade" data-toc-link>Testabilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
 <li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
 <li class="toc-level-2"><a href="#compatibilidade" data-toc-link>Compatibilidade</a></li></ul>
   </aside>

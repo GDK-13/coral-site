@@ -109,6 +109,12 @@
       "grupo": "Módulos principais"
     },
     {
+      "arquivo": "modulos/agentes.md",
+      "titulo": "coral.agentes",
+      "slug": "modulo-agentes",
+      "grupo": "Outros módulos"
+    },
+    {
       "arquivo": "modulos/aleatorio.md",
       "titulo": "coral.aleatorio",
       "slug": "modulo-aleatorio",
@@ -205,6 +211,12 @@
       "grupo": "Outros módulos"
     },
     {
+      "arquivo": "modulos/procedural.md",
+      "titulo": "coral.procedural",
+      "slug": "modulo-procedural",
+      "grupo": "Outros módulos"
+    },
+    {
       "arquivo": "modulos/rastreamento_reativo.md",
       "titulo": "coral.rastreamento_reativo",
       "slug": "modulo-rastreamento_reativo",
@@ -223,6 +235,12 @@
       "grupo": "Outros módulos"
     },
     {
+      "arquivo": "modulos/simulacao.md",
+      "titulo": "coral.simulacao",
+      "slug": "modulo-simulacao",
+      "grupo": "Outros módulos"
+    },
+    {
       "arquivo": "modulos/tempo_eventos.md",
       "titulo": "coral.tempo_eventos",
       "slug": "modulo-tempo_eventos",
@@ -238,6 +256,12 @@
       "arquivo": "modulos/tipos.md",
       "titulo": "coral.tipos",
       "slug": "modulo-tipos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/turnos.md",
+      "titulo": "coral.turnos",
+      "slug": "modulo-turnos",
       "grupo": "Outros módulos"
     }
   ]

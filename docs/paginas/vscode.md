@@ -32,6 +32,6 @@ Quando o LSP falha, a extensão deve deixar o estado degradado explícito e ofer
 
 <!-- AUTO:VERSAO -->
 
-**Extensão corrente:** Coral Language `0.41.0` para Coral `1.5.9`.
+**Extensão corrente:** Coral Language `0.43.0` para Coral `1.5.12`.
 
 <!-- /AUTO:VERSAO -->

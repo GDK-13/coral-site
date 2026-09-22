@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="tempo de mundo, ciclos, sistemas recorrentes e campos ambientais">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.simulacao — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.simulacao — Documentação Coral">
+  <meta property="og:description" content="tempo de mundo, ciclos, sistemas recorrentes e campos ambientais">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.simulacao — Documentação Coral">
+  <meta name="twitter:description" content="tempo de mundo, ciclos, sistemas recorrentes e campos ambientais">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Release atual</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a class="active" aria-current="page" href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.simulacao</h1>
+      <p>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais</p>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.simulacao</code> <strong>Categoria:</strong> simulacao</p>
+<p data-searchable>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>CONTRATO</code>, <code>SEGUNDO</code>, <code>MINUTO</code>, <code>HORA</code>, <code>DIA</code>, <code>TempoMundo</code>, <code>FaseCiclo</code>, <code>EstadoCiclo</code>, <code>TransicaoCiclo</code>, <code>ResultadoTransicoesCiclo</code>, <code>Ciclo</code>, <code>PassoSistema</code>, <code>ResultadoSistema</code>, <code>ErroPassoExcessivo</code>, <code>Sistema</code>, <code>Simulacao</code>, <code>CampoAmbiental</code>, <code>ciclo_dia_noite</code>, <code>criar_simulacao</code></p>
+<h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
+<p data-searchable><code>coral.simulacao</code> organiza tempo de mundo, ciclos, sistemas recorrentes e campos ambientais em uma camada independente de interface gráfica. O objetivo é separar o tempo do domínio do relógio real da máquina e permitir que a mesma simulação seja avançada por comandos, testes ou um loop externo.</p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="tempo-de-mundo" data-searchable>Tempo de mundo</h3>
+<p data-searchable><code>TempoMundo</code> mantém o instante simulado, escala temporal e estado de pausa. <code>avancar</code> move o tempo explicitamente. <code>atualizar</code> recebe um delta externo e aplica a escala configurada, permitindo conectar a simulação a um loop sem misturar tempo de parede e tempo do mundo.</p>
+<h3 id="ciclos" data-searchable>Ciclos</h3>
+<p data-searchable><code>Ciclo</code> divide o tempo em fases com duração conhecida. A consulta de fase é direta e transições longas podem ser agregadas quando materializar cada mudança individual seria excessivo.</p>
+<h3 id="sistemas-recorrentes" data-searchable>Sistemas recorrentes</h3>
+<p data-searchable><code>Sistema</code> executa uma ação em intervalos regulares. O modo <code>fixo</code> chama a ação uma vez por ocorrência e protege contra avanços que exigiriam chamadas demais. O modo <code>agregado</code> representa várias ocorrências em um único <code>PassoSistema</code>, adequado para grandes saltos de tempo.</p>
+<h3 id="orquestracao" data-searchable>Orquestração</h3>
+<p data-searchable><code>Simulacao</code> reúne tempo, ciclos e sistemas. Sistemas são ordenados por prioridade e ordem de registro. O mesmo avanço também publica eventos de execução e transição de ciclos.</p>
+<h3 id="campos-ambientais" data-searchable>Campos ambientais</h3>
+<p data-searchable><code>CampoAmbiental</code> transforma um <code>CampoProcedural</code>, função ou constante em um campo numérico consultável. Ele também pode materializar valores em uma camada de <code>coral.mundo</code> dentro de limites explícitos.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use este módulo para relógios de jogo, simulações científicas simplificadas, fábricas, ecologia, logística, calendários, regeneração de recursos e qualquer sistema que precise evoluir de forma controlada e reproduzível ao longo do tempo.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<p data-searchable>Um exemplo mínimo da release:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> sim
+<span class="code-key">defina</span> a escala temporal de sim como <span class="code-num">60</span>
+avance a simulacao sim por <span class="code-num">2</span> horas
+<span class="code-key">mostre</span> sim.tempo.<span class="code-fn">calendario</span>()</code></pre></div></div>
+<p data-searchable>Um sistema recorrente pode acumular várias execuções em um único passo:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.simulacao</span> <span class="code-key">importe</span> Sistema
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> produzir com passo
+    <span class="code-key">mostre</span> passo.execucoes
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> fabrica
+execute fabrica.<span class="code-fn">adicionar_sistema</span>(<span class="code-fn">Sistema</span>(<span class="code-str">&quot;producao&quot;</span>, produzir, intervalo=<span class="code-num">10</span>, modo=<span class="code-str">&quot;agregado&quot;</span>))
+avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pre></div></div>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>TempoMundo</code></td><td data-searchable>relógio semântico, escala temporal e pausa</td></tr>
+<tr><td data-searchable><code>Ciclo</code> / <code>FaseCiclo</code></td><td data-searchable>fases temporais repetíveis ou finitas</td></tr>
+<tr><td data-searchable><code>Sistema</code></td><td data-searchable>processo recorrente em modo fixo ou agregado</td></tr>
+<tr><td data-searchable><code>PassoSistema</code></td><td data-searchable>contexto de uma chamada ou lote de execuções</td></tr>
+<tr><td data-searchable><code>Simulacao</code></td><td data-searchable>orquestra tempo, ciclos, sistemas e eventos</td></tr>
+<tr><td data-searchable><code>CampoAmbiental</code></td><td data-searchable>campo numérico consultável ou materializável em mapa</td></tr>
+<tr><td data-searchable><code>ciclo_dia_noite</code></td><td data-searchable>atalho para um ciclo recorrente de dia e noite</td></tr>
+</tbody></table></div>
+<h2 id="fluxos-comuns" data-searchable>Fluxos comuns</h2>
+<ol>
+<li data-searchable>Crie uma <code>Simulacao</code> e configure a escala do tempo quando necessário.</li>
+<li data-searchable>Registre ciclos que descrevem fases do ambiente ou processo.</li>
+<li data-searchable>Registre sistemas recorrentes com intervalo, prioridade e modo adequados.</li>
+<li data-searchable>Avance a simulação explicitamente em testes ou use <code>atualizar</code> a partir de um loop externo.</li>
+<li data-searchable>Persista o estado temporal quando precisar retomar a mesma simulação depois.</li>
+</ol>
+<h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
+<p data-searchable>No modo fixo, um salto muito grande pode gerar <code>ErroPassoExcessivo</code> quando excede o limite de chamadas configurado. O modo agregado evita essa explosão quando a lógica pode trabalhar com <code>passo.execucoes</code>. Mapas ilimitados exigem limites explícitos para materializar um campo ambiental.</p>
+<h2 id="boas-praticas" data-searchable>Boas práticas</h2>
+<ul>
+<li data-searchable>Prefira modo agregado para sistemas em que várias ocorrências podem ser resumidas matematicamente.</li>
+<li data-searchable>Use modo fixo apenas quando cada ocorrência individual produz efeitos que não podem ser agrupados.</li>
+<li data-searchable>Não persista callbacks implicitamente. Recrie os mesmos sistemas com as mesmas ações antes de aplicar o estado portável.</li>
+<li data-searchable>Mantenha aleatoriedade reproduzível separada em <code>coral.procedural</code> quando o resultado da simulação depender de geração.</li>
+</ul>
+<h2 id="integracao-com-outros-modulos" data-searchable>Integração com outros módulos</h2>
+<p data-searchable><code>coral.tempo_eventos</code> fornece relógio simulado e eventos. <code>coral.procedural</code> fornece campos e geração determinística. <code>coral.mundo</code> recebe campos materializados em mapas. <code>coral.agentes</code> pode ser atualizado por sistemas recorrentes, como regeneração de energia ou consumo de recursos.</p>
+<h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
+<p data-searchable>A simulação pode ser avançada com durações explícitas, sem depender do relógio real. Isso permite testes rápidos e determinísticos. Para sistemas agregados, valide <code>execucoes</code>, duração representada e próximo instante. Para ciclos, valide a fase em instantes conhecidos e as transições em intervalos longos.</p>
+<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
+<p data-searchable>A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na <strong>Coral 1.5.12</strong>. A 1.5.12 preserva a superfície funcional e concentra suas mudanças na infraestrutura de validação da linguagem.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="ciclo-dia-noite" data-searchable><code>ciclo_dia_noite</code></h4>
+<p data-searchable>Executa a operação <code>ciclo_dia_noite</code> disponibilizada por <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dia</code></td><td data-searchable>Valor correspondente a dia.</td><td data-searchable><code>float</code></td><td data-searchable><code>12 * HORA</code></td></tr>
+<tr><td data-searchable><code>noite</code></td><td data-searchable>Valor correspondente a noite.</td><td data-searchable><code>float</code></td><td data-searchable><code>12 * HORA</code></td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'dia_noite'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Ciclo</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ciclo_dia_noite(*, dia: float = 12 * HORA, noite: float = 12 * HORA, inicio: float = 0.0, nome: str = 'dia_noite') -&gt; Ciclo</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dia</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>noite</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="criar-simulacao" data-searchable><code>criar_simulacao</code></h4>
+<p data-searchable>Cria simulacao.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>Valor correspondente a opcoes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Simulacao</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_simulacao(**opcoes: Any) -&gt; Simulacao</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="tempomundo" data-searchable><code>TempoMundo</code></h4>
+<p data-searchable>Relógio semântico de mundo sobre :class:<code>RelogioSimulado</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>escala</code></td><td data-searchable>Valor correspondente a escala.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>Valor correspondente a pausado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Relógio usado para controlar tempo ou atualização.</td><td data-searchable><code>RelogioSimulado | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Obtém relogio.</td><td data-searchable><code>RelogioSimulado</code></td></tr>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>Obtém o instante civil atual.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Executa a operação <code>instante</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>escala</code></td><td data-searchable>Executa a operação <code>escala</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>Executa a operação <code>pausado</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>dia</code></td><td data-searchable>Executa a operação <code>dia</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>hora</code></td><td data-searchable>Executa a operação <code>hora</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>minuto</code></td><td data-searchable>Executa a operação <code>minuto</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>segundo</code></td><td data-searchable>Executa a operação <code>segundo</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>calendario</code></td><td data-searchable>Executa a operação <code>calendario</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança explicitamente o tempo do mundo, independentemente da pausa.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>Aplica um delta externo respeitando pausa e escala temporal.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>Pausa o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>Retoma o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>definir_escala</code></td><td data-searchable>Define escala.</td><td data-searchable><code>float</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TempoMundo(instante: float = 0.0, *, escala: float = 1.0, pausado: bool = False, eventos: Eventos \| None = None, relogio: RelogioSimulado \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>escala</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; RelogioSimulado</code></td></tr>
+<tr><td data-searchable><code>agora</code></td><td data-searchable>método</td><td data-searchable><code>agora() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>propriedade</td><td data-searchable><code>instante() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>escala</code></td><td data-searchable>propriedade</td><td data-searchable><code>escala() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>pausado</code></td><td data-searchable>propriedade</td><td data-searchable><code>pausado() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>dia</code></td><td data-searchable>propriedade</td><td data-searchable><code>dia() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>hora</code></td><td data-searchable>propriedade</td><td data-searchable><code>hora() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>minuto</code></td><td data-searchable>propriedade</td><td data-searchable><code>minuto() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>segundo</code></td><td data-searchable>propriedade</td><td data-searchable><code>segundo() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>calendario</code></td><td data-searchable>método</td><td data-searchable><code>calendario() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(duracao: Any) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt_externo: Any) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>pausar</code></td><td data-searchable>método</td><td data-searchable><code>pausar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>retomar</code></td><td data-searchable>método</td><td data-searchable><code>retomar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>definir_escala</code></td><td data-searchable>método</td><td data-searchable><code>definir_escala(escala: Any, *, emitir: bool = True) -&gt; float</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="faseciclo" data-searchable><code>FaseCiclo</code></h4>
+<p data-searchable>Representa FaseCiclo na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict, compare=False)</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any]</code></td><td data-searchable><code>field(default_factory=dict, compare=False)</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FaseCiclo(nome: str, duracao: float, metadados: Mapping[str, Any] = field(default_factory=dict, compare=False))</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="estadociclo" data-searchable><code>EstadoCiclo</code></h4>
+<p data-searchable>Representa EstadoCiclo na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>Valor correspondente a ciclo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fase</code></td><td data-searchable>Valor correspondente a fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>indice_fase</code></td><td data-searchable>Valor correspondente a indice fase.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>Valor correspondente a progresso.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante_na_fase</code></td><td data-searchable>Valor correspondente a instante na fase.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>volta</code></td><td data-searchable>Valor correspondente a volta.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>encerrado</code></td><td data-searchable>Valor correspondente a encerrado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>Valor correspondente a ciclo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fase</code></td><td data-searchable>Valor correspondente a fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>indice_fase</code></td><td data-searchable>Valor correspondente a indice fase.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>Valor correspondente a progresso.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante_na_fase</code></td><td data-searchable>Valor correspondente a instante na fase.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>volta</code></td><td data-searchable>Valor correspondente a volta.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>encerrado</code></td><td data-searchable>Valor correspondente a encerrado.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>EstadoCiclo(ciclo: str, fase: str, indice_fase: int, progresso: float, instante_na_fase: float, volta: int, encerrado: bool = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="transicaociclo" data-searchable><code>TransicaoCiclo</code></h4>
+<p data-searchable>Representa TransicaoCiclo na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>Valor correspondente a ciclo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>de_fase</code></td><td data-searchable>Valor correspondente a de fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>para_fase</code></td><td data-searchable>Valor correspondente a para fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>volta</code></td><td data-searchable>Valor correspondente a volta.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>Valor correspondente a ciclo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>instante</code></td><td data-searchable>Valor correspondente a instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>de_fase</code></td><td data-searchable>Valor correspondente a de fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>para_fase</code></td><td data-searchable>Valor correspondente a para fase.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>volta</code></td><td data-searchable>Valor correspondente a volta.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TransicaoCiclo(ciclo: str, instante: float, de_fase: str, para_fase: str, volta: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="resultadotransicoesciclo" data-searchable><code>ResultadoTransicoesCiclo</code></h4>
+<p data-searchable>Representa ResultadoTransicoesCiclo na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transicoes</code></td><td data-searchable>Valor correspondente a transicoes.</td><td data-searchable><code>tuple[TransicaoCiclo, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>agregado</code></td><td data-searchable>Valor correspondente a agregado.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado_inicial</code></td><td data-searchable>Valor correspondente a estado inicial.</td><td data-searchable><code>EstadoCiclo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado_final</code></td><td data-searchable>Valor correspondente a estado final.</td><td data-searchable><code>EstadoCiclo</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transicoes</code></td><td data-searchable>Valor correspondente a transicoes.</td><td data-searchable><code>tuple[TransicaoCiclo, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>agregado</code></td><td data-searchable>Valor correspondente a agregado.</td><td data-searchable><code>bool</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado_inicial</code></td><td data-searchable>Valor correspondente a estado inicial.</td><td data-searchable><code>EstadoCiclo</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado_final</code></td><td data-searchable>Valor correspondente a estado final.</td><td data-searchable><code>EstadoCiclo</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoTransicoesCiclo(quantidade: int, transicoes: tuple[TransicaoCiclo, ...], agregado: bool, estado_inicial: EstadoCiclo, estado_final: EstadoCiclo)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="ciclo" data-searchable><code>Ciclo</code></h4>
+<p data-searchable>Ciclo temporal configurável com consulta O(1) da fase corrente.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fases</code></td><td data-searchable>Valor correspondente a fases.</td><td data-searchable><code>Iterable[FaseCiclo | tuple[str, float]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+<tr><td data-searchable><code>repetir</code></td><td data-searchable>Valor correspondente a repetir.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estado_em</code></td><td data-searchable>Executa a operação <code>estado_em</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>EstadoCiclo</code></td></tr>
+<tr><td data-searchable><code>transicoes_entre</code></td><td data-searchable>Executa a operação <code>transicoes_entre</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>ResultadoTransicoesCiclo</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Ciclo(nome: str, fases: Iterable[FaseCiclo \| tuple[str, float]], *, inicio: float = 0.0, repetir: bool = True) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fases</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>repetir</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estado_em</code></td><td data-searchable>método</td><td data-searchable><code>estado_em(instante: Any) -&gt; EstadoCiclo</code></td></tr>
+<tr><td data-searchable><code>transicoes_entre</code></td><td data-searchable>método</td><td data-searchable><code>transicoes_entre(inicio: Any, fim: Any, *, limite_materializacao: int = 1024) -&gt; ResultadoTransicoesCiclo</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="passosistema" data-searchable><code>PassoSistema</code></h4>
+<p data-searchable>Representa PassoSistema na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable>Valor final do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>execucoes</code></td><td data-searchable>Valor correspondente a execucoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>Valor correspondente a intervalo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>contexto</code></td><td data-searchable>Valor correspondente a contexto.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable>Valor final do intervalo ou processo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>duracao</code></td><td data-searchable>Valor correspondente a duracao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>execucoes</code></td><td data-searchable>Valor correspondente a execucoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>Valor correspondente a intervalo.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>contexto</code></td><td data-searchable>Valor correspondente a contexto.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>PassoSistema(sistema: str, inicio: float, fim: float, duracao: float, execucoes: int, intervalo: float, contexto: Any = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="resultadosistema" data-searchable><code>ResultadoSistema</code></h4>
+<p data-searchable>Representa ResultadoSistema na API de <code>coral.simulacao</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>execucoes</code></td><td data-searchable>Valor correspondente a execucoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>chamadas</code></td><td data-searchable>Valor correspondente a chamadas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>resultados</code></td><td data-searchable>Valor correspondente a resultados.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>proximo_instante</code></td><td data-searchable>Valor correspondente a proximo instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Valor correspondente a sistema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>execucoes</code></td><td data-searchable>Valor correspondente a execucoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>chamadas</code></td><td data-searchable>Valor correspondente a chamadas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>resultados</code></td><td data-searchable>Valor correspondente a resultados.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>proximo_instante</code></td><td data-searchable>Valor correspondente a proximo instante.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoSistema(sistema: str, execucoes: int, chamadas: int, resultados: tuple[Any, ...], proximo_instante: float)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h4 id="sistema" data-searchable><code>Sistema</code></h4>
+<p data-searchable>Processo temporal recorrente independente de RPG e de interface gráfica.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>Valor correspondente a acao.</td><td data-searchable><code>Callable[[PassoSistema], Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>Valor correspondente a intervalo.</td><td data-searchable><code>float</code></td><td data-searchable><code>1.0</code></td></tr>
+<tr><td data-searchable><code>prioridade</code></td><td data-searchable>Valor correspondente a prioridade.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'agregado'</code></td></tr>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>Valor correspondente a ativo.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>max_chamadas_por_avanco</code></td><td data-searchable>Valor correspondente a max chamadas por avanco.</td><td data-searchable><code>int</code></td><td data-searchable><code>10000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>preparar</code></td><td data-searchable>Executa a operação <code>preparar</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>ativar</code></td><td data-searchable>Executa a operação <code>ativar</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>desativar</code></td><td data-searchable>Executa a operação <code>desativar</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>estado_portatil</code></td><td data-searchable>Retorna somente o estado temporal reconstruível do sistema.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>aplicar_estado_portatil</code></td><td data-searchable>Executa a operação <code>aplicar_estado_portatil</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>executar_ate</code></td><td data-searchable>Executa ate.</td><td data-searchable><code>ResultadoSistema</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Sistema(nome: str, acao: Callable[[PassoSistema], Any], *, intervalo: float = 1.0, prioridade: int = 0, modo: str = 'agregado', ativo: bool = True, max_chamadas_por_avanco: int = 10000) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>acao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>prioridade</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>max_chamadas_por_avanco</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>preparar</code></td><td data-searchable>método</td><td data-searchable><code>preparar(instante: float) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>ativar</code></td><td data-searchable>método</td><td data-searchable><code>ativar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>desativar</code></td><td data-searchable>método</td><td data-searchable><code>desativar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>estado_portatil</code></td><td data-searchable>método</td><td data-searchable><code>estado_portatil() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>aplicar_estado_portatil</code></td><td data-searchable>método</td><td data-searchable><code>aplicar_estado_portatil(dados: Mapping[str, Any]) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>executar_ate</code></td><td data-searchable>método</td><td data-searchable><code>executar_ate(fim: float, *, contexto: Any = None) -&gt; ResultadoSistema</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="simulacao" data-searchable><code>Simulacao</code></h4>
+<p data-searchable>Orquestrador leve para tempo, ciclos e sistemas recorrentes.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tempo</code></td><td data-searchable>Valor correspondente a tempo.</td><td data-searchable><code>TempoMundo | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>Fonte ou conjunto de eventos associado à operação.</td><td data-searchable><code>Eventos | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclos</code></td><td data-searchable>Executa a operação <code>ciclos</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>tuple[Ciclo, ...]</code></td></tr>
+<tr><td data-searchable><code>sistemas</code></td><td data-searchable>Executa a operação <code>sistemas</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>tuple[Sistema, ...]</code></td></tr>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>Executa a operação <code>ciclo</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>Ciclo</code></td></tr>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>Executa a operação <code>sistema</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>Sistema</code></td></tr>
+<tr><td data-searchable><code>adicionar_ciclo</code></td><td data-searchable>Adiciona ciclo.</td><td data-searchable><code>Ciclo</code></td></tr>
+<tr><td data-searchable><code>adicionar_sistema</code></td><td data-searchable>Adiciona sistema.</td><td data-searchable><code>Sistema</code></td></tr>
+<tr><td data-searchable><code>criar_sistema</code></td><td data-searchable>Cria sistema.</td><td data-searchable><code>Sistema</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>Avança o valor solicitado.</td><td data-searchable><code>tuple[ResultadoSistema, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>tuple[ResultadoSistema, ...]</code></td></tr>
+<tr><td data-searchable><code>estado_portatil</code></td><td data-searchable>Estado temporal sem callbacks, apropriado para persistência explícita.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>aplicar_estado_portatil</code></td><td data-searchable>Executa a operação <code>aplicar_estado_portatil</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Simulacao(*, tempo: TempoMundo \| None = None, eventos: Eventos \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tempo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>eventos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ciclos</code></td><td data-searchable>propriedade</td><td data-searchable><code>ciclos() -&gt; tuple[Ciclo, ...]</code></td></tr>
+<tr><td data-searchable><code>sistemas</code></td><td data-searchable>propriedade</td><td data-searchable><code>sistemas() -&gt; tuple[Sistema, ...]</code></td></tr>
+<tr><td data-searchable><code>ciclo</code></td><td data-searchable>método</td><td data-searchable><code>ciclo(nome: str) -&gt; Ciclo</code></td></tr>
+<tr><td data-searchable><code>sistema</code></td><td data-searchable>método</td><td data-searchable><code>sistema(nome: str) -&gt; Sistema</code></td></tr>
+<tr><td data-searchable><code>adicionar_ciclo</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_ciclo(ciclo: Ciclo) -&gt; Ciclo</code></td></tr>
+<tr><td data-searchable><code>adicionar_sistema</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_sistema(sistema: Sistema) -&gt; Sistema</code></td></tr>
+<tr><td data-searchable><code>criar_sistema</code></td><td data-searchable>método</td><td data-searchable><code>criar_sistema(nome: str, acao: Callable[[PassoSistema], Any], **opcoes: Any) -&gt; Sistema</code></td></tr>
+<tr><td data-searchable><code>avancar</code></td><td data-searchable>método</td><td data-searchable><code>avancar(duracao: Any, *, contexto: Any = None) -&gt; tuple[ResultadoSistema, ...]</code></td></tr>
+<tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt_externo: Any, *, contexto: Any = None) -&gt; tuple[ResultadoSistema, ...]</code></td></tr>
+<tr><td data-searchable><code>estado_portatil</code></td><td data-searchable>método</td><td data-searchable><code>estado_portatil() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>aplicar_estado_portatil</code></td><td data-searchable>método</td><td data-searchable><code>aplicar_estado_portatil(estado: Mapping[str, Any]) -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="campoambiental" data-searchable><code>CampoAmbiental</code></h4>
+<p data-searchable>Campo numérico de simulação que pode ser consultado ou materializado.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>Fonte explícita usada pela operação; quando omitida, vale o comportamento padrão do módulo.</td><td data-searchable><code>CampoProcedural | Callable[..., float] | float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>unidade</code></td><td data-searchable>Valor correspondente a unidade.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor_em</code></td><td data-searchable>Executa a operação <code>valor_em</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>materializar</code></td><td data-searchable>Executa a operação <code>materializar</code> disponibilizada por <code>coral.simulacao</code>.</td><td data-searchable><code>int</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CampoAmbiental(nome: str, fonte: CampoProcedural \| Callable[..., float] \| float, *, unidade: str \| None = None, minimo: float \| None = None, maximo: float \| None = None) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>fonte</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>unidade</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor_em</code></td><td data-searchable>método</td><td data-searchable><code>valor_em(celula_ou_coordenadas: Any) -&gt; float</code></td></tr>
+<tr><td data-searchable><code>materializar</code></td><td data-searchable>método</td><td data-searchable><code>materializar(mapa: Any, *, camada: str | None = None, limites: Any = None, causa: Any = 'campo_ambiental') -&gt; int</code></td></tr>
+</tbody></table></div></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="erropassoexcessivo" data-searchable><code>ErroPassoExcessivo</code></h4>
+<p data-searchable>Um sistema de passo fixo exigiria chamadas demais em um único avanço.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroPassoExcessivo(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
+<p data-searchable>Expõe a constante pública <code>CONTRATO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.simulacao/1'</code></p></div></details>
+<h4 id="segundo" data-searchable><code>SEGUNDO</code></h4>
+<p data-searchable>Expõe a constante pública <code>SEGUNDO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>SEGUNDO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>1.0</code></p></div></details>
+<h4 id="minuto" data-searchable><code>MINUTO</code></h4>
+<p data-searchable>Expõe a constante pública <code>MINUTO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>MINUTO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>60.0</code></p></div></details>
+<h4 id="hora" data-searchable><code>HORA</code></h4>
+<p data-searchable>Expõe a constante pública <code>HORA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>HORA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>60.0 * MINUTO</code></p></div></details>
+<h4 id="dia" data-searchable><code>DIA</code></h4>
+<p data-searchable>Expõe a constante pública <code>DIA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DIA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.simulacao</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>24.0 * HORA</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="sequencias_reativas.html"><span>Anterior</span><strong>coral.sequencias_reativas</strong></a><a class="docs-page-nav-link next" href="tempo_eventos.html"><span>Próxima</span><strong>coral.tempo_eventos</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
+<li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>
+<li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
+<li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

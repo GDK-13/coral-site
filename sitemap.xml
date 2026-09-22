@@ -21,6 +21,7 @@
   <url><loc>https://coral-lang.example/docs/modulos/regras.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/rpg.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/jogos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/agentes.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/aleatorio.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/arquivos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/assincrono.html</loc></url>
@@ -37,10 +38,13 @@
   <url><loc>https://coral-lang.example/docs/modulos/matematica.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/observadores_reativos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/persistencia.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/procedural.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/rastreamento_reativo.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/replay_reativo.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/sequencias_reativas.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/simulacao.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/tempo_eventos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/texto.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/tipos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/turnos.html</loc></url>
 </urlset>

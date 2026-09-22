@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.9</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.41.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -78,6 +78,7 @@
 <li><a href="modulos/jogos.html"><code>coral.jogos</code></a></li>
 </ul></details>
 <details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="modulos/agentes.html"><code>coral.agentes</code></a></li>
 <li><a href="modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
 <li><a href="modulos/arquivos.html"><code>coral.arquivos</code></a></li>
 <li><a href="modulos/assincrono.html"><code>coral.assincrono</code></a></li>
@@ -94,12 +95,15 @@
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
 <li><a href="modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="modulos/procedural.html"><code>coral.procedural</code></a></li>
 <li><a href="modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
 </ul></details>
   </nav>
 
@@ -120,20 +124,17 @@
 <p data-searchable>Quando uma nova Coral é publicada, o gerador deste repositório importa o ZIP oficial, compara com o snapshot anterior e atualiza versões, módulos, CLI, exemplos, changelog e páginas mecânicas. Mudanças pedagógicas continuam passando por revisão humana.</p>
 <h2 id="changelog" data-searchable>Changelog</h2>
 <p data-searchable>O trecho abaixo vem diretamente do changelog da release importada.</p>
-<h2 id="1-5-9-integracao-oficial-com-vs-code-e-refinamento-da-distribuicao" data-searchable>1.5.9 — integração oficial com VS Code e refinamento da distribuição</h2>
+<h2 id="1-5-12-infraestrutura-de-testes-evidencia-e-reducao-fisica" data-searchable>1.5.12 — infraestrutura de testes, evidência e redução física</h2>
 <ul>
-<li data-searchable>Promove Coral Language 0.41.0 como extensão oficial da Coral 1.5.9.</li>
-<li data-searchable>Amplia IntelliSense próprio, navegação, hovers, signature help, auto import, semantic tokens e diagnóstico contextual pelo LSP.</li>
-<li data-searchable>Corrige o reconhecimento de formas naturais importadas tanto na execução direta quanto nos diagnósticos do editor.</li>
-<li data-searchable>Consolida execução, Test Explorer, REPL, DAP/F5, restart, informações de ambiente e recuperação de falhas do servidor.</li>
-<li data-searchable>Evolui Project Explorer, suporte a <code>coral.toml</code>, projetos aninhados, multiroot, criação guiada de arquivos e Biblioteca Coral.</li>
-<li data-searchable>Refina a coloração em duas camadas, com TextMate como fallback e semantic tokens contextuais respeitando o tema do usuário.</li>
-<li data-searchable>Atualiza o limite de linha para 150 caracteres e mantém a sugestão segura de quebra com prévia fantasma no VS Code.</li>
-<li data-searchable>Reestrutura a biblioteca de exemplos, remove demonstrações redundantes ou excessivamente nichadas e separa fixtures de aceitação dos exemplos pedagógicos.</li>
-<li data-searchable>Faz <code>Livro/Exemplos</code> conter também cópias sincronizadas dos códigos citados no Livro, sem recompilação redundante nas validações.</li>
-<li data-searchable>Mantém o Livro Oficial na edição 1.5.8, desacoplando a edição editorial da versão técnica do runtime.</li>
-<li data-searchable>Incorpora a nova guideline oficial de identidade visual da Coral à documentação e ao gerador do Livro.</li>
-<li data-searchable>Preserva a política anti acúmulo: validações focadas durante o desenvolvimento e uma única bateria completa no congelamento da release.</li>
+<li data-searchable>Reduz a suíte coletável em relação à base física reconstruída da 1.5.11, mantendo a meta de até 1.350 casos no freeze.</li>
+<li data-searchable>Introduz grafo de impacto estático, estrutural e dinâmico com IDs estáveis e validação própria.</li>
+<li data-searchable>Adiciona Livro Razão de Evidências com invalidação por conteúdo e versões da infraestrutura.</li>
+<li data-searchable>Mantém o seletor de impacto em modo sombra, com fallback conservador e recall de falhas de 100% nas campanhas controladas.</li>
+<li data-searchable>Torna permanente o Harness de Mutação com 12 cenários obrigatórios.</li>
+<li data-searchable>Adiciona Pulso de dívida temporal, explicabilidade de impacto e controles aditivos.</li>
+<li data-searchable>Elimina recursão redundante dos gates históricos por orquestração plana baseada em evidência.</li>
+<li data-searchable>Reforça o pipeline final com compileall, Ruff crítico e reutilização de slow e histórico completos do mesmo freeze.</li>
+<li data-searchable>Preserva a superfície funcional da Coral 1.5.11, a extensão Coral Language 0.43.0 e o Livro Oficial na edição 1.5.8.</li>
 </ul>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="livro.html"><span>Anterior</span><strong>Livro Oficial</strong></a><a class="docs-page-nav-link next" href="modulos/numerico.html"><span>Próxima</span><strong>coral.numerico</strong></a></nav>
@@ -145,7 +146,7 @@
 <li class="toc-level-2"><a href="#compatibilidade-editorial" data-toc-link>Compatibilidade editorial</a></li>
 <li class="toc-level-2"><a href="#atualizacao-do-site" data-toc-link>Atualização do site</a></li>
 <li class="toc-level-2"><a href="#changelog" data-toc-link>Changelog</a></li>
-<li class="toc-level-2"><a href="#1-5-9-integracao-oficial-com-vs-code-e-refinamento-da-distribuicao" data-toc-link>1.5.9 — integração oficial com VS Code e refinamento da distribuição</a></li></ul>
+<li class="toc-level-2"><a href="#1-5-12-infraestrutura-de-testes-evidencia-e-reducao-fisica" data-toc-link>1.5.12 — infraestrutura de testes, evidência e redução física</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
