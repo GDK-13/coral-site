@@ -101,6 +101,40 @@ def markdown_to_html(md: str, syntax: CoralSyntax | None = None) -> tuple[str, l
             i += 1
             continue
 
+        if stripped.startswith(":::resultado"):
+            close_list()
+            title = stripped[len(":::resultado"):].strip() or "Resultado esperado"
+            i += 1
+            inner: list[str] = []
+            while i < len(lines) and lines[i].strip() != ":::":
+                inner.append(lines[i])
+                i += 1
+            if i < len(lines):
+                i += 1
+            inner_html, _ = markdown_to_html("\n".join(inner), syntax)
+            out.append(
+                '<details class="expected-result">'
+                f'<summary>{html.escape(title)}</summary>'
+                f'<div class="expected-result-body">{inner_html}</div>'
+                '</details>'
+            )
+            continue
+
+        if stripped.startswith(":::aprender") or stripped.startswith(":::referencia"):
+            close_list()
+            learn = stripped.startswith(":::aprender")
+            label = "docs-mode-learn-only" if learn else "docs-mode-reference-only"
+            i += 1
+            inner: list[str] = []
+            while i < len(lines) and lines[i].strip() != ":::":
+                inner.append(lines[i])
+                i += 1
+            if i < len(lines):
+                i += 1
+            inner_html, _ = markdown_to_html("\n".join(inner), syntax)
+            out.append(f'<div class="{label}">{inner_html}</div>')
+            continue
+
         if stripped.startswith(":::details"):
             close_list()
             title = stripped[len(":::details"):].strip() or "Detalhes"
@@ -425,6 +459,135 @@ def build_prev_next(items: list[dict[str, Any]], current_index: int, current_pub
     return '<nav class="docs-page-nav" aria-label="Páginas relacionadas">' + "".join(links) + "</nav>"
 
 
+def _section_text(md: str, heading: str) -> str:
+    pattern = re.compile(rf"^##\s+{re.escape(heading)}\s*$", re.MULTILINE | re.IGNORECASE)
+    match = pattern.search(md)
+    if not match:
+        return ""
+    start = match.end()
+    nxt = re.search(r"^##\s+", md[start:], re.MULTILINE)
+    end = start + nxt.start() if nxt else len(md)
+    return md[start:end].strip()
+
+
+def _first_plain_paragraph(section: str) -> str:
+    lines = section.splitlines()
+    paragraph: list[str] = []
+    in_code = False
+    for raw in lines:
+        stripped = raw.strip()
+        if stripped.startswith("```"):
+            in_code = not in_code
+            if paragraph:
+                break
+            continue
+        if in_code or not stripped or stripped.startswith(("#", "<!--", "|", ":::", "- ", "* ")):
+            if paragraph:
+                break
+            continue
+        paragraph.append(stripped)
+    return " ".join(paragraph).strip()
+
+
+def _not_use_text(section: str) -> str:
+    text = re.sub(r"\s+", " ", section)
+    text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
+    candidates = re.split(r"(?<=[.!?])\s+", text)
+    for sentence in candidates:
+        clean = sentence.strip()
+        low = clean.lower()
+        if (
+            low.startswith(("evite ", "não use ", "nao use ", "se você só ", "se voce so "))
+            or " prefira " in low
+            or " pode operar sem " in low
+            or " podem operar sem " in low
+        ):
+            return clean
+    return ""
+
+
+def _first_coral_example(md: str) -> str:
+    preferred = _section_text(md, "Começando") or _section_text(md, "Começando sem janela") or md
+    match = re.search(r"```coral\s*\n(.*?)\n```", preferred, re.DOTALL | re.IGNORECASE)
+    if not match and preferred is not md:
+        match = re.search(r"```coral\s*\n(.*?)\n```", md, re.DOTALL | re.IGNORECASE)
+    if not match:
+        return ""
+    code = match.group(1).strip()
+    lines = code.splitlines()
+    if len(lines) > 12:
+        code = "\n".join(lines[:12]).rstrip() + "\n# …"
+    return code
+
+
+def build_module_quick_summary(
+    md: str,
+    meta: dict[str, Any],
+    module_name: str,
+    all_modules: list[dict[str, Any]],
+    current_public: str,
+    syntax: CoralSyntax,
+) -> str:
+    finalidade = str(meta.get("finalidade") or f"recursos públicos de coral.{module_name}").strip()
+    when_section = _section_text(md, "Quando usar")
+    when_paragraph = _first_plain_paragraph(when_section)
+    when_parts = re.split(r"(?<=[.!?])\s+", when_paragraph, maxsplit=1) if when_paragraph else []
+    when = when_parts[0] if when_parts else ""
+    not_use = _not_use_text(when_section)
+    if not not_use:
+        ecosystem = _section_text(md, "Papel no ecossistema")
+        not_use = _not_use_text(ecosystem)
+    if not not_use:
+        not_use = "Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa."
+
+    module_names = {m.get("nome") for m in all_modules}
+    mentioned = []
+    for name in re.findall(r"`?coral\.([a-z_]+)`?", md):
+        if name != module_name and name in module_names and name not in mentioned:
+            mentioned.append(name)
+        if len(mentioned) >= 5:
+            break
+    related = []
+    for name in mentioned:
+        target = f"modulos/{name}.html"
+        href = href_between(current_public, target)
+        related.append(f'<a href="{html.escape(href)}"><code>coral.{html.escape(name)}</code></a>')
+    related_html = ", ".join(related) if related else "Consulte a navegação lateral para módulos relacionados."
+
+    example = _first_coral_example(md)
+    if example:
+        rendered = highlight_coral(example, syntax)
+        example_html = (
+            '<div class="quick-summary-example">'
+            '<div class="quick-summary-label">Exemplo mínimo</div>'
+            '<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div>'
+            f'<pre><code class="language-coral">{rendered}</code></pre></div></div>'
+            '</div>'
+        )
+    else:
+        example_html = '<p class="quick-summary-empty">Este módulo não possui um exemplo mínimo curto na documentação atual.</p>'
+
+    return (
+        '<section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo">'
+        '<div class="module-quick-summary-head">'
+        '<span class="module-quick-summary-kicker">Resumo rápido</span>'
+        '<h2 id="resumo-rapido-modulo">Antes de mergulhar</h2>'
+        '</div>'
+        '<div class="module-quick-grid">'
+        '<div class="module-quick-item"><strong>Serve para</strong>'
+        f'<p>{inline_markup(finalidade.rstrip("."))}.</p></div>'
+        '<div class="module-quick-item"><strong>Use quando</strong>'
+        f'<p>{inline_markup(when or finalidade)}</p></div>'
+        '<div class="module-quick-item"><strong>Talvez você não precise dele quando</strong>'
+        f'<p>{inline_markup(not_use)}</p></div>'
+        '<div class="module-quick-item"><strong>Relaciona se com</strong>'
+        f'<p>{related_html}</p></div>'
+        '</div>'
+        f'{example_html}'
+        '</section>'
+    )
+
+
 def render_docs(root: Path, version: dict[str, Any], modules: list[dict[str, Any]], nav: dict[str, Any]) -> list[Path]:
     docs_source = root / "docs" / "paginas"
     docs_public = root / "docs"
@@ -480,6 +643,7 @@ def render_docs(root: Path, version: dict[str, Any], modules: list[dict[str, Any
         docs_home = href_between(public_rel, "index.html")
         home_href = site_root + "index.html"
         toc_visible = [entry for entry in toc if entry["level"] == 2] if is_module else toc
+        quick_summary = build_module_quick_summary(md, meta, module_name, modules, public_rel, syntax) if is_module else ""
         out = template
         replacements = {
             "{{SITE_ROOT}}": site_root,
@@ -492,6 +656,7 @@ def render_docs(root: Path, version: dict[str, Any], modules: list[dict[str, Any
             "{{BOOK_EDITION}}": html.escape(str(version.get("livro", "?"))),
             "{{NAVIGATION}}": sidebar,
             "{{PAGE_GROUP}}": html.escape(group),
+            "{{MODULE_QUICK_SUMMARY}}": quick_summary,
             "{{CONTENT}}": body,
             "{{TOC}}": build_toc(toc_visible),
             "{{PREV_NEXT}}": build_prev_next(items, idx, public_rel),

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.colecoes — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,22 @@
       <div class="breadcrumb">Documentação / Outros módulos</div>
       <h1>coral.colecoes</h1>
       <p>coral.colecoes oferece operações comuns sobre coleções. Use para operações recorrentes sobre listas e outras coleções, como ordenar, remover duplicatas, contar e agrupar pares.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>operações comuns sobre coleções.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o problema corresponder diretamente aos conceitos acima.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="texto.html"><code>coral.texto</code></a>, <a href="persistencia.html"><code>coral.persistencia</code></a>, <a href="conversoes.html"><code>coral.conversoes</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.colecoes</span> <span class="code-key">importe</span> ordenar, unicos, primeiro
+
+<span class="code-key">defina</span> valores como [<span class="code-num">3</span>, <span class="code-num">1</span>, <span class="code-num">3</span>, <span class="code-num">2</span>]
+<span class="code-key">defina</span> ordenados como <span class="code-fn">ordenar</span>(valores)
+<span class="code-key">defina</span> sem_repeticao como <span class="code-fn">unicos</span>(valores)
+<span class="code-key">mostre</span> ordenados
+<span class="code-key">mostre</span> sem_repeticao
+<span class="code-key">mostre</span> <span class="code-fn">primeiro</span>(ordenados, nulo)</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.colecoes</code> oferece operações comuns sobre coleções. Use para operações recorrentes sobre listas e outras coleções, como ordenar, remover duplicatas, contar e agrupar pares.</p>
@@ -174,7 +189,7 @@
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Funções de coleção são boas candidatas a testes com entradas vazias, um único elemento, duplicatas e dados já ordenados.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.12</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.6.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="ordenar" data-searchable><code>ordenar</code></h4>

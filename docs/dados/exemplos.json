@@ -1,5 +1,5 @@
 {
-  "total": 58,
+  "total": 62,
   "arquivos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
@@ -13,6 +13,7 @@
     "Exemplos/Fundamentos/02_funcoes_tipos_e_escopo.coral",
     "Exemplos/Fundamentos/03_objetos_e_erros.coral",
     "Exemplos/Fundamentos/04_geradores_e_assincrono.coral",
+    "Exemplos/Fundamentos/14_portugues_corrente_1_5_19.coral",
     "Exemplos/Jogos/01_jogo_e_entrada_sem_janela.coral",
     "Exemplos/Jogos/02_sprites_transformacoes_e_animacao.coral",
     "Exemplos/Jogos/03_tilemap_e_camera.coral",
@@ -21,6 +22,9 @@
     "Exemplos/Jogos/06_laboratorio_espaco_visual.coral",
     "Exemplos/Jogos/07_regras_reativas_visual.coral",
     "Exemplos/Jogos/08_mapa_interativo.coral",
+    "Exemplos/Jogos/09_camera_enquadramento_1_5_13.coral",
+    "Exemplos/Jogos/10_animacao_tempo_eventos_1_5_13.coral",
+    "Exemplos/Jogos/11_camadas_hud_transicao_1_5_13.coral",
     "Exemplos/Mundo/01_mundo_e_rpg.coral",
     "Exemplos/Mundo/02_mapas_camadas_e_topologias.coral",
     "Exemplos/Mundo/03_regioes_e_travessia.coral",

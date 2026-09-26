@@ -8,23 +8,32 @@ O primeiro programa pode ser um único arquivo. Crie `ola.coral` e coloque o con
 mostre "Olá, Coral!"
 
 defina pontos como 10
-adicione 5 a pontos
+aumente pontos em 5
 
-se pontos for maior ou igual a 15 então
+se pontos é maior que 14
     mostre "Meta alcançada"
 senão
     mostre "Continue tentando"
 fim
 ```
 
-O exemplo mostra saída, variável, alteração de valor e uma decisão condicional.
+:::resultado
+A saída é:
+
+```saida
+Olá, Coral!
+Meta alcançada
+```
+:::
+
+O exemplo mostra saída, variável, alteração de valor e uma decisão condicional usando o português corrente consolidado na linha 1.5.19. As formas anteriores, como `adicione 5 a pontos` e o cabeçalho com `então`, continuam válidas.
 
 ## Executar
 
 Com o runtime portátil:
 
 ```bash
-python coral-1.5.12.pyz executar ola.coral
+python coral-1.6.0.pyz executar ola.coral
 ```
 
 Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.
@@ -34,7 +43,7 @@ Se a instalação persistente já estiver registrada, você pode usar o comando 
 Para validar o programa sem rodar seus efeitos:
 
 ```bash
-python coral-1.5.12.pyz verificar ola.coral
+python coral-1.6.0.pyz verificar ola.coral
 ```
 
 Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.

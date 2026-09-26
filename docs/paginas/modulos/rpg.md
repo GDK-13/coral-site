@@ -58,6 +58,10 @@ crie um combate chamado batalha com heroina e monstro
 inicie o combate batalha usando a semente 4
 ```
 
+:::resultado
+O exemplo cria dois personagens no mundo, produz uma rolagem reproduzível pela semente, aplica dano e cura e inicia um combate com ordem determinada pela semente informada.
+:::
+
 ## API essencial
 
 | Entrada | Papel | Assinatura |
@@ -109,7 +113,7 @@ Personagens, rolagens e combate funcionam sem janela. Testes podem fixar semente
 
 ## Compatibilidade e evolução
 
-A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura permanece na **Coral 1.5.12**.
+A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura continua publicada na **Coral 1.6.0**, sem alteração de superfície pública detectada na importação desta release.
 
 ## Referência da API
 

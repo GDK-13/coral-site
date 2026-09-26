@@ -13,7 +13,8 @@ python tools/atualizar_docs.py
 Importar uma nova release:
 
 ```bash
-python tools/atualizar_docs.py /caminho/Coral_1.5.12_Completo.zip
+python tools/atualizar_docs.py /caminho/Coral_X.Y.Z_Completo.zip
+# também aceita o pacote Coral_X.Y.Z_Entrega_Final.zip quando ele contém o ZIP completo
 ```
 
 Gerar sitemap/robots com o domínio real (antes de publicar):
@@ -73,10 +74,16 @@ O realce de sintaxe Coral está implementado no renderer estático. A especifica
 
 ## Validação rápida
 
-Antes de publicar, execute:
+Antes de publicar, execute o gate estrutural:
 
 ```bash
 python tools/validar_site.py
+```
+
+Para repetir o fluxo local completo da release corrente, incluindo regeneração, testes do realce, compilação dos utilitários e conferência de identidade:
+
+```bash
+bash scripts/validar_site_atual.sh
 ```
 
 Esse gate verifica o realce léxico Coral, fidelidade do texto copiado, whitelist de linguagens, contrato sintático, links locais, âncoras e IDs.

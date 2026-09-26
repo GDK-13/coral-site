@@ -47,7 +47,7 @@ Não use como substituto de APIs de alto nível que já existem em outros módul
 
 ## Começando
 
-O exemplo abaixo foi validado com o runtime 1.5.12:
+O exemplo abaixo foi validado com o runtime 1.6.0:
 
 ```coral
 de coral.sistema importe informacoes, pasta_atual, variavel_ambiente
@@ -57,6 +57,10 @@ mostre ambiente.sistema
 mostre pasta_atual()
 mostre variavel_ambiente("HOME", "")
 ```
+
+:::resultado
+O programa mostra três informações do ambiente atual: o sistema operacional identificado, a pasta de trabalho e o valor de `HOME`. Os valores exatos dependem do computador.
+:::
 
 ## API essencial
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Exemplos oficiais — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,21 +113,55 @@
       <div class="breadcrumb">Documentação / Referência</div>
       <h1>Exemplos oficiais</h1>
       <p>A biblioteca de exemplos serve para aprender recursos reais da linguagem sem misturar demonstrações pedagógicas com fixtures internas de aceitação.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>A biblioteca de exemplos serve para aprender recursos reais da linguagem sem misturar demonstrações pedagógicas com fixtures internas de aceitação.</p>
 <h2 id="organizacao" data-searchable>Organização</h2>
 <p data-searchable>Os exemplos são agrupados por assunto, como fundamentos, dados, jogos, mundo, regras, simulações e projetos completos. Exemplos muito pequenos ou quase idênticos são condensados para reduzir repetição.</p>
 <h2 id="como-usar" data-searchable>Como usar</h2>
 <p data-searchable>Abra um exemplo próximo do assunto que você quer estudar e execute o arquivo com o runtime da release. Projetos completos possuem sua própria estrutura e podem incluir <code>coral.toml</code>, módulos auxiliares e testes.</p>
+<h2 id="portugues-corrente-na-coral-1-5-19" data-searchable>Português corrente na Coral 1.5.19</h2>
+<p data-searchable>O exemplo <code>Exemplos/Fundamentos/14_portugues_corrente_1_5_19.coral</code> concentra as formas naturais adicionadas na 1.5.19. Ele demonstra consultas de vazio, iteração com <code>de</code>, faixa inclusiva, prefixo e sufixo, mutações de coleção, conversão e alteração numérica.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> idades como [<span class="code-num">17</span>, <span class="code-num">22</span>, <span class="code-num">35</span>]
+<span class="code-key">defina</span> nome como <span class="code-str">&quot;Coral&quot;</span>
+
+<span class="code-key">se</span> idades não está vazia
+    <span class="code-key">mostre</span> quantidade de itens em idades
+<span class="code-key">fim</span>
+
+<span class="code-key">para</span> <span class="code-key">cada</span> idade de idades <span class="code-key">faça</span>
+    <span class="code-key">se</span> idade está entre <span class="code-num">18</span> e <span class="code-num">60</span>
+        <span class="code-key">mostre</span> idade
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">se</span> nome começa com <span class="code-str">&quot;Cor&quot;</span> e nome termina com <span class="code-str">&quot;al&quot;</span>
+    <span class="code-key">mostre</span> <span class="code-str">&quot;nome reconhecido&quot;</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<h2 id="coral-1-6-0-coesao-sem-inflar-a-biblioteca-de-exemplos" data-searchable>Coral 1.6.0: coesão sem inflar a biblioteca de exemplos</h2>
+<p data-searchable>O inventário importado não registra exemplos novos entre a base 1.5.20 e a 1.6.0. A 1.5.21 e a 1.6.0 concentram mudanças de coesão, fronteiras internas, runtime, stdlib e sustentabilidade sem introduzir uma nova camada sintática ou domínio público que exija outra leva de exemplos pedagógicos. Os exemplos existentes continuam sendo a referência para a superfície funcional preservada.</p>
+<h2 id="apresentacao-2d-introduzida-na-coral-1-5-13" data-searchable>Apresentação 2D introduzida na Coral 1.5.13</h2>
+<p data-searchable>Três exemplos de Jogos continuam como referência para a camada 2D introduzida na 1.5.13:</p>
+<ul>
+<li data-searchable><code>Exemplos/Jogos/09_camera_enquadramento_1_5_13.coral</code>: seguimento, zona morta, antecipação, limites, enquadramento, zoom, rotação e efeitos determinísticos de câmera.</li>
+<li data-searchable><code>Exemplos/Jogos/10_animacao_tempo_eventos_1_5_13.coral</code>: animação por quadros, quadros chave, clipes, estados, eventos e composição temporal headless.</li>
+<li data-searchable><code>Exemplos/Jogos/11_camadas_hud_transicao_1_5_13.coral</code>: camadas, paralaxe, HUD, texto 2D, animação de propriedades, composição e transição de cena.</li>
+</ul>
 <h2 id="exemplos-citados-pelo-livro" data-searchable>Exemplos citados pelo Livro</h2>
 <p data-searchable>Os códigos citados no Livro também são sincronizados em <code>Livro/Exemplos/Citados</code>. Essa cópia existe para tornar o material autocontido, mas os caminhos canônicos continuam na biblioteca geral de exemplos.</p>
 <h2 id="fixtures-de-aceitacao" data-searchable>Fixtures de aceitação</h2>
 <p data-searchable>Fixtures usadas para provar comportamento do compilador não ficam misturadas com os exemplos pedagógicos. Elas pertencem à área de testes da distribuição.</p>
 <h2 id="inventario-da-release" data-searchable>Inventário da release</h2>
 <p data-searchable>O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.</p>
-<p data-searchable><strong>Total detectado na release:</strong> 58 arquivos <code>.coral</code>.</p>
+<p data-searchable><strong>Total detectado na release:</strong> 62 arquivos <code>.coral</code>.</p>
 <div class="table-wrap"><table><thead><tr>
 <th>Área</th>
 <th>Arquivos</th>
@@ -134,8 +169,8 @@
 <tr><td data-searchable>Agentes</td><td data-searchable>2</td></tr>
 <tr><td data-searchable>Dados</td><td data-searchable>5</td></tr>
 <tr><td data-searchable>Espaco</td><td data-searchable>1</td></tr>
-<tr><td data-searchable>Fundamentos</td><td data-searchable>4</td></tr>
-<tr><td data-searchable>Jogos</td><td data-searchable>8</td></tr>
+<tr><td data-searchable>Fundamentos</td><td data-searchable>5</td></tr>
+<tr><td data-searchable>Jogos</td><td data-searchable>11</td></tr>
 <tr><td data-searchable>Mundo</td><td data-searchable>4</td></tr>
 <tr><td data-searchable>Projetos_Completos</td><td data-searchable>16</td></tr>
 <tr><td data-searchable>Regras</td><td data-searchable>3</td></tr>
@@ -150,6 +185,9 @@
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#organizacao" data-toc-link>Organização</a></li>
 <li class="toc-level-2"><a href="#como-usar" data-toc-link>Como usar</a></li>
+<li class="toc-level-2"><a href="#portugues-corrente-na-coral-1-5-19" data-toc-link>Português corrente na Coral 1.5.19</a></li>
+<li class="toc-level-2"><a href="#coral-1-6-0-coesao-sem-inflar-a-biblioteca-de-exemplos" data-toc-link>Coral 1.6.0: coesão sem inflar a biblioteca de exemplos</a></li>
+<li class="toc-level-2"><a href="#apresentacao-2d-introduzida-na-coral-1-5-13" data-toc-link>Apresentação 2D introduzida na Coral 1.5.13</a></li>
 <li class="toc-level-2"><a href="#exemplos-citados-pelo-livro" data-toc-link>Exemplos citados pelo Livro</a></li>
 <li class="toc-level-2"><a href="#fixtures-de-aceitacao" data-toc-link>Fixtures de aceitação</a></li>
 <li class="toc-level-2"><a href="#inventario-da-release" data-toc-link>Inventário da release</a></li></ul>

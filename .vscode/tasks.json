@@ -37,6 +37,18 @@
       "group": "test"
     },
     {
+      "label": "Coral Site: Gate completo local",
+      "type": "shell",
+      "command": "bash scripts/validar_site_atual.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "group": "test"
+    },
+    {
       "label": "Coral Site: Servir localmente",
       "type": "shell",
       "command": "python -m http.server 8000",
@@ -54,7 +66,7 @@
       "id": "coralReleaseZip",
       "type": "promptString",
       "description": "Caminho para o ZIP oficial da release Coral",
-      "default": "../Coral_1.5.10_Completo.zip"
+      "default": "../Coral_1.6.0_Entrega_Final.zip"
     }
   ]
 }

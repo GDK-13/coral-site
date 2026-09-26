@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Instalação — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,15 @@
       <div class="breadcrumb">Documentação / Primeiros passos</div>
       <h1>Instalação</h1>
       <p>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.</p>
 <h2 id="antes-de-instalar" data-searchable>Antes de instalar</h2>
@@ -121,19 +129,19 @@
 <h2 id="linux" data-searchable>Linux</h2>
 <p data-searchable>Na raiz da distribuição extraída:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.5.12.pyz --versao</code></pre></div></div>
+python Instalacao/Runtime/coral-1.6.0.pyz --versao</code></pre></div></div>
 <p data-searchable>O segundo comando deve informar a versão corrente da Coral.</p>
 <h2 id="windows" data-searchable>Windows</h2>
 <p data-searchable>Na raiz da distribuição extraída:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">Instalacao\Coral_Setup.cmd
-python Instalacao\Runtime\coral-1.5.12.pyz --versao</code></pre></div></div>
+python Instalacao\Runtime\coral-1.6.0.pyz --versao</code></pre></div></div>
 <h2 id="instalar-a-extensao-do-vs-code" data-searchable>Instalar a extensão do VS Code</h2>
-<p data-searchable>A extensão oficial fica em <code>Instalacao/Extensao_VSCode/</code>. No VS Code, use <strong>Extensions: Install from VSIX</strong> e selecione o arquivo <code>coral-language-0.43.0.vsix</code>.</p>
+<p data-searchable>A extensão oficial fica em <code>Instalacao/Extensao_VSCode/</code>. No VS Code, use <strong>Extensions: Install from VSIX</strong> e selecione o arquivo <code>coral-language-0.53.0.vsix</code>.</p>
 <p data-searchable>Depois, execute <strong>Developer: Reload Window</strong> para reiniciar o host da extensão.</p>
 <h2 id="verificar-a-instalacao" data-searchable>Verificar a instalação</h2>
 <p data-searchable>Use o próprio runtime para conferir o ambiente:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python Instalacao/Runtime/coral-1.5.12.pyz --self-check
-python Instalacao/Runtime/coral-1.5.12.pyz --ambiente</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python Instalacao/Runtime/coral-1.6.0.pyz --self-check
+python Instalacao/Runtime/coral-1.6.0.pyz --ambiente</code></pre></div></div>
 <p data-searchable>Se estiver no VS Code, a visão <strong>Ambiente Coral</strong> também mostra runtime, projeto, LSP, DAP e componentes disponíveis.</p>
 <h2 id="atualizar-para-uma-nova-release" data-searchable>Atualizar para uma nova release</h2>
 <p data-searchable>Cada release completa é autocontida. Para atualizar, extraia a nova distribuição e execute novamente o assistente de instalação. A documentação do site é atualizada a partir do ZIP oficial da release, então versões exibidas aqui acompanham o pacote publicado.</p>

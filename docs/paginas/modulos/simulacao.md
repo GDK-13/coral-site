@@ -113,7 +113,7 @@ A simulação pode ser avançada com durações explícitas, sem depender do rel
 
 ## Compatibilidade e evolução
 
-A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.5.12**. A 1.5.12 preserva a superfície funcional e concentra suas mudanças na infraestrutura de validação da linguagem.
+A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.6.0**. A apresentação 2D introduzida na 1.5.13 pode consumir seu tempo e estado por integração explícita, sem tornar a simulação dependente da janela; a importação da 1.6.0 não detecta alteração na superfície pública deste módulo.
 
 ## Referência da API
 
@@ -265,7 +265,7 @@ Relógio semântico de mundo sobre :class:`RelogioSimulado`.
 
 #### `FaseCiclo`
 
-Representa FaseCiclo na API de `coral.simulacao`.
+Representa fases temporais repetíveis ou finitas.
 
 **Parâmetros**
 
@@ -447,7 +447,7 @@ Ciclo temporal configurável com consulta O(1) da fase corrente.
 
 #### `PassoSistema`
 
-Representa PassoSistema na API de `coral.simulacao`.
+Representa contexto de uma chamada ou lote de execuções.
 
 **Parâmetros**
 
@@ -520,6 +520,14 @@ Representa ResultadoSistema na API de `coral.simulacao`.
 #### `Sistema`
 
 Processo temporal recorrente independente de RPG e de interface gráfica.
+
+**Exemplo**
+
+```coral
+crie uma simulacao chamada fabrica
+execute fabrica.adicionar_sistema(Sistema("producao", produzir, intervalo=10, modo="agregado"))
+avance a simulacao fabrica por 1 minuto
+```
 
 **Parâmetros**
 

@@ -4,10 +4,12 @@ from __future__ import annotations
 import argparse
 import ast
 import html
+import io
 import json
 import re
 import sys
 import zipfile
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -85,6 +87,39 @@ def read_zip_text(zf: zipfile.ZipFile, suffix: str) -> str:
         return ""
     matches.sort(key=len)
     return zf.read(matches[0]).decode("utf-8", errors="replace")
+
+
+@contextmanager
+def open_release_zip(zip_path: Path):
+    """Abre um ZIP completo Coral ou uma Entrega Final que o contenha.
+
+    Pacotes de entrega podem agrupar o runtime, hashes e patches ao redor do
+    ``Coral_X.Y.Z_Completo.zip``. O importador continua lendo somente o ZIP
+    completo canônico e nunca tenta compor a documentação a partir de patches.
+    """
+    outer = zipfile.ZipFile(zip_path)
+    try:
+        if any(name.endswith("Projeto/coral/__init__.py") for name in outer.namelist()):
+            yield outer
+            return
+
+        nested = [
+            name for name in outer.namelist()
+            if re.search(r"(?:^|/)Coral_\d+\.\d+\.\d+_Completo\.zip$", name)
+        ]
+        if not nested:
+            raise RuntimeError(
+                "pacote sem árvore completa Coral e sem Coral_X.Y.Z_Completo.zip interno"
+            )
+        nested.sort(key=lambda name: (name.count("/"), len(name), name))
+        payload = outer.read(nested[0])
+        inner = zipfile.ZipFile(io.BytesIO(payload))
+        try:
+            yield inner
+        finally:
+            inner.close()
+    finally:
+        outer.close()
 
 
 def parse_version_init(text: str) -> tuple[str, str]:
@@ -193,13 +228,26 @@ def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]
 
 
 def read_generated_contract(zf: zipfile.ZipFile) -> str:
+    # Até a 1.5.17 os contratos gerados viviam em Projeto/docs. A higiene
+    # documental da 1.5.18 promoveu Documentacao/Desenvolvimento/Projeto como
+    # árvore canônica. O site aceita ambos para continuar importando releases
+    # históricas sem confundir a mudança de pasta com remoção da CLI.
     candidates = [
         name for name in zf.namelist()
-        if re.search(r"Projeto/docs/CONTRATOS_GERADOS(?:_[0-9_]+)?\.md$", name)
+        if re.search(
+            r"(?:Projeto/docs|Documentacao/Desenvolvimento/Projeto)/"
+            r"CONTRATOS_GERADOS(?:_[0-9_]+)?\.md$",
+            name,
+        )
     ]
     if not candidates:
         return ""
-    candidates.sort(key=lambda n: (len(n), n), reverse=True)
+
+    def prioridade(name: str) -> tuple[int, int, str]:
+        canonico = int("/Documentacao/Desenvolvimento/Projeto/" in name)
+        return (canonico, len(name), name)
+
+    candidates.sort(key=prioridade, reverse=True)
     return zf.read(candidates[0]).decode("utf-8", errors="replace")
 
 
@@ -235,18 +283,21 @@ def parse_cli_contract(text: str) -> dict[str, Any]:
 def changelog_for_version(text: str, version: str) -> str:
     if not text:
         return ""
-    pattern = re.compile(rf"^#\s+{re.escape(version)}\b.*?$", re.M)
+    # Releases recentes podem titular a seção como ``# Coral X.Y.Z`` enquanto
+    # o histórico mais antigo usa apenas ``# X.Y.Z``. As duas formas são
+    # equivalentes para o importador.
+    pattern = re.compile(rf"^#\s+(?:Coral\s+)?{re.escape(version)}\b.*?$", re.M)
     m = pattern.search(text)
     if not m:
         return ""
     start = m.start()
-    nxt = re.search(r"^#\s+\d+\.\d+\.\d+\b", text[m.end():], re.M)
+    nxt = re.search(r"^#\s+(?:Coral\s+)?\d+\.\d+\.\d+\b", text[m.end():], re.M)
     end = m.end() + nxt.start() if nxt else len(text)
     return text[start:end].strip() + "\n"
 
 
 def import_release(zip_path: Path) -> ReleaseInfo:
-    with zipfile.ZipFile(zip_path) as zf:
+    with open_release_zip(zip_path) as zf:
         init_text = read_zip_text(zf, "Projeto/coral/__init__.py")
         runtime, livro = parse_version_init(init_text)
 
@@ -346,7 +397,8 @@ def diff_release(old: dict[str, Any], new: dict[str, Any]) -> dict[str, Any]:
         "cli_removido": sorted(old_cli - new_cli),
         "exemplos_novos": sorted(new_ex - old_ex),
         "exemplos_removidos": sorted(old_ex - new_ex),
-        "sintaxe_alterada": old.get("sintaxe") != new.get("sintaxe"),
+        "sintaxe_alterada": ({k: v for k, v in old.get("sintaxe", {}).items() if k != "release"}
+                             != {k: v for k, v in new.get("sintaxe", {}).items() if k != "release"}),
     }
 
 

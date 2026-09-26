@@ -18,6 +18,23 @@ A linguagem cobre programação geral e também domínios que costumam exigir ba
 
 A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma página própria nesta documentação.
 
+## Português corrente com equivalência determinística
+
+A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que significam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.
+
+A linha 1.5.19 ampliou esse vocabulário com formas como `passa a ser`, `aumente`, `diminua`, `devolva`, comparações com `é`, pertencimento com `está em`, condições sem `então`, laços sem `faça`, consultas de vazio e faixa, operações de coleção e conversões naturais. As formas anteriores continuam válidas.
+
+```coral
+defina idade como 18
+aumente idade em 1
+
+se idade é maior que 18
+    mostre "maior de idade"
+fim
+```
+
+A Coral 1.6.0 preserva essa superfície pública e reorganiza o interior da linguagem em fronteiras explícitas entre parser, AST, backend, runtime e biblioteca padrão. A equivalência estrutural da AST passa a ser usada para provar que formas superficiais equivalentes do português corrente convergem para a mesma estrutura semântica.
+
 ## Arquivo único ou projeto
 
 Um arquivo `.coral` pode ser executado sozinho. Isso é útil para estudar, experimentar uma ideia ou escrever pequenos programas.

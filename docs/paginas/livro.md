@@ -21,6 +21,6 @@ O Livro segue a mesma identidade oficial da Coral: Fraunces em títulos principa
 <!-- AUTO:EDICAO -->
 
 **Edição editorial corrente:** `1.5.8`.  
-**Runtime corrente:** `1.5.12`.
+**Runtime corrente:** `1.6.0`.
 
 <!-- /AUTO:EDICAO -->

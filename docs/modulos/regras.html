@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.regras — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,27 @@
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.regras</h1>
       <p>coral.regras é o motor reativo da Coral. Ele reúne condições, ações, eventos, temporização, observadores e sequências para expressar comportamento que reage ao estado sem espalhar condicionais e callbacks por todo o programa.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>regras reativas, eventos, temporizadores e observadores.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use quando a lógica é naturalmente descrita como condição, reação, evento ou transição.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="mundo.html"><code>coral.mundo</code></a>, <a href="jogos.html"><code>coral.jogos</code></a>, <a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a>, <a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a>, <a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> vida como <span class="code-num">10</span>
+<span class="code-key">defina</span> estado como <span class="code-str">&quot;normal&quot;</span>
+
+regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou igual a <span class="code-num">5</span> <span class="code-key">então</span>
+    <span class="code-key">defina</span> estado como <span class="code-str">&quot;ferido&quot;</span>
+<span class="code-key">fim</span>
+
+quando vida mudar
+    <span class="code-key">mostre</span> vida
+<span class="code-key">fim</span>
+
+avalie as regras
+<span class="code-comment"># …</span></code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.regras</code> é o motor reativo da Coral. Ele reúne condições, ações, eventos, temporização, observadores e sequências para expressar comportamento que reage ao estado sem espalhar condicionais e callbacks por todo o programa.</p>
@@ -152,6 +172,7 @@ quando vida mudar
 avalie as regras
 <span class="code-key">defina</span> vida como <span class="code-num">4</span>
 avalie as regras</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Na segunda avaliação, com <code>vida</code> igual a <code>4</code>, a condição da regra fica verdadeira e <code>estado</code> passa a ser <code>ferido</code>. O observador de mudança também reage à alteração de <code>vida</code>.</p></div></details>
 <h2 id="api-essencial" data-searchable>API essencial</h2>
 <div class="table-wrap"><table><thead><tr>
 <th>Entrada</th>
@@ -281,6 +302,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>avaliar</code></td><td data-searchable>Executa a operação <code>avaliar</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>bool</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Regra(nome: str, condicao: Condicao, acao: Acao, modo: str = 'ao_ativar', habilitada: bool = True, ativa: bool = False, execucoes: int = 0, prioridade: str \| int = 'normal', max_execucoes: int \| None = None, cooldown: float = 0.0, ultimo_disparo: float \| None = None, motivo_ultima_supressao: str \| None = None, ultima_condicao: bool \| None = None)</code></p>
@@ -292,6 +314,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>avaliar</code></td><td data-searchable>método</td><td data-searchable><code>avaliar(contexto: Any, *, instante: float | None = None) -&gt; bool</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="gruporegras" data-searchable><code>GrupoRegras</code></h4>
@@ -374,6 +397,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Retorno</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>notificar</code></td><td data-searchable>Executa a operação <code>notificar</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>bool</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Debounce(intervalo: float, acao: Acao, nome: str = 'debounce', restante: float \| None = None, pendente: bool = False, contexto_mais_recente: Any = None)</code></p>
@@ -386,6 +410,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Assinatura</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>notificar</code></td><td data-searchable>método</td><td data-searchable><code>notificar(contexto: Any = None) -&gt; None</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(dt: float) -&gt; bool</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="temporizador" data-searchable><code>Temporizador</code></h4>
@@ -424,6 +449,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>Atualiza o valor solicitado.</td><td data-searchable><code>int</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Temporizador(intervalo: float, acao: Acao, repetir: bool = False, nome: str = 'temporizador', restante: float \| None = None, ativo: bool = True)</code></p>
@@ -435,6 +461,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>atualizar</code></td><td data-searchable>método</td><td data-searchable><code>atualizar(contexto: Any, dt: float) -&gt; int</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="eventos-2" data-searchable><code>Eventos</code></h4>
@@ -456,6 +483,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>pendentes</code></td><td data-searchable>Obtém pendentes.</td><td data-searchable><code>int</code></td></tr>
 <tr><td data-searchable><code>pai</code></td><td data-searchable>Obtém pai.</td><td data-searchable><code>'Eventos | None'</code></td></tr>
 <tr><td data-searchable><code>relogio</code></td><td data-searchable>Obtém relogio.</td><td data-searchable><code>FonteTempo | None</code></td></tr>
@@ -490,6 +518,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>pendentes</code></td><td data-searchable>propriedade</td><td data-searchable><code>pendentes() -&gt; int</code></td></tr>
 <tr><td data-searchable><code>pai</code></td><td data-searchable>propriedade</td><td data-searchable><code>pai() -&gt; 'Eventos | None'</code></td></tr>
 <tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; FonteTempo | None</code></td></tr>
@@ -525,6 +554,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.regras</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona o valor solicitado.</td><td data-searchable><code>Regra</code></td></tr>
 <tr><td data-searchable><code>regra</code></td><td data-searchable>Helper de criação.</td><td data-searchable><code>Regra</code></td></tr>
 <tr><td data-searchable><code>obter_regra</code></td><td data-searchable>Obtém regra.</td><td data-searchable><code>Regra</code></td></tr>
@@ -574,6 +604,7 @@ regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou 
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(regra: Regra) -&gt; Regra</code></td></tr>
 <tr><td data-searchable><code>regra</code></td><td data-searchable>método</td><td data-searchable><code>regra(nome: str, condicao: Condicao, acao: Acao, *, modo: str = 'ao_ativar', prioridade: str | int = 'normal', max_execucoes: int | None = None, cooldown: float = 0.0) -&gt; Regra</code></td></tr>
 <tr><td data-searchable><code>obter_regra</code></td><td data-searchable>método</td><td data-searchable><code>obter_regra(nome: str) -&gt; Regra</code></td></tr>

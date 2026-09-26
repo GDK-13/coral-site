@@ -112,7 +112,7 @@ Recursos, atributos e modificadores são determinísticos para o mesmo estado de
 
 ## Compatibilidade e evolução
 
-A superfície funcional foi introduzida na linha 1.5.10 e permanece publicada na **Coral 1.5.12**. A 1.5.12 preserva essa API enquanto reorganiza a infraestrutura de testes da linguagem.
+A superfície funcional foi introduzida na linha 1.5.10 e permanece publicada na **Coral 1.6.0**. A importação da 1.6.0 não detecta alteração nessa API; a release atual preserva a superfície enquanto fecha a coesão interna do runtime.
 
 ## Referência da API
 
@@ -307,6 +307,16 @@ Valor base com composição determinística de modificadores rastreáveis.
 
 Condição temporal neutra que pode aplicar modificadores a um agente.
 
+**Exemplo**
+
+```coral
+execute robo.definir_atributo("potencia", 10)
+defina turbo como Efeito("turbo", 2, modificadores={"potencia": [Modificador("bonus", 5)]})
+aplique o efeito turbo a robo
+
+execute robo.atualizar(2)
+```
+
 **Parâmetros**
 
 | Parâmetro | Significado | Tipo | Padrão |
@@ -413,7 +423,17 @@ Ação reutilizável com custos de recursos e recarga por tempo simulado.
 
 #### `Modificador`
 
-Representa Modificador na API de `coral.agentes`.
+Representa alteração rastreável aplicada a um atributo.
+
+**Exemplo**
+
+```coral
+execute robo.definir_atributo("potencia", 10)
+defina turbo como Efeito("turbo", 2, modificadores={"potencia": [Modificador("bonus", 5)]})
+aplique o efeito turbo a robo
+
+execute robo.atualizar(2)
+```
 
 **Parâmetros**
 

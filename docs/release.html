@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Release atual — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,15 @@
       <div class="breadcrumb">Documentação / Referência</div>
       <h1>Release atual</h1>
       <p>Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>Esta página resume a release estável publicada e recebe automaticamente o changelog extraído do ZIP oficial.</p>
 <h2 id="o-que-significa-estavel" data-searchable>O que significa estável</h2>
@@ -122,19 +130,91 @@
 <p data-searchable>A versão do runtime, a versão da extensão e a edição do Livro aparecem separadamente porque são artefatos diferentes. Isso evita promover uma nova edição editorial apenas para acompanhar uma alteração técnica.</p>
 <h2 id="atualizacao-do-site" data-searchable>Atualização do site</h2>
 <p data-searchable>Quando uma nova Coral é publicada, o gerador deste repositório importa o ZIP oficial, compara com o snapshot anterior e atualiza versões, módulos, CLI, exemplos, changelog e páginas mecânicas. Mudanças pedagógicas continuam passando por revisão humana.</p>
-<h2 id="changelog" data-searchable>Changelog</h2>
-<p data-searchable>O trecho abaixo vem diretamente do changelog da release importada.</p>
-<h2 id="1-5-12-infraestrutura-de-testes-evidencia-e-reducao-fisica" data-searchable>1.5.12 — infraestrutura de testes, evidência e redução física</h2>
+<h2 id="resumo-da-coral-1-6-0" data-searchable>Resumo da Coral 1.6.0</h2>
+<p data-searchable>A 1.6.0 é a release de <strong>Coesão Interna</strong>. Ela parte da candidata 1.5.21 e preserva a superfície pública da linha 1.5 enquanto fecha fronteiras entre parser, AST, backend, runtime, biblioteca padrão e serviços internos.</p>
 <ul>
-<li data-searchable>Reduz a suíte coletável em relação à base física reconstruída da 1.5.11, mantendo a meta de até 1.350 casos no freeze.</li>
-<li data-searchable>Introduz grafo de impacto estático, estrutural e dinâmico com IDs estáveis e validação própria.</li>
-<li data-searchable>Adiciona Livro Razão de Evidências com invalidação por conteúdo e versões da infraestrutura.</li>
-<li data-searchable>Mantém o seletor de impacto em modo sombra, com fallback conservador e recall de falhas de 100% nas campanhas controladas.</li>
-<li data-searchable>Torna permanente o Harness de Mutação com 12 cenários obrigatórios.</li>
-<li data-searchable>Adiciona Pulso de dívida temporal, explicabilidade de impacto e controles aditivos.</li>
-<li data-searchable>Elimina recursão redundante dos gates históricos por orquestração plana baseada em evidência.</li>
-<li data-searchable>Reforça o pipeline final com compileall, Ruff crítico e reutilização de slow e histórico completos do mesmo freeze.</li>
-<li data-searchable>Preserva a superfície funcional da Coral 1.5.11, a extensão Coral Language 0.43.0 e o Livro Oficial na edição 1.5.8.</li>
+<li data-searchable><strong>Fronteiras arquiteturais:</strong> <code>coral.release.arquitetura/1</code> declara camadas, contratos, autoridades, grafo de dependências e orçamentos estruturais.</li>
+<li data-searchable><strong>Parser, AST e backend:</strong> o núcleo semântico recebe AST, o backend estrutural deixa de reabrir parsing e a normalização de chamadas naturais acontece antes do backend.</li>
+<li data-searchable><strong>Equivalência estrutural:</strong> a AST ganha assinatura e comparação estrutural para provar a convergência de formas superficiais equivalentes do português corrente.</li>
+<li data-searchable><strong>Runtime mínimo:</strong> <code>coral.runtime_minimo</code> concentra o núcleo sem dependências opcionais; <code>coral.runtime</code> permanece como fachada compatível e os serviços internos são resolvidos de forma preguiçosa.</li>
+<li data-searchable><strong>Stdlib e persistência:</strong> fachadas públicas ficam separadas das implementações canônicas. <code>coral.persistencia</code> passa a expor <code>VERSOES_LEITURA</code>, <code>VERSAO_ESCRITA</code> e <code>politica_persistencia()</code> para tornar executável a política do formato persistente.</li>
+<li data-searchable><strong>Fechamento arquitetural:</strong> o gate final exige zero ciclos, zero violações de camada e zero exceções transitórias, mantendo hotspots centrais sob orçamento explícito.</li>
+<li data-searchable><strong>Suíte específica de release:</strong> casos históricos redundantes foram consolidados em testes orientados a contrato, sem criar um novo teste CP24 específico da versão para permanecer na suíte ativa.</li>
+</ul>
+<h3 id="ponte-da-1-5-21" data-searchable>Ponte da 1.5.21</h3>
+<p data-searchable>A 1.5.21 funcionou como <strong>Candidata de Coesão</strong> entre a sustentabilidade da 1.5.20 e a arquitetura 1.6.0. Ela reduziu acoplamento em CLI, LSP e Setup, extraiu responsabilidades visuais e de catálogo, e convergiu autoridades internas usadas pelo fluxo de release.</p>
+<h3 id="o-que-muda-para-quem-programa-em-coral" data-searchable>O que muda para quem programa em Coral</h3>
+<p data-searchable>Para a maior parte dos programas, a atualização é deliberadamente pouco disruptiva: o importador do site não detectou módulos novos ou removidos, mudança de sintaxe, comandos novos de CLI nem alteração na biblioteca de exemplos. A principal ampliação pública detectada está em <code>coral.persistencia</code>, que agora expõe a política de compatibilidade do formato como dados consultáveis.</p>
+<p data-searchable>Isso significa que a 1.6.0 deve ser lida principalmente como uma mudança de <strong>como a linguagem é organizada e verificada por dentro</strong>, e não como uma troca do vocabulário que o usuário já aprendeu na linha 1.5.</p>
+<h3 id="estado-do-congelamento" data-searchable>Estado do congelamento</h3>
+<p data-searchable>A entrega final declara a Coral 1.6.0 <strong>congelada, publicável e promovida</strong>, com Coral Language <code>0.53.0</code> e Livro Oficial <code>1.5.8</code>. O fechamento registra 1467 testes rápidos aprovados, 88 desmarcados, 30 subtests aprovados, 38 de 38 arquivos slow aprovados, ciclo real de instalação aprovado, auditoria estrita de versões aprovada, sustentabilidade 6 de 6, higiene final sem candidatos e equivalência aprovada para o ZIP completo e os patches.</p>
+<p data-searchable>O trecho de <code>CHANGELOG.md</code> importado abaixo preserva literalmente o cabeçalho <strong>“em desenvolvimento”</strong> presente no arquivo fonte da distribuição. O estado oficial desta página segue a entrega final congelada.</p>
+<h2 id="changelog-importado" data-searchable>Changelog importado</h2>
+<p data-searchable>O trecho abaixo vem diretamente do changelog da release importada.</p>
+<h2 id="coral-1-6-0-em-desenvolvimento" data-searchable>Coral 1.6.0 — em desenvolvimento</h2>
+<h2 id="cp24-congelamento" data-searchable>CP24 — Congelamento</h2>
+<ul>
+<li data-searchable>Torna o fechamento arquitetural parte obrigatória do congelamento 1.6.0.</li>
+<li data-searchable>Reconhece <code>coesao_1_6_0.json</code> como autoridade corrente, preservando fallback apenas para árvores históricas.</li>
+<li data-searchable>Evita criar um teste CP24 específico da versão na suíte ativa.</li>
+<li data-searchable>Reserva promoção para depois de rápida, slow, instalação, auditorias, sincronização e equivalência.</li>
+</ul>
+<h2 id="cp18-a-cp23-fechamento-da-arquitetura" data-searchable>CP18 a CP23 — Fechamento da arquitetura</h2>
+<ul>
+<li data-searchable>Exige zero ciclos, violações de camada e exceções transitórias.</li>
+<li data-searchable>Migra a autoridade corrente de coesão para <code>coesao_1_6_0.json</code>, ancorada em 1.5.21.</li>
+<li data-searchable>Preserva fachadas públicas sem tratá las como compatibilidade interna descartável.</li>
+<li data-searchable>Mantém quatro hotspots sob orçamento explícito de tamanho e acoplamento.</li>
+<li data-searchable>Consolida os testes específicos de release de 52 funções históricas para 8 funções orientadas a contrato.</li>
+<li data-searchable>Integra <code>coral.release.fechamento_arquitetura/1</code> ao gate de coesão.</li>
+</ul>
+<h2 id="cp12-a-cp17-runtime-stdlib-e-servicos" data-searchable>CP12 a CP17 — Runtime, stdlib e serviços</h2>
+<ul>
+<li data-searchable>Extrai <code>coral.runtime_minimo</code> e mantém <code>coral.runtime</code> como fachada compatível.</li>
+<li data-searchable>Formaliza cinco serviços internos com resolução preguiçosa e sem carregar extras no núcleo.</li>
+<li data-searchable>Distingue fachadas públicas da stdlib de suas implementações canônicas.</li>
+<li data-searchable>Expõe a política executável da persistência e a compara com a matriz de sustentabilidade.</li>
+<li data-searchable>Unifica diagnósticos operacionais e de código em um envelope estrutural comum.</li>
+<li data-searchable>Integra <code>coral.release.runtime_stdlib/1</code> ao gate de coesão com testes orientados a contratos.</li>
+</ul>
+<h2 id="cp6-a-cp11-parser-ast-e-backend" data-searchable>CP6 a CP11 — Parser, AST e backend</h2>
+<ul>
+<li data-searchable>Separa o núcleo semântico da fachada pública que aceita código fonte.</li>
+<li data-searchable>Torna o backend estrutural consumidor de AST e move parsing para a orquestração.</li>
+<li data-searchable>Move normalização de chamadas naturais para antes do backend.</li>
+<li data-searchable>Classifica emissão de expressões como serviço da AST.</li>
+<li data-searchable>Adiciona equivalência estrutural para provar convergência das formas de português corrente.</li>
+<li data-searchable>Fecha as seis exceções transitórias com zero exceções ativas, zero ciclos e zero violações de camada.</li>
+</ul>
+<h2 id="cp0-a-cp5-fronteiras-fundamentais" data-searchable>CP0 a CP5 — Fronteiras fundamentais</h2>
+<ul>
+<li data-searchable>Abre a linha 1.6.0 sobre a Coral 1.5.21 com âncora explícita da linha anterior.</li>
+<li data-searchable>Introduz <code>coral.release.arquitetura/1</code> com mapa de camadas, contratos, autoridades, grafo e orçamentos.</li>
+<li data-searchable>Integra o gate arquitetural ao comando <code>coral_release coesao</code>.</li>
+<li data-searchable>Registra seis exceções transitórias herdadas para remoção no CP6 a CP11, sem escondê las como dependências permitidas.</li>
+</ul>
+<h2 id="1-5-21" data-searchable>1.5.21</h2>
+<h3 id="cp24-congelamento-2" data-searchable>CP24 — congelamento</h3>
+<ul>
+<li data-searchable>Torna coesão um gate formal do congelamento, junto de sustentabilidade e higiene.</li>
+<li data-searchable>Exige 3/3 metas de acoplamento, 2/2 extrações controladas e 5/5 autoridades internas antes da promoção.</li>
+<li data-searchable>Reserva rápida completa, slow isolada, ciclo de instalação, equivalência e patches para o pipeline amplo final.</li>
+</ul>
+<h3 id="cp18-a-cp23-convergencia-de-autoridades" data-searchable>CP18 a CP23 — convergência de autoridades</h3>
+<ul>
+<li data-searchable><code>release.util_arquivos</code> vira a autoridade única de SHA256 de arquivo e digest JSON estável do fluxo de release.</li>
+<li data-searchable>Sete consumidores deixam de reimplementar hashing de arquivos.</li>
+<li data-searchable>A auditoria de coesão passa a bloquear divergência de autoridades internas declaradas.</li>
+</ul>
+<h3 id="cp12-a-cp17-decomposicao-controlada" data-searchable>CP12 a CP17 — decomposição controlada</h3>
+<ul>
+<li data-searchable>A GUI do Setup passa a viver em <code>coral.setup_visual</code>, mantendo fachada pública preguiçosa.</li>
+<li data-searchable>Catálogo e templates leves do LSP passam a <code>coral.lsp_catalogo_editor</code>.</li>
+<li data-searchable>Extrações possuem orçamento bloqueante de tamanho, acoplamento e fronteiras.</li>
+</ul>
+<h3 id="cp6-a-cp11-reducao-de-acoplamento" data-searchable>CP6 a CP11 — redução de acoplamento</h3>
+<ul>
+<li data-searchable>LSP e Setup adotam fronteiras de carregamento menores e metas bloqueantes de coesão.</li>
 </ul>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="livro.html"><span>Anterior</span><strong>Livro Oficial</strong></a><a class="docs-page-nav-link next" href="modulos/numerico.html"><span>Próxima</span><strong>coral.numerico</strong></a></nav>
@@ -145,8 +225,22 @@
     <ul><li class="toc-level-2"><a href="#o-que-significa-estavel" data-toc-link>O que significa estável</a></li>
 <li class="toc-level-2"><a href="#compatibilidade-editorial" data-toc-link>Compatibilidade editorial</a></li>
 <li class="toc-level-2"><a href="#atualizacao-do-site" data-toc-link>Atualização do site</a></li>
-<li class="toc-level-2"><a href="#changelog" data-toc-link>Changelog</a></li>
-<li class="toc-level-2"><a href="#1-5-12-infraestrutura-de-testes-evidencia-e-reducao-fisica" data-toc-link>1.5.12 — infraestrutura de testes, evidência e redução física</a></li></ul>
+<li class="toc-level-2"><a href="#resumo-da-coral-1-6-0" data-toc-link>Resumo da Coral 1.6.0</a></li>
+<li class="toc-level-3"><a href="#ponte-da-1-5-21" data-toc-link>Ponte da 1.5.21</a></li>
+<li class="toc-level-3"><a href="#o-que-muda-para-quem-programa-em-coral" data-toc-link>O que muda para quem programa em Coral</a></li>
+<li class="toc-level-3"><a href="#estado-do-congelamento" data-toc-link>Estado do congelamento</a></li>
+<li class="toc-level-2"><a href="#changelog-importado" data-toc-link>Changelog importado</a></li>
+<li class="toc-level-2"><a href="#coral-1-6-0-em-desenvolvimento" data-toc-link>Coral 1.6.0 — em desenvolvimento</a></li>
+<li class="toc-level-2"><a href="#cp24-congelamento" data-toc-link>CP24 — Congelamento</a></li>
+<li class="toc-level-2"><a href="#cp18-a-cp23-fechamento-da-arquitetura" data-toc-link>CP18 a CP23 — Fechamento da arquitetura</a></li>
+<li class="toc-level-2"><a href="#cp12-a-cp17-runtime-stdlib-e-servicos" data-toc-link>CP12 a CP17 — Runtime, stdlib e serviços</a></li>
+<li class="toc-level-2"><a href="#cp6-a-cp11-parser-ast-e-backend" data-toc-link>CP6 a CP11 — Parser, AST e backend</a></li>
+<li class="toc-level-2"><a href="#cp0-a-cp5-fronteiras-fundamentais" data-toc-link>CP0 a CP5 — Fronteiras fundamentais</a></li>
+<li class="toc-level-2"><a href="#1-5-21" data-toc-link>1.5.21</a></li>
+<li class="toc-level-3"><a href="#cp24-congelamento-2" data-toc-link>CP24 — congelamento</a></li>
+<li class="toc-level-3"><a href="#cp18-a-cp23-convergencia-de-autoridades" data-toc-link>CP18 a CP23 — convergência de autoridades</a></li>
+<li class="toc-level-3"><a href="#cp12-a-cp17-decomposicao-controlada" data-toc-link>CP12 a CP17 — decomposição controlada</a></li>
+<li class="toc-level-3"><a href="#cp6-a-cp11-reducao-de-acoplamento" data-toc-link>CP6 a CP11 — redução de acoplamento</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

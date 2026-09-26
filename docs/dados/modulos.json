@@ -4923,11 +4923,13 @@
     "nome": "jogos",
     "importacao": "coral.jogos",
     "categoria": "jogos",
-    "finalidade": "janela, desenho, sprites, animação, cenas, mapas e eventos de jogo",
+    "finalidade": "janela, desenho, sprites, animação, câmera, apresentação, cenas, mapas e eventos de jogo",
     "para_livro": true,
     "advertencia": "",
     "operacoes": [
       "Jogo",
+      "TransicaoCena",
+      "MetricasJogo",
       "Cor",
       "Retangulo",
       "BackendNulo",
@@ -4941,9 +4943,12 @@
       "AMARELO",
       "criar_jogo",
       "pygame_disponivel",
+      "diagnosticar_jogos",
       "Assets",
       "Sprite",
       "Cena",
+      "CamadaApresentacao",
+      "TextoApresentacao",
       "RepresentacaoEntidade",
       "ErroAssetCoral",
       "Animacao",
@@ -4951,10 +4956,16 @@
       "VinculoAnimacaoMovimento",
       "EstadosAnimacao",
       "VinculoEstadosAnimacaoMovimento",
+      "TransicaoEstadoAnimacao",
+      "CondicaoTransicaoAnimacao",
       "TransicoesEstadosAnimacao",
       "VinculoTransicoesEstadosMovimento",
       "VinculoTransicoesEventos",
+      "EfeitoCamera",
       "Camera",
+      "VinculoClipe",
+      "ligar_clipe",
+      "registrar_propriedade_animavel",
       "QuadroSprite",
       "Spritesheet",
       "carregar_spritesheet",
@@ -4967,18 +4978,60 @@
       "onda_triangular",
       "onda_serra",
       "onda_pulso",
+      "normalizar_progresso",
+      "curva_linear",
+      "curva_entrada_suave",
+      "curva_saida_suave",
+      "curva_entrada_saida_suave",
+      "curva_quadratica",
+      "curva_cubica",
+      "curva_degrau",
+      "resolver_curva_temporal",
+      "avaliar_curva_temporal",
+      "interpolar",
+      "QuadroChave",
+      "FaixaAnimacao",
+      "ClipeAnimacao",
+      "AcaoApresentacao",
+      "EsperaApresentacao",
+      "EsperaConclusao",
+      "SequenciaApresentacao",
+      "ParaleloApresentacao",
+      "ComposicaoTemporal",
+      "VinculoTempoApresentacao",
+      "VinculoComposicaoEventos",
+      "ComandoComposicao",
+      "GravadorComposicao",
+      "executar",
+      "esperar",
+      "esperar_conclusao",
+      "sequencia",
+      "paralelo",
+      "usar_fonte_tempo",
+      "ligar_evento",
       "forma_espacial_sprite",
       "posicao_espacial_sprite",
       "sprites_colidem",
       "AdaptadorEventosJogo",
       "adaptar_eventos",
       "Viewport",
+      "CONTRATO_OVERLAY_DEBUG",
+      "PrimitivaDebug",
+      "OverlayDebug",
+      "EstiloOverlayDebug",
+      "ConfiguracaoDebugJogo",
+      "normalizar_categorias_debug",
+      "gerar_overlay_debug",
+      "gerar_overlay_metricas_debug",
+      "desenhar_overlay_debug",
       "EstiloCelula",
       "RenderizadorMapa2D",
       "celula_para_tela",
       "mundo_para_tela",
       "tela_para_celula",
-      "tela_para_mundo"
+      "tela_para_mundo",
+      "animar_propriedade",
+      "reproduzir_ao_contrario"
     ],
     "destaque": true,
     "pagina": "modulos/jogos",
@@ -5050,6 +5103,90 @@
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_debug",
+            "tipo": "método",
+            "assinatura": "estado_debug() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "observabilidade_ativa",
+            "tipo": "método",
+            "assinatura": "observabilidade_ativa() -> bool",
+            "retorno": "bool",
+            "descricao": "Indica se há trabalho opcional de inspeção ou overlay por quadro."
+          },
+          {
+            "nome": "debug_ativo",
+            "tipo": "método",
+            "assinatura": "debug_ativo() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "configurar_debug",
+            "tipo": "método",
+            "assinatura": "configurar_debug(*, ativo: bool | None = None, categorias = None, incluir_invisiveis: bool | None = None, estilo = None)",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "ativar_debug",
+            "tipo": "método",
+            "assinatura": "ativar_debug(*categorias: str, incluir_invisiveis: bool | None = None, estilo = None)",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "desativar_debug",
+            "tipo": "método",
+            "assinatura": "desativar_debug()",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "alternar_debug",
+            "tipo": "método",
+            "assinatura": "alternar_debug(*categorias: str) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "desenhar_debug",
+            "tipo": "método",
+            "assinatura": "desenhar_debug()",
+            "retorno": "não declarado",
+            "descricao": "Desenha o modo persistente atual e devolve o overlay combinado."
+          },
+          {
+            "nome": "monitorar_inspecao",
+            "tipo": "método",
+            "assinatura": "monitorar_inspecao(*, max_amostras: int = 120, intervalo: float = 0.1, somente_mudancas: bool = True)",
+            "retorno": "não declarado",
+            "descricao": "Ativa histórico curto de observabilidade no próprio laço do jogo."
+          },
+          {
+            "nome": "parar_monitoramento_inspecao",
+            "tipo": "método",
+            "assinatura": "parar_monitoramento_inspecao()",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "historico_inspecao",
+            "tipo": "método",
+            "assinatura": "historico_inspecao()",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
           {
             "nome": "quando_iniciar",
             "tipo": "método",
@@ -5226,6 +5363,20 @@
             "descricao": ""
           },
           {
+            "nome": "desenhar_poligono",
+            "tipo": "método",
+            "assinatura": "desenhar_poligono(vertices, cor: Cor = BRANCO, *, contorno: int = 1, opacidade: float = 1.0) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "desenhar_overlay_debug",
+            "tipo": "método",
+            "assinatura": "desenhar_overlay_debug(objeto = None, **opcoes)",
+            "retorno": "não declarado",
+            "descricao": "Desenha um overlay de debug usando somente a API pública de Jogos."
+          },
+          {
             "nome": "desenhar_ponto",
             "tipo": "método",
             "assinatura": "desenhar_ponto(x: float, y: float, cor: Cor = BRANCO, *, tamanho: int = 1, opacidade: float = 1.0) -> None",
@@ -5237,6 +5388,13 @@
             "tipo": "método",
             "assinatura": "desenhar_texto(texto: str, x: float, y: float, tamanho: int = 24, cor: Cor = BRANCO, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None",
             "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "medir_texto",
+            "tipo": "método",
+            "assinatura": "medir_texto(texto: str, tamanho: int = 24) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
             "descricao": ""
           },
           {
@@ -5261,6 +5419,34 @@
             "descricao": ""
           },
           {
+            "nome": "transicao_cena",
+            "tipo": "propriedade",
+            "assinatura": "transicao_cena() -> TransicaoCena | None",
+            "retorno": "TransicaoCena | None",
+            "descricao": ""
+          },
+          {
+            "nome": "entrada_bloqueada_por_transicao",
+            "tipo": "método",
+            "assinatura": "entrada_bloqueada_por_transicao() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "mudar_cena_com_transicao",
+            "tipo": "método",
+            "assinatura": "mudar_cena_com_transicao(cena, *, tipo: str = 'desaparecer', duracao: float = 0.4, curva: str | Callable[[float], float] = 'suave', bloquear_entrada: bool = True, atualizar_anterior: bool = True, atualizar_proxima: bool = True, direcao: str = 'direita') -> TransicaoCena",
+            "retorno": "TransicaoCena",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar_transicao_cena",
+            "tipo": "método",
+            "assinatura": "cancelar_transicao_cena() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
             "nome": "executar",
             "tipo": "método",
             "assinatura": "executar(*, max_quadros: int | None = None) -> None",
@@ -5269,6 +5455,323 @@
           }
         ],
         "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "TransicaoCena",
+        "tipo": "classe",
+        "assinatura": "TransicaoCena(origem: Any, destino: Any, tipo: str = 'desaparecer', duracao: float = 0.4, curva: str | Callable[[float], float] = 'suave', bloquear_entrada: bool = True, atualizar_anterior: bool = True, atualizar_proxima: bool = True, direcao: str = 'direita', tempo: float = 0.0, estado: str = 'ativo')",
+        "retorno": "TransicaoCena",
+        "descricao": "Coordena apresentação temporal entre duas cenas sem possuir o jogo.",
+        "documentacao": "Coordena apresentação temporal entre duas cenas sem possuir o jogo.\n\nO objeto é headless e determinístico. A troca efetiva continua sendo feita\npor ``Jogo.mudar_cena`` quando o progresso cruza o ponto de troca.",
+        "origem": "coral.jogos.base",
+        "arquivo": "coral/jogos/base.py",
+        "parametros": [
+          {
+            "nome": "origem",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "destino",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": "'desaparecer'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": "0.4",
+            "modo": "posicional"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'suave'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "bloquear_entrada",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "atualizar_anterior",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "atualizar_proxima",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "direcao",
+            "tipo": "str",
+            "padrao": "'direita'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso_curvo",
+            "tipo": "propriedade",
+            "assinatura": "progresso_curvo() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "ativa",
+            "tipo": "propriedade",
+            "assinatura": "ativa() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "finalizada",
+            "tipo": "propriedade",
+            "assinatura": "finalizada() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "fase",
+            "tipo": "propriedade",
+            "assinatura": "fase() -> str",
+            "retorno": "str",
+            "descricao": ""
+          },
+          {
+            "nome": "entrada_bloqueada",
+            "tipo": "propriedade",
+            "assinatura": "entrada_bloqueada() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "ao_concluir",
+            "tipo": "método",
+            "assinatura": "ao_concluir(callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> 'TransicaoCena'",
+            "retorno": "'TransicaoCena'",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> 'TransicaoCena'",
+            "retorno": "'TransicaoCena'",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar",
+            "tipo": "método",
+            "assinatura": "cancelar() -> 'TransicaoCena'",
+            "retorno": "'TransicaoCena'",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> bool",
+            "retorno": "bool",
+            "descricao": "Avança e informa se a troca de cena deve ocorrer neste passo."
+          },
+          {
+            "nome": "amostra",
+            "tipo": "método",
+            "assinatura": "amostra() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": "Estado visual independente de backend para renderers e testes."
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "origem",
+            "tipo": "Any",
+            "padrao": null
+          },
+          {
+            "nome": "destino",
+            "tipo": "Any",
+            "padrao": null
+          },
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": "'desaparecer'"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": "0.4"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'suave'"
+          },
+          {
+            "nome": "bloquear_entrada",
+            "tipo": "bool",
+            "padrao": "True"
+          },
+          {
+            "nome": "atualizar_anterior",
+            "tipo": "bool",
+            "padrao": "True"
+          },
+          {
+            "nome": "atualizar_proxima",
+            "tipo": "bool",
+            "padrao": "True"
+          },
+          {
+            "nome": "direcao",
+            "tipo": "str",
+            "padrao": "'direita'"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "MetricasJogo",
+        "tipo": "classe",
+        "assinatura": "MetricasJogo(quadros: int = 0, delta_logico: float = 0.0, tempo_quadro: float = 0.0, fps_instantaneo: float = 0.0, fps_medio: float = 0.0)",
+        "retorno": "MetricasJogo",
+        "descricao": "Métricas operacionais leves e determinísticas do laço principal.",
+        "documentacao": "Métricas operacionais leves e determinísticas do laço principal.",
+        "origem": "coral.jogos.base",
+        "arquivo": "coral/jogos/base.py",
+        "parametros": [
+          {
+            "nome": "quadros",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "delta_logico",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo_quadro",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "fps_instantaneo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "fps_medio",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "tempo_quadro_ms",
+            "tipo": "propriedade",
+            "assinatura": "tempo_quadro_ms() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "registrar",
+            "tipo": "método",
+            "assinatura": "registrar(delta_logico: float, tempo_quadro: float) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "quadros",
+            "tipo": "int",
+            "padrao": "0"
+          },
+          {
+            "nome": "delta_logico",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "tempo_quadro",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "fps_instantaneo",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "fps_medio",
+            "tipo": "float",
+            "padrao": "0.0"
+          }
+        ],
         "bases": []
       },
       {
@@ -5534,6 +6037,13 @@
             "descricao": ""
           },
           {
+            "nome": "definir_recorte",
+            "tipo": "método",
+            "assinatura": "definir_recorte(recorte: Retangulo | None) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
             "nome": "limpar",
             "tipo": "método",
             "assinatura": "limpar(cor: Cor) -> None",
@@ -5562,6 +6072,13 @@
             "descricao": ""
           },
           {
+            "nome": "desenhar_poligono",
+            "tipo": "método",
+            "assinatura": "desenhar_poligono(vertices, cor: Cor, *, contorno: int = 1, opacidade: float = 1.0) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
             "nome": "desenhar_ponto",
             "tipo": "método",
             "assinatura": "desenhar_ponto(x: float, y: float, cor: Cor, *, tamanho: int = 1, opacidade: float = 1.0) -> None",
@@ -5573,6 +6090,13 @@
             "tipo": "método",
             "assinatura": "desenhar_texto(texto: str, x: float, y: float, tamanho: int, cor: Cor, *, origem: str = 'topo_esquerdo', opacidade: float = 1.0) -> None",
             "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "medir_texto",
+            "tipo": "método",
+            "assinatura": "medir_texto(texto: str, tamanho: int) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
             "descricao": ""
           },
           {
@@ -5645,7 +6169,8 @@
         "metodos": [],
         "atributos": [],
         "bases": [
-          "ErroJogosCoral"
+          "ErroJogosCoral",
+          "ErroDependenciaCoral"
         ]
       },
       {
@@ -5807,6 +6332,21 @@
         "tipo": "função",
         "assinatura": "pygame_disponivel() -> bool",
         "retorno": "bool",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos",
+        "arquivo": "coral/jogos/__init__.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "diagnosticar_jogos",
+        "tipo": "função",
+        "assinatura": "diagnosticar_jogos() -> dict[str, object]",
+        "retorno": "dict[str, object]",
         "descricao": "",
         "documentacao": "",
         "origem": "coral.jogos",
@@ -6001,6 +6541,13 @@
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "retangulo",
             "tipo": "propriedade",
             "assinatura": "retangulo() -> Retangulo",
@@ -6137,6 +6684,13 @@
             "nome": "remover_automacao",
             "tipo": "método",
             "assinatura": "remover_automacao(automacao, *, restaurar_base: bool = False)",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "animar_com_clipe",
+            "tipo": "método",
+            "assinatura": "animar_com_clipe(clipe: ClipeAnimacao, mapeamento: dict[str, str], *, modo: str = 'absoluto', restaurar_ao_final: bool = False, composicao: str = 'substituir', permitir_conflito: bool = False)",
             "retorno": "não declarado",
             "descricao": ""
           },
@@ -6284,6 +6838,13 @@
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "representacoes",
             "tipo": "propriedade",
             "assinatura": "representacoes() -> tuple[RepresentacaoEntidade, ...]",
@@ -6291,16 +6852,51 @@
             "descricao": ""
           },
           {
+            "nome": "camadas",
+            "tipo": "propriedade",
+            "assinatura": "camadas() -> tuple[CamadaApresentacao, ...]",
+            "retorno": "tuple[CamadaApresentacao, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "criar_camada",
+            "tipo": "método",
+            "assinatura": "criar_camada(nome: str, *, ordem: int = 0, visivel: bool = True, opacidade: float = 1.0, espaco: str = 'mundo', paralaxe: float | tuple[float, float] = 1.0) -> CamadaApresentacao",
+            "retorno": "CamadaApresentacao",
+            "descricao": ""
+          },
+          {
+            "nome": "camada",
+            "tipo": "método",
+            "assinatura": "camada(nome: str) -> CamadaApresentacao",
+            "retorno": "CamadaApresentacao",
+            "descricao": ""
+          },
+          {
             "nome": "adicionar",
             "tipo": "método",
-            "assinatura": "adicionar(sprite: Sprite) -> Sprite",
+            "assinatura": "adicionar(sprite: Sprite, *, camada: str | CamadaApresentacao | None = None) -> Sprite",
             "retorno": "Sprite",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_em_camada",
+            "tipo": "método",
+            "assinatura": "adicionar_em_camada(elemento: Any, camada: str | CamadaApresentacao) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "remover_de_camada",
+            "tipo": "método",
+            "assinatura": "remover_de_camada(elemento: Any, camada: str | CamadaApresentacao | None = None) -> bool",
+            "retorno": "bool",
             "descricao": ""
           },
           {
             "nome": "representar",
             "tipo": "método",
-            "assinatura": "representar(entidade: Any, sprite: Sprite, *, atributo_x: str = 'x', atributo_y: str = 'y') -> RepresentacaoEntidade",
+            "assinatura": "representar(entidade: Any, sprite: Any, *, atributo_x: str = 'x', atributo_y: str = 'y') -> RepresentacaoEntidade",
             "retorno": "RepresentacaoEntidade",
             "descricao": ""
           },
@@ -6372,6 +6968,387 @@
         "bases": []
       },
       {
+        "nome": "CamadaApresentacao",
+        "tipo": "classe",
+        "assinatura": "CamadaApresentacao(nome: str, ordem: int = 0, visivel: bool = True, opacidade: float = 1.0, espaco: str = 'mundo', paralaxe_x: float = 1.0, paralaxe_y: float = 1.0, elementos: list[Any] = field(default_factory=list))",
+        "retorno": "CamadaApresentacao",
+        "descricao": "Camada 2D ordenada que pode pertencer ao mundo ou à tela.",
+        "documentacao": "Camada 2D ordenada que pode pertencer ao mundo ou à tela.\n\nA lista de elementos é estável: elementos com a mesma camada mantêm a\nordem de inserção. ``espaco='tela'`` ignora a câmera e é apropriado para\nHUD. Paralaxe só afeta camadas de mundo.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ordem",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "visivel",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espaco",
+            "tipo": "str",
+            "padrao": "'mundo'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "paralaxe_x",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "paralaxe_y",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "elementos",
+            "tipo": "list[Any]",
+            "padrao": "field(default_factory=list)",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "presa_a_tela",
+            "tipo": "propriedade",
+            "assinatura": "presa_a_tela() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar",
+            "tipo": "método",
+            "assinatura": "adicionar(elemento: Any) -> Any",
+            "retorno": "Any",
+            "descricao": ""
+          },
+          {
+            "nome": "remover",
+            "tipo": "método",
+            "assinatura": "remover(elemento: Any) -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_visibilidade",
+            "tipo": "método",
+            "assinatura": "definir_visibilidade(visivel: bool) -> 'CamadaApresentacao'",
+            "retorno": "'CamadaApresentacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_opacidade",
+            "tipo": "método",
+            "assinatura": "definir_opacidade(opacidade: float) -> 'CamadaApresentacao'",
+            "retorno": "'CamadaApresentacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_paralaxe",
+            "tipo": "método",
+            "assinatura": "definir_paralaxe(x: float = 1.0, y: float | None = None) -> 'CamadaApresentacao'",
+            "retorno": "'CamadaApresentacao'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "ordem",
+            "tipo": "int",
+            "padrao": "0"
+          },
+          {
+            "nome": "visivel",
+            "tipo": "bool",
+            "padrao": "True"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "espaco",
+            "tipo": "str",
+            "padrao": "'mundo'"
+          },
+          {
+            "nome": "paralaxe_x",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "paralaxe_y",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "elementos",
+            "tipo": "list[Any]",
+            "padrao": "field(default_factory=list)"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "TextoApresentacao",
+        "tipo": "classe",
+        "assinatura": "TextoApresentacao(texto: str, x: float = 0.0, y: float = 0.0, tamanho: int = 24, cor: Cor = BRANCO, largura_maxima: float | None = None, alinhamento_horizontal: str = 'esquerda', alinhamento_vertical: str = 'topo', espacamento_linhas: float = 1.0, sombra: Cor | None = None, deslocamento_sombra: tuple[float, float] = (2.0, 2.0), contorno: Cor | None = None, espessura_contorno: int = 1, opacidade: float = 1.0, origem: str | None = None, pivo: tuple[float, float] | None = None, ancora_viewport: str | None = None)",
+        "retorno": "TextoApresentacao",
+        "descricao": "Texto 2D reutilizável para camadas de mundo ou de tela.",
+        "documentacao": "Texto 2D reutilizável para camadas de mundo ou de tela.\n\nA classe cuida somente de apresentação. Não cria widgets, não captura\nentrada e não altera estado lógico. A quebra de linha usa a métrica do\nbackend por meio de ``Jogo.medir_texto`` e, portanto, também funciona em\nexecução headless.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "texto",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho",
+            "tipo": "int",
+            "padrao": "24",
+            "modo": "posicional"
+          },
+          {
+            "nome": "cor",
+            "tipo": "Cor",
+            "padrao": "BRANCO",
+            "modo": "posicional"
+          },
+          {
+            "nome": "largura_maxima",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "alinhamento_horizontal",
+            "tipo": "str",
+            "padrao": "'esquerda'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "alinhamento_vertical",
+            "tipo": "str",
+            "padrao": "'topo'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espacamento_linhas",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "sombra",
+            "tipo": "Cor | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "deslocamento_sombra",
+            "tipo": "tuple[float, float]",
+            "padrao": "(2.0, 2.0)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "contorno",
+            "tipo": "Cor | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espessura_contorno",
+            "tipo": "int",
+            "padrao": "1",
+            "modo": "posicional"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "pivo",
+            "tipo": "tuple[float, float] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ancora_viewport",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "linhas",
+            "tipo": "método",
+            "assinatura": "linhas(jogo) -> tuple[str, ...]",
+            "retorno": "tuple[str, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "medir",
+            "tipo": "método",
+            "assinatura": "medir(jogo) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "desenhar",
+            "tipo": "método",
+            "assinatura": "desenhar(jogo, cena: 'Cena', camada: CamadaApresentacao) -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "texto",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "tamanho",
+            "tipo": "int",
+            "padrao": "24"
+          },
+          {
+            "nome": "cor",
+            "tipo": "Cor",
+            "padrao": "BRANCO"
+          },
+          {
+            "nome": "largura_maxima",
+            "tipo": "float | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "alinhamento_horizontal",
+            "tipo": "str",
+            "padrao": "'esquerda'"
+          },
+          {
+            "nome": "alinhamento_vertical",
+            "tipo": "str",
+            "padrao": "'topo'"
+          },
+          {
+            "nome": "espacamento_linhas",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "sombra",
+            "tipo": "Cor | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "deslocamento_sombra",
+            "tipo": "tuple[float, float]",
+            "padrao": "(2.0, 2.0)"
+          },
+          {
+            "nome": "contorno",
+            "tipo": "Cor | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "espessura_contorno",
+            "tipo": "int",
+            "padrao": "1"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "pivo",
+            "tipo": "tuple[float, float] | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "ancora_viewport",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
         "nome": "RepresentacaoEntidade",
         "tipo": "classe",
         "assinatura": "RepresentacaoEntidade(entidade: Any, sprite: Sprite, atributo_x: str = 'x', atributo_y: str = 'y')",
@@ -6408,6 +7385,48 @@
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "x",
+            "tipo": "propriedade",
+            "assinatura": "x() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "y",
+            "tipo": "propriedade",
+            "assinatura": "y() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "largura",
+            "tipo": "propriedade",
+            "assinatura": "largura() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "altura",
+            "tipo": "propriedade",
+            "assinatura": "altura() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "velocidade_x",
+            "tipo": "propriedade",
+            "assinatura": "velocidade_x() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "velocidade_y",
+            "tipo": "propriedade",
+            "assinatura": "velocidade_y() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
           {
             "nome": "sincronizar",
             "tipo": "método",
@@ -6460,7 +7479,7 @@
       {
         "nome": "Animacao",
         "tipo": "classe",
-        "assinatura": "Animacao(quadros: tuple[str | Path | QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False)",
+        "assinatura": "Animacao(quadros: tuple[str | Path | QuadroSprite, ...], fps: float = 10.0, repetir: bool = True, finalizada: bool = False, duracoes: tuple[float, ...] | None = None, velocidade: float = 1.0, modo: str = 'normal', indice_inicial: int | None = None, marcadores: dict[str, int] = field(default_factory=dict))",
         "retorno": "Animacao",
         "descricao": "",
         "documentacao": "",
@@ -6490,10 +7509,47 @@
             "tipo": "bool",
             "padrao": "False",
             "modo": "posicional"
+          },
+          {
+            "nome": "duracoes",
+            "tipo": "tuple[float, ...] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "velocidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'normal'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "indice_inicial",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "marcadores",
+            "tipo": "dict[str, int]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
           }
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
           {
             "nome": "quadro_atual",
             "tipo": "propriedade",
@@ -6502,10 +7558,87 @@
             "descricao": ""
           },
           {
+            "nome": "indice_atual",
+            "tipo": "propriedade",
+            "assinatura": "indice_atual() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "ciclos",
+            "tipo": "propriedade",
+            "assinatura": "ciclos() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "duracao",
+            "tipo": "propriedade",
+            "assinatura": "duracao() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "tempo_atual",
+            "tipo": "propriedade",
+            "assinatura": "tempo_atual() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "marcar",
+            "tipo": "método",
+            "assinatura": "marcar(nome: str, quadro: int) -> 'Animacao'",
+            "retorno": "'Animacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "ao_marcador",
+            "tipo": "método",
+            "assinatura": "ao_marcador(nome: str, callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
+            "nome": "ao_completar_ciclo",
+            "tipo": "método",
+            "assinatura": "ao_completar_ciclo(callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
+            "nome": "ao_finalizar",
+            "tipo": "método",
+            "assinatura": "ao_finalizar(callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
             "nome": "reiniciar",
             "tipo": "método",
             "assinatura": "reiniciar()",
             "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "buscar_quadro",
+            "tipo": "método",
+            "assinatura": "buscar_quadro(indice: int) -> 'Animacao'",
+            "retorno": "'Animacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "buscar_tempo",
+            "tipo": "método",
+            "assinatura": "buscar_tempo(segundos: float) -> 'Animacao'",
+            "retorno": "'Animacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "duplicar",
+            "tipo": "método",
+            "assinatura": "duplicar() -> 'Animacao'",
+            "retorno": "'Animacao'",
             "descricao": ""
           },
           {
@@ -6536,6 +7669,31 @@
             "nome": "finalizada",
             "tipo": "bool",
             "padrao": "False"
+          },
+          {
+            "nome": "duracoes",
+            "tipo": "tuple[float, ...] | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "velocidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'normal'"
+          },
+          {
+            "nome": "indice_inicial",
+            "tipo": "int | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "marcadores",
+            "tipo": "dict[str, int]",
+            "padrao": "field(default_factory=dict)"
           }
         ],
         "bases": []
@@ -6576,7 +7734,7 @@
           {
             "nome": "usar",
             "tipo": "método",
-            "assinatura": "usar(sprite: Sprite, direcao: str) -> Animacao",
+            "assinatura": "usar(sprite: Sprite, direcao: str, *, reiniciar: bool = True) -> Animacao",
             "retorno": "Animacao",
             "descricao": ""
           },
@@ -6672,10 +7830,10 @@
       {
         "nome": "EstadosAnimacao",
         "tipo": "classe",
-        "assinatura": "EstadosAnimacao(estados: dict[str, Animacao | AnimacoesDirecionais])",
+        "assinatura": "EstadosAnimacao(estados: dict[str, Animacao | AnimacoesDirecionais], *, estado_inicial: str | None = None)",
         "retorno": "EstadosAnimacao",
-        "descricao": "Agrupa estados visuais sem fixar quantidades de direções ou políticas de movimento.",
-        "documentacao": "Agrupa estados visuais sem fixar quantidades de direções ou políticas de movimento.",
+        "descricao": "Agrupa estados visuais sem assumir autoridade sobre estado lógico.",
+        "documentacao": "Agrupa estados visuais sem assumir autoridade sobre estado lógico.\n\n``estado_inicial`` é opt in para preservar a compatibilidade histórica.\nEventos de entrada e saída pertencem à apresentação e não substituem\neventos de domínio do jogo.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
         "parametros": [
@@ -6684,6 +7842,12 @@
             "tipo": "dict[str, Animacao | AnimacoesDirecionais]",
             "padrao": null,
             "modo": "posicional"
+          },
+          {
+            "nome": "estado_inicial",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [],
@@ -6703,16 +7867,30 @@
             "descricao": ""
           },
           {
+            "nome": "ao_entrar",
+            "tipo": "método",
+            "assinatura": "ao_entrar(estado: str, callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
+            "nome": "ao_sair",
+            "tipo": "método",
+            "assinatura": "ao_sair(estado: str, callback: Callable) -> Callable",
+            "retorno": "Callable",
+            "descricao": ""
+          },
+          {
             "nome": "ligar",
             "tipo": "método",
-            "assinatura": "ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoEstadosAnimacaoMovimento",
+            "assinatura": "ligar(movimento: MovimentoDirecional, sprite: Sprite, *, estado_inicial: str | None = None, direcao_inicial: str | None = None) -> VinculoEstadosAnimacaoMovimento",
             "retorno": "VinculoEstadosAnimacaoMovimento",
             "descricao": ""
           },
           {
             "nome": "usar",
             "tipo": "método",
-            "assinatura": "usar(sprite: Sprite, estado: str, *, direcao: str | None = None) -> Animacao",
+            "assinatura": "usar(sprite: Sprite, estado: str, *, direcao: str | None = None, reiniciar: bool = True) -> Animacao",
             "retorno": "Animacao",
             "descricao": ""
           }
@@ -6723,10 +7901,10 @@
       {
         "nome": "VinculoEstadosAnimacaoMovimento",
         "tipo": "classe",
-        "assinatura": "VinculoEstadosAnimacaoMovimento(grupo: 'EstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, estado_atual: str | None = None, direcao_visual: str | None = None)",
+        "assinatura": "VinculoEstadosAnimacaoMovimento(grupo: 'EstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, estado_atual: str | None = None, estado_anterior: str | None = None, direcao_visual: str | None = None, ultima_direcao_visual: str | None = None)",
         "retorno": "VinculoEstadosAnimacaoMovimento",
-        "descricao": "Mantém estado visual e direção de movimento como dimensões independentes.",
-        "documentacao": "Mantém estado visual e direção de movimento como dimensões independentes.",
+        "descricao": "Mantém estado visual e direção como dimensões independentes.",
+        "documentacao": "Mantém estado visual e direção como dimensões independentes.\n\nO vínculo é deliberadamente visual: ele não representa o estado lógico da\nentidade. O histórico de estado e os eventos de entrada e saída existem\napenas para coordenar apresentação.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
         "parametros": [
@@ -6755,7 +7933,19 @@
             "modo": "posicional"
           },
           {
+            "nome": "estado_anterior",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
             "nome": "direcao_visual",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ultima_direcao_visual",
             "tipo": "str | None",
             "padrao": "None",
             "modo": "posicional"
@@ -6766,7 +7956,7 @@
           {
             "nome": "usar",
             "tipo": "método",
-            "assinatura": "usar(estado: str, *, direcao: str | None = None) -> Animacao",
+            "assinatura": "usar(estado: str, *, direcao: str | None = None, reiniciar: bool = True) -> Animacao",
             "retorno": "Animacao",
             "descricao": ""
           }
@@ -6793,7 +7983,17 @@
             "padrao": "None"
           },
           {
+            "nome": "estado_anterior",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
             "nome": "direcao_visual",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "ultima_direcao_visual",
             "tipo": "str | None",
             "padrao": "None"
           }
@@ -6801,12 +8001,145 @@
         "bases": []
       },
       {
+        "nome": "TransicaoEstadoAnimacao",
+        "tipo": "classe",
+        "assinatura": "TransicaoEstadoAnimacao(estado: str, prioridade: int = 0, tempo_minimo: float = 0.0, bloquear_interrupcao: float = 0.0, retorno_automatico: str | None = None, reiniciar: bool = True)",
+        "retorno": "TransicaoEstadoAnimacao",
+        "descricao": "Política declarativa para uma transição visual.",
+        "documentacao": "Política declarativa para uma transição visual.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo_minimo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "bloquear_interrupcao",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "retorno_automatico",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "prioridade",
+            "tipo": "int",
+            "padrao": "0"
+          },
+          {
+            "nome": "tempo_minimo",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "bloquear_interrupcao",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "retorno_automatico",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "bool",
+            "padrao": "True"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "CondicaoTransicaoAnimacao",
+        "tipo": "classe",
+        "assinatura": "CondicaoTransicaoAnimacao(condicao: Callable[[Sprite], bool], transicao: TransicaoEstadoAnimacao, ordem: int = 0)",
+        "retorno": "CondicaoTransicaoAnimacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "condicao",
+            "tipo": "Callable[[Sprite], bool]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "transicao",
+            "tipo": "TransicaoEstadoAnimacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ordem",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "condicao",
+            "tipo": "Callable[[Sprite], bool]",
+            "padrao": null
+          },
+          {
+            "nome": "transicao",
+            "tipo": "TransicaoEstadoAnimacao",
+            "padrao": null
+          },
+          {
+            "nome": "ordem",
+            "tipo": "int",
+            "padrao": "0"
+          }
+        ],
+        "bases": []
+      },
+      {
         "nome": "TransicoesEstadosAnimacao",
         "tipo": "classe",
-        "assinatura": "TransicoesEstadosAnimacao(estados: EstadosAnimacao, transicoes: dict[str, str])",
+        "assinatura": "TransicoesEstadosAnimacao(estados: EstadosAnimacao, transicoes: dict[str, str | TransicaoEstadoAnimacao | dict[str, Any]], *, reiniciar_ao_retornar: bool = True)",
         "retorno": "TransicoesEstadosAnimacao",
-        "descricao": "Mapeia eventos nomeados para estados visuais; automação de movimento é opcional.",
-        "documentacao": "Mapeia eventos nomeados para estados visuais; automação de movimento é opcional.",
+        "descricao": "Transições visuais por evento, condição ou chamada manual.",
+        "documentacao": "Transições visuais por evento, condição ou chamada manual.\n\nContinua opt in e não substitui máquinas de estado de agentes, RPG ou\nsimulação. Valores ``str`` no dicionário mantêm o contrato histórico.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
         "parametros": [
@@ -6818,9 +8151,15 @@
           },
           {
             "nome": "transicoes",
-            "tipo": "dict[str, str]",
+            "tipo": "dict[str, str | TransicaoEstadoAnimacao | dict[str, Any]]",
             "padrao": null,
             "modo": "posicional"
+          },
+          {
+            "nome": "reiniciar_ao_retornar",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
           }
         ],
         "excecoes": [],
@@ -6840,6 +8179,20 @@
             "descricao": ""
           },
           {
+            "nome": "para_transicao",
+            "tipo": "método",
+            "assinatura": "para_transicao(evento: str) -> TransicaoEstadoAnimacao",
+            "retorno": "TransicaoEstadoAnimacao",
+            "descricao": ""
+          },
+          {
+            "nome": "quando",
+            "tipo": "método",
+            "assinatura": "quando(condicao: Callable[[Sprite], bool], estado: str, *, prioridade: int = 0, tempo_minimo: float = 0.0, bloquear_interrupcao: float = 0.0, retorno_automatico: str | None = None, reiniciar: bool = True) -> CondicaoTransicaoAnimacao",
+            "retorno": "CondicaoTransicaoAnimacao",
+            "descricao": ""
+          },
+          {
             "nome": "ligar",
             "tipo": "método",
             "assinatura": "ligar(movimento: MovimentoDirecional, sprite: Sprite) -> VinculoTransicoesEstadosMovimento",
@@ -6856,8 +8209,15 @@
           {
             "nome": "acionar",
             "tipo": "método",
-            "assinatura": "acionar(sprite: Sprite, evento: str) -> Animacao",
-            "retorno": "Animacao",
+            "assinatura": "acionar(sprite: Sprite, evento: str) -> Animacao | None",
+            "retorno": "Animacao | None",
+            "descricao": ""
+          },
+          {
+            "nome": "transicionar",
+            "tipo": "método",
+            "assinatura": "transicionar(sprite: Sprite, estado: str, **kwargs) -> Animacao | None",
+            "retorno": "Animacao | None",
             "descricao": ""
           }
         ],
@@ -6867,10 +8227,10 @@
       {
         "nome": "VinculoTransicoesEstadosMovimento",
         "tipo": "classe",
-        "assinatura": "VinculoTransicoesEstadosMovimento(grupo: 'TransicoesEstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, vinculo_estados: VinculoEstadosAnimacaoMovimento, ultimo_evento: str | None = None)",
+        "assinatura": "VinculoTransicoesEstadosMovimento(grupo: 'TransicoesEstadosAnimacao', movimento: MovimentoDirecional, sprite: Sprite, vinculo_estados: VinculoEstadosAnimacaoMovimento, ultimo_evento: str | None = None, tempo_no_estado: float = 0.0, bloqueio_restante: float = 0.0, prioridade_atual: int = 0)",
         "retorno": "VinculoTransicoesEstadosMovimento",
-        "descricao": "Aplica transições opt-in sem confundir mudança de direção com início de movimento.",
-        "documentacao": "Aplica transições opt-in sem confundir mudança de direção com início de movimento.",
+        "descricao": "Executa a máquina visual opt in de um Sprite.",
+        "documentacao": "Executa a máquina visual opt in de um Sprite.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
         "parametros": [
@@ -6903,15 +8263,68 @@
             "tipo": "str | None",
             "padrao": "None",
             "modo": "posicional"
+          },
+          {
+            "nome": "tempo_no_estado",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "bloqueio_restante",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "prioridade_atual",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
           }
         ],
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_atual",
+            "tipo": "propriedade",
+            "assinatura": "estado_atual() -> str | None",
+            "retorno": "str | None",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_anterior",
+            "tipo": "propriedade",
+            "assinatura": "estado_anterior() -> str | None",
+            "retorno": "str | None",
+            "descricao": ""
+          },
+          {
+            "nome": "pode_ser_interrompido",
+            "tipo": "propriedade",
+            "assinatura": "pode_ser_interrompido() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "transicionar",
+            "tipo": "método",
+            "assinatura": "transicionar(estado: str, *, prioridade: int = 0, tempo_minimo: float = 0.0, bloquear_interrupcao: float = 0.0, retorno_automatico: str | None = None, reiniciar: bool = True) -> Animacao | None",
+            "retorno": "Animacao | None",
+            "descricao": ""
+          },
+          {
             "nome": "acionar",
             "tipo": "método",
-            "assinatura": "acionar(evento: str) -> Animacao",
-            "retorno": "Animacao",
+            "assinatura": "acionar(evento: str) -> Animacao | None",
+            "retorno": "Animacao | None",
+            "descricao": ""
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt: float) -> None",
+            "retorno": "None",
             "descricao": ""
           }
         ],
@@ -6940,6 +8353,21 @@
             "nome": "ultimo_evento",
             "tipo": "str | None",
             "padrao": "None"
+          },
+          {
+            "nome": "tempo_no_estado",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "bloqueio_restante",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "prioridade_atual",
+            "tipo": "int",
+            "padrao": "0"
           }
         ],
         "bases": []
@@ -7025,12 +8453,211 @@
         "bases": []
       },
       {
+        "nome": "EfeitoCamera",
+        "tipo": "classe",
+        "assinatura": "EfeitoCamera(tipo: str, duracao: float, intensidade: float = 1.0, x: float = 0.0, y: float = 0.0, zoom: float = 0.0, rotacao: float = 0.0, semente: int = 0, frequencia: float = 24.0, curva: str | Callable[[float], float] = 'linear', tempo: float = 0.0, estado: str = 'ativo')",
+        "retorno": "EfeitoCamera",
+        "descricao": "Efeito visual temporal que não altera o estado lógico da câmera.",
+        "documentacao": "Efeito visual temporal que não altera o estado lógico da câmera.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "intensidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "zoom",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "rotacao",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "semente",
+            "tipo": "int",
+            "padrao": "0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "frequencia",
+            "tipo": "float",
+            "padrao": "24.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'linear'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "ativo",
+            "tipo": "propriedade",
+            "assinatura": "ativo() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "amostra",
+            "tipo": "método",
+            "assinatura": "amostra() -> tuple[float, float, float, float]",
+            "retorno": "tuple[float, float, float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> 'EfeitoCamera'",
+            "retorno": "'EfeitoCamera'",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> 'EfeitoCamera'",
+            "retorno": "'EfeitoCamera'",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar",
+            "tipo": "método",
+            "assinatura": "cancelar() -> 'EfeitoCamera'",
+            "retorno": "'EfeitoCamera'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "intensidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "zoom",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "rotacao",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "semente",
+            "tipo": "int",
+            "padrao": "0"
+          },
+          {
+            "nome": "frequencia",
+            "tipo": "float",
+            "padrao": "24.0"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'linear'"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'"
+          }
+        ],
+        "bases": []
+      },
+      {
         "nome": "Camera",
         "tipo": "classe",
-        "assinatura": "Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Sprite | None = None, suavidade: float = 1.0)",
+        "assinatura": "Camera(x: float = 0.0, y: float = 0.0, largura: float = 800.0, altura: float = 450.0, alvo: Any | None = None, suavidade: float = 1.0, zoom: float = 1.0, rotacao: float = 0.0, zoom_minimo: float | None = None, zoom_maximo: float | None = None, deslocamento_visual_x: float = 0.0, deslocamento_visual_y: float = 0.0, constante_tempo: float | None = None, zona_morta: tuple[float, float] | None = None, enquadramento_x: float = 0.0, enquadramento_y: float = 0.0, antecipacao: float = 0.0, limites: Retangulo | None = None, travar_x: bool = False, travar_y: bool = False)",
         "retorno": "Camera",
-        "descricao": "",
-        "documentacao": "",
+        "descricao": "Câmera 2D headless com transformação inversível de mundo e tela.",
+        "documentacao": "Câmera 2D headless com transformação inversível de mundo e tela.\n\n``x`` e ``y`` preservam a semântica histórica de canto superior esquerdo\nquando ``zoom == 1`` e ``rotacao == 0``. Zoom e rotação acontecem ao redor\ndo centro lógico da câmera. O deslocamento visual é temporário e não altera\n``x``/``y``, permitindo efeitos sem mover a autoridade lógica da câmera.",
         "origem": "coral.jogos.objetos",
         "arquivo": "coral/jogos/objetos.py",
         "parametros": [
@@ -7060,7 +8687,7 @@
           },
           {
             "nome": "alvo",
-            "tipo": "Sprite | None",
+            "tipo": "Any | None",
             "padrao": "None",
             "modo": "posicional"
           },
@@ -7069,21 +8696,308 @@
             "tipo": "float",
             "padrao": "1.0",
             "modo": "posicional"
+          },
+          {
+            "nome": "zoom",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "rotacao",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "zoom_minimo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "zoom_maximo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "deslocamento_visual_x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "deslocamento_visual_y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "constante_tempo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "zona_morta",
+            "tipo": "tuple[float, float] | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "enquadramento_x",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "enquadramento_y",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "antecipacao",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "limites",
+            "tipo": "Retangulo | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "travar_x",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "travar_y",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
           }
         ],
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "centro",
+            "tipo": "propriedade",
+            "assinatura": "centro() -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_centro",
+            "tipo": "método",
+            "assinatura": "definir_centro(x: float, y: float) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_limites_zoom",
+            "tipo": "método",
+            "assinatura": "definir_limites_zoom(minimo: float | None = None, maximo: float | None = None) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_zoom",
+            "tipo": "método",
+            "assinatura": "definir_zoom(valor: float) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_rotacao",
+            "tipo": "método",
+            "assinatura": "definir_rotacao(graus: float) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "girar",
+            "tipo": "método",
+            "assinatura": "girar(graus: float) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_deslocamento_visual",
+            "tipo": "método",
+            "assinatura": "definir_deslocamento_visual(x: float = 0.0, y: float = 0.0) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "limpar_deslocamento_visual",
+            "tipo": "método",
+            "assinatura": "limpar_deslocamento_visual() -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "animar_com_clipe",
+            "tipo": "método",
+            "assinatura": "animar_com_clipe(clipe: ClipeAnimacao, mapeamento: dict[str, str], *, modo: str = 'absoluto', restaurar_ao_final: bool = False, composicao: str = 'substituir', permitir_conflito: bool = False)",
+            "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "efeitos",
+            "tipo": "propriedade",
+            "assinatura": "efeitos() -> tuple[EfeitoCamera, ...]",
+            "retorno": "tuple[EfeitoCamera, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar_efeito",
+            "tipo": "método",
+            "assinatura": "adicionar_efeito(efeito: EfeitoCamera) -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "tremer",
+            "tipo": "método",
+            "assinatura": "tremer(intensidade: float = 4.0, duracao: float = 0.2, *, semente: int = 0, frequencia: float = 24.0, curva: str | Callable[[float], float] = 'linear') -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "impulsionar_deslocamento",
+            "tipo": "método",
+            "assinatura": "impulsionar_deslocamento(x: float, y: float, duracao: float = 0.2, *, curva: str | Callable[[float], float] = 'linear') -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "impulsionar_zoom",
+            "tipo": "método",
+            "assinatura": "impulsionar_zoom(delta: float, duracao: float = 0.2, *, curva: str | Callable[[float], float] = 'linear') -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "impulsionar_rotacao",
+            "tipo": "método",
+            "assinatura": "impulsionar_rotacao(graus: float, duracao: float = 0.2, *, curva: str | Callable[[float], float] = 'linear') -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "aproximar_temporariamente",
+            "tipo": "método",
+            "assinatura": "aproximar_temporariamente(delta_zoom: float, duracao: float = 0.2, *, curva: str | Callable[[float], float] = 'suave') -> EfeitoCamera",
+            "retorno": "EfeitoCamera",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar_efeitos",
+            "tipo": "método",
+            "assinatura": "pausar_efeitos() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar_efeitos",
+            "tipo": "método",
+            "assinatura": "retomar_efeitos() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar_efeitos",
+            "tipo": "método",
+            "assinatura": "cancelar_efeitos() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_constante_tempo",
+            "tipo": "método",
+            "assinatura": "definir_constante_tempo(segundos: float | None) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_zona_morta",
+            "tipo": "método",
+            "assinatura": "definir_zona_morta(largura: float = 0.0, altura: float = 0.0) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_enquadramento",
+            "tipo": "método",
+            "assinatura": "definir_enquadramento(x: float = 0.0, y: float = 0.0) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_antecipacao",
+            "tipo": "método",
+            "assinatura": "definir_antecipacao(segundos: float = 0.0) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "definir_limites",
+            "tipo": "método",
+            "assinatura": "definir_limites(limites: Retangulo | None) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "travar_eixos",
+            "tipo": "método",
+            "assinatura": "travar_eixos(*, x: bool | None = None, y: bool | None = None) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
             "nome": "seguir",
             "tipo": "método",
-            "assinatura": "seguir(sprite: Sprite, suavidade: float = 1.0)",
+            "assinatura": "seguir(sprite: Sprite, suavidade: float = 1.0, *, constante_tempo: float | None = None, zona_morta: tuple[float, float] | None = None, enquadramento: tuple[float, float] | None = None, antecipacao: float | None = None, travar_x: bool | None = None, travar_y: bool | None = None)",
             "retorno": "não declarado",
+            "descricao": ""
+          },
+          {
+            "nome": "seguir_representacao",
+            "tipo": "método",
+            "assinatura": "seguir_representacao(representacao: RepresentacaoEntidade, **opcoes) -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "centralizar_no_alvo",
+            "tipo": "método",
+            "assinatura": "centralizar_no_alvo() -> 'Camera'",
+            "retorno": "'Camera'",
+            "descricao": ""
+          },
+          {
+            "nome": "enquadrar_alvos",
+            "tipo": "método",
+            "assinatura": "enquadrar_alvos(alvos: list[Sprite] | tuple[Sprite, ...], *, margem: float = 0.0, ajustar_zoom: bool = False) -> 'Camera'",
+            "retorno": "'Camera'",
             "descricao": ""
           },
           {
             "nome": "atualizar",
             "tipo": "método",
-            "assinatura": "atualizar()",
+            "assinatura": "atualizar(dt: float | None = None)",
             "retorno": "não declarado",
             "descricao": ""
           },
@@ -7093,6 +9007,13 @@
             "assinatura": "mundo_para_tela(x: float, y: float) -> tuple[float, float]",
             "retorno": "tuple[float, float]",
             "descricao": ""
+          },
+          {
+            "nome": "mundo_para_tela_paralaxe",
+            "tipo": "método",
+            "assinatura": "mundo_para_tela_paralaxe(x: float, y: float, paralaxe_x: float = 1.0, paralaxe_y: float | None = None) -> tuple[float, float]",
+            "retorno": "tuple[float, float]",
+            "descricao": "Projeta um ponto usando uma fração do deslocamento da câmera."
           },
           {
             "nome": "tela_para_mundo",
@@ -7146,16 +9067,295 @@
           },
           {
             "nome": "alvo",
-            "tipo": "Sprite | None",
+            "tipo": "Any | None",
             "padrao": "None"
           },
           {
             "nome": "suavidade",
             "tipo": "float",
             "padrao": "1.0"
+          },
+          {
+            "nome": "zoom",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "rotacao",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "zoom_minimo",
+            "tipo": "float | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "zoom_maximo",
+            "tipo": "float | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "deslocamento_visual_x",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "deslocamento_visual_y",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "constante_tempo",
+            "tipo": "float | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "zona_morta",
+            "tipo": "tuple[float, float] | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "enquadramento_x",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "enquadramento_y",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "antecipacao",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "limites",
+            "tipo": "Retangulo | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "travar_x",
+            "tipo": "bool",
+            "padrao": "False"
+          },
+          {
+            "nome": "travar_y",
+            "tipo": "bool",
+            "padrao": "False"
           }
         ],
         "bases": []
+      },
+      {
+        "nome": "VinculoClipe",
+        "tipo": "classe",
+        "assinatura": "VinculoClipe(alvo: Any, clipe: ClipeAnimacao, mapeamento: dict[str, str], modo: str = 'absoluto', restaurar_ao_final: bool = False, composicao: str = 'substituir')",
+        "retorno": "VinculoClipe",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "clipe",
+            "tipo": "ClipeAnimacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mapeamento",
+            "tipo": "dict[str, str]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'absoluto'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "restaurar_ao_final",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "composicao",
+            "tipo": "str",
+            "padrao": "'substituir'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "propriedades",
+            "tipo": "propriedade",
+            "assinatura": "propriedades() -> tuple[str, ...]",
+            "retorno": "tuple[str, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar(dt: float) -> dict[str, float]",
+            "retorno": "dict[str, float]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null
+          },
+          {
+            "nome": "clipe",
+            "tipo": "ClipeAnimacao",
+            "padrao": null
+          },
+          {
+            "nome": "mapeamento",
+            "tipo": "dict[str, str]",
+            "padrao": null
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'absoluto'"
+          },
+          {
+            "nome": "restaurar_ao_final",
+            "tipo": "bool",
+            "padrao": "False"
+          },
+          {
+            "nome": "composicao",
+            "tipo": "str",
+            "padrao": "'substituir'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ligar_clipe",
+        "tipo": "função",
+        "assinatura": "ligar_clipe(alvo: Any, clipe: ClipeAnimacao, mapeamento: dict[str, str], *, modo: str = 'absoluto', restaurar_ao_final: bool = False, composicao: str = 'substituir', permitir_conflito: bool = False) -> VinculoClipe",
+        "retorno": "VinculoClipe",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "clipe",
+            "tipo": "ClipeAnimacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "mapeamento",
+            "tipo": "dict[str, str]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'absoluto'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "restaurar_ao_final",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "composicao",
+            "tipo": "str",
+            "padrao": "'substituir'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "permitir_conflito",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "ValueError",
+          "TypeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "registrar_propriedade_animavel",
+        "tipo": "função",
+        "assinatura": "registrar_propriedade_animavel(tipo: type, nome: str, obter: Callable[[Any], float], definir: Callable[[Any, float], None]) -> None",
+        "retorno": "None",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "type",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "obter",
+            "tipo": "Callable[[Any], float]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "definir",
+            "tipo": "Callable[[Any, float], None]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [
+          "TypeError",
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": false
       },
       {
         "nome": "QuadroSprite",
@@ -7800,6 +10000,1503 @@
         "tem_retorno_valor": true
       },
       {
+        "nome": "normalizar_progresso",
+        "tipo": "função",
+        "assinatura": "normalizar_progresso(progresso: float, *, extrapolar: bool = False) -> float",
+        "retorno": "float",
+        "descricao": "Normaliza progresso temporal; extrapolação só ocorre quando explícita.",
+        "documentacao": "Normaliza progresso temporal; extrapolação só ocorre quando explícita.",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "extrapolar",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_linear",
+        "tipo": "função",
+        "assinatura": "curva_linear(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_entrada_suave",
+        "tipo": "função",
+        "assinatura": "curva_entrada_suave(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_saida_suave",
+        "tipo": "função",
+        "assinatura": "curva_saida_suave(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_entrada_saida_suave",
+        "tipo": "função",
+        "assinatura": "curva_entrada_saida_suave(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_quadratica",
+        "tipo": "função",
+        "assinatura": "curva_quadratica(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_cubica",
+        "tipo": "função",
+        "assinatura": "curva_cubica(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "curva_degrau",
+        "tipo": "função",
+        "assinatura": "curva_degrau(progresso: float) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "resolver_curva_temporal",
+        "tipo": "função",
+        "assinatura": "resolver_curva_temporal(curva: str | Callable[[float], float]) -> Callable[[float], float]",
+        "retorno": "Callable[[float], float]",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "avaliar_curva_temporal",
+        "tipo": "função",
+        "assinatura": "avaliar_curva_temporal(curva: str | Callable[[float], float], progresso: float, *, extrapolar: bool = False) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "extrapolar",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "interpolar",
+        "tipo": "função",
+        "assinatura": "interpolar(inicio: float, fim: float, progresso: float, *, curva: str | Callable[[float], float] = 'linear', extrapolar: bool = False) -> float",
+        "retorno": "float",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "inicio",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fim",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "progresso",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'linear'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "extrapolar",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "QuadroChave",
+        "tipo": "classe",
+        "assinatura": "QuadroChave(instante: float, valor: float, curva: str | Callable[[float], float] = 'linear')",
+        "retorno": "QuadroChave",
+        "descricao": "Valor numérico associado a um instante de uma faixa temporal.",
+        "documentacao": "Valor numérico associado a um instante de uma faixa temporal.",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'linear'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "instante",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'linear'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "FaixaAnimacao",
+        "tipo": "classe",
+        "assinatura": "FaixaAnimacao(nome: str, quadros: tuple[QuadroChave, ...])",
+        "retorno": "FaixaAnimacao",
+        "descricao": "Faixa temporal imutável de quadros chave para uma propriedade.",
+        "documentacao": "Faixa temporal imutável de quadros chave para uma propriedade.",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "quadros",
+            "tipo": "tuple[QuadroChave, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "duracao",
+            "tipo": "propriedade",
+            "assinatura": "duracao() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "valor_em",
+            "tipo": "método",
+            "assinatura": "valor_em(instante: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "quadros",
+            "tipo": "tuple[QuadroChave, ...]",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ClipeAnimacao",
+        "tipo": "classe",
+        "assinatura": "ClipeAnimacao(faixas: tuple[FaixaAnimacao, ...], velocidade: float = 1.0, modo: str = 'normal', repetir: bool = False, tempo: float = 0.0, estado: str = 'ativo')",
+        "retorno": "ClipeAnimacao",
+        "descricao": "Reprodutor headless de uma ou mais faixas de quadros chave.",
+        "documentacao": "Reprodutor headless de uma ou mais faixas de quadros chave.",
+        "origem": "coral.jogos.transformacoes",
+        "arquivo": "coral/jogos/transformacoes.py",
+        "parametros": [
+          {
+            "nome": "faixas",
+            "tipo": "tuple[FaixaAnimacao, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "velocidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'normal'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "repetir",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "duracao",
+            "tipo": "propriedade",
+            "assinatura": "duracao() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "valor",
+            "tipo": "método",
+            "assinatura": "valor(faixa: str) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "valores",
+            "tipo": "método",
+            "assinatura": "valores() -> dict[str, float]",
+            "retorno": "dict[str, float]",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> 'ClipeAnimacao'",
+            "retorno": "'ClipeAnimacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> 'ClipeAnimacao'",
+            "retorno": "'ClipeAnimacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> 'ClipeAnimacao'",
+            "retorno": "'ClipeAnimacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "buscar",
+            "tipo": "método",
+            "assinatura": "buscar(instante: float) -> 'ClipeAnimacao'",
+            "retorno": "'ClipeAnimacao'",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> dict[str, float]",
+            "retorno": "dict[str, float]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "faixas",
+            "tipo": "tuple[FaixaAnimacao, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "velocidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'normal'"
+          },
+          {
+            "nome": "repetir",
+            "tipo": "bool",
+            "padrao": "False"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "AcaoApresentacao",
+        "tipo": "classe",
+        "assinatura": "AcaoApresentacao(acao: Callable[[], Any], nome: str | None = None)",
+        "retorno": "AcaoApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "acao",
+            "tipo": "Callable[[], Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "acao",
+            "tipo": "Callable[[], Any]",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "EsperaApresentacao",
+        "tipo": "classe",
+        "assinatura": "EsperaApresentacao(duracao: float, nome: str | None = None, tempo: float = 0.0)",
+        "retorno": "EsperaApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "tempo",
+            "tipo": "float",
+            "padrao": "0.0"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "EsperaConclusao",
+        "tipo": "classe",
+        "assinatura": "EsperaConclusao(alvo: Any, nome: str | None = None)",
+        "retorno": "EsperaConclusao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "SequenciaApresentacao",
+        "tipo": "classe",
+        "assinatura": "SequenciaApresentacao(etapas: tuple[NoApresentacao, ...], nome: str | None = None)",
+        "retorno": "SequenciaApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "etapas",
+            "tipo": "tuple[NoApresentacao, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "etapa_atual",
+            "tipo": "propriedade",
+            "assinatura": "etapa_atual() -> NoApresentacao | None",
+            "retorno": "NoApresentacao | None",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "etapas",
+            "tipo": "tuple[NoApresentacao, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ParaleloApresentacao",
+        "tipo": "classe",
+        "assinatura": "ParaleloApresentacao(etapas: tuple[NoApresentacao, ...], nome: str | None = None)",
+        "retorno": "ParaleloApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "etapas",
+            "tipo": "tuple[NoApresentacao, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "etapas",
+            "tipo": "tuple[NoApresentacao, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ComposicaoTemporal",
+        "tipo": "classe",
+        "assinatura": "ComposicaoTemporal(raiz: NoApresentacao, repeticoes: int | None = 1, nome: str | None = None, estado: str = 'ativo')",
+        "retorno": "ComposicaoTemporal",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "raiz",
+            "tipo": "NoApresentacao",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "repeticoes",
+            "tipo": "int | None",
+            "padrao": "1",
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "finalizado",
+            "tipo": "propriedade",
+            "assinatura": "finalizado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelado",
+            "tipo": "propriedade",
+            "assinatura": "cancelado() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "ciclos_concluidos",
+            "tipo": "propriedade",
+            "assinatura": "ciclos_concluidos() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "progresso",
+            "tipo": "propriedade",
+            "assinatura": "progresso() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "etapa_atual",
+            "tipo": "propriedade",
+            "assinatura": "etapa_atual() -> str | None",
+            "retorno": "str | None",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> 'ComposicaoTemporal'",
+            "retorno": "'ComposicaoTemporal'",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> 'ComposicaoTemporal'",
+            "retorno": "'ComposicaoTemporal'",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar",
+            "tipo": "método",
+            "assinatura": "cancelar() -> 'ComposicaoTemporal'",
+            "retorno": "'ComposicaoTemporal'",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> 'ComposicaoTemporal'",
+            "retorno": "'ComposicaoTemporal'",
+            "descricao": ""
+          },
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> 'ComposicaoTemporal'",
+            "retorno": "'ComposicaoTemporal'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "raiz",
+            "tipo": "NoApresentacao",
+            "padrao": null
+          },
+          {
+            "nome": "repeticoes",
+            "tipo": "int | None",
+            "padrao": "1"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": "'ativo'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "VinculoTempoApresentacao",
+        "tipo": "classe",
+        "assinatura": "VinculoTempoApresentacao(composicao: ComposicaoTemporal, fonte: Any)",
+        "retorno": "VinculoTempoApresentacao",
+        "descricao": "Avança uma composição a partir de uma fonte de tempo explicitamente escolhida.",
+        "documentacao": "Avança uma composição a partir de uma fonte de tempo explicitamente escolhida.\n\nA fonte precisa apenas oferecer ``agora()``. O vínculo observa diferenças\nentre instantes e nunca chama ``passo()`` nem avança o relógio por conta\nprópria, evitando tomar autoridade do tempo de Mundo ou Simulação.",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fonte",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "atualizar",
+            "tipo": "método",
+            "assinatura": "atualizar() -> float",
+            "retorno": "float",
+            "descricao": ""
+          },
+          {
+            "nome": "ressincronizar",
+            "tipo": "método",
+            "assinatura": "ressincronizar() -> 'VinculoTempoApresentacao'",
+            "retorno": "'VinculoTempoApresentacao'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null
+          },
+          {
+            "nome": "fonte",
+            "tipo": "Any",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "VinculoComposicaoEventos",
+        "tipo": "classe",
+        "assinatura": "VinculoComposicaoEventos(composicao: ComposicaoTemporal, eventos: Any, evento: str, modo: str = 'reiniciar', ativo: bool = field(default=True, init=False))",
+        "retorno": "VinculoComposicaoEventos",
+        "descricao": "Controla uma composição por um evento sem acoplar o barramento a Jogos.",
+        "documentacao": "Controla uma composição por um evento sem acoplar o barramento a Jogos.",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "evento",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'reiniciar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "field(default=True, init=False)",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "desligar",
+            "tipo": "método",
+            "assinatura": "desligar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Any",
+            "padrao": null
+          },
+          {
+            "nome": "evento",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'reiniciar'"
+          },
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "field(default=True, init=False)"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ComandoComposicao",
+        "tipo": "classe",
+        "assinatura": "ComandoComposicao(operacao: str, valor: float | None = None)",
+        "retorno": "ComandoComposicao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "operacao",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [
+          {
+            "nome": "operacao",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "valor",
+            "tipo": "float | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "GravadorComposicao",
+        "tipo": "classe",
+        "assinatura": "GravadorComposicao(composicao: ComposicaoTemporal, comandos: list[ComandoComposicao] = field(default_factory=list))",
+        "retorno": "GravadorComposicao",
+        "descricao": "Grava comandos explícitos de uma composição para replay determinístico.",
+        "documentacao": "Grava comandos explícitos de uma composição para replay determinístico.",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "comandos",
+            "tipo": "list[ComandoComposicao]",
+            "padrao": "field(default_factory=list)",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "avancar",
+            "tipo": "método",
+            "assinatura": "avancar(dt: float) -> 'GravadorComposicao'",
+            "retorno": "'GravadorComposicao'",
+            "descricao": ""
+          },
+          {
+            "nome": "pausar",
+            "tipo": "método",
+            "assinatura": "pausar() -> 'GravadorComposicao'",
+            "retorno": "'GravadorComposicao'",
+            "descricao": ""
+          },
+          {
+            "nome": "retomar",
+            "tipo": "método",
+            "assinatura": "retomar() -> 'GravadorComposicao'",
+            "retorno": "'GravadorComposicao'",
+            "descricao": ""
+          },
+          {
+            "nome": "cancelar",
+            "tipo": "método",
+            "assinatura": "cancelar() -> 'GravadorComposicao'",
+            "retorno": "'GravadorComposicao'",
+            "descricao": ""
+          },
+          {
+            "nome": "reiniciar",
+            "tipo": "método",
+            "assinatura": "reiniciar() -> 'GravadorComposicao'",
+            "retorno": "'GravadorComposicao'",
+            "descricao": ""
+          },
+          {
+            "nome": "reproduzir_em",
+            "tipo": "método",
+            "assinatura": "reproduzir_em(composicao: ComposicaoTemporal) -> ComposicaoTemporal",
+            "retorno": "ComposicaoTemporal",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null
+          },
+          {
+            "nome": "comandos",
+            "tipo": "list[ComandoComposicao]",
+            "padrao": "field(default_factory=list)"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "executar",
+        "tipo": "função",
+        "assinatura": "executar(acao: Callable[[], Any], *, nome: str | None = None) -> AcaoApresentacao",
+        "retorno": "AcaoApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "acao",
+            "tipo": "Callable[[], Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "esperar",
+        "tipo": "função",
+        "assinatura": "esperar(duracao: float, *, nome: str | None = None) -> EsperaApresentacao",
+        "retorno": "EsperaApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "esperar_conclusao",
+        "tipo": "função",
+        "assinatura": "esperar_conclusao(alvo: Any, *, nome: str | None = None) -> EsperaConclusao",
+        "retorno": "EsperaConclusao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "sequencia",
+        "tipo": "função",
+        "assinatura": "sequencia(*etapas: NoApresentacao, nome: str | None = None) -> SequenciaApresentacao",
+        "retorno": "SequenciaApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "*etapas",
+            "tipo": "NoApresentacao",
+            "padrao": null,
+            "modo": "variádico"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "paralelo",
+        "tipo": "função",
+        "assinatura": "paralelo(*etapas: NoApresentacao, nome: str | None = None) -> ParaleloApresentacao",
+        "retorno": "ParaleloApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "*etapas",
+            "tipo": "NoApresentacao",
+            "padrao": null,
+            "modo": "variádico"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "usar_fonte_tempo",
+        "tipo": "função",
+        "assinatura": "usar_fonte_tempo(composicao: ComposicaoTemporal, fonte: Any) -> VinculoTempoApresentacao",
+        "retorno": "VinculoTempoApresentacao",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "fonte",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "ligar_evento",
+        "tipo": "função",
+        "assinatura": "ligar_evento(composicao: ComposicaoTemporal, eventos: Any, evento: str, *, modo: str = 'reiniciar') -> VinculoComposicaoEventos",
+        "retorno": "VinculoComposicaoEventos",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.composicao",
+        "arquivo": "coral/jogos/composicao.py",
+        "parametros": [
+          {
+            "nome": "composicao",
+            "tipo": "ComposicaoTemporal",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "eventos",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "evento",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'reiniciar'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
         "nome": "forma_espacial_sprite",
         "tipo": "função",
         "assinatura": "forma_espacial_sprite(sprite: Any) -> Poligono",
@@ -8124,6 +11821,603 @@
           }
         ],
         "bases": []
+      },
+      {
+        "nome": "CONTRATO_OVERLAY_DEBUG",
+        "tipo": "constante",
+        "assinatura": "CONTRATO_OVERLAY_DEBUG",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "'coral.jogos.debug.overlay/1'",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "PrimitivaDebug",
+        "tipo": "classe",
+        "assinatura": "PrimitivaDebug(tipo: str, categoria: str, dados: Mapping[str, Any] = field(default_factory=dict), rotulo: str | None = None, espaco: str = 'mundo')",
+        "retorno": "PrimitivaDebug",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "categoria",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "dados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)",
+            "modo": "posicional"
+          },
+          {
+            "nome": "rotulo",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espaco",
+            "tipo": "str",
+            "padrao": "'mundo'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "para_dict",
+            "tipo": "método",
+            "assinatura": "para_dict() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "categoria",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "dados",
+            "tipo": "Mapping[str, Any]",
+            "padrao": "field(default_factory=dict)"
+          },
+          {
+            "nome": "rotulo",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "espaco",
+            "tipo": "str",
+            "padrao": "'mundo'"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "OverlayDebug",
+        "tipo": "classe",
+        "assinatura": "OverlayDebug(primitivas: tuple[PrimitivaDebug, ...] = (), assinatura_origem: str | None = None, contrato: str = CONTRATO_OVERLAY_DEBUG)",
+        "retorno": "OverlayDebug",
+        "descricao": "",
+        "documentacao": "",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "primitivas",
+            "tipo": "tuple[PrimitivaDebug, ...]",
+            "padrao": "()",
+            "modo": "posicional"
+          },
+          {
+            "nome": "assinatura_origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "contrato",
+            "tipo": "str",
+            "padrao": "CONTRATO_OVERLAY_DEBUG",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "quantidade",
+            "tipo": "propriedade",
+            "assinatura": "quantidade() -> int",
+            "retorno": "int",
+            "descricao": ""
+          },
+          {
+            "nome": "por_categoria",
+            "tipo": "método",
+            "assinatura": "por_categoria(categoria: str) -> tuple[PrimitivaDebug, ...]",
+            "retorno": "tuple[PrimitivaDebug, ...]",
+            "descricao": ""
+          },
+          {
+            "nome": "para_dict",
+            "tipo": "método",
+            "assinatura": "para_dict() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "para_json",
+            "tipo": "método",
+            "assinatura": "para_json(**kwargs: Any) -> str",
+            "retorno": "str",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "primitivas",
+            "tipo": "tuple[PrimitivaDebug, ...]",
+            "padrao": "()"
+          },
+          {
+            "nome": "assinatura_origem",
+            "tipo": "str | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "contrato",
+            "tipo": "str",
+            "padrao": "CONTRATO_OVERLAY_DEBUG"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "EstiloOverlayDebug",
+        "tipo": "classe",
+        "assinatura": "EstiloOverlayDebug(limites: Any = None, colisor: Any = None, pivo: Any = None, camera: Any = None, camera_centro: Any = None, rotulo: Any = None, metricas: Any = None, espessura: int = 1, tamanho_pivo: int = 3, tamanho_texto: int = 14, opacidade: float = 1.0)",
+        "retorno": "EstiloOverlayDebug",
+        "descricao": "Estilo de desenho desacoplado da geração geométrica do overlay.",
+        "documentacao": "Estilo de desenho desacoplado da geração geométrica do overlay.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "limites",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "colisor",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "pivo",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "camera",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "camera_centro",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "rotulo",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "metricas",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "espessura",
+            "tipo": "int",
+            "padrao": "1",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_pivo",
+            "tipo": "int",
+            "padrao": "3",
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_texto",
+            "tipo": "int",
+            "padrao": "14",
+            "modo": "posicional"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "cor_para",
+            "tipo": "método",
+            "assinatura": "cor_para(categoria: str)",
+            "retorno": "não declarado",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "limites",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "colisor",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "pivo",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "camera",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "camera_centro",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "rotulo",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "metricas",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "espessura",
+            "tipo": "int",
+            "padrao": "1"
+          },
+          {
+            "nome": "tamanho_pivo",
+            "tipo": "int",
+            "padrao": "3"
+          },
+          {
+            "nome": "tamanho_texto",
+            "tipo": "int",
+            "padrao": "14"
+          },
+          {
+            "nome": "opacidade",
+            "tipo": "float",
+            "padrao": "1.0"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ConfiguracaoDebugJogo",
+        "tipo": "classe",
+        "assinatura": "ConfiguracaoDebugJogo(ativo: bool = False, categorias: frozenset[str] = _CATEGORIAS_DEBUG_PADRAO, incluir_invisiveis: bool = False, estilo: EstiloOverlayDebug = field(default_factory=EstiloOverlayDebug))",
+        "retorno": "ConfiguracaoDebugJogo",
+        "descricao": "Configuração persistente e serializável do modo de debug de Jogo.",
+        "documentacao": "Configuração persistente e serializável do modo de debug de Jogo.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "categorias",
+            "tipo": "frozenset[str]",
+            "padrao": "_CATEGORIAS_DEBUG_PADRAO",
+            "modo": "posicional"
+          },
+          {
+            "nome": "incluir_invisiveis",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "posicional"
+          },
+          {
+            "nome": "estilo",
+            "tipo": "EstiloOverlayDebug",
+            "padrao": "field(default_factory=EstiloOverlayDebug)",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
+            "nome": "com_alteracoes",
+            "tipo": "método",
+            "assinatura": "com_alteracoes(*, ativo: bool | None = None, categorias: Any = None, incluir_invisiveis: bool | None = None, estilo: EstiloOverlayDebug | None = None) -> 'ConfiguracaoDebugJogo'",
+            "retorno": "'ConfiguracaoDebugJogo'",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "ativo",
+            "tipo": "bool",
+            "padrao": "False"
+          },
+          {
+            "nome": "categorias",
+            "tipo": "frozenset[str]",
+            "padrao": "_CATEGORIAS_DEBUG_PADRAO"
+          },
+          {
+            "nome": "incluir_invisiveis",
+            "tipo": "bool",
+            "padrao": "False"
+          },
+          {
+            "nome": "estilo",
+            "tipo": "EstiloOverlayDebug",
+            "padrao": "field(default_factory=EstiloOverlayDebug)"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "normalizar_categorias_debug",
+        "tipo": "função",
+        "assinatura": "normalizar_categorias_debug(categorias: Any = None) -> frozenset[str]",
+        "retorno": "frozenset[str]",
+        "descricao": "Normaliza categorias públicas do modo de debug persistente.",
+        "documentacao": "Normaliza categorias públicas do modo de debug persistente.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "categorias",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "gerar_overlay_debug",
+        "tipo": "função",
+        "assinatura": "gerar_overlay_debug(objeto: Any, *, limites: bool = True, colisores: bool = True, camera: bool = True, pivos: bool = True, rotulos: bool = False, incluir_invisiveis: bool = False) -> OverlayDebug",
+        "retorno": "OverlayDebug",
+        "descricao": "Gera primitivas de debug sem desenhar e sem depender de backend gráfico.",
+        "documentacao": "Gera primitivas de debug sem desenhar e sem depender de backend gráfico.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "objeto",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "limites",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "colisores",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "camera",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "pivos",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "rotulos",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "incluir_invisiveis",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "gerar_overlay_metricas_debug",
+        "tipo": "função",
+        "assinatura": "gerar_overlay_metricas_debug(metricas: Any, *, x: float = 8.0, y: float = 8.0, espacamento: float = 18.0) -> OverlayDebug",
+        "retorno": "OverlayDebug",
+        "descricao": "Converte métricas operacionais em texto de tela, sem backend gráfico.",
+        "documentacao": "Converte métricas operacionais em texto de tela, sem backend gráfico.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "metricas",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "x",
+            "tipo": "float",
+            "padrao": "8.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "y",
+            "tipo": "float",
+            "padrao": "8.0",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "espacamento",
+            "tipo": "float",
+            "padrao": "18.0",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "TypeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "desenhar_overlay_debug",
+        "tipo": "função",
+        "assinatura": "desenhar_overlay_debug(alvo: Any, overlay_ou_objeto: Any, *, camera: Any | None = None, estilo: EstiloOverlayDebug | None = None, limites: bool = True, colisores: bool = True, pivos: bool = True, rotulos: bool = False, incluir_invisiveis: bool = False, mostrar_camera: bool = True) -> OverlayDebug",
+        "retorno": "OverlayDebug",
+        "descricao": "Renderiza primitivas de debug pela API pública de desenho.",
+        "documentacao": "Renderiza primitivas de debug pela API pública de desenho.",
+        "origem": "coral.jogos.debug",
+        "arquivo": "coral/jogos/debug.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "overlay_ou_objeto",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "camera",
+            "tipo": "Any | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "estilo",
+            "tipo": "EstiloOverlayDebug | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "limites",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "colisores",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "pivos",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "rotulos",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "incluir_invisiveis",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "mostrar_camera",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "TypeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "EstiloCelula",
@@ -8452,6 +12746,84 @@
         ],
         "excecoes": [
           "ErroMapaCoral"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "animar_propriedade",
+        "tipo": "função",
+        "assinatura": "animar_propriedade(alvo: Any, propriedade: str, valor: float, duracao: float, *, curva: str | Callable[[float], float] = 'suave', modo: str = 'normal') -> 'VinculoClipe'",
+        "retorno": "'VinculoClipe'",
+        "descricao": "Anime uma propriedade pública suportada até um valor em tempo explícito.",
+        "documentacao": "Anime uma propriedade pública suportada até um valor em tempo explícito.\n\nEsta função é a ponte compacta usada pela superfície em português corrente.\nEla reutiliza os adaptadores seguros do CP6 em vez de usar ``setattr`` irrestrito.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "alvo",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "propriedade",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "duracao",
+            "tipo": "float",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "curva",
+            "tipo": "str | Callable[[float], float]",
+            "padrao": "'suave'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'normal'",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "reproduzir_ao_contrario",
+        "tipo": "função",
+        "assinatura": "reproduzir_ao_contrario(animacao: Any) -> Any",
+        "retorno": "Any",
+        "descricao": "Reinicie uma animação ou clipe no modo reverso, quando suportado.",
+        "documentacao": "Reinicie uma animação ou clipe no modo reverso, quando suportado.",
+        "origem": "coral.jogos.objetos",
+        "arquivo": "coral/jogos/objetos.py",
+        "parametros": [
+          {
+            "nome": "animacao",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [
+          "TypeError"
         ],
         "metodos": [],
         "atributos": [],
@@ -9838,6 +14210,13 @@
             "descricao": ""
           },
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "para_dict",
             "tipo": "método",
             "assinatura": "para_dict() -> dict[str, Any]",
@@ -9939,6 +14318,13 @@
             "tipo": "método",
             "assinatura": "remover_item(item: Any) -> bool",
             "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
             "descricao": ""
           }
         ],
@@ -12456,6 +16842,9 @@
     "operacoes": [
       "CONTRATO",
       "VERSAO_ESQUEMA",
+      "VERSOES_LEITURA",
+      "VERSAO_ESCRITA",
+      "politica_persistencia",
       "ErroPersistencia",
       "registrar_adaptador",
       "registrar_extensao_persistente",
@@ -12500,6 +16889,49 @@
         "excecoes": [],
         "metodos": [],
         "atributos": []
+      },
+      {
+        "nome": "VERSOES_LEITURA",
+        "tipo": "constante",
+        "assinatura": "VERSOES_LEITURA",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "(1,)",
+        "origem": "coral.persistencia",
+        "arquivo": "coral/persistencia.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "VERSAO_ESCRITA",
+        "tipo": "constante",
+        "assinatura": "VERSAO_ESCRITA",
+        "retorno": "não declarado",
+        "descricao": "Constante pública do módulo.",
+        "valor": "1",
+        "origem": "coral.persistencia",
+        "arquivo": "coral/persistencia.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": []
+      },
+      {
+        "nome": "politica_persistencia",
+        "tipo": "função",
+        "assinatura": "politica_persistencia() -> dict[str, Any]",
+        "retorno": "dict[str, Any]",
+        "descricao": "Descreve a política executável do formato persistente corrente.",
+        "documentacao": "Descreve a política executável do formato persistente corrente.",
+        "origem": "coral.persistencia",
+        "arquivo": "coral/persistencia.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
       },
       {
         "nome": "ErroPersistencia",
@@ -13775,6 +18207,13 @@
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "avaliar",
             "tipo": "método",
             "assinatura": "avaliar(contexto: Any, *, instante: float | None = None) -> bool",
@@ -13962,6 +18401,13 @@
             "descricao": ""
           },
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "atualizar",
             "tipo": "método",
             "assinatura": "atualizar(dt: float) -> bool",
@@ -14053,6 +18499,13 @@
         "excecoes": [],
         "metodos": [
           {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
+          {
             "nome": "atualizar",
             "tipo": "método",
             "assinatura": "atualizar(contexto: Any, dt: float) -> int",
@@ -14125,6 +18578,13 @@
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
           {
             "nome": "pendentes",
             "tipo": "propriedade",
@@ -14265,6 +18725,13 @@
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
           {
             "nome": "adicionar",
             "tipo": "método",
@@ -18057,6 +22524,13 @@
             "assinatura": "consumir() -> None",
             "retorno": "None",
             "descricao": ""
+          },
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": "Estado observável do evento sem executar ouvintes nem alterar a fila."
           }
         ],
         "atributos": [
@@ -18154,6 +22628,13 @@
         ],
         "excecoes": [],
         "metodos": [
+          {
+            "nome": "estado_inspecao",
+            "tipo": "método",
+            "assinatura": "estado_inspecao() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          },
           {
             "nome": "pendentes",
             "tipo": "propriedade",

@@ -12,7 +12,7 @@ Na raiz da distribuição extraída:
 
 ```bash
 bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.5.12.pyz --versao
+python Instalacao/Runtime/coral-1.6.0.pyz --versao
 ```
 
 O segundo comando deve informar a versão corrente da Coral.
@@ -23,12 +23,12 @@ Na raiz da distribuição extraída:
 
 ```text
 Instalacao\Coral_Setup.cmd
-python Instalacao\Runtime\coral-1.5.12.pyz --versao
+python Instalacao\Runtime\coral-1.6.0.pyz --versao
 ```
 
 ## Instalar a extensão do VS Code
 
-A extensão oficial fica em `Instalacao/Extensao_VSCode/`. No VS Code, use **Extensions: Install from VSIX** e selecione o arquivo `coral-language-0.43.0.vsix`.
+A extensão oficial fica em `Instalacao/Extensao_VSCode/`. No VS Code, use **Extensions: Install from VSIX** e selecione o arquivo `coral-language-0.53.0.vsix`.
 
 Depois, execute **Developer: Reload Window** para reiniciar o host da extensão.
 
@@ -37,8 +37,8 @@ Depois, execute **Developer: Reload Window** para reiniciar o host da extensão.
 Use o próprio runtime para conferir o ambiente:
 
 ```bash
-python Instalacao/Runtime/coral-1.5.12.pyz --self-check
-python Instalacao/Runtime/coral-1.5.12.pyz --ambiente
+python Instalacao/Runtime/coral-1.6.0.pyz --self-check
+python Instalacao/Runtime/coral-1.6.0.pyz --ambiente
 ```
 
 Se estiver no VS Code, a visão **Ambiente Coral** também mostra runtime, projeto, LSP, DAP e componentes disponíveis.

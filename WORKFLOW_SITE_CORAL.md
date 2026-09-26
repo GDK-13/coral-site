@@ -139,6 +139,8 @@ coral-site/
 │   ├── syntax_highlight.py
 │   ├── test_syntax_highlight.py
 │   └── validar_site.py
+├── scripts/
+│   └── validar_site_atual.sh
 ├── docs.html                      # redirecionamento
 ├── index.html
 ├── README.md
@@ -169,10 +171,12 @@ O gerador recria todas as páginas públicas, os links relativos, o índice loca
 
 ## 7. Atualização após uma nova release Coral
 
-Use o ZIP oficial completo:
+Use o ZIP oficial completo ou o pacote final de entrega que contenha esse ZIP:
 
 ```bash
-python tools/atualizar_docs.py /caminho/Coral_1.5.12_Completo.zip
+python tools/atualizar_docs.py /caminho/Coral_X.Y.Z_Completo.zip
+# ou
+python tools/atualizar_docs.py /caminho/Coral_X.Y.Z_Entrega_Final.zip
 ```
 
 O importador atualiza:
@@ -235,7 +239,13 @@ Antes de publicar ou depois de importar uma release:
 python tools/validar_site.py
 ```
 
-O gate cobre testes unitários do realce, whitelist de linguagens, strings e escapes, comentários, ponto decimal, identificadores, caminhos de módulo, chamadas naturais não inferidas, segurança HTML, fidelidade dos blocos de código, links, âncoras e IDs.
+Para executar o fluxo local completo usando a identidade corrente de `docs/dados/versao.json`:
+
+```bash
+bash scripts/validar_site_atual.sh
+```
+
+O script genérico substitui validadores presos a uma versão específica e grava `resultado_validacao_site_X_Y_Z.txt`. O gate cobre testes unitários do realce, whitelist de linguagens, strings e escapes, comentários, ponto decimal, identificadores, caminhos de módulo, chamadas naturais não inferidas, segurança HTML, fidelidade dos blocos de código, links, âncoras e IDs.
 
 ## 11. `REVISAO_PENDENTE.md`
 
@@ -257,8 +267,8 @@ Exemplo:
 
 ```json
 {
-  "coral": "1.5.12",
-  "extensao_vscode": "0.43.0",
+  "coral": "X.Y.Z",
+  "extensao_vscode": "A.B.C",
   "livro": "1.5.8",
   "estavel": true
 }
@@ -286,7 +296,7 @@ http://localhost:8000/docs/modulos/jogos.html
 Antes da inspeção visual, rode:
 
 ```bash
-python tools/validar_site.py
+bash scripts/validar_site_atual.sh
 ```
 
 Revise:
@@ -311,7 +321,7 @@ Depois da revisão:
 ```bash
 git status
 git add .
-git commit -m "Atualiza documentação para Coral 1.5.12"
+git commit -m "Atualiza documentação para Coral X.Y.Z"
 git push
 ```
 

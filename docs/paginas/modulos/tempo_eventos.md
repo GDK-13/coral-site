@@ -101,7 +101,7 @@ Controle o relógio e a fila em testes. Isso elimina esperas reais e torna ordem
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.5.12**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.6.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -371,6 +371,7 @@ Representa registro de evento.
 |---|---|---|
 | `cancelar` | Cancela o valor solicitado. | `None` |
 | `consumir` | Executa a operação `consumir` disponibilizada por `coral.tempo_eventos`. | `None` |
+| `estado_inspecao` | Estado observável do evento sem executar ouvintes nem alterar a fila. | `dict[str, Any]` |
 
 :::details Detalhes técnicos
 
@@ -386,6 +387,7 @@ Representa registro de evento.
 |---|---|---|
 | `cancelar` | método | `cancelar(motivo: str \| None = None) -> None` |
 | `consumir` | método | `consumir() -> None` |
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 
 :::
 
@@ -417,6 +419,7 @@ mostre relogio.agora()
 
 | Nome | O que faz | Retorno |
 |---|---|---|
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.tempo_eventos`. | `dict[str, Any]` |
 | `pendentes` | Obtém pendentes. | `int` |
 | `pai` | Obtém pai. | `'Eventos \| None'` |
 | `relogio` | Obtém relogio. | `FonteTempo \| None` |
@@ -453,6 +456,7 @@ mostre relogio.agora()
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `pendentes` | propriedade | `pendentes() -> int` |
 | `pai` | propriedade | `pai() -> 'Eventos \| None'` |
 | `relogio` | propriedade | `relogio() -> FonteTempo \| None` |

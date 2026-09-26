@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.sistema — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,20 @@
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.sistema</h1>
       <p>coral.sistema é a fronteira oficial entre um programa Coral e o sistema operacional. Ele concentra informações do host, variáveis de ambiente, caminhos de processo e execução segura de programas externos.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>informações do sistema, ambiente, caminhos e processos.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use quando o programa precisa descobrir características do ambiente, ler configuração por variável, localizar pastas, executar uma ferramenta externa ou produzir um diagnóstico de suporte.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Não use como substituto de APIs de alto nível que já existem em outros módulos.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="caminhos.html"><code>coral.caminhos</code></a>, <a href="arquivos.html"><code>coral.arquivos</code></a>, <a href="hardware.html"><code>coral.hardware</code></a>, <a href="laboratorio.html"><code>coral.laboratorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sistema</span> <span class="code-key">importe</span> informacoes, pasta_atual, variavel_ambiente
+
+<span class="code-key">defina</span> ambiente como <span class="code-fn">informacoes</span>()
+<span class="code-key">mostre</span> ambiente.sistema
+<span class="code-key">mostre</span> <span class="code-fn">pasta_atual</span>()
+<span class="code-key">mostre</span> <span class="code-fn">variavel_ambiente</span>(<span class="code-str">&quot;HOME&quot;</span>, <span class="code-str">&quot;&quot;</span>)</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.sistema</code> é a fronteira oficial entre um programa Coral e o sistema operacional. Ele concentra informações do host, variáveis de ambiente, caminhos de processo e execução segura de programas externos.</p>
@@ -136,13 +149,14 @@
 <p data-searchable>Use quando o programa precisa descobrir características do ambiente, ler configuração por variável, localizar pastas, executar uma ferramenta externa ou produzir um diagnóstico de suporte.</p>
 <p data-searchable>Não use como substituto de APIs de alto nível que já existem em outros módulos. Para ler um arquivo, use <code>coral.arquivos</code>; para hardware, use <code>coral.hardware</code>.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>O exemplo abaixo foi validado com o runtime 1.5.12:</p>
+<p data-searchable>O exemplo abaixo foi validado com o runtime 1.6.0:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sistema</span> <span class="code-key">importe</span> informacoes, pasta_atual, variavel_ambiente
 
 <span class="code-key">defina</span> ambiente como <span class="code-fn">informacoes</span>()
 <span class="code-key">mostre</span> ambiente.sistema
 <span class="code-key">mostre</span> <span class="code-fn">pasta_atual</span>()
 <span class="code-key">mostre</span> <span class="code-fn">variavel_ambiente</span>(<span class="code-str">&quot;HOME&quot;</span>, <span class="code-str">&quot;&quot;</span>)</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O programa mostra três informações do ambiente atual: o sistema operacional identificado, a pasta de trabalho e o valor de <code>HOME</code>. Os valores exatos dependem do computador.</p></div></details>
 <h2 id="api-essencial" data-searchable>API essencial</h2>
 <div class="table-wrap"><table><thead><tr>
 <th>Entrada</th>

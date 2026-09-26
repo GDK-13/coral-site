@@ -63,6 +63,10 @@ def fenced_blocks(md: str) -> list[tuple[str, str]]:
 
 
 def html_code_blocks(text: str) -> list[tuple[str, str]]:
+    # O resumo rápido de módulos reutiliza um exemplo já existente no Markdown.
+    # Ele é uma projeção didática adicional, não um novo bloco fonte, portanto
+    # deve ser ignorado pela auditoria de fidelidade 1:1.
+    text = re.sub(r'<section class="module-quick-summary".*?</section>', '', text, flags=re.S)
     blocks: list[tuple[str, str]] = []
     for m in re.finditer(r'<pre><code(?: class="language-([^"]+)")?>(.*?)</code></pre>', text, re.S):
         lang = m.group(1) or ""
@@ -197,6 +201,72 @@ def audit_api_didactic() -> list[str]:
     return errors
 
 
+def audit_qol_didatica() -> list[str]:
+    """Valida os contratos da primeira fase de QoL e didática."""
+    errors: list[str] = []
+    template_path = ROOT / "templates" / "docs.html"
+    js_path = ROOT / "assets" / "js" / "site.js"
+    css_path = ROOT / "assets" / "css" / "styles.css"
+    guide_md = ROOT / "docs" / "paginas" / "guias_objetivos.md"
+    guide_html = ROOT / "docs" / "guias_objetivos.html"
+    modules_dir = ROOT / "docs" / "modulos"
+
+    template = template_path.read_text(encoding="utf-8") if template_path.exists() else ""
+    js = js_path.read_text(encoding="utf-8") if js_path.exists() else ""
+    css = css_path.read_text(encoding="utf-8") if css_path.exists() else ""
+
+    for snippet, label in (
+        ('data-reading-mode="learn"', "modo Aprender padrão"),
+        ('data-reading-mode="reference"', "botão do modo Referência"),
+        ('{{MODULE_QUICK_SUMMARY}}', "slot de resumo rápido"),
+    ):
+        if snippet not in template:
+            errors.append(f"QoL didática ausente no template: {label}")
+
+    for snippet, label in (
+        ("coral-reading-mode", "persistência local do modo de leitura"),
+        ("classifyReadingSections", "classificação das seções por modo"),
+        ("setReadingMode", "alternância Aprender/Referência"),
+    ):
+        if snippet not in js:
+            errors.append(f"QoL didática ausente no JavaScript: {label}")
+
+    for snippet, label in (
+        ('.module-quick-summary', "resumo rápido"),
+        ('.expected-result', "resultado esperado"),
+        ('data-reading-mode="reference"', "regras visuais de modo"),
+    ):
+        if snippet not in css:
+            errors.append(f"QoL didática ausente no CSS: {label}")
+
+    module_pages = sorted(modules_dir.glob("*.html"))
+    for page in module_pages:
+        text = page.read_text(encoding="utf-8")
+        if 'class="module-quick-summary"' not in text:
+            errors.append(f"resumo rápido ausente em {page.relative_to(ROOT)}")
+
+    if not guide_md.exists() or not guide_html.exists():
+        errors.append("guia por objetivo ausente")
+    else:
+        guide_text = guide_html.read_text(encoding="utf-8")
+        if "O que você quer fazer?" not in guide_text:
+            errors.append("guia por objetivo sem título esperado")
+        if guide_text.count('class="expected-result"') < 8:
+            errors.append("guia por objetivo tem poucos resultados esperados")
+
+    expected_total = sum(
+        p.read_text(encoding="utf-8").count(":::resultado")
+        for p in DOCS_SOURCE.rglob("*.md")
+    )
+    rendered_total = sum(
+        p.read_text(encoding="utf-8").count('class="expected-result"')
+        for p in DOCS_PUBLIC.rglob("*.html")
+    )
+    if expected_total != rendered_total:
+        errors.append(f"resultados esperados renderizados: {rendered_total} != {expected_total}")
+    return errors
+
+
 def audit_header_layout_contract() -> list[str]:
     """Impede regressão do cabeçalho claro quando rótulos ficam mais largos."""
     errors: list[str] = []
@@ -249,6 +319,7 @@ def main() -> int:
     failures.extend(audit_syntax_contract())
     failures.extend(audit_header_layout_contract())
     failures.extend(audit_api_didactic())
+    failures.extend(audit_qol_didatica())
     failures.extend(audit_residues())
 
     if failures:
@@ -261,7 +332,7 @@ def main() -> int:
     print(f"HTML verificados: {html_count}")
     print(f"Blocos de código comparados: {code_count}")
     print("Realce Coral: whitelist, fidelidade, strings, comentários, números, módulos e chamadas tradicionais OK")
-    print("Links, âncoras, IDs, contrato sintático, referência didática de API e cabeçalho responsivo: OK")
+    print("Links, âncoras, IDs, contrato sintático, referência didática de API, QoL didática e cabeçalho responsivo: OK")
     return 0
 
 

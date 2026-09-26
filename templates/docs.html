@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="{{SITE_ROOT}}">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="{{SITE_ROOT}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>{{PAGE_TITLE}} — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="{{SITE_ROOT}}assets/icons/favicon.svg">
   <link rel="stylesheet" href="{{SITE_ROOT}}assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='{{SITE_ROOT}}assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='{{SITE_ROOT}}assets/css/fontes-arquivo.css';document.head.append(f);['{{SITE_ROOT}}assets/fonts/atkinsonhyperlegible-normal-400.woff2','{{SITE_ROOT}}assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='{{SITE_ROOT}}assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='{{SITE_ROOT}}assets/css/fontes-arquivo.css';document.head.append(f);['{{SITE_ROOT}}assets/fonts/atkinsonhyperlegible-normal-400.woff2','{{SITE_ROOT}}assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="{{SITE_ROOT}}docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -59,8 +59,15 @@
       <div class="breadcrumb">Documentação / {{PAGE_GROUP}}</div>
       <h1>{{PAGE_TITLE}}</h1>
       <p>{{PAGE_DESCRIPTION}}</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    {{MODULE_QUICK_SUMMARY}}
     <article class="docs-section">
       {{CONTENT}}
     </article>

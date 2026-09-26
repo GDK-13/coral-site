@@ -47,7 +47,7 @@ Evite tornar a lógica de domínio dependente de hardware real quando ela puder 
 
 ## Começando
 
-O exemplo abaixo foi validado com o runtime 1.5.12:
+O exemplo abaixo foi validado com o runtime 1.6.0:
 
 ```coral
 de coral.hardware importe cpu, memoria, discos, psutil_disponivel
@@ -61,6 +61,10 @@ se psutil_disponivel() então
     mostre quantidade de unidades
 fim
 ```
+
+:::resultado
+Quando `psutil` está disponível, o programa mostra a quantidade de núcleos lógicos, a memória total em bytes e a quantidade de unidades detectadas. Sem essa capacidade opcional, o bloco condicional não é executado.
+:::
 
 ## API essencial
 

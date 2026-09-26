@@ -55,7 +55,7 @@ Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesse
 
 ## Começando
 
-A release 1.5.12 usa `coral.numerico` no projeto de laboratório de algoritmos. O trecho abaixo vem de `Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral`:
+A release 1.6.0 usa `coral.numerico` no projeto de laboratório de algoritmos. O trecho abaixo vem de `Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral`:
 
 ```coral
 de coral.json importe ler_json
@@ -70,6 +70,10 @@ crie a função analisar_relatorio com caminho
     retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
 fim
 ```
+
+:::resultado
+O trecho define `analisar_relatorio`. Quando a função recebe um relatório compatível, ela devolve um registro com média, mediana e desvio dos tempos válidos.
+:::
 
 ## API essencial
 

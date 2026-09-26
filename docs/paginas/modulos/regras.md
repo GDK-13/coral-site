@@ -68,6 +68,10 @@ defina vida como 4
 avalie as regras
 ```
 
+:::resultado
+Na segunda avaliação, com `vida` igual a `4`, a condição da regra fica verdadeira e `estado` passa a ser `ferido`. O observador de mudança também reage à alteração de `vida`.
+:::
+
 ## API essencial
 
 | Entrada | Papel | Assinatura |
@@ -215,6 +219,7 @@ Representa condição e ação.
 
 | Nome | O que faz | Retorno |
 |---|---|---|
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.regras`. | `dict[str, Any]` |
 | `avaliar` | Executa a operação `avaliar` disponibilizada por `coral.regras`. | `bool` |
 
 :::details Detalhes técnicos
@@ -229,6 +234,7 @@ Representa condição e ação.
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `avaliar` | método | `avaliar(contexto: Any, *, instante: float \| None = None) -> bool` |
 
 :::
@@ -306,6 +312,7 @@ Representa Debounce na API de `coral.regras`.
 | Nome | O que faz | Retorno |
 |---|---|---|
 | `notificar` | Executa a operação `notificar` disponibilizada por `coral.regras`. | `None` |
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.regras`. | `dict[str, Any]` |
 | `atualizar` | Atualiza o valor solicitado. | `bool` |
 
 :::details Detalhes técnicos
@@ -321,6 +328,7 @@ Representa Debounce na API de `coral.regras`.
 | Nome | Tipo | Assinatura |
 |---|---|---|
 | `notificar` | método | `notificar(contexto: Any = None) -> None` |
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `atualizar` | método | `atualizar(dt: float) -> bool` |
 
 :::
@@ -355,6 +363,7 @@ Representa Temporizador na API de `coral.regras`.
 
 | Nome | O que faz | Retorno |
 |---|---|---|
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.regras`. | `dict[str, Any]` |
 | `atualizar` | Atualiza o valor solicitado. | `int` |
 
 :::details Detalhes técnicos
@@ -369,6 +378,7 @@ Representa Temporizador na API de `coral.regras`.
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `atualizar` | método | `atualizar(contexto: Any, dt: float) -> int` |
 
 :::
@@ -389,6 +399,7 @@ Barramento local compatível com ``coral.regras.Eventos``.
 
 | Nome | O que faz | Retorno |
 |---|---|---|
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.regras`. | `dict[str, Any]` |
 | `pendentes` | Obtém pendentes. | `int` |
 | `pai` | Obtém pai. | `'Eventos \| None'` |
 | `relogio` | Obtém relogio. | `FonteTempo \| None` |
@@ -425,6 +436,7 @@ Barramento local compatível com ``coral.regras.Eventos``.
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `pendentes` | propriedade | `pendentes() -> int` |
 | `pai` | propriedade | `pai() -> 'Eventos \| None'` |
 | `relogio` | propriedade | `relogio() -> FonteTempo \| None` |
@@ -459,6 +471,7 @@ Representa MotorRegras na API de `coral.regras`.
 
 | Nome | O que faz | Retorno |
 |---|---|---|
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.regras`. | `dict[str, Any]` |
 | `adicionar` | Adiciona o valor solicitado. | `Regra` |
 | `regra` | Helper de criação. | `Regra` |
 | `obter_regra` | Obtém regra. | `Regra` |
@@ -510,6 +523,7 @@ Representa MotorRegras na API de `coral.regras`.
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `adicionar` | método | `adicionar(regra: Regra) -> Regra` |
 | `regra` | método | `regra(nome: str, condicao: Condicao, acao: Acao, *, modo: str = 'ao_ativar', prioridade: str \| int = 'normal', max_execucoes: int \| None = None, cooldown: float = 0.0) -> Regra` |
 | `obter_regra` | método | `obter_regra(nome: str) -> Regra` |

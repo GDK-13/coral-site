@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Projetos e módulos — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a class="active" aria-current="page" href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,15 @@
       <div class="breadcrumb">Documentação / Guias</div>
       <h1>Projetos e módulos</h1>
       <p>Projetos Coral usam coral.toml como ponto central de configuração. O runtime, o LSP e o Project Explorer leem a mesma estrutura, evitando que o editor invente uma interpretação diferente da usada na execução.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>Projetos Coral usam <code>coral.toml</code> como ponto central de configuração. O runtime, o LSP e o Project Explorer leem a mesma estrutura, evitando que o editor invente uma interpretação diferente da usada na execução.</p>
 <h2 id="quando-criar-um-projeto" data-searchable>Quando criar um projeto</h2>
@@ -141,7 +149,7 @@
 <h2 id="validar-e-construir" data-searchable>Validar e construir</h2>
 <p data-searchable>A CLI oferece comandos para validar, construir e executar projetos. O VS Code expõe as mesmas operações pela interface para evitar que o terminal seja obrigatório no uso cotidiano.</p>
     </article>
-    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="primeiro_programa.html"><span>Anterior</span><strong>Seu primeiro programa</strong></a><a class="docs-page-nav-link next" href="vscode.html"><span>Próxima</span><strong>VS Code</strong></a></nav>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="primeiro_programa.html"><span>Anterior</span><strong>Seu primeiro programa</strong></a><a class="docs-page-nav-link next" href="guias_objetivos.html"><span>Próxima</span><strong>O que você quer fazer?</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">

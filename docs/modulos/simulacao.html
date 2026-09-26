@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.simulacao — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,18 @@
       <div class="breadcrumb">Documentação / Outros módulos</div>
       <h1>coral.simulacao</h1>
       <p>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo para relógios de jogo, simulações científicas simplificadas, fábricas, ecologia, logística, calendários, regeneração de recursos e qualquer sistema que precise evoluir de forma controlada e reproduzível ao longo do tempo.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="mundo.html"><code>coral.mundo</code></a>, <a href="procedural.html"><code>coral.procedural</code></a>, <a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a>, <a href="agentes.html"><code>coral.agentes</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> sim
+<span class="code-key">defina</span> a escala temporal de sim como <span class="code-num">60</span>
+avance a simulacao sim por <span class="code-num">2</span> horas
+<span class="code-key">mostre</span> sim.tempo.<span class="code-fn">calendario</span>()</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable>tempo de mundo, ciclos, sistemas recorrentes e campos ambientais</p>
@@ -187,7 +198,7 @@ avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pr
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>A simulação pode ser avançada com durações explícitas, sem depender do relógio real. Isso permite testes rápidos e determinísticos. Para sistemas agregados, valide <code>execucoes</code>, duração representada e próximo instante. Para ciclos, valide a fase em instantes conhecidos e as transições em intervalos longos.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na <strong>Coral 1.5.12</strong>. A 1.5.12 preserva a superfície funcional e concentra suas mudanças na infraestrutura de validação da linguagem.</p>
+<p data-searchable>A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na <strong>Coral 1.6.0</strong>. A apresentação 2D introduzida na 1.5.13 pode consumir seu tempo e estado por integração explícita, sem tornar a simulação dependente da janela; a importação da 1.6.0 não detecta alteração na superfície pública deste módulo.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="ciclo-dia-noite" data-searchable><code>ciclo_dia_noite</code></h4>
@@ -317,7 +328,7 @@ avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pr
 <tr><td data-searchable><code>definir_escala</code></td><td data-searchable>método</td><td data-searchable><code>definir_escala(escala: Any, *, emitir: bool = True) -&gt; float</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="faseciclo" data-searchable><code>FaseCiclo</code></h4>
-<p data-searchable>Representa FaseCiclo na API de <code>coral.simulacao</code>.</p>
+<p data-searchable>Representa fases temporais repetíveis ou finitas.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -486,7 +497,7 @@ avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pr
 <tr><td data-searchable><code>transicoes_entre</code></td><td data-searchable>método</td><td data-searchable><code>transicoes_entre(inicio: Any, fim: Any, *, limite_materializacao: int = 1024) -&gt; ResultadoTransicoesCiclo</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="passosistema" data-searchable><code>PassoSistema</code></h4>
-<p data-searchable>Representa PassoSistema na API de <code>coral.simulacao</code>.</p>
+<p data-searchable>Representa contexto de uma chamada ou lote de execuções.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -553,6 +564,10 @@ avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pr
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/simulacao.py</code></p></div></details>
 <h4 id="sistema" data-searchable><code>Sistema</code></h4>
 <p data-searchable>Processo temporal recorrente independente de RPG e de interface gráfica.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> fabrica
+execute fabrica.<span class="code-fn">adicionar_sistema</span>(<span class="code-fn">Sistema</span>(<span class="code-str">&quot;producao&quot;</span>, produzir, intervalo=<span class="code-num">10</span>, modo=<span class="code-str">&quot;agregado&quot;</span>))
+avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

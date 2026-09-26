@@ -13,7 +13,7 @@ persistência portátil, versionada e canônica
 
 ### Superfície pública detectada
 
-`CONTRATO`, `VERSAO_ESQUEMA`, `ErroPersistencia`, `registrar_adaptador`, `registrar_extensao_persistente`, `extensoes_para_dados`, `aplicar_extensoes_persistentes`, `valor_portatil`, `para_dados`, `de_dados`, `texto_canonico`, `serializar_canonico`, `salvar`, `carregar`, `carregar_como`
+`CONTRATO`, `VERSAO_ESQUEMA`, `VERSOES_LEITURA`, `VERSAO_ESCRITA`, `politica_persistencia`, `ErroPersistencia`, `registrar_adaptador`, `registrar_extensao_persistente`, `extensoes_para_dados`, `aplicar_extensoes_persistentes`, `valor_portatil`, `para_dados`, `de_dados`, `texto_canonico`, `serializar_canonico`, `salvar`, `carregar`, `carregar_como`
 
 <!-- /AUTO:MODULO -->
 
@@ -25,7 +25,11 @@ persistência portátil, versionada e canônica
 
 ### Contrato versionado
 
-`CONTRATO` e `VERSAO_ESQUEMA` identificam o formato persistente.
+`CONTRATO` e `VERSAO_ESQUEMA` identificam o formato persistente. Na 1.6.0, `VERSOES_LEITURA` e `VERSAO_ESCRITA` tornam explícitas as versões que o runtime aceita ler e a versão que ele grava.
+
+### Política executável
+
+`politica_persistencia()` apresenta a política corrente como dados consultáveis. Ela informa contrato, versões de leitura e escrita, estratégia de migração e compatibilidade declarada, evitando que ferramentas precisem duplicar essas regras em texto ou tabelas paralelas.
 
 ### Conversão para dados
 
@@ -69,6 +73,8 @@ execute salvar(dados, "exemplo.coraldata")
 
 | Entrada | Papel |
 |---|---|
+| `VERSOES_LEITURA` / `VERSAO_ESCRITA` | declarar compatibilidade de esquema |
+| `politica_persistencia` | consultar a política executável do formato |
 | `valor_portatil` | normalizar valor |
 | `para_dados` / `de_dados` | converter documento |
 | `texto_canonico` / `serializar_canonico` | representação determinística |
@@ -107,13 +113,31 @@ Teste round trip objeto → dados → objeto, compatibilidade de versão e rejei
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.5.12**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+Na **Coral 1.6.0**, a persistência continua no contrato `coral.persistencia/1` e no esquema de escrita `1`. A novidade pública é a política explícita e consultável: `VERSOES_LEITURA`, `VERSAO_ESCRITA` e `politica_persistencia()` documentam no próprio runtime o que pode ser lido, o que será escrito e como um esquema desconhecido é tratado. O gerador do site continua atualizando automaticamente o inventário e a referência da API, enquanto esta explicação pedagógica permanece sob revisão humana.
 
 ## Referência da API
 
 <!-- AUTO:API -->
 
 ### Funções
+
+#### `politica_persistencia`
+
+Descreve a política executável do formato persistente corrente.
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `politica_persistencia() -> dict[str, Any]`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+:::
 
 #### `registrar_adaptador`
 
@@ -475,6 +499,38 @@ Expõe a constante pública `VERSAO_ESQUEMA`.
 :::details Detalhes técnicos
 
 **Assinatura:** `VERSAO_ESQUEMA`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Valor declarado:** `1`
+
+:::
+
+#### `VERSOES_LEITURA`
+
+Expõe a constante pública `VERSOES_LEITURA`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `VERSOES_LEITURA`
+
+**Origem da implementação:** `coral.persistencia`
+
+**Arquivo na release:** `coral/persistencia.py`
+
+**Valor declarado:** `(1,)`
+
+:::
+
+#### `VERSAO_ESCRITA`
+
+Expõe a constante pública `VERSAO_ESCRITA`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `VERSAO_ESCRITA`
 
 **Origem da implementação:** `coral.persistencia`
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.persistencia — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,20 +113,39 @@
       <div class="breadcrumb">Documentação / Outros módulos</div>
       <h1>coral.persistencia</h1>
       <p>coral.persistencia oferece persistência portátil, versionada e canônica. Use quando os dados precisam ser salvos de forma portátil, versionada e canônica.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>persistência portátil, versionada e canônica.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o problema corresponder diretamente aos conceitos acima.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="aleatorio.html"><code>coral.aleatorio</code></a>, <a href="mundo.html"><code>coral.mundo</code></a>, <a href="arquivos.html"><code>coral.arquivos</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.aleatorio</span> <span class="code-key">importe</span> fonte
+de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
+
+<span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+garanta que primeiro for igual a segundo
+
+<span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}
+execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;exemplo.coraldata&quot;</span>)</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.persistencia</code> oferece persistência portátil, versionada e canônica. Use quando os dados precisam ser salvos de forma portátil, versionada e canônica.</p>
 <p data-searchable><strong>Importação:</strong> <code>coral.persistencia</code> <strong>Categoria:</strong> dados</p>
 <p data-searchable>persistência portátil, versionada e canônica</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>CONTRATO</code>, <code>VERSAO_ESQUEMA</code>, <code>ErroPersistencia</code>, <code>registrar_adaptador</code>, <code>registrar_extensao_persistente</code>, <code>extensoes_para_dados</code>, <code>aplicar_extensoes_persistentes</code>, <code>valor_portatil</code>, <code>para_dados</code>, <code>de_dados</code>, <code>texto_canonico</code>, <code>serializar_canonico</code>, <code>salvar</code>, <code>carregar</code>, <code>carregar_como</code></p>
+<p data-searchable><code>CONTRATO</code>, <code>VERSAO_ESQUEMA</code>, <code>VERSOES_LEITURA</code>, <code>VERSAO_ESCRITA</code>, <code>politica_persistencia</code>, <code>ErroPersistencia</code>, <code>registrar_adaptador</code>, <code>registrar_extensao_persistente</code>, <code>extensoes_para_dados</code>, <code>aplicar_extensoes_persistentes</code>, <code>valor_portatil</code>, <code>para_dados</code>, <code>de_dados</code>, <code>texto_canonico</code>, <code>serializar_canonico</code>, <code>salvar</code>, <code>carregar</code>, <code>carregar_como</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>É o contrato de persistência portátil e versionada da Coral. Em vez de serializar objetos arbitrários do runtime, grava somente dados semânticos reconstruíveis e rejeita estado que não é seguro ou portátil salvar.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
 <h3 id="contrato-versionado" data-searchable>Contrato versionado</h3>
-<p data-searchable><code>CONTRATO</code> e <code>VERSAO_ESQUEMA</code> identificam o formato persistente.</p>
+<p data-searchable><code>CONTRATO</code> e <code>VERSAO_ESQUEMA</code> identificam o formato persistente. Na 1.6.0, <code>VERSOES_LEITURA</code> e <code>VERSAO_ESCRITA</code> tornam explícitas as versões que o runtime aceita ler e a versão que ele grava.</p>
+<h3 id="politica-executavel" data-searchable>Política executável</h3>
+<p data-searchable><code>politica_persistencia()</code> apresenta a política corrente como dados consultáveis. Ela informa contrato, versões de leitura e escrita, estratégia de migração e compatibilidade declarada, evitando que ferramentas precisem duplicar essas regras em texto ou tabelas paralelas.</p>
 <h3 id="conversao-para-dados" data-searchable>Conversão para dados</h3>
 <p data-searchable><code>para_dados</code> e <code>de_dados</code> transformam entre objeto suportado e documento persistente.</p>
 <h3 id="representacao-portatil" data-searchable>Representação portátil</h3>
@@ -154,6 +174,8 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <th>Entrada</th>
 <th>Papel</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>VERSOES_LEITURA</code> / <code>VERSAO_ESCRITA</code></td><td data-searchable>declarar compatibilidade de esquema</td></tr>
+<tr><td data-searchable><code>politica_persistencia</code></td><td data-searchable>consultar a política executável do formato</td></tr>
 <tr><td data-searchable><code>valor_portatil</code></td><td data-searchable>normalizar valor</td></tr>
 <tr><td data-searchable><code>para_dados</code> / <code>de_dados</code></td><td data-searchable>converter documento</td></tr>
 <tr><td data-searchable><code>texto_canonico</code> / <code>serializar_canonico</code></td><td data-searchable>representação determinística</td></tr>
@@ -184,9 +206,16 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Teste round trip objeto → dados → objeto, compatibilidade de versão e rejeição de valores não portáteis. A saída canônica deve ser determinística para o mesmo conteúdo.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.12</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>Na <strong>Coral 1.6.0</strong>, a persistência continua no contrato <code>coral.persistencia/1</code> e no esquema de escrita <code>1</code>. A novidade pública é a política explícita e consultável: <code>VERSOES_LEITURA</code>, <code>VERSAO_ESCRITA</code> e <code>politica_persistencia()</code> documentam no próprio runtime o que pode ser lido, o que será escrito e como um esquema desconhecido é tratado. O gerador do site continua atualizando automaticamente o inventário e a referência da API, enquanto esta explicação pedagógica permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="politica-persistencia" data-searchable><code>politica_persistencia</code></h4>
+<p data-searchable>Descreve a política executável do formato persistente corrente.</p>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>politica_persistencia() -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p></div></details>
 <h4 id="registrar-adaptador" data-searchable><code>registrar_adaptador</code></h4>
 <p data-searchable>Ensinar novo tipo.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -415,6 +444,18 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <h4 id="versao-esquema" data-searchable><code>VERSAO_ESQUEMA</code></h4>
 <p data-searchable>Expõe a constante pública <code>VERSAO_ESQUEMA</code>.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>VERSAO_ESQUEMA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>1</code></p></div></details>
+<h4 id="versoes-leitura" data-searchable><code>VERSOES_LEITURA</code></h4>
+<p data-searchable>Expõe a constante pública <code>VERSOES_LEITURA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>VERSOES_LEITURA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>(1,)</code></p></div></details>
+<h4 id="versao-escrita" data-searchable><code>VERSAO_ESCRITA</code></h4>
+<p data-searchable>Expõe a constante pública <code>VERSAO_ESCRITA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>VERSAO_ESCRITA</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.persistencia</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/persistencia.py</code></p>
 <p data-searchable><strong>Valor declarado:</strong> <code>1</code></p></div></details>

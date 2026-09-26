@@ -57,6 +57,10 @@ salve o experimento insercao_aleatorios em "resultados/insercao_aleatorios.csv"
 salve o experimento insercao_aleatorios em "resultados/insercao_aleatorios.md"
 ```
 
+:::resultado
+O experimento é configurado para cinco repetições com semente fixa e os resultados são salvos em JSON, CSV e Markdown nos caminhos indicados.
+:::
+
 ## API essencial
 
 | Entrada | Papel | Assinatura |

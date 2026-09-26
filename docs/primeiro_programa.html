@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Seu primeiro programa — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,29 +113,39 @@
       <div class="breadcrumb">Documentação / Primeiros passos</div>
       <h1>Seu primeiro programa</h1>
       <p>O primeiro programa pode ser um único arquivo. Crie ola.coral e coloque o conteúdo abaixo.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>O primeiro programa pode ser um único arquivo. Crie <code>ola.coral</code> e coloque o conteúdo abaixo.</p>
 <h2 id="escrever" data-searchable>Escrever</h2>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">mostre</span> <span class="code-str">&quot;Olá, Coral!&quot;</span>
 
 <span class="code-key">defina</span> pontos como <span class="code-num">10</span>
-adicione <span class="code-num">5</span> a pontos
+aumente pontos em <span class="code-num">5</span>
 
-<span class="code-key">se</span> pontos for maior ou igual a <span class="code-num">15</span> <span class="code-key">então</span>
+<span class="code-key">se</span> pontos é maior que <span class="code-num">14</span>
     <span class="code-key">mostre</span> <span class="code-str">&quot;Meta alcançada&quot;</span>
 <span class="code-key">senão</span>
     <span class="code-key">mostre</span> <span class="code-str">&quot;Continue tentando&quot;</span>
 <span class="code-key">fim</span></code></pre></div></div>
-<p data-searchable>O exemplo mostra saída, variável, alteração de valor e uma decisão condicional.</p>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A saída é:</p>
+<div class="output-block"><div class="output-label">Saída</div><div class="output-body">Olá, Coral!
+Meta alcançada</div></div></div></details>
+<p data-searchable>O exemplo mostra saída, variável, alteração de valor e uma decisão condicional usando o português corrente consolidado na linha 1.5.19. As formas anteriores, como <code>adicione 5 a pontos</code> e o cabeçalho com <code>então</code>, continuam válidas.</p>
 <h2 id="executar" data-searchable>Executar</h2>
 <p data-searchable>Com o runtime portátil:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz executar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.6.0.pyz executar ola.coral</code></pre></div></div>
 <p data-searchable>Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.</p>
 <h2 id="verificar-sem-executar" data-searchable>Verificar sem executar</h2>
 <p data-searchable>Para validar o programa sem rodar seus efeitos:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.5.12.pyz verificar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.6.0.pyz verificar ola.coral</code></pre></div></div>
 <p data-searchable>Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.</p>
 <h2 id="proximo-passo" data-searchable>Próximo passo</h2>
 <p data-searchable>Quando o programa começar a crescer, separe funções e módulos. A página <strong>Projetos e módulos</strong> mostra quando criar <code>coral.toml</code> e como organizar vários arquivos.</p>

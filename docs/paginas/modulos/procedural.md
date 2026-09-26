@@ -112,7 +112,7 @@ Testes devem fixar a semente e comparar resultados por chave ou coordenada. Uma 
 
 ## Compatibilidade e evolução
 
-A fundação procedural foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.5.12**. A 1.5.12 não altera essa superfície funcional.
+A fundação procedural foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.6.0**. A importação da 1.6.0 não detecta alteração nessa superfície funcional; a release preserva a API enquanto reorganiza fronteiras internas do runtime.
 
 ## Referência da API
 
@@ -123,6 +123,17 @@ A fundação procedural foi promovida na linha 1.5.11 e permanece disponível na
 #### `semente`
 
 Executa a operação `semente` disponibilizada por `coral.procedural`.
+
+**Exemplo**
+
+```coral
+crie um gerador chamado clima com semente 42
+gere um decimal com clima para "chuva" como amostra
+crie um campo de ruido chamado relevo com semente 42 e escala 20
+consulte o campo relevo em [10, 15] como altura
+mostre amostra
+mostre altura
+```
 
 **Parâmetros**
 

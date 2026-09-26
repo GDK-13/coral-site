@@ -25,6 +25,12 @@
       "grupo": "Guias"
     },
     {
+      "arquivo": "guias_objetivos.md",
+      "titulo": "O que você quer fazer?",
+      "slug": "guias-por-objetivo",
+      "grupo": "Guias"
+    },
+    {
       "arquivo": "vscode.md",
       "titulo": "VS Code",
       "slug": "vscode",

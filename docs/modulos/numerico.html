@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.numerico — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,25 @@
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.numerico</h1>
       <p>coral.numerico é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa C</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>vetores, matrizes, estatística e álgebra numérica.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo para análise numérica, processamento de séries, modelos matriciais, simulações, pós processamento de experimentos e algoritmos que realmente dependem de estruturas multidimensionais.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesses casos <code>coral.matematica</code> mantém a dependência menor e a intenção mais clara.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="matematica.html"><code>coral.matematica</code></a>, <a href="laboratorio.html"><code>coral.laboratorio</code></a>, <a href="json.html"><code>coral.json</code></a>, <a href="persistencia.html"><code>coral.persistencia</code></a>, <a href="aleatorio.html"><code>coral.aleatorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
+de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> analisar_relatorio com caminho
+    <span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
+    <span class="code-key">defina</span> tempos como [medicao[<span class="code-str">&quot;tempo_segundos&quot;</span>] <span class="code-key">para</span> <span class="code-key">cada</span> medicao em relatorio[<span class="code-str">&quot;medicoes&quot;</span>] <span class="code-key">se</span> medicao[<span class="code-str">&quot;erro&quot;</span>] for igual a nada]
+    <span class="code-key">crie</span> um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
+    calcule o desvio padrão de serie como desvio_serie
+    retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
+<span class="code-key">fim</span></code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.numerico</code> é a camada de computação numérica da Coral para vetores, matrizes, estatística e álgebra linear. O módulo foi desenhado para que a linguagem possa oferecer operações científicas sem transformar NumPy em dependência obrigatória de todo programa Coral.</p>
@@ -141,7 +159,7 @@
 <p data-searchable>Use este módulo para análise numérica, processamento de séries, modelos matriciais, simulações, pós processamento de experimentos e algoritmos que realmente dependem de estruturas multidimensionais.</p>
 <p data-searchable>Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesses casos <code>coral.matematica</code> mantém a dependência menor e a intenção mais clara.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>A release 1.5.12 usa <code>coral.numerico</code> no projeto de laboratório de algoritmos. O trecho abaixo vem de <code>Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral</code>:</p>
+<p data-searchable>A release 1.6.0 usa <code>coral.numerico</code> no projeto de laboratório de algoritmos. O trecho abaixo vem de <code>Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
 de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
 
@@ -153,6 +171,7 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
     calcule o desvio padrão de serie como desvio_serie
     retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
 <span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O trecho define <code>analisar_relatorio</code>. Quando a função recebe um relatório compatível, ela devolve um registro com média, mediana e desvio dos tempos válidos.</p></div></details>
 <h2 id="api-essencial" data-searchable>API essencial</h2>
 <div class="table-wrap"><table><thead><tr>
 <th>Entrada</th>

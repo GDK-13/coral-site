@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.rpg — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,22 @@
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.rpg</h1>
       <p>coral.rpg acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>rolagens, personagens, combate e estado de RPG.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para protótipos e sistemas de RPG que precisam de personagens e combate, inclusive sem interface gráfica.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="mundo.html"><code>coral.mundo</code></a>, <a href="agentes.html"><code>coral.agentes</code></a>, <a href="turnos.html"><code>coral.turnos</code></a>, <a href="jogos.html"><code>coral.jogos</code></a>, <a href="regras.html"><code>coral.regras</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um mundo chamado campanha com nome <span class="code-str">&quot;Campanha&quot;</span>
+<span class="code-key">crie</span> um personagem chamado heroina no mundo campanha com <span class="code-num">12</span> de vida
+<span class="code-key">crie</span> um personagem chamado monstro no mundo campanha com <span class="code-num">6</span> de vida
+role um dado de <span class="code-num">6</span> lados usando a <span class="code-key">semente</span> <span class="code-num">7</span> como ataque
+cause ataque.total de dano a monstro
+cure <span class="code-num">1</span> de vida de monstro
+<span class="code-key">crie</span> um combate chamado batalha com heroina e monstro
+inicie o combate batalha usando a <span class="code-key">semente</span> <span class="code-num">4</span></code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.rpg</code> acrescenta mecânicas de RPG sobre as fundações genéricas de mundo, agentes e turnos: rolagens, personagens, vida, testes de atributo, combate e persistência do estado do domínio.</p>
@@ -144,6 +159,7 @@ cause ataque.total de dano a monstro
 cure <span class="code-num">1</span> de vida de monstro
 <span class="code-key">crie</span> um combate chamado batalha com heroina e monstro
 inicie o combate batalha usando a <span class="code-key">semente</span> <span class="code-num">4</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O exemplo cria dois personagens no mundo, produz uma rolagem reproduzível pela semente, aplica dano e cura e inicia um combate com ordem determinada pela semente informada.</p></div></details>
 <h2 id="api-essencial" data-searchable>API essencial</h2>
 <div class="table-wrap"><table><thead><tr>
 <th>Entrada</th>
@@ -182,7 +198,7 @@ inicie o combate batalha usando a <span class="code-key">semente</span> <span cl
 <h2 id="testabilidade" data-searchable>Testabilidade</h2>
 <p data-searchable>Personagens, rolagens e combate funcionam sem janela. Testes podem fixar sementes, inspecionar o <code>Recurso</code> de vida e verificar estado e ordem da <code>FilaTurnos</code> antes de testar animações ou interface.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura permanece na <strong>Coral 1.5.12</strong>.</p>
+<p data-searchable>A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura continua publicada na <strong>Coral 1.6.0</strong>, sem alteração de superfície pública detectada na importação desta release.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="rolar" data-searchable><code>rolar</code></h4>

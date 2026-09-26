@@ -66,6 +66,10 @@ crie um personagem chamado heroina no mundo campanha com 12 de vida
 crie um personagem chamado monstro no mundo campanha com 6 de vida
 ```
 
+:::resultado
+O mundo `campanha` passa a conter `vila`, `bosque`, uma relação `estrada` entre as duas entidades e os personagens `heroina` e `monstro`.
+:::
+
 ## Trabalhando com mapas
 
 Outro exemplo oficial mostra que o mesmo modelo atende topologias diferentes:
@@ -209,6 +213,7 @@ Mundo leve para jogos, RPGs e simulações Coral.
 | `processar_eventos` | Processa eventos. | `não declarado` |
 | `emitir_propagado` | Emite propagado. | `int` |
 | `emitir_evento_propagado` | Emite evento propagado. | `não declarado` |
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.mundo`. | `dict[str, Any]` |
 | `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
 | `para_json` | Converte o valor para JSON. | `str` |
 
@@ -263,6 +268,7 @@ Mundo leve para jogos, RPGs e simulações Coral.
 | `processar_eventos` | método | `processar_eventos(limite: int \| None = None)` |
 | `emitir_propagado` | método | `emitir_propagado(evento: str, *args, **kwargs) -> int` |
 | `emitir_evento_propagado` | método | `emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] \| None = None, **kwargs)` |
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 | `para_dict` | método | `para_dict() -> dict[str, Any]` |
 | `para_json` | método | `para_json(**kwargs) -> str` |
 
@@ -301,6 +307,7 @@ Representa objeto do mundo.
 | `possui_tag` | Indica se possui tag. | `bool` |
 | `guardar` | Armazena o valor solicitado. | `Any` |
 | `remover_item` | Remove item. | `bool` |
+| `estado_inspecao` | Executa a operação `estado_inspecao` disponibilizada por `coral.mundo`. | `dict[str, Any]` |
 
 :::details Detalhes técnicos
 
@@ -321,6 +328,7 @@ Representa objeto do mundo.
 | `possui_tag` | método | `possui_tag(tag: str) -> bool` |
 | `guardar` | método | `guardar(item: Any) -> Any` |
 | `remover_item` | método | `remover_item(item: Any) -> bool` |
+| `estado_inspecao` | método | `estado_inspecao() -> dict[str, Any]` |
 
 :::
 

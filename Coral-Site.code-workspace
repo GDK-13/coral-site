@@ -1,0 +1,51 @@
+{
+  "folders": [
+    {
+      "name": "Site Coral",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.associations": {
+      "*.coral": "coral"
+    },
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.rulers": [
+      100,
+      150
+    ],
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+    "editor.formatOnSave": false,
+    "html.format.wrapLineLength": 120,
+    "css.validate": true,
+    "js/ts.validate.enabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "search.exclude": {
+      "**/__pycache__": true,
+      "**/.pytest_cache": true,
+      "**/.ruff_cache": true
+    },
+    "files.watcherExclude": {
+      "**/__pycache__/**": true,
+      "**/.pytest_cache/**": true,
+      "**/.ruff_cache/**": true
+    },
+    "liveServer.settings.root": "/",
+    "liveServer.settings.port": 8000,
+    "liveServer.settings.NoBrowser": false
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ritwickdey.LiveServer",
+      "DavidAnson.vscode-markdownlint"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.tempo_eventos — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,21 @@
       <div class="breadcrumb">Documentação / Outros módulos</div>
       <h1>coral.tempo_eventos</h1>
       <p>coral.tempo_eventos oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>fontes de tempo, cancelamento e eventos determinísticos.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o problema corresponder diretamente aos conceitos acima.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="regras.html"><code>coral.regras</code></a>, <a href="datas.html"><code>coral.datas</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.tempo_eventos</span> <span class="code-key">importe</span> RelogioSimulado, Eventos
+
+<span class="code-key">defina</span> relogio como <span class="code-fn">RelogioSimulado</span>(<span class="code-num">0</span>)
+<span class="code-key">defina</span> eventos como <span class="code-fn">Eventos</span>(relogio=relogio)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()
+execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5</span>)
+<span class="code-key">mostre</span> relogio.<span class="code-fn">agora</span>()</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.tempo_eventos</code> oferece fontes de tempo, cancelamento e eventos determinísticos. Use para fontes de tempo, cancelamento e eventos determinísticos em código que precisa controlar quando algo acontece.</p>
@@ -179,7 +193,7 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Controle o relógio e a fila em testes. Isso elimina esperas reais e torna ordem e instante dos eventos verificáveis.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.5.12</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.6.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="validar-duracao" data-searchable><code>validar_duracao</code></h4>
@@ -415,6 +429,7 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 </tr></thead><tbody>
 <tr><td data-searchable><code>cancelar</code></td><td data-searchable>Cancela o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>consumir</code></td><td data-searchable>Executa a operação <code>consumir</code> disponibilizada por <code>coral.tempo_eventos</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Estado observável do evento sem executar ouvintes nem alterar a fila.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Evento(nome: str, args: tuple[Any, ...] = (), kwargs: Mapping[str, Any] = field(default_factory=dict), origem: str \| None = None, sequencia: int = 0, instante: float \| None = None, cancelavel: bool = False, cancelado: bool = False, motivo_cancelamento: str \| None = None, consumido: bool = False, metadados: Mapping[str, Any] = field(default_factory=dict), causa_sequencia: int \| None = None)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.tempo_eventos</code></p>
@@ -427,6 +442,7 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 </tr></thead><tbody>
 <tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str | None = None) -&gt; None</code></td></tr>
 <tr><td data-searchable><code>consumir</code></td><td data-searchable>método</td><td data-searchable><code>consumir() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="eventos-2" data-searchable><code>Eventos</code></h4>
 <p data-searchable>Barramento local compatível com `<code>coral.regras.Eventos</code>`.</p>
@@ -455,6 +471,7 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 <th>O que faz</th>
 <th>Retorno</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.tempo_eventos</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>pendentes</code></td><td data-searchable>Obtém pendentes.</td><td data-searchable><code>int</code></td></tr>
 <tr><td data-searchable><code>pai</code></td><td data-searchable>Obtém pai.</td><td data-searchable><code>'Eventos | None'</code></td></tr>
 <tr><td data-searchable><code>relogio</code></td><td data-searchable>Obtém relogio.</td><td data-searchable><code>FonteTempo | None</code></td></tr>
@@ -489,6 +506,7 @@ execute relogio.<span class="code-fn">avancar</span>(<span class="code-num">0.5<
 <th>Tipo</th>
 <th>Assinatura</th>
 </tr></thead><tbody>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>pendentes</code></td><td data-searchable>propriedade</td><td data-searchable><code>pendentes() -&gt; int</code></td></tr>
 <tr><td data-searchable><code>pai</code></td><td data-searchable>propriedade</td><td data-searchable><code>pai() -&gt; 'Eventos | None'</code></td></tr>
 <tr><td data-searchable><code>relogio</code></td><td data-searchable>propriedade</td><td data-searchable><code>relogio() -&gt; FonteTempo | None</code></td></tr>

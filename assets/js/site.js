@@ -100,6 +100,86 @@
   }
   setupCopyButtons();
 
+  // ---------- Modo Aprender / Referência ----------
+  const READING_MODE_KEY = 'coral-reading-mode';
+
+  function readingSectionKind(title) {
+    const t = normalizeText(title || '').trim();
+    if (t === 'referencia da api') return 'reference';
+    if (
+      t === 'papel no ecossistema'
+      || t === 'conceitos principais'
+      || t === 'quando usar'
+      || t.startsWith('comecando')
+      || t === 'fluxos comuns'
+      || t === 'boas praticas'
+      || t === 'integracao com outros modulos'
+      || t === 'testabilidade e reprodutibilidade'
+      || t.startsWith('trabalhando com ')
+      || t.startsWith('camera ')
+      || t.startsWith('quadros chave')
+      || t.startsWith('camadas, hud')
+    ) return 'learn';
+    return '';
+  }
+
+  function classifyReadingSections() {
+    const article = document.querySelector('.docs-main .docs-section');
+    if (!article || !document.querySelector('.module-quick-summary')) return;
+    const h2s = Array.from(article.querySelectorAll(':scope > h2'));
+    h2s.forEach((heading) => {
+      const kind = readingSectionKind(heading.childNodes[0]?.textContent || heading.textContent);
+      if (!kind) return;
+      const cls = kind === 'learn' ? 'docs-mode-learn-only' : 'docs-mode-reference-only';
+      heading.classList.add(cls);
+      heading.dataset.readingSection = kind;
+      let node = heading.nextElementSibling;
+      while (node && node.tagName !== 'H2') {
+        node.classList.add(cls);
+        node = node.nextElementSibling;
+      }
+    });
+
+    document.querySelectorAll('.toc a[href^="#"]').forEach((link) => {
+      const id = decodeURIComponent(link.getAttribute('href').slice(1));
+      const target = document.getElementById(id);
+      const li = link.closest('li');
+      if (!target || !li) return;
+      if (target.classList.contains('docs-mode-learn-only')) li.classList.add('docs-mode-learn-only');
+      if (target.classList.contains('docs-mode-reference-only')) li.classList.add('docs-mode-reference-only');
+    });
+  }
+
+  function setReadingMode(mode, persist = true) {
+    const next = mode === 'reference' ? 'reference' : 'learn';
+    root.dataset.readingMode = next;
+    if (persist) {
+      try { localStorage.setItem(READING_MODE_KEY, next); } catch (_) { /* armazenamento pode estar bloqueado */ }
+    }
+    document.querySelectorAll('[data-reading-mode]').forEach((btn) => {
+      if (!btn.matches('button')) return;
+      const active = btn.dataset.readingMode === next;
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    const status = document.querySelector('[data-reading-mode-status]');
+    if (status) {
+      status.textContent = next === 'learn'
+        ? 'Explicações e exemplos em primeiro plano.'
+        : 'API e consulta rápida em primeiro plano.';
+    }
+  }
+
+  classifyReadingSections();
+  let initialReadingMode = root.dataset.readingMode || 'learn';
+  try {
+    const savedMode = localStorage.getItem(READING_MODE_KEY);
+    if (savedMode === 'learn' || savedMode === 'reference') initialReadingMode = savedMode;
+  } catch (_) { /* mantém o modo padrão */ }
+  setReadingMode(initialReadingMode, false);
+  document.querySelectorAll('button[data-reading-mode]').forEach((btn) => {
+    btn.addEventListener('click', () => setReadingMode(btn.dataset.readingMode));
+  });
+
   // ---------- Âncoras copiáveis nos títulos de seção ----------
   // Adicionadas antes do snapshot da busca local para que o reset de destaques
   // não as remova; o clique é tratado por delegação por causa do reset de innerHTML.

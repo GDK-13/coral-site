@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>Introdução — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../assets/css/fontes-arquivo.css';document.head.append(f);['../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
+<li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,15 @@
       <div class="breadcrumb">Documentação / Primeiros passos</div>
       <h1>Introdução</h1>
       <p>Coral é uma linguagem de programação com sintaxe corrente em português. A proposta é aproximar o código da forma como uma pessoa descreve uma ideia, sem abrir mão de parser, AST, tipos, módulos, ferramentas e contratos reais de linguagem.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    
     <article class="docs-section">
       <p data-searchable>Coral é uma linguagem de programação com sintaxe corrente em português. A proposta é aproximar o código da forma como uma pessoa descreve uma ideia, sem abrir mão de parser, AST, tipos, módulos, ferramentas e contratos reais de linguagem.</p>
 <h2 id="por-onde-comecar" data-searchable>Por onde começar</h2>
@@ -128,6 +136,16 @@
 <h2 id="o-que-a-coral-oferece" data-searchable>O que a Coral oferece</h2>
 <p data-searchable>A linguagem cobre programação geral e também domínios que costumam exigir bastante infraestrutura: arquivos, JSON, matemática, aleatoriedade, jogos, mundos, regras reativas, RPG, experimentos, hardware e integração com o sistema.</p>
 <p data-searchable>A biblioteca padrão é organizada em módulos <code>coral.*</code>. Cada módulo tem uma página própria nesta documentação.</p>
+<h2 id="portugues-corrente-com-equivalencia-deterministica" data-searchable>Português corrente com equivalência determinística</h2>
+<p data-searchable>A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que significam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.</p>
+<p data-searchable>A linha 1.5.19 ampliou esse vocabulário com formas como <code>passa a ser</code>, <code>aumente</code>, <code>diminua</code>, <code>devolva</code>, comparações com <code>é</code>, pertencimento com <code>está em</code>, condições sem <code>então</code>, laços sem <code>faça</code>, consultas de vazio e faixa, operações de coleção e conversões naturais. As formas anteriores continuam válidas.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> idade como <span class="code-num">18</span>
+aumente idade em <span class="code-num">1</span>
+
+<span class="code-key">se</span> idade é maior que <span class="code-num">18</span>
+    <span class="code-key">mostre</span> <span class="code-str">&quot;maior de idade&quot;</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<p data-searchable>A Coral 1.6.0 preserva essa superfície pública e reorganiza o interior da linguagem em fronteiras explícitas entre parser, AST, backend, runtime e biblioteca padrão. A equivalência estrutural da AST passa a ser usada para provar que formas superficiais equivalentes do português corrente convergem para a mesma estrutura semântica.</p>
 <h2 id="arquivo-unico-ou-projeto" data-searchable>Arquivo único ou projeto</h2>
 <p data-searchable>Um arquivo <code>.coral</code> pode ser executado sozinho. Isso é útil para estudar, experimentar uma ideia ou escrever pequenos programas.</p>
 <p data-searchable>Projetos passam a ser interessantes quando você precisa de vários módulos, testes, recursos, caminhos de importação ou configuração compartilhada. Nesse caso, <code>coral.toml</code> vira a fonte de configuração do projeto.</p>
@@ -142,6 +160,7 @@
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#por-onde-comecar" data-toc-link>Por onde começar</a></li>
 <li class="toc-level-2"><a href="#o-que-a-coral-oferece" data-toc-link>O que a Coral oferece</a></li>
+<li class="toc-level-2"><a href="#portugues-corrente-com-equivalencia-deterministica" data-toc-link>Português corrente com equivalência determinística</a></li>
 <li class="toc-level-2"><a href="#arquivo-unico-ou-projeto" data-toc-link>Arquivo único ou projeto</a></li>
 <li class="toc-level-2"><a href="#ferramentas-oficiais" data-toc-link>Ferramentas oficiais</a></li></ul>
   </aside>

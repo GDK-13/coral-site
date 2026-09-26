@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-site-root="../../">
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <title>coral.mundo — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/styles.css">
-  <script>(function(){if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
   <script defer src="../../docs/dados/indice_busca.js"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Coral">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.5.12</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.43.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -58,6 +58,7 @@
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
@@ -112,8 +113,22 @@
       <div class="breadcrumb">Documentação / Módulos principais</div>
       <h1>coral.mundo</h1>
       <p>coral.mundo é o modelo de domínio compartilhado para mundos, entidades, relações, mapas, regiões e topologias. Ele foi desenhado para servir jogos, RPGs e simulações sem depender de renderização.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>mundos, entidades, relações, mapas, regiões e topologias.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use quando várias partes do programa precisam compartilhar entidades, relações ou espaço.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="jogos.html"><code>coral.jogos</code></a>, <a href="rpg.html"><code>coral.rpg</code></a>, <a href="regras.html"><code>coral.regras</code></a>, <a href="persistencia.html"><code>coral.persistencia</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um mundo chamado campanha com nome <span class="code-str">&quot;Campanha&quot;</span>
+<span class="code-key">crie</span> uma entidade <span class="code-key">chamada</span> vila no mundo campanha
+<span class="code-key">crie</span> uma entidade <span class="code-key">chamada</span> bosque no mundo campanha
+relacione vila com bosque como <span class="code-str">&quot;estrada&quot;</span> no mundo campanha
+encontre um caminho de bosque <span class="code-key">até</span> vila no mundo campanha como rota
+
+<span class="code-key">crie</span> um personagem chamado heroina no mundo campanha com <span class="code-num">12</span> de vida
+<span class="code-key">crie</span> um personagem chamado monstro no mundo campanha com <span class="code-num">6</span> de vida</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.mundo</code> é o modelo de domínio compartilhado para mundos, entidades, relações, mapas, regiões e topologias. Ele foi desenhado para servir jogos, RPGs e simulações sem depender de renderização.</p>
@@ -149,6 +164,7 @@ encontre um caminho de bosque <span class="code-key">até</span> vila no mundo c
 
 <span class="code-key">crie</span> um personagem chamado heroina no mundo campanha com <span class="code-num">12</span> de vida
 <span class="code-key">crie</span> um personagem chamado monstro no mundo campanha com <span class="code-num">6</span> de vida</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O mundo <code>campanha</code> passa a conter <code>vila</code>, <code>bosque</code>, uma relação <code>estrada</code> entre as duas entidades e os personagens <code>heroina</code> e <code>monstro</code>.</p></div></details>
 <h2 id="trabalhando-com-mapas" data-searchable>Trabalhando com mapas</h2>
 <p data-searchable>Outro exemplo oficial mostra que o mesmo modelo atende topologias diferentes:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um mapa chamado clima com topologia quadrada
@@ -266,6 +282,7 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>processar_eventos</code></td><td data-searchable>Processa eventos.</td><td data-searchable><code>não declarado</code></td></tr>
 <tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>Emite propagado.</td><td data-searchable><code>int</code></td></tr>
 <tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>Emite evento propagado.</td><td data-searchable><code>não declarado</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>para_json</code></td><td data-searchable>Converte o valor para JSON.</td><td data-searchable><code>str</code></td></tr>
 </tbody></table></div>
@@ -318,6 +335,7 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>processar_eventos</code></td><td data-searchable>método</td><td data-searchable><code>processar_eventos(limite: int | None = None)</code></td></tr>
 <tr><td data-searchable><code>emitir_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_propagado(evento: str, *args, **kwargs) -&gt; int</code></td></tr>
 <tr><td data-searchable><code>emitir_evento_propagado</code></td><td data-searchable>método</td><td data-searchable><code>emitir_evento_propagado(evento: str, *args, cancelavel: bool = False, metadados: dict[str, Any] | None = None, **kwargs)</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
 <tr><td data-searchable><code>para_json</code></td><td data-searchable>método</td><td data-searchable><code>para_json(**kwargs) -&gt; str</code></td></tr>
 </tbody></table></div></div></details>
@@ -360,6 +378,7 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>possui_tag</code></td><td data-searchable>Indica se possui tag.</td><td data-searchable><code>bool</code></td></tr>
 <tr><td data-searchable><code>guardar</code></td><td data-searchable>Armazena o valor solicitado.</td><td data-searchable><code>Any</code></td></tr>
 <tr><td data-searchable><code>remover_item</code></td><td data-searchable>Remove item.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>Executa a operação <code>estado_inspecao</code> disponibilizada por <code>coral.mundo</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
 </tbody></table></div>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Entidade(nome: str, atributos: dict[str, Any] = field(default_factory=dict), tags: set[str] = field(default_factory=set), inventario: list[Any] = field(default_factory=list))</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.mundo</code></p>
@@ -377,6 +396,7 @@ adicione uma camada <span class="code-key">chamada</span> recurso ao mapa colmei
 <tr><td data-searchable><code>possui_tag</code></td><td data-searchable>método</td><td data-searchable><code>possui_tag(tag: str) -&gt; bool</code></td></tr>
 <tr><td data-searchable><code>guardar</code></td><td data-searchable>método</td><td data-searchable><code>guardar(item: Any) -&gt; Any</code></td></tr>
 <tr><td data-searchable><code>remover_item</code></td><td data-searchable>método</td><td data-searchable><code>remover_item(item: Any) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>estado_inspecao</code></td><td data-searchable>método</td><td data-searchable><code>estado_inspecao() -&gt; dict[str, Any]</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="relacao" data-searchable><code>Relacao</code></h4>
 <p data-searchable>Representa ligação entre entidades.</p>

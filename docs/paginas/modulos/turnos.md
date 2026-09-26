@@ -99,7 +99,7 @@ Para uma mesma lista e prioridades, a ordem é determinística e desempates pres
 
 ## Compatibilidade e evolução
 
-A fila genérica foi introduzida na linha 1.5.10 e permanece publicada na **Coral 1.5.12** sem depender de RPG ou Jogos.
+A fila genérica foi introduzida na linha 1.5.10 e continua publicada na **Coral 1.6.0** sem depender de RPG ou Jogos. A importação da 1.6.0 não detecta alteração na superfície pública deste módulo.
 
 ## Referência da API
 
