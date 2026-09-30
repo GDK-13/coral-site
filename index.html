@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Coral é uma linguagem de programação com sintaxe natural em português, criada para aproximar código, ensino e projetos reais.">
+  <meta name="description" content="Coral é uma linguagem de programação com sintaxe natural em português, ferramentas científicas, gráficos, Web, jogos e integração com VS Code.">
   <meta name="theme-color" content="#EF362A">
   <title>Coral — programação em português corrente</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Coral — programação em português corrente">
-  <meta property="og:description" content="Coral combina sintaxe corrente em português com ferramentas modernas para aprender, experimentar e construir projetos de verdade.">
+  <meta property="og:description" content="Uma linguagem em português corrente para aprender, programar, experimentar e construir projetos reais.">
   <meta property="og:image" content="assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Coral — programação em português corrente">
-  <meta name="twitter:description" content="Coral combina sintaxe corrente em português com ferramentas modernas para aprender, experimentar e construir projetos de verdade.">
+  <meta name="twitter:description" content="Uma linguagem em português corrente para aprender, programar, experimentar e construir projetos reais.">
   <meta name="twitter:image" content="assets/images/compartilhar.png">
 </head>
 <body>
@@ -34,6 +34,7 @@
       <a href="#modulos">Módulos</a>
       <a href="#instalacao">Instalação</a>
       <a href="docs/index.html">Documentação</a>
+      <a href="docs/release.html">Notas de versão</a>
     </nav>
     <div class="header-actions">
       <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
@@ -52,17 +53,17 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Release estável <span data-version-key="coral">1.6.0</span></span>
-        <h1>Programação em <span class="text-accent">português</span>, sem esconder o que o código faz.</h1>
-        <p class="hero-lead">Coral combina sintaxe corrente em português com ferramentas modernas para aprender, experimentar e construir projetos de verdade.</p>
+        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Coral <span data-version-key="coral">1.7.0</span> estável</span>
+        <h1>Programação em <span class="text-accent">português</span>, com ferramentas para projetos reais.</h1>
+        <p class="hero-lead">Coral combina sintaxe corrente em português, biblioteca padrão ampla, computação científica, gráficos, Web, jogos e integração completa com o VS Code.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="docs/primeiro_programa.html">Começar agora</a>
           <a class="button button-secondary" href="#instalacao">Ver instalação</a>
         </div>
         <div class="hero-meta">
-          <span><strong>Runtime</strong> <span data-version-key="coral">1.6.0</span></span>
-          <span><strong>VS Code</strong> <span data-version-key="extensao_vscode">0.53.0</span></span>
-          <span><strong>Livro Oficial</strong> <span data-version-key="livro">1.5.8</span></span>
+          <span><strong>Runtime</strong> <span data-version-key="coral">1.7.0</span></span>
+          <span><strong>VS Code</strong> <span data-version-key="extensao_vscode">0.72.0</span></span>
+          <span><strong>Livro Oficial</strong> <span data-version-key="livro">1.7.0</span></span>
         </div>
       </div>
 
@@ -70,7 +71,7 @@
         <div class="code-card-head"><strong>primeiro_programa.coral</strong><span>Coral</span></div>
         <div class="code-frame">
           <div class="ring-stripe" aria-hidden="true"></div>
-          <pre><code><span class="code-comment"># Português corrente ampliado.</span>
+          <pre><code><span class="code-comment"># Código legível, comportamento explícito.</span>
 <span class="code-key">defina</span> idades como [17, 22, 35]
 
 <span class="code-key">se</span> idades não está vazia
@@ -89,20 +90,20 @@ fim</code></pre>
     <div class="container">
       <div class="section-heading">
         <span class="kicker">Da linguagem ao editor</span>
-        <h2>Uma experiência inteira, não só uma sintaxe diferente.</h2>
-        <p>A linha 1.5.x consolidou a superfície pública; a Coral 1.6.0 reorganiza o interior da linguagem para manter essa experiência sobre fronteiras arquiteturais verificáveis.</p>
+        <h2>Uma experiência completa para aprender e construir.</h2>
+        <p>A Coral oferece uma linguagem de propósito geral com módulos especializados sem esconder os fundamentos de programação nem exigir serviços externos para o fluxo cotidiano.</p>
       </div>
       <div class="feature-grid">
-        <article class="card"><div class="card-icon">01</div><h3>Português corrente</h3><p>Comparações, mutações, consultas, coleções e controle ganharam formas mais naturais na 1.5.19, sempre por equivalências determinísticas e auditáveis.</p></article>
-        <article class="card"><div class="card-icon">02</div><h3>VS Code integrado</h3><p>Coral Language <span data-version-key="extensao_vscode">0.53.0</span> reúne LSP, DAP/F5, IntelliSense contextual, diagnósticos, semantic tokens, Test Explorer e execução de projetos.</p></article>
-        <article class="card"><div class="card-icon">03</div><h3>Projetos reais</h3><p><code>coral.toml</code>, módulos, testes nativos, REPL, persistência, exemplos completos e ferramentas de projeto convivem no mesmo ecossistema.</p></article>
-        <article class="card"><div class="card-icon">04</div><h3>Jogos e visual</h3><p>Sprites, animação, transformações, colisão configurável, tilemaps, câmera, entrada e espaço 2D/3D formam uma base prática para protótipos.</p></article>
-        <article class="card"><div class="card-icon">05</div><h3>Mundo e regras</h3><p>Mundo, RPG, relações, mapas, regiões, eventos e regras reativas permitem modelar sistemas além do domínio de jogos.</p></article>
-        <article class="card"><div class="card-icon">06</div><h3>Agentes e turnos</h3><p>Recursos, atributos, efeitos, habilidades e filas genéricas modelam personagens, robôs, máquinas, atendimento e outros agentes sem acoplar tudo a RPG.</p></article>
-        <article class="card"><div class="card-icon">07</div><h3>Simulação temporal</h3><p>Tempo de mundo, ciclos, sistemas recorrentes e campos ambientais permitem avançar processos de forma controlada e reproduzível.</p></article>
-        <article class="card"><div class="card-icon">08</div><h3>Geração procedural</h3><p>Sementes derivadas, geração por chave, sequências, ruído e distribuição espacial formam uma base determinística para muitos domínios.</p></article>
-        <article class="card"><div class="card-icon">09</div><h3>Coesão interna</h3><p>A 1.6.0 separa responsabilidades de parser, AST, backend, runtime e stdlib, com fronteiras e orçamentos arquiteturais verificados no congelamento.</p></article>
-        <article class="card"><div class="card-icon">10</div><h3>Aprendizado progressivo</h3><p>Exemplos reorganizados e Livro Oficial separam a jornada de iniciante e intermediário da documentação técnica do compilador e das ferramentas.</p></article>
+        <article class="card"><div class="card-icon">01</div><h3>Português corrente</h3><p>Condições, laços, mutações, consultas e chamadas naturais mantêm leitura próxima da intenção do programa com equivalências determinísticas.</p></article>
+        <article class="card"><div class="card-icon">02</div><h3>VS Code integrado</h3><p>Coral Language <span data-version-key="extensao_vscode">0.72.0</span> reúne LSP, depuração, IntelliSense, diagnósticos, testes, navegação e ferramentas de projeto.</p></article>
+        <article class="card"><div class="card-icon">03</div><h3>Ciência e dados</h3><p>Matemática, vetores, matrizes, estatística, regressão, reamostragem e experimentos reproduzíveis convivem com dados comuns da linguagem.</p></article>
+        <article class="card"><div class="card-icon">04</div><h3>Gráficos 2D e 3D</h3><p>Linhas, dispersão, barras, histogramas, incerteza, painéis, superfícies 3D e exportação para SVG, PNG, PDF e HTML interativo.</p></article>
+        <article class="card"><div class="card-icon">05</div><h3>Web local e HTTP</h3><p>Composição HTML, URLs, cliente HTTP e servidor local com limites explícitos, bytes preservados e rede iniciada somente quando solicitada.</p></article>
+        <article class="card"><div class="card-icon">06</div><h3>Jogos e apresentação</h3><p>Sprites, animação, colisão, câmera, mapas, HUD, transições, depuração visual e pontes com geração procedural.</p></article>
+        <article class="card"><div class="card-icon">07</div><h3>Mundos e regras</h3><p>Entidades, mapas, regiões, eventos, regras reativas, agentes, turnos e simulação permitem modelar sistemas além de jogos.</p></article>
+        <article class="card"><div class="card-icon">08</div><h3>Geração procedural</h3><p>Sementes derivadas, campos, distribuição espacial e receitas reproduzíveis podem alimentar simulações, pesquisa e cenas de jogo.</p></article>
+        <article class="card"><div class="card-icon">09</div><h3>Sistema e hardware</h3><p>Processos, ambiente, caminhos, diagnóstico do sistema e acesso opcional a capacidades de hardware permanecem separados da lógica do programa.</p></article>
+        <article class="card"><div class="card-icon">10</div><h3>Livro Oficial <span data-version-key="livro">1.7.0</span></h3><p>Um percurso longo com 53 capítulos e 135 páginas, do primeiro programa à biblioteca, ferramentas, arquitetura e referência completa.</p></article>
       </div>
     </div>
   </section>
@@ -111,22 +112,26 @@ fim</code></pre>
     <div class="container">
       <div class="section-heading">
         <span class="kicker">Biblioteca Coral</span>
-        <h2>Domínios que conversam entre si.</h2>
-        <p>A documentação apresenta os módulos como partes de uma mesma linguagem, evitando que cada domínio vire um ecossistema separado.</p>
+        <h2>Escolha o domínio e aprofunde quando precisar.</h2>
+        <p>Cada módulo possui resumo rápido, Modo Aprender e Modo Referência. A busca também encontra funções, classes, conceitos e exemplos.</p>
       </div>
       <div class="module-grid" data-module-grid>
-        <article class="card module-card"><code>coral.numerico</code><h3>Números e matemática</h3><p>Operações e ferramentas numéricas para programas, simulações e automações.</p></article>
-        <article class="card module-card"><code>coral.jogos</code><h3>Jogos e apresentação</h3><p>Janela, entrada, sprites, câmera avançada, animação temporal, camadas, HUD e transições.</p></article>
-        <article class="card module-card"><code>coral.mundo</code><h3>Mundos e mapas</h3><p>Entidades, relações, caminhos, regiões e estruturas espaciais de alto nível.</p></article>
-        <article class="card module-card"><code>coral.rpg</code><h3>Personagens e mecânicas</h3><p>Personagens, vida, dados, combate e integração com mundos e regras.</p></article>
-        <article class="card module-card"><code>coral.regras</code><h3>Reatividade</h3><p>Observação, eventos, condições, sequências e comportamento baseado em estado.</p></article>
-        <article class="card module-card"><code>coral.sistema</code><h3>Sistema e arquivos</h3><p>Caminhos, persistência, ambiente e recursos de integração com o sistema.</p></article>
-        <article class="card module-card"><code>coral.laboratorio</code><h3>Experimentação</h3><p>Ferramentas para explorar, medir e testar ideias com uma superfície controlada.</p></article>
-        <article class="card module-card"><code>coral.hardware</code><h3>Hardware</h3><p>Base para inspeção e integração com capacidades da máquina quando disponíveis.</p></article>
-        <article class="card module-card"><code>coral.agentes</code><h3>Agentes</h3><p>Recursos, atributos, efeitos e habilidades para entidades genéricas.</p></article>
-        <article class="card module-card"><code>coral.turnos</code><h3>Turnos</h3><p>Filas circulares para turnos, atendimento, produção e escalonamento.</p></article>
-        <article class="card module-card"><code>coral.simulacao</code><h3>Simulação</h3><p>Tempo de mundo, ciclos, sistemas recorrentes e campos ambientais.</p></article>
-        <article class="card module-card"><code>coral.procedural</code><h3>Procedural</h3><p>Sementes, geradores determinísticos, campos, ruído e distribuição espacial.</p></article>
+        <article class="card module-card"><code>coral.numerico</code><h3><a href="docs/modulos/numerico.html">Numérico e estatística</a></h3><p>Vetores, matrizes, medidas estatísticas, regressão, bootstrap e álgebra linear.</p></article>
+        <article class="card module-card"><code>coral.matematica</code><h3><a href="docs/modulos/matematica.html">Matemática</a></h3><p>Operações escalares, trigonometria, combinatória, logaritmos e utilidades matemáticas portáveis.</p></article>
+        <article class="card module-card"><code>coral.graficos</code><h3><a href="docs/modulos/graficos.html">Gráficos</a></h3><p>Visualização científica 2D e 3D com saídas estáticas e HTML interativo.</p></article>
+        <article class="card module-card"><code>coral.laboratorio</code><h3><a href="docs/modulos/laboratorio.html">Laboratório</a></h3><p>Planejamento, execução, comparação e recuperação de experimentos reproduzíveis.</p></article>
+        <article class="card module-card"><code>coral.web.http</code><h3><a href="docs/modulos/web-http.html">Cliente HTTP</a></h3><p>Requisições limitadas, timeout, redirecionamentos controlados e TLS verificado.</p></article>
+        <article class="card module-card"><code>coral.web.servidor</code><h3><a href="docs/modulos/web-servidor.html">Servidor local</a></h3><p>Rotas literais, respostas estruturadas, arquivos e gráficos interativos em desenvolvimento local.</p></article>
+        <article class="card module-card"><code>coral.jogos</code><h3><a href="docs/modulos/jogos.html">Jogos e apresentação</a></h3><p>Sprites, câmera, animação, mapas, depuração, cenas e composição visual 2D.</p></article>
+        <article class="card module-card"><code>coral.procedural</code><h3><a href="docs/modulos/procedural.html">Procedural</a></h3><p>Sementes, campos, amostragem, receitas e integração explícita com jogos e pesquisa.</p></article>
+        <article class="card module-card"><code>coral.mundo</code><h3><a href="docs/modulos/mundo.html">Mundos e mapas</a></h3><p>Entidades, relações, caminhos, regiões e estruturas espaciais de alto nível.</p></article>
+        <article class="card module-card"><code>coral.regras</code><h3><a href="docs/modulos/regras.html">Regras e eventos</a></h3><p>Observação, prioridades, condições, sequências e comportamento reativo baseado em estado.</p></article>
+        <article class="card module-card"><code>coral.sistema</code><h3><a href="docs/modulos/sistema.html">Sistema</a></h3><p>Ambiente, processos, programas disponíveis, caminhos e informações do processo atual.</p></article>
+        <article class="card module-card"><code>coral.hardware</code><h3><a href="docs/modulos/hardware.html">Hardware</a></h3><p>CPU, memória, discos, bateria, serial e diagnóstico quando as dependências estiverem disponíveis.</p></article>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-secondary" href="docs/projetos.html">Ver todos os módulos</a>
+        <a class="button button-secondary" href="docs/guias_objetivos.html">O que você quer fazer?</a>
       </div>
     </div>
   </section>
@@ -134,59 +139,41 @@ fim</code></pre>
   <section class="section section-alt">
     <div class="container split">
       <div>
-        <span class="kicker">Coral <span data-version-key="coral">1.6.0</span></span>
-        <h2>Coesão interna com fronteiras verificáveis.</h2>
-        <p>A Coral 1.6.0 preserva a linguagem pública consolidada na linha 1.5 e fecha uma reorganização interna para reduzir acoplamento, impedir inversões entre camadas e tornar a evolução do runtime mais previsível.</p>
+        <span class="kicker">Ciência, visualização e Web</span>
+        <h2>Do dado bruto a uma apresentação local.</h2>
+        <p>A biblioteca científica e a base Web podem ser usadas separadamente ou combinadas. Você escolhe quando calcular, visualizar, salvar ou servir um resultado.</p>
         <ul class="check-list">
-          <li>O mapa arquitetural declara camadas, contratos, autoridades internas, dependências permitidas e orçamentos estruturais.</li>
-          <li>Parser, AST e backend passam a ter fronteiras explícitas; o backend estrutural consome AST e a equivalência estrutural prova a convergência de formas superficiais equivalentes.</li>
-          <li><code>coral.runtime_minimo</code> concentra o núcleo sem extras opcionais, enquanto serviços internos são resolvidos de forma preguiçosa.</li>
-          <li>A stdlib distingue fachada pública de implementação canônica sem remover as superfícies já publicadas.</li>
-          <li><code>coral.persistencia</code> expõe uma política executável de leitura e escrita, além das versões de esquema aceitas.</li>
-          <li>O congelamento exige zero ciclos, zero violações de camada e zero exceções transitórias ativas.</li>
+          <li><code>coral.numerico</code> cobre estatística descritiva, regressão, bootstrap, permutação e geometria 3D.</li>
+          <li><code>coral.laboratorio</code> organiza experimentos, parâmetros, medições, comparação e proveniência.</li>
+          <li><code>coral.graficos</code> produz SVG local e pode exportar PNG, PDF ou HTML interativo quando solicitado.</li>
+          <li><code>coral.web.html</code> e <code>coral.web.url</code> trabalham localmente com texto, marcação e endereços.</li>
+          <li><code>coral.web.http</code> preserva corpo em bytes e só interpreta texto ou JSON sob demanda.</li>
+          <li><code>coral.web.servidor</code> cria servidores locais explicitamente, com limites de corpo e encerramento controlado.</li>
         </ul>
       </div>
       <div class="callout">
         <div class="ring-stripe" aria-hidden="true"></div>
         <div class="callout-body">
-          <span class="callout-label">Português corrente consolidado na 1.5.19</span>
-          <p>Comparações com <code>é</code>, pertencimento com <code>está em</code>, <code>passa a ser</code>, <code>aumente</code>, <code>diminua</code>, <code>devolva</code>, consultas naturais, mutações de coleção e conversões continuam disponíveis na 1.6.0. A nova equivalência estrutural da AST reforça que formas superficiais equivalentes convergem para a mesma estrutura semântica. A distribuição traz Coral Language <span data-version-key="extensao_vscode">0.53.0</span> e mantém o Livro Oficial <span data-version-key="livro">1.5.8</span>.</p>
+          <span class="callout-label">Controle explícito</span>
+          <p>Importar os módulos Web não acessa a rede. Criar uma especificação de gráfico não abre janela. Criar um servidor não abre porta até que o programa peça isso. A Coral mantém efeitos externos visíveis no código.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="kicker">Linha 1.5.x → 1.6</span>
-        <h2>Da consolidação funcional à coesão interna.</h2>
-      </div>
-      <div class="version-strip" aria-label="Evolução resumida das versões Coral">
-        <div class="version-step"><strong>1.5.2–1.5.8</strong><span>Jogos, espaço, eventos, mundo e revisão da base.</span></div>
-        <div class="version-step"><strong>1.5.9–1.5.11</strong><span>VS Code, agentes, turnos, simulação e geração procedural.</span></div>
-        <div class="version-step"><strong>1.5.12–1.5.13</strong><span>Sustentação da suíte e apresentação 2D avançada.</span></div>
-        <div class="version-step"><strong>1.5.14–1.5.18</strong><span>Observabilidade, inspeção e evolução da infraestrutura de release.</span></div>
-        <div class="version-step"><strong>1.5.19</strong><span>Português corrente ampliado com equivalências determinísticas.</span></div>
-        <div class="version-step"><strong>1.5.20–1.5.21</strong><span>Sustentabilidade, portabilidade e candidata de coesão com redução de acoplamento.</span></div>
-        <div class="version-step current"><strong><span data-version-key="coral">1.6.0</span><em class="version-tag">Atual</em></strong><span>Coesão interna, runtime mínimo, fronteiras de AST e política executável de persistência.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="instalacao">
+  <section class="section" id="instalacao">
     <div class="container">
       <div class="section-heading">
         <span class="kicker">Instalação</span>
-        <h2>Use os assistentes da distribuição oficial.</h2>
-        <p>O pacote completo inclui runtime portátil, instaladores e a extensão oficial do VS Code.</p>
+        <h2>Comece pelo pacote oficial da Coral.</h2>
+        <p>A edição <span data-version-key="coral">1.7.0</span> publica Linux x86_64 como plataforma nativa autoritativa e também inclui o runtime portátil em Python.</p>
       </div>
       <div class="install-grid">
         <div class="command-box"><div class="command-title">Linux</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.6.0.pyz --versao</code></pre></div></div>
-        <div class="command-box"><div class="command-title">Windows</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>Instalacao\Coral_Setup.cmd
-python Instalacao\Runtime\coral-1.6.0.pyz --versao</code></pre></div></div>
+python Instalacao/Runtime/coral-1.7.0.pyz --versao</code></pre></div></div>
+        <div class="command-box"><div class="command-title">Runtime portátil</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>python Instalacao/Runtime/coral-1.7.0.pyz arquivo.coral</code></pre></div></div>
       </div>
+      <p class="small">A distribuição 1.7.0 não declara Windows x86_64 como plataforma nativa validada desta edição. Consulte o guia de instalação para a disponibilidade corrente.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="docs/instalacao.html">Guia de instalação</a>
         <a class="button button-secondary" href="docs/vscode.html">Configurar VS Code</a>
@@ -194,17 +181,20 @@ python Instalacao\Runtime\coral-1.6.0.pyz --versao</code></pre></div></div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="container split">
       <div>
-        <span class="kicker">Documentação</span>
-        <h2>Do primeiro programa à arquitetura.</h2>
-        <p>A documentação começa pela linguagem e seus projetos. A parte técnica fica disponível sem invadir o percurso de quem ainda está aprendendo.</p>
-        <div class="hero-actions"><a class="button button-primary" href="docs/index.html">Abrir documentação</a></div>
+        <span class="kicker">Aprender ou consultar</span>
+        <h2>Documentação curta quando você precisa, Livro quando quer sequência.</h2>
+        <p>O site oferece Modo Aprender, Modo Referência, guias por objetivo, exemplos com resultado esperado e busca global. O Livro Oficial organiza o mesmo ecossistema em um percurso longo.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="docs/index.html">Abrir documentação</a>
+          <a class="button button-secondary" href="docs/livro.html">Abrir página do Livro</a>
+        </div>
       </div>
       <div class="release-grid" style="grid-template-columns:1fr;">
-        <article class="release-card"><h3>Livro Oficial <span data-version-key="livro">1.5.8</span></h3><p>A edição do Livro é controlada separadamente da versão técnica do runtime.</p></article>
-        <article class="release-card"><h3>Exemplos reorganizados</h3><p>Exemplos curtos e redundantes foram consolidados por assunto, com projetos completos separados das demonstrações focadas.</p></article>
+        <article class="release-card"><h3>Livro Oficial <span data-version-key="livro">1.7.0</span></h3><p>53 capítulos, 135 páginas A4 e uma trilha que vai da instalação à referência completa.</p><p><a class="button button-secondary" href="downloads/Coral_1.7.0_Livro_Oficial.pdf">Baixar Livro em PDF</a></p></article>
+        <article class="release-card"><h3>Notas de versão</h3><p>Consulte mudanças de compatibilidade, ferramentas e disponibilidade de plataforma da versão atual.</p><p><a class="button button-secondary" href="docs/release.html">Ler notas da 1.7.0</a></p></article>
       </div>
     </div>
   </section>
@@ -213,7 +203,7 @@ python Instalacao\Runtime\coral-1.6.0.pyz --versao</code></pre></div></div>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">C</span><span class="brand-name">Coral</span></a><p class="small">Uma linguagem em português corrente, com ferramentas para aprender e construir.</p></div>
-    <div class="footer-links"><a href="docs/index.html">Documentação</a><a href="docs/exemplos.html">Exemplos</a><a href="docs/release.html">Release <span data-version-key="coral">1.6.0</span></a></div>
+    <div class="footer-links"><a href="docs/index.html">Documentação</a><a href="docs/exemplos.html">Exemplos</a><a href="docs/livro.html">Livro</a><a href="docs/release.html">Notas de versão</a></div>
   </div>
 </footer>
 <script defer src="assets/js/site.js"></script>
