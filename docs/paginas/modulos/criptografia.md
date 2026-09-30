@@ -108,7 +108,7 @@ Vetores conhecidos e comparações de verificação são mais úteis que testes 
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.6.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -316,7 +316,7 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 
 **Arquivo na release:** `coral/criptografia/__init__.py`
 
-**Exceções diretamente observáveis no corpo:** `ErroFormato`, `ErroValor`
+**Exceções diretamente observáveis no corpo:** `ErroValor`
 
 :::
 
@@ -347,7 +347,7 @@ Retorna um valor declarado como `bool`.
 
 #### `listar_algoritmos`
 
-Lista algoritmos.
+Lista o catálogo geral, incluindo hashes e variantes HMAC.
 
 **Retorno**
 

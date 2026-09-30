@@ -9,11 +9,11 @@ sementes derivadas, geração determinística, ruído, campos e distribuição p
 **Importação:** `coral.procedural`  
 **Categoria:** simulacao  
 
-sementes derivadas, geração determinística, ruído, campos e distribuição procedural
+sementes derivadas, geração determinística, campos, amostragem, receitas e pontes explícitas para jogos e pesquisa
 
 ### Superfície pública detectada
 
-`CONTRATO`, `Semente`, `semente`, `derivar_semente`, `GeradorProcedural`, `SequenciaProcedural`, `CampoProcedural`, `campo_constante`, `campo_ruido`, `distribuir_pontos`
+`CONTRATO`, `Semente`, `semente`, `derivar_semente`, `GeradorProcedural`, `SequenciaProcedural`, `CampoProcedural`, `campo_constante`, `campo_ruido`, `distribuir_pontos`, `amostrar_campo`, `matriz_campo`, `anotar_pontos`, `proveniencia_procedural`, `CONTRATO_RECEITA`, `ReceitaProcedural`, `receita_procedural`, `diagnosticar_custo_receita`, `reconstruir_receita`
 
 <!-- /AUTO:MODULO -->
 
@@ -110,9 +110,9 @@ Sementes e rótulos aceitam apenas valores portáteis e determinísticos. Ruído
 
 Testes devem fixar a semente e comparar resultados por chave ou coordenada. Uma propriedade importante é a independência da ordem: consultar outra chave antes não deve alterar um valor já definido pelo mesmo contexto.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A fundação procedural foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.6.0**. A importação da 1.6.0 não detecta alteração nessa superfície funcional; a release preserva a API enquanto reorganiza fronteiras internas do runtime.
+A superfície procedural corrente trabalha com sementes derivadas, geração determinística, campos, distribuição de pontos, proveniência e receitas. Jogos e Laboratório consomem essa base por pontes explícitas, sem transformar Procedural em dependência de interface ou experimento.
 
 ## Referência da API
 
@@ -263,7 +263,7 @@ Retorna um valor declarado como `CampoProcedural`.
 
 #### `distribuir_pontos`
 
-Distribui pontos 2D de forma determinística com restrições simples.
+Distribui pontos 2D determinísticos sob limites finitos de trabalho.
 
 **Parâmetros**
 
@@ -277,6 +277,7 @@ Distribui pontos 2D de forma determinística com restrições simples.
 | `distancia_minima` | Valor correspondente a distancia minima. | `float` | `0.0` |
 | `restricao` | Valor correspondente a restricao. | `Callable[[float, float], bool] \| None` | `None` |
 | `max_tentativas_por_ponto` | Valor correspondente a max tentativas por ponto. | `int` | `200` |
+| `limite_tentativas_total` | Valor correspondente a limite tentativas total. | `int` | `1000000` |
 
 **Retorno**
 
@@ -284,7 +285,7 @@ Retorna um valor declarado como `tuple[tuple[float, float], ...]`.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `distribuir_pontos(largura: float, altura: float, quantidade: int, *, semente_raiz: Any = 0, margem: float = 0.0, distancia_minima: float = 0.0, restricao: Callable[[float, float], bool] \| None = None, max_tentativas_por_ponto: int = 200) -> tuple[tuple[float, float], ...]`
+**Assinatura:** `distribuir_pontos(largura: float, altura: float, quantidade: int, *, semente_raiz: Any = 0, margem: float = 0.0, distancia_minima: float = 0.0, restricao: Callable[[float, float], bool] \| None = None, max_tentativas_por_ponto: int = 200, limite_tentativas_total: int = 1000000) -> tuple[tuple[float, float], ...]`
 
 **Origem da implementação:** `coral.procedural`
 
@@ -302,8 +303,245 @@ Retorna um valor declarado como `tuple[tuple[float, float], ...]`.
 | `distancia_minima` | nomeado |
 | `restricao` | nomeado |
 | `max_tentativas_por_ponto` | nomeado |
+| `limite_tentativas_total` | nomeado |
 
-**Exceções diretamente observáveis no corpo:** `ValueError`, `RuntimeError`
+**Exceções diretamente observáveis no corpo:** `ValueError`, `TypeError`, `RuntimeError`
+
+:::
+
+#### `amostrar_campo`
+
+Materializa amostras portáteis de um campo sem depender de Numérico ou Laboratório.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `campo` | Valor correspondente a campo. | `CampoProcedural` | obrigatório |
+| `coordenadas` | Valor correspondente a coordenadas. | `Iterable[Sequence[float]]` | obrigatório |
+| `nomes_eixos` | Valor correspondente a nomes eixos. | `Sequence[str] \| None` | `None` |
+| `nome_valor` | Valor correspondente a nome valor. | `str` | `'valor'` |
+| `limite_amostras` | Valor correspondente a limite amostras. | `int` | `100000` |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[dict[str, Any], ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `amostrar_campo(campo: CampoProcedural, coordenadas: Iterable[Sequence[float]], *, nomes_eixos: Sequence[str] \| None = None, nome_valor: str = 'valor', limite_amostras: int = 100000) -> tuple[dict[str, Any], ...]`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `campo` | posicional |
+| `coordenadas` | posicional |
+| `nomes_eixos` | nomeado |
+| `nome_valor` | nomeado |
+| `limite_amostras` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `matriz_campo`
+
+Amostra um campo 2D como matriz, pronta para mapas, jogos e mapas de calor.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `campo` | Valor correspondente a campo. | `CampoProcedural` | obrigatório |
+| `colunas` | Valor correspondente a colunas. | `int` | obrigatório |
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `int` | obrigatório |
+| `origem` | Origem usada pela operação. | `Sequence[float]` | `(0.0, 0.0)` |
+| `passo` | Incremento aplicado entre valores sucessivos. | `Sequence[float]` | `(1.0, 1.0)` |
+| `limite_celulas` | Valor correspondente a limite celulas. | `int` | `1000000` |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[tuple[float, ...], ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `matriz_campo(campo: CampoProcedural, colunas: int, linhas: int, *, origem: Sequence[float] = (0.0, 0.0), passo: Sequence[float] = (1.0, 1.0), limite_celulas: int = 1000000) -> tuple[tuple[float, ...], ...]`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `campo` | posicional |
+| `colunas` | posicional |
+| `linhas` | posicional |
+| `origem` | nomeado |
+| `passo` | nomeado |
+| `limite_celulas` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `anotar_pontos`
+
+Anexa valores de campos a pontos 2D em registros gerais e portáteis.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `pontos` | Valor correspondente a pontos. | `Iterable[Sequence[float]]` | obrigatório |
+| `campos` | Valor correspondente a campos. | `Mapping[str, CampoProcedural]` | obrigatório |
+| `limite_pontos` | Valor correspondente a limite pontos. | `int` | `100000` |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[dict[str, Any], ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `anotar_pontos(pontos: Iterable[Sequence[float]], campos: Mapping[str, CampoProcedural], *, limite_pontos: int = 100000) -> tuple[dict[str, Any], ...]`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `pontos` | posicional |
+| `campos` | posicional |
+| `limite_pontos` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `TypeError`
+
+:::
+
+#### `proveniencia_procedural`
+
+Descreve origem procedural sem importar domínios consumidores.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `objeto` | Objeto processado pela operação. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `proveniencia_procedural(objeto: Any) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `receita_procedural`
+
+Cria uma receita portátil para um dos algoritmos declarativos suportados.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `algoritmo` | Valor correspondente a algoritmo. | `str` | obrigatório |
+| `semente_raiz` | Valor correspondente a semente raiz. | `Any` | `0` |
+| `**parametros` | Valor correspondente a parametros. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `ReceitaProcedural`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `receita_procedural(algoritmo: str, *, semente_raiz: Any = 0, **parametros: Any) -> ReceitaProcedural`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `algoritmo` | posicional |
+| `semente_raiz` | nomeado |
+| `**parametros` | variádico nomeado |
+
+:::
+
+#### `diagnosticar_custo_receita`
+
+Estima o trabalho máximo conhecido antes de reconstruir a receita.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `receita` | Valor correspondente a receita. | `ReceitaProcedural \| Mapping[str, Any]` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `diagnosticar_custo_receita(receita: ReceitaProcedural \| Mapping[str, Any]) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+:::
+
+#### `reconstruir_receita`
+
+Reconstrói uma receita após validar versão e orçamento explícito.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `receita` | Valor correspondente a receita. | `ReceitaProcedural \| Mapping[str, Any]` | obrigatório |
+| `limite_custo` | Valor correspondente a limite custo. | `int` | `LIMITE_CUSTO_PADRAO` |
+
+**Retorno**
+
+Retorna um valor declarado como `Any`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `reconstruir_receita(receita: ReceitaProcedural \| Mapping[str, Any], *, limite_custo: int = LIMITE_CUSTO_PADRAO) -> Any`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `receita` | posicional |
+| `limite_custo` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
 
 :::
 
@@ -440,7 +678,7 @@ Sequência indexada cuja posição não depende das consultas anteriores.
 | Nome | Tipo | Assinatura |
 |---|---|---|
 | `obter` | método | `obter(indice: int) -> Any` |
-| `trecho` | método | `trecho(inicio: int, quantidade: int) -> tuple[Any, ...]` |
+| `trecho` | método | `trecho(inicio: int, quantidade: int, *, limite_itens: int = LIMITE_TRECHO_PADRAO) -> tuple[Any, ...]` |
 
 :::
 
@@ -455,6 +693,9 @@ Campo numérico consultável por coordenadas e combinável por composição.
 | `funcao` | Função fornecida para executar a operação. | `Callable[..., float]` | obrigatório |
 | `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | `'campo'` |
 | `metadados` | Valor correspondente a metadados. | `Mapping[str, Any] \| None` | `None` |
+| `dimensoes_min` | Valor correspondente a dimensoes min. | `int` | `1` |
+| `dimensoes_max` | Valor correspondente a dimensoes max. | `int \| None` | `None` |
+| `intervalo` | Valor correspondente a intervalo. | `tuple[float, float] \| None` | `None` |
 
 **Operações públicas da classe**
 
@@ -470,7 +711,7 @@ Campo numérico consultável por coordenadas e combinável por composição.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `CampoProcedural(funcao: Callable[..., float], *, nome: str = 'campo', metadados: Mapping[str, Any] \| None = None)`
+**Assinatura:** `CampoProcedural(funcao: Callable[..., float], *, nome: str = 'campo', metadados: Mapping[str, Any] \| None = None, dimensoes_min: int = 1, dimensoes_max: int \| None = None, intervalo: tuple[float, float] \| None = None)`
 
 **Origem da implementação:** `coral.procedural`
 
@@ -483,18 +724,75 @@ Campo numérico consultável por coordenadas e combinável por composição.
 | `funcao` | posicional |
 | `nome` | nomeado |
 | `metadados` | nomeado |
+| `dimensoes_min` | nomeado |
+| `dimensoes_max` | nomeado |
+| `intervalo` | nomeado |
 
 **Assinaturas de métodos e propriedades**
 
 | Nome | Tipo | Assinatura |
 |---|---|---|
 | `valor` | método | `valor(*coordenadas: float) -> float` |
-| `transformar` | método | `transformar(funcao: Callable[[float], float], *, nome: str \| None = None) -> 'CampoProcedural'` |
+| `transformar` | método | `transformar(funcao: Callable[[float], float], *, nome: str \| None = None, intervalo: tuple[float, float] \| None = None, operacao: str = 'transformar') -> 'CampoProcedural'` |
 | `limitar` | método | `limitar(minimo: float, maximo: float) -> 'CampoProcedural'` |
 | `normalizar` | método | `normalizar(origem_min: float, origem_max: float, destino_min: float = 0.0, destino_max: float = 1.0) -> 'CampoProcedural'` |
 | `somar` | método | `somar(outro: 'CampoProcedural \| float') -> 'CampoProcedural'` |
 | `multiplicar` | método | `multiplicar(outro: 'CampoProcedural \| float') -> 'CampoProcedural'` |
 | `mascara` | método | `mascara(*, minimo: float \| None = None, maximo: float \| None = None, dentro: float = 1.0, fora: float = 0.0) -> 'CampoProcedural'` |
+
+:::
+
+#### `ReceitaProcedural`
+
+Descrição portátil e reconstruível de uma operação procedural suportada.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `algoritmo` | Valor correspondente a algoritmo. | `str` | obrigatório |
+| `semente_raiz` | Valor correspondente a semente raiz. | `Any` | `0` |
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Any] \| None` | `None` |
+| `versao_algoritmo` | Valor correspondente a versao algoritmo. | `int` | `VERSAO_RECEITA` |
+
+**Operações públicas da classe**
+
+| Nome | O que faz | Retorno |
+|---|---|---|
+| `contrato` | Executa a operação `contrato` disponibilizada por `coral.procedural`. | `str` |
+| `parametros` | Executa a operação `parametros` disponibilizada por `coral.procedural`. | `dict[str, Any]` |
+| `para_dados` | Converte o valor para dados. | `dict[str, Any]` |
+| `para_json` | Converte o valor para JSON. | `str` |
+| `de_dados` | Interpreta ou reconstrói um valor a partir de dados. | `'ReceitaProcedural'` |
+| `de_json` | Interpreta ou reconstrói um valor a partir de JSON. | `'ReceitaProcedural'` |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ReceitaProcedural(algoritmo: str, *, semente_raiz: Any = 0, parametros: Mapping[str, Any] \| None = None, versao_algoritmo: int = VERSAO_RECEITA) -> None`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `algoritmo` | posicional |
+| `semente_raiz` | nomeado |
+| `parametros` | nomeado |
+| `versao_algoritmo` | nomeado |
+
+**Assinaturas de métodos e propriedades**
+
+| Nome | Tipo | Assinatura |
+|---|---|---|
+| `contrato` | propriedade | `contrato() -> str` |
+| `parametros` | propriedade | `parametros() -> dict[str, Any]` |
+| `para_dados` | método | `para_dados() -> dict[str, Any]` |
+| `para_json` | método | `para_json(*, identar: int \| None = None) -> str` |
+| `de_dados` | método | `de_dados(dados: Mapping[str, Any]) -> 'ReceitaProcedural'` |
+| `de_json` | método | `de_json(texto: str) -> 'ReceitaProcedural'` |
 
 :::
 
@@ -513,6 +811,22 @@ Expõe a constante pública `CONTRATO`.
 **Arquivo na release:** `coral/procedural.py`
 
 **Valor declarado:** `'coral.procedural/1'`
+
+:::
+
+#### `CONTRATO_RECEITA`
+
+Expõe a constante pública `CONTRATO_RECEITA`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO_RECEITA`
+
+**Origem da implementação:** `coral.procedural`
+
+**Arquivo na release:** `coral/procedural.py`
+
+**Valor declarado:** `'coral.procedural.receita/1'`
 
 :::
 

@@ -13,7 +13,7 @@ operações matemáticas fundamentais recorrentes
 
 ### Superfície pública detectada
 
-`raiz`, `potencia`, `absoluto`, `arredondar`, `minimo`, `maximo`, `soma`, `media`, `seno`, `cosseno`, `tangente`, `piso`, `teto`, `truncar`, `log`, `exp`, `graus`, `radianos`, `limitar`, `finito`, `mdc`, `mmc`, `pi`, `e`
+`raiz`, `potencia`, `absoluto`, `arredondar`, `minimo`, `maximo`, `soma`, `media`, `fatorial`, `combinacoes`, `arranjos`, `hipotenusa`, `aproximadamente_igual`, `interpolar_linear`, `seno`, `cosseno`, `tangente`, `arco_seno`, `arco_cosseno`, `arco_tangente`, `piso`, `teto`, `truncar`, `log`, `log10`, `log2`, `exp`, `graus`, `radianos`, `raiz_nesima`, `produto`, `sinal`, `volume_bola3`, `limitar`, `finito`, `mdc`, `mmc`, `pi`, `e`
 
 <!-- /AUTO:MODULO -->
 
@@ -103,7 +103,7 @@ Para ponto flutuante, compare com tolerância quando a igualdade exata não for 
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.6.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -327,6 +327,166 @@ Retorna a média calculada.
 
 :::
 
+#### `fatorial`
+
+Fatorial de um inteiro não negativo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `n` | Valor correspondente a n. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `fatorial(n)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `combinacoes`
+
+Quantidade de escolhas de k elementos sem considerar ordem.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `n` | Valor correspondente a n. | `não declarado` | obrigatório |
+| `k` | Valor correspondente a k. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `combinacoes(n, k)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `arranjos`
+
+Quantidade de escolhas ordenadas de k elementos sem repetição.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `n` | Valor correspondente a n. | `não declarado` | obrigatório |
+| `k` | Valor correspondente a k. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `arranjos(n, k)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `hipotenusa`
+
+Comprimento euclidiano dos catetos a e b, calculado de forma estável.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `a` | Valor correspondente a a. | `não declarado` | obrigatório |
+| `b` | Valor correspondente a b. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `hipotenusa(a, b)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `aproximadamente_igual`
+
+Compara números reais com tolerâncias explícitas.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `a` | Valor correspondente a a. | `não declarado` | obrigatório |
+| `b` | Valor correspondente a b. | `não declarado` | obrigatório |
+| `tolerancia_relativa` | Valor correspondente a tolerancia relativa. | `não declarado` | `1e-09` |
+| `tolerancia_absoluta` | Valor correspondente a tolerancia absoluta. | `não declarado` | `0.0` |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `aproximadamente_igual(a, b, tolerancia_relativa = 1e-09, tolerancia_absoluta = 0.0)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `interpolar_linear`
+
+Interpola ou extrapola linearmente entre dois valores reais finitos.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `inicio` | Valor inicial do intervalo ou processo. | `não declarado` | obrigatório |
+| `fim` | Valor final do intervalo ou processo. | `não declarado` | obrigatório |
+| `fracao` | Valor correspondente a fracao. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `interpolar_linear(inicio, fim, fracao)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
 #### `seno`
 
 Calcula o seno do ângulo.
@@ -402,6 +562,82 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 :::details Detalhes técnicos
 
 **Assinatura:** `tangente(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `arco_seno`
+
+Executa a operação `arco_seno` disponibilizada por `coral.matematica`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `arco_seno(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `arco_cosseno`
+
+Executa a operação `arco_cosseno` disponibilizada por `coral.matematica`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `arco_cosseno(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `arco_tangente`
+
+Executa a operação `arco_tangente` disponibilizada por `coral.matematica`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `arco_tangente(valor)`
 
 **Origem da implementação:** `coral.stdlib.matematica`
 
@@ -506,6 +742,58 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 
 :::
 
+#### `log10`
+
+Executa a operação `log10` disponibilizada por `coral.matematica`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `log10(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `log2`
+
+Executa a operação `log2` disponibilizada por `coral.matematica`.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `log2(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
 #### `exp`
 
 Calcula a função exponencial do valor.
@@ -575,6 +863,107 @@ Retorna o resultado produzido pela operação; o tipo não é declarado pela rel
 **Origem da implementação:** `coral.stdlib.matematica`
 
 **Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `raiz_nesima`
+
+Raiz real de índice inteiro positivo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+| `indice` | Valor correspondente a indice. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `raiz_nesima(valor, indice)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `produto`
+
+Multiplica os itens de uma coleção; a coleção vazia tem produto 1.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valores` | Coleção de valores processada. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `produto(valores)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `sinal`
+
+Devolve -1, 0 ou 1 para um número real finito.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `valor` | Valor processado pela operação. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `sinal(valor)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+:::
+
+#### `volume_bola3`
+
+Volume de uma bola euclidiana tridimensional de raio não negativo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `raio` | Valor correspondente a raio. | `não declarado` | obrigatório |
+
+**Retorno**
+
+Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `volume_bola3(raio)`
+
+**Origem da implementação:** `coral.stdlib.matematica`
+
+**Arquivo na release:** `coral/stdlib/matematica.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
 
 :::
 

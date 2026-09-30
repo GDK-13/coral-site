@@ -25,7 +25,7 @@ DOCS = ROOT / "docs"
 DADOS = DOCS / "dados"
 PAGINAS = DOCS / "paginas"
 MODULOS_DIR = PAGINAS / "modulos"
-CHANGELOG_DIR = DOCS / "changelog"
+DOWNLOADS = ROOT / "downloads"
 TEMPLATES = ROOT / "templates"
 SNAPSHOT = DADOS / "snapshot_release.json"
 VERSION_FILE = DADOS / "versao.json"
@@ -120,6 +120,24 @@ def open_release_zip(zip_path: Path):
             inner.close()
     finally:
         outer.close()
+
+
+def sync_book_pdf(zip_path: Path, edition: str) -> str | None:
+    """Publica no site o PDF oficial da edição corrente do Livro, quando presente."""
+    suffix = f"Livro/Coral_{edition}_Livro_Oficial.pdf"
+    with open_release_zip(zip_path) as zf:
+        matches = [name for name in zf.namelist() if name.endswith(suffix)]
+        if not matches:
+            return None
+        matches.sort(key=len)
+        payload = zf.read(matches[0])
+
+    DOWNLOADS.mkdir(parents=True, exist_ok=True)
+    for old in DOWNLOADS.glob("Coral_*_Livro_Oficial.pdf"):
+        old.unlink()
+    target = DOWNLOADS / f"Coral_{edition}_Livro_Oficial.pdf"
+    target.write_bytes(payload)
+    return target.relative_to(ROOT).as_posix()
 
 
 def parse_version_init(text: str) -> tuple[str, str]:
@@ -539,7 +557,7 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
                 {"arquivo": "repl_cli.md", "titulo": "REPL e CLI", "slug": "repl-cli", "grupo": "Referência"},
                 {"arquivo": "exemplos.md", "titulo": "Exemplos oficiais", "slug": "exemplos", "grupo": "Referência"},
                 {"arquivo": "livro.md", "titulo": "Livro Oficial", "slug": "livro", "grupo": "Referência"},
-                {"arquivo": "release.md", "titulo": "Release atual", "slug": "release", "grupo": "Referência"},
+                {"arquivo": "release.md", "titulo": "Notas de versão", "slug": "notas-de-versao", "grupo": "Referência"},
             ]
         }
     regular = [p for p in nav.get("paginas", []) if not p.get("arquivo", "").startswith("modulos/")]
@@ -606,6 +624,11 @@ def update_index_fallbacks(version: dict[str, Any]) -> None:
     text = re.sub(r"Na\s+[0-9.]+, o foco", f'Na <span data-version-key="coral">{version.get("coral", "?")}</span>, o foco', text, count=1)
     text = re.sub(r"Princípio da\s+[0-9.]+", f'Princípio da <span data-version-key="coral">{version.get("coral", "?")}</span>', text, count=1)
     text = re.sub(r"coral-\d+\.\d+\.\d+\.pyz", f'coral-{version.get("coral", "?")}.pyz', text)
+    text = re.sub(
+        r"downloads/Coral_\d+\.\d+\.\d+_Livro_Oficial\.pdf",
+        f'downloads/Coral_{version.get("livro", "?")}_Livro_Oficial.pdf',
+        text,
+    )
     text = re.sub(r">Release\s+[0-9.]+<", f'>Release <span data-version-key="coral">{version.get("coral", "?")}</span><', text, count=1)
 
     # Atualiza também o fallback já marcado. Assim o HTML continua correto sem
@@ -636,7 +659,7 @@ def ensure_base_pages() -> None:
         "repl_cli.md": '''# REPL e CLI\n\nA lista abaixo é importada automaticamente do contrato gerado da release. O arquivo `docs/dados/cli.json` é a fonte mecânica desta seção.\n\n## Uso cotidiano\n\n```bash\npython coral-<versao>.pyz --repl\npython coral-<versao>.pyz --self-check\npython coral-<versao>.pyz --ambiente\n```\n''',
         "exemplos.md": '''# Exemplos oficiais\n\nA biblioteca de exemplos é organizada por assunto. Exemplos muito curtos ou redundantes são condensados e fixtures de aceitação ficam separadas dos exemplos pedagógicos.\n\nO inventário mecânico de arquivos `.coral` da release fica em `docs/dados/exemplos.json`.\n''',
         "livro.md": '''# Livro Oficial\n\nA edição do Livro é controlada separadamente da versão técnica do runtime. Os exemplos citados pelo Livro também são sincronizados na própria área do Livro sem substituir os caminhos canônicos da biblioteca geral.\n''',
-        "release.md": '''# Release atual\n\nO changelog oficial importado da release fica em `docs/changelog/`. Quando uma nova release é importada, o gerador cria o arquivo correspondente e apresenta as diferenças mecânicas encontradas.\n''',
+        "release.md": '''# Notas de versão\n\nEsta página resume mudanças relevantes para quem usa a Coral. O histórico interno de desenvolvimento não é publicado automaticamente no site.\n''',
     }
     PAGINAS.mkdir(parents=True, exist_ok=True)
     for name, content in pages.items():
@@ -715,6 +738,22 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
     livro_page = PAGINAS / "livro.md"
     if livro_page.exists():
         replace_auto_block(livro_page, "EDICAO", f"**Edição editorial corrente:** `{livro}`.  \n**Runtime corrente:** `{runtime}`.")
+        livro_pdf = version.get("livro_pdf")
+        if livro_pdf:
+            filename = Path(str(livro_pdf)).name
+            replace_auto_block(
+                livro_page,
+                "DOWNLOAD_LIVRO",
+                f"[Baixar o Livro Oficial Coral {livro} em PDF](../downloads/{filename})",
+            )
+
+    release_page = PAGINAS / "release.md"
+    if release_page.exists():
+        replace_auto_block(
+            release_page,
+            "VERSAO_NOTAS",
+            f"**Coral:** `{runtime}`  \n**Coral Language:** `{ext}`  \n**Livro Oficial:** `{livro}`",
+        )
 
     cli_lines = ["### Opções detectadas", "", ", ".join(f"`{x}`" for x in cli.get("opcoes", [])) or "Nenhuma opção detectada.", "", "### Subcomandos detectados", "", ", ".join(f"`{x}`" for x in cli.get("subcomandos", [])) or "Nenhum subcomando detectado."]
     replace_auto_block(PAGINAS / "repl_cli.md", "CLI", "\n".join(cli_lines))
@@ -729,15 +768,10 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
     example_lines += [f"| {name} | {count} |" for name, count in sorted(groups.items())]
     replace_auto_block(PAGINAS / "exemplos.md", "EXEMPLOS", "\n".join(example_lines))
 
-    changelog_path = CHANGELOG_DIR / f"{runtime}.md"
-    if changelog_path.exists():
-        change = changelog_path.read_text(encoding="utf-8").strip()
-        # O título da release vira subtítulo dentro da página geral.
-        change = re.sub(r"^#\s+", "## ", change, count=1)
-        replace_auto_block(PAGINAS / "release.md", "CHANGELOG", change)
 
 def write_review_report(diff: dict[str, Any]) -> None:
-    path = DOCS / "REVISAO_PENDENTE.md"
+    path = ROOT / "manutencao" / "REVISAO_PENDENTE.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# Revisão pendente da documentação",
         "",
@@ -790,6 +824,7 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
         "exemplos_novos": info.exemplos, "exemplos_removidos": [], "sintaxe_alterada": True,
     }
 
+    livro_pdf = sync_book_pdf(zip_path, info.livro)
     version = {
         "coral": info.runtime,
         "extensao_vscode": info.extensao_vscode,
@@ -797,6 +832,8 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
         "estavel": True,
         "fonte_release": zip_path.name,
     }
+    if livro_pdf:
+        version["livro_pdf"] = livro_pdf
     write_json(VERSION_FILE, version)
     write_json(MODULES_FILE, info.modulos)
     write_json(CLI_FILE, info.cli)
@@ -804,9 +841,6 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
     write_json(SINTAXE_FILE, info.sintaxe)
     write_json(SNAPSHOT, new_snapshot)
     sync_module_pages(info.modulos)
-    if info.changelog:
-        CHANGELOG_DIR.mkdir(parents=True, exist_ok=True)
-        (CHANGELOG_DIR / f"{info.runtime}.md").write_text(info.changelog, encoding="utf-8")
     write_review_report(diff)
     return diff
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.">
+  <meta name="description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.">
   <meta name="theme-color" content="#EF362A">
   <title>Instalação — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Instalação — Documentação Coral">
-  <meta property="og:description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.">
+  <meta property="og:description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Instalação — Documentação Coral">
-  <meta name="twitter:description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.">
+  <meta name="twitter:description" content="A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="repl_cli.html">REPL e CLI</a></li>
 <li><a href="exemplos.html">Exemplos oficiais</a></li>
 <li><a href="livro.html">Livro Oficial</a></li>
-<li><a href="release.html">Release atual</a></li>
+<li><a href="release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a href="modulos/numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="modulos/json.html"><code>coral.json</code></a></li>
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="modulos/web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -112,7 +117,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Primeiros passos</div>
       <h1>Instalação</h1>
-      <p>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.</p>
+      <p>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -123,40 +128,45 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.</p>
-<h2 id="antes-de-instalar" data-searchable>Antes de instalar</h2>
-<p data-searchable>Tenha Python disponível no sistema. A Coral usa o runtime portátil distribuído como arquivo <code>.pyz</code>, então não é necessário montar manualmente o ambiente interno da linguagem para começar.</p>
-<h2 id="linux" data-searchable>Linux</h2>
+      <p data-searchable>A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.</p>
+<h2 id="linux-x86-64" data-searchable>Linux x86_64</h2>
+<p data-searchable>Linux x86_64 é a plataforma nativa autoritativa da Coral 1.7.0.</p>
 <p data-searchable>Na raiz da distribuição extraída:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.6.0.pyz --versao</code></pre></div></div>
-<p data-searchable>O segundo comando deve informar a versão corrente da Coral.</p>
+python Instalacao/Runtime/coral-1.7.0.pyz --versao</code></pre></div></div>
+<p data-searchable>O segundo comando deve informar <code>1.7.0</code>.</p>
+<p data-searchable>A distribuição também contém artefatos nativos Linux e um pacote <code>.deb</code>. Todos usam a mesma lógica de instalação e perfis da Coral.</p>
+<h2 id="runtime-portatil" data-searchable>Runtime portátil</h2>
+<p data-searchable>Se você não quiser registrar uma instalação persistente, pode executar o runtime diretamente:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python Instalacao/Runtime/coral-1.7.0.pyz programa.coral</code></pre></div></div>
+<p data-searchable>Isso é suficiente para estudar e executar programas que não dependam de componentes opcionais ausentes no ambiente.</p>
 <h2 id="windows" data-searchable>Windows</h2>
-<p data-searchable>Na raiz da distribuição extraída:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">Instalacao\Coral_Setup.cmd
-python Instalacao\Runtime\coral-1.6.0.pyz --versao</code></pre></div></div>
+<p data-searchable>A Coral 1.7.0 não declara Windows x86_64 como plataforma nativa validada desta edição. A distribuição ainda preserva ferramentas portáteis e assistentes relacionados, mas eles não devem ser apresentados como instalador nativo oficial da 1.7.0.</p>
 <h2 id="instalar-a-extensao-do-vs-code" data-searchable>Instalar a extensão do VS Code</h2>
-<p data-searchable>A extensão oficial fica em <code>Instalacao/Extensao_VSCode/</code>. No VS Code, use <strong>Extensions: Install from VSIX</strong> e selecione o arquivo <code>coral-language-0.53.0.vsix</code>.</p>
+<p data-searchable>A extensão oficial fica em <code>Instalacao/Extensao_VSCode/</code>. No VS Code, use <strong>Extensions: Install from VSIX</strong> e selecione <code>coral-language-0.72.0.vsix</code>.</p>
 <p data-searchable>Depois, execute <strong>Developer: Reload Window</strong> para reiniciar o host da extensão.</p>
 <h2 id="verificar-a-instalacao" data-searchable>Verificar a instalação</h2>
 <p data-searchable>Use o próprio runtime para conferir o ambiente:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python Instalacao/Runtime/coral-1.6.0.pyz --self-check
-python Instalacao/Runtime/coral-1.6.0.pyz --ambiente</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python Instalacao/Runtime/coral-1.7.0.pyz --self-check
+python Instalacao/Runtime/coral-1.7.0.pyz --ambiente</code></pre></div></div>
 <p data-searchable>Se estiver no VS Code, a visão <strong>Ambiente Coral</strong> também mostra runtime, projeto, LSP, DAP e componentes disponíveis.</p>
-<h2 id="atualizar-para-uma-nova-release" data-searchable>Atualizar para uma nova release</h2>
-<p data-searchable>Cada release completa é autocontida. Para atualizar, extraia a nova distribuição e execute novamente o assistente de instalação. A documentação do site é atualizada a partir do ZIP oficial da release, então versões exibidas aqui acompanham o pacote publicado.</p>
+<h2 id="componentes-opcionais" data-searchable>Componentes opcionais</h2>
+<p data-searchable>Perfis de instalação podem reunir componentes para usos diferentes, como computação científica e desenvolvimento. O instalador mantém esses componentes separados do Python global do sistema.</p>
+<h2 id="atualizar-a-coral" data-searchable>Atualizar a Coral</h2>
+<p data-searchable>Use uma distribuição oficial mais recente e execute novamente o assistente correspondente. Antes de atualizar um projeto importante, consulte <strong>Notas de versão</strong> para verificar disponibilidade de plataforma e mudanças relevantes para quem usa a linguagem.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="index.html"><span>Anterior</span><strong>Introdução</strong></a><a class="docs-page-nav-link next" href="primeiro_programa.html"><span>Próxima</span><strong>Seu primeiro programa</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
-    <ul><li class="toc-level-2"><a href="#antes-de-instalar" data-toc-link>Antes de instalar</a></li>
-<li class="toc-level-2"><a href="#linux" data-toc-link>Linux</a></li>
+    <ul><li class="toc-level-2"><a href="#linux-x86-64" data-toc-link>Linux x86_64</a></li>
+<li class="toc-level-2"><a href="#runtime-portatil" data-toc-link>Runtime portátil</a></li>
 <li class="toc-level-2"><a href="#windows" data-toc-link>Windows</a></li>
 <li class="toc-level-2"><a href="#instalar-a-extensao-do-vs-code" data-toc-link>Instalar a extensão do VS Code</a></li>
 <li class="toc-level-2"><a href="#verificar-a-instalacao" data-toc-link>Verificar a instalação</a></li>
-<li class="toc-level-2"><a href="#atualizar-para-uma-nova-release" data-toc-link>Atualizar para uma nova release</a></li></ul>
+<li class="toc-level-2"><a href="#componentes-opcionais" data-toc-link>Componentes opcionais</a></li>
+<li class="toc-level-2"><a href="#atualizar-a-coral" data-toc-link>Atualizar a Coral</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

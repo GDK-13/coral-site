@@ -25,7 +25,7 @@ persistência portátil, versionada e canônica
 
 ### Contrato versionado
 
-`CONTRATO` e `VERSAO_ESQUEMA` identificam o formato persistente. Na 1.6.0, `VERSOES_LEITURA` e `VERSAO_ESCRITA` tornam explícitas as versões que o runtime aceita ler e a versão que ele grava.
+`CONTRATO` e `VERSAO_ESQUEMA` identificam o formato persistente. Desde a 1.6.0, `VERSOES_LEITURA` e `VERSAO_ESCRITA` tornam explícitas as versões que o runtime aceita ler e a versão que ele grava. A 1.6.1 preserva essa política pública.
 
 ### Política executável
 
@@ -111,9 +111,9 @@ Módulos como `coral.mundo` podem registrar extensões de domínio; `coral.arqui
 
 Teste round trip objeto → dados → objeto, compatibilidade de versão e rejeição de valores não portáteis. A saída canônica deve ser determinística para o mesmo conteúdo.
 
-## Compatibilidade e evolução
+## Compatibilidade e política
 
-Na **Coral 1.6.0**, a persistência continua no contrato `coral.persistencia/1` e no esquema de escrita `1`. A novidade pública é a política explícita e consultável: `VERSOES_LEITURA`, `VERSAO_ESCRITA` e `politica_persistencia()` documentam no próprio runtime o que pode ser lido, o que será escrito e como um esquema desconhecido é tratado. O gerador do site continua atualizando automaticamente o inventário e a referência da API, enquanto esta explicação pedagógica permanece sob revisão humana.
+A persistência publica sua política no próprio runtime por `VERSOES_LEITURA`, `VERSAO_ESCRITA` e `politica_persistencia()`. Consulte esses valores quando precisar decidir compatibilidade de arquivos ou tratar esquemas desconhecidos.
 
 ## Referência da API
 

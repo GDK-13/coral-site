@@ -35,6 +35,7 @@
   <url><loc>https://coral-lang.example/docs/modulos/entrada.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/formatacao.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/formatos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/graficos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/json.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/matematica.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/observadores_reativos.html</loc></url>
@@ -48,4 +49,8 @@
   <url><loc>https://coral-lang.example/docs/modulos/texto.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/tipos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/turnos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/web-html.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/web-http.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/web-servidor.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/web-url.html</loc></url>
 </urlset>

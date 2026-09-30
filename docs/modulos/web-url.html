@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.web.url manipula URLs e consultas como dados textuais. Ele codifica UTF 8, preserva ordem e chaves repetidas e não realiza acesso externo.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.web.url — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.web.url — Documentação Coral">
+  <meta property="og:description" content="coral.web.url manipula URLs e consultas como dados textuais. Ele codifica UTF 8, preserva ordem e chaves repetidas e não realiza acesso externo.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.web.url — Documentação Coral">
+  <meta name="twitter:description" content="coral.web.url manipula URLs e consultas como dados textuais. Ele codifica UTF 8, preserva ordem e chaves repetidas e não realiza acesso externo.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a class="active" aria-current="page" href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.web.url</h1>
+      <p>coral.web.url manipula URLs e consultas como dados textuais. Ele codifica UTF 8, preserva ordem e chaves repetidas e não realiza acesso externo.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>URLs e consultas UTF 8 manipuladas localmente, sem acesso à rede.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para montar consultas, decompor endereços ou resolver referências relativas antes de passá las para outra camada.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p>Consulte a navegação lateral para módulos relacionados.</p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.url</span> <span class="code-key">importe</span> codificar_consulta, juntar, decompor
+
+<span class="code-key">defina</span> consulta como <span class="code-fn">codificar_consulta</span>([[<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;coral&quot;</span>], [<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;web&quot;</span>], [<span class="code-str">&quot;q&quot;</span>, <span class="code-str">&quot;ação&quot;</span>]])
+<span class="code-key">defina</span> endereco como <span class="code-fn">juntar</span>(<span class="code-str">&quot;https://exemplo.test/docs/&quot;</span>, <span class="code-str">&quot;busca?&quot;</span> + consulta)
+<span class="code-key">defina</span> partes como <span class="code-fn">decompor</span>(endereco)
+<span class="code-key">mostre</span> partes.caminho</code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.web.url</code> manipula URLs e consultas como dados textuais. Ele codifica UTF 8, preserva ordem e chaves repetidas e não realiza acesso externo.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.web.url</code> <strong>Categoria:</strong> web</p>
+<p data-searchable>URLs e consultas UTF 8 manipuladas localmente, sem acesso à rede</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroURL</code>, <code>EnderecoURL</code>, <code>codificar_consulta</code>, <code>ler_consulta</code>, <code>juntar</code>, <code>decompor</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para montar consultas, decompor endereços ou resolver referências relativas antes de passá las para outra camada. Se você precisa efetuar uma requisição, use <code>coral.web.http</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.url</span> <span class="code-key">importe</span> codificar_consulta, juntar, decompor
+
+<span class="code-key">defina</span> consulta como <span class="code-fn">codificar_consulta</span>([[<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;coral&quot;</span>], [<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;web&quot;</span>], [<span class="code-str">&quot;q&quot;</span>, <span class="code-str">&quot;ação&quot;</span>]])
+<span class="code-key">defina</span> endereco como <span class="code-fn">juntar</span>(<span class="code-str">&quot;https://exemplo.test/docs/&quot;</span>, <span class="code-str">&quot;busca?&quot;</span> + consulta)
+<span class="code-key">defina</span> partes como <span class="code-fn">decompor</span>(endereco)
+<span class="code-key">mostre</span> partes.caminho</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A URL é composta e decomposta apenas como texto; nenhuma conexão de rede é aberta.</p></div></details>
+<h2 id="consultas-repetidas" data-searchable>Consultas repetidas</h2>
+<p data-searchable><code>codificar_consulta</code> e <code>ler_consulta</code> preservam chaves repetidas, campos vazios e ordem. Isso evita perder informação ao trabalhar com formulários e filtros.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="codificar-consulta" data-searchable><code>codificar_consulta</code></h4>
+<p data-searchable>Codifica pares ordenados em UTF 8 preservando chaves repetidas.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.url</span> <span class="code-key">importe</span> codificar_consulta, juntar, decompor
+
+<span class="code-key">defina</span> consulta como <span class="code-fn">codificar_consulta</span>([[<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;coral&quot;</span>], [<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;web&quot;</span>], [<span class="code-str">&quot;q&quot;</span>, <span class="code-str">&quot;ação&quot;</span>]])
+<span class="code-key">defina</span> endereco como <span class="code-fn">juntar</span>(<span class="code-str">&quot;https://exemplo.test/docs/&quot;</span>, <span class="code-str">&quot;busca?&quot;</span> + consulta)
+<span class="code-key">defina</span> partes como <span class="code-fn">decompor</span>(endereco)
+<span class="code-key">mostre</span> partes.caminho</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>codificar_consulta(parametros: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p></div></details>
+<h4 id="ler-consulta" data-searchable><code>ler_consulta</code></h4>
+<p data-searchable>Lê consulta em UTF 8, preservando ordem, vazios e duplicatas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[tuple[str, str], ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_consulta(texto: Any) -&gt; tuple[tuple[str, str], ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroURL</code></p></div></details>
+<h4 id="juntar" data-searchable><code>juntar</code></h4>
+<p data-searchable>Resolve referência contra uma base usando apenas regras textuais de URL.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.url</span> <span class="code-key">importe</span> codificar_consulta, juntar, decompor
+
+<span class="code-key">defina</span> consulta como <span class="code-fn">codificar_consulta</span>([[<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;coral&quot;</span>], [<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;web&quot;</span>], [<span class="code-str">&quot;q&quot;</span>, <span class="code-str">&quot;ação&quot;</span>]])
+<span class="code-key">defina</span> endereco como <span class="code-fn">juntar</span>(<span class="code-str">&quot;https://exemplo.test/docs/&quot;</span>, <span class="code-str">&quot;busca?&quot;</span> + consulta)
+<span class="code-key">defina</span> partes como <span class="code-fn">decompor</span>(endereco)
+<span class="code-key">mostre</span> partes.caminho</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>base</code></td><td data-searchable>Base usada pela conversão ou cálculo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>referencia</code></td><td data-searchable>Valor correspondente a referencia.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>juntar(base: Any, referencia: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroURL</code></p></div></details>
+<h4 id="decompor" data-searchable><code>decompor</code></h4>
+<p data-searchable>Decompõe uma URL com esquema explícito sem realizar acesso externo.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.url</span> <span class="code-key">importe</span> codificar_consulta, juntar, decompor
+
+<span class="code-key">defina</span> consulta como <span class="code-fn">codificar_consulta</span>([[<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;coral&quot;</span>], [<span class="code-str">&quot;tag&quot;</span>, <span class="code-str">&quot;web&quot;</span>], [<span class="code-str">&quot;q&quot;</span>, <span class="code-str">&quot;ação&quot;</span>]])
+<span class="code-key">defina</span> endereco como <span class="code-fn">juntar</span>(<span class="code-str">&quot;https://exemplo.test/docs/&quot;</span>, <span class="code-str">&quot;busca?&quot;</span> + consulta)
+<span class="code-key">defina</span> partes como <span class="code-fn">decompor</span>(endereco)
+<span class="code-key">mostre</span> partes.caminho</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>endereco</code></td><td data-searchable>Valor correspondente a endereco.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>EnderecoURL</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>decompor(endereco: Any) -&gt; EnderecoURL</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroURL</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="enderecourl" data-searchable><code>EnderecoURL</code></h4>
+<p data-searchable>Componentes textuais de uma URL com esquema explícito.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>Valor correspondente a esquema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>autoridade</code></td><td data-searchable>Valor correspondente a autoridade.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>host</code></td><td data-searchable>Valor correspondente a host.</td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>consulta</code></td><td data-searchable>Valor correspondente a consulta.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fragmento</code></td><td data-searchable>Valor correspondente a fragmento.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>Valor correspondente a esquema.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>autoridade</code></td><td data-searchable>Valor correspondente a autoridade.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>host</code></td><td data-searchable>Valor correspondente a host.</td><td data-searchable><code>str | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>int | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>consulta</code></td><td data-searchable>Valor correspondente a consulta.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fragmento</code></td><td data-searchable>Valor correspondente a fragmento.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Consulta decodificada preservando ordem e chaves repetidas.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td></tr>
+<tr><td data-searchable><code>reconstruir</code></td><td data-searchable>Reconstrói a URL sem acessar a rede.</td><td data-searchable><code>str</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>EnderecoURL(esquema: str, autoridade: str, host: str \| None, porta: int \| None, caminho: str, consulta: str, fragmento: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>propriedade</td><td data-searchable><code>parametros() -&gt; tuple[tuple[str, str], ...]</code></td></tr>
+<tr><td data-searchable><code>reconstruir</code></td><td data-searchable>método</td><td data-searchable><code>reconstruir() -&gt; str</code></td></tr>
+</tbody></table></div></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errourl" data-searchable><code>ErroURL</code></h4>
+<p data-searchable>URL ou consulta não obedece ao contrato esperado.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroURL(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.url</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/url.py</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="web-servidor.html"><span>Anterior</span><strong>coral.web.servidor</strong></a><span></span></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#consultas-repetidas" data-toc-link>Consultas repetidas</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

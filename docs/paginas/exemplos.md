@@ -4,15 +4,15 @@ A biblioteca de exemplos serve para aprender recursos reais da linguagem sem mis
 
 ## Organização
 
-Os exemplos são agrupados por assunto, como fundamentos, dados, jogos, mundo, regras, simulações e projetos completos. Exemplos muito pequenos ou quase idênticos são condensados para reduzir repetição.
+Os exemplos são agrupados por assunto, como fundamentos, dados, gráficos, Web, jogos, mundo, regras, simulações, sistema e projetos completos.
 
 ## Como usar
 
-Abra um exemplo próximo do assunto que você quer estudar e execute o arquivo com o runtime da release. Projetos completos possuem sua própria estrutura e podem incluir `coral.toml`, módulos auxiliares e testes.
+Abra um exemplo próximo do assunto que você quer estudar e execute o arquivo com o runtime da distribuição. Projetos completos possuem sua própria estrutura e podem incluir `coral.toml`, módulos auxiliares e testes.
 
-## Português corrente na Coral 1.5.19
+## Português corrente
 
-O exemplo `Exemplos/Fundamentos/14_portugues_corrente_1_5_19.coral` concentra as formas naturais adicionadas na 1.5.19. Ele demonstra consultas de vazio, iteração com `de`, faixa inclusiva, prefixo e sufixo, mutações de coleção, conversão e alteração numérica.
+O conjunto de fundamentos inclui exemplos de consultas de vazio, iteração, faixas, prefixos e sufixos, mutações de coleção, conversões e alterações numéricas.
 
 ```coral
 defina idades como [17, 22, 35]
@@ -27,51 +27,69 @@ para cada idade de idades faça
         mostre idade
     fim
 fim
-
-se nome começa com "Cor" e nome termina com "al"
-    mostre "nome reconhecido"
-fim
 ```
 
-## Coral 1.6.0: coesão sem inflar a biblioteca de exemplos
+## Ciência e dados
 
-O inventário importado não registra exemplos novos entre a base 1.5.20 e a 1.6.0. A 1.5.21 e a 1.6.0 concentram mudanças de coesão, fronteiras internas, runtime, stdlib e sustentabilidade sem introduzir uma nova camada sintática ou domínio público que exija outra leva de exemplos pedagógicos. Os exemplos existentes continuam sendo a referência para a superfície funcional preservada.
+A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
 
-## Apresentação 2D introduzida na Coral 1.5.13
+Caminhos úteis:
 
-Três exemplos de Jogos continuam como referência para a camada 2D introduzida na 1.5.13:
+* `Exemplos/Dados/06_matematica_escalar.coral`
+* `Exemplos/Dados/07_estatistica_descritiva.coral`
+* `Exemplos/Dados/08_laboratorio_experimentos.coral`
+* `Exemplos/Dados/09_experimento_procedural.coral`
+* `Exemplos/Espaco/02_algebra_linear_e_transformacoes3d.coral`
+* `Exemplos/Espaco/03_visualizacao_cientifica_3d.coral`
 
-* `Exemplos/Jogos/09_camera_enquadramento_1_5_13.coral`: seguimento, zona morta, antecipação, limites, enquadramento, zoom, rotação e efeitos determinísticos de câmera.
-* `Exemplos/Jogos/10_animacao_tempo_eventos_1_5_13.coral`: animação por quadros, quadros chave, clipes, estados, eventos e composição temporal headless.
-* `Exemplos/Jogos/11_camadas_hud_transicao_1_5_13.coral`: camadas, paralaxe, HUD, texto 2D, animação de propriedades, composição e transição de cena.
+## Gráficos
+
+Os exemplos de gráficos cobrem séries 2D, SVG local, estatística com incerteza, painéis e HTML interativo.
+
+* `Exemplos/Graficos/01_series_e_svg.coral`
+* `Exemplos/Graficos/02_estatistica_incerteza_e_painel.coral`
+* `Exemplos/Graficos/03_html_interativo.coral`
+
+## Web
+
+A área Web separa composição local de HTML e URL, cliente HTTP, servidor local e integração com gráficos interativos.
+
+* `Exemplos/Web/01_html_e_url.coral`
+* `Exemplos/Web/02_cliente_http_loopback.coral`
+* `Exemplos/Web/03_servidor_http_local.coral`
+* `Exemplos/Web/04_grafico_interativo_local.coral`
+
+## Jogos e apresentação
+
+A área Jogos cobre câmera, animação temporal, camadas, HUD, transições, mapas, depuração visual e integração com procedural.
 
 ## Exemplos citados pelo Livro
 
-Os códigos citados no Livro também são sincronizados em `Livro/Exemplos/Citados`. Essa cópia existe para tornar o material autocontido, mas os caminhos canônicos continuam na biblioteca geral de exemplos.
+Os códigos citados no Livro também são sincronizados em `Livro/Exemplos/Citados`. Essa cópia torna o material autocontido, enquanto a biblioteca geral continua organizada em `Exemplos/`.
 
-## Fixtures de aceitação
-
-Fixtures usadas para provar comportamento do compilador não ficam misturadas com os exemplos pedagógicos. Elas pertencem à área de testes da distribuição.
-
-## Inventário da release
+## Inventário da distribuição
 
 O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 62 arquivos `.coral`.
+**Total detectado na release:** 82 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
 | Agentes | 2 |
-| Dados | 5 |
-| Espaco | 1 |
+| Dados | 9 |
+| Espaco | 3 |
 | Fundamentos | 5 |
-| Jogos | 11 |
+| Graficos | 3 |
+| Integracao | 4 |
+| Jogos | 12 |
 | Mundo | 4 |
 | Projetos_Completos | 16 |
 | Regras | 3 |
-| SimulacaoTemporal | 13 |
+| SimulacaoTemporal | 14 |
 | Simulacoes | 2 |
+| Sistema | 1 |
+| Web | 4 |
 
 <!-- /AUTO:EXEMPLOS -->

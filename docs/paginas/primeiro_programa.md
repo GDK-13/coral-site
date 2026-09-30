@@ -26,14 +26,14 @@ Meta alcançada
 ```
 :::
 
-O exemplo mostra saída, variável, alteração de valor e uma decisão condicional usando o português corrente consolidado na linha 1.5.19. As formas anteriores, como `adicione 5 a pontos` e o cabeçalho com `então`, continuam válidas.
+O exemplo mostra saída, variável, alteração de valor e uma decisão condicional usando o português corrente da linguagem.
 
 ## Executar
 
 Com o runtime portátil:
 
 ```bash
-python coral-1.6.0.pyz executar ola.coral
+python coral-1.7.0.pyz executar ola.coral
 ```
 
 Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.
@@ -43,7 +43,7 @@ Se a instalação persistente já estiver registrada, você pode usar o comando 
 Para validar o programa sem rodar seus efeitos:
 
 ```bash
-python coral-1.6.0.pyz verificar ola.coral
+python coral-1.7.0.pyz verificar ola.coral
 ```
 
 Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.

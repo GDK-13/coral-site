@@ -169,17 +169,6 @@
     }
   }
 
-  classifyReadingSections();
-  let initialReadingMode = root.dataset.readingMode || 'learn';
-  try {
-    const savedMode = localStorage.getItem(READING_MODE_KEY);
-    if (savedMode === 'learn' || savedMode === 'reference') initialReadingMode = savedMode;
-  } catch (_) { /* mantém o modo padrão */ }
-  setReadingMode(initialReadingMode, false);
-  document.querySelectorAll('button[data-reading-mode]').forEach((btn) => {
-    btn.addEventListener('click', () => setReadingMode(btn.dataset.readingMode));
-  });
-
   // ---------- Âncoras copiáveis nos títulos de seção ----------
   // Adicionadas antes do snapshot da busca local para que o reset de destaques
   // não as remova; o clique é tratado por delegação por causa do reset de innerHTML.
@@ -247,6 +236,20 @@
       siblings.forEach((s) => card.appendChild(s));
     });
   })();
+
+  // Classifica os modos somente depois de embrulhar a API em cards.
+  // Caso contrário, o conteúdo da Referência é ocultado, mas os wrappers
+  // criados depois permanecem visíveis como uma sequência de bordas vazias.
+  classifyReadingSections();
+  let initialReadingMode = root.dataset.readingMode || 'learn';
+  try {
+    const savedMode = localStorage.getItem(READING_MODE_KEY);
+    if (savedMode === 'learn' || savedMode === 'reference') initialReadingMode = savedMode;
+  } catch (_) { /* mantém o modo padrão */ }
+  setReadingMode(initialReadingMode, false);
+  document.querySelectorAll('button[data-reading-mode]').forEach((btn) => {
+    btn.addEventListener('click', () => setReadingMode(btn.dataset.readingMode));
+  });
 
   function h4OnlyCode(h4) {
     // Retorna o <code> se for o único conteúdo do h4; caso contrário, null.

@@ -1,6 +1,6 @@
 # Testes
 
-A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.
+A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.
 
 ## Teste básico
 
@@ -8,16 +8,16 @@ Um projeto pode manter seus casos em uma pasta de testes declarada no `coral.tom
 
 ## Executar pela CLI
 
-A CLI expõe o runner por comandos próprios. Para descobrir as opções disponíveis na release atual, consulte a página **REPL e CLI** ou execute a ajuda do runtime.
+A CLI expõe o runner por comandos próprios. Para descobrir as opções disponíveis na edição atual, consulte **REPL e CLI** ou execute a ajuda do runtime.
 
 ## Test Explorer
 
 No VS Code, testes podem ser executados, repetidos e depurados sem abrir um terminal separado. Casos parametrizados, grupos e skips são representados quando o runner fornece essa informação.
 
-## Política anti acúmulo
+## Testes rápidos e testes de ambiente
 
-A Coral separa validações rápidas, verificações lentas e contratos históricos. Durante o desenvolvimento, cada correção roda apenas o conjunto afetado. A bateria completa fica reservada ao congelamento da release.
+Casos puramente lógicos devem permanecer rápidos e reproduzíveis. Testes que dependem de janela, áudio, entrada física, GPU, rede local ou hardware devem declarar essa dependência de ambiente em vez de mascará la como falha lógica.
 
-Isso evita repetir continuamente centenas de verificações que já estavam verdes e não foram afetadas pela mudança atual.
+## Boa prática
 
-> Testes que dependem de janela, áudio, entrada física ou ambiente gráfico pertencem aos gates de campo e não ao loop rápido cotidiano.
+Mantenha cada teste focado em um comportamento observável. Quando um recurso depende de tempo, aleatoriedade ou entrada, prefira as fontes controláveis oferecidas pelos módulos correspondentes para tornar o caso repetível.

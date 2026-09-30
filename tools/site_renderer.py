@@ -315,6 +315,11 @@ def source_to_public(arquivo: str) -> str:
     p = Path(arquivo)
     if p.name == "introducao.md":
         return "index.html"
+    if p.parent.name == "modulos":
+        # Módulos compostos como coral.web.http usam URL legível
+        # ``web-http.html`` em vez de ``web.http.html``. O nome técnico
+        # continua intacto no Markdown, na navegação e na API.
+        return str(p.parent / (p.stem.replace(".", "-") + ".html")).replace("\\", "/")
     return str(p.with_suffix(".html")).replace("\\", "/")
 
 

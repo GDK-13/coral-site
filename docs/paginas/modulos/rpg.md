@@ -111,9 +111,9 @@ Vida deve permanecer coerente com vida máxima e operações de dano ou cura. Pe
 
 Personagens, rolagens e combate funcionam sem janela. Testes podem fixar sementes, inspecionar o `Recurso` de vida e verificar estado e ordem da `FilaTurnos` antes de testar animações ou interface.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A partir da linha 1.5.10, a API pública de RPG preserva as formas existentes enquanto sua implementação reutiliza as fundações genéricas de agentes e turnos. Essa arquitetura continua publicada na **Coral 1.6.0**, sem alteração de superfície pública detectada na importação desta release.
+RPG reutiliza agentes, turnos, mundo e regras em vez de duplicar essas fundações. A API orientada ao domínio continua disponível para personagens, dados, combate e mecânicas de jogo.
 
 ## Referência da API
 

@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -121,7 +126,7 @@
       </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
-    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>experimentos reproduzíveis, medições e grades de parâmetros.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para comparar algoritmos, testar impacto de parâmetros, registrar resultados repetíveis e produzir artefatos de análise.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Não use o laboratório como substituto de testes funcionais: primeiro prove correção, depois meça desempenho.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="numerico.html"><code>coral.numerico</code></a>, <a href="sistema.html"><code>coral.sistema</code></a>, <a href="json.html"><code>coral.json</code></a>, <a href="persistencia.html"><code>coral.persistencia</code></a>, <a href="aleatorio.html"><code>coral.aleatorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">experimento <span class="code-str">&quot;inserção / aleatórios&quot;</span> como insercao_aleatorios repetindo <span class="code-num">5</span> <span class="code-key">vezes</span> usando a <span class="code-key">semente</span> <span class="code-num">20260909</span>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>planejamento, execução, análise e recuperação de experimentos reproduzíveis.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para comparar algoritmos, testar impacto de parâmetros, registrar resultados repetíveis e produzir artefatos de análise.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Não use o laboratório como substituto de testes funcionais: primeiro prove correção, depois meça desempenho.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="numerico.html"><code>coral.numerico</code></a>, <a href="sistema.html"><code>coral.sistema</code></a>, <a href="json.html"><code>coral.json</code></a>, <a href="persistencia.html"><code>coral.persistencia</code></a>, <a href="aleatorio.html"><code>coral.aleatorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">experimento <span class="code-str">&quot;inserção / aleatórios&quot;</span> como insercao_aleatorios repetindo <span class="code-num">5</span> <span class="code-key">vezes</span> usando a <span class="code-key">semente</span> <span class="code-num">20260909</span>
     retorne <span class="code-fn">ordenacao_insercao</span>(dados_aleatorios)
 <span class="code-key">fim</span>
 
@@ -132,9 +137,9 @@ salve o experimento insercao_aleatorios em <span class="code-str">&quot;resultad
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable><code>coral.laboratorio</code> organiza experimentos reproduzíveis, repetições, varredura de parâmetros, métricas, medição de tempo e memória e exportação de resultados. Ele serve para estudar comportamento do programa sem fingir que uma única execução é uma conclusão universal.</p>
 <p data-searchable><strong>Importação:</strong> <code>coral.laboratorio</code> <strong>Categoria:</strong> cientifico</p>
-<p data-searchable>experimentos reproduzíveis, medições e grades de parâmetros</p>
+<p data-searchable>planejamento, execução, análise e recuperação de experimentos reproduzíveis</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>Medicao</code>, <code>ResultadoExperimento</code>, <code>grade_parametros</code>, <code>executar_experimento</code>, <code>diagnosticar_laboratorio</code>, <code>protocolo_medicao</code></p>
+<p data-searchable><code>CONTRATO_RESULTADO_JSON</code>, <code>VERSAO_RESULTADO_JSON</code>, <code>Medicao</code>, <code>ResultadoExperimento</code>, <code>grade_parametros</code>, <code>planejar_experimento</code>, <code>selecionar_medicoes</code>, <code>resumir_por_parametro</code>, <code>validar_resultado</code>, <code>carregar_resultado_json</code>, <code>comparar_experimentos</code>, <code>executar_experimento</code>, <code>planejar_experimento_procedural</code>, <code>executar_experimento_procedural</code>, <code>diagnosticar_laboratorio</code>, <code>protocolo_medicao</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>O laboratório coordena a execução; ele não substitui a análise. Uma estrutura comum é medir com <code>coral.laboratorio</code>, persistir os relatórios e analisar depois com <code>coral.numerico</code>.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
@@ -214,6 +219,112 @@ salve o experimento insercao_aleatorios em <span class="code-str">&quot;resultad
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="planejar-experimento" data-searchable><code>planejar_experimento</code></h4>
+<p data-searchable>Calcula o tamanho de uma execução experimental sem materializar a grade completa.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Mapping[str, Iterable[Any]] | None</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable><code>1</code></td></tr>
+<tr><td data-searchable><code>limite</code></td><td data-searchable>Valor correspondente a limite.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>planejar_experimento(parametros: Mapping[str, Iterable[Any]] \| None, repeticoes: int = 1, limite: int \| None = None) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="selecionar-medicoes" data-searchable><code>selecionar_medicoes</code></h4>
+<p data-searchable>Seleciona medições preservando ordem e sem modificar o resultado original.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultado</code></td><td data-searchable>Valor correspondente a resultado.</td><td data-searchable><code>ResultadoExperimento</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>criterio</code></td><td data-searchable>Valor correspondente a criterio.</td><td data-searchable><code>Callable[[Medicao], bool] | Mapping[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>list[Medicao]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>selecionar_medicoes(resultado: ResultadoExperimento, criterio: Callable[[Medicao], bool] \| Mapping[str, Any]) -&gt; list[Medicao]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="resumir-por-parametro" data-searchable><code>resumir_por_parametro</code></h4>
+<p data-searchable>Agrupa medições pelo valor de um parâmetro, preservando a ordem de aparição.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultado</code></td><td data-searchable>Valor correspondente a resultado.</td><td data-searchable><code>ResultadoExperimento</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resumir_por_parametro(resultado: ResultadoExperimento, nome: str) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="validar-resultado" data-searchable><code>validar_resultado</code></h4>
+<p data-searchable>Valida a estrutura e a portabilidade de um resultado sem modificá lo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultado</code></td><td data-searchable>Valor correspondente a resultado.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>validar_resultado(resultado: Any) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p></div></details>
+<h4 id="carregar-resultado-json" data-searchable><code>carregar_resultado_json</code></h4>
+<p data-searchable>Carrega relatório JSON do laboratório e recusa contratos ou esquemas desconhecidos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ResultadoExperimento</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>carregar_resultado_json(caminho: str \| Path) -&gt; ResultadoExperimento</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="comparar-experimentos" data-searchable><code>comparar_experimentos</code></h4>
+<p data-searchable>Compara dois experimentos de forma estritamente descritiva.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>ResultadoExperimento</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>ResultadoExperimento</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>comparar_experimentos(a: ResultadoExperimento, b: ResultadoExperimento) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
 <h4 id="executar-experimento" data-searchable><code>executar_experimento</code></h4>
 <p data-searchable>Executar e medir.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -252,6 +363,88 @@ salve o experimento insercao_aleatorios em <span class="code-str">&quot;resultad
 <tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>propagar</code></p></div></details>
+<h4 id="planejar-experimento-procedural" data-searchable><code>planejar_experimento_procedural</code></h4>
+<p data-searchable>Planeja um estudo procedural sem reconstruir nem executar a receita.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sementes</code></td><td data-searchable>Valor correspondente a sementes.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Mapping[str, Iterable[Any]] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable><code>1</code></td></tr>
+<tr><td data-searchable><code>limite_execucoes</code></td><td data-searchable>Valor correspondente a limite execucoes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_custo_total</code></td><td data-searchable>Valor correspondente a limite custo total.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>planejar_experimento_procedural(receita: Any, *, sementes: Iterable[Any] \| None = None, parametros: Mapping[str, Iterable[Any]] \| None = None, repeticoes: int = 1, limite_execucoes: int \| None = None, limite_custo_total: int \| None = None) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>sementes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_execucoes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_custo_total</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="executar-experimento-procedural" data-searchable><code>executar_experimento_procedural</code></h4>
+<p data-searchable>Executa uma receita procedural como fator explícito de um experimento.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>funcao</code></td><td data-searchable>Função fornecida para executar a operação.</td><td data-searchable><code>Callable[..., Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sementes</code></td><td data-searchable>Valor correspondente a sementes.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Mapping[str, Iterable[Any]] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable><code>1</code></td></tr>
+<tr><td data-searchable><code>semente_laboratorio</code></td><td data-searchable>Valor correspondente a semente laboratorio.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>metricas</code></td><td data-searchable>Valor correspondente a metricas.</td><td data-searchable><code>Callable[[Any], Mapping[str, Any]] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>continuar_em_erro</code></td><td data-searchable>Valor correspondente a continuar em erro.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>Relógio usado para controlar tempo ou atualização.</td><td data-searchable><code>FonteTempo | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_custo_receita</code></td><td data-searchable>Valor correspondente a limite custo receita.</td><td data-searchable><code>int</code></td><td data-searchable><code>1000000</code></td></tr>
+<tr><td data-searchable><code>limite_execucoes</code></td><td data-searchable>Valor correspondente a limite execucoes.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_custo_total</code></td><td data-searchable>Valor correspondente a limite custo total.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ResultadoExperimento</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>executar_experimento_procedural(nome: str, receita: Any, funcao: Callable[..., Any], *, sementes: Iterable[Any] \| None = None, parametros: Mapping[str, Iterable[Any]] \| None = None, repeticoes: int = 1, semente_laboratorio: int \| None = None, metricas: Callable[[Any], Mapping[str, Any]] \| None = None, continuar_em_erro: bool = True, relogio: FonteTempo \| None = None, limite_custo_receita: int = 1000000, limite_execucoes: int \| None = None, limite_custo_total: int \| None = None) -&gt; ResultadoExperimento</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>funcao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>sementes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>semente_laboratorio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>metricas</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>continuar_em_erro</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>relogio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_custo_receita</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_execucoes</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_custo_total</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
 <h4 id="diagnosticar-laboratorio" data-searchable><code>diagnosticar_laboratorio</code></h4>
 <p data-searchable>Diagnosticar capacidade.</p>
 <p data-searchable><strong>Retorno</strong></p>
@@ -376,6 +569,19 @@ salve o experimento insercao_aleatorios em <span class="code-str">&quot;resultad
 <tr><td data-searchable><code>salvar</code></td><td data-searchable>método</td><td data-searchable><code>salvar(caminho: str | Path) -&gt; Path</code></td></tr>
 <tr><td data-searchable><code>salvar_markdown</code></td><td data-searchable>método</td><td data-searchable><code>salvar_markdown(caminho: str | Path) -&gt; Path</code></td></tr>
 </tbody></table></div></div></details>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="contrato-resultado-json" data-searchable><code>CONTRATO_RESULTADO_JSON</code></h4>
+<p data-searchable>Expõe a constante pública <code>CONTRATO_RESULTADO_JSON</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO_RESULTADO_JSON</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.laboratorio.resultado/1'</code></p></div></details>
+<h4 id="versao-resultado-json" data-searchable><code>VERSAO_RESULTADO_JSON</code></h4>
+<p data-searchable>Expõe a constante pública <code>VERSAO_RESULTADO_JSON</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>VERSAO_RESULTADO_JSON</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.laboratorio</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/laboratorio.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>1</code></p></div></details>
 <h2 id="compatibilidade" data-searchable>Compatibilidade</h2>
 <p data-searchable>O protocolo é portátil, mas medidas de desempenho são dependentes do ambiente. A API documenta o que o runtime mede; ela não garante equivalência de benchmark entre hosts diferentes.</p>
     </article>

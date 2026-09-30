@@ -1,26 +1,49 @@
 # Livro Oficial
 
-O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.
-
-## Edição independente
-
-A edição do Livro é controlada separadamente da versão técnica do runtime. Uma atualização focada em infraestrutura ou editor não obriga o Livro a mudar de número se o conteúdo pedagógico não precisar de nova edição.
-
-## Exemplos do Livro
-
-Todo código externo citado pelo texto deve existir também em `Livro/Exemplos`. Cópias sincronizadas ficam em `Livro/Exemplos/Citados`, enquanto exemplos próprios do Livro podem permanecer mais enxutos e pedagógicos.
-
-## Relação com esta documentação
-
-O site serve como referência rápida e atualizável. O Livro é mais sequencial e explicativo. Quando você precisa aprender um assunto do começo, prefira o Livro. Quando precisa consultar uma API ou comando, esta documentação tende a ser mais direta.
-
-## Identidade visual
-
-O Livro segue a mesma identidade oficial da Coral: Fraunces em títulos principais, Atkinson Hyperlegible no corpo, JetBrains Mono para código, paleta Coral e uso acessível do padrão de anéis.
+O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.
 
 <!-- AUTO:EDICAO -->
 
-**Edição editorial corrente:** `1.5.8`.  
-**Runtime corrente:** `1.6.0`.
+**Edição editorial corrente:** `1.7.0`.  
+**Runtime corrente:** `1.7.0`.
 
 <!-- /AUTO:EDICAO -->
+
+## Percurso do Livro
+
+O conteúdo está organizado em seis partes e dois apêndices.
+
+| Parte | Foco |
+|---|---|
+| I | Começar com Coral, instalar, configurar o VS Code e criar os primeiros programas |
+| II | Linguagem Coral, controle de fluxo, coleções, funções, objetos, assincronismo, espaço e mapas |
+| III | Projetos, biblioteca padrão, regras, mundo, RPG, Jogos e recursos científicos |
+| IV | CLI, VS Code, depuração, diagnóstico e solução de problemas |
+| V | Implementação técnica, compilador, LSP, DAP, extensão e instalação |
+| VI | Referência sintática, biblioteca padrão, APIs, CLI, configuração, exercícios e glossário |
+
+## Livro em números
+
+A edição oficial 1.7.0 possui **53 capítulos**, **135 páginas A4** no PDF gerado e **24 arquivos `.coral`** na árvore pedagógica de `Livro/Exemplos`, incluindo exemplos citados pelo texto e projetos completos.
+
+## Baixar a edição corrente
+
+<!-- AUTO:DOWNLOAD_LIVRO -->
+
+[Baixar o Livro Oficial Coral 1.7.0 em PDF](../downloads/Coral_1.7.0_Livro_Oficial.pdf)
+
+<!-- /AUTO:DOWNLOAD_LIVRO -->
+
+## Como usar o Livro e o site juntos
+
+Use o Livro quando quiser aprender um assunto em sequência ou acompanhar um percurso completo. Use o site quando precisar localizar rapidamente uma API, módulo, comando, guia por objetivo ou exemplo curto.
+
+No **Modo Aprender**, o site funciona como apoio ao percurso do Livro. No **Modo Referência**, ele funciona como consulta compacta enquanto você programa.
+
+## Exemplos do Livro
+
+Os códigos citados pelo texto são mantidos também como arquivos reais em `Livro/Exemplos`. Isso permite abrir, executar e estudar os exemplos fora do PDF.
+
+## Identidade visual
+
+O Livro é distribuído em PDF A4 com a identidade oficial da Coral e tipografia voltada à leitura contínua.

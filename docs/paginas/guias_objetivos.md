@@ -115,7 +115,7 @@ mostre politica
 ```
 
 :::resultado
-A política informa o contrato persistente corrente, as versões que podem ser lidas, a versão usada para escrita e a estratégia declarada para esquemas desconhecidos. Na Coral 1.6.0, a escrita usa o esquema `1` e a leitura aceita o esquema `1`.
+A política informa o contrato persistente corrente, as versões que podem ser lidas, a versão usada para escrita e a estratégia declarada para esquemas desconhecidos.
 :::
 
 ## Aleatoriedade e geração
@@ -250,6 +250,101 @@ defina simulacao como criar_simulacao()
 
 :::resultado
 Uma instância de simulação é criada para coordenar tempo e sistemas sem exigir uma interface gráfica.
+:::
+
+## Ciência, gráficos e Web
+
+### Criar uma série e gerar SVG local
+
+**Nível:** iniciante  
+**Módulo:** [`coral.graficos`](modulos/graficos.html)
+
+```coral
+de coral.graficos importe linha, configurar, para_svg
+
+defina grafico como configurar(
+    linha([0, 1, 2], [10, 12, 15], "medições"),
+    titulo="Medições",
+    eixos=["amostra", "valor"]
+)
+defina svg como para_svg(grafico)
+mostre "SVG gerado em memória."
+```
+
+:::resultado
+O programa cria uma especificação de gráfico e produz seu SVG em memória sem abrir janela.
+:::
+
+### Gerar HTML interativo offline
+
+**Nível:** intermediário  
+**Módulo:** [`coral.graficos`](modulos/graficos.html)
+
+```coral
+de coral.graficos importe linha, salvar_html
+
+defina grafico como linha([0, 1, 2, 3], [2, 3, 5, 8], "crescimento")
+execute salvar_html(grafico, "grafico.html")
+```
+
+:::resultado
+Um arquivo `grafico.html` é criado para visualização interativa local.
+:::
+
+### Montar HTML sem acessar a rede
+
+**Nível:** iniciante  
+**Módulo:** [`coral.web.html`](modulos/web-html.html)
+
+```coral
+de coral.web.html importe documento, elemento, renderizar
+
+defina titulo como elemento("h1", {}, "Relatório Coral")
+defina pagina como documento("Relatório", [titulo], "pt-BR")
+mostre renderizar(pagina)
+```
+
+:::resultado
+O programa produz texto HTML local. Importar ou renderizar o módulo não abre navegador nem acessa a rede.
+:::
+
+### Fazer uma requisição HTTP limitada
+
+**Nível:** intermediário  
+**Módulo:** [`coral.web.http`](modulos/web-http.html)
+
+```coral
+de coral.web.http importe obter
+
+defina resposta como obter("https://exemplo.test/", tempo_limite=2, limite_resposta=4096)
+mostre resposta.status
+```
+
+:::resultado
+A requisição usa timeout e limite de resposta explícitos. O corpo permanece em bytes até que o programa peça interpretação textual ou JSON.
+:::
+
+### Criar um servidor HTTP local
+
+**Nível:** intermediário  
+**Módulo:** [`coral.web.servidor`](modulos/web-servidor.html)
+
+```coral
+de coral.web.servidor importe criar_servidor, resposta_texto
+
+crie a função inicio com requisicao
+    retorne resposta_texto("Servidor Coral local")
+fim
+
+defina servidor como criar_servidor()
+execute servidor.adicionar_rota("GET", "/", inicio)
+execute servidor.iniciar()
+mostre servidor.url_base
+execute servidor.encerrar()
+```
+
+:::resultado
+O servidor só abre a porta quando `iniciar()` é chamado e é encerrado explicitamente ao final.
 :::
 
 ## Como continuar

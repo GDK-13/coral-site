@@ -1882,3 +1882,6 @@ html[data-reading-mode="reference"] .docs-mode-learn-only {
   .module-quick-grid { grid-template-columns: 1fr; }
   .docs-reading-mode-status { display: none; }
 }
+
+.module-card h3 a { text-decoration: none; color: inherit; }
+.module-card h3 a:hover { color: var(--coral-red); }

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.web.html compõe HTML localmente com escape separado para texto e atributos. Importar o módulo ou renderizar um documento não abre navegador, porta ou conexão de rede.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.web.html — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.web.html — Documentação Coral">
+  <meta property="og:description" content="coral.web.html compõe HTML localmente com escape separado para texto e atributos. Importar o módulo ou renderizar um documento não abre navegador, porta ou conexão de rede.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.web.html — Documentação Coral">
+  <meta name="twitter:description" content="coral.web.html compõe HTML localmente com escape separado para texto e atributos. Importar o módulo ou renderizar um documento não abre navegador, porta ou conexão de rede.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a class="active" aria-current="page" href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.web.html</h1>
+      <p>coral.web.html compõe HTML localmente com escape separado para texto e atributos. Importar o módulo ou renderizar um documento não abre navegador, porta ou conexão de rede.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>composição e serialização HTML local com escape por contexto.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use quando precisar gerar relatórios, fragmentos, tabelas ou páginas HTML a partir de dados Coral.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p>Consulte a navegação lateral para módulos relacionados.</p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.web.html</code> compõe HTML localmente com escape separado para texto e atributos. Importar o módulo ou renderizar um documento não abre navegador, porta ou conexão de rede.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.web.html</code> <strong>Categoria:</strong> web</p>
+<p data-searchable>composição e serialização HTML local com escape por contexto</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroHTML</code>, <code>ElementoHTML</code>, <code>FragmentoHTML</code>, <code>DocumentoHTML</code>, <code>escapar_texto</code>, <code>escapar_atributo</code>, <code>elemento</code>, <code>fragmento</code>, <code>documento</code>, <code>renderizar</code>, <code>tabela</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use quando precisar gerar relatórios, fragmentos, tabelas ou páginas HTML a partir de dados Coral. Para endereços e consultas, use <code>coral.web.url</code>; para rede, use <code>coral.web.http</code> ou <code>coral.web.servidor</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O conteúdo textual é escapado no contexto correto e o programa produz uma página HTML como texto local.</p></div></details>
+<h2 id="seguranca-de-contexto" data-searchable>Segurança de contexto</h2>
+<p data-searchable>Texto comum não vira marcação confiável automaticamente. A superfície também recusa atributos de evento inline e esquemas executáveis em atributos de URL.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="escapar-texto" data-searchable><code>escapar_texto</code></h4>
+<p data-searchable>Escapa um valor para o contexto de texto de um elemento HTML.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escapar_texto(valor: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="escapar-atributo" data-searchable><code>escapar_atributo</code></h4>
+<p data-searchable>Escapa um valor para atributo entre aspas duplas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escapar_atributo(valor: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="elemento" data-searchable><code>elemento</code></h4>
+<p data-searchable>Cria um elemento validado; texto em `<code>filhos</code>` será escapado ao renderizar.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ElementoHTML</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>elemento(nome: str, atributos: Any = None, filhos: Any = None) -&gt; ElementoHTML</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroHTML</code></p></div></details>
+<h4 id="fragmento" data-searchable><code>fragmento</code></h4>
+<p data-searchable>Agrupa nós preservando a ordem sem criar marcação adicional.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>FragmentoHTML</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>fragmento(filhos: Any = None) -&gt; FragmentoHTML</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="documento" data-searchable><code>documento</code></h4>
+<p data-searchable>Cria documento completo; título e corpo seguem a mesma política de escape.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>idioma</code></td><td data-searchable>Valor correspondente a idioma.</td><td data-searchable><code>str</code></td><td data-searchable><code>'pt-BR'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>DocumentoHTML</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>documento(titulo: Any, corpo: Any, idioma: str = 'pt-BR') -&gt; DocumentoHTML</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroHTML</code></p></div></details>
+<h4 id="renderizar" data-searchable><code>renderizar</code></h4>
+<p data-searchable>Serializa um nó ou valor em memória, sem efeitos externos.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>no</code></td><td data-searchable>Valor correspondente a no.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>renderizar(no: Any) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="tabela" data-searchable><code>tabela</code></h4>
+<p data-searchable>Monta tabela a partir de registros comuns com colunas explícitas.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.html</span> <span class="code-key">importe</span> documento, elemento, tabela, renderizar
+
+<span class="code-key">defina</span> registros como [{<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;A &lt; B&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">3</span>}, {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;C &amp; D&quot;</span>, <span class="code-str">&quot;valor&quot;</span>: <span class="code-num">7</span>}]
+<span class="code-key">defina</span> grade como <span class="code-fn">tabela</span>(registros, [[<span class="code-str">&quot;nome&quot;</span>, <span class="code-str">&quot;Nome&quot;</span>], [<span class="code-str">&quot;valor&quot;</span>, <span class="code-str">&quot;Valor&quot;</span>]])
+<span class="code-key">defina</span> titulo como <span class="code-fn">elemento</span>(<span class="code-str">&quot;h1&quot;</span>, {}, <span class="code-str">&quot;Relatório &lt;Coral&gt;&quot;</span>)
+<span class="code-key">defina</span> pagina como <span class="code-fn">documento</span>(<span class="code-str">&quot;Dados &amp; Web&quot;</span>, [titulo, grade], <span class="code-str">&quot;pt-BR&quot;</span>)
+<span class="code-key">mostre</span> <span class="code-fn">renderizar</span>(pagina)</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ElementoHTML</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tabela(registros: Iterable[Any], colunas: Any) -&gt; ElementoHTML</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroHTML</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="elementohtml" data-searchable><code>ElementoHTML</code></h4>
+<p data-searchable>Elemento validado com atributos e filhos em ordem estável.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>tuple[tuple[str, Any], ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>atributos</code></td><td data-searchable>Valor correspondente a atributos.</td><td data-searchable><code>tuple[tuple[str, Any], ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ElementoHTML(nome: str, atributos: tuple[tuple[str, Any], ...] = (), filhos: tuple[Any, ...] = ())</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="fragmentohtml" data-searchable><code>FragmentoHTML</code></h4>
+<p data-searchable>Sequência de nós sem elemento contêiner adicional.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>filhos</code></td><td data-searchable>Valor correspondente a filhos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FragmentoHTML(filhos: tuple[Any, ...])</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h4 id="documentohtml" data-searchable><code>DocumentoHTML</code></h4>
+<p data-searchable>Documento HTML completo com idioma e UTF 8 declarados.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>FragmentoHTML</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>idioma</code></td><td data-searchable>Valor correspondente a idioma.</td><td data-searchable><code>str</code></td><td data-searchable><code>'pt-BR'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>FragmentoHTML</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>idioma</code></td><td data-searchable>Valor correspondente a idioma.</td><td data-searchable><code>str</code></td><td data-searchable><code>'pt-BR'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>DocumentoHTML(titulo: str, corpo: FragmentoHTML, idioma: str = 'pt-BR')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errohtml" data-searchable><code>ErroHTML</code></h4>
+<p data-searchable>Falha de composição ou serialização HTML controlada pela Coral.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroHTML(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.html</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/html.py</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="turnos.html"><span>Anterior</span><strong>coral.turnos</strong></a><a class="docs-page-nav-link next" href="web-http.html"><span>Próxima</span><strong>coral.web.http</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#seguranca-de-contexto" data-toc-link>Segurança de contexto</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

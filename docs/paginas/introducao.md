@@ -1,28 +1,28 @@
 # Introdução
 
-Coral é uma linguagem de programação com sintaxe corrente em português. A proposta é aproximar o código da forma como uma pessoa descreve uma ideia, sem abrir mão de parser, AST, tipos, módulos, ferramentas e contratos reais de linguagem.
+Coral é uma linguagem de programação com sintaxe corrente em português. A proposta é aproximar o código da forma como uma pessoa descreve uma ideia, sem abrir mão de parser, AST, tipos, módulos, testes, depuração e ferramentas reais de linguagem.
 
 ## Por onde começar
 
 Se você nunca usou Coral, a sequência mais simples é instalar a distribuição, executar um único arquivo e só depois criar um projeto com `coral.toml`.
 
-1. Instale a release estável.
-2. Abra a página **Seu primeiro programa**.
+1. Instale a distribuição estável.
+2. Abra **Seu primeiro programa**.
 3. Execute um arquivo `.coral` diretamente.
 4. Quando precisar de módulos e testes, crie um projeto.
-5. Instale a extensão Coral Language no VS Code para ter LSP, debug, testes e navegação integrados.
+5. Instale Coral Language no VS Code para ter navegação, diagnósticos, testes e depuração integrados.
 
 ## O que a Coral oferece
 
-A linguagem cobre programação geral e também domínios que costumam exigir bastante infraestrutura: arquivos, JSON, matemática, aleatoriedade, jogos, mundos, regras reativas, RPG, experimentos, hardware e integração com o sistema.
+A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware.
 
-A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma página própria nesta documentação.
+A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma página própria nesta documentação e pode ser consultado pelo nome ou pelo guia **O que você quer fazer?**.
 
 ## Português corrente com equivalência determinística
 
-A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que significam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.
+A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que representam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.
 
-A linha 1.5.19 ampliou esse vocabulário com formas como `passa a ser`, `aumente`, `diminua`, `devolva`, comparações com `é`, pertencimento com `está em`, condições sem `então`, laços sem `faça`, consultas de vazio e faixa, operações de coleção e conversões naturais. As formas anteriores continuam válidas.
+O vocabulário corrente inclui atribuições e mutações naturais, comparações com `é`, pertencimento com `está em`, consultas de vazio e faixa, operações de coleção, conversões e chamadas naturais.
 
 ```coral
 defina idade como 18
@@ -33,7 +33,9 @@ se idade é maior que 18
 fim
 ```
 
-A Coral 1.6.0 preserva essa superfície pública e reorganiza o interior da linguagem em fronteiras explícitas entre parser, AST, backend, runtime e biblioteca padrão. A equivalência estrutural da AST passa a ser usada para provar que formas superficiais equivalentes do português corrente convergem para a mesma estrutura semântica.
+:::resultado
+A variável `idade` passa a valer `19` e o programa mostra `maior de idade`.
+:::
 
 ## Arquivo único ou projeto
 
@@ -45,4 +47,4 @@ Projetos passam a ser interessantes quando você precisa de vários módulos, te
 
 ## Ferramentas oficiais
 
-A distribuição estável reúne o runtime Coral, a extensão Coral Language para VS Code, exemplos oficiais e o Livro Oficial. A versão técnica do runtime e a edição do Livro podem evoluir separadamente.
+A distribuição estável reúne runtime Coral, Coral Language para VS Code, exemplos oficiais e o Livro Oficial. O site prioriza o estado atual da linguagem; mudanças entre versões ficam isoladas na página **Notas de versão**.

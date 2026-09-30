@@ -62,8 +62,8 @@
     },
     {
       "arquivo": "release.md",
-      "titulo": "Release atual",
-      "slug": "release",
+      "titulo": "Notas de versão",
+      "slug": "notas-de-versao",
       "grupo": "Referência"
     },
     {
@@ -193,6 +193,12 @@
       "grupo": "Outros módulos"
     },
     {
+      "arquivo": "modulos/graficos.md",
+      "titulo": "coral.graficos",
+      "slug": "modulo-graficos",
+      "grupo": "Outros módulos"
+    },
+    {
       "arquivo": "modulos/json.md",
       "titulo": "coral.json",
       "slug": "modulo-json",
@@ -268,6 +274,30 @@
       "arquivo": "modulos/turnos.md",
       "titulo": "coral.turnos",
       "slug": "modulo-turnos",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/web.html.md",
+      "titulo": "coral.web.html",
+      "slug": "modulo-web.html",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/web.http.md",
+      "titulo": "coral.web.http",
+      "slug": "modulo-web.http",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/web.servidor.md",
+      "titulo": "coral.web.servidor",
+      "slug": "modulo-web.servidor",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/web.url.md",
+      "titulo": "coral.web.url",
+      "slug": "modulo-web.url",
       "grupo": "Outros módulos"
     }
   ]

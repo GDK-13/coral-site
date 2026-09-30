@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.graficos cria especificações de visualização a partir de dados comuns da Coral. O módulo cobre gráficos 2D e 3D, estatística visual, painéis e saídas estáticas ou interativas sem obrigar o programa a abrir uma janela.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.graficos — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.graficos — Documentação Coral">
+  <meta property="og:description" content="coral.graficos cria especificações de visualização a partir de dados comuns da Coral. O módulo cobre gráficos 2D e 3D, estatística visual, painéis e saídas estáticas ou interativas sem obrigar o programa a abrir uma janela.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.graficos — Documentação Coral">
+  <meta name="twitter:description" content="coral.graficos cria especificações de visualização a partir de dados comuns da Coral. O módulo cobre gráficos 2D e 3D, estatística visual, painéis e saídas estáticas ou interativas sem obrigar o programa a abrir uma janela.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a class="active" aria-current="page" href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.graficos</h1>
+      <p>coral.graficos cria especificações de visualização a partir de dados comuns da Coral. O módulo cobre gráficos 2D e 3D, estatística visual, painéis e saídas estáticas ou interativas sem obrigar o programa a abrir uma janela.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>gráficos científicos 2D e 3D, correlação, incerteza, painéis e exportação SVG, PNG, PDF e HTML interativo.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando quiser transformar séries, categorias, matrizes, resultados estatísticos ou experimentos em uma representação visual.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="numerico.html"><code>coral.numerico</code></a>, <a href="laboratorio.html"><code>coral.laboratorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.graficos</span> <span class="code-key">importe</span> linha, configurar, para_svg
+
+<span class="code-key">defina</span> serie como <span class="code-fn">linha</span>([<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>], [<span class="code-num">20.0</span>, <span class="code-num">20.8</span>, <span class="code-num">21.4</span>, <span class="code-num">21.9</span>], nome=<span class="code-str">&quot;temperatura&quot;</span>)
+<span class="code-key">defina</span> serie como <span class="code-fn">configurar</span>(serie, titulo=<span class="code-str">&quot;Temperatura&quot;</span>, eixos=[<span class="code-str">&quot;tempo&quot;</span>, <span class="code-str">&quot;°C&quot;</span>])
+<span class="code-key">defina</span> svg como <span class="code-fn">para_svg</span>(serie)
+<span class="code-key">mostre</span> <span class="code-str">&quot;SVG gerado em memória.&quot;</span></code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.graficos</code> cria especificações de visualização a partir de dados comuns da Coral. O módulo cobre gráficos 2D e 3D, estatística visual, painéis e saídas estáticas ou interativas sem obrigar o programa a abrir uma janela.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.graficos</code> <strong>Categoria:</strong> cientifico</p>
+<p data-searchable>gráficos científicos 2D e 3D, correlação, incerteza, painéis e exportação SVG, PNG, PDF e HTML interativo</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroGrafico</code>, <code>Serie2D</code>, <code>Serie3D</code>, <code>Superficie3D</code>, <code>SerieCategorias</code>, <code>ResumoCaixa</code>, <code>SeriesRegistros</code>, <code>MatrizCores</code>, <code>SerieErro</code>, <code>FaixaIncerteza</code>, <code>PainelGraficos</code>, <code>Grafico</code>, <code>linha</code>, <code>dispersao</code>, <code>dispersao3d</code>, <code>trajetoria3d</code>, <code>superficie3d</code>, <code>barras</code>, <code>grafico_histograma</code>, <code>grafico_caixa</code>, <code>configurar</code>, <code>grafico_funcao</code>, <code>series_de_registros</code>, <code>mapa_calor</code>, <code>mapa_correlacao</code>, <code>barras_erro</code>, <code>faixa_incerteza</code>, <code>grafico_experimento</code>, <code>painel</code>, <code>para_svg</code>, <code>para_html</code>, <code>salvar_html</code>, <code>explorar</code>, <code>amostrar_grafico</code>, <code>salvar</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use este módulo quando quiser transformar séries, categorias, matrizes, resultados estatísticos ou experimentos em uma representação visual. Para cálculos estatísticos, use <code>coral.numerico</code>; para planejar e registrar experimentos, use <code>coral.laboratorio</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.graficos</span> <span class="code-key">importe</span> linha, configurar, para_svg
+
+<span class="code-key">defina</span> serie como <span class="code-fn">linha</span>([<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>], [<span class="code-num">20.0</span>, <span class="code-num">20.8</span>, <span class="code-num">21.4</span>, <span class="code-num">21.9</span>], nome=<span class="code-str">&quot;temperatura&quot;</span>)
+<span class="code-key">defina</span> serie como <span class="code-fn">configurar</span>(serie, titulo=<span class="code-str">&quot;Temperatura&quot;</span>, eixos=[<span class="code-str">&quot;tempo&quot;</span>, <span class="code-str">&quot;°C&quot;</span>])
+<span class="code-key">defina</span> svg como <span class="code-fn">para_svg</span>(serie)
+<span class="code-key">mostre</span> <span class="code-str">&quot;SVG gerado em memória.&quot;</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O gráfico é descrito e convertido para SVG sem abrir interface gráfica.</p></div></details>
+<h2 id="saidas-e-dependencias" data-searchable>Saídas e dependências</h2>
+<p data-searchable><code>para_svg</code> usa o renderizador próprio 2D. Exportações como PNG e PDF podem carregar Matplotlib somente quando a saída é solicitada. HTML interativo usa a integração correspondente e continua sendo salvo como arquivo local.</p>
+<p data-searchable>Gráficos 3D preservam as coordenadas fornecidas. Superfícies exigem grade retangular explícita e não inventam pontos ausentes.</p>
+<h2 id="integracao-com-laboratorio-e-web" data-searchable>Integração com Laboratório e Web</h2>
+<p data-searchable><code>grafico_experimento</code> adapta resultados experimentais sem tornar <code>coral.graficos</code> dependente da execução do experimento. <code>resposta_grafico</code>, em <code>coral.web.servidor</code>, transforma um gráfico em resposta HTML sem iniciar servidor por conta própria.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="linha" data-searchable><code>linha</code></h4>
+<p data-searchable>Cria uma série de linha 2D sem abrir interface gráfica.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.graficos</span> <span class="code-key">importe</span> linha, configurar, para_svg
+
+<span class="code-key">defina</span> serie como <span class="code-fn">linha</span>([<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>], [<span class="code-num">20.0</span>, <span class="code-num">20.8</span>, <span class="code-num">21.4</span>, <span class="code-num">21.9</span>], nome=<span class="code-str">&quot;temperatura&quot;</span>)
+<span class="code-key">defina</span> serie como <span class="code-fn">configurar</span>(serie, titulo=<span class="code-str">&quot;Temperatura&quot;</span>, eixos=[<span class="code-str">&quot;tempo&quot;</span>, <span class="code-str">&quot;°C&quot;</span>])
+<span class="code-key">defina</span> svg como <span class="code-fn">para_svg</span>(serie)
+<span class="code-key">mostre</span> <span class="code-str">&quot;SVG gerado em memória.&quot;</span></code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>linha(x: Iterable[Any], y: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="dispersao" data-searchable><code>dispersao</code></h4>
+<p data-searchable>Cria uma série de pontos 2D sem conectar observações.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>dispersao(x: Iterable[Any], y: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="dispersao3d" data-searchable><code>dispersao3d</code></h4>
+<p data-searchable>Cria pontos 3D preservando exatamente as coordenadas fornecidas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>dispersao3d(x: Iterable[Any], y: Iterable[Any], z: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="trajetoria3d" data-searchable><code>trajetoria3d</code></h4>
+<p data-searchable>Cria uma trajetória 3D na ordem dada, sem reamostrar ou suavizar.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>trajetoria3d(x: Iterable[Any], y: Iterable[Any], z: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="superficie3d" data-searchable><code>superficie3d</code></h4>
+<p data-searchable>Cria uma superfície 3D de grade retangular sem interpolação silenciosa.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>superficie3d(x: Any, y: Any, z: Any, nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="barras" data-searchable><code>barras</code></h4>
+<p data-searchable>Cria barras categóricas; a escala vertical inclui zero por contrato.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>categorias</code></td><td data-searchable>Valor correspondente a categorias.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>barras(categorias: Iterable[Any], valores: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="grafico-histograma" data-searchable><code>grafico_histograma</code></h4>
+<p data-searchable>Cria gráfico a partir do contrato canônico `<code>numerico.histograma</code>`.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>faixas</code></td><td data-searchable>Valor correspondente a faixas.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>grafico_histograma(valores: Iterable[Any], faixas: Any, nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="grafico-caixa" data-searchable><code>grafico_caixa</code></h4>
+<p data-searchable>Cria caixas de Tukey usando quartis do contrato `<code>coral.numerico</code>`.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grupos</code></td><td data-searchable>Valor correspondente a grupos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>grafico_caixa(grupos: Any) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="configurar" data-searchable><code>configurar</code></h4>
+<p data-searchable>Retorna cópia configurada sem alterar dados ou estatísticas do gráfico.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.graficos</span> <span class="code-key">importe</span> linha, configurar, para_svg
+
+<span class="code-key">defina</span> serie como <span class="code-fn">linha</span>([<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>], [<span class="code-num">20.0</span>, <span class="code-num">20.8</span>, <span class="code-num">21.4</span>, <span class="code-num">21.9</span>], nome=<span class="code-str">&quot;temperatura&quot;</span>)
+<span class="code-key">defina</span> serie como <span class="code-fn">configurar</span>(serie, titulo=<span class="code-str">&quot;Temperatura&quot;</span>, eixos=[<span class="code-str">&quot;tempo&quot;</span>, <span class="code-str">&quot;°C&quot;</span>])
+<span class="code-key">defina</span> svg como <span class="code-fn">para_svg</span>(serie)
+<span class="code-key">mostre</span> <span class="code-str">&quot;SVG gerado em memória.&quot;</span></code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Grafico</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>eixos</code></td><td data-searchable>Valor correspondente a eixos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>unidades</code></td><td data-searchable>Valor correspondente a unidades.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>legenda</code></td><td data-searchable>Valor correspondente a legenda.</td><td data-searchable><code>bool | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tema</code></td><td data-searchable>Valor correspondente a tema.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>proveniencia</code></td><td data-searchable>Valor correspondente a proveniencia.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>texto_alternativo</code></td><td data-searchable>Valor correspondente a texto alternativo.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>configurar(grafico: Grafico, titulo: str \| None = None, eixos: Any = None, unidades: Any = None, legenda: bool \| None = None, tema: str \| None = None, *, proveniencia: Iterable[Any] \| None = None, texto_alternativo: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>eixos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>unidades</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>legenda</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tema</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>proveniencia</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>texto_alternativo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="grafico-funcao" data-searchable><code>grafico_funcao</code></h4>
+<p data-searchable>Amostra função escalar em intervalo fechado, preservando falhas como lacunas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>funcao</code></td><td data-searchable>Função fornecida para executar a operação.</td><td data-searchable><code>Callable[[float], Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable>Valor final do intervalo ou processo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>amostras</code></td><td data-searchable>Valor correspondente a amostras.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>grafico_funcao(funcao: Callable[[float], Any], inicio: Any, fim: Any, amostras: int = 200) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="series-de-registros" data-searchable><code>series_de_registros</code></h4>
+<p data-searchable>Extrai dois campos numéricos alinhados de registros comuns.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_x</code></td><td data-searchable>Valor correspondente a campo x.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_y</code></td><td data-searchable>Valor correspondente a campo y.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>SeriesRegistros</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>series_de_registros(registros: Iterable[Any], campo_x: str, campo_y: str) -&gt; SeriesRegistros</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="mapa-calor" data-searchable><code>mapa_calor</code></h4>
+<p data-searchable>Representa uma matriz numérica por intensidade de cor, sem recalcular dados.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>matriz</code></td><td data-searchable>Valor correspondente a matriz.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos_linhas</code></td><td data-searchable>Valor correspondente a rotulos linhas.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>rotulos_colunas</code></td><td data-searchable>Valor correspondente a rotulos colunas.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mapa_calor(matriz: Any, rotulos_linhas: Iterable[Any] \| None = None, rotulos_colunas: Iterable[Any] \| None = None, nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="mapa-correlacao" data-searchable><code>mapa_correlacao</code></h4>
+<p data-searchable>Calcula Pearson em `<code>coral.numerico</code>` e representa a matriz resultante.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos</code></td><td data-searchable>Valor correspondente a rotulos.</td><td data-searchable><code>Iterable[Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mapa_correlacao(dados: Any, rotulos: Iterable[Any] \| None = None, nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="barras-erro" data-searchable><code>barras_erro</code></h4>
+<p data-searchable>Cria pontos com barras de erro simétricas ou assimétricas explicitamente fornecidas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erros</code></td><td data-searchable>Valor correspondente a erros.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>barras_erro(x: Iterable[Any], y: Iterable[Any], erros: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="faixa-incerteza" data-searchable><code>faixa_incerteza</code></h4>
+<p data-searchable>Cria faixa de limites absolutos sem atribuir significado estatístico à faixa.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>centro</code></td><td data-searchable>Valor correspondente a centro.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inferior</code></td><td data-searchable>Valor correspondente a inferior.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>superior</code></td><td data-searchable>Valor correspondente a superior.</td><td data-searchable><code>Iterable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>faixa_incerteza(x: Iterable[Any], centro: Iterable[Any], inferior: Iterable[Any], superior: Iterable[Any], nome: str \| None = None) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="grafico-experimento" data-searchable><code>grafico_experimento</code></h4>
+<p data-searchable>Adapta medições bem sucedidas a uma série comum sem dependência no import do módulo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultado</code></td><td data-searchable>Valor correspondente a resultado.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eixo_x</code></td><td data-searchable>Valor correspondente a eixo x.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metrica</code></td><td data-searchable>Valor correspondente a metrica.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Grafico</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>grafico_experimento(resultado: Any, eixo_x: str, metrica: str) -&gt; Grafico</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="painel" data-searchable><code>painel</code></h4>
+<p data-searchable>Combina gráficos em grade sem modificar suas escalas ou especificações.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>graficos</code></td><td data-searchable>Valor correspondente a graficos.</td><td data-searchable><code>Iterable[Grafico]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>int</code></td><td data-searchable><code>2</code></td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>PainelGraficos</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>painel(graficos: Iterable[Grafico], colunas: int = 2, titulo: str = '') -&gt; PainelGraficos</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="para-svg" data-searchable><code>para_svg</code></h4>
+<p data-searchable>Renderiza gráficos 2D como SVG autossuficiente em memória.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.graficos</span> <span class="code-key">importe</span> linha, configurar, para_svg
+
+<span class="code-key">defina</span> serie como <span class="code-fn">linha</span>([<span class="code-num">0</span>, <span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>], [<span class="code-num">20.0</span>, <span class="code-num">20.8</span>, <span class="code-num">21.4</span>, <span class="code-num">21.9</span>], nome=<span class="code-str">&quot;temperatura&quot;</span>)
+<span class="code-key">defina</span> serie como <span class="code-fn">configurar</span>(serie, titulo=<span class="code-str">&quot;Temperatura&quot;</span>, eixos=[<span class="code-str">&quot;tempo&quot;</span>, <span class="code-str">&quot;°C&quot;</span>])
+<span class="code-key">defina</span> svg como <span class="code-fn">para_svg</span>(serie)
+<span class="code-key">mostre</span> <span class="code-str">&quot;SVG gerado em memória.&quot;</span></code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Grafico | PainelGraficos</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>largura</code></td><td data-searchable>Largura usada pela operação.</td><td data-searchable><code>int</code></td><td data-searchable><code>800</code></td></tr>
+<tr><td data-searchable><code>altura</code></td><td data-searchable>Altura usada pela operação.</td><td data-searchable><code>int</code></td><td data-searchable><code>500</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_svg(grafico: Grafico \| PainelGraficos, *, largura: int = 800, altura: int = 500) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>largura</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>altura</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="para-html" data-searchable><code>para_html</code></h4>
+<p data-searchable>Gera documento HTML interativo autossuficiente, sem abrir rede ou janela.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>Valor correspondente a limite pontos.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_PONTOS_HTML_PADRAO</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>str</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>para_html(grafico: Any, *, limite_pontos: int = LIMITE_PONTOS_HTML_PADRAO) -&gt; str</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._graficos_interativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_graficos_interativos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="salvar-html" data-searchable><code>salvar_html</code></h4>
+<p data-searchable>Salva HTML interativo autossuficiente usando Plotly somente nesta chamada.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>Valor correspondente a limite pontos.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_PONTOS_HTML_PADRAO</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>salvar_html(grafico: Any, caminho: str \| Path, *, limite_pontos: int = LIMITE_PONTOS_HTML_PADRAO) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._graficos_interativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_graficos_interativos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="explorar" data-searchable><code>explorar</code></h4>
+<p data-searchable>Abre uma prévia local apenas quando solicitada explicitamente.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>Valor correspondente a limite pontos.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_PONTOS_HTML_PADRAO</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>explorar(grafico: Any, *, limite_pontos: int = LIMITE_PONTOS_HTML_PADRAO) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._graficos_interativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_graficos_interativos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="amostrar-grafico" data-searchable><code>amostrar_grafico</code></h4>
+<p data-searchable>Reduz explicitamente séries simples, registrando a amostragem na especificação.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>max_pontos</code></td><td data-searchable>Valor correspondente a max pontos.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>amostrar_grafico(grafico: Any, max_pontos: int) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral._graficos_interativos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/_graficos_interativos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h4 id="salvar" data-searchable><code>salvar</code></h4>
+<p data-searchable>Salva 2D em SVG pelo núcleo; 3D e PNG/PDF usam Matplotlib sob demanda.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Grafico | PainelGraficos</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Path</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>salvar(grafico: Grafico \| PainelGraficos, caminho: str \| Path) -&gt; Path</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroGrafico</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="serie2d" data-searchable><code>Serie2D</code></h4>
+<p data-searchable>Série cartesiana usada por linhas, dispersão e funções.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float | None, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str</code></td><td data-searchable><code>'direta'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float | None, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str</code></td><td data-searchable><code>'direta'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Serie2D(estilo: str, x: tuple[float, ...], y: tuple[float \| None, ...], nome: str \| None = None, origem: str = 'direta')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="serie3d" data-searchable><code>Serie3D</code></h4>
+<p data-searchable>Série cartesiana tridimensional imutável.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Serie3D(estilo: str, x: tuple[float, ...], y: tuple[float, ...], z: tuple[float, ...], nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="superficie3d-2" data-searchable><code>Superficie3D</code></h4>
+<p data-searchable>Grade tridimensional explícita, sem interpolação de pontos ausentes.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>Obtém forma.</td><td data-searchable><code>tuple[int, int]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Superficie3D(x: tuple[tuple[float, ...], ...], y: tuple[tuple[float, ...], ...], z: tuple[tuple[float, ...], ...], nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>propriedade</td><td data-searchable><code>forma() -&gt; tuple[int, int]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="seriecategorias" data-searchable><code>SerieCategorias</code></h4>
+<p data-searchable>Série categórica para barras ou histograma.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>categorias</code></td><td data-searchable>Valor correspondente a categorias.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limites</code></td><td data-searchable>Valor correspondente a limites.</td><td data-searchable><code>tuple[tuple[float, float], ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estilo</code></td><td data-searchable>Valor correspondente a estilo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>categorias</code></td><td data-searchable>Valor correspondente a categorias.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limites</code></td><td data-searchable>Valor correspondente a limites.</td><td data-searchable><code>tuple[tuple[float, float], ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>SerieCategorias(estilo: str, categorias: tuple[str, ...], valores: tuple[float, ...], limites: tuple[tuple[float, float], ...] = (), nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="resumocaixa" data-searchable><code>ResumoCaixa</code></h4>
+<p data-searchable>Resumo estatístico de um grupo para um gráfico de caixa.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>q1</code></td><td data-searchable>Valor correspondente a q1.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mediana</code></td><td data-searchable>Valor correspondente a mediana.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>q3</code></td><td data-searchable>Valor correspondente a q3.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>bigode_inferior</code></td><td data-searchable>Valor correspondente a bigode inferior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>bigode_superior</code></td><td data-searchable>Valor correspondente a bigode superior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>extremos</code></td><td data-searchable>Valor correspondente a extremos.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>q1</code></td><td data-searchable>Valor correspondente a q1.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>mediana</code></td><td data-searchable>Valor correspondente a mediana.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>q3</code></td><td data-searchable>Valor correspondente a q3.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>bigode_inferior</code></td><td data-searchable>Valor correspondente a bigode inferior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>bigode_superior</code></td><td data-searchable>Valor correspondente a bigode superior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>extremos</code></td><td data-searchable>Valor correspondente a extremos.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResumoCaixa(nome: str, minimo: float, q1: float, mediana: float, q3: float, maximo: float, bigode_inferior: float, bigode_superior: float, extremos: tuple[float, ...], quantidade: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="seriesregistros" data-searchable><code>SeriesRegistros</code></h4>
+<p data-searchable>Duas séries alinhadas extraídas de registros comuns.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_x</code></td><td data-searchable>Valor correspondente a campo x.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_y</code></td><td data-searchable>Valor correspondente a campo y.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_x</code></td><td data-searchable>Valor correspondente a campo x.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo_y</code></td><td data-searchable>Valor correspondente a campo y.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Executa a operação <code>quantidade</code> disponibilizada por <code>coral.graficos</code>.</td><td data-searchable><code>int</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>SeriesRegistros(x: tuple[float, ...], y: tuple[float, ...], campo_x: str, campo_y: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>propriedade</td><td data-searchable><code>quantidade() -&gt; int</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="matrizcores" data-searchable><code>MatrizCores</code></h4>
+<p data-searchable>Matriz numérica e rótulos para mapas de calor e correlação.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos_linhas</code></td><td data-searchable>Valor correspondente a rotulos linhas.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos_colunas</code></td><td data-searchable>Valor correspondente a rotulos colunas.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>tuple[tuple[float, ...], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos_linhas</code></td><td data-searchable>Valor correspondente a rotulos linhas.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>rotulos_colunas</code></td><td data-searchable>Valor correspondente a rotulos colunas.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>MatrizCores(valores: tuple[tuple[float, ...], ...], rotulos_linhas: tuple[str, ...], rotulos_colunas: tuple[str, ...], nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="serieerro" data-searchable><code>SerieErro</code></h4>
+<p data-searchable>Série cartesiana com incerteza inferior e superior por ponto.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro_inferior</code></td><td data-searchable>Valor correspondente a erro inferior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro_superior</code></td><td data-searchable>Valor correspondente a erro superior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro_inferior</code></td><td data-searchable>Valor correspondente a erro inferior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>erro_superior</code></td><td data-searchable>Valor correspondente a erro superior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>SerieErro(x: tuple[float, ...], y: tuple[float, ...], erro_inferior: tuple[float, ...], erro_superior: tuple[float, ...], nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="faixaincerteza" data-searchable><code>FaixaIncerteza</code></h4>
+<p data-searchable>Centro e limites absolutos de uma faixa de incerteza.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>centro</code></td><td data-searchable>Valor correspondente a centro.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inferior</code></td><td data-searchable>Valor correspondente a inferior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>superior</code></td><td data-searchable>Valor correspondente a superior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>centro</code></td><td data-searchable>Valor correspondente a centro.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inferior</code></td><td data-searchable>Valor correspondente a inferior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>superior</code></td><td data-searchable>Valor correspondente a superior.</td><td data-searchable><code>tuple[float, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FaixaIncerteza(x: tuple[float, ...], centro: tuple[float, ...], inferior: tuple[float, ...], superior: tuple[float, ...], nome: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h4 id="painelgraficos" data-searchable><code>PainelGraficos</code></h4>
+<p data-searchable>Composição imutável de gráficos usando uma grade regular.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>graficos</code></td><td data-searchable>Valor correspondente a graficos.</td><td data-searchable><code>tuple['Grafico', ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>graficos</code></td><td data-searchable>Valor correspondente a graficos.</td><td data-searchable><code>tuple['Grafico', ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Executa a operação <code>linhas</code> disponibilizada por <code>coral.graficos</code>.</td><td data-searchable><code>int</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>PainelGraficos(graficos: tuple['Grafico', ...], colunas: int, titulo: str = '')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>propriedade</td><td data-searchable><code>linhas() -&gt; int</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="grafico" data-searchable><code>Grafico</code></h4>
+<p data-searchable>Especificação imutável de um gráfico Coral 2D ou 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>elementos</code></td><td data-searchable>Valor correspondente a elementos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_x</code></td><td data-searchable>Valor correspondente a rotulo x.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_y</code></td><td data-searchable>Valor correspondente a rotulo y.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_z</code></td><td data-searchable>Valor correspondente a rotulo z.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_x</code></td><td data-searchable>Valor correspondente a unidade x.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_y</code></td><td data-searchable>Valor correspondente a unidade y.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_z</code></td><td data-searchable>Valor correspondente a unidade z.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>legenda</code></td><td data-searchable>Valor correspondente a legenda.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>tema</code></td><td data-searchable>Valor correspondente a tema.</td><td data-searchable><code>str</code></td><td data-searchable><code>'claro'</code></td></tr>
+<tr><td data-searchable><code>proveniencia</code></td><td data-searchable>Valor correspondente a proveniencia.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>texto_alternativo</code></td><td data-searchable>Valor correspondente a texto alternativo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>avisos</code></td><td data-searchable>Valor correspondente a avisos.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>elementos</code></td><td data-searchable>Valor correspondente a elementos.</td><td data-searchable><code>tuple[Any, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>titulo</code></td><td data-searchable>Valor correspondente a titulo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_x</code></td><td data-searchable>Valor correspondente a rotulo x.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_y</code></td><td data-searchable>Valor correspondente a rotulo y.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>rotulo_z</code></td><td data-searchable>Valor correspondente a rotulo z.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_x</code></td><td data-searchable>Valor correspondente a unidade x.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_y</code></td><td data-searchable>Valor correspondente a unidade y.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>unidade_z</code></td><td data-searchable>Valor correspondente a unidade z.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>legenda</code></td><td data-searchable>Valor correspondente a legenda.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>tema</code></td><td data-searchable>Valor correspondente a tema.</td><td data-searchable><code>str</code></td><td data-searchable><code>'claro'</code></td></tr>
+<tr><td data-searchable><code>proveniencia</code></td><td data-searchable>Valor correspondente a proveniencia.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+<tr><td data-searchable><code>texto_alternativo</code></td><td data-searchable>Valor correspondente a texto alternativo.</td><td data-searchable><code>str</code></td><td data-searchable><code>''</code></td></tr>
+<tr><td data-searchable><code>avisos</code></td><td data-searchable>Valor correspondente a avisos.</td><td data-searchable><code>tuple[str, ...]</code></td><td data-searchable><code>()</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Grafico(tipo: str, elementos: tuple[Any, ...], titulo: str = '', rotulo_x: str = '', rotulo_y: str = '', rotulo_z: str = '', unidade_x: str = '', unidade_y: str = '', unidade_z: str = '', legenda: bool = True, tema: str = 'claro', proveniencia: tuple[str, ...] = (), texto_alternativo: str = '', avisos: tuple[str, ...] = ())</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errografico" data-searchable><code>ErroGrafico</code></h4>
+<p data-searchable>Erro público para especificações ou dados gráficos inválidos.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroGrafico(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.graficos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/graficos.py</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="formatos.html"><span>Anterior</span><strong>coral.formatos</strong></a><a class="docs-page-nav-link next" href="json.html"><span>Próxima</span><strong>coral.json</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#saidas-e-dependencias" data-toc-link>Saídas e dependências</a></li>
+<li class="toc-level-2"><a href="#integracao-com-laboratorio-e-web" data-toc-link>Integração com Laboratório e Web</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

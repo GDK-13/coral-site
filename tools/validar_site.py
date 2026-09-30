@@ -38,6 +38,8 @@ def public_from_source(source: Path) -> Path:
         rel = rel.with_name("index.md")
     elif rel.name == "repl_cli.md":
         rel = rel.with_name("repl_cli.md")
+    if rel.parent.name == "modulos":
+        return DOCS_PUBLIC / rel.parent / (rel.stem.replace(".", "-") + ".html")
     return DOCS_PUBLIC / rel.with_suffix(".html")
 
 
@@ -231,6 +233,17 @@ def audit_qol_didatica() -> list[str]:
         if snippet not in js:
             errors.append(f"QoL didática ausente no JavaScript: {label}")
 
+    # Os cards visuais da Referência da API precisam existir antes da
+    # classificação Aprender/Referência. Se a ordem inverter, o conteúdo
+    # some no modo Aprender, mas os wrappers vazios deixam várias divisórias.
+    wrap_at = js.find("(function wrapApiFunctionCards()")
+    classify_call_at = js.find("  classifyReadingSections();")
+    if wrap_at < 0 or classify_call_at < 0 or classify_call_at < wrap_at:
+        errors.append(
+            "QoL didática: classificação de modo ocorre antes dos cards da API "
+            "e pode deixar divisórias vazias no modo Aprender"
+        )
+
     for snippet, label in (
         ('.module-quick-summary', "resumo rápido"),
         ('.expected-result', "resultado esperado"),
@@ -264,6 +277,42 @@ def audit_qol_didatica() -> list[str]:
     )
     if expected_total != rendered_total:
         errors.append(f"resultados esperados renderizados: {rendered_total} != {expected_total}")
+    return errors
+
+
+
+def audit_public_editorial_policy() -> list[str]:
+    """Impede que a landing volte a funcionar como diário de desenvolvimento."""
+    errors: list[str] = []
+    landing = (ROOT / "index.html").read_text(encoding="utf-8").casefold()
+    forbidden = {
+        "roadmap": "roadmap",
+        "checkpoint": "checkpoint",
+        "congelamento": "congelamento",
+        "linha 1.5": "linha histórica de versões",
+        "linha 1.6": "linha histórica de versões",
+        "cp9": "identificador interno de checkpoint",
+        "cp10": "identificador interno de checkpoint",
+        "cp11": "identificador interno de checkpoint",
+    }
+    for token, label in forbidden.items():
+        if token in landing:
+            errors.append(f"landing contém conteúdo de desenvolvimento: {label}")
+
+    if "notas de versão" not in landing:
+        errors.append("landing não oferece acesso às Notas de versão")
+
+    forbidden_paths = [
+        ROOT / "docs" / "ROADMAP_QOL_DIDATICA.md",
+        ROOT / "docs" / "changelog",
+    ]
+    for path in forbidden_paths:
+        if path.exists():
+            errors.append(f"conteúdo de log/roadmap não deve integrar o site público: {path.relative_to(ROOT)}")
+
+    release = ROOT / "docs" / "paginas" / "release.md"
+    if not release.exists() or "# Notas de versão" not in release.read_text(encoding="utf-8"):
+        errors.append("página pública de Notas de versão ausente")
     return errors
 
 
@@ -320,6 +369,7 @@ def main() -> int:
     failures.extend(audit_header_layout_contract())
     failures.extend(audit_api_didactic())
     failures.extend(audit_qol_didatica())
+    failures.extend(audit_public_editorial_policy())
     failures.extend(audit_residues())
 
     if failures:
@@ -332,7 +382,7 @@ def main() -> int:
     print(f"HTML verificados: {html_count}")
     print(f"Blocos de código comparados: {code_count}")
     print("Realce Coral: whitelist, fidelidade, strings, comentários, números, módulos e chamadas tradicionais OK")
-    print("Links, âncoras, IDs, contrato sintático, referência didática de API, QoL didática e cabeçalho responsivo: OK")
+    print("Links, âncoras, IDs, contrato sintático, referência didática de API, QoL didática, política editorial pública e cabeçalho responsivo: OK")
     return 0
 
 

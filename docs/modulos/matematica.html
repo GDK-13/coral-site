@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a class="active" aria-current="page" href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -132,7 +137,7 @@
 <p data-searchable><strong>Importação:</strong> <code>coral.matematica</code> <strong>Categoria:</strong> matematica</p>
 <p data-searchable>operações matemáticas fundamentais recorrentes</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>raiz</code>, <code>potencia</code>, <code>absoluto</code>, <code>arredondar</code>, <code>minimo</code>, <code>maximo</code>, <code>soma</code>, <code>media</code>, <code>seno</code>, <code>cosseno</code>, <code>tangente</code>, <code>piso</code>, <code>teto</code>, <code>truncar</code>, <code>log</code>, <code>exp</code>, <code>graus</code>, <code>radianos</code>, <code>limitar</code>, <code>finito</code>, <code>mdc</code>, <code>mmc</code>, <code>pi</code>, <code>e</code></p>
+<p data-searchable><code>raiz</code>, <code>potencia</code>, <code>absoluto</code>, <code>arredondar</code>, <code>minimo</code>, <code>maximo</code>, <code>soma</code>, <code>media</code>, <code>fatorial</code>, <code>combinacoes</code>, <code>arranjos</code>, <code>hipotenusa</code>, <code>aproximadamente_igual</code>, <code>interpolar_linear</code>, <code>seno</code>, <code>cosseno</code>, <code>tangente</code>, <code>arco_seno</code>, <code>arco_cosseno</code>, <code>arco_tangente</code>, <code>piso</code>, <code>teto</code>, <code>truncar</code>, <code>log</code>, <code>log10</code>, <code>log2</code>, <code>exp</code>, <code>graus</code>, <code>radianos</code>, <code>raiz_nesima</code>, <code>produto</code>, <code>sinal</code>, <code>volume_bola3</code>, <code>limitar</code>, <code>finito</code>, <code>mdc</code>, <code>mmc</code>, <code>pi</code>, <code>e</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>Reúne operações matemáticas fundamentais recorrentes para código geral. É complementar a <code>coral.numerico</code>, que concentra estruturas e recursos numéricos mais amplos.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
@@ -191,7 +196,7 @@
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Para ponto flutuante, compare com tolerância quando a igualdade exata não for matematicamente garantida. Casos de borda de domínio merecem testes separados.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.6.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="raiz" data-searchable><code>raiz</code></h4>
@@ -337,6 +342,114 @@
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="fatorial" data-searchable><code>fatorial</code></h4>
+<p data-searchable>Fatorial de um inteiro não negativo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>n</code></td><td data-searchable>Valor correspondente a n.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>fatorial(n)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="combinacoes" data-searchable><code>combinacoes</code></h4>
+<p data-searchable>Quantidade de escolhas de k elementos sem considerar ordem.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>n</code></td><td data-searchable>Valor correspondente a n.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>k</code></td><td data-searchable>Valor correspondente a k.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>combinacoes(n, k)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="arranjos" data-searchable><code>arranjos</code></h4>
+<p data-searchable>Quantidade de escolhas ordenadas de k elementos sem repetição.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>n</code></td><td data-searchable>Valor correspondente a n.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>k</code></td><td data-searchable>Valor correspondente a k.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>arranjos(n, k)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="hipotenusa" data-searchable><code>hipotenusa</code></h4>
+<p data-searchable>Comprimento euclidiano dos catetos a e b, calculado de forma estável.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>hipotenusa(a, b)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="aproximadamente-igual" data-searchable><code>aproximadamente_igual</code></h4>
+<p data-searchable>Compara números reais com tolerâncias explícitas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tolerancia_relativa</code></td><td data-searchable>Valor correspondente a tolerancia relativa.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1e-09</code></td></tr>
+<tr><td data-searchable><code>tolerancia_absoluta</code></td><td data-searchable>Valor correspondente a tolerancia absoluta.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>0.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>aproximadamente_igual(a, b, tolerancia_relativa = 1e-09, tolerancia_absoluta = 0.0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="interpolar-linear" data-searchable><code>interpolar_linear</code></h4>
+<p data-searchable>Interpola ou extrapola linearmente entre dois valores reais finitos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inicio</code></td><td data-searchable>Valor inicial do intervalo ou processo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fim</code></td><td data-searchable>Valor final do intervalo ou processo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>fracao</code></td><td data-searchable>Valor correspondente a fracao.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>interpolar_linear(inicio, fim, fracao)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
 <h4 id="seno" data-searchable><code>seno</code></h4>
 <p data-searchable>Calcula o seno do ângulo.</p>
 <p data-searchable><strong>Exemplo</strong></p>
@@ -389,6 +502,56 @@
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>tangente(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="arco-seno" data-searchable><code>arco_seno</code></h4>
+<p data-searchable>Executa a operação <code>arco_seno</code> disponibilizada por <code>coral.matematica</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>arco_seno(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="arco-cosseno" data-searchable><code>arco_cosseno</code></h4>
+<p data-searchable>Executa a operação <code>arco_cosseno</code> disponibilizada por <code>coral.matematica</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>arco_cosseno(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="arco-tangente" data-searchable><code>arco_tangente</code></h4>
+<p data-searchable>Executa a operação <code>arco_tangente</code> disponibilizada por <code>coral.matematica</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>arco_tangente(valor)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
 <h4 id="piso" data-searchable><code>piso</code></h4>
@@ -456,6 +619,40 @@
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>log(valor, base = None)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="log10" data-searchable><code>log10</code></h4>
+<p data-searchable>Executa a operação <code>log10</code> disponibilizada por <code>coral.matematica</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>log10(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="log2" data-searchable><code>log2</code></h4>
+<p data-searchable>Executa a operação <code>log2</code> disponibilizada por <code>coral.matematica</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>log2(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
 <h4 id="exp" data-searchable><code>exp</code></h4>
 <p data-searchable>Calcula a função exponencial do valor.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -504,6 +701,73 @@
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>radianos(valor)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="raiz-nesima" data-searchable><code>raiz_nesima</code></h4>
+<p data-searchable>Raiz real de índice inteiro positivo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Valor correspondente a indice.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>raiz_nesima(valor, indice)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="produto" data-searchable><code>produto</code></h4>
+<p data-searchable>Multiplica os itens de uma coleção; a coleção vazia tem produto 1.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>produto(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="sinal" data-searchable><code>sinal</code></h4>
+<p data-searchable>Devolve -1, 0 ou 1 para um número real finito.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>sinal(valor)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p></div></details>
+<h4 id="volume-bola3" data-searchable><code>volume_bola3</code></h4>
+<p data-searchable>Volume de uma bola euclidiana tridimensional de raio não negativo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>raio</code></td><td data-searchable>Valor correspondente a raio.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>volume_bola3(raio)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.matematica</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/matematica.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
 <h4 id="limitar" data-searchable><code>limitar</code></h4>
 <p data-searchable>Restringir faixa.</p>
 <p data-searchable><strong>Parâmetros</strong></p>

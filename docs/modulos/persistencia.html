@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -143,7 +148,7 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <p data-searchable>É o contrato de persistência portátil e versionada da Coral. Em vez de serializar objetos arbitrários do runtime, grava somente dados semânticos reconstruíveis e rejeita estado que não é seguro ou portátil salvar.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
 <h3 id="contrato-versionado" data-searchable>Contrato versionado</h3>
-<p data-searchable><code>CONTRATO</code> e <code>VERSAO_ESQUEMA</code> identificam o formato persistente. Na 1.6.0, <code>VERSOES_LEITURA</code> e <code>VERSAO_ESCRITA</code> tornam explícitas as versões que o runtime aceita ler e a versão que ele grava.</p>
+<p data-searchable><code>CONTRATO</code> e <code>VERSAO_ESQUEMA</code> identificam o formato persistente. Desde a 1.6.0, <code>VERSOES_LEITURA</code> e <code>VERSAO_ESCRITA</code> tornam explícitas as versões que o runtime aceita ler e a versão que ele grava. A 1.6.1 preserva essa política pública.</p>
 <h3 id="politica-executavel" data-searchable>Política executável</h3>
 <p data-searchable><code>politica_persistencia()</code> apresenta a política corrente como dados consultáveis. Ela informa contrato, versões de leitura e escrita, estratégia de migração e compatibilidade declarada, evitando que ferramentas precisem duplicar essas regras em texto ou tabelas paralelas.</p>
 <h3 id="conversao-para-dados" data-searchable>Conversão para dados</h3>
@@ -205,8 +210,8 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <p data-searchable>Módulos como <code>coral.mundo</code> podem registrar extensões de domínio; <code>coral.arquivos</code> fornece operações genéricas de IO, enquanto <code>coral.persistencia</code> define o significado do formato salvo.</p>
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Teste round trip objeto → dados → objeto, compatibilidade de versão e rejeição de valores não portáteis. A saída canônica deve ser determinística para o mesmo conteúdo.</p>
-<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>Na <strong>Coral 1.6.0</strong>, a persistência continua no contrato <code>coral.persistencia/1</code> e no esquema de escrita <code>1</code>. A novidade pública é a política explícita e consultável: <code>VERSOES_LEITURA</code>, <code>VERSAO_ESCRITA</code> e <code>politica_persistencia()</code> documentam no próprio runtime o que pode ser lido, o que será escrito e como um esquema desconhecido é tratado. O gerador do site continua atualizando automaticamente o inventário e a referência da API, enquanto esta explicação pedagógica permanece sob revisão humana.</p>
+<h2 id="compatibilidade-e-politica" data-searchable>Compatibilidade e política</h2>
+<p data-searchable>A persistência publica sua política no próprio runtime por <code>VERSOES_LEITURA</code>, <code>VERSAO_ESCRITA</code> e <code>politica_persistencia()</code>. Consulte esses valores quando precisar decidir compatibilidade de arquivos ou tratar esquemas desconhecidos.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="politica-persistencia" data-searchable><code>politica_persistencia</code></h4>
@@ -476,7 +481,7 @@ execute <span class="code-fn">salvar</span>(dados, <span class="code-str">&quot;
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
 <li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
-<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-politica" data-toc-link>Compatibilidade e política</a></li>
 <li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>

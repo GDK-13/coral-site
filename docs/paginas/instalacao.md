@@ -1,34 +1,39 @@
 # Instalação
 
-A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação e a extensão Coral Language. Você pode usar o runtime diretamente ou registrar uma instalação persistente no sistema.
+A distribuição oficial da Coral inclui runtime portátil, assistentes de instalação, a extensão Coral Language e artefatos nativos quando a plataforma é suportada pela edição corrente.
 
-## Antes de instalar
+## Linux x86_64
 
-Tenha Python disponível no sistema. A Coral usa o runtime portátil distribuído como arquivo `.pyz`, então não é necessário montar manualmente o ambiente interno da linguagem para começar.
-
-## Linux
+Linux x86_64 é a plataforma nativa autoritativa da Coral 1.7.0.
 
 Na raiz da distribuição extraída:
 
 ```bash
 bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.6.0.pyz --versao
+python Instalacao/Runtime/coral-1.7.0.pyz --versao
 ```
 
-O segundo comando deve informar a versão corrente da Coral.
+O segundo comando deve informar `1.7.0`.
+
+A distribuição também contém artefatos nativos Linux e um pacote `.deb`. Todos usam a mesma lógica de instalação e perfis da Coral.
+
+## Runtime portátil
+
+Se você não quiser registrar uma instalação persistente, pode executar o runtime diretamente:
+
+```bash
+python Instalacao/Runtime/coral-1.7.0.pyz programa.coral
+```
+
+Isso é suficiente para estudar e executar programas que não dependam de componentes opcionais ausentes no ambiente.
 
 ## Windows
 
-Na raiz da distribuição extraída:
-
-```text
-Instalacao\Coral_Setup.cmd
-python Instalacao\Runtime\coral-1.6.0.pyz --versao
-```
+A Coral 1.7.0 não declara Windows x86_64 como plataforma nativa validada desta edição. A distribuição ainda preserva ferramentas portáteis e assistentes relacionados, mas eles não devem ser apresentados como instalador nativo oficial da 1.7.0.
 
 ## Instalar a extensão do VS Code
 
-A extensão oficial fica em `Instalacao/Extensao_VSCode/`. No VS Code, use **Extensions: Install from VSIX** e selecione o arquivo `coral-language-0.53.0.vsix`.
+A extensão oficial fica em `Instalacao/Extensao_VSCode/`. No VS Code, use **Extensions: Install from VSIX** e selecione `coral-language-0.72.0.vsix`.
 
 Depois, execute **Developer: Reload Window** para reiniciar o host da extensão.
 
@@ -37,12 +42,16 @@ Depois, execute **Developer: Reload Window** para reiniciar o host da extensão.
 Use o próprio runtime para conferir o ambiente:
 
 ```bash
-python Instalacao/Runtime/coral-1.6.0.pyz --self-check
-python Instalacao/Runtime/coral-1.6.0.pyz --ambiente
+python Instalacao/Runtime/coral-1.7.0.pyz --self-check
+python Instalacao/Runtime/coral-1.7.0.pyz --ambiente
 ```
 
 Se estiver no VS Code, a visão **Ambiente Coral** também mostra runtime, projeto, LSP, DAP e componentes disponíveis.
 
-## Atualizar para uma nova release
+## Componentes opcionais
 
-Cada release completa é autocontida. Para atualizar, extraia a nova distribuição e execute novamente o assistente de instalação. A documentação do site é atualizada a partir do ZIP oficial da release, então versões exibidas aqui acompanham o pacote publicado.
+Perfis de instalação podem reunir componentes para usos diferentes, como computação científica e desenvolvimento. O instalador mantém esses componentes separados do Python global do sistema.
+
+## Atualizar a Coral
+
+Use uma distribuição oficial mais recente e execute novamente o assistente correspondente. Antes de atualizar um projeto importante, consulte **Notas de versão** para verificar disponibilidade de plataforma e mudanças relevantes para quem usa a linguagem.

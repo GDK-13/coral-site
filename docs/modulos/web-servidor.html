@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.web.servidor oferece um servidor HTTP local para desenvolvimento, demonstrações e integração entre módulos Coral. Criar o objeto servidor não abre porta; isso só acontece quando iniciar() é chamado.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.web.servidor — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.web.servidor — Documentação Coral">
+  <meta property="og:description" content="coral.web.servidor oferece um servidor HTTP local para desenvolvimento, demonstrações e integração entre módulos Coral. Criar o objeto servidor não abre porta; isso só acontece quando iniciar() é chamado.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.web.servidor — Documentação Coral">
+  <meta name="twitter:description" content="coral.web.servidor oferece um servidor HTTP local para desenvolvimento, demonstrações e integração entre módulos Coral. Criar o objeto servidor não abre porta; isso só acontece quando iniciar() é chamado.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a class="active" aria-current="page" href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.web.servidor</h1>
+      <p>coral.web.servidor oferece um servidor HTTP local para desenvolvimento, demonstrações e integração entre módulos Coral. Criar o objeto servidor não abre porta; isso só acontece quando iniciar() é chamado.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>servidor HTTP local de desenvolvimento com rotas literais, gráficos interativos e limites explícitos.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para expor rotas locais, respostas de texto, HTML, JSON, arquivos ou gráficos durante desenvolvimento e experimentação.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="graficos.html"><code>coral.graficos</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.servidor</span> <span class="code-key">importe</span> criar_servidor, resposta_texto
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
+    retorne <span class="code-fn">resposta_texto</span>(<span class="code-str">&quot;Servidor Coral local&quot;</span>)
+<span class="code-key">fim</span>
+
+<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()
+execute servidor.<span class="code-fn">adicionar_rota</span>(<span class="code-str">&quot;GET&quot;</span>, <span class="code-str">&quot;/&quot;</span>, inicio)
+execute servidor.<span class="code-fn">iniciar</span>()
+<span class="code-key">mostre</span> servidor.url_base
+execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.web.servidor</code> oferece um servidor HTTP local para desenvolvimento, demonstrações e integração entre módulos Coral. Criar o objeto servidor não abre porta; isso só acontece quando <code>iniciar()</code> é chamado.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.web.servidor</code> <strong>Categoria:</strong> web</p>
+<p data-searchable>servidor HTTP local de desenvolvimento com rotas literais, gráficos interativos e limites explícitos</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroServidorHTTP</code>, <code>ErroRotaHTTP</code>, <code>ErroLimiteCorpoHTTP</code>, <code>RequisicaoHTTP</code>, <code>RespostaServidorHTTP</code>, <code>ServidorHTTP</code>, <code>HOST_PADRAO</code>, <code>PORTA_PADRAO</code>, <code>LIMITE_CORPO_PADRAO</code>, <code>LIMITE_ARQUIVO_PADRAO</code>, <code>TEMPO_LIMITE_CORPO_PADRAO</code>, <code>resposta_bytes</code>, <code>resposta_texto</code>, <code>resposta_html</code>, <code>resposta_grafico</code>, <code>resposta_json</code>, <code>resposta_arquivo</code>, <code>criar_servidor</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para expor rotas locais, respostas de texto, HTML, JSON, arquivos ou gráficos durante desenvolvimento e experimentação. O módulo não é apresentado como servidor de hospedagem de produção.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.servidor</span> <span class="code-key">importe</span> criar_servidor, resposta_texto
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
+    retorne <span class="code-fn">resposta_texto</span>(<span class="code-str">&quot;Servidor Coral local&quot;</span>)
+<span class="code-key">fim</span>
+
+<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()
+execute servidor.<span class="code-fn">adicionar_rota</span>(<span class="code-str">&quot;GET&quot;</span>, <span class="code-str">&quot;/&quot;</span>, inicio)
+execute servidor.<span class="code-fn">iniciar</span>()
+<span class="code-key">mostre</span> servidor.url_base
+execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O servidor abre uma porta local somente após <code>iniciar()</code>, mostra sua URL base e fecha o socket quando <code>encerrar()</code> é chamado.</p></div></details>
+<h2 id="respostas-estruturadas" data-searchable>Respostas estruturadas</h2>
+<p data-searchable>As funções <code>resposta_texto</code>, <code>resposta_html</code>, <code>resposta_json</code>, <code>resposta_arquivo</code> e <code>resposta_grafico</code> constroem respostas sem conversões silenciosas. Arquivos permanecem sob a raiz declarada e o corpo da requisição possui limite explícito.</p>
+<h2 id="integracao-com-graficos" data-searchable>Integração com gráficos</h2>
+<p data-searchable><code>resposta_grafico</code> adapta uma especificação de <code>coral.graficos</code> para HTML interativo. A adaptação não inicia servidor nem abre porta por conta própria.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="resposta-bytes" data-searchable><code>resposta_bytes</code></h4>
+<p data-searchable>Executa a operação <code>resposta_bytes</code> disponibilizada por <code>coral.web.servidor</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tipo_conteudo</code></td><td data-searchable>Valor correspondente a tipo conteudo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'application/octet-stream'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_bytes(corpo: Any, status: int = 200, cabecalhos: Any = None, *, tipo_conteudo: str = 'application/octet-stream') -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tipo_conteudo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="resposta-texto" data-searchable><code>resposta_texto</code></h4>
+<p data-searchable>Executa a operação <code>resposta_texto</code> disponibilizada por <code>coral.web.servidor</code>.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
+    retorne <span class="code-fn">resposta_texto</span>(<span class="code-str">&quot;Servidor Coral local&quot;</span>)
+<span class="code-key">fim</span>
+
+<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Texto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>str</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_texto(texto: Any, status: int = 200, cabecalhos: Any = None, *, codificacao: str = 'utf-8') -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="resposta-html" data-searchable><code>resposta_html</code></h4>
+<p data-searchable>Executa a operação <code>resposta_html</code> disponibilizada por <code>coral.web.servidor</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>conteudo</code></td><td data-searchable>Conteúdo processado ou armazenado.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_html(conteudo: Any, status: int = 200, cabecalhos: Any = None) -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p></div></details>
+<h4 id="resposta-grafico" data-searchable><code>resposta_grafico</code></h4>
+<p data-searchable>Adapta um gráfico Coral para resposta HTML sem iniciar servidor.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>Valor correspondente a grafico.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>Valor correspondente a limite pontos.</td><td data-searchable><code>int</code></td><td data-searchable><code>200000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_grafico(grafico: Any, status: int = 200, cabecalhos: Any = None, *, limite_pontos: int = 200000) -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>grafico</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="resposta-json" data-searchable><code>resposta_json</code></h4>
+<p data-searchable>Executa a operação <code>resposta_json</code> disponibilizada por <code>coral.web.servidor</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_json(valor: Any, status: int = 200, cabecalhos: Any = None) -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroFormato</code></p></div></details>
+<h4 id="resposta-arquivo" data-searchable><code>resposta_arquivo</code></h4>
+<p data-searchable>Executa a operação <code>resposta_arquivo</code> disponibilizada por <code>coral.web.servidor</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>raiz</code></td><td data-searchable>Valor correspondente a raiz.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho_relativo</code></td><td data-searchable>Valor correspondente a caminho relativo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_arquivo</code></td><td data-searchable>Valor correspondente a limite arquivo.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_ARQUIVO_PADRAO</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>resposta_arquivo(raiz: Any, caminho_relativo: Any, status: int = 200, cabecalhos: Any = None, *, limite_arquivo: int = LIMITE_ARQUIVO_PADRAO) -&gt; RespostaServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>raiz</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>caminho_relativo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>status</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_arquivo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code>, <code>ErroServidorHTTP</code></p></div></details>
+<h4 id="criar-servidor" data-searchable><code>criar_servidor</code></h4>
+<p data-searchable>Cria servidor sem abrir a porta; chame `<code>iniciar</code><code> ou use </code><code>com</code>`.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">fim</span>
+
+<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()
+execute servidor.<span class="code-fn">adicionar_rota</span>(<span class="code-str">&quot;GET&quot;</span>, <span class="code-str">&quot;/&quot;</span>, inicio)
+execute servidor.<span class="code-fn">iniciar</span>()
+<span class="code-key">mostre</span> servidor.url_base</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>host</code></td><td data-searchable>Valor correspondente a host.</td><td data-searchable><code>str</code></td><td data-searchable><code>HOST_PADRAO</code></td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>int</code></td><td data-searchable><code>PORTA_PADRAO</code></td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>Valor correspondente a opcoes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ServidorHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>criar_servidor(host: str = HOST_PADRAO, porta: int = PORTA_PADRAO, **opcoes: Any) -&gt; ServidorHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>host</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="requisicaohttp" data-searchable><code>RequisicaoHTTP</code></h4>
+<p data-searchable>Requisição materializada antes da chamada ao tratador da rota.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>consulta</code></td><td data-searchable>Valor correspondente a consulta.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cliente</code></td><td data-searchable>Valor correspondente a cliente.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>consulta</code></td><td data-searchable>Valor correspondente a consulta.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cliente</code></td><td data-searchable>Valor correspondente a cliente.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Executa a operação <code>cabecalho</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>str | None</code></td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Executa a operação <code>texto</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>json</code></td><td data-searchable>Executa a operação <code>json</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>Any</code></td></tr>
+<tr><td data-searchable><code>formulario</code></td><td data-searchable>Executa a operação <code>formulario</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RequisicaoHTTP(metodo: str, caminho: str, consulta: tuple[tuple[str, str], ...], cabecalhos: tuple[tuple[str, str], ...], corpo_bytes: bytes, cliente: str)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>método</td><td data-searchable><code>cabecalho(nome: str, padrao: str | None = None) -&gt; str | None</code></td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>método</td><td data-searchable><code>texto(codificacao: str = 'utf-8', *, erros: str = 'strict') -&gt; str</code></td></tr>
+<tr><td data-searchable><code>json</code></td><td data-searchable>método</td><td data-searchable><code>json() -&gt; Any</code></td></tr>
+<tr><td data-searchable><code>formulario</code></td><td data-searchable>método</td><td data-searchable><code>formulario() -&gt; tuple[tuple[str, str], ...]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="respostaservidorhttp" data-searchable><code>RespostaServidorHTTP</code></h4>
+<p data-searchable>Resposta pronta para serialização pelo servidor local.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RespostaServidorHTTP(status: int, cabecalhos: tuple[tuple[str, str], ...], corpo_bytes: bytes)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p></div></details>
+<h4 id="servidorhttp" data-searchable><code>ServidorHTTP</code></h4>
+<p data-searchable>Servidor HTTP pequeno, explícito e orientado a desenvolvimento local.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>host</code></td><td data-searchable>Valor correspondente a host.</td><td data-searchable><code>str</code></td><td data-searchable><code>HOST_PADRAO</code></td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Valor correspondente a porta.</td><td data-searchable><code>int</code></td><td data-searchable><code>PORTA_PADRAO</code></td></tr>
+<tr><td data-searchable><code>limite_corpo</code></td><td data-searchable>Valor correspondente a limite corpo.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_CORPO_PADRAO</code></td></tr>
+<tr><td data-searchable><code>tempo_limite_corpo</code></td><td data-searchable>Valor correspondente a tempo limite corpo.</td><td data-searchable><code>float</code></td><td data-searchable><code>TEMPO_LIMITE_CORPO_PADRAO</code></td></tr>
+<tr><td data-searchable><code>raiz_arquivos</code></td><td data-searchable>Valor correspondente a raiz arquivos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>permitir_externo</code></td><td data-searchable>Controla se deve permitir externo.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>Indica o estado de ativo.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>Executa a operação <code>porta</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>url_base</code></td><td data-searchable>Executa a operação <code>url_base</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>ultimo_erro</code></td><td data-searchable>Executa a operação <code>ultimo_erro</code> disponibilizada por <code>coral.web.servidor</code>.</td><td data-searchable><code>BaseException | None</code></td></tr>
+<tr><td data-searchable><code>adicionar_rota</code></td><td data-searchable>Adiciona rota.</td><td data-searchable><code>'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>adicionar_arquivo</code></td><td data-searchable>Adiciona arquivo.</td><td data-searchable><code>'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>Inicia o valor solicitado.</td><td data-searchable><code>'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>encerrar</code></td><td data-searchable>Encerra o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ServidorHTTP(host: str = HOST_PADRAO, porta: int = PORTA_PADRAO, *, limite_corpo: int = LIMITE_CORPO_PADRAO, tempo_limite_corpo: float = TEMPO_LIMITE_CORPO_PADRAO, raiz_arquivos: Any = None, permitir_externo: bool = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>host</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_corpo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>tempo_limite_corpo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>raiz_arquivos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>permitir_externo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ativo</code></td><td data-searchable>propriedade</td><td data-searchable><code>ativo() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>porta</code></td><td data-searchable>propriedade</td><td data-searchable><code>porta() -&gt; int</code></td></tr>
+<tr><td data-searchable><code>url_base</code></td><td data-searchable>propriedade</td><td data-searchable><code>url_base() -&gt; str</code></td></tr>
+<tr><td data-searchable><code>ultimo_erro</code></td><td data-searchable>propriedade</td><td data-searchable><code>ultimo_erro() -&gt; BaseException | None</code></td></tr>
+<tr><td data-searchable><code>adicionar_rota</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_rota(metodo: str, caminho: str, tratador: TratadorHTTP) -&gt; 'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>adicionar_arquivo</code></td><td data-searchable>método</td><td data-searchable><code>adicionar_arquivo(caminho_rota: str, caminho_arquivo: Any, *, limite_arquivo: int = LIMITE_ARQUIVO_PADRAO, cabecalhos: Any = None) -&gt; 'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>iniciar</code></td><td data-searchable>método</td><td data-searchable><code>iniciar() -&gt; 'ServidorHTTP'</code></td></tr>
+<tr><td data-searchable><code>encerrar</code></td><td data-searchable>método</td><td data-searchable><code>encerrar() -&gt; None</code></td></tr>
+</tbody></table></div></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="erroservidorhttp" data-searchable><code>ErroServidorHTTP</code></h4>
+<p data-searchable>Falha operacional do servidor HTTP local da Coral.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroServidorHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p></div></details>
+<h4 id="errorotahttp" data-searchable><code>ErroRotaHTTP</code></h4>
+<p data-searchable>Definição de rota não obedece ao contrato literal do servidor.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroRotaHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p></div></details>
+<h4 id="errolimitecorpohttp" data-searchable><code>ErroLimiteCorpoHTTP</code></h4>
+<p data-searchable>Corpo de requisição excedeu o limite declarado pelo servidor.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroLimiteCorpoHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p></div></details>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="host-padrao" data-searchable><code>HOST_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>HOST_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>HOST_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'127.0.0.1'</code></p></div></details>
+<h4 id="porta-padrao" data-searchable><code>PORTA_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>PORTA_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>PORTA_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>0</code></p></div></details>
+<h4 id="limite-corpo-padrao" data-searchable><code>LIMITE_CORPO_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>LIMITE_CORPO_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>LIMITE_CORPO_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>1 * 1024 * 1024</code></p></div></details>
+<h4 id="limite-arquivo-padrao" data-searchable><code>LIMITE_ARQUIVO_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>LIMITE_ARQUIVO_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>LIMITE_ARQUIVO_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>8 * 1024 * 1024</code></p></div></details>
+<h4 id="tempo-limite-corpo-padrao" data-searchable><code>TEMPO_LIMITE_CORPO_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>TEMPO_LIMITE_CORPO_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TEMPO_LIMITE_CORPO_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.servidor</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/servidor.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>10.0</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="web-http.html"><span>Anterior</span><strong>coral.web.http</strong></a><a class="docs-page-nav-link next" href="web-url.html"><span>Próxima</span><strong>coral.web.url</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#respostas-estruturadas" data-toc-link>Respostas estruturadas</a></li>
+<li class="toc-level-2"><a href="#integracao-com-graficos" data-toc-link>Integração com gráficos</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

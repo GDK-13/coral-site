@@ -12,6 +12,16 @@ O site separa três tipos de conteúdo:
 
 O gerador pode atualizar blocos mecânicos, mas não deve apagar texto pedagógico escrito fora deles.
 
+### Política editorial pública
+
+A landing apresenta o produto atual: proposta da linguagem, recursos, módulos, instalação, documentação e Livro. Ela **não** funciona como diário de desenvolvimento.
+
+* checkpoints, gates, congelamentos e decisões internas não entram na landing;
+* roadmaps não fazem parte do site público;
+* mudanças de versão ficam em **Notas de versão** e devem ser escritas para quem usa a linguagem;
+* o changelog técnico da distribuição pode ser consultado durante a manutenção, mas não é despejado automaticamente na documentação pública.
+
+
 ## 2. Documentação multipágina
 
 A documentação não é mais um único `docs.html` gigante.
@@ -33,7 +43,7 @@ docs/testes.html
 docs/repl_cli.html
 docs/exemplos.html
 docs/livro.html
-docs/release.html
+docs/release.html  # Notas de versão
 ```
 
 Cada módulo também recebe sua própria página:
@@ -129,6 +139,7 @@ coral-site/
 │   │   ├── ...
 │   │   └── modulos/
 │   ├── changelog/
+├── manutencao/
 │   └── REVISAO_PENDENTE.md
 ├── templates/
 │   └── docs.html
@@ -188,7 +199,7 @@ O importador atualiza:
 * operações detectáveis dos módulos;
 * comandos e subcomandos CLI;
 * inventário de exemplos `.coral`;
-* changelog;
+* PDF corrente do Livro, quando presente em `Livro/`;
 * contrato sintático para o realce estático (`docs/dados/sintaxe.json`);
 * snapshot da release anterior;
 * blocos automáticos das páginas de módulos.
@@ -252,7 +263,7 @@ O script genérico substitui validadores presos a uma versão específica e grav
 Depois de importar uma release, leia:
 
 ```text
-docs/REVISAO_PENDENTE.md
+manutencao/REVISAO_PENDENTE.md
 ```
 
 Ele informa módulos novos, removidos ou alterados, mudanças de CLI e mudanças na biblioteca de exemplos.
@@ -269,7 +280,7 @@ Exemplo:
 {
   "coral": "X.Y.Z",
   "extensao_vscode": "A.B.C",
-  "livro": "1.5.8",
+  "livro": "L.M.N",
   "estavel": true
 }
 ```

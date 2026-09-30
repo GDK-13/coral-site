@@ -1,7 +1,8 @@
 {
-  "coral": "1.6.0",
-  "extensao_vscode": "0.53.0",
-  "livro": "1.5.8",
+  "coral": "1.7.0",
+  "extensao_vscode": "0.72.0",
+  "livro": "1.7.0",
   "estavel": true,
-  "fonte_release": "Coral_1.6.0_Completo.zip"
+  "fonte_release": "Coral_1.7.0_Entrega_Final.zip",
+  "livro_pdf": "downloads/Coral_1.7.0_Livro_Oficial.pdf"
 }

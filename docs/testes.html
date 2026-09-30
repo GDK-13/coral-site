@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.">
+  <meta name="description" content="A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.">
   <meta name="theme-color" content="#EF362A">
   <title>Testes — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Testes — Documentação Coral">
-  <meta property="og:description" content="A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.">
+  <meta property="og:description" content="A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Testes — Documentação Coral">
-  <meta name="twitter:description" content="A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.">
+  <meta name="twitter:description" content="A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="repl_cli.html">REPL e CLI</a></li>
 <li><a href="exemplos.html">Exemplos oficiais</a></li>
 <li><a href="livro.html">Livro Oficial</a></li>
-<li><a href="release.html">Release atual</a></li>
+<li><a href="release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a href="modulos/numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="modulos/json.html"><code>coral.json</code></a></li>
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="modulos/web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -112,7 +117,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Guias</div>
       <h1>Testes</h1>
-      <p>A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.</p>
+      <p>A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -123,17 +128,17 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>A Coral trata testes como parte da linguagem e do fluxo de projeto. O objetivo é permitir validação rápida durante o desenvolvimento sem transformar a suíte em uma sequência cada vez mais lenta.</p>
+      <p data-searchable>A Coral trata testes como parte do fluxo normal de um projeto. O objetivo é executar casos rapidamente pela CLI ou pelo VS Code e manter testes próximos do código que eles verificam.</p>
 <h2 id="teste-basico" data-searchable>Teste básico</h2>
 <p data-searchable>Um projeto pode manter seus casos em uma pasta de testes declarada no <code>coral.toml</code>. O runner descobre esses casos e o VS Code os apresenta no Test Explorer.</p>
 <h2 id="executar-pela-cli" data-searchable>Executar pela CLI</h2>
-<p data-searchable>A CLI expõe o runner por comandos próprios. Para descobrir as opções disponíveis na release atual, consulte a página <strong>REPL e CLI</strong> ou execute a ajuda do runtime.</p>
+<p data-searchable>A CLI expõe o runner por comandos próprios. Para descobrir as opções disponíveis na edição atual, consulte <strong>REPL e CLI</strong> ou execute a ajuda do runtime.</p>
 <h2 id="test-explorer" data-searchable>Test Explorer</h2>
 <p data-searchable>No VS Code, testes podem ser executados, repetidos e depurados sem abrir um terminal separado. Casos parametrizados, grupos e skips são representados quando o runner fornece essa informação.</p>
-<h2 id="politica-anti-acumulo" data-searchable>Política anti acúmulo</h2>
-<p data-searchable>A Coral separa validações rápidas, verificações lentas e contratos históricos. Durante o desenvolvimento, cada correção roda apenas o conjunto afetado. A bateria completa fica reservada ao congelamento da release.</p>
-<p data-searchable>Isso evita repetir continuamente centenas de verificações que já estavam verdes e não foram afetadas pela mudança atual.</p>
-<div class="callout"><div class="ring-stripe" aria-hidden="true"></div><div class="callout-body"><p data-searchable>Testes que dependem de janela, áudio, entrada física ou ambiente gráfico pertencem aos gates de campo e não ao loop rápido cotidiano.</p></div></div>
+<h2 id="testes-rapidos-e-testes-de-ambiente" data-searchable>Testes rápidos e testes de ambiente</h2>
+<p data-searchable>Casos puramente lógicos devem permanecer rápidos e reproduzíveis. Testes que dependem de janela, áudio, entrada física, GPU, rede local ou hardware devem declarar essa dependência de ambiente em vez de mascará la como falha lógica.</p>
+<h2 id="boa-pratica" data-searchable>Boa prática</h2>
+<p data-searchable>Mantenha cada teste focado em um comportamento observável. Quando um recurso depende de tempo, aleatoriedade ou entrada, prefira as fontes controláveis oferecidas pelos módulos correspondentes para tornar o caso repetível.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="vscode.html"><span>Anterior</span><strong>VS Code</strong></a><a class="docs-page-nav-link next" href="repl_cli.html"><span>Próxima</span><strong>REPL e CLI</strong></a></nav>
   </main>
@@ -143,7 +148,8 @@
     <ul><li class="toc-level-2"><a href="#teste-basico" data-toc-link>Teste básico</a></li>
 <li class="toc-level-2"><a href="#executar-pela-cli" data-toc-link>Executar pela CLI</a></li>
 <li class="toc-level-2"><a href="#test-explorer" data-toc-link>Test Explorer</a></li>
-<li class="toc-level-2"><a href="#politica-anti-acumulo" data-toc-link>Política anti acúmulo</a></li></ul>
+<li class="toc-level-2"><a href="#testes-rapidos-e-testes-de-ambiente" data-toc-link>Testes rápidos e testes de ambiente</a></li>
+<li class="toc-level-2"><a href="#boa-pratica" data-toc-link>Boa prática</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

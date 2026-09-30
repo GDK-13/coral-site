@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -135,7 +140,7 @@ garanta que jogo.<span class="code-fn">botao_mouse_pressionado</span>(<span clas
 <p data-searchable><strong>Importação:</strong> <code>coral.jogos</code> <strong>Categoria:</strong> jogos</p>
 <p data-searchable>janela, desenho, sprites, animação, câmera, apresentação, cenas, mapas e eventos de jogo</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>Jogo</code>, <code>TransicaoCena</code>, <code>MetricasJogo</code>, <code>Cor</code>, <code>Retangulo</code>, <code>BackendNulo</code>, <code>ErroJogosCoral</code>, <code>DependenciaJogosAusente</code>, <code>PRETO</code>, <code>BRANCO</code>, <code>VERMELHO</code>, <code>VERDE</code>, <code>AZUL</code>, <code>AMARELO</code>, <code>criar_jogo</code>, <code>pygame_disponivel</code>, <code>diagnosticar_jogos</code>, <code>Assets</code>, <code>Sprite</code>, <code>Cena</code>, <code>CamadaApresentacao</code>, <code>TextoApresentacao</code>, <code>RepresentacaoEntidade</code>, <code>ErroAssetCoral</code>, <code>Animacao</code>, <code>AnimacoesDirecionais</code>, <code>VinculoAnimacaoMovimento</code>, <code>EstadosAnimacao</code>, <code>VinculoEstadosAnimacaoMovimento</code>, <code>TransicaoEstadoAnimacao</code>, <code>CondicaoTransicaoAnimacao</code>, <code>TransicoesEstadosAnimacao</code>, <code>VinculoTransicoesEstadosMovimento</code>, <code>VinculoTransicoesEventos</code>, <code>EfeitoCamera</code>, <code>Camera</code>, <code>VinculoClipe</code>, <code>ligar_clipe</code>, <code>registrar_propriedade_animavel</code>, <code>QuadroSprite</code>, <code>Spritesheet</code>, <code>carregar_spritesheet</code>, <code>FormaTransformada</code>, <code>formas_colidem</code>, <code>CanalAnimado</code>, <code>AnimacaoTransformacao</code>, <code>onda_seno</code>, <code>onda_cosseno</code>, <code>onda_triangular</code>, <code>onda_serra</code>, <code>onda_pulso</code>, <code>normalizar_progresso</code>, <code>curva_linear</code>, <code>curva_entrada_suave</code>, <code>curva_saida_suave</code>, <code>curva_entrada_saida_suave</code>, <code>curva_quadratica</code>, <code>curva_cubica</code>, <code>curva_degrau</code>, <code>resolver_curva_temporal</code>, <code>avaliar_curva_temporal</code>, <code>interpolar</code>, <code>QuadroChave</code>, <code>FaixaAnimacao</code>, <code>ClipeAnimacao</code>, <code>AcaoApresentacao</code>, <code>EsperaApresentacao</code>, <code>EsperaConclusao</code>, <code>SequenciaApresentacao</code>, <code>ParaleloApresentacao</code>, <code>ComposicaoTemporal</code>, <code>VinculoTempoApresentacao</code>, <code>VinculoComposicaoEventos</code>, <code>ComandoComposicao</code>, <code>GravadorComposicao</code>, <code>executar</code>, <code>esperar</code>, <code>esperar_conclusao</code>, <code>sequencia</code>, <code>paralelo</code>, <code>usar_fonte_tempo</code>, <code>ligar_evento</code>, <code>forma_espacial_sprite</code>, <code>posicao_espacial_sprite</code>, <code>sprites_colidem</code>, <code>AdaptadorEventosJogo</code>, <code>adaptar_eventos</code>, <code>Viewport</code>, <code>CONTRATO_OVERLAY_DEBUG</code>, <code>PrimitivaDebug</code>, <code>OverlayDebug</code>, <code>EstiloOverlayDebug</code>, <code>ConfiguracaoDebugJogo</code>, <code>normalizar_categorias_debug</code>, <code>gerar_overlay_debug</code>, <code>gerar_overlay_metricas_debug</code>, <code>desenhar_overlay_debug</code>, <code>EstiloCelula</code>, <code>RenderizadorMapa2D</code>, <code>celula_para_tela</code>, <code>mundo_para_tela</code>, <code>tela_para_celula</code>, <code>tela_para_mundo</code>, <code>animar_propriedade</code>, <code>reproduzir_ao_contrario</code></p>
+<p data-searchable><code>Jogo</code>, <code>TransicaoCena</code>, <code>MetricasJogo</code>, <code>Cor</code>, <code>Retangulo</code>, <code>BackendNulo</code>, <code>ErroJogosCoral</code>, <code>DependenciaJogosAusente</code>, <code>PRETO</code>, <code>BRANCO</code>, <code>VERMELHO</code>, <code>VERDE</code>, <code>AZUL</code>, <code>AMARELO</code>, <code>criar_jogo</code>, <code>pygame_disponivel</code>, <code>diagnosticar_jogos</code>, <code>Assets</code>, <code>Sprite</code>, <code>Cena</code>, <code>CamadaApresentacao</code>, <code>TextoApresentacao</code>, <code>RepresentacaoEntidade</code>, <code>ErroAssetCoral</code>, <code>Animacao</code>, <code>AnimacoesDirecionais</code>, <code>VinculoAnimacaoMovimento</code>, <code>EstadosAnimacao</code>, <code>VinculoEstadosAnimacaoMovimento</code>, <code>TransicaoEstadoAnimacao</code>, <code>CondicaoTransicaoAnimacao</code>, <code>TransicoesEstadosAnimacao</code>, <code>VinculoTransicoesEstadosMovimento</code>, <code>VinculoTransicoesEventos</code>, <code>EfeitoCamera</code>, <code>Camera</code>, <code>VinculoClipe</code>, <code>ligar_clipe</code>, <code>registrar_propriedade_animavel</code>, <code>QuadroSprite</code>, <code>Spritesheet</code>, <code>carregar_spritesheet</code>, <code>FormaTransformada</code>, <code>formas_colidem</code>, <code>CanalAnimado</code>, <code>AnimacaoTransformacao</code>, <code>onda_seno</code>, <code>onda_cosseno</code>, <code>onda_triangular</code>, <code>onda_serra</code>, <code>onda_pulso</code>, <code>normalizar_progresso</code>, <code>curva_linear</code>, <code>curva_entrada_suave</code>, <code>curva_saida_suave</code>, <code>curva_entrada_saida_suave</code>, <code>curva_quadratica</code>, <code>curva_cubica</code>, <code>curva_degrau</code>, <code>resolver_curva_temporal</code>, <code>avaliar_curva_temporal</code>, <code>interpolar</code>, <code>QuadroChave</code>, <code>FaixaAnimacao</code>, <code>ClipeAnimacao</code>, <code>AcaoApresentacao</code>, <code>EsperaApresentacao</code>, <code>EsperaConclusao</code>, <code>SequenciaApresentacao</code>, <code>ParaleloApresentacao</code>, <code>ComposicaoTemporal</code>, <code>VinculoTempoApresentacao</code>, <code>VinculoComposicaoEventos</code>, <code>ComandoComposicao</code>, <code>GravadorComposicao</code>, <code>executar</code>, <code>esperar</code>, <code>esperar_conclusao</code>, <code>sequencia</code>, <code>paralelo</code>, <code>usar_fonte_tempo</code>, <code>ligar_evento</code>, <code>forma_espacial_sprite</code>, <code>posicao_espacial_sprite</code>, <code>sprites_colidem</code>, <code>AdaptadorEventosJogo</code>, <code>adaptar_eventos</code>, <code>Viewport</code>, <code>CONTRATO_OVERLAY_DEBUG</code>, <code>PrimitivaDebug</code>, <code>OverlayDebug</code>, <code>EstiloOverlayDebug</code>, <code>ConfiguracaoDebugJogo</code>, <code>normalizar_categorias_debug</code>, <code>gerar_overlay_debug</code>, <code>gerar_overlay_metricas_debug</code>, <code>desenhar_overlay_debug</code>, <code>EstiloCelula</code>, <code>RenderizadorMapa2D</code>, <code>celula_para_tela</code>, <code>mundo_para_tela</code>, <code>tela_para_celula</code>, <code>tela_para_mundo</code>, <code>animar_propriedade</code>, <code>reproduzir_ao_contrario</code>, <code>sprites_de_pontos</code>, <code>sprites_de_receita</code>, <code>popular_cena_procedural</code>, <code>aplicar_campo_em_sprites</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>O módulo apresenta e controla interação. Estado persistente e semântica do domínio pertencem a <code>coral.mundo</code>, <code>coral.rpg</code>, <code>coral.simulacao</code> ou outro módulo apropriado. <code>RepresentacaoEntidade</code> liga uma entidade a um <code>Sprite</code> sem transformar o objeto visual na fonte de verdade do sistema.</p>
 <p data-searchable>Na 1.5.13 essa separação também vale para câmera, efeitos, HUD, transições e composição temporal. A apresentação pode reagir ao domínio, mas não assume sua autoridade.</p>
@@ -262,8 +267,8 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <p data-searchable><code>coral.mundo</code> fornece mapas e entidades. <code>coral.tempo_eventos</code> fornece o barramento usado por vínculos opcionais. <code>coral.rpg</code> fornece personagens. <code>coral.procedural</code> cuida de geração determinística e <code>coral.simulacao</code> pode evoluir o estado temporal sem depender da janela. A apresentação consome essas informações por pontes, sem inverter a direção das dependências.</p>
 <h2 id="testabilidade-e-ambientes" data-searchable>Testabilidade e ambientes</h2>
 <p data-searchable>O backend nulo permite validar transformação de câmera, avanço temporal, transições de estado, composição e entrada simulada sem abrir janela. Gates gráficos reais continuam necessários para janela, driver, renderização, áudio, teclado, mouse e GPU.</p>
-<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A <strong>Coral 1.6.0</strong> mantém a superfície pública de Jogos detectada nas releases anteriores. Os recursos de apresentação introduzidos na 1.5.13 seguem disponíveis; a 1.6.0 concentra mudanças em coesão interna e fronteiras arquiteturais sem remover essa API. O Livro Oficial permanece na edição 1.5.8.</p>
+<h2 id="compatibilidade-e-integracao" data-searchable>Compatibilidade e integração</h2>
+<p data-searchable>A API pública de Jogos reúne apresentação 2D, câmera, animação, mapas, depuração e integração procedural. Espaço e geometria gerais continuam fora de Jogos, permitindo que outros domínios reutilizem a mesma base sem depender de Pygame.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="criar-jogo" data-searchable><code>criar_jogo</code></h4>
@@ -1264,6 +1269,142 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.objetos</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/objetos.py</code></p>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="sprites-de-pontos" data-searchable><code>sprites_de_pontos</code></h4>
+<p data-searchable>Converte pontos 2D determinísticos em sprites sem abrir janela.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>Valor correspondente a pontos.</td><td data-searchable><code>Iterable[Sequence[float]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>largura</code></td><td data-searchable>Largura usada pela operação.</td><td data-searchable><code>float</code></td><td data-searchable><code>16.0</code></td></tr>
+<tr><td data-searchable><code>altura</code></td><td data-searchable>Altura usada pela operação.</td><td data-searchable><code>float</code></td><td data-searchable><code>16.0</code></td></tr>
+<tr><td data-searchable><code>imagem</code></td><td data-searchable>Valor correspondente a imagem.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>cor</code></td><td data-searchable>Valor correspondente a cor.</td><td data-searchable><code>Cor</code></td><td data-searchable><code>BRANCO</code></td></tr>
+<tr><td data-searchable><code>nome_base</code></td><td data-searchable>Valor correspondente a nome base.</td><td data-searchable><code>str</code></td><td data-searchable><code>'procedural'</code></td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>Valor correspondente a campos.</td><td data-searchable><code>Mapping[str, CampoProcedural] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>fabrica</code></td><td data-searchable>Valor correspondente a fabrica.</td><td data-searchable><code>Callable[[int, float, float, dict[str, Any]], Sprite] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_sprites</code></td><td data-searchable>Valor correspondente a limite sprites.</td><td data-searchable><code>int</code></td><td data-searchable><code>10000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[Sprite, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>sprites_de_pontos(pontos: Iterable[Sequence[float]], *, largura: float = 16.0, altura: float = 16.0, imagem: Any = None, cor: Cor = BRANCO, nome_base: str = 'procedural', dados: Mapping[str, Any] \| None = None, campos: Mapping[str, CampoProcedural] \| None = None, fabrica: Callable[[int, float, float, dict[str, Any]], Sprite] \| None = None, limite_sprites: int = 10000) -&gt; tuple[Sprite, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>largura</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>altura</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>imagem</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>cor</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>nome_base</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>fabrica</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_sprites</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="sprites-de-receita" data-searchable><code>sprites_de_receita</code></h4>
+<p data-searchable>Reconstrói uma receita de pontos e a adapta para sprites.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>ReceitaProcedural | Mapping[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>Valor correspondente a limite custo.</td><td data-searchable><code>int</code></td><td data-searchable><code>1000000</code></td></tr>
+<tr><td data-searchable><code>**opcoes_sprite</code></td><td data-searchable>Valor correspondente a opcoes sprite.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[Sprite, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>sprites_de_receita(receita: ReceitaProcedural \| Mapping[str, Any], *, limite_custo: int = 1000000, **opcoes_sprite: Any) -&gt; tuple[Sprite, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>**opcoes_sprite</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="popular-cena-procedural" data-searchable><code>popular_cena_procedural</code></h4>
+<p data-searchable>Cria sprites procedurais e os adiciona a uma cena existente.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cena</code></td><td data-searchable>Valor correspondente a cena.</td><td data-searchable><code>Cena</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>Valor correspondente a pontos.</td><td data-searchable><code>Iterable[Sequence[float]] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>ReceitaProcedural | Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>camada</code></td><td data-searchable>Valor correspondente a camada.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>Valor correspondente a limite custo.</td><td data-searchable><code>int</code></td><td data-searchable><code>1000000</code></td></tr>
+<tr><td data-searchable><code>**opcoes_sprite</code></td><td data-searchable>Valor correspondente a opcoes sprite.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[Sprite, ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>popular_cena_procedural(cena: Cena, *, pontos: Iterable[Sequence[float]] \| None = None, receita: ReceitaProcedural \| Mapping[str, Any] \| None = None, camada: Any = None, limite_custo: int = 1000000, **opcoes_sprite: Any) -&gt; tuple[Sprite, ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>cena</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>camada</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>**opcoes_sprite</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="aplicar-campo-em-sprites" data-searchable><code>aplicar_campo_em_sprites</code></h4>
+<p data-searchable>Avalia um campo 2D na posição dos sprites e grava o valor em `<code>dados</code>`.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>Valor correspondente a campo.</td><td data-searchable><code>CampoProcedural</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sprites</code></td><td data-searchable>Valor correspondente a sprites.</td><td data-searchable><code>Iterable[Sprite]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>chave</code></td><td data-searchable>Chave usada para localizar ou identificar um valor.</td><td data-searchable><code>str</code></td><td data-searchable><code>'valor_procedural'</code></td></tr>
+<tr><td data-searchable><code>usar_centro</code></td><td data-searchable>Controla se deve usar centro.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>limite_sprites</code></td><td data-searchable>Valor correspondente a limite sprites.</td><td data-searchable><code>int</code></td><td data-searchable><code>10000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>int</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>aplicar_campo_em_sprites(campo: CampoProcedural, sprites: Iterable[Sprite], *, chave: str = 'valor_procedural', usar_centro: bool = False, limite_sprites: int = 10000) -&gt; int</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.jogos.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>sprites</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>chave</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>usar_centro</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_sprites</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="jogo" data-searchable><code>Jogo</code></h4>
 <p data-searchable>Representa ciclo principal, entrada, cenas e transições.</p>
@@ -4312,7 +4453,7 @@ execute heroi.<span class="code-fn">atualizar</span>(<span class="code-num">0.5<
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
 <li class="toc-level-2"><a href="#testabilidade-e-ambientes" data-toc-link>Testabilidade e ambientes</a></li>
-<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-integracao" data-toc-link>Compatibilidade e integração</a></li>
 <li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li>
 <li class="toc-level-2"><a href="#compatibilidade-e-dependencias" data-toc-link>Compatibilidade e dependências</a></li></ul>
   </aside>

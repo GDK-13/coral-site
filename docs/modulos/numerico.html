@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a class="active" aria-current="page" href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -138,7 +143,7 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <p data-searchable><strong>Importação:</strong> <code>coral.numerico</code> <strong>Categoria:</strong> cientifico</p>
 <p data-searchable>vetores, matrizes, estatística e álgebra numérica</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>DependenciaNumericaAusente</code>, <code>ErroNumerico</code>, <code>numpy_disponivel</code>, <code>diagnosticar_numerico</code>, <code>vetor</code>, <code>matriz</code>, <code>zeros</code>, <code>uns</code>, <code>intervalo</code>, <code>espaco_linear</code>, <code>soma</code>, <code>media</code>, <code>mediana</code>, <code>variancia</code>, <code>desvio_padrao</code>, <code>minimo</code>, <code>maximo</code>, <code>transposta</code>, <code>produto_escalar</code>, <code>multiplicar_matrizes</code>, <code>determinante</code>, <code>inversa</code>, <code>resolver_sistema</code>, <code>autovalores</code>, <code>forma</code></p>
+<p data-searchable><code>DependenciaNumericaAusente</code>, <code>ErroNumerico</code>, <code>ResultadoMinimosQuadrados</code>, <code>ResultadoRegressaoLinear</code>, <code>ResultadoBootstrap</code>, <code>ResultadoTestePermutacao</code>, <code>numpy_disponivel</code>, <code>diagnosticar_numerico</code>, <code>vetor</code>, <code>matriz</code>, <code>zeros</code>, <code>uns</code>, <code>intervalo</code>, <code>espaco_linear</code>, <code>identidade</code>, <code>remodelar</code>, <code>concatenar</code>, <code>selecionar_coluna</code>, <code>soma</code>, <code>media</code>, <code>mediana</code>, <code>variancia</code>, <code>desvio_padrao</code>, <code>minimo</code>, <code>maximo</code>, <code>percentil</code>, <code>covariancia</code>, <code>correlacao</code>, <code>frequencias</code>, <code>moda</code>, <code>quartis</code>, <code>amplitude</code>, <code>intervalo_interquartil</code>, <code>mediana_desvios_absolutos</code>, <code>media_ponderada</code>, <code>media_geometrica</code>, <code>media_harmonica</code>, <code>histograma</code>, <code>erro_padrao</code>, <code>assimetria</code>, <code>curtose</code>, <code>matriz_covariancia</code>, <code>matriz_correlacao</code>, <code>regressao_linear</code>, <code>intervalo_bootstrap</code>, <code>teste_permutacao</code>, <code>norma</code>, <code>normalizar</code>, <code>produto_vetorial</code>, <code>posto</code>, <code>minimos_quadrados</code>, <code>vetor3</code>, <code>distancia_vetores</code>, <code>angulo_entre_vetores</code>, <code>projecao_vetorial</code>, <code>produto_misto3</code>, <code>volume_paralelepipedo3</code>, <code>rotacionar3</code>, <code>transformar_ponto3</code>, <code>matriz_rotacao3</code>, <code>matriz_translacao3</code>, <code>matriz_escala3</code>, <code>compor_transformacoes3</code>, <code>transformar_vetor3</code>, <code>distancia_ponto_plano3</code>, <code>projetar_ponto_plano3</code>, <code>intersecao_reta_plano3</code>, <code>coordenadas_esfericas3</code>, <code>ponto_de_esfericas3</code>, <code>area_triangulo3</code>, <code>volume_tetraedro3</code>, <code>transposta</code>, <code>produto_escalar</code>, <code>multiplicar_matrizes</code>, <code>determinante</code>, <code>inversa</code>, <code>resolver_sistema</code>, <code>autovalores</code>, <code>forma</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>Use <code>coral.numerico</code> quando o problema deixa de ser apenas aritmética escalar e passa a envolver séries, matrizes, medidas estatísticas ou álgebra linear. Para operações matemáticas simples e portáveis, <code>coral.matematica</code> costuma ser uma dependência menor.</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">valores escalares ── coral.matematica
@@ -159,7 +164,7 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <p data-searchable>Use este módulo para análise numérica, processamento de séries, modelos matriciais, simulações, pós processamento de experimentos e algoritmos que realmente dependem de estruturas multidimensionais.</p>
 <p data-searchable>Evite introduzi lo apenas para somar alguns números ou calcular uma raiz: nesses casos <code>coral.matematica</code> mantém a dependência menor e a intenção mais clara.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
-<p data-searchable>A release 1.6.0 usa <code>coral.numerico</code> no projeto de laboratório de algoritmos. O trecho abaixo vem de <code>Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral</code>:</p>
+<p data-searchable>A release 1.7.0 usa <code>coral.numerico</code> no projeto de laboratório de algoritmos. O trecho abaixo vem de <code>Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/analise.coral</code>:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
 de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
 
@@ -344,6 +349,77 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="identidade" data-searchable><code>identidade</code></h4>
+<p data-searchable>Executa a operação <code>identidade</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ordem</code></td><td data-searchable>Valor correspondente a ordem.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>identidade(ordem)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="remodelar" data-searchable><code>remodelar</code></h4>
+<p data-searchable>Executa a operação <code>remodelar</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>forma</code></td><td data-searchable>Forma ou dimensões da estrutura a criar.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>remodelar(valores, forma)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="concatenar" data-searchable><code>concatenar</code></h4>
+<p data-searchable>Executa a operação <code>concatenar</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eixo</code></td><td data-searchable>Valor correspondente a eixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>concatenar(valores, eixo = 0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="selecionar-coluna" data-searchable><code>selecionar_coluna</code></h4>
+<p data-searchable>Executa a operação <code>selecionar_coluna</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>Valor correspondente a campo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ausentes</code></td><td data-searchable>Valor correspondente a ausentes.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'erro'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>selecionar_coluna(registros, campo, ausentes = 'erro')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
 <h4 id="soma" data-searchable><code>soma</code></h4>
 <p data-searchable>Calcula a soma dos valores.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -470,6 +546,846 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>maximo(valores)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="percentil" data-searchable><code>percentil</code></h4>
+<p data-searchable>Executa a operação <code>percentil</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>percentual</code></td><td data-searchable>Valor correspondente a percentual.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>percentil(valores, percentual)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="covariancia" data-searchable><code>covariancia</code></h4>
+<p data-searchable>Executa a operação <code>covariancia</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>populacional</code></td><td data-searchable>Valor correspondente a populacional.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>covariancia(a, b, populacional = True)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="correlacao" data-searchable><code>correlacao</code></h4>
+<p data-searchable>Executa a operação <code>correlacao</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>correlacao(a, b)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="frequencias" data-searchable><code>frequencias</code></h4>
+<p data-searchable>Executa a operação <code>frequencias</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>frequencias(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="moda" data-searchable><code>moda</code></h4>
+<p data-searchable>Executa a operação <code>moda</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>moda(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="quartis" data-searchable><code>quartis</code></h4>
+<p data-searchable>Executa a operação <code>quartis</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>quartis(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="amplitude" data-searchable><code>amplitude</code></h4>
+<p data-searchable>Executa a operação <code>amplitude</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>amplitude(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="intervalo-interquartil" data-searchable><code>intervalo_interquartil</code></h4>
+<p data-searchable>Executa a operação <code>intervalo_interquartil</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>intervalo_interquartil(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="mediana-desvios-absolutos" data-searchable><code>mediana_desvios_absolutos</code></h4>
+<p data-searchable>Executa a operação <code>mediana_desvios_absolutos</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>mediana_desvios_absolutos(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="media-ponderada" data-searchable><code>media_ponderada</code></h4>
+<p data-searchable>Executa a operação <code>media_ponderada</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pesos</code></td><td data-searchable>Pesos associados aos valores usados na escolha.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>media_ponderada(valores, pesos)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="media-geometrica" data-searchable><code>media_geometrica</code></h4>
+<p data-searchable>Executa a operação <code>media_geometrica</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>media_geometrica(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="media-harmonica" data-searchable><code>media_harmonica</code></h4>
+<p data-searchable>Executa a operação <code>media_harmonica</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>media_harmonica(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="histograma" data-searchable><code>histograma</code></h4>
+<p data-searchable>Executa a operação <code>histograma</code> disponibilizada por <code>coral.numerico</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>faixas</code></td><td data-searchable>Valor correspondente a faixas.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>histograma(valores, faixas)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="erro-padrao" data-searchable><code>erro_padrao</code></h4>
+<p data-searchable>Calcula o erro padrão da média usando o desvio amostral.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>erro_padrao(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="assimetria" data-searchable><code>assimetria</code></h4>
+<p data-searchable>Momento padronizado de ordem 3, sem correção de viés amostral.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>assimetria(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="curtose" data-searchable><code>curtose</code></h4>
+<p data-searchable>Curtose em excesso pelo quarto momento padronizado, isto é, normal = 0.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>curtose(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="matriz-covariancia" data-searchable><code>matriz_covariancia</code></h4>
+<p data-searchable>Matriz de covariância com linhas como observações e colunas como variáveis.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>populacional</code></td><td data-searchable>Valor correspondente a populacional.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>False</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_covariancia(dados, populacional = False)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="matriz-correlacao" data-searchable><code>matriz_correlacao</code></h4>
+<p data-searchable>Matriz de correlação de Pearson para colunas observadas conjuntamente.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dados</code></td><td data-searchable>Dados processados pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_correlacao(dados)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="regressao-linear" data-searchable><code>regressao_linear</code></h4>
+<p data-searchable>Ajusta `<code>y = intercepto + inclinacao * x</code>` por mínimos quadrados simples.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>regressao_linear(x, y)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="intervalo-bootstrap" data-searchable><code>intervalo_bootstrap</code></h4>
+<p data-searchable>Intervalo bootstrap percentil reproduzível com gerador aleatório local.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estatistica</code></td><td data-searchable>Valor correspondente a estatistica.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>confianca</code></td><td data-searchable>Valor correspondente a confianca.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>intervalo_bootstrap(valores, estatistica, confianca, repeticoes, semente)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="teste-permutacao" data-searchable><code>teste_permutacao</code></h4>
+<p data-searchable>Teste de permutação bilateral para diferença de uma estatística entre grupos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estatistica</code></td><td data-searchable>Valor correspondente a estatistica.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>teste_permutacao(a, b, estatistica, repeticoes, semente)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="norma" data-searchable><code>norma</code></h4>
+<p data-searchable>Norma euclidiana de um vetor finito e não vazio.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>norma(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="normalizar" data-searchable><code>normalizar</code></h4>
+<p data-searchable>Devolve uma cópia do vetor com norma euclidiana igual a um.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>valores</code></td><td data-searchable>Coleção de valores processada.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>normalizar(valores)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="produto-vetorial" data-searchable><code>produto_vetorial</code></h4>
+<p data-searchable>Produto vetorial exclusivo de vetores tridimensionais.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>produto_vetorial(a, b)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="posto" data-searchable><code>posto</code></h4>
+<p data-searchable>Posto numérico de uma matriz pela tolerância padrão da decomposição SVD do NumPy.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>matriz</code></td><td data-searchable>Valor correspondente a matriz.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>posto(matriz)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="minimos-quadrados" data-searchable><code>minimos_quadrados</code></h4>
+<p data-searchable>Resolve um ajuste linear por mínimos quadrados sem exigir sistema quadrado.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>coeficientes</code></td><td data-searchable>Valor correspondente a coeficientes.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>termos</code></td><td data-searchable>Valor correspondente a termos.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>minimos_quadrados(coeficientes, termos)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="vetor3" data-searchable><code>vetor3</code></h4>
+<p data-searchable>Constrói um vetor numérico tridimensional `<code>(x, y, z)</code>`.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>x</code></td><td data-searchable>Coordenada horizontal.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>y</code></td><td data-searchable>Coordenada vertical.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>z</code></td><td data-searchable>Valor correspondente a z.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>vetor3(x, y, z)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="distancia-vetores" data-searchable><code>distancia_vetores</code></h4>
+<p data-searchable>Distância euclidiana entre vetores finitos da mesma dimensão.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>distancia_vetores(a, b)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="angulo-entre-vetores" data-searchable><code>angulo_entre_vetores</code></h4>
+<p data-searchable>Ângulo em radianos entre vetores não nulos da mesma dimensão.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>angulo_entre_vetores(a, b)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="projecao-vetorial" data-searchable><code>projecao_vetorial</code></h4>
+<p data-searchable>Projeta `<code>a</code>` sobre um vetor não nulo, preservando a dimensão.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sobre</code></td><td data-searchable>Valor correspondente a sobre.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>projecao_vetorial(a, sobre)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="produto-misto3" data-searchable><code>produto_misto3</code></h4>
+<p data-searchable>Produto misto orientado de três vetores tridimensionais.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>c</code></td><td data-searchable>Valor correspondente a c.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>produto_misto3(a, b, c)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="volume-paralelepipedo3" data-searchable><code>volume_paralelepipedo3</code></h4>
+<p data-searchable>Volume do paralelepípedo gerado por três vetores 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>c</code></td><td data-searchable>Valor correspondente a c.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>volume_paralelepipedo3(a, b, c)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="rotacionar3" data-searchable><code>rotacionar3</code></h4>
+<p data-searchable>Rotaciona um vetor 3D em torno de um eixo não nulo, em radianos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>vetor</code></td><td data-searchable>Valor correspondente a vetor.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>eixo</code></td><td data-searchable>Valor correspondente a eixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>angulo</code></td><td data-searchable>Valor correspondente a angulo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>rotacionar3(vetor, eixo, angulo)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="transformar-ponto3" data-searchable><code>transformar_ponto3</code></h4>
+<p data-searchable>Aplica uma transformação afim homogênea 4 × 4 a um ponto 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ponto</code></td><td data-searchable>Valor correspondente a ponto.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transformacao</code></td><td data-searchable>Valor correspondente a transformacao.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>transformar_ponto3(ponto, transformacao)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="matriz-rotacao3" data-searchable><code>matriz_rotacao3</code></h4>
+<p data-searchable>Matriz 3 × 3 de Rodrigues para rotação em torno de um eixo 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>eixo</code></td><td data-searchable>Valor correspondente a eixo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>angulo</code></td><td data-searchable>Valor correspondente a angulo.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_rotacao3(eixo, angulo)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="matriz-translacao3" data-searchable><code>matriz_translacao3</code></h4>
+<p data-searchable>Matriz afim 4 × 4 de translação 3D em convenção de vetor coluna.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>dx</code></td><td data-searchable>Valor correspondente a dx.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dy</code></td><td data-searchable>Valor correspondente a dy.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>dz</code></td><td data-searchable>Valor correspondente a dz.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_translacao3(dx, dy, dz)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="matriz-escala3" data-searchable><code>matriz_escala3</code></h4>
+<p data-searchable>Matriz afim 4 × 4 de escala uniforme ou independente por eixo.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sx</code></td><td data-searchable>Valor correspondente a sx.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sy</code></td><td data-searchable>Valor correspondente a sy.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>sz</code></td><td data-searchable>Valor correspondente a sz.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_escala3(sx, sy = None, sz = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="compor-transformacoes3" data-searchable><code>compor_transformacoes3</code></h4>
+<p data-searchable>Compõe transformações 3D na ordem em que são aplicadas ao ponto.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*transformacoes</code></td><td data-searchable>Valor correspondente a transformacoes.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>compor_transformacoes3(*transformacoes)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*transformacoes</code></td><td data-searchable>variádico</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="transformar-vetor3" data-searchable><code>transformar_vetor3</code></h4>
+<p data-searchable>Aplica a parte linear de uma transformação afim, ignorando translação.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>vetor</code></td><td data-searchable>Valor correspondente a vetor.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>transformacao</code></td><td data-searchable>Valor correspondente a transformacao.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>transformar_vetor3(vetor, transformacao)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="distancia-ponto-plano3" data-searchable><code>distancia_ponto_plano3</code></h4>
+<p data-searchable>Distância euclidiana não negativa entre um ponto e um plano 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ponto</code></td><td data-searchable>Valor correspondente a ponto.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_plano</code></td><td data-searchable>Valor correspondente a ponto plano.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>normal</code></td><td data-searchable>Valor correspondente a normal.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>distancia_ponto_plano3(ponto, ponto_plano, normal)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="projetar-ponto-plano3" data-searchable><code>projetar_ponto_plano3</code></h4>
+<p data-searchable>Projeção ortogonal de um ponto sobre um plano 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ponto</code></td><td data-searchable>Valor correspondente a ponto.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_plano</code></td><td data-searchable>Valor correspondente a ponto plano.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>normal</code></td><td data-searchable>Valor correspondente a normal.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>projetar_ponto_plano3(ponto, ponto_plano, normal)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="intersecao-reta-plano3" data-searchable><code>intersecao_reta_plano3</code></h4>
+<p data-searchable>Interseção reta plano; retorna None para paralelas distintas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>direcao</code></td><td data-searchable>Valor correspondente a direcao.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ponto_plano</code></td><td data-searchable>Valor correspondente a ponto plano.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>normal</code></td><td data-searchable>Valor correspondente a normal.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tolerancia</code></td><td data-searchable>Valor correspondente a tolerancia.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>1e-12</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>intersecao_reta_plano3(origem, direcao, ponto_plano, normal, *, tolerancia = 1e-12)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>direcao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>ponto_plano</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>normal</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tolerancia</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="coordenadas-esfericas3" data-searchable><code>coordenadas_esfericas3</code></h4>
+<p data-searchable>Converte (x, y, z) em (raio, azimute, elevação), em radianos.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ponto</code></td><td data-searchable>Valor correspondente a ponto.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>coordenadas_esfericas3(ponto)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="ponto-de-esfericas3" data-searchable><code>ponto_de_esfericas3</code></h4>
+<p data-searchable>Converte (raio, azimute, elevação) para ponto cartesiano 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>raio</code></td><td data-searchable>Valor correspondente a raio.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>azimute</code></td><td data-searchable>Valor correspondente a azimute.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>elevacao</code></td><td data-searchable>Valor correspondente a elevacao.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ponto_de_esfericas3(raio, azimute, elevacao)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="area-triangulo3" data-searchable><code>area_triangulo3</code></h4>
+<p data-searchable>Área do triângulo definido por três pontos 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>c</code></td><td data-searchable>Valor correspondente a c.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>area_triangulo3(a, b, c)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
+<h4 id="volume-tetraedro3" data-searchable><code>volume_tetraedro3</code></h4>
+<p data-searchable>Volume do tetraedro definido por quatro pontos 3D.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>a</code></td><td data-searchable>Valor correspondente a a.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>b</code></td><td data-searchable>Valor correspondente a b.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>c</code></td><td data-searchable>Valor correspondente a c.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>d</code></td><td data-searchable>Valor correspondente a d.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna o resultado produzido pela operação; o tipo não é declarado pela release.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>volume_tetraedro3(a, b, c, d)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroNumerico</code></p></div></details>
 <h4 id="transposta" data-searchable><code>transposta</code></h4>
 <p data-searchable>Obtém a matriz transposta.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -607,6 +1523,143 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>forma(valor) -&gt; tuple[int, ...]</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="resultadominimosquadrados" data-searchable><code>ResultadoMinimosQuadrados</code></h4>
+<p data-searchable>Resultado estruturado de :func:<code>minimos_quadrados</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>solucao</code></td><td data-searchable>Valor correspondente a solucao.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>residuos</code></td><td data-searchable>Valor correspondente a residuos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>posto</code></td><td data-searchable>Valor correspondente a posto.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores_singulares</code></td><td data-searchable>Valor correspondente a valores singulares.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>solucao</code></td><td data-searchable>Valor correspondente a solucao.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>residuos</code></td><td data-searchable>Valor correspondente a residuos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>posto</code></td><td data-searchable>Valor correspondente a posto.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valores_singulares</code></td><td data-searchable>Valor correspondente a valores singulares.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoMinimosQuadrados(solucao: Any, residuos: Any, posto: int, valores_singulares: Any)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="resultadoregressaolinear" data-searchable><code>ResultadoRegressaoLinear</code></h4>
+<p data-searchable>Ajuste linear simples com resíduos e coeficiente de determinação.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inclinacao</code></td><td data-searchable>Valor correspondente a inclinacao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>intercepto</code></td><td data-searchable>Valor correspondente a intercepto.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>residuos</code></td><td data-searchable>Valor correspondente a residuos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>r_quadrado</code></td><td data-searchable>Valor correspondente a r quadrado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>inclinacao</code></td><td data-searchable>Valor correspondente a inclinacao.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>intercepto</code></td><td data-searchable>Valor correspondente a intercepto.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>residuos</code></td><td data-searchable>Valor correspondente a residuos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>r_quadrado</code></td><td data-searchable>Valor correspondente a r quadrado.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>quantidade</code></td><td data-searchable>Quantidade de itens solicitada.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoRegressaoLinear(inclinacao: float, intercepto: float, residuos: Any, r_quadrado: float, quantidade: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="resultadobootstrap" data-searchable><code>ResultadoBootstrap</code></h4>
+<p data-searchable>Intervalo percentil obtido por reamostragem bootstrap.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estimativa</code></td><td data-searchable>Valor correspondente a estimativa.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inferior</code></td><td data-searchable>Valor correspondente a inferior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>superior</code></td><td data-searchable>Valor correspondente a superior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>confianca</code></td><td data-searchable>Valor correspondente a confianca.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_amostra</code></td><td data-searchable>Valor correspondente a tamanho amostra.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo_estimado</code></td><td data-searchable>Valor correspondente a custo estimado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'bootstrap_percentil'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>estimativa</code></td><td data-searchable>Valor correspondente a estimativa.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>inferior</code></td><td data-searchable>Valor correspondente a inferior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>superior</code></td><td data-searchable>Valor correspondente a superior.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>confianca</code></td><td data-searchable>Valor correspondente a confianca.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_amostra</code></td><td data-searchable>Valor correspondente a tamanho amostra.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo_estimado</code></td><td data-searchable>Valor correspondente a custo estimado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'bootstrap_percentil'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoBootstrap(estimativa: float, inferior: float, superior: float, confianca: float, repeticoes: int, semente: int, tamanho_amostra: int, custo_estimado: int, metodo: str = 'bootstrap_percentil')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
+<h4 id="resultadotestepermutacao" data-searchable><code>ResultadoTestePermutacao</code></h4>
+<p data-searchable>Resultado de um teste de permutação bilateral entre duas amostras.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>diferenca_observada</code></td><td data-searchable>Valor correspondente a diferenca observada.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor_p</code></td><td data-searchable>Valor correspondente a valor p.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_a</code></td><td data-searchable>Valor correspondente a tamanho a.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_b</code></td><td data-searchable>Valor correspondente a tamanho b.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo_estimado</code></td><td data-searchable>Valor correspondente a custo estimado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'permutacao_bilateral'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>diferenca_observada</code></td><td data-searchable>Valor correspondente a diferenca observada.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor_p</code></td><td data-searchable>Valor correspondente a valor p.</td><td data-searchable><code>float</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>repeticoes</code></td><td data-searchable>Valor correspondente a repeticoes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente</code></td><td data-searchable>Semente usada para tornar a sequência reproduzível.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_a</code></td><td data-searchable>Valor correspondente a tamanho a.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_b</code></td><td data-searchable>Valor correspondente a tamanho b.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>custo_estimado</code></td><td data-searchable>Valor correspondente a custo estimado.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'permutacao_bilateral'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoTestePermutacao(diferenca_observada: float, valor_p: float, repeticoes: int, semente: int, tamanho_a: int, tamanho_b: int, custo_estimado: int, metodo: str = 'permutacao_bilateral')</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.numerico</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/numerico.py</code></p></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
 <h4 id="dependencianumericaausente" data-searchable><code>DependenciaNumericaAusente</code></h4>
 <p data-searchable>Representa a condição de erro DependenciaNumericaAusente.</p>
@@ -621,7 +1674,7 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <h2 id="compatibilidade-e-dependencias" data-searchable>Compatibilidade e dependências</h2>
 <p data-searchable>NumPy é opcional. O módulo pode ser importado sem ele, mas operações que dependem da biblioteca científica exigem a capacidade instalada no ambiente de execução.</p>
     </article>
-    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="../release.html"><span>Anterior</span><strong>Release atual</strong></a><a class="docs-page-nav-link next" href="sistema.html"><span>Próxima</span><strong>coral.sistema</strong></a></nav>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="../release.html"><span>Anterior</span><strong>Notas de versão</strong></a><a class="docs-page-nav-link next" href="sistema.html"><span>Próxima</span><strong>coral.sistema</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">

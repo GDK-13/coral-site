@@ -13,7 +13,7 @@ janela, desenho, sprites, animação, câmera, apresentação, cenas, mapas e ev
 
 ### Superfície pública detectada
 
-`Jogo`, `TransicaoCena`, `MetricasJogo`, `Cor`, `Retangulo`, `BackendNulo`, `ErroJogosCoral`, `DependenciaJogosAusente`, `PRETO`, `BRANCO`, `VERMELHO`, `VERDE`, `AZUL`, `AMARELO`, `criar_jogo`, `pygame_disponivel`, `diagnosticar_jogos`, `Assets`, `Sprite`, `Cena`, `CamadaApresentacao`, `TextoApresentacao`, `RepresentacaoEntidade`, `ErroAssetCoral`, `Animacao`, `AnimacoesDirecionais`, `VinculoAnimacaoMovimento`, `EstadosAnimacao`, `VinculoEstadosAnimacaoMovimento`, `TransicaoEstadoAnimacao`, `CondicaoTransicaoAnimacao`, `TransicoesEstadosAnimacao`, `VinculoTransicoesEstadosMovimento`, `VinculoTransicoesEventos`, `EfeitoCamera`, `Camera`, `VinculoClipe`, `ligar_clipe`, `registrar_propriedade_animavel`, `QuadroSprite`, `Spritesheet`, `carregar_spritesheet`, `FormaTransformada`, `formas_colidem`, `CanalAnimado`, `AnimacaoTransformacao`, `onda_seno`, `onda_cosseno`, `onda_triangular`, `onda_serra`, `onda_pulso`, `normalizar_progresso`, `curva_linear`, `curva_entrada_suave`, `curva_saida_suave`, `curva_entrada_saida_suave`, `curva_quadratica`, `curva_cubica`, `curva_degrau`, `resolver_curva_temporal`, `avaliar_curva_temporal`, `interpolar`, `QuadroChave`, `FaixaAnimacao`, `ClipeAnimacao`, `AcaoApresentacao`, `EsperaApresentacao`, `EsperaConclusao`, `SequenciaApresentacao`, `ParaleloApresentacao`, `ComposicaoTemporal`, `VinculoTempoApresentacao`, `VinculoComposicaoEventos`, `ComandoComposicao`, `GravadorComposicao`, `executar`, `esperar`, `esperar_conclusao`, `sequencia`, `paralelo`, `usar_fonte_tempo`, `ligar_evento`, `forma_espacial_sprite`, `posicao_espacial_sprite`, `sprites_colidem`, `AdaptadorEventosJogo`, `adaptar_eventos`, `Viewport`, `CONTRATO_OVERLAY_DEBUG`, `PrimitivaDebug`, `OverlayDebug`, `EstiloOverlayDebug`, `ConfiguracaoDebugJogo`, `normalizar_categorias_debug`, `gerar_overlay_debug`, `gerar_overlay_metricas_debug`, `desenhar_overlay_debug`, `EstiloCelula`, `RenderizadorMapa2D`, `celula_para_tela`, `mundo_para_tela`, `tela_para_celula`, `tela_para_mundo`, `animar_propriedade`, `reproduzir_ao_contrario`
+`Jogo`, `TransicaoCena`, `MetricasJogo`, `Cor`, `Retangulo`, `BackendNulo`, `ErroJogosCoral`, `DependenciaJogosAusente`, `PRETO`, `BRANCO`, `VERMELHO`, `VERDE`, `AZUL`, `AMARELO`, `criar_jogo`, `pygame_disponivel`, `diagnosticar_jogos`, `Assets`, `Sprite`, `Cena`, `CamadaApresentacao`, `TextoApresentacao`, `RepresentacaoEntidade`, `ErroAssetCoral`, `Animacao`, `AnimacoesDirecionais`, `VinculoAnimacaoMovimento`, `EstadosAnimacao`, `VinculoEstadosAnimacaoMovimento`, `TransicaoEstadoAnimacao`, `CondicaoTransicaoAnimacao`, `TransicoesEstadosAnimacao`, `VinculoTransicoesEstadosMovimento`, `VinculoTransicoesEventos`, `EfeitoCamera`, `Camera`, `VinculoClipe`, `ligar_clipe`, `registrar_propriedade_animavel`, `QuadroSprite`, `Spritesheet`, `carregar_spritesheet`, `FormaTransformada`, `formas_colidem`, `CanalAnimado`, `AnimacaoTransformacao`, `onda_seno`, `onda_cosseno`, `onda_triangular`, `onda_serra`, `onda_pulso`, `normalizar_progresso`, `curva_linear`, `curva_entrada_suave`, `curva_saida_suave`, `curva_entrada_saida_suave`, `curva_quadratica`, `curva_cubica`, `curva_degrau`, `resolver_curva_temporal`, `avaliar_curva_temporal`, `interpolar`, `QuadroChave`, `FaixaAnimacao`, `ClipeAnimacao`, `AcaoApresentacao`, `EsperaApresentacao`, `EsperaConclusao`, `SequenciaApresentacao`, `ParaleloApresentacao`, `ComposicaoTemporal`, `VinculoTempoApresentacao`, `VinculoComposicaoEventos`, `ComandoComposicao`, `GravadorComposicao`, `executar`, `esperar`, `esperar_conclusao`, `sequencia`, `paralelo`, `usar_fonte_tempo`, `ligar_evento`, `forma_espacial_sprite`, `posicao_espacial_sprite`, `sprites_colidem`, `AdaptadorEventosJogo`, `adaptar_eventos`, `Viewport`, `CONTRATO_OVERLAY_DEBUG`, `PrimitivaDebug`, `OverlayDebug`, `EstiloOverlayDebug`, `ConfiguracaoDebugJogo`, `normalizar_categorias_debug`, `gerar_overlay_debug`, `gerar_overlay_metricas_debug`, `desenhar_overlay_debug`, `EstiloCelula`, `RenderizadorMapa2D`, `celula_para_tela`, `mundo_para_tela`, `tela_para_celula`, `tela_para_mundo`, `animar_propriedade`, `reproduzir_ao_contrario`, `sprites_de_pontos`, `sprites_de_receita`, `popular_cena_procedural`, `aplicar_campo_em_sprites`
 
 <!-- /AUTO:MODULO -->
 
@@ -208,9 +208,9 @@ Assets inválidos usam `ErroAssetCoral`. Separar assets, sprites e domínio ajud
 
 O backend nulo permite validar transformação de câmera, avanço temporal, transições de estado, composição e entrada simulada sem abrir janela. Gates gráficos reais continuam necessários para janela, driver, renderização, áudio, teclado, mouse e GPU.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A **Coral 1.6.0** mantém a superfície pública de Jogos detectada nas releases anteriores. Os recursos de apresentação introduzidos na 1.5.13 seguem disponíveis; a 1.6.0 concentra mudanças em coesão interna e fronteiras arquiteturais sem remover essa API. O Livro Oficial permanece na edição 1.5.8.
+A API pública de Jogos reúne apresentação 2D, câmera, animação, mapas, depuração e integração procedural. Espaço e geometria gerais continuam fora de Jogos, permitindo que outros domínios reutilizem a mesma base sem depender de Pygame.
 
 ## Referência da API
 
@@ -1561,6 +1561,174 @@ Retorna um valor declarado como `Any`.
 **Arquivo na release:** `coral/jogos/objetos.py`
 
 **Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `sprites_de_pontos`
+
+Converte pontos 2D determinísticos em sprites sem abrir janela.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `pontos` | Valor correspondente a pontos. | `Iterable[Sequence[float]]` | obrigatório |
+| `largura` | Largura usada pela operação. | `float` | `16.0` |
+| `altura` | Altura usada pela operação. | `float` | `16.0` |
+| `imagem` | Valor correspondente a imagem. | `Any` | `None` |
+| `cor` | Valor correspondente a cor. | `Cor` | `BRANCO` |
+| `nome_base` | Valor correspondente a nome base. | `str` | `'procedural'` |
+| `dados` | Dados processados pela operação. | `Mapping[str, Any] \| None` | `None` |
+| `campos` | Valor correspondente a campos. | `Mapping[str, CampoProcedural] \| None` | `None` |
+| `fabrica` | Valor correspondente a fabrica. | `Callable[[int, float, float, dict[str, Any]], Sprite] \| None` | `None` |
+| `limite_sprites` | Valor correspondente a limite sprites. | `int` | `10000` |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[Sprite, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `sprites_de_pontos(pontos: Iterable[Sequence[float]], *, largura: float = 16.0, altura: float = 16.0, imagem: Any = None, cor: Cor = BRANCO, nome_base: str = 'procedural', dados: Mapping[str, Any] \| None = None, campos: Mapping[str, CampoProcedural] \| None = None, fabrica: Callable[[int, float, float, dict[str, Any]], Sprite] \| None = None, limite_sprites: int = 10000) -> tuple[Sprite, ...]`
+
+**Origem da implementação:** `coral.jogos.procedural`
+
+**Arquivo na release:** `coral/jogos/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `pontos` | posicional |
+| `largura` | nomeado |
+| `altura` | nomeado |
+| `imagem` | nomeado |
+| `cor` | nomeado |
+| `nome_base` | nomeado |
+| `dados` | nomeado |
+| `campos` | nomeado |
+| `fabrica` | nomeado |
+| `limite_sprites` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `sprites_de_receita`
+
+Reconstrói uma receita de pontos e a adapta para sprites.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `receita` | Valor correspondente a receita. | `ReceitaProcedural \| Mapping[str, Any]` | obrigatório |
+| `limite_custo` | Valor correspondente a limite custo. | `int` | `1000000` |
+| `**opcoes_sprite` | Valor correspondente a opcoes sprite. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[Sprite, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `sprites_de_receita(receita: ReceitaProcedural \| Mapping[str, Any], *, limite_custo: int = 1000000, **opcoes_sprite: Any) -> tuple[Sprite, ...]`
+
+**Origem da implementação:** `coral.jogos.procedural`
+
+**Arquivo na release:** `coral/jogos/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `receita` | posicional |
+| `limite_custo` | nomeado |
+| `**opcoes_sprite` | variádico nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `popular_cena_procedural`
+
+Cria sprites procedurais e os adiciona a uma cena existente.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `cena` | Valor correspondente a cena. | `Cena` | obrigatório |
+| `pontos` | Valor correspondente a pontos. | `Iterable[Sequence[float]] \| None` | `None` |
+| `receita` | Valor correspondente a receita. | `ReceitaProcedural \| Mapping[str, Any] \| None` | `None` |
+| `camada` | Valor correspondente a camada. | `Any` | `None` |
+| `limite_custo` | Valor correspondente a limite custo. | `int` | `1000000` |
+| `**opcoes_sprite` | Valor correspondente a opcoes sprite. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[Sprite, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `popular_cena_procedural(cena: Cena, *, pontos: Iterable[Sequence[float]] \| None = None, receita: ReceitaProcedural \| Mapping[str, Any] \| None = None, camada: Any = None, limite_custo: int = 1000000, **opcoes_sprite: Any) -> tuple[Sprite, ...]`
+
+**Origem da implementação:** `coral.jogos.procedural`
+
+**Arquivo na release:** `coral/jogos/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `cena` | posicional |
+| `pontos` | nomeado |
+| `receita` | nomeado |
+| `camada` | nomeado |
+| `limite_custo` | nomeado |
+| `**opcoes_sprite` | variádico nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `aplicar_campo_em_sprites`
+
+Avalia um campo 2D na posição dos sprites e grava o valor em ``dados``.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `campo` | Valor correspondente a campo. | `CampoProcedural` | obrigatório |
+| `sprites` | Valor correspondente a sprites. | `Iterable[Sprite]` | obrigatório |
+| `chave` | Chave usada para localizar ou identificar um valor. | `str` | `'valor_procedural'` |
+| `usar_centro` | Controla se deve usar centro. | `bool` | `False` |
+| `limite_sprites` | Valor correspondente a limite sprites. | `int` | `10000` |
+
+**Retorno**
+
+Retorna um valor declarado como `int`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `aplicar_campo_em_sprites(campo: CampoProcedural, sprites: Iterable[Sprite], *, chave: str = 'valor_procedural', usar_centro: bool = False, limite_sprites: int = 10000) -> int`
+
+**Origem da implementação:** `coral.jogos.procedural`
+
+**Arquivo na release:** `coral/jogos/procedural.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `campo` | posicional |
+| `sprites` | posicional |
+| `chave` | nomeado |
+| `usar_centro` | nomeado |
+| `limite_sprites` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
 
 :::
 

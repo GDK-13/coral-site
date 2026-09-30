@@ -13,7 +13,7 @@ informações do sistema, ambiente, caminhos e processos
 
 ### Superfície pública detectada
 
-`ErroSistema`, `ProgramaNaoEncontrado`, `TempoLimiteExcedido`, `FalhaSistemaOperacional`, `InformacoesSistema`, `ResultadoComando`, `informacoes`, `diagnosticar_sistema`, `variavel_ambiente`, `definir_variavel_ambiente`, `remover_variavel_ambiente`, `variaveis_ambiente`, `pasta_atual`, `pasta_usuario`, `caminho`, `executar_comando`, `processo_atual`
+`ErroSistema`, `ProgramaNaoEncontrado`, `TempoLimiteExcedido`, `FalhaSistemaOperacional`, `ComandoFalhou`, `InformacoesSistema`, `ResultadoComando`, `informacoes`, `diagnosticar_sistema`, `variavel_ambiente`, `variavel_ambiente_obrigatoria`, `definir_variavel_ambiente`, `remover_variavel_ambiente`, `variaveis_ambiente`, `ambiente_selecionado`, `localizar_programa`, `programa_disponivel`, `quantidade_processadores`, `pasta_temporaria`, `terminal_interativo`, `argumentos_programa`, `caminho_executavel`, `pasta_atual`, `pasta_usuario`, `caminho`, `executar_comando`, `processo_atual`
 
 <!-- /AUTO:MODULO -->
 
@@ -47,7 +47,7 @@ Não use como substituto de APIs de alto nível que já existem em outros módul
 
 ## Começando
 
-O exemplo abaixo foi validado com o runtime 1.6.0:
+O exemplo abaixo foi validado com o runtime 1.7.0:
 
 ```coral
 de coral.sistema importe informacoes, pasta_atual, variavel_ambiente
@@ -192,6 +192,32 @@ Retorna um valor declarado como `str | None`.
 
 :::
 
+#### `variavel_ambiente_obrigatoria`
+
+Lê uma variável obrigatória sem expor valores em mensagens de erro.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `str`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `variavel_ambiente_obrigatoria(nome: str) -> str`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`, `ErroSistema`
+
+:::
+
 #### `definir_variavel_ambiente`
 
 Definir variável no processo.
@@ -252,6 +278,180 @@ Retorna um valor declarado como `dict[str, str]`.
 :::details Detalhes técnicos
 
 **Assinatura:** `variaveis_ambiente() -> dict[str, str]`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `ambiente_selecionado`
+
+Copia somente as variáveis explicitamente solicitadas que estejam presentes.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nomes` | Valor correspondente a nomes. | `Iterable[Any]` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, str]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ambiente_selecionado(nomes: Iterable[Any]) -> dict[str, str]`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `localizar_programa`
+
+Resolve um executável no ambiente atual sem iniciá lo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `Path | None`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `localizar_programa(nome: str) -> Path \| None`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `programa_disponivel`
+
+Indica se ``localizar_programa`` consegue resolver o executável.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor lógico que indica o resultado da verificação.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `programa_disponivel(nome: str) -> bool`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `quantidade_processadores`
+
+Quantidade lógica observada pelo runtime, sem estimar quotas efetivas.
+
+**Retorno**
+
+Retorna um valor declarado como `int | None`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `quantidade_processadores() -> int \| None`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `pasta_temporaria`
+
+Pasta temporária configurada para o processo, sem criar arquivos.
+
+**Retorno**
+
+Retorna um valor declarado como `Path`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `pasta_temporaria() -> Path`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `terminal_interativo`
+
+Informa se entrada, saída ou erro estão conectados a um terminal.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `canal` | Valor correspondente a canal. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `bool`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `terminal_interativo(canal: str) -> bool`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `argumentos_programa`
+
+Cópia dos argumentos do programa em execução, sem o caminho do próprio programa.
+
+**Retorno**
+
+Retorna um valor declarado como `tuple[str, ...]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `argumentos_programa() -> tuple[str, ...]`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `caminho_executavel`
+
+Caminho do executável que hospeda o runtime, quando o processo o informa.
+
+**Retorno**
+
+Retorna um valor declarado como `Path | None`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `caminho_executavel() -> Path \| None`
 
 **Origem da implementação:** `coral.sistema`
 
@@ -338,7 +538,7 @@ Retorna um valor declarado como `Path`.
 
 #### `executar_comando`
 
-Executa um processo sem shell por padrão.
+Executa um processo sem shell e com captura opcionalmente limitada.
 
 **Parâmetros**
 
@@ -351,6 +551,9 @@ Executa um processo sem shell por padrão.
 | `ambiente` | Valor correspondente a ambiente. | `Mapping[str, Any] \| None` | `None` |
 | `entrada` | Valor correspondente a entrada. | `str \| None` | `None` |
 | `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `str \| None` | `None` |
+| `erros_decodificacao` | Valor correspondente a erros decodificacao. | `str` | `'estrito'` |
+| `limite_saida_bytes` | Valor correspondente a limite saida bytes. | `int \| None` | `None` |
 
 **Retorno**
 
@@ -358,7 +561,7 @@ Retorna um valor declarado como `ResultadoComando`.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str \| Path \| None = None, timeout: float \| None = None, ambiente: Mapping[str, Any] \| None = None, entrada: str \| None = None, relogio: FonteTempo \| None = None) -> ResultadoComando`
+**Assinatura:** `executar_comando(programa: str, argumentos: Iterable[Any] = (), *, pasta: str \| Path \| None = None, timeout: float \| None = None, ambiente: Mapping[str, Any] \| None = None, entrada: str \| None = None, relogio: FonteTempo \| None = None, codificacao: str \| None = None, erros_decodificacao: str = 'estrito', limite_saida_bytes: int \| None = None) -> ResultadoComando`
 
 **Origem da implementação:** `coral.sistema`
 
@@ -375,8 +578,11 @@ Retorna um valor declarado como `ResultadoComando`.
 | `ambiente` | nomeado |
 | `entrada` | nomeado |
 | `relogio` | nomeado |
+| `codificacao` | nomeado |
+| `erros_decodificacao` | nomeado |
+| `limite_saida_bytes` | nomeado |
 
-**Exceções diretamente observáveis no corpo:** `ValueError`, `ProgramaNaoEncontrado`, `TempoLimiteExcedido`, `FalhaSistemaOperacional`
+**Exceções diretamente observáveis no corpo:** `ValueError`, `ProgramaNaoEncontrado`, `ErroSistema`, `FalhaSistemaOperacional`, `TempoLimiteExcedido`
 
 :::
 
@@ -415,6 +621,26 @@ Timeout de processo, compatível com subprocess.TimeoutExpired da linha 1.4.1.
 :::details Detalhes técnicos
 
 **Assinatura:** `TempoLimiteExcedido(comando: tuple[str, ...], timeout: float \| None, mensagem: str)`
+
+**Origem da implementação:** `coral.sistema`
+
+**Arquivo na release:** `coral/sistema.py`
+
+:::
+
+#### `ComandoFalhou`
+
+Código de saída não zero preservando o resultado completo do processo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `resultado` | Valor correspondente a resultado. | `'ResultadoComando'` | obrigatório |
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ComandoFalhou(resultado: 'ResultadoComando')`
 
 **Origem da implementação:** `coral.sistema`
 
@@ -487,6 +713,8 @@ Representa ResultadoComando na API de `coral.sistema`.
 | `saida` | Valor correspondente a saida. | `str` | obrigatório |
 | `erro` | Valor correspondente a erro. | `str` | obrigatório |
 | `duracao_segundos` | Valor correspondente a duracao segundos. | `float` | obrigatório |
+| `saida_truncada` | Valor correspondente a saida truncada. | `bool` | `False` |
+| `erro_truncado` | Valor correspondente a erro truncado. | `bool` | `False` |
 
 **Atributos públicos**
 
@@ -497,6 +725,8 @@ Representa ResultadoComando na API de `coral.sistema`.
 | `saida` | Valor correspondente a saida. | `str` | obrigatório |
 | `erro` | Valor correspondente a erro. | `str` | obrigatório |
 | `duracao_segundos` | Valor correspondente a duracao segundos. | `float` | obrigatório |
+| `saida_truncada` | Valor correspondente a saida truncada. | `bool` | `False` |
+| `erro_truncado` | Valor correspondente a erro truncado. | `bool` | `False` |
 
 **Operações públicas da classe**
 
@@ -504,11 +734,16 @@ Representa ResultadoComando na API de `coral.sistema`.
 |---|---|---|
 | `sucesso` | Indica o estado de sucesso. | `bool` |
 | `para_dict` | Converte o valor para dict. | `dict[str, Any]` |
+| `linhas_saida` | Linhas da saída capturada sem modificar ``saida``. | `tuple[str, ...]` |
+| `linhas_erro` | Linhas do erro capturado sem modificar ``erro``. | `tuple[str, ...]` |
+| `codigo_saida` | Alias de leitura em português corrente para ``codigo``. | `int` |
+| `tempo_decorrido` | Alias de leitura para a duração medida na execução. | `float` |
+| `exigir_sucesso` | Retorna este resultado ou produz uma falha Coral em código não zero. | `'ResultadoComando'` |
 | `resultado_operacao` | Executa a operação `resultado_operacao` disponibilizada por `coral.sistema`. | `ResultadoOperacao` |
 
 :::details Detalhes técnicos
 
-**Assinatura:** `ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float)`
+**Assinatura:** `ResultadoComando(comando: tuple[str, ...], codigo: int, saida: str, erro: str, duracao_segundos: float, saida_truncada: bool = False, erro_truncado: bool = False)`
 
 **Origem da implementação:** `coral.sistema`
 
@@ -520,6 +755,11 @@ Representa ResultadoComando na API de `coral.sistema`.
 |---|---|---|
 | `sucesso` | propriedade | `sucesso() -> bool` |
 | `para_dict` | método | `para_dict() -> dict[str, Any]` |
+| `linhas_saida` | método | `linhas_saida() -> tuple[str, ...]` |
+| `linhas_erro` | método | `linhas_erro() -> tuple[str, ...]` |
+| `codigo_saida` | método | `codigo_saida() -> int` |
+| `tempo_decorrido` | método | `tempo_decorrido() -> float` |
+| `exigir_sucesso` | método | `exigir_sucesso() -> 'ResultadoComando'` |
 | `resultado_operacao` | método | `resultado_operacao() -> ResultadoOperacao` |
 
 :::

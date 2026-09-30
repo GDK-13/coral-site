@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -202,7 +207,7 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Vetores conhecidos e comparações de verificação são mais úteis que testes baseados em “parece aleatório”. Para tokens, teste formato e tamanho, não igualdade entre execuções.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.6.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="resumir" data-searchable><code>resumir</code></h4>
@@ -340,7 +345,7 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>gerar_token_seguro(bytes_de_entropia = 32, formato = 'url')</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p>
-<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroFormato</code>, <code>ErroValor</code></p></div></details>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
 <h4 id="comparar-com-seguranca" data-searchable><code>comparar_com_seguranca</code></h4>
 <p data-searchable>Compara valores sensíveis usando uma comparação apropriada para material criptográfico.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -359,7 +364,7 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.criptografia</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/criptografia/__init__.py</code></p></div></details>
 <h4 id="listar-algoritmos" data-searchable><code>listar_algoritmos</code></h4>
-<p data-searchable>Lista algoritmos.</p>
+<p data-searchable>Lista o catálogo geral, incluindo hashes e variantes HMAC.</p>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>list[str]</code>.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>listar_algoritmos() -&gt; list[str]</code></p>

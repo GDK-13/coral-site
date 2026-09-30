@@ -111,9 +111,9 @@ No modo fixo, um salto muito grande pode gerar `ErroPassoExcessivo` quando exced
 
 A simulação pode ser avançada com durações explícitas, sem depender do relógio real. Isso permite testes rápidos e determinísticos. Para sistemas agregados, valide `execucoes`, duração representada e próximo instante. Para ciclos, valide a fase em instantes conhecidos e as transições em intervalos longos.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A fundação de simulação temporal foi promovida na linha 1.5.11 e permanece disponível na **Coral 1.6.0**. A apresentação 2D introduzida na 1.5.13 pode consumir seu tempo e estado por integração explícita, sem tornar a simulação dependente da janela; a importação da 1.6.0 não detecta alteração na superfície pública deste módulo.
+A simulação temporal permanece independente da camada visual. Jogos podem consumir tempo e estado por integração explícita, sem tornar a simulação dependente de janela ou renderização.
 
 ## Referência da API
 

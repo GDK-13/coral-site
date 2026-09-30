@@ -53,14 +53,15 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 * `tools/site_renderer.py`: renderer multipágina, navegação e índice de busca
 * `.vscode/tasks.json`: tarefas rápidas do VS Code
 * `WORKFLOW_SITE_CORAL.md`: workflow completo de manutenção e publicação
+* `manutencao/REVISAO_PENDENTE.md`: checklist interno gerado ao importar uma nova release
 
 ## Módulos principais
 
-A documentação dá prioridade editorial a `coral.numerico`, `coral.sistema`, `coral.laboratorio`, `coral.hardware`, `coral.mundo`, `coral.regras`, `coral.rpg` e `coral.jogos`. Esses módulos recebem guias aprofundados e aparecem separados dos módulos complementares na barra lateral.
+A documentação dá prioridade editorial aos módulos centrais e mantém páginas completas para os módulos complementares. Esses módulos recebem guias aprofundados e aparecem separados dos módulos complementares na barra lateral.
 
 A classificação é mantida no campo `destaque` do inventário de módulos, e o gerador preserva essa hierarquia ao importar novas releases.
 
-Os 22 módulos complementares também possuem documentação aprofundada, com conceitos, cenários de uso, exemplos validados, API essencial, erros, boas práticas, integrações e referência automática. Nas páginas de módulo, o índice **Nesta página** mostra apenas seções `##` para continuar legível mesmo quando a referência técnica é extensa.
+Os módulos complementares também possuem documentação aprofundada, com conceitos, cenários de uso, exemplos validados, API essencial, erros, boas práticas, integrações e referência automática. Nas páginas de módulo, o índice **Nesta página** mostra apenas seções `##` para continuar legível mesmo quando a referência técnica é extensa.
 
 ## Identidade visual
 
@@ -68,9 +69,7 @@ A implementação segue as referências oficiais da identidade visual da Coral. 
 
 O símbolo circular com `C` continua sendo um placeholder até o SVG final da marca ser definido.
 
-A auditoria de conformidade contra a identidade consolidada e o registro das correções aplicadas ficam em `CORRECOES_IDENTIDADE_VISUAL.md`. O registro das melhorias de nível superior (busca global, fontes self-hosted, SEO/compartilhamento, âncoras copiáveis, micro-interações) fica em `MELHORIAS_SITE.md`.
-
-O realce de sintaxe Coral está implementado no renderer estático. A especificação e os critérios de aceite ficam em `REALCE_SINTAXE.md`; o contrato importado da release fica em `docs/dados/sintaxe.json`.
+O realce de sintaxe Coral é gerado estaticamente a partir do contrato da release em `docs/dados/sintaxe.json`.
 
 ## Validação rápida
 
@@ -94,3 +93,7 @@ Esse gate verifica o realce léxico Coral, fidelidade do texto copiado, whitelis
 * **Âncoras copiáveis**: cada título de seção tem um `#` discreto que copia o link direto da seção.
 * **Compartilhamento**: todas as páginas têm metadados Open Graph/Twitter com imagem de cartão em `assets/images/compartilhar.png`.
 * **Alternância de tema** claro/escuro persistida, respeitando `prefers-color-scheme`.
+
+## Política editorial
+
+A landing descreve a Coral como produto e material de aprendizagem. Roadmaps, checkpoints e histórico interno de desenvolvimento não são conteúdo público do site. Mudanças que afetam usuários ficam na página **Notas de versão**.

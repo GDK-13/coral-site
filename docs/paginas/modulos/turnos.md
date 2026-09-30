@@ -97,9 +97,9 @@ Não é permitido informar ordem explícita e prioridades ao mesmo tempo. Uma or
 
 Para uma mesma lista e prioridades, a ordem é determinística e desempates preservam a ordem original. Testes devem verificar ordem, participante atual, avanço de rodada, pausa e restauração persistente.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A fila genérica foi introduzida na linha 1.5.10 e continua publicada na **Coral 1.6.0** sem depender de RPG ou Jogos. A importação da 1.6.0 não detecta alteração na superfície pública deste módulo.
+A fila de turnos é genérica e não depende de RPG ou Jogos. Ela também pode representar atendimento, produção, escalonamento e outros ciclos ordenados.
 
 ## Referência da API
 

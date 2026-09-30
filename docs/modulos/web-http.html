@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.web.http é o cliente HTTP geral da Coral. Respostas preservam status, cabeçalhos e corpo em bytes; texto e JSON são interpretações explícitas feitas somente quando o programa pede.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.web.http — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.web.http — Documentação Coral">
+  <meta property="og:description" content="coral.web.http é o cliente HTTP geral da Coral. Respostas preservam status, cabeçalhos e corpo em bytes; texto e JSON são interpretações explícitas feitas somente quando o programa pede.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.web.http — Documentação Coral">
+  <meta name="twitter:description" content="coral.web.http é o cliente HTTP geral da Coral. Respostas preservam status, cabeçalhos e corpo em bytes; texto e JSON são interpretações explícitas feitas somente quando o programa pede.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a class="active" aria-current="page" href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.web.http</h1>
+      <p>coral.web.http é o cliente HTTP geral da Coral. Respostas preservam status, cabeçalhos e corpo em bytes; texto e JSON são interpretações explícitas feitas somente quando o programa pede.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>cliente HTTP limitado com bytes, timeout, redirecionamentos e TLS verificado.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use para GET, POST e outras requisições HTTP com timeout, limite de resposta, redirecionamentos controlados, proxy explícito e verificação TLS.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p>Consulte a navegação lateral para módulos relacionados.</p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.http</span> <span class="code-key">importe</span> obter
+
+<span class="code-key">defina</span> resposta como <span class="code-fn">obter</span>(<span class="code-str">&quot;https://exemplo.test/dados&quot;</span>, tempo_limite=<span class="code-num">2</span>, limite_resposta=<span class="code-num">4096</span>)
+<span class="code-key">mostre</span> resposta.status
+<span class="code-key">mostre</span> resposta.<span class="code-fn">texto</span>(<span class="code-str">&quot;utf-8&quot;</span>)</code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.web.http</code> é o cliente HTTP geral da Coral. Respostas preservam status, cabeçalhos e corpo em bytes; texto e JSON são interpretações explícitas feitas somente quando o programa pede.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.web.http</code> <strong>Categoria:</strong> web</p>
+<p data-searchable>cliente HTTP limitado com bytes, timeout, redirecionamentos e TLS verificado</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroHTTP</code>, <code>ErroLimiteHTTP</code>, <code>ErroRedirecionamentoHTTP</code>, <code>RespostaHTTP</code>, <code>TEMPO_LIMITE_PADRAO</code>, <code>LIMITE_RESPOSTA_PADRAO</code>, <code>MAX_REDIRECIONAMENTOS_PADRAO</code>, <code>requisitar</code>, <code>obter</code>, <code>enviar</code>, <code>codificar_formulario</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use para GET, POST e outras requisições HTTP com timeout, limite de resposta, redirecionamentos controlados, proxy explícito e verificação TLS. Para montar URLs sem rede, use <code>coral.web.url</code>.</p>
+<h2 id="comecando" data-searchable>Começando</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.http</span> <span class="code-key">importe</span> obter
+
+<span class="code-key">defina</span> resposta como <span class="code-fn">obter</span>(<span class="code-str">&quot;https://exemplo.test/dados&quot;</span>, tempo_limite=<span class="code-num">2</span>, limite_resposta=<span class="code-num">4096</span>)
+<span class="code-key">mostre</span> resposta.status
+<span class="code-key">mostre</span> resposta.<span class="code-fn">texto</span>(<span class="code-str">&quot;utf-8&quot;</span>)</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A resposta mantém o corpo bruto e só o converte para texto quando <code>texto()</code> é chamado. O exemplo depende de um endereço HTTP realmente acessível.</p></div></details>
+<h2 id="limites-e-redirecionamentos" data-searchable>Limites e redirecionamentos</h2>
+<p data-searchable>Timeout e limite de resposta são parte do contrato. Redirecionamentos possuem teto e métodos com efeito não são repetidos implicitamente. HTTPS verifica certificado e hostname por padrão.</p>
+<h2 id="formularios" data-searchable>Formulários</h2>
+<p data-searchable><code>codificar_formulario</code> preserva campos repetidos em UTF 8 e pode ser combinado com <code>enviar</code> quando o servidor espera <code>application/x-www-form-urlencoded</code>.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="requisitar" data-searchable><code>requisitar</code></h4>
+<p data-searchable>Executa uma requisição HTTP limitada e retorna resposta inspecionável.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>Valor correspondente a tempo limite.</td><td data-searchable><code>float</code></td><td data-searchable><code>TEMPO_LIMITE_PADRAO</code></td></tr>
+<tr><td data-searchable><code>codificacao_corpo</code></td><td data-searchable>Valor correspondente a codificacao corpo.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>limite_resposta</code></td><td data-searchable>Valor correspondente a limite resposta.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_RESPOSTA_PADRAO</code></td></tr>
+<tr><td data-searchable><code>seguir_redirecionamentos</code></td><td data-searchable>Valor correspondente a seguir redirecionamentos.</td><td data-searchable><code>bool | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>max_redirecionamentos</code></td><td data-searchable>Valor correspondente a max redirecionamentos.</td><td data-searchable><code>int</code></td><td data-searchable><code>MAX_REDIRECIONAMENTOS_PADRAO</code></td></tr>
+<tr><td data-searchable><code>proxy</code></td><td data-searchable>Valor correspondente a proxy.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>contexto_tls</code></td><td data-searchable>Valor correspondente a contexto tls.</td><td data-searchable><code>ssl.SSLContext | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>requisitar(metodo: str, url: str, cabecalhos: Any = None, corpo: Any = None, tempo_limite: float = TEMPO_LIMITE_PADRAO, *, codificacao_corpo: str \| None = None, limite_resposta: int = LIMITE_RESPOSTA_PADRAO, seguir_redirecionamentos: bool \| None = None, max_redirecionamentos: int = MAX_REDIRECIONAMENTOS_PADRAO, proxy: Any = None, contexto_tls: ssl.SSLContext \| None = None) -&gt; RespostaHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao_corpo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_resposta</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>seguir_redirecionamentos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>max_redirecionamentos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>proxy</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>contexto_tls</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code>, <code>ErroHTTP</code></p></div></details>
+<h4 id="obter" data-searchable><code>obter</code></h4>
+<p data-searchable>Atalho para GET com as mesmas regras de :func:<code>requisitar</code>.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.http</span> <span class="code-key">importe</span> obter
+
+<span class="code-key">defina</span> resposta como <span class="code-fn">obter</span>(<span class="code-str">&quot;https://exemplo.test/dados&quot;</span>, tempo_limite=<span class="code-num">2</span>, limite_resposta=<span class="code-num">4096</span>)
+<span class="code-key">mostre</span> resposta.status
+<span class="code-key">mostre</span> resposta.<span class="code-fn">texto</span>(<span class="code-str">&quot;utf-8&quot;</span>)</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>Valor correspondente a tempo limite.</td><td data-searchable><code>float</code></td><td data-searchable><code>TEMPO_LIMITE_PADRAO</code></td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>Valor correspondente a opcoes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>obter(url: str, cabecalhos: Any = None, tempo_limite: float = TEMPO_LIMITE_PADRAO, **opcoes: Any) -&gt; RespostaHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>url</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="enviar" data-searchable><code>enviar</code></h4>
+<p data-searchable>Atalho para POST; redirecionamentos exigem opt-in por padrão.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>Valor correspondente a corpo.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>Valor correspondente a tempo limite.</td><td data-searchable><code>float</code></td><td data-searchable><code>TEMPO_LIMITE_PADRAO</code></td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>Valor correspondente a opcoes.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RespostaHTTP</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>enviar(url: str, corpo: Any, cabecalhos: Any = None, tempo_limite: float = TEMPO_LIMITE_PADRAO, **opcoes: Any) -&gt; RespostaHTTP</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>url</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>corpo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tempo_limite</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>**opcoes</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="codificar-formulario" data-searchable><code>codificar_formulario</code></h4>
+<p data-searchable>Codifica formulário `<code>application/x-www-form-urlencoded</code>` em UTF 8.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>Valor correspondente a campos.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>bytes</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>codificar_formulario(campos: Any) -&gt; bytes</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="respostahttp" data-searchable><code>RespostaHTTP</code></h4>
+<p data-searchable>Resposta HTTP materializada com corpo preservado em bytes.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>redirecionamentos</code></td><td data-searchable>Valor correspondente a redirecionamentos.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>status</code></td><td data-searchable>Valor correspondente a status.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>cabecalhos</code></td><td data-searchable>Valor correspondente a cabecalhos.</td><td data-searchable><code>tuple[tuple[str, str], ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>corpo_bytes</code></td><td data-searchable>Valor correspondente a corpo bytes.</td><td data-searchable><code>bytes</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>url</code></td><td data-searchable>Valor correspondente a url.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>metodo</code></td><td data-searchable>Valor correspondente a metodo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>redirecionamentos</code></td><td data-searchable>Valor correspondente a redirecionamentos.</td><td data-searchable><code>int</code></td><td data-searchable><code>0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>Indica o estado de sucesso.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Obtém o último valor de um cabeçalho sem alterar a resposta.</td><td data-searchable><code>str | None</code></td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>Decodifica o corpo sob demanda usando codificação explícita.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>json</code></td><td data-searchable>Decodifica JSON sem transformar erro de formato em erro de transporte.</td><td data-searchable><code>Any</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RespostaHTTP(status: int, cabecalhos: tuple[tuple[str, str], ...], corpo_bytes: bytes, url: str, metodo: str, redirecionamentos: int = 0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>sucesso</code></td><td data-searchable>propriedade</td><td data-searchable><code>sucesso() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>método</td><td data-searchable><code>cabecalho(nome: str, padrao: str | None = None) -&gt; str | None</code></td></tr>
+<tr><td data-searchable><code>texto</code></td><td data-searchable>método</td><td data-searchable><code>texto(codificacao: str = 'utf-8', *, erros: str = 'strict') -&gt; str</code></td></tr>
+<tr><td data-searchable><code>json</code></td><td data-searchable>método</td><td data-searchable><code>json() -&gt; Any</code></td></tr>
+</tbody></table></div></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errohttp" data-searchable><code>ErroHTTP</code></h4>
+<p data-searchable>Falha de transporte ou política do cliente HTTP da Coral.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p></div></details>
+<h4 id="errolimitehttp" data-searchable><code>ErroLimiteHTTP</code></h4>
+<p data-searchable>Resposta excedeu um limite declarado pelo programa.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroLimiteHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p></div></details>
+<h4 id="erroredirecionamentohttp" data-searchable><code>ErroRedirecionamentoHTTP</code></h4>
+<p data-searchable>Cadeia de redirecionamento viola o contrato configurado.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroRedirecionamentoHTTP(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p></div></details>
+<h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
+<h4 id="tempo-limite-padrao" data-searchable><code>TEMPO_LIMITE_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>TEMPO_LIMITE_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>TEMPO_LIMITE_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>10.0</code></p></div></details>
+<h4 id="limite-resposta-padrao" data-searchable><code>LIMITE_RESPOSTA_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>LIMITE_RESPOSTA_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>LIMITE_RESPOSTA_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>8 * 1024 * 1024</code></p></div></details>
+<h4 id="max-redirecionamentos-padrao" data-searchable><code>MAX_REDIRECIONAMENTOS_PADRAO</code></h4>
+<p data-searchable>Expõe a constante pública <code>MAX_REDIRECIONAMENTOS_PADRAO</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>MAX_REDIRECIONAMENTOS_PADRAO</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.web.http</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/web/http.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>5</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="web-html.html"><span>Anterior</span><strong>coral.web.html</strong></a><a class="docs-page-nav-link next" href="web-servidor.html"><span>Próxima</span><strong>coral.web.servidor</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#limites-e-redirecionamentos" data-toc-link>Limites e redirecionamentos</a></li>
+<li class="toc-level-2"><a href="#formularios" data-toc-link>Formulários</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

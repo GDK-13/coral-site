@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.">
+  <meta name="description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.">
   <meta name="theme-color" content="#EF362A">
   <title>Livro Oficial — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Livro Oficial — Documentação Coral">
-  <meta property="og:description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.">
+  <meta property="og:description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Livro Oficial — Documentação Coral">
-  <meta name="twitter:description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.">
+  <meta name="twitter:description" content="O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="repl_cli.html">REPL e CLI</a></li>
 <li><a href="exemplos.html">Exemplos oficiais</a></li>
 <li><a class="active" aria-current="page" href="livro.html">Livro Oficial</a></li>
-<li><a href="release.html">Release atual</a></li>
+<li><a href="release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
 <li><a href="modulos/numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="modulos/json.html"><code>coral.json</code></a></li>
 <li><a href="modulos/matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="modulos/web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -112,7 +117,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Referência</div>
       <h1>Livro Oficial</h1>
-      <p>O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.</p>
+      <p>O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -123,25 +128,43 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza o conteúdo por nível e separa explicações para iniciantes e intermediários das partes técnicas sobre implementação e ferramentas.</p>
-<h2 id="edicao-independente" data-searchable>Edição independente</h2>
-<p data-searchable>A edição do Livro é controlada separadamente da versão técnica do runtime. Uma atualização focada em infraestrutura ou editor não obriga o Livro a mudar de número se o conteúdo pedagógico não precisar de nova edição.</p>
+      <p data-searchable>O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.</p>
+<p data-searchable><strong>Edição editorial corrente:</strong> <code>1.7.0</code>. <strong>Runtime corrente:</strong> <code>1.7.0</code>.</p>
+<h2 id="percurso-do-livro" data-searchable>Percurso do Livro</h2>
+<p data-searchable>O conteúdo está organizado em seis partes e dois apêndices.</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parte</th>
+<th>Foco</th>
+</tr></thead><tbody>
+<tr><td data-searchable>I</td><td data-searchable>Começar com Coral, instalar, configurar o VS Code e criar os primeiros programas</td></tr>
+<tr><td data-searchable>II</td><td data-searchable>Linguagem Coral, controle de fluxo, coleções, funções, objetos, assincronismo, espaço e mapas</td></tr>
+<tr><td data-searchable>III</td><td data-searchable>Projetos, biblioteca padrão, regras, mundo, RPG, Jogos e recursos científicos</td></tr>
+<tr><td data-searchable>IV</td><td data-searchable>CLI, VS Code, depuração, diagnóstico e solução de problemas</td></tr>
+<tr><td data-searchable>V</td><td data-searchable>Implementação técnica, compilador, LSP, DAP, extensão e instalação</td></tr>
+<tr><td data-searchable>VI</td><td data-searchable>Referência sintática, biblioteca padrão, APIs, CLI, configuração, exercícios e glossário</td></tr>
+</tbody></table></div>
+<h2 id="livro-em-numeros" data-searchable>Livro em números</h2>
+<p data-searchable>A edição oficial 1.7.0 possui <strong>53 capítulos</strong>, <strong>135 páginas A4</strong> no PDF gerado e <strong>24 arquivos <code>.coral</code></strong> na árvore pedagógica de <code>Livro/Exemplos</code>, incluindo exemplos citados pelo texto e projetos completos.</p>
+<h2 id="baixar-a-edicao-corrente" data-searchable>Baixar a edição corrente</h2>
+<p data-searchable><a href="../downloads/Coral_1.7.0_Livro_Oficial.pdf">Baixar o Livro Oficial Coral 1.7.0 em PDF</a></p>
+<h2 id="como-usar-o-livro-e-o-site-juntos" data-searchable>Como usar o Livro e o site juntos</h2>
+<p data-searchable>Use o Livro quando quiser aprender um assunto em sequência ou acompanhar um percurso completo. Use o site quando precisar localizar rapidamente uma API, módulo, comando, guia por objetivo ou exemplo curto.</p>
+<p data-searchable>No <strong>Modo Aprender</strong>, o site funciona como apoio ao percurso do Livro. No <strong>Modo Referência</strong>, ele funciona como consulta compacta enquanto você programa.</p>
 <h2 id="exemplos-do-livro" data-searchable>Exemplos do Livro</h2>
-<p data-searchable>Todo código externo citado pelo texto deve existir também em <code>Livro/Exemplos</code>. Cópias sincronizadas ficam em <code>Livro/Exemplos/Citados</code>, enquanto exemplos próprios do Livro podem permanecer mais enxutos e pedagógicos.</p>
-<h2 id="relacao-com-esta-documentacao" data-searchable>Relação com esta documentação</h2>
-<p data-searchable>O site serve como referência rápida e atualizável. O Livro é mais sequencial e explicativo. Quando você precisa aprender um assunto do começo, prefira o Livro. Quando precisa consultar uma API ou comando, esta documentação tende a ser mais direta.</p>
+<p data-searchable>Os códigos citados pelo texto são mantidos também como arquivos reais em <code>Livro/Exemplos</code>. Isso permite abrir, executar e estudar os exemplos fora do PDF.</p>
 <h2 id="identidade-visual" data-searchable>Identidade visual</h2>
-<p data-searchable>O Livro segue a mesma identidade oficial da Coral: Fraunces em títulos principais, Atkinson Hyperlegible no corpo, JetBrains Mono para código, paleta Coral e uso acessível do padrão de anéis.</p>
-<p data-searchable><strong>Edição editorial corrente:</strong> <code>1.5.8</code>. <strong>Runtime corrente:</strong> <code>1.6.0</code>.</p>
+<p data-searchable>O Livro é distribuído em PDF A4 com a identidade oficial da Coral e tipografia voltada à leitura contínua.</p>
     </article>
-    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="exemplos.html"><span>Anterior</span><strong>Exemplos oficiais</strong></a><a class="docs-page-nav-link next" href="release.html"><span>Próxima</span><strong>Release atual</strong></a></nav>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="exemplos.html"><span>Anterior</span><strong>Exemplos oficiais</strong></a><a class="docs-page-nav-link next" href="release.html"><span>Próxima</span><strong>Notas de versão</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
-    <ul><li class="toc-level-2"><a href="#edicao-independente" data-toc-link>Edição independente</a></li>
+    <ul><li class="toc-level-2"><a href="#percurso-do-livro" data-toc-link>Percurso do Livro</a></li>
+<li class="toc-level-2"><a href="#livro-em-numeros" data-toc-link>Livro em números</a></li>
+<li class="toc-level-2"><a href="#baixar-a-edicao-corrente" data-toc-link>Baixar a edição corrente</a></li>
+<li class="toc-level-2"><a href="#como-usar-o-livro-e-o-site-juntos" data-toc-link>Como usar o Livro e o site juntos</a></li>
 <li class="toc-level-2"><a href="#exemplos-do-livro" data-toc-link>Exemplos do Livro</a></li>
-<li class="toc-level-2"><a href="#relacao-com-esta-documentacao" data-toc-link>Relação com esta documentação</a></li>
 <li class="toc-level-2"><a href="#identidade-visual" data-toc-link>Identidade visual</a></li></ul>
   </aside>
 </div>

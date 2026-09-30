@@ -110,9 +110,9 @@ Recursos rejeitam valores não finitos e impedem limites incoerentes. Custos neg
 
 Recursos, atributos e modificadores são determinísticos para o mesmo estado de entrada. Em testes, avance o agente com valores explícitos de `dt`, verifique mudanças de recursos e confira `explicar()` quando a composição de atributos fizer parte do contrato.
 
-## Compatibilidade e evolução
+## Compatibilidade e integração
 
-A superfície funcional foi introduzida na linha 1.5.10 e permanece publicada na **Coral 1.6.0**. A importação da 1.6.0 não detecta alteração nessa API; a release atual preserva a superfície enquanto fecha a coesão interna do runtime.
+Agentes permanece genérico e independente de RPG e Jogos. Recursos, atributos, efeitos e habilidades podem ser reutilizados por simulações, máquinas, personagens ou outros domínios.
 
 ## Referência da API
 

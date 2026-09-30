@@ -9,11 +9,11 @@
 **Importação:** `coral.laboratorio`  
 **Categoria:** cientifico  
 
-experimentos reproduzíveis, medições e grades de parâmetros
+planejamento, execução, análise e recuperação de experimentos reproduzíveis
 
 ### Superfície pública detectada
 
-`Medicao`, `ResultadoExperimento`, `grade_parametros`, `executar_experimento`, `diagnosticar_laboratorio`, `protocolo_medicao`
+`CONTRATO_RESULTADO_JSON`, `VERSAO_RESULTADO_JSON`, `Medicao`, `ResultadoExperimento`, `grade_parametros`, `planejar_experimento`, `selecionar_medicoes`, `resumir_por_parametro`, `validar_resultado`, `carregar_resultado_json`, `comparar_experimentos`, `executar_experimento`, `planejar_experimento_procedural`, `executar_experimento_procedural`, `diagnosticar_laboratorio`, `protocolo_medicao`
 
 <!-- /AUTO:MODULO -->
 
@@ -135,6 +135,165 @@ Retorna um valor declarado como `list[dict[str, Any]]`.
 
 :::
 
+#### `planejar_experimento`
+
+Calcula o tamanho de uma execução experimental sem materializar a grade completa.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Iterable[Any]] \| None` | obrigatório |
+| `repeticoes` | Valor correspondente a repeticoes. | `int` | `1` |
+| `limite` | Valor correspondente a limite. | `int \| None` | `None` |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `planejar_experimento(parametros: Mapping[str, Iterable[Any]] \| None, repeticoes: int = 1, limite: int \| None = None) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `selecionar_medicoes`
+
+Seleciona medições preservando ordem e sem modificar o resultado original.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `resultado` | Valor correspondente a resultado. | `ResultadoExperimento` | obrigatório |
+| `criterio` | Valor correspondente a criterio. | `Callable[[Medicao], bool] \| Mapping[str, Any]` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `list[Medicao]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `selecionar_medicoes(resultado: ResultadoExperimento, criterio: Callable[[Medicao], bool] \| Mapping[str, Any]) -> list[Medicao]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `resumir_por_parametro`
+
+Agrupa medições pelo valor de um parâmetro, preservando a ordem de aparição.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `resultado` | Valor correspondente a resultado. | `ResultadoExperimento` | obrigatório |
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `resumir_por_parametro(resultado: ResultadoExperimento, nome: str) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
+#### `validar_resultado`
+
+Valida a estrutura e a portabilidade de um resultado sem modificá lo.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `resultado` | Valor correspondente a resultado. | `Any` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `validar_resultado(resultado: Any) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+:::
+
+#### `carregar_resultado_json`
+
+Carrega relatório JSON do laboratório e recusa contratos ou esquemas desconhecidos.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `str \| Path` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `ResultadoExperimento`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `carregar_resultado_json(caminho: str \| Path) -> ResultadoExperimento`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `comparar_experimentos`
+
+Compara dois experimentos de forma estritamente descritiva.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `a` | Valor correspondente a a. | `ResultadoExperimento` | obrigatório |
+| `b` | Valor correspondente a b. | `ResultadoExperimento` | obrigatório |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `comparar_experimentos(a: ResultadoExperimento, b: ResultadoExperimento) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
+
+:::
+
 #### `executar_experimento`
 
 Executar e medir.
@@ -178,6 +337,104 @@ Retorna um valor declarado como `ResultadoExperimento`.
 | `relogio` | nomeado |
 
 **Exceções diretamente observáveis no corpo:** `ValueError`, `propagar`
+
+:::
+
+#### `planejar_experimento_procedural`
+
+Planeja um estudo procedural sem reconstruir nem executar a receita.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `receita` | Valor correspondente a receita. | `Any` | obrigatório |
+| `sementes` | Valor correspondente a sementes. | `Iterable[Any] \| None` | `None` |
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Iterable[Any]] \| None` | `None` |
+| `repeticoes` | Valor correspondente a repeticoes. | `int` | `1` |
+| `limite_execucoes` | Valor correspondente a limite execucoes. | `int \| None` | `None` |
+| `limite_custo_total` | Valor correspondente a limite custo total. | `int \| None` | `None` |
+
+**Retorno**
+
+Retorna um valor declarado como `dict[str, Any]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `planejar_experimento_procedural(receita: Any, *, sementes: Iterable[Any] \| None = None, parametros: Mapping[str, Iterable[Any]] \| None = None, repeticoes: int = 1, limite_execucoes: int \| None = None, limite_custo_total: int \| None = None) -> dict[str, Any]`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `receita` | posicional |
+| `sementes` | nomeado |
+| `parametros` | nomeado |
+| `repeticoes` | nomeado |
+| `limite_execucoes` | nomeado |
+| `limite_custo_total` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `executar_experimento_procedural`
+
+Executa uma receita procedural como fator explícito de um experimento.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `nome` | Nome usado para identificar o objeto criado ou consultado. | `str` | obrigatório |
+| `receita` | Valor correspondente a receita. | `Any` | obrigatório |
+| `funcao` | Função fornecida para executar a operação. | `Callable[..., Any]` | obrigatório |
+| `sementes` | Valor correspondente a sementes. | `Iterable[Any] \| None` | `None` |
+| `parametros` | Valor correspondente a parametros. | `Mapping[str, Iterable[Any]] \| None` | `None` |
+| `repeticoes` | Valor correspondente a repeticoes. | `int` | `1` |
+| `semente_laboratorio` | Valor correspondente a semente laboratorio. | `int \| None` | `None` |
+| `metricas` | Valor correspondente a metricas. | `Callable[[Any], Mapping[str, Any]] \| None` | `None` |
+| `continuar_em_erro` | Valor correspondente a continuar em erro. | `bool` | `True` |
+| `relogio` | Relógio usado para controlar tempo ou atualização. | `FonteTempo \| None` | `None` |
+| `limite_custo_receita` | Valor correspondente a limite custo receita. | `int` | `1000000` |
+| `limite_execucoes` | Valor correspondente a limite execucoes. | `int \| None` | `None` |
+| `limite_custo_total` | Valor correspondente a limite custo total. | `int \| None` | `None` |
+
+**Retorno**
+
+Retorna um valor declarado como `ResultadoExperimento`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `executar_experimento_procedural(nome: str, receita: Any, funcao: Callable[..., Any], *, sementes: Iterable[Any] \| None = None, parametros: Mapping[str, Iterable[Any]] \| None = None, repeticoes: int = 1, semente_laboratorio: int \| None = None, metricas: Callable[[Any], Mapping[str, Any]] \| None = None, continuar_em_erro: bool = True, relogio: FonteTempo \| None = None, limite_custo_receita: int = 1000000, limite_execucoes: int \| None = None, limite_custo_total: int \| None = None) -> ResultadoExperimento`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `nome` | posicional |
+| `receita` | posicional |
+| `funcao` | posicional |
+| `sementes` | nomeado |
+| `parametros` | nomeado |
+| `repeticoes` | nomeado |
+| `semente_laboratorio` | nomeado |
+| `metricas` | nomeado |
+| `continuar_em_erro` | nomeado |
+| `relogio` | nomeado |
+| `limite_custo_receita` | nomeado |
+| `limite_execucoes` | nomeado |
+| `limite_custo_total` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `TypeError`, `ValueError`
 
 :::
 
@@ -324,6 +581,40 @@ Representa agregado do experimento.
 | `salvar_csv` | método | `salvar_csv(caminho: str \| Path) -> Path` |
 | `salvar` | método | `salvar(caminho: str \| Path) -> Path` |
 | `salvar_markdown` | método | `salvar_markdown(caminho: str \| Path) -> Path` |
+
+:::
+
+### Constantes e aliases
+
+#### `CONTRATO_RESULTADO_JSON`
+
+Expõe a constante pública `CONTRATO_RESULTADO_JSON`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `CONTRATO_RESULTADO_JSON`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Valor declarado:** `'coral.laboratorio.resultado/1'`
+
+:::
+
+#### `VERSAO_RESULTADO_JSON`
+
+Expõe a constante pública `VERSAO_RESULTADO_JSON`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `VERSAO_RESULTADO_JSON`
+
+**Origem da implementação:** `coral.laboratorio`
+
+**Arquivo na release:** `coral/laboratorio.py`
+
+**Valor declarado:** `1`
 
 :::
 

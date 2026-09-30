@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -208,8 +213,8 @@ execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</sp
 <p data-searchable><code>coral.mundo</code> fornece identidade e participação em mundo. <code>coral.turnos</code> pode ordenar agentes sem depender de combate. <code>coral.simulacao</code> pode avançar regeneração, recargas e outros processos recorrentes. <code>coral.rpg</code> reutiliza esta fundação para especializações de personagem e combate.</p>
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Recursos, atributos e modificadores são determinísticos para o mesmo estado de entrada. Em testes, avance o agente com valores explícitos de <code>dt</code>, verifique mudanças de recursos e confira <code>explicar()</code> quando a composição de atributos fizer parte do contrato.</p>
-<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A superfície funcional foi introduzida na linha 1.5.10 e permanece publicada na <strong>Coral 1.6.0</strong>. A importação da 1.6.0 não detecta alteração nessa API; a release atual preserva a superfície enquanto fecha a coesão interna do runtime.</p>
+<h2 id="compatibilidade-e-integracao" data-searchable>Compatibilidade e integração</h2>
+<p data-searchable>Agentes permanece genérico e independente de RPG e Jogos. Recursos, atributos, efeitos e habilidades podem ser reutilizados por simulações, máquinas, personagens ou outros domínios.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="criar-agente" data-searchable><code>criar_agente</code></h4>
@@ -647,7 +652,7 @@ execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</sp
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
 <li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
-<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-integracao" data-toc-link>Compatibilidade e integração</a></li>
 <li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>

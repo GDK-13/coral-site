@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.6.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.53.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.5.8</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -66,7 +66,7 @@
 <li><a href="../repl_cli.html">REPL e CLI</a></li>
 <li><a href="../exemplos.html">Exemplos oficiais</a></li>
 <li><a href="../livro.html">Livro Oficial</a></li>
-<li><a href="../release.html">Release atual</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
 </ul>
 <details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
 <li><a href="numerico.html"><code>coral.numerico</code></a></li>
@@ -92,6 +92,7 @@
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
 <li><a href="json.html"><code>coral.json</code></a></li>
 <li><a href="matematica.html"><code>coral.matematica</code></a></li>
 <li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
@@ -105,6 +106,10 @@
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
 <li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
 </ul></details>
   </nav>
 
@@ -121,7 +126,7 @@
       </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
-    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>sementes derivadas, geração determinística, ruído, campos e distribuição procedural.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o programa precisa de resultados variados que continuem reproduzíveis.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="simulacao.html"><code>coral.simulacao</code></a>, <a href="mundo.html"><code>coral.mundo</code></a>, <a href="aleatorio.html"><code>coral.aleatorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um gerador chamado clima com <span class="code-key">semente</span> <span class="code-num">42</span>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>sementes derivadas, geração determinística, campos, amostragem, receitas e pontes explícitas para jogos e pesquisa.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o programa precisa de resultados variados que continuem reproduzíveis.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="simulacao.html"><code>coral.simulacao</code></a>, <a href="mundo.html"><code>coral.mundo</code></a>, <a href="aleatorio.html"><code>coral.aleatorio</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> um gerador chamado clima com <span class="code-key">semente</span> <span class="code-num">42</span>
 gere um decimal com clima <span class="code-key">para</span> <span class="code-str">&quot;chuva&quot;</span> como amostra
 <span class="code-key">crie</span> um campo de ruido chamado relevo com <span class="code-key">semente</span> <span class="code-num">42</span> e escala <span class="code-num">20</span>
 consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-num">15</span>] como altura
@@ -131,9 +136,9 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
 <p data-searchable>sementes derivadas, geração determinística, ruído, campos e distribuição procedural</p>
 <p data-searchable><strong>Importação:</strong> <code>coral.procedural</code> <strong>Categoria:</strong> simulacao</p>
-<p data-searchable>sementes derivadas, geração determinística, ruído, campos e distribuição procedural</p>
+<p data-searchable>sementes derivadas, geração determinística, campos, amostragem, receitas e pontes explícitas para jogos e pesquisa</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>CONTRATO</code>, <code>Semente</code>, <code>semente</code>, <code>derivar_semente</code>, <code>GeradorProcedural</code>, <code>SequenciaProcedural</code>, <code>CampoProcedural</code>, <code>campo_constante</code>, <code>campo_ruido</code>, <code>distribuir_pontos</code></p>
+<p data-searchable><code>CONTRATO</code>, <code>Semente</code>, <code>semente</code>, <code>derivar_semente</code>, <code>GeradorProcedural</code>, <code>SequenciaProcedural</code>, <code>CampoProcedural</code>, <code>campo_constante</code>, <code>campo_ruido</code>, <code>distribuir_pontos</code>, <code>amostrar_campo</code>, <code>matriz_campo</code>, <code>anotar_pontos</code>, <code>proveniencia_procedural</code>, <code>CONTRATO_RECEITA</code>, <code>ReceitaProcedural</code>, <code>receita_procedural</code>, <code>diagnosticar_custo_receita</code>, <code>reconstruir_receita</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable><code>coral.procedural</code> fornece geração determinística por semente sem exigir interface gráfica. O mesmo conjunto de primitivas pode servir a jogos, simulações, ecologia, logística, geração de dados, mapas, cenários de teste e qualquer domínio que precise produzir variação reproduzível.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
@@ -198,8 +203,8 @@ gere um decimal com vegetacao <span class="code-key">para</span> <span class="co
 <p data-searchable><code>coral.simulacao</code> usa campos procedurais como base para <code>CampoAmbiental</code>. <code>coral.mundo</code> pode receber campos materializados em camadas de mapa. <code>coral.aleatorio</code> continua útil para aleatoriedade sequencial tradicional, enquanto <code>coral.procedural</code> é preferível quando independência por chave e reprodutibilidade estrutural são requisitos centrais.</p>
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Testes devem fixar a semente e comparar resultados por chave ou coordenada. Uma propriedade importante é a independência da ordem: consultar outra chave antes não deve alterar um valor já definido pelo mesmo contexto.</p>
-<h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A fundação procedural foi promovida na linha 1.5.11 e permanece disponível na <strong>Coral 1.6.0</strong>. A importação da 1.6.0 não detecta alteração nessa superfície funcional; a release preserva a API enquanto reorganiza fronteiras internas do runtime.</p>
+<h2 id="compatibilidade-e-integracao" data-searchable>Compatibilidade e integração</h2>
+<p data-searchable>A superfície procedural corrente trabalha com sementes derivadas, geração determinística, campos, distribuição de pontos, proveniência e receitas. Jogos e Laboratório consomem essa base por pontes explícitas, sem transformar Procedural em dependência de interface ou experimento.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="semente" data-searchable><code>semente</code></h4>
@@ -310,7 +315,7 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 </tbody></table></div>
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
 <h4 id="distribuir-pontos" data-searchable><code>distribuir_pontos</code></h4>
-<p data-searchable>Distribui pontos 2D de forma determinística com restrições simples.</p>
+<p data-searchable>Distribui pontos 2D determinísticos sob limites finitos de trabalho.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -326,10 +331,11 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <tr><td data-searchable><code>distancia_minima</code></td><td data-searchable>Valor correspondente a distancia minima.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
 <tr><td data-searchable><code>restricao</code></td><td data-searchable>Valor correspondente a restricao.</td><td data-searchable><code>Callable[[float, float], bool] | None</code></td><td data-searchable><code>None</code></td></tr>
 <tr><td data-searchable><code>max_tentativas_por_ponto</code></td><td data-searchable>Valor correspondente a max tentativas por ponto.</td><td data-searchable><code>int</code></td><td data-searchable><code>200</code></td></tr>
+<tr><td data-searchable><code>limite_tentativas_total</code></td><td data-searchable>Valor correspondente a limite tentativas total.</td><td data-searchable><code>int</code></td><td data-searchable><code>1000000</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>tuple[tuple[float, float], ...]</code>.</p>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>distribuir_pontos(largura: float, altura: float, quantidade: int, *, semente_raiz: Any = 0, margem: float = 0.0, distancia_minima: float = 0.0, restricao: Callable[[float, float], bool] \| None = None, max_tentativas_por_ponto: int = 200) -&gt; tuple[tuple[float, float], ...]</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>distribuir_pontos(largura: float, altura: float, quantidade: int, *, semente_raiz: Any = 0, margem: float = 0.0, distancia_minima: float = 0.0, restricao: Callable[[float, float], bool] \| None = None, max_tentativas_por_ponto: int = 200, limite_tentativas_total: int = 1000000) -&gt; tuple[tuple[float, float], ...]</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
 <p data-searchable><strong>Modo dos parâmetros</strong></p>
@@ -345,8 +351,189 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <tr><td data-searchable><code>distancia_minima</code></td><td data-searchable>nomeado</td></tr>
 <tr><td data-searchable><code>restricao</code></td><td data-searchable>nomeado</td></tr>
 <tr><td data-searchable><code>max_tentativas_por_ponto</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_tentativas_total</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
-<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>RuntimeError</code></p></div></details>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>TypeError</code>, <code>RuntimeError</code></p></div></details>
+<h4 id="amostrar-campo" data-searchable><code>amostrar_campo</code></h4>
+<p data-searchable>Materializa amostras portáteis de um campo sem depender de Numérico ou Laboratório.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>Valor correspondente a campo.</td><td data-searchable><code>CampoProcedural</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>coordenadas</code></td><td data-searchable>Valor correspondente a coordenadas.</td><td data-searchable><code>Iterable[Sequence[float]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nomes_eixos</code></td><td data-searchable>Valor correspondente a nomes eixos.</td><td data-searchable><code>Sequence[str] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>nome_valor</code></td><td data-searchable>Valor correspondente a nome valor.</td><td data-searchable><code>str</code></td><td data-searchable><code>'valor'</code></td></tr>
+<tr><td data-searchable><code>limite_amostras</code></td><td data-searchable>Valor correspondente a limite amostras.</td><td data-searchable><code>int</code></td><td data-searchable><code>100000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[dict[str, Any], ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>amostrar_campo(campo: CampoProcedural, coordenadas: Iterable[Sequence[float]], *, nomes_eixos: Sequence[str] \| None = None, nome_valor: str = 'valor', limite_amostras: int = 100000) -&gt; tuple[dict[str, Any], ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>coordenadas</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>nomes_eixos</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>nome_valor</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_amostras</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="matriz-campo" data-searchable><code>matriz_campo</code></h4>
+<p data-searchable>Amostra um campo 2D como matriz, pronta para mapas, jogos e mapas de calor.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>Valor correspondente a campo.</td><td data-searchable><code>CampoProcedural</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Linhas usadas para construir ou processar a estrutura.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>Sequence[float]</code></td><td data-searchable><code>(0.0, 0.0)</code></td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>Incremento aplicado entre valores sucessivos.</td><td data-searchable><code>Sequence[float]</code></td><td data-searchable><code>(1.0, 1.0)</code></td></tr>
+<tr><td data-searchable><code>limite_celulas</code></td><td data-searchable>Valor correspondente a limite celulas.</td><td data-searchable><code>int</code></td><td data-searchable><code>1000000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[tuple[float, ...], ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>matriz_campo(campo: CampoProcedural, colunas: int, linhas: int, *, origem: Sequence[float] = (0.0, 0.0), passo: Sequence[float] = (1.0, 1.0), limite_celulas: int = 1000000) -&gt; tuple[tuple[float, ...], ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>passo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_celulas</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="anotar-pontos" data-searchable><code>anotar_pontos</code></h4>
+<p data-searchable>Anexa valores de campos a pontos 2D em registros gerais e portáteis.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>Valor correspondente a pontos.</td><td data-searchable><code>Iterable[Sequence[float]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>Valor correspondente a campos.</td><td data-searchable><code>Mapping[str, CampoProcedural]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>Valor correspondente a limite pontos.</td><td data-searchable><code>int</code></td><td data-searchable><code>100000</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>tuple[dict[str, Any], ...]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>anotar_pontos(pontos: Iterable[Sequence[float]], campos: Mapping[str, CampoProcedural], *, limite_pontos: int = 100000) -&gt; tuple[dict[str, Any], ...]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>pontos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_pontos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code>, <code>TypeError</code></p></div></details>
+<h4 id="proveniencia-procedural" data-searchable><code>proveniencia_procedural</code></h4>
+<p data-searchable>Descreve origem procedural sem importar domínios consumidores.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>objeto</code></td><td data-searchable>Objeto processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>proveniencia_procedural(objeto: Any) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="receita-procedural" data-searchable><code>receita_procedural</code></h4>
+<p data-searchable>Cria uma receita portátil para um dos algoritmos declarativos suportados.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente_raiz</code></td><td data-searchable>Valor correspondente a semente raiz.</td><td data-searchable><code>Any</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>**parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>ReceitaProcedural</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>receita_procedural(algoritmo: str, *, semente_raiz: Any = 0, **parametros: Any) -&gt; ReceitaProcedural</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>semente_raiz</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>**parametros</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="diagnosticar-custo-receita" data-searchable><code>diagnosticar_custo_receita</code></h4>
+<p data-searchable>Estima o trabalho máximo conhecido antes de reconstruir a receita.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>ReceitaProcedural | Mapping[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict[str, Any]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>diagnosticar_custo_receita(receita: ReceitaProcedural \| Mapping[str, Any]) -&gt; dict[str, Any]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p></div></details>
+<h4 id="reconstruir-receita" data-searchable><code>reconstruir_receita</code></h4>
+<p data-searchable>Reconstrói uma receita após validar versão e orçamento explícito.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>Valor correspondente a receita.</td><td data-searchable><code>ReceitaProcedural | Mapping[str, Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>Valor correspondente a limite custo.</td><td data-searchable><code>int</code></td><td data-searchable><code>LIMITE_CUSTO_PADRAO</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>reconstruir_receita(receita: ReceitaProcedural \| Mapping[str, Any], *, limite_custo: int = LIMITE_CUSTO_PADRAO) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>receita</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>limite_custo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
 <h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
 <h4 id="semente-2" data-searchable><code>Semente</code></h4>
 <p data-searchable>Semente estável capaz de derivar sub sementes independentes.</p>
@@ -479,7 +666,7 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <th>Assinatura</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>obter</code></td><td data-searchable>método</td><td data-searchable><code>obter(indice: int) -&gt; Any</code></td></tr>
-<tr><td data-searchable><code>trecho</code></td><td data-searchable>método</td><td data-searchable><code>trecho(inicio: int, quantidade: int) -&gt; tuple[Any, ...]</code></td></tr>
+<tr><td data-searchable><code>trecho</code></td><td data-searchable>método</td><td data-searchable><code>trecho(inicio: int, quantidade: int, *, limite_itens: int = LIMITE_TRECHO_PADRAO) -&gt; tuple[Any, ...]</code></td></tr>
 </tbody></table></div></div></details>
 <h4 id="campoprocedural" data-searchable><code>CampoProcedural</code></h4>
 <p data-searchable>Campo numérico consultável por coordenadas e combinável por composição.</p>
@@ -493,6 +680,9 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <tr><td data-searchable><code>funcao</code></td><td data-searchable>Função fornecida para executar a operação.</td><td data-searchable><code>Callable[..., float]</code></td><td data-searchable>obrigatório</td></tr>
 <tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable><code>'campo'</code></td></tr>
 <tr><td data-searchable><code>metadados</code></td><td data-searchable>Valor correspondente a metadados.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>dimensoes_min</code></td><td data-searchable>Valor correspondente a dimensoes min.</td><td data-searchable><code>int</code></td><td data-searchable><code>1</code></td></tr>
+<tr><td data-searchable><code>dimensoes_max</code></td><td data-searchable>Valor correspondente a dimensoes max.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>Valor correspondente a intervalo.</td><td data-searchable><code>tuple[float, float] | None</code></td><td data-searchable><code>None</code></td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Operações públicas da classe</strong></p>
 <div class="table-wrap"><table><thead><tr>
@@ -508,7 +698,7 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <tr><td data-searchable><code>multiplicar</code></td><td data-searchable>Executa a operação <code>multiplicar</code> disponibilizada por <code>coral.procedural</code>.</td><td data-searchable><code>'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>mascara</code></td><td data-searchable>Executa a operação <code>mascara</code> disponibilizada por <code>coral.procedural</code>.</td><td data-searchable><code>'CampoProcedural'</code></td></tr>
 </tbody></table></div>
-<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CampoProcedural(funcao: Callable[..., float], *, nome: str = 'campo', metadados: Mapping[str, Any] \| None = None)</code></p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CampoProcedural(funcao: Callable[..., float], *, nome: str = 'campo', metadados: Mapping[str, Any] \| None = None, dimensoes_min: int = 1, dimensoes_max: int \| None = None, intervalo: tuple[float, float] \| None = None)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
 <p data-searchable><strong>Modo dos parâmetros</strong></p>
@@ -519,6 +709,9 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <tr><td data-searchable><code>funcao</code></td><td data-searchable>posicional</td></tr>
 <tr><td data-searchable><code>nome</code></td><td data-searchable>nomeado</td></tr>
 <tr><td data-searchable><code>metadados</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>dimensoes_min</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>dimensoes_max</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>intervalo</code></td><td data-searchable>nomeado</td></tr>
 </tbody></table></div>
 <p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
 <div class="table-wrap"><table><thead><tr>
@@ -527,12 +720,65 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <th>Assinatura</th>
 </tr></thead><tbody>
 <tr><td data-searchable><code>valor</code></td><td data-searchable>método</td><td data-searchable><code>valor(*coordenadas: float) -&gt; float</code></td></tr>
-<tr><td data-searchable><code>transformar</code></td><td data-searchable>método</td><td data-searchable><code>transformar(funcao: Callable[[float], float], *, nome: str | None = None) -&gt; 'CampoProcedural'</code></td></tr>
+<tr><td data-searchable><code>transformar</code></td><td data-searchable>método</td><td data-searchable><code>transformar(funcao: Callable[[float], float], *, nome: str | None = None, intervalo: tuple[float, float] | None = None, operacao: str = 'transformar') -&gt; 'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>limitar</code></td><td data-searchable>método</td><td data-searchable><code>limitar(minimo: float, maximo: float) -&gt; 'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>normalizar</code></td><td data-searchable>método</td><td data-searchable><code>normalizar(origem_min: float, origem_max: float, destino_min: float = 0.0, destino_max: float = 1.0) -&gt; 'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>somar</code></td><td data-searchable>método</td><td data-searchable><code>somar(outro: 'CampoProcedural | float') -&gt; 'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>multiplicar</code></td><td data-searchable>método</td><td data-searchable><code>multiplicar(outro: 'CampoProcedural | float') -&gt; 'CampoProcedural'</code></td></tr>
 <tr><td data-searchable><code>mascara</code></td><td data-searchable>método</td><td data-searchable><code>mascara(*, minimo: float | None = None, maximo: float | None = None, dentro: float = 1.0, fora: float = 0.0) -&gt; 'CampoProcedural'</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="receitaprocedural" data-searchable><code>ReceitaProcedural</code></h4>
+<p data-searchable>Descrição portátil e reconstruível de uma operação procedural suportada.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>Valor correspondente a algoritmo.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>semente_raiz</code></td><td data-searchable>Valor correspondente a semente raiz.</td><td data-searchable><code>Any</code></td><td data-searchable><code>0</code></td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Valor correspondente a parametros.</td><td data-searchable><code>Mapping[str, Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>versao_algoritmo</code></td><td data-searchable>Valor correspondente a versao algoritmo.</td><td data-searchable><code>int</code></td><td data-searchable><code>VERSAO_RECEITA</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>contrato</code></td><td data-searchable>Executa a operação <code>contrato</code> disponibilizada por <code>coral.procedural</code>.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>Executa a operação <code>parametros</code> disponibilizada por <code>coral.procedural</code>.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_dados</code></td><td data-searchable>Converte o valor para dados.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_json</code></td><td data-searchable>Converte o valor para JSON.</td><td data-searchable><code>str</code></td></tr>
+<tr><td data-searchable><code>de_dados</code></td><td data-searchable>Interpreta ou reconstrói um valor a partir de dados.</td><td data-searchable><code>'ReceitaProcedural'</code></td></tr>
+<tr><td data-searchable><code>de_json</code></td><td data-searchable>Interpreta ou reconstrói um valor a partir de JSON.</td><td data-searchable><code>'ReceitaProcedural'</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ReceitaProcedural(algoritmo: str, *, semente_raiz: Any = 0, parametros: Mapping[str, Any] \| None = None, versao_algoritmo: int = VERSAO_RECEITA) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>algoritmo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>semente_raiz</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>versao_algoritmo</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>contrato</code></td><td data-searchable>propriedade</td><td data-searchable><code>contrato() -&gt; str</code></td></tr>
+<tr><td data-searchable><code>parametros</code></td><td data-searchable>propriedade</td><td data-searchable><code>parametros() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_dados</code></td><td data-searchable>método</td><td data-searchable><code>para_dados() -&gt; dict[str, Any]</code></td></tr>
+<tr><td data-searchable><code>para_json</code></td><td data-searchable>método</td><td data-searchable><code>para_json(*, identar: int | None = None) -&gt; str</code></td></tr>
+<tr><td data-searchable><code>de_dados</code></td><td data-searchable>método</td><td data-searchable><code>de_dados(dados: Mapping[str, Any]) -&gt; 'ReceitaProcedural'</code></td></tr>
+<tr><td data-searchable><code>de_json</code></td><td data-searchable>método</td><td data-searchable><code>de_json(texto: str) -&gt; 'ReceitaProcedural'</code></td></tr>
 </tbody></table></div></div></details>
 <h3 id="constantes-e-aliases" data-searchable>Constantes e aliases</h3>
 <h4 id="contrato" data-searchable><code>CONTRATO</code></h4>
@@ -541,6 +787,12 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
 <p data-searchable><strong>Valor declarado:</strong> <code>'coral.procedural/1'</code></p></div></details>
+<h4 id="contrato-receita" data-searchable><code>CONTRATO_RECEITA</code></h4>
+<p data-searchable>Expõe a constante pública <code>CONTRATO_RECEITA</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>CONTRATO_RECEITA</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.procedural</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/procedural.py</code></p>
+<p data-searchable><strong>Valor declarado:</strong> <code>'coral.procedural.receita/1'</code></p></div></details>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="persistencia.html"><span>Anterior</span><strong>coral.persistencia</strong></a><a class="docs-page-nav-link next" href="rastreamento_reativo.html"><span>Próxima</span><strong>coral.rastreamento_reativo</strong></a></nav>
   </main>
@@ -558,7 +810,7 @@ consulte o campo relevo em [<span class="code-num">10</span>, <span class="code-
 <li class="toc-level-2"><a href="#boas-praticas" data-toc-link>Boas práticas</a></li>
 <li class="toc-level-2"><a href="#integracao-com-outros-modulos" data-toc-link>Integração com outros módulos</a></li>
 <li class="toc-level-2"><a href="#testabilidade-e-previsibilidade" data-toc-link>Testabilidade e previsibilidade</a></li>
-<li class="toc-level-2"><a href="#compatibilidade-e-evolucao" data-toc-link>Compatibilidade e evolução</a></li>
+<li class="toc-level-2"><a href="#compatibilidade-e-integracao" data-toc-link>Compatibilidade e integração</a></li>
 <li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
   </aside>
 </div>
