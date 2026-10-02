@@ -58,6 +58,32 @@ mostre nome_tipo(valor)
 garanta que e_tipo(valor, "inteiro") for igual a verdadeiro
 ```
 
+## Formas naturais
+
+A 1.7.2 permite consultar e testar tipos diretamente como expressões. As APIs explícitas continuam disponíveis e continuam necessárias para tipos definidos pelo programa.
+
+| Forma natural | API equivalente |
+|---|---|
+| `o nome do tipo de valor` | `nome_tipo(valor)` |
+| `o tipo de valor` | `tipo_de(valor)` |
+| `valor for do tipo inteiro` | `e_tipo(valor, "inteiro")` |
+| `valor não for do tipo inteiro` | negação de `e_tipo(valor, "inteiro")` |
+
+```coral
+defina valor como 42
+mostre o nome do tipo de valor
+
+se valor for do tipo inteiro então
+    mostre "inteiro"
+fim
+```
+
+:::resultado
+O nome do tipo é consultado pelo mesmo contrato de `nome_tipo`. O teste considera booleano separado de inteiro.
+:::
+
+A forma curta `valor for inteiro` não é aceita. Use `valor for do tipo inteiro`. O descritor `número` conserva o contrato atual da API e não passa a incluir inteiros.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -97,7 +123,7 @@ Teste diferenças intencionais como booleano versus inteiro, data versus data e 
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

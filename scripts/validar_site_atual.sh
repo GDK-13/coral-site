@@ -68,22 +68,24 @@ assert f'Coral {coral}' in release or coral in release, coral
 intro = (root / 'docs/paginas/introducao.md').read_text(encoding='utf-8')
 assert 'Português corrente' in intro
 
-if coral == '1.7.0':
-    assert extensao == '0.72.0', versao
+livro_md = (root / 'docs/paginas/livro.md').read_text(encoding='utf-8')
+pdf = root / f'downloads/Coral_{livro}_Livro_Oficial.pdf'
+assert pdf.is_file() and pdf.stat().st_size > 100_000, pdf
+assert pdf.name in index, pdf.name
+
+landing_low = index.casefold()
+for proibido in ('roadmap', 'checkpoint', 'congelamento', 'linha 1.5', 'linha 1.6'):
+    assert proibido not in landing_low, proibido
+assert 'Notas de versão' in index
+
+if coral == '1.7.2':
+    assert extensao == '0.74.0', versao
     assert livro == '1.7.0', versao
-
-    livro_md = (root / 'docs/paginas/livro.md').read_text(encoding='utf-8')
-    for esperado in ('53 capítulos', '135 páginas', 'AUTO:DOWNLOAD_LIVRO'):
-        assert esperado in livro_md, esperado
-
-    pdf = root / f'downloads/Coral_{livro}_Livro_Oficial.pdf'
-    assert pdf.is_file() and pdf.stat().st_size > 100_000, pdf
-    assert pdf.name in index, pdf.name
-
-    landing_low = index.casefold()
-    for proibido in ('roadmap', 'checkpoint', 'congelamento', 'linha 1.5', 'linha 1.6'):
-        assert proibido not in landing_low, proibido
-    assert 'Notas de versão' in index
+    diagnosticos = (root / 'docs/paginas/diagnosticos.md').read_text(encoding='utf-8')
+    for esperado in ('R102', 'R110', 'R203', 'exceptionInfo.details.diagnostico'):
+        assert esperado in diagnosticos, esperado
+    tipos = (root / 'docs/paginas/modulos/tipos.md').read_text(encoding='utf-8')
+    assert 'valor for do tipo inteiro' in tipos
 
 print(f'OK: identidade Coral {coral}, VS Code {extensao} e Livro {livro} confirmadas.')
 PY

@@ -1,8 +1,11 @@
 {
-  "total": 82,
+  "total": 88,
   "arquivos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
+    "Exemplos/Basica_1_7_2/entrada.coral",
+    "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
+    "Exemplos/Basica_1_7_2/tipos_conversoes.coral",
     "Exemplos/Dados/01_entrada_conversoes_e_texto.coral",
     "Exemplos/Dados/02_arquivos_json_e_caminhos.coral",
     "Exemplos/Dados/03_aleatorio_e_persistencia.coral",
@@ -59,6 +62,9 @@
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/testes/02_reprodutibilidade.coral",
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/testes/03_detector_incorreto.coral",
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/validacao.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/apresentacao.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/calculos.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/principal.coral",
     "Exemplos/Regras/01_eventos_observacao_e_tempo.coral",
     "Exemplos/Regras/02_controle_de_eventos.coral",
     "Exemplos/Regras/03_grupos_e_sequencias.coral",

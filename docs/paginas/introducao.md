@@ -22,20 +22,22 @@ A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma p
 
 A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que representam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.
 
-O vocabulário corrente inclui atribuições e mutações naturais, comparações com `é`, pertencimento com `está em`, consultas de vazio e faixa, operações de coleção, conversões e chamadas naturais.
+Além de atribuições, comparações e coleções, a edição corrente permite consultar tipos, converter valores e usar operações básicas de entrada, arquivos, texto, coleções e JSON sem esconder a API equivalente.
 
 ```coral
-defina idade como 18
-aumente idade em 1
+defina entrada como "18"
+defina idade como converta entrada para inteiro
 
-se idade é maior que 18
-    mostre "maior de idade"
+se idade for do tipo inteiro então
+    mostre o nome do tipo de idade
 fim
 ```
 
 :::resultado
-A variável `idade` passa a valer `19` e o programa mostra `maior de idade`.
+`idade` recebe o inteiro `18`. O teste natural usa o mesmo contrato de `coral.tipos.e_tipo`, e a consulta mostra o nome Coral do tipo.
 :::
+
+As chamadas explícitas continuam disponíveis quando você precisa de argumentos opcionais, ordenação reversa, codificação ou outros controles que a forma curta não expressa.
 
 ## Arquivo único ou projeto
 

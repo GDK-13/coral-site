@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -60,6 +60,7 @@
 <li><a href="projetos.html">Projetos e módulos</a></li>
 <li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
+<li><a href="diagnosticos.html">Diagnósticos</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
 <h4>Referência</h4><ul>
@@ -143,14 +144,15 @@
 <p data-searchable>A biblioteca padrão é organizada em módulos <code>coral.*</code>. Cada módulo tem uma página própria nesta documentação e pode ser consultado pelo nome ou pelo guia <strong>O que você quer fazer?</strong>.</p>
 <h2 id="portugues-corrente-com-equivalencia-deterministica" data-searchable>Português corrente com equivalência determinística</h2>
 <p data-searchable>A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que representam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.</p>
-<p data-searchable>O vocabulário corrente inclui atribuições e mutações naturais, comparações com <code>é</code>, pertencimento com <code>está em</code>, consultas de vazio e faixa, operações de coleção, conversões e chamadas naturais.</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> idade como <span class="code-num">18</span>
-aumente idade em <span class="code-num">1</span>
+<p data-searchable>Além de atribuições, comparações e coleções, a edição corrente permite consultar tipos, converter valores e usar operações básicas de entrada, arquivos, texto, coleções e JSON sem esconder a API equivalente.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> entrada como <span class="code-str">&quot;18&quot;</span>
+<span class="code-key">defina</span> idade como converta entrada <span class="code-key">para</span> inteiro
 
-<span class="code-key">se</span> idade é maior que <span class="code-num">18</span>
-    <span class="code-key">mostre</span> <span class="code-str">&quot;maior de idade&quot;</span>
+<span class="code-key">se</span> idade for do <span class="code-key">tipo</span> inteiro <span class="code-key">então</span>
+    <span class="code-key">mostre</span> o nome do <span class="code-key">tipo</span> de idade
 <span class="code-key">fim</span></code></pre></div></div>
-<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A variável <code>idade</code> passa a valer <code>19</code> e o programa mostra <code>maior de idade</code>.</p></div></details>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>idade</code> recebe o inteiro <code>18</code>. O teste natural usa o mesmo contrato de <code>coral.tipos.e_tipo</code>, e a consulta mostra o nome Coral do tipo.</p></div></details>
+<p data-searchable>As chamadas explícitas continuam disponíveis quando você precisa de argumentos opcionais, ordenação reversa, codificação ou outros controles que a forma curta não expressa.</p>
 <h2 id="arquivo-unico-ou-projeto" data-searchable>Arquivo único ou projeto</h2>
 <p data-searchable>Um arquivo <code>.coral</code> pode ser executado sozinho. Isso é útil para estudar, experimentar uma ideia ou escrever pequenos programas.</p>
 <p data-searchable>Projetos passam a ser interessantes quando você precisa de vários módulos, testes, recursos, caminhos de importação ou configuração compartilhada. Nesse caso, <code>coral.toml</code> vira a fonte de configuração do projeto.</p>

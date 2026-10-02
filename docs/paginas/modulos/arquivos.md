@@ -61,6 +61,23 @@ defina conteudo como ler_texto("mensagem.txt")
 mostre conteudo
 ```
 
+## Formas naturais
+
+As operações básicas de texto e existência ganharam equivalentes naturais:
+
+```coral
+se existe o caminho "~/notas.txt" então
+    defina conteudo como leia o texto de "~/notas.txt"
+    escreva conteudo em "copia.txt"
+fim
+```
+
+:::resultado
+`existe o caminho` usa a normalização da API, inclusive expansão de `~`. A leitura e a escrita preservam os contratos de erro de arquivo e permissão do módulo.
+:::
+
+A forma de escrita segue `escreva texto em caminho`, portanto o primeiro operando é o texto e o segundo é o caminho. As formas históricas de existência que já existiam mantêm sua semântica anterior.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -103,7 +120,7 @@ Testes devem trabalhar em pasta temporária e conferir efeitos observáveis: arq
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -260,6 +277,15 @@ Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo
 #### `existe`
 
 Verifica se o caminho indicado existe.
+
+**Exemplo**
+
+```coral
+se existe o caminho "~/notas.txt" então
+    defina conteudo como leia o texto de "~/notas.txt"
+    escreva conteudo em "copia.txt"
+fim
+```
 
 **Parâmetros**
 

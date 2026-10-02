@@ -37,6 +37,12 @@
       "grupo": "Guias"
     },
     {
+      "arquivo": "diagnosticos.md",
+      "titulo": "Diagnósticos",
+      "slug": "diagnosticos",
+      "grupo": "Guias"
+    },
+    {
       "arquivo": "testes.md",
       "titulo": "Testes",
       "slug": "testes",

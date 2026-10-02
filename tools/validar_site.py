@@ -310,11 +310,58 @@ def audit_public_editorial_policy() -> list[str]:
         if path.exists():
             errors.append(f"conteúdo de log/roadmap não deve integrar o site público: {path.relative_to(ROOT)}")
 
+    for path in (ROOT / "docs").rglob("*"):
+        if path.is_file() and "roadmap" in path.name.casefold():
+            errors.append(f"roadmap não deve integrar a árvore pública: {path.relative_to(ROOT)}")
+
     release = ROOT / "docs" / "paginas" / "release.md"
     if not release.exists() or "# Notas de versão" not in release.read_text(encoding="utf-8"):
         errors.append("página pública de Notas de versão ausente")
     return errors
 
+
+
+def audit_coral_172_content() -> list[str]:
+    """Confere a documentação pública dos contratos adicionados na Coral 1.7.2."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    if version.get("coral") != "1.7.2":
+        return errors
+    if version.get("extensao_vscode") != "0.74.0":
+        errors.append("Coral 1.7.2 deve publicar Coral Language 0.74.0")
+    if version.get("livro") != "1.7.0":
+        errors.append("Coral 1.7.2 deve preservar o Livro Oficial 1.7.0")
+
+    required = {
+        "docs/paginas/diagnosticos.md": ("R102", "R110", "R203", "exceptionInfo.details.diagnostico"),
+        "docs/paginas/modulos/tipos.md": ("valor for do tipo inteiro", "o nome do tipo de valor"),
+        "docs/paginas/modulos/conversoes.md": ("tente converter", "converta"),
+        "docs/paginas/modulos/entrada.md": ("leia uma linha com",),
+        "docs/paginas/modulos/arquivos.md": ("existe o caminho", "leia o texto de"),
+        "docs/paginas/modulos/texto.md": ("maiúsculas de", "começa com", "substitua"),
+        "docs/paginas/modulos/colecoes.md": ("o primeiro de", "conte as ocorrências de"),
+        "docs/paginas/modulos/json.md": ("serialize json de", "interprete json de"),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.2 ausente: {rel}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in text:
+                errors.append(f"conteúdo 1.7.2 ausente em {rel}: {snippet}")
+
+    syntax_path = ROOT / "docs" / "dados" / "sintaxe.json"
+    if syntax_path.exists():
+        syntax = json.loads(syntax_path.read_text(encoding="utf-8"))
+        forms = syntax.get("formas_naturais_basicas", [])
+        if "valor for do tipo inteiro" not in forms or "converta valor para inteiro" not in forms:
+            errors.append("snapshot sintático não inventaria as formas naturais básicas da 1.7.2")
+    return errors
 
 def audit_header_layout_contract() -> list[str]:
     """Impede regressão do cabeçalho claro quando rótulos ficam mais largos."""
@@ -370,6 +417,7 @@ def main() -> int:
     failures.extend(audit_api_didactic())
     failures.extend(audit_qol_didatica())
     failures.extend(audit_public_editorial_policy())
+    failures.extend(audit_coral_172_content())
     failures.extend(audit_residues())
 
     if failures:

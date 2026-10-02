@@ -6,7 +6,7 @@ Este documento define como manter a landing page e a documentação do repositó
 
 O site separa três tipos de conteúdo:
 
-* **automático:** versões, módulos, superfície pública detectável, comandos CLI, inventário de exemplos e changelog;
+* **automático:** versões, módulos, superfície pública detectável, comandos CLI, inventário de exemplos e diferenças mecânicas entre releases;
 * **semiautomático:** criação de páginas para módulos novos e relatórios de diferenças entre releases;
 * **manual:** explicações, tutoriais, decisões de uso, exemplos comentados e boas práticas.
 
@@ -138,8 +138,7 @@ coral-site/
 │   │   ├── introducao.md
 │   │   ├── ...
 │   │   └── modulos/
-│   ├── changelog/
-├── manutencao/
+├── .site-local/                 # transitório, ignorado pelo Git
 │   └── REVISAO_PENDENTE.md
 ├── templates/
 │   └── docs.html
@@ -201,6 +200,8 @@ O importador atualiza:
 * inventário de exemplos `.coral`;
 * PDF corrente do Livro, quando presente em `Livro/`;
 * contrato sintático para o realce estático (`docs/dados/sintaxe.json`);
+
+As formas naturais da biblioteca base são inventariadas separadamente em `formas_naturais_basicas`. Elas entram na comparação entre releases sem transformar palavras comuns como `tipo`, `valor` ou `texto` em palavras chave do realce sintático.
 * snapshot da release anterior;
 * blocos automáticos das páginas de módulos.
 
@@ -228,7 +229,7 @@ Somente esses blocos são substituídos durante a importação. Conceitos, tutor
 
 Os módulos principais recebem a camada editorial mais extensa, com foco também na arquitetura de domínio. Os **módulos secundários** não são tratados como simples fichas: cada página deve conter visão geral, papel no ecossistema, conceitos principais, quando usar, exemplo validado, API essencial, fluxos comuns, erros e casos de borda, boas práticas, integração, testabilidade/previsibilidade, compatibilidade e a referência automática completa da API. A diferença entre os grupos é de prioridade e profundidade de domínio, não de qualidade documental.
 
-Outras páginas usam blocos equivalentes para versão da extensão, CLI, exemplos, edição do Livro e changelog.
+Outras páginas usam blocos equivalentes para versão da extensão, CLI, exemplos e edição do Livro. As notas de versão são editoriais e voltadas ao usuário.
 
 ## 9. Realce de sintaxe Coral
 
@@ -263,7 +264,7 @@ O script genérico substitui validadores presos a uma versão específica e grav
 Depois de importar uma release, leia:
 
 ```text
-manutencao/REVISAO_PENDENTE.md
+.site-local/REVISAO_PENDENTE.md
 ```
 
 Ele informa módulos novos, removidos ou alterados, mudanças de CLI e mudanças na biblioteca de exemplos.
@@ -323,7 +324,7 @@ Revise:
 * sidebar recolhida e expandida;
 * menu mobile;
 * foco por teclado;
-* `REVISAO_PENDENTE.md`.
+* `.site-local/REVISAO_PENDENTE.md` (somente durante manutenção local).
 
 ## 14. Publicação
 

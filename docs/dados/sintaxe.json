@@ -1,5 +1,5 @@
 {
-  "release": "1.7.0",
+  "release": "1.7.2",
   "esquema": "1.5.8",
   "lexemas": [
     "aguarde",
@@ -60,6 +60,41 @@
   "linguagens": [
     "coral",
     "coral-*"
+  ],
+  "formas_naturais_basicas": [
+    "apare o texto de valor",
+    "conte as ocorrencias de valor",
+    "conte as ocorrências de valor",
+    "converta valor para booleano",
+    "converta valor para decimal",
+    "converta valor para inteiro",
+    "converta valor para texto",
+    "escreva texto em caminho",
+    "existe o caminho valor",
+    "interprete json de valor",
+    "leia o texto de valor",
+    "leia uma linha com valor",
+    "maiusculas de valor",
+    "maiúsculas de valor",
+    "minusculas de valor",
+    "minúsculas de valor",
+    "o nome do tipo de valor",
+    "o primeiro de valor",
+    "o tipo de valor",
+    "ordene os valores de valor",
+    "os valores unicos de valor",
+    "os valores únicos de valor",
+    "serialize json de valor",
+    "substitua antigo por novo em valor",
+    "tente converter valor para booleano, senão padrão",
+    "tente converter valor para decimal, senão padrão",
+    "tente converter valor para inteiro, senão nulo",
+    "tente converter valor para inteiro, senão padrão",
+    "tente converter valor para texto, senão padrão",
+    "valor começa com prefixo",
+    "valor for do tipo inteiro",
+    "valor não for do tipo inteiro",
+    "valor termina com sufixo"
   ],
   "origem": {
     "esquema": "Projeto/coral/esquema_sintatico.py",

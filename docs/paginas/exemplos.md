@@ -29,6 +29,16 @@ para cada idade de idades faça
 fim
 ```
 
+## Biblioteca base 1.7.2
+
+A 1.7.2 inclui três exemplos curtos dedicados às formas naturais da biblioteca base. Eles são um bom ponto de partida para consultar entrada, tipos, conversões, texto, coleções e JSON sem precisar abrir um projeto maior.
+
+* `Exemplos/Basica_1_7_2/entrada.coral`: leitura natural de linha e conversão tolerante com valor padrão;
+* `Exemplos/Basica_1_7_2/tipos_conversoes.coral`: consulta de tipo, teste natural de tipo e conversões;
+* `Exemplos/Basica_1_7_2/texto_colecoes_json.coral`: texto, frequência, valores únicos, ordenação e JSON.
+
+A distribuição também inclui um exemplo de projeto dividido em módulos em `Exemplos/Projetos_Completos/Vitrine/nucleo_modular/`. `principal.coral` coordena o programa, enquanto `calculos.coral` e `apresentacao.coral` separam cálculo e apresentação.
+
 ## Ciência e dados
 
 A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
@@ -73,11 +83,12 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 82 arquivos `.coral`.
+**Total detectado na release:** 88 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
 | Agentes | 2 |
+| Basica_1_7_2 | 3 |
 | Dados | 9 |
 | Espaco | 3 |
 | Fundamentos | 5 |
@@ -85,7 +96,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 | Integracao | 4 |
 | Jogos | 12 |
 | Mundo | 4 |
-| Projetos_Completos | 16 |
+| Projetos_Completos | 19 |
 | Regras | 3 |
 | SimulacaoTemporal | 14 |
 | Simulacoes | 2 |

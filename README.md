@@ -53,7 +53,7 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 * `tools/site_renderer.py`: renderer multipágina, navegação e índice de busca
 * `.vscode/tasks.json`: tarefas rápidas do VS Code
 * `WORKFLOW_SITE_CORAL.md`: workflow completo de manutenção e publicação
-* `manutencao/REVISAO_PENDENTE.md`: checklist interno gerado ao importar uma nova release
+* `.site-local/REVISAO_PENDENTE.md`: relatório transitório e ignorado pelo Git, criado durante a importação; não integra o site público nem os pacotes publicados
 
 ## Módulos principais
 

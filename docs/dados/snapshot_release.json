@@ -1,6 +1,6 @@
 {
-  "runtime": "1.7.0",
-  "extensao_vscode": "0.72.0",
+  "runtime": "1.7.2",
+  "extensao_vscode": "0.74.0",
   "livro": "1.7.0",
   "modulos": {
     "agentes": [
@@ -825,6 +825,9 @@
   "exemplos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
+    "Exemplos/Basica_1_7_2/entrada.coral",
+    "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
+    "Exemplos/Basica_1_7_2/tipos_conversoes.coral",
     "Exemplos/Dados/01_entrada_conversoes_e_texto.coral",
     "Exemplos/Dados/02_arquivos_json_e_caminhos.coral",
     "Exemplos/Dados/03_aleatorio_e_persistencia.coral",
@@ -881,6 +884,9 @@
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/testes/02_reprodutibilidade.coral",
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/testes/03_detector_incorreto.coral",
     "Exemplos/Projetos_Completos/Vitrine/laboratorio_algoritmos/validacao.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/apresentacao.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/calculos.coral",
+    "Exemplos/Projetos_Completos/Vitrine/nucleo_modular/principal.coral",
     "Exemplos/Regras/01_eventos_observacao_e_tempo.coral",
     "Exemplos/Regras/02_controle_de_eventos.coral",
     "Exemplos/Regras/03_grupos_e_sequencias.coral",
@@ -907,7 +913,7 @@
     "Exemplos/Web/04_grafico_interativo_local.coral"
   ],
   "sintaxe": {
-    "release": "1.7.0",
+    "release": "1.7.2",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -969,11 +975,46 @@
       "coral",
       "coral-*"
     ],
+    "formas_naturais_basicas": [
+      "apare o texto de valor",
+      "conte as ocorrencias de valor",
+      "conte as ocorrências de valor",
+      "converta valor para booleano",
+      "converta valor para decimal",
+      "converta valor para inteiro",
+      "converta valor para texto",
+      "escreva texto em caminho",
+      "existe o caminho valor",
+      "interprete json de valor",
+      "leia o texto de valor",
+      "leia uma linha com valor",
+      "maiusculas de valor",
+      "maiúsculas de valor",
+      "minusculas de valor",
+      "minúsculas de valor",
+      "o nome do tipo de valor",
+      "o primeiro de valor",
+      "o tipo de valor",
+      "ordene os valores de valor",
+      "os valores unicos de valor",
+      "os valores únicos de valor",
+      "serialize json de valor",
+      "substitua antigo por novo em valor",
+      "tente converter valor para booleano, senão padrão",
+      "tente converter valor para decimal, senão padrão",
+      "tente converter valor para inteiro, senão nulo",
+      "tente converter valor para inteiro, senão padrão",
+      "tente converter valor para texto, senão padrão",
+      "valor começa com prefixo",
+      "valor for do tipo inteiro",
+      "valor não for do tipo inteiro",
+      "valor termina com sufixo"
+    ],
     "origem": {
       "esquema": "Projeto/coral/esquema_sintatico.py",
       "lexico": "Projeto/coral/lexico.py",
       "identificadores": "Projeto/coral/identificadores.py"
     }
   },
-  "source": "Coral_1.7.0_Entrega_Final.zip"
+  "source": "Coral_1.7.2_Completo.zip"
 }

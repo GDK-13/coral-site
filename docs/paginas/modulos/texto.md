@@ -73,6 +73,25 @@ defina raiz como math.sqrt(81)
 mostre raiz
 ```
 
+## Formas naturais
+
+Operações frequentes de texto podem ser usadas diretamente como expressões:
+
+```coral
+defina nome como apare o texto de "  Coral  "
+mostre maiúsculas de nome
+
+se nome começa com "Cor" então
+    mostre substitua "Cor" por "Flor" em nome
+fim
+```
+
+:::resultado
+O texto é aparado, pode ser consultado por prefixo e transformado pelas mesmas funções públicas `aparar`, `maiusculas`, `comeca_com` e `substituir`.
+:::
+
+Também são aceitas `minúsculas de valor`, `valor termina com sufixo` e as variantes sem acento documentadas para maiúsculas, minúsculas e únicos.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -115,7 +134,7 @@ Inclua acentos, Unicode composto/decomposto, string vazia, múltiplas linhas e a
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

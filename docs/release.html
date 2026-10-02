@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Esta página reúne mudanças de compatibilidade, plataforma, ferramentas e distribuição relevantes para quem usa a Coral.">
+  <meta name="description" content="Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.">
   <meta name="theme-color" content="#EF362A">
   <title>Notas de versão — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Notas de versão — Documentação Coral">
-  <meta property="og:description" content="Esta página reúne mudanças de compatibilidade, plataforma, ferramentas e distribuição relevantes para quem usa a Coral.">
+  <meta property="og:description" content="Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Notas de versão — Documentação Coral">
-  <meta name="twitter:description" content="Esta página reúne mudanças de compatibilidade, plataforma, ferramentas e distribuição relevantes para quem usa a Coral.">
+  <meta name="twitter:description" content="Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -60,6 +60,7 @@
 <li><a href="projetos.html">Projetos e módulos</a></li>
 <li><a href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
+<li><a href="diagnosticos.html">Diagnósticos</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
 <h4>Referência</h4><ul>
@@ -117,7 +118,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Referência</div>
       <h1>Notas de versão</h1>
-      <p>Esta página reúne mudanças de compatibilidade, plataforma, ferramentas e distribuição relevantes para quem usa a Coral.</p>
+      <p>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -128,26 +129,50 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>Esta página reúne mudanças de compatibilidade, plataforma, ferramentas e distribuição relevantes para quem usa a Coral.</p>
+      <p data-searchable>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
 <h2 id="versao-atual" data-searchable>Versão atual</h2>
-<p data-searchable><strong>Coral:</strong> <code>1.7.0</code> <strong>Coral Language:</strong> <code>0.72.0</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
-<h2 id="coral-1-7-0" data-searchable>Coral 1.7.0</h2>
-<p data-searchable>A Coral 1.7.0 reúne em uma distribuição pública única as capacidades atuais da linguagem, da biblioteca padrão, das ferramentas e do Livro Oficial.</p>
-<h3 id="para-quem-programa" data-searchable>Para quem programa</h3>
+<p data-searchable><strong>Coral:</strong> <code>1.7.2</code> <strong>Coral Language:</strong> <code>0.74.0</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<h2 id="coral-1-7-2" data-searchable>Coral 1.7.2</h2>
+<h3 id="portugues-corrente-e-biblioteca-base" data-searchable>Português corrente e biblioteca base</h3>
+<p data-searchable>A 1.7.2 amplia as formas naturais da biblioteca base sem remover as APIs explícitas. Entre as novas expressões estão consultas e testes de tipo, leitura de entrada, operações de arquivos e texto, operações de coleção, JSON e conversões.</p>
+<p data-searchable>Exemplos:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">mostre</span> o nome do <span class="code-key">tipo</span> de valor
+<span class="code-key">se</span> valor for do <span class="code-key">tipo</span> inteiro <span class="code-key">então</span>
+    <span class="code-key">mostre</span> converta valor <span class="code-key">para</span> texto
+<span class="code-key">fim</span>
+
+<span class="code-key">defina</span> linha como leia uma linha com <span class="code-str">&quot;Valor: &quot;</span>
+<span class="code-key">defina</span> numero como <span class="code-key">tente</span> converter linha <span class="code-key">para</span> inteiro, <span class="code-key">senão</span> nulo</code></pre></div></div>
+<p data-searchable>Chamadas explícitas continuam sendo a forma indicada quando você precisa de argumentos opcionais, codificação, ordenação reversa ou tipos definidos pelo próprio programa.</p>
+<h3 id="contratos-de-tipo-e-conversao" data-searchable>Contratos de tipo e conversão</h3>
 <ul>
-<li data-searchable>A sintaxe e as APIs públicas permanecem compatíveis com a edição estável imediatamente anterior.</li>
-<li data-searchable>A biblioteca atual inclui computação científica, gráficos 2D e 3D, Web local, cliente HTTP, servidor HTTP local, geração procedural, criptografia, jogos, simulação, sistema e hardware.</li>
-<li data-searchable>O runtime portátil é <code>coral-1.7.0.pyz</code>.</li>
-<li data-searchable>Coral Language <code>0.72.0</code> acompanha a distribuição para edição, navegação, testes e depuração no VS Code.</li>
-<li data-searchable>O Livro Oficial <code>1.7.0</code> acompanha a mesma edição técnica da linguagem.</li>
+<li data-searchable>Booleano não é tratado como inteiro pelo teste de tipo Coral.</li>
+<li data-searchable>Decimal corresponde ao valor decimal do runtime; o alias <code>número</code> conserva o contrato já existente e não passa a incluir inteiros.</li>
+<li data-searchable>Tipos definidos pelo programa continuam usando <code>e_tipo</code> explicitamente.</li>
+<li data-searchable>A forma curta <code>valor for inteiro</code> não é aceita; use <code>valor for do tipo inteiro</code>.</li>
+<li data-searchable>Conversões naturais aceitam <code>inteiro</code>, <code>decimal</code>, <code>texto</code> e <code>booleano</code> e preservam o contrato de erro de <code>coral.conversoes</code>.</li>
 </ul>
-<h3 id="plataforma" data-searchable>Plataforma</h3>
-<p data-searchable>Linux x86_64 é a distribuição nativa autoritativa desta edição. O pacote inclui instalador nativo e pacote <code>.deb</code>, além do runtime portátil.</p>
-<p data-searchable>Windows x86_64 não é declarado como plataforma nativa validada da Coral 1.7.0. Ferramentas portáteis relacionadas podem existir na distribuição, mas não substituem essa disponibilidade de plataforma.</p>
-<h3 id="biblioteca-e-exemplos" data-searchable>Biblioteca e exemplos</h3>
-<p data-searchable>A documentação corrente inclui os módulos científicos e Web presentes na distribuição, além de exemplos oficiais para matemática, estatística, laboratório, gráficos, integração científica, sistema, procedural e Web.</p>
+<h3 id="diagnosticos-de-execucao" data-searchable>Diagnósticos de execução</h3>
+<p data-searchable>Erros de execução passam a ser classificados com código e categoria, mantendo a mensagem original e acrescentando sugestão. Terminal e depurador usam a mesma classificação. O diagnóstico estruturado também conserva origem, linha técnica e cadeia de causas quando disponíveis.</p>
+<p data-searchable>A documentação possui uma página própria de <a href="diagnosticos.html"><strong>Diagnósticos</strong></a> com a tabela de códigos <code>R100</code> a <code>R205</code> e o fallback <code>R001</code>.</p>
+<h3 id="editor" data-searchable>Editor</h3>
+<p data-searchable>Coral Language <code>0.74.0</code> conhece as formas naturais da biblioteca base no LSP e nos snippets. A formatação preserva a escrita escolhida pelo programa, e as ferramentas de ensino podem explicar os contratos sem executar a expressão.</p>
+<h3 id="distribuicao" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.2.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.74.0.vsix</code>.</li>
+<li data-searchable>Livro Oficial preservado na edição <code>1.7.0</code>; as formas novas da 1.7.2 são complementadas pela documentação Web.</li>
+<li data-searchable>Os executáveis nativos Linux e o pacote <code>.deb</code> preservados na distribuição continuam identificados como <code>1.7.0</code>.</li>
+<li data-searchable>Windows não é declarado como plataforma nativa validada desta edição.</li>
+</ul>
+<h2 id="coral-1-7-1" data-searchable>Coral 1.7.1</h2>
+<p data-searchable>A 1.7.1 preservou gramática e APIs públicas. Para quem usa a linguagem, as mudanças visíveis foram a promoção do runtime para <code>1.7.1</code>, Coral Language para <code>0.73.0</code> e a correção da derivação da versão mínima padrão em pacotes locais.</p>
+<p data-searchable>O Livro Oficial permaneceu na edição <code>1.7.0</code>.</p>
+<h2 id="coral-1-7-0" data-searchable>Coral 1.7.0</h2>
+<p data-searchable>A 1.7.0 consolidou a distribuição pública da linguagem, biblioteca padrão, ferramentas e Livro Oficial. O runtime portátil é <code>coral-1.7.0.pyz</code>, Coral Language é <code>0.72.0</code> e o Livro Oficial é <code>1.7.0</code>.</p>
+<p data-searchable>Linux x86_64 é a plataforma dos artefatos nativos dessa edição. A documentação inclui computação científica, gráficos 2D e 3D, Web local, cliente HTTP, servidor HTTP local, geração procedural, criptografia, jogos, simulação, sistema e hardware.</p>
 <h2 id="como-ler-estas-notas" data-searchable>Como ler estas notas</h2>
-<p data-searchable>Use esta página quando estiver atualizando a Coral ou precisar verificar uma mudança de compatibilidade, plataforma ou ferramenta. Para aprender recursos e APIs, use a documentação normal ou o Livro Oficial.</p>
+<p data-searchable>Use esta página para descobrir o que mudou ao atualizar a Coral. Para aprender sintaxe, módulos e APIs, use a documentação normal ou o Livro Oficial.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="livro.html"><span>Anterior</span><strong>Livro Oficial</strong></a><a class="docs-page-nav-link next" href="modulos/numerico.html"><span>Próxima</span><strong>coral.numerico</strong></a></nav>
   </main>
@@ -155,10 +180,14 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#versao-atual" data-toc-link>Versão atual</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-2" data-toc-link>Coral 1.7.2</a></li>
+<li class="toc-level-3"><a href="#portugues-corrente-e-biblioteca-base" data-toc-link>Português corrente e biblioteca base</a></li>
+<li class="toc-level-3"><a href="#contratos-de-tipo-e-conversao" data-toc-link>Contratos de tipo e conversão</a></li>
+<li class="toc-level-3"><a href="#diagnosticos-de-execucao" data-toc-link>Diagnósticos de execução</a></li>
+<li class="toc-level-3"><a href="#editor" data-toc-link>Editor</a></li>
+<li class="toc-level-3"><a href="#distribuicao" data-toc-link>Distribuição</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-1" data-toc-link>Coral 1.7.1</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-0" data-toc-link>Coral 1.7.0</a></li>
-<li class="toc-level-3"><a href="#para-quem-programa" data-toc-link>Para quem programa</a></li>
-<li class="toc-level-3"><a href="#plataforma" data-toc-link>Plataforma</a></li>
-<li class="toc-level-3"><a href="#biblioteca-e-exemplos" data-toc-link>Biblioteca e exemplos</a></li>
 <li class="toc-level-2"><a href="#como-ler-estas-notas" data-toc-link>Como ler estas notas</a></li></ul>
   </aside>
 </div>

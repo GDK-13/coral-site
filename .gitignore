@@ -8,3 +8,5 @@ __pycache__/
 # Sistema/editor
 .DS_Store
 Thumbs.db
+.site-local/
+resultado_validacao_site_*.txt

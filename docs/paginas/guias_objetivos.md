@@ -20,6 +20,24 @@ mostre nome
 O programa pede uma linha e depois mostra exatamente o texto recebido. A origem da entrada também pode ser substituída em testes.
 :::
 
+### Descobrir e testar o tipo de um valor
+
+**Nível:** iniciante  
+**Módulo:** [`coral.tipos`](modulos/tipos.html)
+
+```coral
+defina valor como 42
+mostre o nome do tipo de valor
+
+se valor for do tipo inteiro então
+    mostre "é inteiro"
+fim
+```
+
+:::resultado
+A consulta retorna o nome Coral do tipo e o teste usa o mesmo contrato de `e_tipo(valor, "inteiro")`.
+:::
+
 ### Converter texto para um valor explícito
 
 **Nível:** iniciante  
@@ -34,6 +52,21 @@ mostre quantidade
 
 :::resultado
 `quantidade` passa a representar o inteiro `12`. Entradas incompatíveis seguem o contrato de erro de conversão do módulo.
+:::
+
+### Converter com um valor padrão
+
+**Nível:** iniciante  
+**Módulo:** [`coral.conversoes`](modulos/conversoes.html)
+
+```coral
+defina entrada como "não informado"
+defina quantidade como tente converter entrada para inteiro, senão nulo
+mostre quantidade
+```
+
+:::resultado
+Quando a conversão não pode produzir um inteiro, `quantidade` recebe `nulo` em vez de propagar `ErroConversao`.
 :::
 
 ### Limpar e transformar texto
@@ -345,6 +378,21 @@ execute servidor.encerrar()
 
 :::resultado
 O servidor só abre a porta quando `iniciar()` é chamado e é encerrado explicitamente ao final.
+:::
+
+## Entender erros
+
+### Ler um diagnóstico de execução
+
+**Nível:** iniciante  
+**Guia:** [`Diagnósticos`](diagnosticos.html)
+
+```coral
+defina numero como converta "abc" para inteiro
+```
+
+:::resultado
+A falha de conversão é classificada como `R102`. O terminal e o depurador preservam a mensagem original e acrescentam categoria, localização quando disponível e uma sugestão curta.
 :::
 
 ## Como continuar

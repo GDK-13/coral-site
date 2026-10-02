@@ -56,6 +56,22 @@ defina conteudo como ler_texto("mensagem.txt")
 mostre conteudo
 ```
 
+## Formas naturais
+
+Para conversão em memória, a 1.7.2 aceita:
+
+```coral
+defina dados como {"nome": "Coral", "versao": 2}
+defina texto como serialize json de dados
+defina copia como interprete json de texto
+```
+
+:::resultado
+`serialize json de` usa `para_json` e `interprete json de` usa `de_json`. Erros de JSON continuam sendo preservados pelo contrato existente.
+:::
+
+Para leitura e escrita de arquivos JSON, continue usando `ler_json` e `escrever_json` quando precisar da API completa.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -93,7 +109,7 @@ Round trip é o teste principal: serializar e desserializar deve preservar os va
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

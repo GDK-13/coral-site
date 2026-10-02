@@ -59,6 +59,21 @@ defina altura como decimal(ler_linha("Altura em metros: "))
 mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
 ```
 
+## Forma natural de leitura
+
+Para a operação comum de ler uma linha com uma mensagem, a 1.7.2 aceita:
+
+```coral
+defina nome como leia uma linha com "Nome: "
+mostre nome
+```
+
+:::resultado
+A expressão usa o mesmo contrato de `ler_linha("Nome: ")`. Se a fonte terminar, `FimDeEntrada` continua sendo preservado.
+:::
+
+Use a API explícita quando precisar trabalhar diretamente com fontes de entrada controladas ou outros recursos do módulo.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -98,7 +113,7 @@ Com `FonteEntradaSequencial`, testes não precisam de stdin real. Isso torna pro
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

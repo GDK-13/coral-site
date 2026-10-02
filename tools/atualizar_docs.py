@@ -170,6 +170,43 @@ def _string_collection(node: ast.AST) -> list[str]:
     return []
 
 
+
+def extract_basic_natural_contract(zf: zipfile.ZipFile) -> list[str]:
+    """Inventaria formas naturais da biblioteca base sem executar a release.
+
+    Esse catálogo participa do snapshot de sintaxe para que ampliações naturais
+    sejam detectadas pelo comparador, mas não é misturado aos lexemas do realce:
+    palavras comuns como ``tipo`` ou ``valor`` não devem virar keywords visuais.
+    """
+    source = read_zip_text(zf, "Projeto/coral/_basica_natural.py")
+    if not source:
+        return []
+    tree = ast.parse(source)
+    formas: set[str] = set()
+    destinos: list[str] = []
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            names = [t.id for t in node.targets if isinstance(t, ast.Name)]
+            if "DESTINOS_CONVERSAO" in names:
+                destinos = _string_collection(node.value)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "FormaBasica" and node.args:
+            palavras = _string_collection(node.args[0])
+            if palavras:
+                formas.add(" ".join(palavras) + " valor")
+        if isinstance(node, ast.Yield) and isinstance(node.value, ast.Tuple) and node.value.elts:
+            first = node.value.elts[0]
+            if isinstance(first, ast.Constant) and isinstance(first.value, str):
+                formas.add(first.value)
+    for destino in destinos:
+        formas.add(f"converta valor para {destino}")
+        formas.add(f"tente converter valor para {destino}, senão padrão")
+    formas.update({
+        "valor for do tipo inteiro",
+        "valor não for do tipo inteiro",
+    })
+    return sorted(formas)
+
 def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]:
     """Extrai estaticamente o contrato léxico/sintático necessário ao site.
 
@@ -237,6 +274,7 @@ def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]
         "decimal": decimal,
         "aspas": quotes or ["\"", "'"],
         "linguagens": ["coral", "coral-*"],
+        "formas_naturais_basicas": extract_basic_natural_contract(zf),
         "origem": {
             "esquema": "Projeto/coral/esquema_sintatico.py",
             "lexico": "Projeto/coral/lexico.py",
@@ -553,6 +591,7 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
                 {"arquivo": "primeiro_programa.md", "titulo": "Seu primeiro programa", "slug": "primeiro-programa", "grupo": "Primeiros passos"},
                 {"arquivo": "projetos.md", "titulo": "Projetos e módulos", "slug": "projetos", "grupo": "Guias"},
                 {"arquivo": "vscode.md", "titulo": "VS Code", "slug": "vscode", "grupo": "Guias"},
+                {"arquivo": "diagnosticos.md", "titulo": "Diagnósticos", "slug": "diagnosticos", "grupo": "Guias"},
                 {"arquivo": "testes.md", "titulo": "Testes", "slug": "testes", "grupo": "Guias"},
                 {"arquivo": "repl_cli.md", "titulo": "REPL e CLI", "slug": "repl-cli", "grupo": "Referência"},
                 {"arquivo": "exemplos.md", "titulo": "Exemplos oficiais", "slug": "exemplos", "grupo": "Referência"},
@@ -655,6 +694,7 @@ def ensure_base_pages() -> None:
         "primeiro_programa.md": '''# Seu primeiro programa\n\n```coral\nmostre "Olá, Coral!"\n\ndefina pontos como 10\nadicione 5 a pontos\n\nse pontos for maior ou igual a 15 então\n    mostre "Meta alcançada"\nsenão\n    mostre "Continue tentando"\nfim\n```\n\nPara executar diretamente, use o runtime portátil da release corrente.\n''',
         "projetos.md": '''# Projetos e módulos\n\nProjetos Coral usam `coral.toml` para declarar entrada, caminhos de módulos, testes e recursos. O LSP e o Project Explorer usam a mesma estrutura de projeto.\n\n## Formas naturais importadas\n\nFunções públicas podem declarar formas naturais. Quando importadas seletivamente, essas formas são reconhecidas pelo runtime e pelo editor.\n\n```coral\ncrie a função dobro com numero chamada como "dobre {numero}"\n    retorne numero vezes 2\nfim\n\nmostre dobre 21\n```\n''',
         "vscode.md": '''# VS Code\n\nA extensão Coral Language acompanha a linguagem com LSP, DAP/F5, IntelliSense contextual, diagnósticos, semantic tokens, Test Explorer, Project Explorer, Ambiente Coral e Biblioteca Coral.\n\n| Área | Comportamento |\n|---|---|\n| IntelliSense | Completion contextual, hover, definição, referências e rename |\n| Coloração | TextMate como fallback e semantic tokens como camada contextual |\n| Execução | Arquivo, projeto, REPL e debug integrados |\n| Projetos | `coral.toml`, multiroot e Project Explorer |\n| Testes | Integração com o runner e Test Explorer |\n''',
+        "diagnosticos.md": '''# Diagnósticos\n\nA Coral classifica erros de execução com código, categoria, mensagem e sugestão. Terminal e depurador compartilham a mesma classificação.\n''',
         "testes.md": '''# Testes\n\nA Coral separa o ciclo rápido das verificações lentas e históricas. Isso evita que a suíte cotidiana cresça indefinidamente e mantém os gates pesados no congelamento da release.\n\n> Testes que dependem de janela, áudio, entrada física ou ambiente gráfico ficam nas rotas de teste real da distribuição.\n''',
         "repl_cli.md": '''# REPL e CLI\n\nA lista abaixo é importada automaticamente do contrato gerado da release. O arquivo `docs/dados/cli.json` é a fonte mecânica desta seção.\n\n## Uso cotidiano\n\n```bash\npython coral-<versao>.pyz --repl\npython coral-<versao>.pyz --self-check\npython coral-<versao>.pyz --ambiente\n```\n''',
         "exemplos.md": '''# Exemplos oficiais\n\nA biblioteca de exemplos é organizada por assunto. Exemplos muito curtos ou redundantes são condensados e fixtures de aceitação ficam separadas dos exemplos pedagógicos.\n\nO inventário mecânico de arquivos `.coral` da release fica em `docs/dados/exemplos.json`.\n''',
@@ -770,7 +810,7 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
 
 
 def write_review_report(diff: dict[str, Any]) -> None:
-    path = ROOT / "manutencao" / "REVISAO_PENDENTE.md"
+    path = ROOT / ".site-local" / "REVISAO_PENDENTE.md"
     path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# Revisão pendente da documentação",

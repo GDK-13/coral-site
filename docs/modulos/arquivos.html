@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -60,6 +60,7 @@
 <li><a href="../projetos.html">Projetos e módulos</a></li>
 <li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
 <li><a href="../testes.html">Testes</a></li>
 </ul>
 <h4>Referência</h4><ul>
@@ -170,6 +171,14 @@ de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</
 execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
 <span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
 <span class="code-key">mostre</span> conteudo</code></pre></div></div>
+<h2 id="formas-naturais" data-searchable>Formas naturais</h2>
+<p data-searchable>As operações básicas de texto e existência ganharam equivalentes naturais:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> existe o caminho <span class="code-str">&quot;~/notas.txt&quot;</span> <span class="code-key">então</span>
+    <span class="code-key">defina</span> conteudo como leia o texto de <span class="code-str">&quot;~/notas.txt&quot;</span>
+    escreva conteudo em <span class="code-str">&quot;copia.txt&quot;</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>existe o caminho</code> usa a normalização da API, inclusive expansão de <code>~</code>. A leitura e a escrita preservam os contratos de erro de arquivo e permissão do módulo.</p></div></details>
+<p data-searchable>A forma de escrita segue <code>escreva texto em caminho</code>, portanto o primeiro operando é o texto e o segundo é o caminho. As formas históricas de existência que já existiam mantêm sua semântica anterior.</p>
 <h2 id="api-essencial" data-searchable>API essencial</h2>
 <div class="table-wrap"><table><thead><tr>
 <th>Entrada</th>
@@ -205,7 +214,7 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Testes devem trabalhar em pasta temporária e conferir efeitos observáveis: arquivo criado, conteúdo, tamanho, listagem e remoção. Isso evita depender do diretório pessoal da máquina.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.2</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="ler-texto" data-searchable><code>ler_texto</code></h4>
@@ -307,6 +316,11 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
 <h4 id="existe" data-searchable><code>existe</code></h4>
 <p data-searchable>Verifica se o caminho indicado existe.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> existe o caminho <span class="code-str">&quot;~/notas.txt&quot;</span> <span class="code-key">então</span>
+    <span class="code-key">defina</span> conteudo como leia o texto de <span class="code-str">&quot;~/notas.txt&quot;</span>
+    escreva conteudo em <span class="code-str">&quot;copia.txt&quot;</span>
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -636,6 +650,7 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
+<li class="toc-level-2"><a href="#formas-naturais" data-toc-link>Formas naturais</a></li>
 <li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
 <li class="toc-level-2"><a href="#fluxos-comuns" data-toc-link>Fluxos comuns</a></li>
 <li class="toc-level-2"><a href="#erros-e-casos-de-borda" data-toc-link>Erros e casos de borda</a></li>

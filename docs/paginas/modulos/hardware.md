@@ -47,7 +47,7 @@ Evite tornar a lógica de domínio dependente de hardware real quando ela puder 
 
 ## Começando
 
-O exemplo abaixo foi validado com o runtime 1.7.0:
+O exemplo abaixo foi validado com o runtime 1.7.2:
 
 ```coral
 de coral.hardware importe cpu, memoria, discos, psutil_disponivel

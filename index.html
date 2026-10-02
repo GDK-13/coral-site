@@ -53,7 +53,7 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Coral <span data-version-key="coral">1.7.0</span> estável</span>
+        <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Coral <span data-version-key="coral">1.7.2</span> estável</span>
         <h1>Programação em <span class="text-accent">português</span>, com ferramentas para projetos reais.</h1>
         <p class="hero-lead">Coral combina sintaxe corrente em português, biblioteca padrão ampla, computação científica, gráficos, Web, jogos e integração completa com o VS Code.</p>
         <div class="hero-actions">
@@ -61,8 +61,8 @@
           <a class="button button-secondary" href="#instalacao">Ver instalação</a>
         </div>
         <div class="hero-meta">
-          <span><strong>Runtime</strong> <span data-version-key="coral">1.7.0</span></span>
-          <span><strong>VS Code</strong> <span data-version-key="extensao_vscode">0.72.0</span></span>
+          <span><strong>Runtime</strong> <span data-version-key="coral">1.7.2</span></span>
+          <span><strong>VS Code</strong> <span data-version-key="extensao_vscode">0.74.0</span></span>
           <span><strong>Livro Oficial</strong> <span data-version-key="livro">1.7.0</span></span>
         </div>
       </div>
@@ -94,8 +94,8 @@ fim</code></pre>
         <p>A Coral oferece uma linguagem de propósito geral com módulos especializados sem esconder os fundamentos de programação nem exigir serviços externos para o fluxo cotidiano.</p>
       </div>
       <div class="feature-grid">
-        <article class="card"><div class="card-icon">01</div><h3>Português corrente</h3><p>Condições, laços, mutações, consultas e chamadas naturais mantêm leitura próxima da intenção do programa com equivalências determinísticas.</p></article>
-        <article class="card"><div class="card-icon">02</div><h3>VS Code integrado</h3><p>Coral Language <span data-version-key="extensao_vscode">0.72.0</span> reúne LSP, depuração, IntelliSense, diagnósticos, testes, navegação e ferramentas de projeto.</p></article>
+        <article class="card"><div class="card-icon">01</div><h3>Português corrente</h3><p>Condições, laços, consultas de tipo, conversões e operações naturais de texto, coleções, arquivos e JSON mantêm a leitura próxima da intenção do programa com equivalências determinísticas.</p></article>
+        <article class="card"><div class="card-icon">02</div><h3>VS Code integrado</h3><p>Coral Language <span data-version-key="extensao_vscode">0.74.0</span> reúne LSP, depuração, IntelliSense, diagnósticos estruturados, testes, navegação e ferramentas de projeto.</p></article>
         <article class="card"><div class="card-icon">03</div><h3>Ciência e dados</h3><p>Matemática, vetores, matrizes, estatística, regressão, reamostragem e experimentos reproduzíveis convivem com dados comuns da linguagem.</p></article>
         <article class="card"><div class="card-icon">04</div><h3>Gráficos 2D e 3D</h3><p>Linhas, dispersão, barras, histogramas, incerteza, painéis, superfícies 3D e exportação para SVG, PNG, PDF e HTML interativo.</p></article>
         <article class="card"><div class="card-icon">05</div><h3>Web local e HTTP</h3><p>Composição HTML, URLs, cliente HTTP e servidor local com limites explícitos, bytes preservados e rede iniciada somente quando solicitada.</p></article>
@@ -166,14 +166,14 @@ fim</code></pre>
       <div class="section-heading">
         <span class="kicker">Instalação</span>
         <h2>Comece pelo pacote oficial da Coral.</h2>
-        <p>A edição <span data-version-key="coral">1.7.0</span> publica Linux x86_64 como plataforma nativa autoritativa e também inclui o runtime portátil em Python.</p>
+        <p>A edição <span data-version-key="coral">1.7.2</span> inclui o runtime portátil corrente e Coral Language <span data-version-key="extensao_vscode">0.74.0</span>. Os artefatos nativos Linux preservados no pacote continuam identificados como 1.7.0.</p>
       </div>
       <div class="install-grid">
         <div class="command-box"><div class="command-title">Linux</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>bash Instalacao/Coral_Setup.sh
-python Instalacao/Runtime/coral-1.7.0.pyz --versao</code></pre></div></div>
-        <div class="command-box"><div class="command-title">Runtime portátil</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>python Instalacao/Runtime/coral-1.7.0.pyz arquivo.coral</code></pre></div></div>
+python3 Instalacao/Runtime/coral-1.7.2.pyz --versao</code></pre></div></div>
+        <div class="command-box"><div class="command-title">Runtime portátil</div><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code>python3 Instalacao/Runtime/coral-1.7.2.pyz arquivo.coral</code></pre></div></div>
       </div>
-      <p class="small">A distribuição 1.7.0 não declara Windows x86_64 como plataforma nativa validada desta edição. Consulte o guia de instalação para a disponibilidade corrente.</p>
+      <p class="small">Para usar exatamente o runtime 1.7.2, prefira o runtime portátil ou o assistente da distribuição. Consulte o guia de instalação para distinguir os artefatos correntes dos binários nativos preservados.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="docs/instalacao.html">Guia de instalação</a>
         <a class="button button-secondary" href="docs/vscode.html">Configurar VS Code</a>
@@ -194,7 +194,7 @@ python Instalacao/Runtime/coral-1.7.0.pyz --versao</code></pre></div></div>
       </div>
       <div class="release-grid" style="grid-template-columns:1fr;">
         <article class="release-card"><h3>Livro Oficial <span data-version-key="livro">1.7.0</span></h3><p>53 capítulos, 135 páginas A4 e uma trilha que vai da instalação à referência completa.</p><p><a class="button button-secondary" href="downloads/Coral_1.7.0_Livro_Oficial.pdf">Baixar Livro em PDF</a></p></article>
-        <article class="release-card"><h3>Notas de versão</h3><p>Consulte mudanças de compatibilidade, ferramentas e disponibilidade de plataforma da versão atual.</p><p><a class="button button-secondary" href="docs/release.html">Ler notas da 1.7.0</a></p></article>
+        <article class="release-card"><h3>Notas de versão</h3><p>Consulte mudanças de compatibilidade, ferramentas e disponibilidade de plataforma da versão atual.</p><p><a class="button button-secondary" href="docs/release.html">Ler notas da 1.7.2</a></p></article>
       </div>
     </div>
   </section>

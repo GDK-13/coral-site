@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.0</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.72.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -60,6 +60,7 @@
 <li><a href="projetos.html">Projetos e módulos</a></li>
 <li><a class="active" aria-current="page" href="guias_objetivos.html">O que você quer fazer?</a></li>
 <li><a href="vscode.html">VS Code</a></li>
+<li><a href="diagnosticos.html">Diagnósticos</a></li>
 <li><a href="testes.html">Testes</a></li>
 </ul>
 <h4>Referência</h4><ul>
@@ -137,6 +138,15 @@
 <span class="code-key">defina</span> nome como <span class="code-fn">ler_linha</span>(<span class="code-str">&quot;Seu nome: &quot;</span>)
 <span class="code-key">mostre</span> nome</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O programa pede uma linha e depois mostra exatamente o texto recebido. A origem da entrada também pode ser substituída em testes.</p></div></details>
+<h3 id="descobrir-e-testar-o-tipo-de-um-valor" data-searchable>Descobrir e testar o tipo de um valor</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/tipos.html"><code>coral.tipos</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> valor como <span class="code-num">42</span>
+<span class="code-key">mostre</span> o nome do <span class="code-key">tipo</span> de valor
+
+<span class="code-key">se</span> valor for do <span class="code-key">tipo</span> inteiro <span class="code-key">então</span>
+    <span class="code-key">mostre</span> <span class="code-str">&quot;é inteiro&quot;</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A consulta retorna o nome Coral do tipo e o teste usa o mesmo contrato de <code>e_tipo(valor, "inteiro")</code>.</p></div></details>
 <h3 id="converter-texto-para-um-valor-explicito" data-searchable>Converter texto para um valor explícito</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/conversoes.html"><code>coral.conversoes</code></a></p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
@@ -144,6 +154,12 @@
 <span class="code-key">defina</span> quantidade como <span class="code-fn">inteiro</span>(<span class="code-str">&quot;12&quot;</span>)
 <span class="code-key">mostre</span> quantidade</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>quantidade</code> passa a representar o inteiro <code>12</code>. Entradas incompatíveis seguem o contrato de erro de conversão do módulo.</p></div></details>
+<h3 id="converter-com-um-valor-padrao" data-searchable>Converter com um valor padrão</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/conversoes.html"><code>coral.conversoes</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> entrada como <span class="code-str">&quot;não informado&quot;</span>
+<span class="code-key">defina</span> quantidade como <span class="code-key">tente</span> converter entrada <span class="code-key">para</span> inteiro, <span class="code-key">senão</span> nulo
+<span class="code-key">mostre</span> quantidade</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Quando a conversão não pode produzir um inteiro, <code>quantidade</code> recebe <code>nulo</code> em vez de propagar <code>ErroConversao</code>.</p></div></details>
 <h3 id="limpar-e-transformar-texto" data-searchable>Limpar e transformar texto</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/texto.html"><code>coral.texto</code></a></p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.texto</span> <span class="code-key">importe</span> aparar, maiusculas
@@ -287,6 +303,11 @@ execute servidor.<span class="code-fn">iniciar</span>()
 <span class="code-key">mostre</span> servidor.url_base
 execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O servidor só abre a porta quando <code>iniciar()</code> é chamado e é encerrado explicitamente ao final.</p></div></details>
+<h2 id="entender-erros" data-searchable>Entender erros</h2>
+<h3 id="ler-um-diagnostico-de-execucao" data-searchable>Ler um diagnóstico de execução</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="diagnosticos.html"><code>Diagnósticos</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> numero como converta <span class="code-str">&quot;abc&quot;</span> <span class="code-key">para</span> inteiro</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A falha de conversão é classificada como <code>R102</code>. O terminal e o depurador preservam a mensagem original e acrescentam categoria, localização quando disponível e uma sugestão curta.</p></div></details>
 <h2 id="como-continuar" data-searchable>Como continuar</h2>
 <p data-searchable>Se o guia resolveu sua dúvida inicial, abra o módulo relacionado e use o <strong>Modo Aprender</strong> para entender os conceitos ou o <strong>Modo Referência</strong> para consultar diretamente a API. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.</p>
     </article>
@@ -297,7 +318,9 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#entrada-e-dados" data-toc-link>Entrada e dados</a></li>
 <li class="toc-level-3"><a href="#receber-uma-linha-digitada-pelo-usuario" data-toc-link>Receber uma linha digitada pelo usuário</a></li>
+<li class="toc-level-3"><a href="#descobrir-e-testar-o-tipo-de-um-valor" data-toc-link>Descobrir e testar o tipo de um valor</a></li>
 <li class="toc-level-3"><a href="#converter-texto-para-um-valor-explicito" data-toc-link>Converter texto para um valor explícito</a></li>
+<li class="toc-level-3"><a href="#converter-com-um-valor-padrao" data-toc-link>Converter com um valor padrão</a></li>
 <li class="toc-level-3"><a href="#limpar-e-transformar-texto" data-toc-link>Limpar e transformar texto</a></li>
 <li class="toc-level-2"><a href="#arquivos-e-persistencia" data-toc-link>Arquivos e persistência</a></li>
 <li class="toc-level-3"><a href="#ler-um-arquivo-de-texto" data-toc-link>Ler um arquivo de texto</a></li>
@@ -322,6 +345,8 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <li class="toc-level-3"><a href="#montar-html-sem-acessar-a-rede" data-toc-link>Montar HTML sem acessar a rede</a></li>
 <li class="toc-level-3"><a href="#fazer-uma-requisicao-http-limitada" data-toc-link>Fazer uma requisição HTTP limitada</a></li>
 <li class="toc-level-3"><a href="#criar-um-servidor-http-local" data-toc-link>Criar um servidor HTTP local</a></li>
+<li class="toc-level-2"><a href="#entender-erros" data-toc-link>Entender erros</a></li>
+<li class="toc-level-3"><a href="#ler-um-diagnostico-de-execucao" data-toc-link>Ler um diagnóstico de execução</a></li>
 <li class="toc-level-2"><a href="#como-continuar" data-toc-link>Como continuar</a></li></ul>
   </aside>
 </div>

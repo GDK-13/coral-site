@@ -56,6 +56,24 @@ mostre sem_repeticao
 mostre primeiro(ordenados, nulo)
 ```
 
+## Formas naturais
+
+A 1.7.2 oferece formas diretas para operações comuns de coleção:
+
+```coral
+defina valores como [3, 1, 3, 2]
+mostre o primeiro de valores
+mostre ordene os valores de valores
+mostre os valores únicos de valores
+mostre conte as ocorrências de valores
+```
+
+:::resultado
+`primeiro` devolve o primeiro item, `ordenar` produz uma lista ordenada, `unicos` preserva a ordem de aparição e `contar` produz um dicionário de frequências. Nenhuma dessas operações altera a coleção original.
+:::
+
+`o primeiro de` devolve `nulo` para coleção vazia. `os valores únicos de` exige itens utilizáveis como chaves.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -94,7 +112,7 @@ Funções de coleção são boas candidatas a testes com entradas vazias, um ún
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 

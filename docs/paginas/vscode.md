@@ -14,6 +14,12 @@ A extensão Coral Language integra o editor ao runtime por LSP e DAP. O objetivo
 | Testes | integração com runner e Test Explorer |
 | Projetos | `coral.toml`, multiroot, Project Explorer e Ambiente Coral |
 
+## Diagnósticos de execução
+
+Na 1.7.2, terminal e DAP compartilham a mesma classificação de falhas de execução. O editor pode mostrar código, categoria, mensagem, localização e sugestão sem descartar a causa original.
+
+O detalhe estruturado adicional do DAP fica em `exceptionInfo.details.diagnostico`. Consulte [**Diagnósticos**](diagnosticos.html) para a tabela de códigos e categorias.
+
 ## Coloração e tema
 
 A extensão não impõe uma paleta própria ao código. TextMate garante realce léxico enquanto o LSP não está disponível e semantic tokens refinam o papel real de símbolos quando há contexto suficiente. O tema do usuário continua soberano.
@@ -32,6 +38,6 @@ Quando o LSP falha, a extensão deve deixar o estado degradado explícito e ofer
 
 <!-- AUTO:VERSAO -->
 
-**Extensão corrente:** Coral Language `0.72.0` para Coral `1.7.0`.
+**Extensão corrente:** Coral Language `0.74.0` para Coral `1.7.2`.
 
 <!-- /AUTO:VERSAO -->

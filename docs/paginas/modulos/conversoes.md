@@ -62,6 +62,22 @@ defina altura como decimal(ler_linha("Altura em metros: "))
 mostre montar_texto("Olá, ", nome, ". Idade: ", idade, ". Altura: ", altura)
 ```
 
+## Formas naturais
+
+Conversões simples podem ser escritas como expressões naturais:
+
+```coral
+defina idade como converta "18" para inteiro
+defina altura como converta "1.72" para decimal
+defina opcional como tente converter "?" para inteiro, senão nulo
+```
+
+:::resultado
+As duas primeiras expressões usam o mesmo contrato de `inteiro` e `decimal`. A terceira devolve `nulo` quando a conversão falha.
+:::
+
+Os destinos naturais aceitos são `inteiro`, `decimal`, `texto` e `booleano`. A API explícita continua indicada quando você precisa controlar argumentos além da forma curta. O valor padrão da conversão é avaliado mesmo quando a conversão principal é bem sucedida, preservando a semântica da API existente.
+
 ## API essencial
 
 | Entrada | Papel |
@@ -101,7 +117,7 @@ Teste entradas válidas, espaços laterais, formatos alternativos aceitos e valo
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.7.2**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
