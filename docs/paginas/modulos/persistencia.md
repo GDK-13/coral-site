@@ -377,6 +377,15 @@ Persistir arquivo.
 **Exemplo**
 
 ```coral
+de coral.aleatorio importe fonte
+de coral.persistencia importe salvar, carregar
+
+defina gerador_a como fonte(42)
+defina gerador_b como fonte(42)
+defina primeiro como gerador_a.inteiro(1, 100)
+defina segundo como gerador_b.inteiro(1, 100)
+garanta que primeiro for igual a segundo
+
 defina dados como {"ponto": (3, 4), "tags": {"a", "b"}}
 execute salvar(dados, "exemplo.coraldata")
 ```

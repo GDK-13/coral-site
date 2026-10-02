@@ -174,12 +174,17 @@ Construir vetor.
 **Exemplo**
 
 ```coral
-defina relatorio como ler_json(caminho)
+de coral.json importe ler_json
+de coral.numerico importe mediana
+
+crie a função analisar_relatorio com caminho
+    defina relatorio como ler_json(caminho)
     defina tempos como [medicao["tempo_segundos"] para cada medicao em relatorio["medicoes"] se medicao["erro"] for igual a nada]
     crie um vetor chamado serie com tempos
     calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
     retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
+fim
 ```
 
 **Parâmetros**
@@ -480,7 +485,14 @@ Calcular média.
 **Exemplo**
 
 ```coral
-calcule a média de serie como media_serie
+de coral.json importe ler_json
+de coral.numerico importe mediana
+
+crie a função analisar_relatorio com caminho
+    defina relatorio como ler_json(caminho)
+    defina tempos como [medicao["tempo_segundos"] para cada medicao em relatorio["medicoes"] se medicao["erro"] for igual a nada]
+    crie um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
     retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
 fim
@@ -513,7 +525,14 @@ Calcular mediana.
 **Exemplo**
 
 ```coral
-calcule a média de serie como media_serie
+de coral.json importe ler_json
+de coral.numerico importe mediana
+
+crie a função analisar_relatorio com caminho
+    defina relatorio como ler_json(caminho)
+    defina tempos como [medicao["tempo_segundos"] para cada medicao em relatorio["medicoes"] se medicao["erro"] for igual a nada]
+    crie um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
     retorne {"media": media_serie, "mediana": mediana(serie), "desvio": desvio_serie}
 fim

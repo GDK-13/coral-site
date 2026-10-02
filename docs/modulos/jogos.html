@@ -1738,7 +1738,13 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <h4 id="retangulo" data-searchable><code>Retangulo</code></h4>
 <p data-searchable>Representa Retangulo na API de <code>coral.jogos</code>.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code-num">20</span>, <span class="code-num">12</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> Camera, Sprite, Retangulo
+
+<span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">320</span>, <span class="code-num">180</span>)
+<span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">100</span>, <span class="code-num">80</span>, <span class="code-num">16</span>, <span class="code-num">16</span>, velocidade_x=<span class="code-num">40</span>)
+<span class="code-key">defina</span> aliado como <span class="code-fn">Sprite</span>(<span class="code-num">260</span>, <span class="code-num">120</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
+
+execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code-num">20</span>, <span class="code-num">12</span>)
 execute camera.<span class="code-fn">seguir</span>(heroi, constante_tempo=<span class="code-num">0.25</span>, antecipacao=<span class="code-num">0.2</span>)
 execute camera.<span class="code-fn">definir_limites</span>(<span class="code-fn">Retangulo</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">1000</span>, <span class="code-num">600</span>))
 execute camera.<span class="code-fn">enquadrar_alvos</span>([heroi, aliado], margem=<span class="code-num">20</span>, ajustar_zoom=True)
@@ -1788,11 +1794,6 @@ execute camera.<span class="code-fn">definir_rotacao</span>(<span class="code-nu
 </tbody></table></div></div></details>
 <h4 id="backendnulo" data-searchable><code>BackendNulo</code></h4>
 <p data-searchable>Backend determinístico para testes, servidores e execução sem interface gráfica.</p>
-<p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">64</span>, <span class="code-num">64</span>)
-<span class="code-key">defina</span> backend como <span class="code-fn">BackendNulo</span>()
-<span class="code-key">defina</span> renderizador como <span class="code-fn">RenderizadorMapa2D</span>(sala, camera=camera)
-<span class="code-key">defina</span> desenhadas como renderizador.<span class="code-fn">desenhar</span>(backend)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -1921,11 +1922,17 @@ execute camera.<span class="code-fn">definir_rotacao</span>(<span class="code-nu
 <h4 id="sprite" data-searchable><code>Sprite</code></h4>
 <p data-searchable>Representa objeto visual transformável.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">320</span>, <span class="code-num">180</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> Camera, Sprite, Retangulo
+
+<span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">320</span>, <span class="code-num">180</span>)
 <span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">100</span>, <span class="code-num">80</span>, <span class="code-num">16</span>, <span class="code-num">16</span>, velocidade_x=<span class="code-num">40</span>)
 <span class="code-key">defina</span> aliado como <span class="code-fn">Sprite</span>(<span class="code-num">260</span>, <span class="code-num">120</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
 
-execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code-num">20</span>, <span class="code-num">12</span>)</code></pre></div></div>
+execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code-num">20</span>, <span class="code-num">12</span>)
+execute camera.<span class="code-fn">seguir</span>(heroi, constante_tempo=<span class="code-num">0.25</span>, antecipacao=<span class="code-num">0.2</span>)
+execute camera.<span class="code-fn">definir_limites</span>(<span class="code-fn">Retangulo</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">1000</span>, <span class="code-num">600</span>))
+execute camera.<span class="code-fn">enquadrar_alvos</span>([heroi, aliado], margem=<span class="code-num">20</span>, ajustar_zoom=True)
+execute camera.<span class="code-fn">definir_rotacao</span>(<span class="code-num">15</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -2056,7 +2063,13 @@ execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code
 
 <span class="code-key">defina</span> origem como <span class="code-fn">Cena</span>(<span class="code-str">&quot;origem&quot;</span>)
 <span class="code-key">defina</span> fundo como origem.<span class="code-fn">criar_camada</span>(<span class="code-str">&quot;fundo&quot;</span>, ordem=-<span class="code-num">10</span>, paralaxe=<span class="code-num">0.5</span>)
-<span class="code-key">defina</span> hud como origem.<span class="code-fn">criar_camada</span>(<span class="code-str">&quot;hud&quot;</span>, ordem=<span class="code-num">10</span>, espaco=<span class="code-str">&quot;tela&quot;</span>)</code></pre></div></div>
+<span class="code-key">defina</span> hud como origem.<span class="code-fn">criar_camada</span>(<span class="code-str">&quot;hud&quot;</span>, ordem=<span class="code-num">10</span>, espaco=<span class="code-str">&quot;tela&quot;</span>)
+
+<span class="code-key">defina</span> montanhas como <span class="code-fn">Sprite</span>(<span class="code-num">40</span>, <span class="code-num">20</span>, <span class="code-num">100</span>, <span class="code-num">40</span>)
+<span class="code-key">defina</span> titulo como <span class="code-fn">TextoApresentacao</span>(<span class="code-str">&quot;Apresentação Coral&quot;</span>, tamanho=<span class="code-num">12</span>, ancora_viewport=<span class="code-str">&quot;topo&quot;</span>)
+
+execute origem.<span class="code-fn">adicionar_em_camada</span>(montanhas, fundo)
+execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -2187,7 +2200,13 @@ execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code
 <h4 id="textoapresentacao" data-searchable><code>TextoApresentacao</code></h4>
 <p data-searchable>Texto 2D reutilizável para camadas de mundo ou de tela.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> montanhas como <span class="code-fn">Sprite</span>(<span class="code-num">40</span>, <span class="code-num">20</span>, <span class="code-num">100</span>, <span class="code-num">40</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> Cena, Sprite, TextoApresentacao
+
+<span class="code-key">defina</span> origem como <span class="code-fn">Cena</span>(<span class="code-str">&quot;origem&quot;</span>)
+<span class="code-key">defina</span> fundo como origem.<span class="code-fn">criar_camada</span>(<span class="code-str">&quot;fundo&quot;</span>, ordem=-<span class="code-num">10</span>, paralaxe=<span class="code-num">0.5</span>)
+<span class="code-key">defina</span> hud como origem.<span class="code-fn">criar_camada</span>(<span class="code-str">&quot;hud&quot;</span>, ordem=<span class="code-num">10</span>, espaco=<span class="code-str">&quot;tela&quot;</span>)
+
+<span class="code-key">defina</span> montanhas como <span class="code-fn">Sprite</span>(<span class="code-num">40</span>, <span class="code-num">20</span>, <span class="code-num">100</span>, <span class="code-num">40</span>)
 <span class="code-key">defina</span> titulo como <span class="code-fn">TextoApresentacao</span>(<span class="code-str">&quot;Apresentação Coral&quot;</span>, tamanho=<span class="code-num">12</span>, ancora_viewport=<span class="code-str">&quot;topo&quot;</span>)
 
 execute origem.<span class="code-fn">adicionar_em_camada</span>(montanhas, fundo)
@@ -2886,7 +2905,13 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 
 <span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">320</span>, <span class="code-num">180</span>)
 <span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">100</span>, <span class="code-num">80</span>, <span class="code-num">16</span>, <span class="code-num">16</span>, velocidade_x=<span class="code-num">40</span>)
-<span class="code-key">defina</span> aliado como <span class="code-fn">Sprite</span>(<span class="code-num">260</span>, <span class="code-num">120</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)</code></pre></div></div>
+<span class="code-key">defina</span> aliado como <span class="code-fn">Sprite</span>(<span class="code-num">260</span>, <span class="code-num">120</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
+
+execute camera.<span class="code-fn">definir_zona_morta</span>(<span class="code-num">20</span>, <span class="code-num">12</span>)
+execute camera.<span class="code-fn">seguir</span>(heroi, constante_tempo=<span class="code-num">0.25</span>, antecipacao=<span class="code-num">0.2</span>)
+execute camera.<span class="code-fn">definir_limites</span>(<span class="code-fn">Retangulo</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">1000</span>, <span class="code-num">600</span>))
+execute camera.<span class="code-fn">enquadrar_alvos</span>([heroi, aliado], margem=<span class="code-num">20</span>, ajustar_zoom=True)
+execute camera.<span class="code-fn">definir_rotacao</span>(<span class="code-num">15</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -3343,10 +3368,17 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <h4 id="quadrochave" data-searchable><code>QuadroChave</code></h4>
 <p data-searchable>Valor numérico associado a um instante de uma faixa temporal.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> faixa_x como <span class="code-fn">FaixaAnimacao</span>(<span class="code-str">&quot;x&quot;</span>, (
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> QuadroChave, FaixaAnimacao, ClipeAnimacao, Sprite
+
+<span class="code-key">defina</span> faixa_x como <span class="code-fn">FaixaAnimacao</span>(<span class="code-str">&quot;x&quot;</span>, (
     <span class="code-fn">QuadroChave</span>(<span class="code-num">0.0</span>, <span class="code-num">0.0</span>, <span class="code-str">&quot;entrada_saida_suave&quot;</span>),
     <span class="code-fn">QuadroChave</span>(<span class="code-num">1.0</span>, <span class="code-num">100.0</span>)
-))</code></pre></div></div>
+))
+
+<span class="code-key">defina</span> clipe como <span class="code-fn">ClipeAnimacao</span>((faixa_x,), modo=<span class="code-str">&quot;ida_volta&quot;</span>)
+<span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
+execute heroi.<span class="code-fn">animar_com_clipe</span>(clipe, {<span class="code-str">&quot;x&quot;</span>: <span class="code-str">&quot;x&quot;</span>})
+execute heroi.<span class="code-fn">atualizar</span>(<span class="code-num">0.5</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -3380,7 +3412,12 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <span class="code-key">defina</span> faixa_x como <span class="code-fn">FaixaAnimacao</span>(<span class="code-str">&quot;x&quot;</span>, (
     <span class="code-fn">QuadroChave</span>(<span class="code-num">0.0</span>, <span class="code-num">0.0</span>, <span class="code-str">&quot;entrada_saida_suave&quot;</span>),
     <span class="code-fn">QuadroChave</span>(<span class="code-num">1.0</span>, <span class="code-num">100.0</span>)
-))</code></pre></div></div>
+))
+
+<span class="code-key">defina</span> clipe como <span class="code-fn">ClipeAnimacao</span>((faixa_x,), modo=<span class="code-str">&quot;ida_volta&quot;</span>)
+<span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
+execute heroi.<span class="code-fn">animar_com_clipe</span>(clipe, {<span class="code-str">&quot;x&quot;</span>: <span class="code-str">&quot;x&quot;</span>})
+execute heroi.<span class="code-fn">atualizar</span>(<span class="code-num">0.5</span>)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -3425,7 +3462,12 @@ execute origem.<span class="code-fn">adicionar_em_camada</span>(titulo, hud)</co
 <h4 id="clipeanimacao" data-searchable><code>ClipeAnimacao</code></h4>
 <p data-searchable>Reprodutor headless de uma ou mais faixas de quadros chave.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">))
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.jogos</span> <span class="code-key">importe</span> QuadroChave, FaixaAnimacao, ClipeAnimacao, Sprite
+
+<span class="code-key">defina</span> faixa_x como <span class="code-fn">FaixaAnimacao</span>(<span class="code-str">&quot;x&quot;</span>, (
+    <span class="code-fn">QuadroChave</span>(<span class="code-num">0.0</span>, <span class="code-num">0.0</span>, <span class="code-str">&quot;entrada_saida_suave&quot;</span>),
+    <span class="code-fn">QuadroChave</span>(<span class="code-num">1.0</span>, <span class="code-num">100.0</span>)
+))
 
 <span class="code-key">defina</span> clipe como <span class="code-fn">ClipeAnimacao</span>((faixa_x,), modo=<span class="code-str">&quot;ida_volta&quot;</span>)
 <span class="code-key">defina</span> heroi como <span class="code-fn">Sprite</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">16</span>, <span class="code-num">16</span>)
@@ -4317,11 +4359,6 @@ execute heroi.<span class="code-fn">atualizar</span>(<span class="code-num">0.5<
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/jogos/mapas.py</code></p></div></details>
 <h4 id="renderizadormapa2d" data-searchable><code>RenderizadorMapa2D</code></h4>
 <p data-searchable>Representa apresentação de mapas de coral.mundo.</p>
-<p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> camera como <span class="code-fn">Camera</span>(<span class="code-num">0</span>, <span class="code-num">0</span>, <span class="code-num">64</span>, <span class="code-num">64</span>)
-<span class="code-key">defina</span> backend como <span class="code-fn">BackendNulo</span>()
-<span class="code-key">defina</span> renderizador como <span class="code-fn">RenderizadorMapa2D</span>(sala, camera=camera)
-<span class="code-key">defina</span> desenhadas como renderizador.<span class="code-fn">desenhar</span>(backend)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

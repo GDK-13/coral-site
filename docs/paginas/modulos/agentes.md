@@ -310,11 +310,21 @@ Condição temporal neutra que pode aplicar modificadores a um agente.
 **Exemplo**
 
 ```coral
+# Recursos, atributos e efeitos sem depender de RPG ou Jogos.
+de coral.agentes importe Efeito, Modificador
+
+crie um mundo chamado fabrica
+crie um agente chamado robo no mundo fabrica
+defina o recurso bateria de robo como 80 de 100
+consuma 25 do recurso bateria de robo
+recupere 5 do recurso bateria de robo
+
 execute robo.definir_atributo("potencia", 10)
 defina turbo como Efeito("turbo", 2, modificadores={"potencia": [Modificador("bonus", 5)]})
 aplique o efeito turbo a robo
 
 execute robo.atualizar(2)
+mostre robo.exigir_recurso("bateria").valor
 ```
 
 **Parâmetros**
@@ -428,11 +438,21 @@ Representa alteração rastreável aplicada a um atributo.
 **Exemplo**
 
 ```coral
+# Recursos, atributos e efeitos sem depender de RPG ou Jogos.
+de coral.agentes importe Efeito, Modificador
+
+crie um mundo chamado fabrica
+crie um agente chamado robo no mundo fabrica
+defina o recurso bateria de robo como 80 de 100
+consuma 25 do recurso bateria de robo
+recupere 5 do recurso bateria de robo
+
 execute robo.definir_atributo("potencia", 10)
 defina turbo como Efeito("turbo", 2, modificadores={"potencia": [Modificador("bonus", 5)]})
 aplique o efeito turbo a robo
 
 execute robo.atualizar(2)
+mostre robo.exigir_recurso("bateria").valor
 ```
 
 **Parâmetros**

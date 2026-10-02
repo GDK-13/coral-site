@@ -123,12 +123,17 @@ Calcula um resumo criptográfico dos dados usando o algoritmo solicitado.
 **Exemplo**
 
 ```coral
+de coral.formatos importe para_base64
+de coral.criptografia importe resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
 defina mensagem como "Coral"
 defina codificado como para_base64(mensagem.encode("utf-8"))
 defina resumo como resumir(mensagem, "sha256")
 defina token como gerar_token_seguro(16, "hex")
 defina chave como "chave de exemplo"
 defina etiqueta como autenticar(mensagem, chave, "sha256")
+
+garanta que verificar_resumo(mensagem, resumo)
 ```
 
 **Parâmetros**
@@ -160,6 +165,14 @@ Verificar hash.
 **Exemplo**
 
 ```coral
+de coral.formatos importe para_base64
+de coral.criptografia importe resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+defina mensagem como "Coral"
+defina codificado como para_base64(mensagem.encode("utf-8"))
+defina resumo como resumir(mensagem, "sha256")
+defina token como gerar_token_seguro(16, "hex")
+defina chave como "chave de exemplo"
 defina etiqueta como autenticar(mensagem, chave, "sha256")
 
 garanta que verificar_resumo(mensagem, resumo)
@@ -195,6 +208,12 @@ Calcula um código de autenticação para os dados usando uma chave.
 **Exemplo**
 
 ```coral
+de coral.formatos importe para_base64
+de coral.criptografia importe resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+defina mensagem como "Coral"
+defina codificado como para_base64(mensagem.encode("utf-8"))
+defina resumo como resumir(mensagem, "sha256")
 defina token como gerar_token_seguro(16, "hex")
 defina chave como "chave de exemplo"
 defina etiqueta como autenticar(mensagem, chave, "sha256")
@@ -290,11 +309,17 @@ Gera um token textual aleatório adequado a usos criptográficos.
 **Exemplo**
 
 ```coral
+de coral.formatos importe para_base64
+de coral.criptografia importe resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+defina mensagem como "Coral"
 defina codificado como para_base64(mensagem.encode("utf-8"))
 defina resumo como resumir(mensagem, "sha256")
 defina token como gerar_token_seguro(16, "hex")
 defina chave como "chave de exemplo"
 defina etiqueta como autenticar(mensagem, chave, "sha256")
+
+garanta que verificar_resumo(mensagem, resumo)
 ```
 
 **Parâmetros**

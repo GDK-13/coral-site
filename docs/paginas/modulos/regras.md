@@ -128,11 +128,20 @@ Helper de criação.
 **Exemplo**
 
 ```coral
+defina vida como 10
 defina estado como "normal"
 
 regra "ferido" quando vida for menor ou igual a 5 então
     defina estado como "ferido"
 fim
+
+quando vida mudar
+    mostre vida
+fim
+
+avalie as regras
+defina vida como 4
+avalie as regras
 ```
 
 **Parâmetros**

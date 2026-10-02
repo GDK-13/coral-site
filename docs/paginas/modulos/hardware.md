@@ -122,6 +122,10 @@ se psutil_disponivel() então
     defina processador como cpu()
     defina ram como memoria()
     defina unidades como discos()
+    mostre processador.nucleos_logicos
+    mostre ram.total_bytes
+    mostre quantidade de unidades
+fim
 ```
 
 **Retorno**
@@ -163,11 +167,16 @@ Consultar CPU.
 **Exemplo**
 
 ```coral
+de coral.hardware importe cpu, memoria, discos, psutil_disponivel
+
 se psutil_disponivel() então
     defina processador como cpu()
     defina ram como memoria()
     defina unidades como discos()
     mostre processador.nucleos_logicos
+    mostre ram.total_bytes
+    mostre quantidade de unidades
+fim
 ```
 
 **Retorno**
@@ -191,12 +200,16 @@ Consultar RAM.
 **Exemplo**
 
 ```coral
+de coral.hardware importe cpu, memoria, discos, psutil_disponivel
+
 se psutil_disponivel() então
     defina processador como cpu()
     defina ram como memoria()
     defina unidades como discos()
     mostre processador.nucleos_logicos
     mostre ram.total_bytes
+    mostre quantidade de unidades
+fim
 ```
 
 **Retorno**
@@ -220,12 +233,16 @@ Listar discos.
 **Exemplo**
 
 ```coral
-defina processador como cpu()
+de coral.hardware importe cpu, memoria, discos, psutil_disponivel
+
+se psutil_disponivel() então
+    defina processador como cpu()
     defina ram como memoria()
     defina unidades como discos()
     mostre processador.nucleos_logicos
     mostre ram.total_bytes
     mostre quantidade de unidades
+fim
 ```
 
 **Retorno**

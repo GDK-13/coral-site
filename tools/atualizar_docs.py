@@ -7,6 +7,7 @@ import html
 import io
 import json
 import re
+import subprocess
 import sys
 import zipfile
 from contextlib import contextmanager
@@ -469,8 +470,16 @@ def extract_api_editorial(text: str, module: dict[str, Any]) -> dict[str, Any]:
     O importador usa apenas conteúdo manual já existente como apoio didático.
     Ele não cria fatos novos sobre a API. A tabela "API essencial" fornece
     descrições curtas e os blocos Coral fornecem exemplos somente quando o
-    símbolo aparece literalmente no código.
+    símbolo aparece literalmente no código. O bloco AUTO:API da geração
+    anterior é descartado antes da extração para impedir que exemplos gerados
+    sejam reciclados e progressivamente recortados em releases sucessivas.
     """
+    text = re.sub(
+        r"<!-- AUTO:API -->.*?<!-- /AUTO:API -->",
+        "",
+        text,
+        flags=re.S,
+    )
     purposes: dict[str, str] = {}
     match = re.search(r"^## API essencial\s*$\n(.*?)(?=^##\s|\Z)", text, flags=re.M | re.S)
     if match:
@@ -515,13 +524,13 @@ def extract_api_editorial(text: str, module: dict[str, Any]) -> dict[str, Any]:
             ]
             if usage_hits:
                 hit = usage_hits[0]
-                # Exemplo curto: preserva contexto, mas evita transformar cada
-                # entrada da referência em um segundo tutorial longo.
-                if len(lines) <= 8:
-                    examples[name] = block.strip()
-                else:
-                    start = max(0, hit - 2)
-                    examples[name] = "\n".join(lines[start:start + 6]).strip()
+                # Nunca recorte um programa Coral no meio de um bloco. Um trecho
+                # aparentemente curto pode perder ``fim``, a função que contém
+                # ``retorne`` ou a abertura de um agrupamento e deixar de ser
+                # código válido na release corrente. A referência reutiliza o
+                # bloco editorial completo; o renderer já mantém a API técnica
+                # recolhível no Modo Aprender.
+                examples[name] = block.strip()
                 break
     return {"purposes": purposes, "examples": examples}
 
@@ -938,6 +947,14 @@ def main() -> int:
     render_docs(version, modules)
     update_index_fallbacks(version)
     generate_seo_files(args.url_base)
+
+    if args.release and not args.somente_gerar:
+        validator = ROOT / "tools" / "validar_exemplos_release.py"
+        subprocess.run(
+            [sys.executable, str(validator), str(args.release.resolve())],
+            cwd=ROOT,
+            check=True,
+        )
 
     print(f"Documentação regenerada: {ROOT / 'docs/index.html'}")
     print(f"Versão corrente: Coral {version.get('coral')} | VS Code {version.get('extensao_vscode')} | Livro {version.get('livro')}")

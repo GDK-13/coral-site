@@ -128,6 +128,9 @@ Lê uma linha usando a fonte explícita, contextual ou o terminal.
 **Exemplo**
 
 ```coral
+# Entrada, conversão explícita e composição de texto.
+de coral.entrada importe ler_linha
+de coral.conversoes importe inteiro, decimal
 de coral.formatacao importe montar_texto
 
 defina nome como ler_linha("Nome: ")

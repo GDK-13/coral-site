@@ -149,12 +149,17 @@ Converte o texto para maiusculas.
 **Exemplo**
 
 ```coral
+# Biblioteca padrão Coral e interoperabilidade explícita com Python.
+de coral.texto importe maiusculas
+
+crie um vetor chamado dados com [7, 8, 9]
 calcule a média de dados como media_dados
 mostre media_dados
 mostre maiusculas("Coral")
 
 python: import math
 defina raiz como math.sqrt(81)
+mostre raiz
 ```
 
 **Parâmetros**

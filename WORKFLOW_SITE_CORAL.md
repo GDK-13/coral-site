@@ -133,7 +133,8 @@ coral-site/
 │   │   ├── exemplos.json
 │   │   ├── navegacao.json
 │   │   ├── sintaxe.json
-│   │   └── snapshot_release.json
+│   │   ├── snapshot_release.json
+│   │   └── validacao_exemplos.json
 │   ├── paginas/                   # editar aqui
 │   │   ├── introducao.md
 │   │   ├── ...
@@ -148,7 +149,8 @@ coral-site/
 │   ├── site_renderer.py
 │   ├── syntax_highlight.py
 │   ├── test_syntax_highlight.py
-│   └── validar_site.py
+│   ├── validar_site.py
+│   └── validar_exemplos_release.py
 ├── scripts/
 │   └── validar_site_atual.sh
 ├── docs.html                      # redirecionamento
@@ -206,6 +208,29 @@ As formas naturais da biblioteca base são inventariadas separadamente em `forma
 * blocos automáticos das páginas de módulos.
 
 Depois ele regenera todas as páginas HTML.
+
+### Gate obrigatório dos exemplos
+
+Toda importação de release deve terminar com a validação dos exemplos publicados contra o runtime da própria versão. O gate executado por `tools/validar_exemplos_release.py` verifica quatro contratos:
+
+1. cada bloco `coral` do Markdown compila com o runtime corrente;
+2. cada importação explícita da biblioteca padrão usa um símbolo que ainda pertence à superfície pública do módulo;
+3. o inventário de `Exemplos/*.coral` do site coincide com a release importada;
+4. a assinatura dos blocos validados é gravada em `docs/dados/validacao_exemplos.json`.
+
+Isso impede que exemplos antigos permaneçam no site quando uma versão muda sintaxe, formas naturais, nomes públicos ou estrutura da biblioteca. Exemplos automáticos da referência nunca devem ser recortados no meio de uma função, condição, agrupamento ou outro bloco Coral. O gerador reutiliza apenas blocos editoriais completos.
+
+O validador estrutural compara a assinatura atual com a evidência gravada. Portanto, editar um exemplo depois da importação invalida o gate até uma nova conferência com o ZIP da release:
+
+```bash
+python tools/validar_exemplos_release.py /caminho/Coral_X.Y.Z_Completo.zip
+```
+
+Para executar a conferência junto do restante do gate:
+
+```bash
+bash scripts/validar_site_atual.sh /caminho/Coral_X.Y.Z_Completo.zip
+```
 
 ## 8. Blocos automáticos e referência de API
 

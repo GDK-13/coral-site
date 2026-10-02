@@ -214,12 +214,17 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <h4 id="resumir" data-searchable><code>resumir</code></h4>
 <p data-searchable>Calcula um resumo criptográfico dos dados usando o algoritmo solicitado.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
+de <span class="code-mod">coral.criptografia</span> <span class="code-key">importe</span> resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+<span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
 <span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
 <span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
 <span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
 <span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
-<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
+
+garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -239,7 +244,15 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <h4 id="verificar-resumo" data-searchable><code>verificar_resumo</code></h4>
 <p data-searchable>Verificar hash.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
+de <span class="code-mod">coral.criptografia</span> <span class="code-key">importe</span> resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+<span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
 
 garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -262,7 +275,13 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <h4 id="autenticar" data-searchable><code>autenticar</code></h4>
 <p data-searchable>Calcula um código de autenticação para os dados usando uma chave.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
+de <span class="code-mod">coral.criptografia</span> <span class="code-key">importe</span> resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+<span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
+<span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
 <span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
 <span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
 
@@ -326,11 +345,17 @@ garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</cod
 <h4 id="gerar-token-seguro" data-searchable><code>gerar_token_seguro</code></h4>
 <p data-searchable>Gera um token textual aleatório adequado a usos criptográficos.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.formatos</span> <span class="code-key">importe</span> para_base64
+de <span class="code-mod">coral.criptografia</span> <span class="code-key">importe</span> resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
+<span class="code-key">defina</span> mensagem como <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">defina</span> codificado como <span class="code-fn">para_base64</span>(mensagem.<span class="code-fn">encode</span>(<span class="code-str">&quot;utf-8&quot;</span>))
 <span class="code-key">defina</span> resumo como <span class="code-fn">resumir</span>(mensagem, <span class="code-str">&quot;sha256&quot;</span>)
 <span class="code-key">defina</span> token como <span class="code-fn">gerar_token_seguro</span>(<span class="code-num">16</span>, <span class="code-str">&quot;hex&quot;</span>)
 <span class="code-key">defina</span> chave como <span class="code-str">&quot;chave de exemplo&quot;</span>
-<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)</code></pre></div></div>
+<span class="code-key">defina</span> etiqueta como <span class="code-fn">autenticar</span>(mensagem, chave, <span class="code-str">&quot;sha256&quot;</span>)
+
+garanta que <span class="code-fn">verificar_resumo</span>(mensagem, resumo)</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

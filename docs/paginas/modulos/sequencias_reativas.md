@@ -109,6 +109,12 @@ Representa SequenciaDoisPassos na API de `coral.sequencias_reativas`.
 **Exemplo**
 
 ```coral
+de coral.tempo_eventos importe Eventos
+de coral.sequencias_reativas importe SequenciaDoisPassos
+
+defina eventos como Eventos()
+crie a função concluiu com primeiro e segundo
+    mostre "sequência reconhecida"
 fim
 
 defina sequencia como SequenciaDoisPassos(eventos, "abrir", "confirmar", concluiu, janela=2)

@@ -219,11 +219,20 @@ avalie as regras</code></pre></div></div>
 <h4 id="regra-2" data-searchable><code>regra</code></h4>
 <p data-searchable>Helper de criação.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> estado como <span class="code-str">&quot;normal&quot;</span>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> vida como <span class="code-num">10</span>
+<span class="code-key">defina</span> estado como <span class="code-str">&quot;normal&quot;</span>
 
 regra <span class="code-str">&quot;ferido&quot;</span> quando vida for menor ou igual a <span class="code-num">5</span> <span class="code-key">então</span>
     <span class="code-key">defina</span> estado como <span class="code-str">&quot;ferido&quot;</span>
-<span class="code-key">fim</span></code></pre></div></div>
+<span class="code-key">fim</span>
+
+quando vida mudar
+    <span class="code-key">mostre</span> vida
+<span class="code-key">fim</span>
+
+avalie as regras
+<span class="code-key">defina</span> vida como <span class="code-num">4</span>
+avalie as regras</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

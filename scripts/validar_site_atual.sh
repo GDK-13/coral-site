@@ -6,6 +6,8 @@ ROOT="$(cd -- "$SCRIPT_DIR/.." && pwd)"
 
 cd "$ROOT"
 
+RELEASE_ZIP="${1:-}"
+
 VERSION="$(python - <<'PY'
 from pathlib import Path
 import json
@@ -32,6 +34,11 @@ run "Regenerando documentação sem reimportar a release" \
 
 run "Testando o realce de sintaxe" \
   python tools/test_syntax_highlight.py
+
+if [[ -n "$RELEASE_ZIP" ]]; then
+  run "Revalidando exemplos contra o runtime da release" \
+    python tools/validar_exemplos_release.py "$RELEASE_ZIP"
+fi
 
 run "Executando o validador estrutural do site" \
   python tools/validar_site.py

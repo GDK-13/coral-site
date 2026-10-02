@@ -171,11 +171,16 @@ Converte o valor para base64.
 **Exemplo**
 
 ```coral
+# Codificação, hash, token seguro e autenticação. Nenhum destes recursos cifra dados.
+de coral.formatos importe para_base64
+de coral.criptografia importe resumir, verificar_resumo, gerar_token_seguro, autenticar, verificar_autenticacao
+
 defina mensagem como "Coral"
 defina codificado como para_base64(mensagem.encode("utf-8"))
 defina resumo como resumir(mensagem, "sha256")
 defina token como gerar_token_seguro(16, "hex")
 defina chave como "chave de exemplo"
+defina etiqueta como autenticar(mensagem, chave, "sha256")
 ```
 
 **Parâmetros**

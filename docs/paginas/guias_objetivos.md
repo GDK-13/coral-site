@@ -112,7 +112,7 @@ mostre conteudo
 de coral.json importe escrever_json
 
 defina perfil como {"nome": "Lia", "nivel": 3}
-escrever_json("perfil.json", perfil)
+execute escrever_json("perfil.json", perfil)
 ```
 
 :::resultado
@@ -128,7 +128,7 @@ O arquivo `perfil.json` é criado ou atualizado com uma representação JSON do 
 de coral.persistencia importe salvar
 
 defina estado como {"fase": 4, "pontos": 180}
-salvar(estado, "estado.coral.json")
+execute salvar(estado, "estado.coral.json")
 ```
 
 :::resultado

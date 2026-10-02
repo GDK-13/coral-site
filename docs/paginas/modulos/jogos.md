@@ -2067,6 +2067,12 @@ Representa Retangulo na API de `coral.jogos`.
 **Exemplo**
 
 ```coral
+de coral.jogos importe Camera, Sprite, Retangulo
+
+defina camera como Camera(0, 0, 320, 180)
+defina heroi como Sprite(100, 80, 16, 16, velocidade_x=40)
+defina aliado como Sprite(260, 120, 16, 16)
+
 execute camera.definir_zona_morta(20, 12)
 execute camera.seguir(heroi, constante_tempo=0.25, antecipacao=0.2)
 execute camera.definir_limites(Retangulo(0, 0, 1000, 600))
@@ -2117,15 +2123,6 @@ execute camera.definir_rotacao(15)
 #### `BackendNulo`
 
 Backend determinístico para testes, servidores e execução sem interface gráfica.
-
-**Exemplo**
-
-```coral
-defina camera como Camera(0, 0, 64, 64)
-defina backend como BackendNulo()
-defina renderizador como RenderizadorMapa2D(sala, camera=camera)
-defina desenhadas como renderizador.desenhar(backend)
-```
 
 **Parâmetros**
 
@@ -2260,11 +2257,17 @@ Representa objeto visual transformável.
 **Exemplo**
 
 ```coral
+de coral.jogos importe Camera, Sprite, Retangulo
+
 defina camera como Camera(0, 0, 320, 180)
 defina heroi como Sprite(100, 80, 16, 16, velocidade_x=40)
 defina aliado como Sprite(260, 120, 16, 16)
 
 execute camera.definir_zona_morta(20, 12)
+execute camera.seguir(heroi, constante_tempo=0.25, antecipacao=0.2)
+execute camera.definir_limites(Retangulo(0, 0, 1000, 600))
+execute camera.enquadrar_alvos([heroi, aliado], margem=20, ajustar_zoom=True)
+execute camera.definir_rotacao(15)
 ```
 
 **Parâmetros**
@@ -2399,6 +2402,12 @@ de coral.jogos importe Cena, Sprite, TextoApresentacao
 defina origem como Cena("origem")
 defina fundo como origem.criar_camada("fundo", ordem=-10, paralaxe=0.5)
 defina hud como origem.criar_camada("hud", ordem=10, espaco="tela")
+
+defina montanhas como Sprite(40, 20, 100, 40)
+defina titulo como TextoApresentacao("Apresentação Coral", tamanho=12, ancora_viewport="topo")
+
+execute origem.adicionar_em_camada(montanhas, fundo)
+execute origem.adicionar_em_camada(titulo, hud)
 ```
 
 **Parâmetros**
@@ -2534,6 +2543,12 @@ Texto 2D reutilizável para camadas de mundo ou de tela.
 **Exemplo**
 
 ```coral
+de coral.jogos importe Cena, Sprite, TextoApresentacao
+
+defina origem como Cena("origem")
+defina fundo como origem.criar_camada("fundo", ordem=-10, paralaxe=0.5)
+defina hud como origem.criar_camada("hud", ordem=10, espaco="tela")
+
 defina montanhas como Sprite(40, 20, 100, 40)
 defina titulo como TextoApresentacao("Apresentação Coral", tamanho=12, ancora_viewport="topo")
 
@@ -3241,6 +3256,12 @@ de coral.jogos importe Camera, Sprite, Retangulo
 defina camera como Camera(0, 0, 320, 180)
 defina heroi como Sprite(100, 80, 16, 16, velocidade_x=40)
 defina aliado como Sprite(260, 120, 16, 16)
+
+execute camera.definir_zona_morta(20, 12)
+execute camera.seguir(heroi, constante_tempo=0.25, antecipacao=0.2)
+execute camera.definir_limites(Retangulo(0, 0, 1000, 600))
+execute camera.enquadrar_alvos([heroi, aliado], margem=20, ajustar_zoom=True)
+execute camera.definir_rotacao(15)
 ```
 
 **Parâmetros**
@@ -3696,10 +3717,17 @@ Valor numérico associado a um instante de uma faixa temporal.
 **Exemplo**
 
 ```coral
+de coral.jogos importe QuadroChave, FaixaAnimacao, ClipeAnimacao, Sprite
+
 defina faixa_x como FaixaAnimacao("x", (
     QuadroChave(0.0, 0.0, "entrada_saida_suave"),
     QuadroChave(1.0, 100.0)
 ))
+
+defina clipe como ClipeAnimacao((faixa_x,), modo="ida_volta")
+defina heroi como Sprite(0, 0, 16, 16)
+execute heroi.animar_com_clipe(clipe, {"x": "x"})
+execute heroi.atualizar(0.5)
 ```
 
 **Parâmetros**
@@ -3741,6 +3769,11 @@ defina faixa_x como FaixaAnimacao("x", (
     QuadroChave(0.0, 0.0, "entrada_saida_suave"),
     QuadroChave(1.0, 100.0)
 ))
+
+defina clipe como ClipeAnimacao((faixa_x,), modo="ida_volta")
+defina heroi como Sprite(0, 0, 16, 16)
+execute heroi.animar_com_clipe(clipe, {"x": "x"})
+execute heroi.atualizar(0.5)
 ```
 
 **Parâmetros**
@@ -3788,6 +3821,11 @@ Reprodutor headless de uma ou mais faixas de quadros chave.
 **Exemplo**
 
 ```coral
+de coral.jogos importe QuadroChave, FaixaAnimacao, ClipeAnimacao, Sprite
+
+defina faixa_x como FaixaAnimacao("x", (
+    QuadroChave(0.0, 0.0, "entrada_saida_suave"),
+    QuadroChave(1.0, 100.0)
 ))
 
 defina clipe como ClipeAnimacao((faixa_x,), modo="ida_volta")
@@ -4673,15 +4711,6 @@ Representa EstiloCelula na API de `coral.jogos`.
 #### `RenderizadorMapa2D`
 
 Representa apresentação de mapas de coral.mundo.
-
-**Exemplo**
-
-```coral
-defina camera como Camera(0, 0, 64, 64)
-defina backend como BackendNulo()
-defina renderizador como RenderizadorMapa2D(sala, camera=camera)
-defina desenhadas como renderizador.desenhar(backend)
-```
 
 **Parâmetros**
 

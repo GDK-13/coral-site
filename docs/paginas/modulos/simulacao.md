@@ -524,6 +524,12 @@ Processo temporal recorrente independente de RPG e de interface gráfica.
 **Exemplo**
 
 ```coral
+de coral.simulacao importe Sistema
+
+crie a função produzir com passo
+    mostre passo.execucoes
+fim
+
 crie uma simulacao chamada fabrica
 execute fabrica.adicionar_sistema(Sistema("producao", produzir, intervalo=10, modo="agregado"))
 avance a simulacao fabrica por 1 minuto

@@ -209,12 +209,17 @@ garanta que primeiro for igual a segundo
 <h4 id="fonte" data-searchable><code>fonte</code></h4>
 <p data-searchable>Criar uma fonte reproduzível.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Aleatoriedade reproduzível e persistência portátil.</span>
+de <span class="code-mod">coral.aleatorio</span> <span class="code-key">importe</span> fonte
+de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
 
 <span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
 <span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
 <span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
-<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)</code></pre></div></div>
+<span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
+garanta que primeiro for igual a segundo
+
+<span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -232,11 +237,17 @@ garanta que primeiro for igual a segundo
 <h4 id="inteiro" data-searchable><code>inteiro</code></h4>
 <p data-searchable>Sortear inteiro em intervalo.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Aleatoriedade reproduzível e persistência portátil.</span>
+de <span class="code-mod">coral.aleatorio</span> <span class="code-key">importe</span> fonte
+de <span class="code-mod">coral.persistencia</span> <span class="code-key">importe</span> salvar, carregar
+
+<span class="code-key">defina</span> gerador_a como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
 <span class="code-key">defina</span> gerador_b como <span class="code-fn">fonte</span>(<span class="code-num">42</span>)
 <span class="code-key">defina</span> primeiro como gerador_a.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
 <span class="code-key">defina</span> segundo como gerador_b.<span class="code-fn">inteiro</span>(<span class="code-num">1</span>, <span class="code-num">100</span>)
-garanta que primeiro for igual a segundo</code></pre></div></div>
+garanta que primeiro for igual a segundo
+
+<span class="code-key">defina</span> dados como {<span class="code-str">&quot;ponto&quot;</span>: (<span class="code-num">3</span>, <span class="code-num">4</span>), <span class="code-str">&quot;tags&quot;</span>: {<span class="code-str">&quot;a&quot;</span>, <span class="code-str">&quot;b&quot;</span>}}</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

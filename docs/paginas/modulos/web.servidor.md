@@ -98,11 +98,17 @@ Executa a operação `resposta_texto` disponibilizada por `coral.web.servidor`.
 **Exemplo**
 
 ```coral
+de coral.web.servidor importe criar_servidor, resposta_texto
+
 crie a função inicio com requisicao
     retorne resposta_texto("Servidor Coral local")
 fim
 
 defina servidor como criar_servidor()
+execute servidor.adicionar_rota("GET", "/", inicio)
+execute servidor.iniciar()
+mostre servidor.url_base
+execute servidor.encerrar()
 ```
 
 **Parâmetros**
@@ -276,12 +282,17 @@ Cria servidor sem abrir a porta; chame ``iniciar`` ou use ``com``.
 **Exemplo**
 
 ```coral
+de coral.web.servidor importe criar_servidor, resposta_texto
+
+crie a função inicio com requisicao
+    retorne resposta_texto("Servidor Coral local")
 fim
 
 defina servidor como criar_servidor()
 execute servidor.adicionar_rota("GET", "/", inicio)
 execute servidor.iniciar()
 mostre servidor.url_base
+execute servidor.encerrar()
 ```
 
 **Parâmetros**

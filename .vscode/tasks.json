@@ -25,6 +25,18 @@
       }
     },
     {
+      "label": "Coral Site: Validar exemplos contra release",
+      "type": "shell",
+      "command": "python tools/validar_exemplos_release.py \"${input:coralReleaseZip}\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "group": "test"
+    },
+    {
       "label": "Coral Site: Validar",
       "type": "shell",
       "command": "python tools/validar_site.py",

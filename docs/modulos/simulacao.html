@@ -571,7 +571,13 @@ avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pr
 <h4 id="sistema" data-searchable><code>Sistema</code></h4>
 <p data-searchable>Processo temporal recorrente independente de RPG e de interface gráfica.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> fabrica
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.simulacao</span> <span class="code-key">importe</span> Sistema
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> produzir com passo
+    <span class="code-key">mostre</span> passo.execucoes
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> uma simulacao <span class="code-key">chamada</span> fabrica
 execute fabrica.<span class="code-fn">adicionar_sistema</span>(<span class="code-fn">Sistema</span>(<span class="code-str">&quot;producao&quot;</span>, produzir, intervalo=<span class="code-num">10</span>, modo=<span class="code-str">&quot;agregado&quot;</span>))
 avance a simulacao fabrica por <span class="code-num">1</span> minuto</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>

@@ -109,10 +109,18 @@ Aguarda ``esperavel`` por no máximo ``segundos``.
 **Exemplo**
 
 ```coral
+de coral.assincrono importe aguardar_com_timeout
+
+crie a função assíncrona leia_dados
+    retorne "ok"
+fim
+
 crie a função assíncrona principal
     defina resultado como aguarde aguardar_com_timeout(leia_dados(), 2)
     mostre resultado
 fim
+
+execute assincronamente principal()
 ```
 
 **Parâmetros**

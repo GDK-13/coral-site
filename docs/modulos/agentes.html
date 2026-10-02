@@ -392,11 +392,21 @@ execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</sp
 <h4 id="efeito" data-searchable><code>Efeito</code></h4>
 <p data-searchable>Condição temporal neutra que pode aplicar modificadores a um agente.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">execute robo.<span class="code-fn">definir_atributo</span>(<span class="code-str">&quot;potencia&quot;</span>, <span class="code-num">10</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Recursos, atributos e efeitos sem depender de RPG ou Jogos.</span>
+de <span class="code-mod">coral.agentes</span> <span class="code-key">importe</span> Efeito, Modificador
+
+<span class="code-key">crie</span> um mundo chamado fabrica
+<span class="code-key">crie</span> um agente chamado robo no mundo fabrica
+<span class="code-key">defina</span> o recurso bateria de robo como <span class="code-num">80</span> de <span class="code-num">100</span>
+consuma <span class="code-num">25</span> do recurso bateria de robo
+recupere <span class="code-num">5</span> do recurso bateria de robo
+
+execute robo.<span class="code-fn">definir_atributo</span>(<span class="code-str">&quot;potencia&quot;</span>, <span class="code-num">10</span>)
 <span class="code-key">defina</span> turbo como <span class="code-fn">Efeito</span>(<span class="code-str">&quot;turbo&quot;</span>, <span class="code-num">2</span>, modificadores={<span class="code-str">&quot;potencia&quot;</span>: [<span class="code-fn">Modificador</span>(<span class="code-str">&quot;bonus&quot;</span>, <span class="code-num">5</span>)]})
 aplique o efeito turbo a robo
 
-execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</span>)</code></pre></div></div>
+execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> robo.<span class="code-fn">exigir_recurso</span>(<span class="code-str">&quot;bateria&quot;</span>).valor</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -506,11 +516,21 @@ execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</sp
 <h4 id="modificador" data-searchable><code>Modificador</code></h4>
 <p data-searchable>Representa alteração rastreável aplicada a um atributo.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">execute robo.<span class="code-fn">definir_atributo</span>(<span class="code-str">&quot;potencia&quot;</span>, <span class="code-num">10</span>)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-comment"># Recursos, atributos e efeitos sem depender de RPG ou Jogos.</span>
+de <span class="code-mod">coral.agentes</span> <span class="code-key">importe</span> Efeito, Modificador
+
+<span class="code-key">crie</span> um mundo chamado fabrica
+<span class="code-key">crie</span> um agente chamado robo no mundo fabrica
+<span class="code-key">defina</span> o recurso bateria de robo como <span class="code-num">80</span> de <span class="code-num">100</span>
+consuma <span class="code-num">25</span> do recurso bateria de robo
+recupere <span class="code-num">5</span> do recurso bateria de robo
+
+execute robo.<span class="code-fn">definir_atributo</span>(<span class="code-str">&quot;potencia&quot;</span>, <span class="code-num">10</span>)
 <span class="code-key">defina</span> turbo como <span class="code-fn">Efeito</span>(<span class="code-str">&quot;turbo&quot;</span>, <span class="code-num">2</span>, modificadores={<span class="code-str">&quot;potencia&quot;</span>: [<span class="code-fn">Modificador</span>(<span class="code-str">&quot;bonus&quot;</span>, <span class="code-num">5</span>)]})
 aplique o efeito turbo a robo
 
-execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</span>)</code></pre></div></div>
+execute robo.<span class="code-fn">atualizar</span>(<span class="code-num">2</span>)
+<span class="code-key">mostre</span> robo.<span class="code-fn">exigir_recurso</span>(<span class="code-str">&quot;bateria&quot;</span>).valor</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

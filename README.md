@@ -97,3 +97,21 @@ Esse gate verifica o realce léxico Coral, fidelidade do texto copiado, whitelis
 ## Política editorial
 
 A landing descreve a Coral como produto e material de aprendizagem. Roadmaps, checkpoints e histórico interno de desenvolvimento não são conteúdo público do site. Mudanças que afetam usuários ficam na página **Notas de versão**.
+
+## Validação dos exemplos contra a release
+
+A importação de uma release executa automaticamente um gate dos blocos `coral` publicados. Cada bloco precisa compilar com o runtime da mesma versão e todo `de coral... importe ...` precisa apontar para um símbolo público presente no inventário atual. A validação também sincroniza o inventário dos exemplos oficiais e grava uma assinatura em `docs/dados/validacao_exemplos.json`.
+
+Para repetir a validação profunda manualmente:
+
+```bash
+python tools/validar_exemplos_release.py /caminho/Coral_X.Y.Z_Completo.zip
+```
+
+Ou execute o gate local completo passando a release:
+
+```bash
+bash scripts/validar_site_atual.sh /caminho/Coral_X.Y.Z_Completo.zip
+```
+
+Sem o ZIP, o gate continua verificando a assinatura da última validação. Se qualquer exemplo Coral for editado depois dela, a validação estrutural falha até que os exemplos sejam conferidos novamente contra o runtime corrente.

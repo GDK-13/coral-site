@@ -68,7 +68,7 @@ As operações básicas de texto e existência ganharam equivalentes naturais:
 ```coral
 se existe o caminho "~/notas.txt" então
     defina conteudo como leia o texto de "~/notas.txt"
-    escreva conteudo em "copia.txt"
+    execute escreva conteudo em "copia.txt"
 fim
 ```
 
@@ -135,6 +135,14 @@ Lê o conteúdo textual de um arquivo.
 **Exemplo**
 
 ```coral
+# Arquivos, JSON, caminhos e contexto de leitura.
+de coral.arquivos importe escrever_texto, ler_texto
+de coral.json importe para_json, de_json
+de coral.caminhos importe juntar_caminho
+
+defina caminho_texto como juntar_caminho("dados", "mensagem.txt")
+mostre caminho_texto
+
 execute escrever_texto("mensagem.txt", "Olá, arquivo!")
 defina conteudo como ler_texto("mensagem.txt")
 mostre conteudo
@@ -168,6 +176,12 @@ Escreve texto em um arquivo, substituindo o conteúdo anterior.
 **Exemplo**
 
 ```coral
+# Arquivos, JSON, caminhos e contexto de leitura.
+de coral.arquivos importe escrever_texto, ler_texto
+de coral.json importe para_json, de_json
+de coral.caminhos importe juntar_caminho
+
+defina caminho_texto como juntar_caminho("dados", "mensagem.txt")
 mostre caminho_texto
 
 execute escrever_texto("mensagem.txt", "Olá, arquivo!")
@@ -283,7 +297,7 @@ Verifica se o caminho indicado existe.
 ```coral
 se existe o caminho "~/notas.txt" então
     defina conteudo como leia o texto de "~/notas.txt"
-    escreva conteudo em "copia.txt"
+    execute escreva conteudo em "copia.txt"
 fim
 ```
 

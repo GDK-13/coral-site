@@ -1,0 +1,13 @@
+{
+  "coral": "1.7.2",
+  "fonte_release": "Coral_1.7.2_Completo.zip",
+  "runtime_sha256": "58621b5c1e1374d65766e0a814ab3d3d1609fc1e7f2ebfe224258d5ef99d56f4",
+  "blocos_site": 159,
+  "blocos_site_validos": 159,
+  "imports_verificados": 168,
+  "assinatura_blocos_site": "90d7d899d680627d8726659f4233f0b70b57e99c358b271df825d4436b3a2994",
+  "exemplos_oficiais_total": 88,
+  "exemplos_oficiais_isolados_validados": 69,
+  "assinatura_exemplos_oficiais": "3c1bf4133e7cd13808e0aad45ea0f0624b8fe3fa1faa8252244e984099cbd055",
+  "politica": "todo bloco Coral publicável compila com o runtime corrente e todo import explícito pertence à superfície pública corrente"
+}

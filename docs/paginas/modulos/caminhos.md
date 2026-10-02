@@ -151,12 +151,17 @@ Combina partes de caminho sem concatenar separadores manualmente.
 **Exemplo**
 
 ```coral
+de coral.json importe para_json, de_json
 de coral.caminhos importe juntar_caminho
 
 defina caminho_texto como juntar_caminho("dados", "mensagem.txt")
 mostre caminho_texto
 
 execute escrever_texto("mensagem.txt", "Olá, arquivo!")
+defina conteudo como ler_texto("mensagem.txt")
+mostre conteudo
+
+defina original como {"nome": "Ana", "nota": 9}
 ```
 
 **Parâmetros**

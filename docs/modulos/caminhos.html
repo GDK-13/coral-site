@@ -237,12 +237,17 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <h4 id="juntar-caminho" data-searchable><code>juntar_caminho</code></h4>
 <p data-searchable>Combina partes de caminho sem concatenar separadores manualmente.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</span> juntar_caminho
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> para_json, de_json
+de <span class="code-mod">coral.caminhos</span> <span class="code-key">importe</span> juntar_caminho
 
 <span class="code-key">defina</span> caminho_texto como <span class="code-fn">juntar_caminho</span>(<span class="code-str">&quot;dados&quot;</span>, <span class="code-str">&quot;mensagem.txt&quot;</span>)
 <span class="code-key">mostre</span> caminho_texto
 
-execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)</code></pre></div></div>
+execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>, <span class="code-str">&quot;Olá, arquivo!&quot;</span>)
+<span class="code-key">defina</span> conteudo como <span class="code-fn">ler_texto</span>(<span class="code-str">&quot;mensagem.txt&quot;</span>)
+<span class="code-key">mostre</span> conteudo
+
+<span class="code-key">defina</span> original como {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;nota&quot;</span>: <span class="code-num">9</span>}</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

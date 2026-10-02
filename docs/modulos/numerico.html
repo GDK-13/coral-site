@@ -235,12 +235,17 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <h4 id="vetor" data-searchable><code>vetor</code></h4>
 <p data-searchable>Construir vetor.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
+de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> analisar_relatorio com caminho
+    <span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
     <span class="code-key">defina</span> tempos como [medicao[<span class="code-str">&quot;tempo_segundos&quot;</span>] <span class="code-key">para</span> <span class="code-key">cada</span> medicao em relatorio[<span class="code-str">&quot;medicoes&quot;</span>] <span class="code-key">se</span> medicao[<span class="code-str">&quot;erro&quot;</span>] for igual a nada]
     <span class="code-key">crie</span> um vetor chamado serie com tempos
     calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
-    retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}</code></pre></div></div>
+    retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -440,7 +445,14 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <h4 id="media" data-searchable><code>media</code></h4>
 <p data-searchable>Calcular média.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">calcule a média de serie como media_serie
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
+de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> analisar_relatorio com caminho
+    <span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
+    <span class="code-key">defina</span> tempos como [medicao[<span class="code-str">&quot;tempo_segundos&quot;</span>] <span class="code-key">para</span> <span class="code-key">cada</span> medicao em relatorio[<span class="code-str">&quot;medicoes&quot;</span>] <span class="code-key">se</span> medicao[<span class="code-str">&quot;erro&quot;</span>] for igual a nada]
+    <span class="code-key">crie</span> um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
     retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
 <span class="code-key">fim</span></code></pre></div></div>
@@ -461,7 +473,14 @@ de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</
 <h4 id="mediana" data-searchable><code>mediana</code></h4>
 <p data-searchable>Calcular mediana.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">calcule a média de serie como media_serie
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.json</span> <span class="code-key">importe</span> ler_json
+de <span class="code-mod">coral.numerico</span> <span class="code-key">importe</span> mediana
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> analisar_relatorio com caminho
+    <span class="code-key">defina</span> relatorio como <span class="code-fn">ler_json</span>(caminho)
+    <span class="code-key">defina</span> tempos como [medicao[<span class="code-str">&quot;tempo_segundos&quot;</span>] <span class="code-key">para</span> <span class="code-key">cada</span> medicao em relatorio[<span class="code-str">&quot;medicoes&quot;</span>] <span class="code-key">se</span> medicao[<span class="code-str">&quot;erro&quot;</span>] for igual a nada]
+    <span class="code-key">crie</span> um vetor chamado serie com tempos
+    calcule a média de serie como media_serie
     calcule o desvio padrão de serie como desvio_serie
     retorne {<span class="code-str">&quot;media&quot;</span>: media_serie, <span class="code-str">&quot;mediana&quot;</span>: <span class="code-fn">mediana</span>(serie), <span class="code-str">&quot;desvio&quot;</span>: desvio_serie}
 <span class="code-key">fim</span></code></pre></div></div>

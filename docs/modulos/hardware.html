@@ -213,7 +213,11 @@
 <span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
     <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
     <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
-    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()</code></pre></div></div>
+    <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
+    <span class="code-key">mostre</span> processador.nucleos_logicos
+    <span class="code-key">mostre</span> ram.total_bytes
+    <span class="code-key">mostre</span> quantidade de unidades
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor lógico que indica o resultado da verificação.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>psutil_disponivel() -&gt; bool</code></p>
@@ -229,11 +233,16 @@
 <h4 id="cpu" data-searchable><code>cpu</code></h4>
 <p data-searchable>Consultar CPU.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.hardware</span> <span class="code-key">importe</span> cpu, memoria, discos, psutil_disponivel
+
+<span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
     <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
     <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
     <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
-    <span class="code-key">mostre</span> processador.nucleos_logicos</code></pre></div></div>
+    <span class="code-key">mostre</span> processador.nucleos_logicos
+    <span class="code-key">mostre</span> ram.total_bytes
+    <span class="code-key">mostre</span> quantidade de unidades
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>CPU</code>.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>cpu() -&gt; CPU</code></p>
@@ -242,12 +251,16 @@
 <h4 id="memoria" data-searchable><code>memoria</code></h4>
 <p data-searchable>Consultar RAM.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.hardware</span> <span class="code-key">importe</span> cpu, memoria, discos, psutil_disponivel
+
+<span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
     <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
     <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
     <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
     <span class="code-key">mostre</span> processador.nucleos_logicos
-    <span class="code-key">mostre</span> ram.total_bytes</code></pre></div></div>
+    <span class="code-key">mostre</span> ram.total_bytes
+    <span class="code-key">mostre</span> quantidade de unidades
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>Memoria</code>.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>memoria() -&gt; Memoria</code></p>
@@ -256,12 +269,16 @@
 <h4 id="discos" data-searchable><code>discos</code></h4>
 <p data-searchable>Listar discos.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.hardware</span> <span class="code-key">importe</span> cpu, memoria, discos, psutil_disponivel
+
+<span class="code-key">se</span> <span class="code-fn">psutil_disponivel</span>() <span class="code-key">então</span>
+    <span class="code-key">defina</span> processador como <span class="code-fn">cpu</span>()
     <span class="code-key">defina</span> ram como <span class="code-fn">memoria</span>()
     <span class="code-key">defina</span> unidades como <span class="code-fn">discos</span>()
     <span class="code-key">mostre</span> processador.nucleos_logicos
     <span class="code-key">mostre</span> ram.total_bytes
-    <span class="code-key">mostre</span> quantidade de unidades</code></pre></div></div>
+    <span class="code-key">mostre</span> quantidade de unidades
+<span class="code-key">fim</span></code></pre></div></div>
 <p data-searchable><strong>Retorno</strong></p>
 <p data-searchable>Retorna um valor declarado como <code>tuple[Disco, ...]</code>.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>discos() -&gt; tuple[Disco, ...]</code></p>

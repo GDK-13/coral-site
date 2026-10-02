@@ -363,6 +363,47 @@ def audit_coral_172_content() -> list[str]:
             errors.append("snapshot sintático não inventaria as formas naturais básicas da 1.7.2")
     return errors
 
+
+def audit_examples_release_evidence() -> list[str]:
+    """Garante que os exemplos publicados ainda são os validados pela release corrente."""
+    errors: list[str] = []
+    manifest_path = ROOT / "docs" / "dados" / "validacao_exemplos.json"
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    examples_path = ROOT / "docs" / "dados" / "exemplos.json"
+    if not manifest_path.exists():
+        return ["evidência de validação dos exemplos ausente: docs/dados/validacao_exemplos.json"]
+
+    try:
+        from validar_exemplos_release import coral_blocks, block_signature
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        version = json.loads(version_path.read_text(encoding="utf-8"))
+        inventory = json.loads(examples_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [f"não foi possível ler a evidência dos exemplos: {exc}"]
+
+    blocks = coral_blocks()
+    signature = block_signature(blocks)
+    if manifest.get("coral") != version.get("coral"):
+        errors.append(
+            f"validação dos exemplos pertence à Coral {manifest.get('coral')}, não à {version.get('coral')}"
+        )
+    if manifest.get("assinatura_blocos_site") != signature:
+        errors.append(
+            "blocos Coral da documentação mudaram desde a última validação contra o runtime da release"
+        )
+    if manifest.get("blocos_site_validos") != len(blocks):
+        errors.append(
+            f"quantidade de blocos Coral validados: {manifest.get('blocos_site_validos')} != {len(blocks)} atuais"
+        )
+    if manifest.get("exemplos_oficiais_total") != inventory.get("total"):
+        errors.append(
+            f"inventário de exemplos oficiais diverge da evidência: {manifest.get('exemplos_oficiais_total')} != {inventory.get('total')}"
+        )
+    runtime_hash = str(manifest.get("runtime_sha256", ""))
+    if not re.fullmatch(r"[0-9a-f]{64}", runtime_hash):
+        errors.append("hash do runtime usado na validação dos exemplos é inválido")
+    return errors
+
 def audit_header_layout_contract() -> list[str]:
     """Impede regressão do cabeçalho claro quando rótulos ficam mais largos."""
     errors: list[str] = []
@@ -418,6 +459,8 @@ def main() -> int:
     failures.extend(audit_qol_didatica())
     failures.extend(audit_public_editorial_policy())
     failures.extend(audit_coral_172_content())
+    failures.extend(audit_examples_release_evidence())
+    cleanup_runtime_residues()
     failures.extend(audit_residues())
 
     if failures:
@@ -430,7 +473,7 @@ def main() -> int:
     print(f"HTML verificados: {html_count}")
     print(f"Blocos de código comparados: {code_count}")
     print("Realce Coral: whitelist, fidelidade, strings, comentários, números, módulos e chamadas tradicionais OK")
-    print("Links, âncoras, IDs, contrato sintático, referência didática de API, QoL didática, política editorial pública e cabeçalho responsivo: OK")
+    print("Links, âncoras, IDs, contrato sintático, referência didática de API, exemplos validados contra a release, QoL didática, política editorial pública e cabeçalho responsivo: OK")
     return 0
 
 

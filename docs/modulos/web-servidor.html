@@ -198,11 +198,17 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <h4 id="resposta-texto" data-searchable><code>resposta_texto</code></h4>
 <p data-searchable>Executa a operação <code>resposta_texto</code> disponibilizada por <code>coral.web.servidor</code>.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.servidor</span> <span class="code-key">importe</span> criar_servidor, resposta_texto
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
     retorne <span class="code-fn">resposta_texto</span>(<span class="code-str">&quot;Servidor Coral local&quot;</span>)
 <span class="code-key">fim</span>
 
-<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()</code></pre></div></div>
+<span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()
+execute servidor.<span class="code-fn">adicionar_rota</span>(<span class="code-str">&quot;GET&quot;</span>, <span class="code-str">&quot;/&quot;</span>, inicio)
+execute servidor.<span class="code-fn">iniciar</span>()
+<span class="code-key">mostre</span> servidor.url_base
+execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
@@ -332,12 +338,17 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <h4 id="criar-servidor" data-searchable><code>criar_servidor</code></h4>
 <p data-searchable>Cria servidor sem abrir a porta; chame `<code>iniciar</code><code> ou use </code><code>com</code>`.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">fim</span>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.web.servidor</span> <span class="code-key">importe</span> criar_servidor, resposta_texto
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> inicio com requisicao
+    retorne <span class="code-fn">resposta_texto</span>(<span class="code-str">&quot;Servidor Coral local&quot;</span>)
+<span class="code-key">fim</span>
 
 <span class="code-key">defina</span> servidor como <span class="code-fn">criar_servidor</span>()
 execute servidor.<span class="code-fn">adicionar_rota</span>(<span class="code-str">&quot;GET&quot;</span>, <span class="code-str">&quot;/&quot;</span>, inicio)
 execute servidor.<span class="code-fn">iniciar</span>()
-<span class="code-key">mostre</span> servidor.url_base</code></pre></div></div>
+<span class="code-key">mostre</span> servidor.url_base
+execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>

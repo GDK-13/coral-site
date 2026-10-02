@@ -207,10 +207,18 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <h4 id="aguardar-com-timeout" data-searchable><code>aguardar_com_timeout</code></h4>
 <p data-searchable>Aguarda `<code>esperavel</code><code> por no máximo </code><code>segundos</code>`.</p>
 <p data-searchable><strong>Exemplo</strong></p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> <span class="code-key">assíncrona</span> principal
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.assincrono</span> <span class="code-key">importe</span> aguardar_com_timeout
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> <span class="code-key">assíncrona</span> leia_dados
+    retorne <span class="code-str">&quot;ok&quot;</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> <span class="code-key">assíncrona</span> principal
     <span class="code-key">defina</span> resultado como <span class="code-key">aguarde</span> <span class="code-fn">aguardar_com_timeout</span>(<span class="code-fn">leia_dados</span>(), <span class="code-num">2</span>)
     <span class="code-key">mostre</span> resultado
-<span class="code-key">fim</span></code></pre></div></div>
+<span class="code-key">fim</span>
+
+execute assincronamente <span class="code-fn">principal</span>()</code></pre></div></div>
 <p data-searchable><strong>Parâmetros</strong></p>
 <div class="table-wrap"><table><thead><tr>
 <th>Parâmetro</th>
