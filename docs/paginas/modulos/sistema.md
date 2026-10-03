@@ -47,7 +47,7 @@ Não use como substituto de APIs de alto nível que já existem em outros módul
 
 ## Começando
 
-O exemplo abaixo foi validado com o runtime 1.7.2:
+O exemplo abaixo foi validado com o runtime 1.7.3:
 
 ```coral
 de coral.sistema importe informacoes, pasta_atual, variavel_ambiente

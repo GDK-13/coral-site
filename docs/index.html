@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a class="active" aria-current="page" href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -140,8 +153,10 @@
 <li data-searchable>Instale Coral Language no VS Code para ter navegação, diagnósticos, testes e depuração integrados.</li>
 </ol>
 <h2 id="o-que-a-coral-oferece" data-searchable>O que a Coral oferece</h2>
-<p data-searchable>A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware.</p>
-<p data-searchable>A biblioteca padrão é organizada em módulos <code>coral.*</code>. Cada módulo tem uma página própria nesta documentação e pode ser consultado pelo nome ou pelo guia <strong>O que você quer fazer?</strong>.</p>
+<p data-searchable>A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3 e uma entrada opcional <code>programa principal</code> para aplicações.</p>
+<p data-searchable>A documentação separa <strong>fundamentos da linguagem</strong> de <strong>biblioteca padrão</strong>. Variáveis, operadores, condições, repetições, funções, classes, objetos, tipagem, coleções e tratamento de erros possuem uma seção própria porque fazem parte da linguagem e não de um módulo <code>coral.*</code>.</p>
+<p data-searchable>A biblioteca padrão é organizada em módulos <code>coral.*</code>. Cada módulo tem uma página própria e pode ser consultado pelo nome ou pelo guia <strong>O que você quer fazer?</strong>.</p>
+<p data-searchable>Se a dúvida for sobre como escrever código Coral, comece por <a href="linguagem/index.html"><strong>Fundamentos da linguagem</strong></a>. Se a dúvida for sobre uma capacidade pronta da biblioteca, consulte os módulos.</p>
 <h2 id="portugues-corrente-com-equivalencia-deterministica" data-searchable>Português corrente com equivalência determinística</h2>
 <p data-searchable>A Coral amplia o português corrente por equivalências explícitas, não por interpretação livre. Formas diferentes que representam a mesma operação convergem para a mesma estrutura semântica, de modo que parser, formatador, LSP e ferramentas continuem concordando sobre o programa.</p>
 <p data-searchable>Além de atribuições, comparações e coleções, a edição corrente permite consultar tipos, converter valores e usar operações básicas de entrada, arquivos, texto, coleções e JSON sem esconder a API equivalente.</p>

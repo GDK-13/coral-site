@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -156,6 +169,16 @@
 <li data-searchable><code>Exemplos/Basica_1_7_2/texto_colecoes_json.coral</code>: texto, frequência, valores únicos, ordenação e JSON.</li>
 </ul>
 <p data-searchable>A distribuição também inclui um exemplo de projeto dividido em módulos em <code>Exemplos/Projetos_Completos/Vitrine/nucleo_modular/</code>. <code>principal.coral</code> coordena o programa, enquanto <code>calculos.coral</code> e <code>apresentacao.coral</code> separam cálculo e apresentação.</p>
+<h2 id="tipagem-e-heranca-1-7-3" data-searchable>Tipagem e herança 1.7.3</h2>
+<p data-searchable>A pasta <code>Exemplos/Tipagem_1_7_3/</code> reúne cinco programas executáveis dedicados às construções de linguagem desta edição.</p>
+<ul>
+<li data-searchable><code>01_anotacoes_compostas.coral</code> mostra listas, conjuntos, dicionários, tuplas e nulidade nas anotações.</li>
+<li data-searchable><code>02_heranca_cooperativa.coral</code> demonstra herança múltipla, resolução C3 e <code>chame o método pai</code>.</li>
+<li data-searchable><code>03_programa_principal.coral</code> mostra a entrada opcional de aplicação e a possibilidade de declarar funções abaixo dela.</li>
+<li data-searchable><code>04_cadastro_tipado.coral</code> combina coleções tipadas, retorno nulo, duas bases e entrada principal.</li>
+<li data-searchable><code>05_composicao_completa.coral</code> reúne tipos estruturais, hierarquia em diamante e chamada cooperativa.</li>
+</ul>
+<p data-searchable>Os exemplos são validados pelo gate do site contra o runtime publicado antes de entrarem na documentação.</p>
 <h2 id="ciencia-e-dados" data-searchable>Ciência e dados</h2>
 <p data-searchable>A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.</p>
 <p data-searchable>Caminhos úteis:</p>
@@ -188,7 +211,7 @@
 <p data-searchable>Os códigos citados no Livro também são sincronizados em <code>Livro/Exemplos/Citados</code>. Essa cópia torna o material autocontido, enquanto a biblioteca geral continua organizada em <code>Exemplos/</code>.</p>
 <h2 id="inventario-da-distribuicao" data-searchable>Inventário da distribuição</h2>
 <p data-searchable>O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.</p>
-<p data-searchable><strong>Total detectado na release:</strong> 88 arquivos <code>.coral</code>.</p>
+<p data-searchable><strong>Total detectado na release:</strong> 93 arquivos <code>.coral</code>.</p>
 <div class="table-wrap"><table><thead><tr>
 <th>Área</th>
 <th>Arquivos</th>
@@ -207,6 +230,7 @@
 <tr><td data-searchable>SimulacaoTemporal</td><td data-searchable>14</td></tr>
 <tr><td data-searchable>Simulacoes</td><td data-searchable>2</td></tr>
 <tr><td data-searchable>Sistema</td><td data-searchable>1</td></tr>
+<tr><td data-searchable>Tipagem_1_7_3</td><td data-searchable>5</td></tr>
 <tr><td data-searchable>Web</td><td data-searchable>4</td></tr>
 </tbody></table></div>
     </article>
@@ -219,6 +243,7 @@
 <li class="toc-level-2"><a href="#como-usar" data-toc-link>Como usar</a></li>
 <li class="toc-level-2"><a href="#portugues-corrente" data-toc-link>Português corrente</a></li>
 <li class="toc-level-2"><a href="#biblioteca-base-1-7-2" data-toc-link>Biblioteca base 1.7.2</a></li>
+<li class="toc-level-2"><a href="#tipagem-e-heranca-1-7-3" data-toc-link>Tipagem e herança 1.7.3</a></li>
 <li class="toc-level-2"><a href="#ciencia-e-dados" data-toc-link>Ciência e dados</a></li>
 <li class="toc-level-2"><a href="#graficos" data-toc-link>Gráficos</a></li>
 <li class="toc-level-2"><a href="#web" data-toc-link>Web</a></li>

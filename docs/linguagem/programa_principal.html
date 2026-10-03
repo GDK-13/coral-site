@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="programa principal é uma entrada opcional para organizar aplicações sem obrigar todo arquivo Coral a seguir esse formato. Scripts lineares continuam válidos.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Programa principal — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Programa principal — Documentação Coral">
+  <meta property="og:description" content="programa principal é uma entrada opcional para organizar aplicações sem obrigar todo arquivo Coral a seguir esse formato. Scripts lineares continuam válidos.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Programa principal — Documentação Coral">
+  <meta name="twitter:description" content="programa principal é uma entrada opcional para organizar aplicações sem obrigar todo arquivo Coral a seguir esse formato. Scripts lineares continuam válidos.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="index.html">Fundamentos da linguagem</a></li>
+<li><a href="valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="funcoes_escopo.html">Funções e escopo</a></li>
+<li><a class="active" aria-current="page" href="programa_principal.html">Programa principal</a></li>
+<li><a href="classes_objetos.html">Classes e objetos</a></li>
+<li><a href="tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="erros_padroes.html">Erros e padrões</a></li>
+<li><a href="geradores_assincrono.html">Geradores e assíncrono</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a href="../modulos/numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="../modulos/sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="../modulos/laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="../modulos/hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="../modulos/mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="../modulos/regras.html"><code>coral.regras</code></a></li>
+<li><a href="../modulos/rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="../modulos/jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="../modulos/agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="../modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="../modulos/arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="../modulos/assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="../modulos/caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="../modulos/colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="../modulos/comum.html"><code>coral.comum</code></a></li>
+<li><a href="../modulos/conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="../modulos/criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="../modulos/datas.html"><code>coral.datas</code></a></li>
+<li><a href="../modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="../modulos/formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="../modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="../modulos/graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="../modulos/json.html"><code>coral.json</code></a></li>
+<li><a href="../modulos/matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="../modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="../modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="../modulos/procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="../modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="../modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="../modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="../modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="../modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="../modulos/texto.html"><code>coral.texto</code></a></li>
+<li><a href="../modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="../modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="../modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="../modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="../modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="../modulos/web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Linguagem</div>
+      <h1>Programa principal</h1>
+      <p>programa principal é uma entrada opcional para organizar aplicações sem obrigar todo arquivo Coral a seguir esse formato. Scripts lineares continuam válidos.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    
+    <article class="docs-section">
+      <p data-searchable><code>programa principal</code> é uma entrada opcional para organizar aplicações sem obrigar todo arquivo Coral a seguir esse formato. Scripts lineares continuam válidos.</p>
+<h2 id="entrada-explicita-da-aplicacao" data-searchable>Entrada explícita da aplicação</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">programa principal
+    <span class="code-key">mostre</span> <span class="code-str">&quot;Olá, Coral!&quot;</span>
+    chame apresentar com <span class="code-str">&quot;Ana&quot;</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> apresentar com nome
+    <span class="code-key">mostre</span> <span class="code-str">&quot;Olá, &quot;</span> mais nome
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Ao executar o arquivo diretamente, o módulo é inicializado e o bloco principal roda uma única vez. A função declarada abaixo já está disponível quando a entrada começa.</p></div></details>
+<p data-searchable>O bloco não recebe parâmetros, não declara tipo de retorno e não cria uma função pública chamada <code>principal</code>.</p>
+<h2 id="arquivo-importado-como-modulo" data-searchable>Arquivo importado como módulo</h2>
+<p data-searchable>Um arquivo que contém <code>programa principal</code> ainda pode ser importado. Nesse caso, seus símbolos públicos ficam disponíveis, mas a entrada principal não é executada. Isso evita efeitos inesperados em testes e bibliotecas.</p>
+<h2 id="chame-execute-e-retorno" data-searchable><code>chame</code>, <code>execute</code> e retorno</h2>
+<p data-searchable>Use <code>chame nome com argumentos</code> quando a intenção for invocar uma função pelo nome e ignorar seu retorno. Use <code>execute EXPRESSAO</code> para executar por efeito uma chamada escrita como expressão, como <code>execute objeto.metodo()</code>.</p>
+<p data-searchable><code>programa principal</code> não precisa de nenhuma dessas formas para começar: a execução direta do arquivo inicia o bloco automaticamente.</p>
+<p data-searchable>Um <code>retorne</code> vazio pode encerrar a entrada antecipadamente, mas a entrada principal não devolve um valor.</p>
+<h2 id="limites" data-searchable>Limites</h2>
+<p data-searchable>Só pode existir uma entrada principal válida por módulo, e ela precisa estar no nível do módulo. Não coloque <code>programa principal</code> dentro de condição, repetição, função, classe, tratamento de erro ou seleção por padrão.</p>
+<p data-searchable>REPL e execução interativa de trechos não iniciam esse bloco porque não representam a execução completa do módulo.</p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="funcoes_escopo.html"><span>Anterior</span><strong>Funções e escopo</strong></a><a class="docs-page-nav-link next" href="classes_objetos.html"><span>Próxima</span><strong>Classes e objetos</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#entrada-explicita-da-aplicacao" data-toc-link>Entrada explícita da aplicação</a></li>
+<li class="toc-level-2"><a href="#arquivo-importado-como-modulo" data-toc-link>Arquivo importado como módulo</a></li>
+<li class="toc-level-2"><a href="#chame-execute-e-retorno" data-toc-link>chame, execute e retorno</a></li>
+<li class="toc-level-2"><a href="#limites" data-toc-link>Limites</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

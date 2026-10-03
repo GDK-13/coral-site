@@ -116,6 +116,15 @@ def release_payload(zip_path: Path, version: str) -> tuple[bytes, dict[str, byte
 
 def import_compiler(runtime_path: Path):
     runtime_str = str(runtime_path)
+
+    # Cada fase pode materializar o runtime em um diretório temporário
+    # diferente. Limpe módulos Coral previamente importados para que o
+    # importlib não conserve referências a um .pyz temporário já removido.
+    for name in list(sys.modules):
+        if name == "coral" or name.startswith("coral."):
+            sys.modules.pop(name, None)
+    sys.path[:] = [entry for entry in sys.path if not str(entry).endswith("/runtime.pyz")]
+
     sys.path.insert(0, runtime_str)
     try:
         module = importlib.import_module("coral.tradutor")

@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -131,7 +144,39 @@
     <article class="docs-section">
       <p data-searchable>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
 <h2 id="versao-atual" data-searchable>Versão atual</h2>
-<p data-searchable><strong>Coral:</strong> <code>1.7.2</code> <strong>Coral Language:</strong> <code>0.74.0</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<p data-searchable><strong>Coral:</strong> <code>1.7.3</code> <strong>Coral Language:</strong> <code>0.74.4</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<h2 id="coral-1-7-3" data-searchable>Coral 1.7.3</h2>
+<h3 id="tipagem-opcional-estrutural" data-searchable>Tipagem opcional estrutural</h3>
+<p data-searchable>As anotações opcionais agora podem descrever a estrutura das coleções com formas como <code>lista de T</code>, <code>conjunto de T</code>, <code>dicionário de K para V</code> e <code>tupla de (T, U)</code>. Tipos podem ser aninhados, e <code>T ou nulo</code> descreve valores opcionais sem introduzir uniões gerais entre tipos arbitrários.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> notas do <span class="code-key">tipo</span> lista de decimal como [<span class="code-num">8</span>, <span class="code-num">9.5</span>]
+<span class="code-key">defina</span> ficha do <span class="code-key">tipo</span> tupla de (texto, inteiro) como (<span class="code-str">&quot;Ana&quot;</span>, <span class="code-num">19</span>)
+<span class="code-key">defina</span> apelido do <span class="code-key">tipo</span> texto ou nulo como nulo
+<span class="code-key">mostre</span> notas
+<span class="code-key">mostre</span> ficha
+<span class="code-key">mostre</span> apelido</code></pre></div></div>
+<p data-searchable>A análise é conservadora. Anotações não convertem valores e coleções mutáveis não ganham compatibilidades implícitas apenas pela relação entre os tipos dos elementos.</p>
+<h3 id="heranca-multipla-e-cooperacao" data-searchable>Herança múltipla e cooperação</h3>
+<p data-searchable>Classes podem declarar mais de uma base. A ordem de resolução segue C3, e <code>chame o método pai</code> continua a cadeia cooperativa dentro de métodos. Construtores podem cooperar com <code>inicialize a classe pai</code>.</p>
+<p data-searchable>Bases repetidas, ciclos, bases conhecidas que não são classes e hierarquias comprovadamente inconsistentes recebem diagnóstico antes da execução.</p>
+<h3 id="programa-principal" data-searchable>Programa principal</h3>
+<p data-searchable><code>programa principal</code> oferece uma entrada opcional para aplicações. Ao executar o arquivo diretamente, o módulo é inicializado e a entrada roda uma vez. Ao importar o mesmo arquivo, a entrada não é iniciada. Scripts lineares continuam válidos.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">programa principal
+    chame apresentar com <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> apresentar com nome
+    <span class="code-key">mostre</span> nome
+<span class="code-key">fim</span></code></pre></div></div>
+<h3 id="editor-e-ferramentas" data-searchable>Editor e ferramentas</h3>
+<p data-searchable>Coral Language <code>0.74.4</code> acompanha os tipos compostos, múltiplas bases, membros herdados pela ordem de resolução e <code>programa principal</code> no outline, hover, dobramento e indentação.</p>
+<h3 id="distribuicao" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.3.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.74.4.vsix</code>.</li>
+<li data-searchable>Livro Oficial preservado na edição <code>1.7.0</code>; os recursos posteriores são complementados pela documentação Web.</li>
+<li data-searchable>Os artefatos nativos Linux preservados na distribuição continuam identificados como <code>1.7.0</code>.</li>
+<li data-searchable>A qualificação publicada desta edição cobre o runtime portátil e a extensão em Linux.</li>
+</ul>
 <h2 id="coral-1-7-2" data-searchable>Coral 1.7.2</h2>
 <h3 id="portugues-corrente-e-biblioteca-base" data-searchable>Português corrente e biblioteca base</h3>
 <p data-searchable>A 1.7.2 amplia as formas naturais da biblioteca base sem remover as APIs explícitas. Entre as novas expressões estão consultas e testes de tipo, leitura de entrada, operações de arquivos e texto, operações de coleção, JSON e conversões.</p>
@@ -157,7 +202,7 @@
 <p data-searchable>A documentação possui uma página própria de <a href="diagnosticos.html"><strong>Diagnósticos</strong></a> com a tabela de códigos <code>R100</code> a <code>R205</code> e o fallback <code>R001</code>.</p>
 <h3 id="editor" data-searchable>Editor</h3>
 <p data-searchable>Coral Language <code>0.74.0</code> conhece as formas naturais da biblioteca base no LSP e nos snippets. A formatação preserva a escrita escolhida pelo programa, e as ferramentas de ensino podem explicar os contratos sem executar a expressão.</p>
-<h3 id="distribuicao" data-searchable>Distribuição</h3>
+<h3 id="distribuicao-2" data-searchable>Distribuição</h3>
 <ul>
 <li data-searchable>Runtime portátil: <code>coral-1.7.2.pyz</code>.</li>
 <li data-searchable>Extensão: <code>coral-language-0.74.0.vsix</code>.</li>
@@ -180,12 +225,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#versao-atual" data-toc-link>Versão atual</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-3" data-toc-link>Coral 1.7.3</a></li>
+<li class="toc-level-3"><a href="#tipagem-opcional-estrutural" data-toc-link>Tipagem opcional estrutural</a></li>
+<li class="toc-level-3"><a href="#heranca-multipla-e-cooperacao" data-toc-link>Herança múltipla e cooperação</a></li>
+<li class="toc-level-3"><a href="#programa-principal" data-toc-link>Programa principal</a></li>
+<li class="toc-level-3"><a href="#editor-e-ferramentas" data-toc-link>Editor e ferramentas</a></li>
+<li class="toc-level-3"><a href="#distribuicao" data-toc-link>Distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-2" data-toc-link>Coral 1.7.2</a></li>
 <li class="toc-level-3"><a href="#portugues-corrente-e-biblioteca-base" data-toc-link>Português corrente e biblioteca base</a></li>
 <li class="toc-level-3"><a href="#contratos-de-tipo-e-conversao" data-toc-link>Contratos de tipo e conversão</a></li>
 <li class="toc-level-3"><a href="#diagnosticos-de-execucao" data-toc-link>Diagnósticos de execução</a></li>
 <li class="toc-level-3"><a href="#editor" data-toc-link>Editor</a></li>
-<li class="toc-level-3"><a href="#distribuicao" data-toc-link>Distribuição</a></li>
+<li class="toc-level-3"><a href="#distribuicao-2" data-toc-link>Distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-1" data-toc-link>Coral 1.7.1</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-0" data-toc-link>Coral 1.7.0</a></li>
 <li class="toc-level-2"><a href="#como-ler-estas-notas" data-toc-link>Como ler estas notas</a></li></ul>

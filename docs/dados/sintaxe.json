@@ -1,5 +1,5 @@
 {
-  "release": "1.7.2",
+  "release": "1.7.3",
   "esquema": "1.5.8",
   "lexemas": [
     "aguarde",
@@ -95,6 +95,17 @@
     "valor for do tipo inteiro",
     "valor não for do tipo inteiro",
     "valor termina com sufixo"
+  ],
+  "estruturas_linguagem": [
+    "lista de T",
+    "conjunto de T",
+    "dicionário de K para V",
+    "tupla de (T, U)",
+    "T ou nulo",
+    "herança múltipla com MRO C3",
+    "chame o método pai",
+    "inicialize a classe pai",
+    "programa principal"
   ],
   "origem": {
     "esquema": "Projeto/coral/esquema_sintatico.py",

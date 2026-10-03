@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Variáveis ligam nomes a valores. Elas permitem guardar estado, reutilizar resultados e alterar informações ao longo da execução.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Valores e variáveis — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Valores e variáveis — Documentação Coral">
+  <meta property="og:description" content="Variáveis ligam nomes a valores. Elas permitem guardar estado, reutilizar resultados e alterar informações ao longo da execução.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valores e variáveis — Documentação Coral">
+  <meta name="twitter:description" content="Variáveis ligam nomes a valores. Elas permitem guardar estado, reutilizar resultados e alterar informações ao longo da execução.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="index.html">Fundamentos da linguagem</a></li>
+<li><a class="active" aria-current="page" href="valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="programa_principal.html">Programa principal</a></li>
+<li><a href="classes_objetos.html">Classes e objetos</a></li>
+<li><a href="tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="erros_padroes.html">Erros e padrões</a></li>
+<li><a href="geradores_assincrono.html">Geradores e assíncrono</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a href="../modulos/numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="../modulos/sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="../modulos/laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="../modulos/hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="../modulos/mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="../modulos/regras.html"><code>coral.regras</code></a></li>
+<li><a href="../modulos/rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="../modulos/jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="../modulos/agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="../modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="../modulos/arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="../modulos/assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="../modulos/caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="../modulos/colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="../modulos/comum.html"><code>coral.comum</code></a></li>
+<li><a href="../modulos/conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="../modulos/criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="../modulos/datas.html"><code>coral.datas</code></a></li>
+<li><a href="../modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="../modulos/formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="../modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="../modulos/graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="../modulos/json.html"><code>coral.json</code></a></li>
+<li><a href="../modulos/matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="../modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="../modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="../modulos/procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="../modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="../modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="../modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="../modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="../modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="../modulos/texto.html"><code>coral.texto</code></a></li>
+<li><a href="../modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="../modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="../modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="../modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="../modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="../modulos/web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Linguagem</div>
+      <h1>Valores e variáveis</h1>
+      <p>Variáveis ligam nomes a valores. Elas permitem guardar estado, reutilizar resultados e alterar informações ao longo da execução.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    
+    <article class="docs-section">
+      <p data-searchable>Variáveis ligam nomes a valores. Elas permitem guardar estado, reutilizar resultados e alterar informações ao longo da execução.</p>
+<h2 id="criar-e-alterar-uma-variavel" data-searchable>Criar e alterar uma variável</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> pontos como <span class="code-num">10</span>
+adicione <span class="code-num">5</span> a pontos
+subtraia <span class="code-num">2</span> de pontos
+<span class="code-key">mostre</span> pontos</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>pontos</code> começa com <code>10</code>, passa por <code>15</code> e termina em <code>13</code>.</p></div></details>
+<p data-searchable><code>defina nome como expressão</code> cria ou atribui um nome. A forma <code>nome recebe expressão</code> também faz atribuição.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> vidas como <span class="code-num">3</span>
+vidas recebe <span class="code-num">5</span>
+<span class="code-key">mostre</span> vidas</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A saída é <code>5</code>.</p></div></details>
+<h2 id="valores-basicos" data-searchable>Valores básicos</h2>
+<p data-searchable>A Coral possui literais para inteiros, decimais, textos, booleanos, ausência e coleções.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> idade como <span class="code-num">19</span>
+<span class="code-key">defina</span> altura como <span class="code-num">1.75</span>
+<span class="code-key">defina</span> nome como <span class="code-str">&quot;Ana&quot;</span>
+<span class="code-key">defina</span> ativo como verdadeiro
+<span class="code-key">defina</span> ausente como nulo
+<span class="code-key">defina</span> notas como [<span class="code-num">7</span>, <span class="code-num">8</span>, <span class="code-num">9</span>]
+<span class="code-key">defina</span> perfil como {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;nivel&quot;</span>: <span class="code-num">2</span>}</code></pre></div></div>
+<p data-searchable>Inteiros não possuem parte fracionária. Decimais usam ponto no código. Textos aceitam aspas simples ou duplas. <code>verdadeiro</code> e <code>falso</code> representam valores lógicos. <code>nulo</code> representa ausência de valor.</p>
+<h2 id="atualizacoes-em-portugues-corrente" data-searchable>Atualizações em português corrente</h2>
+<p data-searchable>Além de <code>adicione</code> e <code>subtraia</code>, a linguagem aceita formas correntes equivalentes para certas atualizações.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> contador como <span class="code-num">1</span>
+aumente contador em <span class="code-num">4</span>
+diminua contador em <span class="code-num">2</span>
+<span class="code-key">mostre</span> contador</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O valor final de <code>contador</code> é <code>3</code>.</p></div></details>
+<h2 id="nomes-e-ordem-de-execucao" data-searchable>Nomes e ordem de execução</h2>
+<p data-searchable>Um nome deve existir antes de ser consultado, exceto quando é introduzido pelo próprio contexto, como um parâmetro de função. A ordem das instruções importa: uma linha posterior observa o estado produzido pelas anteriores.</p>
+<p data-searchable>Para consultar tipos ou anotar uma variável, continue em <strong>Tipos e tipagem</strong>.</p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="index.html"><span>Anterior</span><strong>Fundamentos da linguagem</strong></a><a class="docs-page-nav-link next" href="operadores_expressoes.html"><span>Próxima</span><strong>Operadores e expressões</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#criar-e-alterar-uma-variavel" data-toc-link>Criar e alterar uma variável</a></li>
+<li class="toc-level-2"><a href="#valores-basicos" data-toc-link>Valores básicos</a></li>
+<li class="toc-level-2"><a href="#atualizacoes-em-portugues-corrente" data-toc-link>Atualizações em português corrente</a></li>
+<li class="toc-level-2"><a href="#nomes-e-ordem-de-execucao" data-toc-link>Nomes e ordem de execução</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

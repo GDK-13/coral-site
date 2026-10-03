@@ -321,19 +321,28 @@ def audit_public_editorial_policy() -> list[str]:
 
 
 
+def _version_tuple(value: str) -> tuple[int, int, int]:
+    try:
+        parts = [int(x) for x in value.split(".")[:3]]
+        return tuple((parts + [0, 0, 0])[:3])
+    except Exception:
+        return (0, 0, 0)
+
+
 def audit_coral_172_content() -> list[str]:
-    """Confere a documentação pública dos contratos adicionados na Coral 1.7.2."""
+    """Garante que os contratos públicos da 1.7.2 permaneçam documentados."""
     errors: list[str] = []
     version_path = ROOT / "docs" / "dados" / "versao.json"
     if not version_path.exists():
         return ["docs/dados/versao.json ausente"]
     version = json.loads(version_path.read_text(encoding="utf-8"))
-    if version.get("coral") != "1.7.2":
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 2):
         return errors
-    if version.get("extensao_vscode") != "0.74.0":
+    if coral == "1.7.2" and version.get("extensao_vscode") != "0.74.0":
         errors.append("Coral 1.7.2 deve publicar Coral Language 0.74.0")
     if version.get("livro") != "1.7.0":
-        errors.append("Coral 1.7.2 deve preservar o Livro Oficial 1.7.0")
+        errors.append("a linha 1.7.x corrente deve preservar o Livro Oficial 1.7.0 enquanto não houver nova edição")
 
     required = {
         "docs/paginas/diagnosticos.md": ("R102", "R110", "R203", "exceptionInfo.details.diagnostico"),
@@ -348,12 +357,12 @@ def audit_coral_172_content() -> list[str]:
     for rel, snippets in required.items():
         path = ROOT / rel
         if not path.exists():
-            errors.append(f"conteúdo 1.7.2 ausente: {rel}")
+            errors.append(f"conteúdo herdado da 1.7.2 ausente: {rel}")
             continue
         text = path.read_text(encoding="utf-8")
         for snippet in snippets:
             if snippet not in text:
-                errors.append(f"conteúdo 1.7.2 ausente em {rel}: {snippet}")
+                errors.append(f"conteúdo herdado da 1.7.2 ausente em {rel}: {snippet}")
 
     syntax_path = ROOT / "docs" / "dados" / "sintaxe.json"
     if syntax_path.exists():
@@ -363,6 +372,116 @@ def audit_coral_172_content() -> list[str]:
             errors.append("snapshot sintático não inventaria as formas naturais básicas da 1.7.2")
     return errors
 
+
+def audit_coral_173_content() -> list[str]:
+    """Confere a cobertura pública das construções acrescentadas na Coral 1.7.3."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 3):
+        return errors
+    if coral == "1.7.3" and version.get("extensao_vscode") != "0.74.4":
+        errors.append("Coral 1.7.3 deve publicar Coral Language 0.74.4")
+
+    required = {
+        "docs/paginas/linguagem/tipos_tipagem.md": (
+            "lista de decimal", "dicionário de texto para inteiro", "tupla de (texto, inteiro)",
+            "texto ou nulo", "lista de (inteiro ou nulo)",
+        ),
+        "docs/paginas/linguagem/classes_objetos.md": (
+            "herda de A e B", "resolução C3", "chame o método pai", "inicialize a classe pai",
+        ),
+        "docs/paginas/linguagem/programa_principal.md": (
+            "programa principal", "Ao executar o arquivo diretamente", "importado",
+        ),
+        "docs/paginas/vscode.md": (
+            "anotações compostas", "todas as bases conhecidas", "programa principal",
+        ),
+        "docs/paginas/release.md": (
+            "## Coral 1.7.3", "Tipagem opcional estrutural", "Herança múltipla", "Programa principal",
+        ),
+        "docs/paginas/exemplos.md": (
+            "Tipagem_1_7_3", "05_composicao_completa.coral",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.3 ausente: {rel}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in text:
+                errors.append(f"conteúdo 1.7.3 ausente em {rel}: {snippet}")
+
+    syntax_path = ROOT / "docs" / "dados" / "sintaxe.json"
+    if syntax_path.exists():
+        syntax = json.loads(syntax_path.read_text(encoding="utf-8"))
+        features = set(syntax.get("estruturas_linguagem", []))
+        expected = {
+            "lista de T", "conjunto de T", "dicionário de K para V", "tupla de (T, U)",
+            "T ou nulo", "herança múltipla com MRO C3", "chame o método pai",
+            "inicialize a classe pai", "programa principal",
+        }
+        missing = sorted(expected - features)
+        if missing:
+            errors.append("snapshot da linguagem não registra estruturas da 1.7.3: " + ", ".join(missing))
+    return errors
+
+
+
+def audit_language_core_docs() -> list[str]:
+    """Garante que a linguagem base não volte a ficar escondida atrás dos módulos."""
+    errors: list[str] = []
+    required = {
+        "linguagem/index.md": ("Fundamentos da linguagem", "Valores e variáveis", "Classes e objetos"),
+        "linguagem/valores_variaveis.md": ("defina pontos como 10", "aumente contador em 4"),
+        "linguagem/operadores_expressoes.md": ("for igual a", "e possui_documento"),
+        "linguagem/condicoes_repeticoes.md": ("senão se", "para cada nome em nomes faça", "continue", "pare"),
+        "linguagem/funcoes_escopo.md": ("crie a função dobro", "use valor do escopo externo", "chamada como"),
+        "linguagem/programa_principal.md": ("programa principal", "chame apresentar", "pode ser importado"),
+        "linguagem/classes_objetos.md": ("crie a classe", "ao criar", "herda de", "propriedade", "resolução C3"),
+        "linguagem/tipos_tipagem.md": ("for do tipo inteiro", "do tipo inteiro retornando inteiro", "lista de decimal", "T ou nulo"),
+        "linguagem/colecoes_compreensoes.md": ("pares_dobrados", "defina x e y como"),
+        "linguagem/erros_padroes.md": ("se der erro do tipo", "combinar comando", "crie a exceção"),
+        "linguagem/geradores_assincrono.md": ("produza n", "crie a função assíncrona", "aguarde"),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / "docs" / "paginas" / rel
+        if not path.exists():
+            errors.append(f"fundamento da linguagem ausente: docs/paginas/{rel}")
+            continue
+        content = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in content:
+                errors.append(f"fundamento incompleto em docs/paginas/{rel}: {snippet}")
+
+    nav_path = ROOT / "docs" / "dados" / "navegacao.json"
+    if not nav_path.exists():
+        errors.append("navegação ausente para conferir a seção Linguagem")
+    else:
+        nav = json.loads(nav_path.read_text(encoding="utf-8"))
+        language = [p for p in nav.get("paginas", []) if p.get("grupo") == "Linguagem"]
+        if len(language) != len(required):
+            errors.append(f"navegação da seção Linguagem possui {len(language)} páginas, esperado {len(required)}")
+        files = {p.get("arquivo") for p in language}
+        missing = sorted(set(required) - files)
+        if missing:
+            errors.append("páginas de linguagem fora da navegação: " + ", ".join(missing))
+
+    landing = (ROOT / "index.html").read_text(encoding="utf-8")
+    if "docs/linguagem/index.html" not in landing:
+        errors.append("landing não oferece acesso direto aos fundamentos da linguagem")
+    intro = (ROOT / "docs" / "paginas" / "introducao.md").read_text(encoding="utf-8")
+    if "Fundamentos da linguagem" not in intro:
+        errors.append("introdução não separa linguagem de biblioteca padrão")
+    guide = (ROOT / "docs" / "paginas" / "guias_objetivos.md").read_text(encoding="utf-8")
+    if "## Fundamentos da linguagem" not in guide:
+        errors.append("guia por objetivo não oferece entrada para fundamentos da linguagem")
+    return errors
 
 def audit_examples_release_evidence() -> list[str]:
     """Garante que os exemplos publicados ainda são os validados pela release corrente."""
@@ -459,6 +578,8 @@ def main() -> int:
     failures.extend(audit_qol_didatica())
     failures.extend(audit_public_editorial_policy())
     failures.extend(audit_coral_172_content())
+    failures.extend(audit_coral_173_content())
+    failures.extend(audit_language_core_docs())
     failures.extend(audit_examples_release_evidence())
     cleanup_runtime_residues()
     failures.extend(audit_residues())
@@ -473,7 +594,7 @@ def main() -> int:
     print(f"HTML verificados: {html_count}")
     print(f"Blocos de código comparados: {code_count}")
     print("Realce Coral: whitelist, fidelidade, strings, comentários, números, módulos e chamadas tradicionais OK")
-    print("Links, âncoras, IDs, contrato sintático, referência didática de API, exemplos validados contra a release, QoL didática, política editorial pública e cabeçalho responsivo: OK")
+    print("Links, âncoras, IDs, contrato sintático, fundamentos da linguagem, referência didática de API, exemplos validados contra a release, QoL didática, política editorial pública e cabeçalho responsivo: OK")
     return 0
 
 

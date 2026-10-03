@@ -93,6 +93,17 @@ if coral == '1.7.2':
         assert esperado in diagnosticos, esperado
     tipos = (root / 'docs/paginas/modulos/tipos.md').read_text(encoding='utf-8')
     assert 'valor for do tipo inteiro' in tipos
+elif coral == '1.7.3':
+    assert extensao == '0.74.4', versao
+    assert livro == '1.7.0', versao
+    tipos = (root / 'docs/paginas/linguagem/tipos_tipagem.md').read_text(encoding='utf-8')
+    classes = (root / 'docs/paginas/linguagem/classes_objetos.md').read_text(encoding='utf-8')
+    principal = (root / 'docs/paginas/linguagem/programa_principal.md').read_text(encoding='utf-8')
+    for esperado in ('lista de decimal', 'texto ou nulo'):
+        assert esperado in tipos, esperado
+    for esperado in ('herda de A e B', 'chame o método pai'):
+        assert esperado in classes, esperado
+    assert 'programa principal' in principal
 
 print(f'OK: identidade Coral {coral}, VS Code {extensao} e Livro {livro} confirmadas.')
 PY

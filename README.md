@@ -40,6 +40,7 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 * `assets/images/compartilhar.png`: imagem de compartilhamento OG/Twitter (1200×630)
 * `docs/index.html`: entrada da documentação multipágina
 * `docs/*.html`: páginas gerais geradas
+* `docs/linguagem/*.html`: fundamentos da linguagem, independentes da biblioteca padrão
 * `docs/modulos/*.html`: uma página gerada por módulo, separada entre módulos principais e complementares
 * `docs.html`: redirecionamento de compatibilidade para `docs/index.html`
 * `docs/paginas/`: conteúdo editorial em Markdown
@@ -54,6 +55,12 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 * `.vscode/tasks.json`: tarefas rápidas do VS Code
 * `WORKFLOW_SITE_CORAL.md`: workflow completo de manutenção e publicação
 * `.site-local/REVISAO_PENDENTE.md`: relatório transitório e ignorado pelo Git, criado durante a importação; não integra o site público nem os pacotes publicados
+
+## Fundamentos da linguagem
+
+A documentação não trata a Coral apenas como uma coleção de módulos. A seção `docs/linguagem/` cobre construções do próprio código: valores, variáveis, operadores, condições, repetições, funções, escopo, `programa principal`, classes, objetos, tipos simples e estruturais, nulidade, coleções, compreensões, erros, padrões, geradores e assíncrono.
+
+Essas páginas são editoriais, entram na busca global e seus blocos Coral participam do mesmo gate contra o runtime corrente usado pelos exemplos de módulos.
 
 ## Módulos principais
 
@@ -85,7 +92,7 @@ Para repetir o fluxo local completo da release corrente, incluindo regeneração
 bash scripts/validar_site_atual.sh
 ```
 
-Esse gate verifica o realce léxico Coral, fidelidade do texto copiado, whitelist de linguagens, contrato sintático, links locais, âncoras e IDs.
+Esse gate verifica o realce léxico Coral, fidelidade do texto copiado, whitelist de linguagens, contrato sintático, cobertura dos fundamentos da linguagem, links locais, âncoras e IDs.
 
 ## Funcionalidades da documentação
 

@@ -6,11 +6,60 @@ Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distrib
 
 <!-- AUTO:VERSAO_NOTAS -->
 
-**Coral:** `1.7.2`  
-**Coral Language:** `0.74.0`  
+**Coral:** `1.7.3`  
+**Coral Language:** `0.74.4`  
 **Livro Oficial:** `1.7.0`
 
 <!-- /AUTO:VERSAO_NOTAS -->
+
+## Coral 1.7.3
+
+### Tipagem opcional estrutural
+
+As anotações opcionais agora podem descrever a estrutura das coleções com formas como `lista de T`, `conjunto de T`, `dicionário de K para V` e `tupla de (T, U)`. Tipos podem ser aninhados, e `T ou nulo` descreve valores opcionais sem introduzir uniões gerais entre tipos arbitrários.
+
+```coral
+defina notas do tipo lista de decimal como [8, 9.5]
+defina ficha do tipo tupla de (texto, inteiro) como ("Ana", 19)
+defina apelido do tipo texto ou nulo como nulo
+mostre notas
+mostre ficha
+mostre apelido
+```
+
+A análise é conservadora. Anotações não convertem valores e coleções mutáveis não ganham compatibilidades implícitas apenas pela relação entre os tipos dos elementos.
+
+### Herança múltipla e cooperação
+
+Classes podem declarar mais de uma base. A ordem de resolução segue C3, e `chame o método pai` continua a cadeia cooperativa dentro de métodos. Construtores podem cooperar com `inicialize a classe pai`.
+
+Bases repetidas, ciclos, bases conhecidas que não são classes e hierarquias comprovadamente inconsistentes recebem diagnóstico antes da execução.
+
+### Programa principal
+
+`programa principal` oferece uma entrada opcional para aplicações. Ao executar o arquivo diretamente, o módulo é inicializado e a entrada roda uma vez. Ao importar o mesmo arquivo, a entrada não é iniciada. Scripts lineares continuam válidos.
+
+```coral
+programa principal
+    chame apresentar com "Coral"
+fim
+
+crie a função apresentar com nome
+    mostre nome
+fim
+```
+
+### Editor e ferramentas
+
+Coral Language `0.74.4` acompanha os tipos compostos, múltiplas bases, membros herdados pela ordem de resolução e `programa principal` no outline, hover, dobramento e indentação.
+
+### Distribuição
+
+* Runtime portátil: `coral-1.7.3.pyz`.
+* Extensão: `coral-language-0.74.4.vsix`.
+* Livro Oficial preservado na edição `1.7.0`; os recursos posteriores são complementados pela documentação Web.
+* Os artefatos nativos Linux preservados na distribuição continuam identificados como `1.7.0`.
+* A qualificação publicada desta edição cobre o runtime portátil e a extensão em Linux.
 
 ## Coral 1.7.2
 

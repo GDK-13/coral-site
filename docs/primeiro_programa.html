@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a class="active" aria-current="page" href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -147,18 +160,29 @@ Meta alcançada</div></div></div></details>
 <p data-searchable>O exemplo mostra saída, variável, alteração de valor e uma decisão condicional usando o português corrente da linguagem.</p>
 <h2 id="executar" data-searchable>Executar</h2>
 <p data-searchable>Com o runtime portátil:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.2.pyz executar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.3.pyz executar ola.coral</code></pre></div></div>
 <p data-searchable>Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.</p>
 <h2 id="verificar-sem-executar" data-searchable>Verificar sem executar</h2>
 <p data-searchable>Para validar o programa sem rodar seus efeitos:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.2.pyz verificar ola.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.3.pyz verificar ola.coral</code></pre></div></div>
 <p data-searchable>Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.</p>
+<h2 id="organizar-uma-aplicacao-com-entrada-explicita" data-searchable>Organizar uma aplicação com entrada explícita</h2>
+<p data-searchable>Quando o arquivo representa uma aplicação maior, você pode usar uma entrada principal sem deixar de declarar funções e classes no mesmo módulo.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">programa principal
+    chame saudar com <span class="code-str">&quot;Ana&quot;</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> saudar com nome
+    <span class="code-key">mostre</span> <span class="code-str">&quot;Olá, &quot;</span> mais nome
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Ao executar o arquivo diretamente, o módulo é inicializado e <code>programa principal</code> roda uma única vez. Se o arquivo for importado como módulo, essa entrada não é iniciada.</p></div></details>
+<p data-searchable>Leia <a href="linguagem/programa_principal.html"><strong>Programa principal</strong></a> para os limites e as diferenças entre <code>chame</code>, <code>execute</code> e uma entrada de aplicação.</p>
 <h2 id="quando-algo-der-errado" data-searchable>Quando algo der errado</h2>
-<p data-searchable>Erros de execução da 1.7.2 trazem código, categoria, mensagem e sugestão. Abra <a href="diagnosticos.html"><strong>Diagnósticos</strong></a> para entender códigos como <code>R102</code> para conversão, <code>R110</code> para arquivo ausente e <code>R203</code> para incompatibilidade de tipo.</p>
+<p data-searchable>Erros de execução trazem código, categoria, mensagem e sugestão. Abra <a href="diagnosticos.html"><strong>Diagnósticos</strong></a> para entender códigos como <code>R102</code> para conversão, <code>R110</code> para arquivo ausente e <code>R203</code> para incompatibilidade de tipo.</p>
 <h2 id="proximo-passo" data-searchable>Próximo passo</h2>
-<p data-searchable>Quando o programa começar a crescer, separe funções e módulos. A página <strong>Projetos e módulos</strong> mostra quando criar <code>coral.toml</code> e como organizar vários arquivos.</p>
+<p data-searchable>Antes de partir para bibliotecas maiores, abra <a href="linguagem/index.html"><strong>Fundamentos da linguagem</strong></a> para aprender variáveis, operadores, controle de fluxo, funções, classes, tipos, coleções e erros. Quando o programa começar a crescer em vários arquivos, a página <strong>Projetos e módulos</strong> mostra quando criar <code>coral.toml</code>.</p>
     </article>
-    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="instalacao.html"><span>Anterior</span><strong>Instalação</strong></a><a class="docs-page-nav-link next" href="projetos.html"><span>Próxima</span><strong>Projetos e módulos</strong></a></nav>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="instalacao.html"><span>Anterior</span><strong>Instalação</strong></a><a class="docs-page-nav-link next" href="linguagem/index.html"><span>Próxima</span><strong>Fundamentos da linguagem</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
@@ -166,6 +190,7 @@ Meta alcançada</div></div></div></details>
     <ul><li class="toc-level-2"><a href="#escrever" data-toc-link>Escrever</a></li>
 <li class="toc-level-2"><a href="#executar" data-toc-link>Executar</a></li>
 <li class="toc-level-2"><a href="#verificar-sem-executar" data-toc-link>Verificar sem executar</a></li>
+<li class="toc-level-2"><a href="#organizar-uma-aplicacao-com-entrada-explicita" data-toc-link>Organizar uma aplicação com entrada explícita</a></li>
 <li class="toc-level-2"><a href="#quando-algo-der-errado" data-toc-link>Quando algo der errado</a></li>
 <li class="toc-level-2"><a href="#proximo-passo" data-toc-link>Próximo passo</a></li></ul>
   </aside>

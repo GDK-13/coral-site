@@ -2,6 +2,150 @@
 
 Esta página parte do problema que você quer resolver e aponta para a parte certa da Coral. Use estes guias como porta de entrada. Quando precisar de assinaturas, parâmetros e detalhes completos, siga o link do módulo relacionado.
 
+## Fundamentos da linguagem
+
+### Criar e alterar variáveis
+
+**Nível:** iniciante  
+**Guia:** [`Valores e variáveis`](linguagem/valores_variaveis.html)
+
+```coral
+defina pontos como 10
+aumente pontos em 5
+mostre pontos
+```
+
+:::resultado
+`pontos` termina com o valor `15`.
+:::
+
+### Tomar decisões e repetir instruções
+
+**Nível:** iniciante  
+**Guia:** [`Condições e repetições`](linguagem/condicoes_repeticoes.html)
+
+```coral
+para numero de 1 até 3 faça
+    se numero for maior que 1 então
+        mostre numero
+    fim
+fim
+```
+
+:::resultado
+O programa mostra `2` e `3`.
+:::
+
+### Criar uma função
+
+**Nível:** iniciante  
+**Guia:** [`Funções e escopo`](linguagem/funcoes_escopo.html)
+
+```coral
+crie a função dobro com numero
+    retorne numero vezes 2
+fim
+
+mostre dobro(6)
+```
+
+:::resultado
+A função retorna `12`.
+:::
+
+### Criar uma classe e objetos
+
+**Nível:** intermediário  
+**Guia:** [`Classes e objetos`](linguagem/classes_objetos.html)
+
+```coral
+crie a classe Pessoa
+    ao criar uma Pessoa com nome
+        defina seu nome como nome
+    fim
+fim
+
+crie pessoa como uma Pessoa com "Ana"
+mostre pessoa.nome
+```
+
+:::resultado
+Uma instância de `Pessoa` é criada com o atributo `nome` igual a `Ana`.
+:::
+
+### Organizar um arquivo como aplicação
+
+**Nível:** iniciante  
+**Guia:** [`Programa principal`](linguagem/programa_principal.html)
+
+```coral
+programa principal
+    chame apresentar com "Coral"
+fim
+
+crie a função apresentar com nome
+    mostre nome
+fim
+```
+
+:::resultado
+Ao executar o arquivo diretamente, o bloco principal roda uma vez. Ao importar o arquivo, a entrada não é iniciada.
+:::
+
+### Anotar a estrutura de uma coleção
+
+**Nível:** intermediário  
+**Guia:** [`Tipos e tipagem`](linguagem/tipos_tipagem.html)
+
+```coral
+defina notas do tipo lista de decimal como [8, 9.5]
+defina apelido do tipo texto ou nulo como nulo
+mostre notas
+mostre apelido
+```
+
+:::resultado
+As anotações registram a estrutura esperada da lista e a possibilidade de nulidade sem converter os valores.
+:::
+
+### Cooperar entre várias classes base
+
+**Nível:** avançado  
+**Guia:** [`Classes e objetos`](linguagem/classes_objetos.html)
+
+```coral
+crie a classe Raiz
+    método nomes retornando lista de texto
+        retorne ["Raiz"]
+    fim
+fim
+
+crie a classe A herda de Raiz
+    método nomes retornando lista de texto
+        retorne ["A"] mais (chame o método pai nomes)
+    fim
+fim
+
+crie a classe B herda de Raiz
+    método nomes retornando lista de texto
+        retorne ["B"] mais (chame o método pai nomes)
+    fim
+fim
+
+crie a classe C herda de A e B
+    método nomes retornando lista de texto
+        retorne ["C"] mais (chame o método pai nomes)
+    fim
+fim
+
+crie objeto como uma C
+mostre objeto.nomes()
+```
+
+:::resultado
+A chamada segue a ordem C3 e visita a base comum uma única vez.
+:::
+
 ## Entrada e dados
 
 ### Receber uma linha digitada pelo usuário
@@ -397,4 +541,4 @@ A falha de conversão é classificada como `R102`. O terminal e o depurador pres
 
 ## Como continuar
 
-Se o guia resolveu sua dúvida inicial, abra o módulo relacionado e use o **Modo Aprender** para entender os conceitos ou o **Modo Referência** para consultar diretamente a API. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.
+Se o guia resolveu sua dúvida inicial, abra o guia de linguagem ou o módulo relacionado. Use o **Modo Aprender** para entender conceitos e o **Modo Referência** para consultar diretamente a API dos módulos. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.

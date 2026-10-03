@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="A distribuição corrente usa o runtime Coral 1.7.2, a extensão Coral Language 0.74.0 e preserva o Livro Oficial 1.7.0.">
+  <meta name="description" content="A distribuição corrente usa o runtime Coral 1.7.3, a extensão Coral Language 0.74.4 e preserva o Livro Oficial 1.7.0.">
   <meta name="theme-color" content="#EF362A">
   <title>Instalação — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Instalação — Documentação Coral">
-  <meta property="og:description" content="A distribuição corrente usa o runtime Coral 1.7.2, a extensão Coral Language 0.74.0 e preserva o Livro Oficial 1.7.0.">
+  <meta property="og:description" content="A distribuição corrente usa o runtime Coral 1.7.3, a extensão Coral Language 0.74.4 e preserva o Livro Oficial 1.7.0.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Instalação — Documentação Coral">
-  <meta name="twitter:description" content="A distribuição corrente usa o runtime Coral 1.7.2, a extensão Coral Language 0.74.0 e preserva o Livro Oficial 1.7.0.">
+  <meta name="twitter:description" content="A distribuição corrente usa o runtime Coral 1.7.3, a extensão Coral Language 0.74.4 e preserva o Livro Oficial 1.7.0.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a class="active" aria-current="page" href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -118,7 +131,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Primeiros passos</div>
       <h1>Instalação</h1>
-      <p>A distribuição corrente usa o runtime Coral 1.7.2, a extensão Coral Language 0.74.0 e preserva o Livro Oficial 1.7.0.</p>
+      <p>A distribuição corrente usa o runtime Coral 1.7.3, a extensão Coral Language 0.74.4 e preserva o Livro Oficial 1.7.0.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -129,30 +142,30 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>A distribuição corrente usa o runtime <strong>Coral 1.7.2</strong>, a extensão <strong>Coral Language 0.74.0</strong> e preserva o <strong>Livro Oficial 1.7.0</strong>.</p>
+      <p data-searchable>A distribuição corrente usa o runtime <strong>Coral 1.7.3</strong>, a extensão <strong>Coral Language 0.74.4</strong> e preserva o <strong>Livro Oficial 1.7.0</strong>.</p>
 <h2 id="linux" data-searchable>Linux</h2>
 <p data-searchable>Na raiz da distribuição extraída, o caminho mais direto para usar o runtime corrente é:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">bash Instalacao/Coral_Setup.sh
-python3 Instalacao/Runtime/coral-1.7.2.pyz --versao</code></pre></div></div>
-<p data-searchable>O segundo comando deve informar <code>1.7.2</code>.</p>
-<p data-searchable>O pacote também preserva executáveis nativos Linux x86_64 e um pacote <code>.deb</code> identificados como <code>1.7.0</code>. Eles são artefatos nativos herdados; para executar exatamente o runtime desta edição, use <code>coral-1.7.2.pyz</code> ou o assistente da distribuição.</p>
+python3 Instalacao/Runtime/coral-1.7.3.pyz --versao</code></pre></div></div>
+<p data-searchable>O segundo comando deve informar <code>1.7.3</code>.</p>
+<p data-searchable>O pacote também preserva executáveis nativos Linux x86_64 e um pacote <code>.deb</code> identificados como <code>1.7.0</code>. Eles são artefatos nativos herdados; para executar exatamente o runtime desta edição, use <code>coral-1.7.3.pyz</code> ou o assistente da distribuição.</p>
 <h2 id="runtime-portatil" data-searchable>Runtime portátil</h2>
 <p data-searchable>O runtime portátil requer Python 3.10 ou superior e pode ser usado sem registrar uma instalação persistente:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python3 Instalacao/Runtime/coral-1.7.2.pyz programa.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python3 Instalacao/Runtime/coral-1.7.3.pyz programa.coral</code></pre></div></div>
 <p data-searchable>Isso é suficiente para estudar e executar programas que não dependam de componentes opcionais ausentes no ambiente.</p>
 <h2 id="extensao-do-vs-code" data-searchable>Extensão do VS Code</h2>
 <p data-searchable>A extensão oficial fica em <code>Instalacao/Extensao_VSCode/</code>. No VS Code, use <strong>Extensions: Install from VSIX</strong> e selecione:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">coral-language-0.74.0.vsix</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-text">coral-language-0.74.4.vsix</code></pre></div></div>
 <p data-searchable>Depois, execute <strong>Developer: Reload Window</strong> para reiniciar o host da extensão.</p>
 <h2 id="verificar-a-instalacao" data-searchable>Verificar a instalação</h2>
 <p data-searchable>Use o próprio runtime para conferir o ambiente:</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python3 Instalacao/Runtime/coral-1.7.2.pyz --self-check
-python3 Instalacao/Runtime/coral-1.7.2.pyz --ambiente</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python3 Instalacao/Runtime/coral-1.7.3.pyz --self-check
+python3 Instalacao/Runtime/coral-1.7.3.pyz --ambiente</code></pre></div></div>
 <p data-searchable>Se estiver no VS Code, a visão <strong>Ambiente Coral</strong> também mostra runtime, projeto, LSP, DAP e componentes disponíveis.</p>
 <h2 id="componentes-opcionais" data-searchable>Componentes opcionais</h2>
 <p data-searchable>Perfis de instalação podem reunir componentes para usos diferentes, como computação científica, jogos e hardware. O instalador mantém esses componentes separados do Python global do sistema quando usa o ambiente gerenciado da Coral.</p>
 <h2 id="disponibilidade-de-plataforma" data-searchable>Disponibilidade de plataforma</h2>
-<p data-searchable>A edição 1.7.2 é publicada com runtime portátil e extensão validados em Linux. Os artefatos nativos Linux preservados no pacote continuam identificados como 1.7.0. Windows não é declarado como plataforma nativa validada desta edição.</p>
+<p data-searchable>A edição 1.7.3 é publicada com runtime portátil e extensão validados em Linux. Os artefatos nativos Linux preservados no pacote continuam identificados como 1.7.0. Windows não é declarado como plataforma nativa validada desta edição.</p>
 <h2 id="atualizar-a-coral" data-searchable>Atualizar a Coral</h2>
 <p data-searchable>Use uma distribuição oficial mais recente e execute novamente o assistente correspondente. Antes de atualizar um projeto importante, consulte <strong>Notas de versão</strong> para verificar compatibilidade, ferramentas e disponibilidade de plataforma.</p>
     </article>

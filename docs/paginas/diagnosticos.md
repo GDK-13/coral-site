@@ -1,6 +1,6 @@
 # Diagnósticos
 
-A Coral 1.7.2 usa uma classificação comum para erros de execução no terminal e no depurador. O objetivo é mostrar o problema em termos úteis para quem escreveu o programa sem apagar a mensagem nem a causa técnica original.
+Desde a Coral 1.7.2, a linguagem usa uma classificação comum para erros de execução no terminal e no depurador. O objetivo é mostrar o problema em termos úteis para quem escreveu o programa sem apagar a mensagem nem a causa técnica original.
 
 ## O que um diagnóstico informa
 

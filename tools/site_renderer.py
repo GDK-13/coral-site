@@ -634,15 +634,11 @@ def render_docs(root: Path, version: dict[str, Any], modules: list[dict[str, Any
         search_entries[-1]["grupo"] = group
         search_entries[-1]["descricao"] = description
 
+        # public_rel vive relativo a docs/. Cada diretório adicional precisa
+        # subir mais um nível até a raiz do site. Isso vale para qualquer
+        # coleção aninhada, não apenas modulos/.
         depth = len(Path(public_rel).parent.parts)
-        site_root = "../" * (depth + 1)  # docs root is one level below site root
-        # public_rel lives relative to docs/. index.html => ../ ; modulos/x.html => ../../
-        if public_rel == "index.html":
-            site_root = "../"
-        elif public_rel.startswith("modulos/"):
-            site_root = "../../"
-        else:
-            site_root = "../"
+        site_root = "../" * (depth + 1)
 
         sidebar = build_sidebar(nav, modules, item, public_rel)
         docs_home = href_between(public_rel, "index.html")

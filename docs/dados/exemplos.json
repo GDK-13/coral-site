@@ -1,5 +1,5 @@
 {
-  "total": 88,
+  "total": 93,
   "arquivos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
@@ -85,6 +85,11 @@
     "Exemplos/Simulacoes/01_grade_e_automato.coral",
     "Exemplos/Simulacoes/02_game_of_life_visual.coral",
     "Exemplos/Sistema/01_capacidades_e_processos.coral",
+    "Exemplos/Tipagem_1_7_3/01_anotacoes_compostas.coral",
+    "Exemplos/Tipagem_1_7_3/02_heranca_cooperativa.coral",
+    "Exemplos/Tipagem_1_7_3/03_programa_principal.coral",
+    "Exemplos/Tipagem_1_7_3/04_cadastro_tipado.coral",
+    "Exemplos/Tipagem_1_7_3/05_composicao_completa.coral",
     "Exemplos/Web/01_html_e_url.coral",
     "Exemplos/Web/02_cliente_http_loopback.coral",
     "Exemplos/Web/03_servidor_http_local.coral",

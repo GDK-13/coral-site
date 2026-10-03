@@ -6,6 +6,17 @@
   <url><loc>https://coral-lang.example/docs/index.html</loc></url>
   <url><loc>https://coral-lang.example/docs/instalacao.html</loc></url>
   <url><loc>https://coral-lang.example/docs/primeiro_programa.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/index.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/valores_variaveis.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/operadores_expressoes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/condicoes_repeticoes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/funcoes_escopo.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/programa_principal.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/classes_objetos.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/tipos_tipagem.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/colecoes_compreensoes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/erros_padroes.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/geradores_assincrono.html</loc></url>
   <url><loc>https://coral-lang.example/docs/projetos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/guias_objetivos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/vscode.html</loc></url>

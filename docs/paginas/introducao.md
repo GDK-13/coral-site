@@ -14,9 +14,13 @@ Se você nunca usou Coral, a sequência mais simples é instalar a distribuiçã
 
 ## O que a Coral oferece
 
-A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware.
+A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3 e uma entrada opcional `programa principal` para aplicações.
 
-A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma página própria nesta documentação e pode ser consultado pelo nome ou pelo guia **O que você quer fazer?**.
+A documentação separa **fundamentos da linguagem** de **biblioteca padrão**. Variáveis, operadores, condições, repetições, funções, classes, objetos, tipagem, coleções e tratamento de erros possuem uma seção própria porque fazem parte da linguagem e não de um módulo `coral.*`.
+
+A biblioteca padrão é organizada em módulos `coral.*`. Cada módulo tem uma página própria e pode ser consultado pelo nome ou pelo guia **O que você quer fazer?**.
+
+Se a dúvida for sobre como escrever código Coral, comece por [**Fundamentos da linguagem**](linguagem/index.html). Se a dúvida for sobre uma capacidade pronta da biblioteca, consulte os módulos.
 
 ## Português corrente com equivalência determinística
 

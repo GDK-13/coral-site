@@ -5,7 +5,7 @@ O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a lingu
 <!-- AUTO:EDICAO -->
 
 **Edição editorial corrente:** `1.7.0`.  
-**Runtime corrente:** `1.7.2`.
+**Runtime corrente:** `1.7.3`.
 
 <!-- /AUTO:EDICAO -->
 
@@ -50,6 +50,6 @@ O Livro é distribuído em PDF A4 com a identidade oficial da Coral e tipografia
 
 ## Complemento da documentação Web
 
-O Livro Oficial permanece na edição `1.7.0`, enquanto o runtime corrente é `1.7.2`. As consultas naturais de tipo, novas formas da biblioteca base e diagnósticos de execução introduzidos depois da edição do Livro são documentados no site.
+O Livro Oficial permanece na edição `1.7.0`, enquanto o runtime corrente é `1.7.3`. Recursos posteriores à edição do Livro são complementados pela documentação Web, incluindo formas naturais da biblioteca base, diagnósticos de execução, tipos estruturais, nulidade, herança múltipla cooperativa e `programa principal`.
 
-Para esses recursos, consulte **Introdução**, os módulos `coral.tipos`, `coral.conversoes`, `coral.entrada`, `coral.arquivos`, `coral.texto`, `coral.colecoes` e `coral.json`, além da página [**Diagnósticos**](diagnosticos.html).
+Para esses recursos, consulte **Introdução**, [**Tipos e tipagem**](linguagem/tipos_tipagem.html), [**Classes e objetos**](linguagem/classes_objetos.html), [**Programa principal**](linguagem/programa_principal.html), os módulos da biblioteca base e a página [**Diagnósticos**](diagnosticos.html).

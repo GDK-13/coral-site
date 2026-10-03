@@ -1,6 +1,6 @@
 {
-  "runtime": "1.7.2",
-  "extensao_vscode": "0.74.0",
+  "runtime": "1.7.3",
+  "extensao_vscode": "0.74.4",
   "livro": "1.7.0",
   "modulos": {
     "agentes": [
@@ -907,13 +907,18 @@
     "Exemplos/Simulacoes/01_grade_e_automato.coral",
     "Exemplos/Simulacoes/02_game_of_life_visual.coral",
     "Exemplos/Sistema/01_capacidades_e_processos.coral",
+    "Exemplos/Tipagem_1_7_3/01_anotacoes_compostas.coral",
+    "Exemplos/Tipagem_1_7_3/02_heranca_cooperativa.coral",
+    "Exemplos/Tipagem_1_7_3/03_programa_principal.coral",
+    "Exemplos/Tipagem_1_7_3/04_cadastro_tipado.coral",
+    "Exemplos/Tipagem_1_7_3/05_composicao_completa.coral",
     "Exemplos/Web/01_html_e_url.coral",
     "Exemplos/Web/02_cliente_http_loopback.coral",
     "Exemplos/Web/03_servidor_http_local.coral",
     "Exemplos/Web/04_grafico_interativo_local.coral"
   ],
   "sintaxe": {
-    "release": "1.7.2",
+    "release": "1.7.3",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -1010,11 +1015,22 @@
       "valor não for do tipo inteiro",
       "valor termina com sufixo"
     ],
+    "estruturas_linguagem": [
+      "lista de T",
+      "conjunto de T",
+      "dicionário de K para V",
+      "tupla de (T, U)",
+      "T ou nulo",
+      "herança múltipla com MRO C3",
+      "chame o método pai",
+      "inicialize a classe pai",
+      "programa principal"
+    ],
     "origem": {
       "esquema": "Projeto/coral/esquema_sintatico.py",
       "lexico": "Projeto/coral/lexico.py",
       "identificadores": "Projeto/coral/identificadores.py"
     }
   },
-  "source": "Coral_1.7.2_Completo.zip"
+  "source": "Coral_1.7.3_Completo.zip"
 }

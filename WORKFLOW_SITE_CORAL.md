@@ -36,7 +36,7 @@ As páginas gerais são geradas separadamente:
 
 ```text
 docs/instalacao.html
-docs/primeiro-programa.html
+docs/primeiro_programa.html
 docs/projetos.html
 docs/vscode.html
 docs/testes.html
@@ -44,6 +44,21 @@ docs/repl_cli.html
 docs/exemplos.html
 docs/livro.html
 docs/release.html  # Notas de versão
+```
+
+Os fundamentos da linguagem ficam em uma coleção própria:
+
+```text
+docs/linguagem/index.html
+docs/linguagem/valores_variaveis.html
+docs/linguagem/operadores_expressoes.html
+docs/linguagem/condicoes_repeticoes.html
+docs/linguagem/funcoes_escopo.html
+docs/linguagem/classes_objetos.html
+docs/linguagem/tipos_tipagem.html
+docs/linguagem/colecoes_compreensoes.html
+docs/linguagem/erros_padroes.html
+docs/linguagem/geradores_assincrono.html
 ```
 
 Cada módulo também recebe sua própria página:
@@ -75,6 +90,8 @@ Relações com outros módulos
 ```
 
 Ela nunca deve repetir a lista inteira da documentação.
+
+A seção **Linguagem** aparece antes dos módulos e documenta construções que não pertencem à biblioteca padrão. Ela não deve ser substituída por links para `coral.*`: variáveis, operadores, fluxo, funções, classes e recursos equivalentes precisam continuar encontráveis como conceitos da linguagem.
 
 Os módulos são divididos em dois grupos de navegação:
 
@@ -138,7 +155,8 @@ coral-site/
 │   ├── paginas/                   # editar aqui
 │   │   ├── introducao.md
 │   │   ├── ...
-│   │   └── modulos/
+│   │   ├── linguagem/              # fundamentos da própria linguagem
+│   │   └── modulos/                # biblioteca padrão coral.*
 ├── .site-local/                 # transitório, ignorado pelo Git
 │   └── REVISAO_PENDENTE.md
 ├── templates/
@@ -204,10 +222,17 @@ O importador atualiza:
 * contrato sintático para o realce estático (`docs/dados/sintaxe.json`);
 
 As formas naturais da biblioteca base são inventariadas separadamente em `formas_naturais_basicas`. Elas entram na comparação entre releases sem transformar palavras comuns como `tipo`, `valor` ou `texto` em palavras chave do realce sintático.
+
+Construções estruturais que podem mudar sem acrescentar novas palavras chave, como tipos compostos, nulidade, herança múltipla e `programa principal`, são inventariadas em `estruturas_linguagem`. Assim o comparador não confunde uma mudança real da linguagem com uma atualização apenas editorial.
+
 * snapshot da release anterior;
 * blocos automáticos das páginas de módulos.
 
 Depois ele regenera todas as páginas HTML.
+
+### Cobertura obrigatória da linguagem base
+
+Uma atualização do site não pode considerar a documentação completa apenas porque os módulos `coral.*` foram importados. `tools/validar_site.py` também exige a seção **Linguagem** e verifica a presença dos temas fundamentais. Todos os exemplos Coral dessa seção entram no mesmo gate contra o runtime da release.
 
 ### Gate obrigatório dos exemplos
 

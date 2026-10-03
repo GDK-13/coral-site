@@ -39,6 +39,19 @@ A 1.7.2 inclui três exemplos curtos dedicados às formas naturais da biblioteca
 
 A distribuição também inclui um exemplo de projeto dividido em módulos em `Exemplos/Projetos_Completos/Vitrine/nucleo_modular/`. `principal.coral` coordena o programa, enquanto `calculos.coral` e `apresentacao.coral` separam cálculo e apresentação.
 
+
+## Tipagem e herança 1.7.3
+
+A pasta `Exemplos/Tipagem_1_7_3/` reúne cinco programas executáveis dedicados às construções de linguagem desta edição.
+
+* `01_anotacoes_compostas.coral` mostra listas, conjuntos, dicionários, tuplas e nulidade nas anotações.
+* `02_heranca_cooperativa.coral` demonstra herança múltipla, resolução C3 e `chame o método pai`.
+* `03_programa_principal.coral` mostra a entrada opcional de aplicação e a possibilidade de declarar funções abaixo dela.
+* `04_cadastro_tipado.coral` combina coleções tipadas, retorno nulo, duas bases e entrada principal.
+* `05_composicao_completa.coral` reúne tipos estruturais, hierarquia em diamante e chamada cooperativa.
+
+Os exemplos são validados pelo gate do site contra o runtime publicado antes de entrarem na documentação.
+
 ## Ciência e dados
 
 A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
@@ -83,7 +96,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 88 arquivos `.coral`.
+**Total detectado na release:** 93 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
@@ -101,6 +114,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 | SimulacaoTemporal | 14 |
 | Simulacoes | 2 |
 | Sistema | 1 |
+| Tipagem_1_7_3 | 5 |
 | Web | 4 |
 
 <!-- /AUTO:EXEMPLOS -->

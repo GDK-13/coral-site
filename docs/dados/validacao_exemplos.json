@@ -1,13 +1,13 @@
 {
-  "coral": "1.7.2",
-  "fonte_release": "Coral_1.7.2_Completo.zip",
-  "runtime_sha256": "58621b5c1e1374d65766e0a814ab3d3d1609fc1e7f2ebfe224258d5ef99d56f4",
-  "blocos_site": 159,
-  "blocos_site_validos": 159,
+  "coral": "1.7.3",
+  "fonte_release": "Coral_1.7.3_Completo.zip",
+  "runtime_sha256": "20bad0c92602f90818ba82170d9f8fc62f6c43cd5dc3d486773f583aa9d56a51",
+  "blocos_site": 207,
+  "blocos_site_validos": 207,
   "imports_verificados": 168,
-  "assinatura_blocos_site": "90d7d899d680627d8726659f4233f0b70b57e99c358b271df825d4436b3a2994",
-  "exemplos_oficiais_total": 88,
-  "exemplos_oficiais_isolados_validados": 69,
-  "assinatura_exemplos_oficiais": "3c1bf4133e7cd13808e0aad45ea0f0624b8fe3fa1faa8252244e984099cbd055",
+  "assinatura_blocos_site": "0c146bea5efa14b4af3c5a7000a7b3a63a8cbf7da725e8563ec2c044f35df539",
+  "exemplos_oficiais_total": 93,
+  "exemplos_oficiais_isolados_validados": 74,
+  "assinatura_exemplos_oficiais": "8fb2ae68fe316c618db1ae770a1946a841c3dd70c6643058304c9c33e458393c",
   "politica": "todo bloco Coral publicável compila com o runtime corrente e todo import explícito pertence à superfície pública corrente"
 }

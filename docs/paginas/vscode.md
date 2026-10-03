@@ -16,9 +16,16 @@ A extensão Coral Language integra o editor ao runtime por LSP e DAP. O objetivo
 
 ## Diagnósticos de execução
 
-Na 1.7.2, terminal e DAP compartilham a mesma classificação de falhas de execução. O editor pode mostrar código, categoria, mensagem, localização e sugestão sem descartar a causa original.
+Desde a 1.7.2, terminal e DAP compartilham a mesma classificação de falhas de execução. O editor pode mostrar código, categoria, mensagem, localização e sugestão sem descartar a causa original.
 
 O detalhe estruturado adicional do DAP fica em `exceptionInfo.details.diagnostico`. Consulte [**Diagnósticos**](diagnosticos.html) para a tabela de códigos e categorias.
+
+
+## Tipos, herança e entrada principal
+
+A extensão corrente reconhece anotações compostas como `lista de inteiro`, `dicionário de texto para decimal` e `T ou nulo`. O hover preserva a forma estrutural, a hierarquia de tipos mostra todas as bases conhecidas e a conclusão local considera membros herdados pela ordem de resolução da classe.
+
+`programa principal` também aparece no outline e participa de hover, dobramento, indentação e fechamento automático de bloco. A análise permanece conservadora quando o documento está incompleto durante a edição.
 
 ## Coloração e tema
 
@@ -38,6 +45,6 @@ Quando o LSP falha, a extensão deve deixar o estado degradado explícito e ofer
 
 <!-- AUTO:VERSAO -->
 
-**Extensão corrente:** Coral Language `0.74.0` para Coral `1.7.2`.
+**Extensão corrente:** Coral Language `0.74.4` para Coral `1.7.3`.
 
 <!-- /AUTO:VERSAO -->

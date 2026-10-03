@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -130,6 +143,86 @@
     
     <article class="docs-section">
       <p data-searchable>Esta página parte do problema que você quer resolver e aponta para a parte certa da Coral. Use estes guias como porta de entrada. Quando precisar de assinaturas, parâmetros e detalhes completos, siga o link do módulo relacionado.</p>
+<h2 id="fundamentos-da-linguagem" data-searchable>Fundamentos da linguagem</h2>
+<h3 id="criar-e-alterar-variaveis" data-searchable>Criar e alterar variáveis</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/valores_variaveis.html"><code>Valores e variáveis</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> pontos como <span class="code-num">10</span>
+aumente pontos em <span class="code-num">5</span>
+<span class="code-key">mostre</span> pontos</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>pontos</code> termina com o valor <code>15</code>.</p></div></details>
+<h3 id="tomar-decisoes-e-repetir-instrucoes" data-searchable>Tomar decisões e repetir instruções</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/condicoes_repeticoes.html"><code>Condições e repetições</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">para</span> numero de <span class="code-num">1</span> <span class="code-key">até</span> <span class="code-num">3</span> <span class="code-key">faça</span>
+    <span class="code-key">se</span> numero for maior que <span class="code-num">1</span> <span class="code-key">então</span>
+        <span class="code-key">mostre</span> numero
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O programa mostra <code>2</code> e <code>3</code>.</p></div></details>
+<h3 id="criar-uma-funcao" data-searchable>Criar uma função</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/funcoes_escopo.html"><code>Funções e escopo</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> dobro com numero
+    retorne numero <span class="code-key">vezes</span> <span class="code-num">2</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">mostre</span> <span class="code-fn">dobro</span>(<span class="code-num">6</span>)</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A função retorna <code>12</code>.</p></div></details>
+<h3 id="criar-uma-classe-e-objetos" data-searchable>Criar uma classe e objetos</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Guia:</strong> <a href="linguagem/classes_objetos.html"><code>Classes e objetos</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">classe</span> Pessoa
+    ao criar uma Pessoa com nome
+        <span class="code-key">defina</span> seu nome como nome
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> pessoa como uma Pessoa com <span class="code-str">&quot;Ana&quot;</span>
+<span class="code-key">mostre</span> pessoa.nome</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Uma instância de <code>Pessoa</code> é criada com o atributo <code>nome</code> igual a <code>Ana</code>.</p></div></details>
+<h3 id="organizar-um-arquivo-como-aplicacao" data-searchable>Organizar um arquivo como aplicação</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/programa_principal.html"><code>Programa principal</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">programa principal
+    chame apresentar com <span class="code-str">&quot;Coral&quot;</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> apresentar com nome
+    <span class="code-key">mostre</span> nome
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>Ao executar o arquivo diretamente, o bloco principal roda uma vez. Ao importar o arquivo, a entrada não é iniciada.</p></div></details>
+<h3 id="anotar-a-estrutura-de-uma-colecao" data-searchable>Anotar a estrutura de uma coleção</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Guia:</strong> <a href="linguagem/tipos_tipagem.html"><code>Tipos e tipagem</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> notas do <span class="code-key">tipo</span> lista de decimal como [<span class="code-num">8</span>, <span class="code-num">9.5</span>]
+<span class="code-key">defina</span> apelido do <span class="code-key">tipo</span> texto ou nulo como nulo
+<span class="code-key">mostre</span> notas
+<span class="code-key">mostre</span> apelido</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>As anotações registram a estrutura esperada da lista e a possibilidade de nulidade sem converter os valores.</p></div></details>
+<h3 id="cooperar-entre-varias-classes-base" data-searchable>Cooperar entre várias classes base</h3>
+<p data-searchable><strong>Nível:</strong> avançado <strong>Guia:</strong> <a href="linguagem/classes_objetos.html"><code>Classes e objetos</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">classe</span> Raiz
+    método nomes <span class="code-key">retornando</span> lista de texto
+        retorne [<span class="code-str">&quot;Raiz&quot;</span>]
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">classe</span> A <span class="code-key">herda</span> de Raiz
+    método nomes <span class="code-key">retornando</span> lista de texto
+        retorne [<span class="code-str">&quot;A&quot;</span>] mais (chame o método pai nomes)
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">classe</span> B <span class="code-key">herda</span> de Raiz
+    método nomes <span class="code-key">retornando</span> lista de texto
+        retorne [<span class="code-str">&quot;B&quot;</span>] mais (chame o método pai nomes)
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">classe</span> C <span class="code-key">herda</span> de A e B
+    método nomes <span class="code-key">retornando</span> lista de texto
+        retorne [<span class="code-str">&quot;C&quot;</span>] mais (chame o método pai nomes)
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> objeto como uma C
+<span class="code-key">mostre</span> objeto.<span class="code-fn">nomes</span>()</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A chamada segue a ordem C3 e visita a base comum uma única vez.</p></div></details>
 <h2 id="entrada-e-dados" data-searchable>Entrada e dados</h2>
 <h3 id="receber-uma-linha-digitada-pelo-usuario" data-searchable>Receber uma linha digitada pelo usuário</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/entrada.html"><code>coral.entrada</code></a></p>
@@ -309,14 +402,22 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> numero como converta <span class="code-str">&quot;abc&quot;</span> <span class="code-key">para</span> inteiro</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A falha de conversão é classificada como <code>R102</code>. O terminal e o depurador preservam a mensagem original e acrescentam categoria, localização quando disponível e uma sugestão curta.</p></div></details>
 <h2 id="como-continuar" data-searchable>Como continuar</h2>
-<p data-searchable>Se o guia resolveu sua dúvida inicial, abra o módulo relacionado e use o <strong>Modo Aprender</strong> para entender os conceitos ou o <strong>Modo Referência</strong> para consultar diretamente a API. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.</p>
+<p data-searchable>Se o guia resolveu sua dúvida inicial, abra o guia de linguagem ou o módulo relacionado. Use o <strong>Modo Aprender</strong> para entender conceitos e o <strong>Modo Referência</strong> para consultar diretamente a API dos módulos. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="projetos.html"><span>Anterior</span><strong>Projetos e módulos</strong></a><a class="docs-page-nav-link next" href="vscode.html"><span>Próxima</span><strong>VS Code</strong></a></nav>
   </main>
 
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
-    <ul><li class="toc-level-2"><a href="#entrada-e-dados" data-toc-link>Entrada e dados</a></li>
+    <ul><li class="toc-level-2"><a href="#fundamentos-da-linguagem" data-toc-link>Fundamentos da linguagem</a></li>
+<li class="toc-level-3"><a href="#criar-e-alterar-variaveis" data-toc-link>Criar e alterar variáveis</a></li>
+<li class="toc-level-3"><a href="#tomar-decisoes-e-repetir-instrucoes" data-toc-link>Tomar decisões e repetir instruções</a></li>
+<li class="toc-level-3"><a href="#criar-uma-funcao" data-toc-link>Criar uma função</a></li>
+<li class="toc-level-3"><a href="#criar-uma-classe-e-objetos" data-toc-link>Criar uma classe e objetos</a></li>
+<li class="toc-level-3"><a href="#organizar-um-arquivo-como-aplicacao" data-toc-link>Organizar um arquivo como aplicação</a></li>
+<li class="toc-level-3"><a href="#anotar-a-estrutura-de-uma-colecao" data-toc-link>Anotar a estrutura de uma coleção</a></li>
+<li class="toc-level-3"><a href="#cooperar-entre-varias-classes-base" data-toc-link>Cooperar entre várias classes base</a></li>
+<li class="toc-level-2"><a href="#entrada-e-dados" data-toc-link>Entrada e dados</a></li>
 <li class="toc-level-3"><a href="#receber-uma-linha-digitada-pelo-usuario" data-toc-link>Receber uma linha digitada pelo usuário</a></li>
 <li class="toc-level-3"><a href="#descobrir-e-testar-o-tipo-de-um-valor" data-toc-link>Descobrir e testar o tipo de um valor</a></li>
 <li class="toc-level-3"><a href="#converter-texto-para-um-valor-explicito" data-toc-link>Converter texto para um valor explícito</a></li>

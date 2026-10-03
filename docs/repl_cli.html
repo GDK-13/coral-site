@@ -47,14 +47,27 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.2</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
 <li><a href="instalacao.html">Instalação</a></li>
 <li><a href="primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
 </ul>
 <h4>Guias</h4><ul>
 <li><a href="projetos.html">Projetos e módulos</a></li>
@@ -131,15 +144,15 @@
     <article class="docs-section">
       <p data-searchable>A CLI é a interface de baixo nível para execução, verificação, projetos, testes, diagnóstico e ferramentas da Coral. O VS Code cobre o fluxo cotidiano, mas a CLI continua sendo a referência reproduzível para automação e manutenção.</p>
 <h2 id="uso-cotidiano" data-searchable>Uso cotidiano</h2>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.2.pyz --versao
-python coral-1.7.2.pyz --self-check
-python coral-1.7.2.pyz --ambiente</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.3.pyz --versao
+python coral-1.7.3.pyz --self-check
+python coral-1.7.3.pyz --ambiente</code></pre></div></div>
 <h2 id="executar-e-verificar-arquivos" data-searchable>Executar e verificar arquivos</h2>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.2.pyz executar programa.coral
-python coral-1.7.2.pyz verificar programa.coral</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.3.pyz executar programa.coral
+python coral-1.7.3.pyz verificar programa.coral</code></pre></div></div>
 <h2 id="repl" data-searchable>REPL</h2>
 <p data-searchable>O REPL permite experimentar expressões e construções sem criar um arquivo novo.</p>
-<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.2.pyz --repl</code></pre></div></div>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">python coral-1.7.3.pyz --repl</code></pre></div></div>
 <h2 id="projetos" data-searchable>Projetos</h2>
 <p data-searchable>A CLI oferece operações de informação, validação, construção e execução de projetos. Essas ações usam <code>coral.toml</code> como fonte de configuração.</p>
 <h2 id="diagnostico" data-searchable>Diagnóstico</h2>

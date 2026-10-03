@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Listas, dicionários, tuplas e conjuntos são valores da própria linguagem. O módulo coral.colecoes complementa esses valores com operações prontas, mas os literais e o acesso básico não dependem dele.">
+  <meta name="theme-color" content="#EF362A">
+  <title>Coleções e compreensões — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Coleções e compreensões — Documentação Coral">
+  <meta property="og:description" content="Listas, dicionários, tuplas e conjuntos são valores da própria linguagem. O módulo coral.colecoes complementa esses valores com operações prontas, mas os literais e o acesso básico não dependem dele.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Coleções e compreensões — Documentação Coral">
+  <meta name="twitter:description" content="Listas, dicionários, tuplas e conjuntos são valores da própria linguagem. O módulo coral.colecoes complementa esses valores com operações prontas, mas os literais e o acesso básico não dependem dele.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="index.html">Fundamentos da linguagem</a></li>
+<li><a href="valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="programa_principal.html">Programa principal</a></li>
+<li><a href="classes_objetos.html">Classes e objetos</a></li>
+<li><a href="tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a class="active" aria-current="page" href="colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="erros_padroes.html">Erros e padrões</a></li>
+<li><a href="geradores_assincrono.html">Geradores e assíncrono</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary" open><summary>Módulos principais</summary><ul>
+<li><a href="../modulos/numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="../modulos/sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="../modulos/laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="../modulos/hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="../modulos/mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="../modulos/regras.html"><code>coral.regras</code></a></li>
+<li><a href="../modulos/rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="../modulos/jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary"><summary>Outros módulos</summary><ul>
+<li><a href="../modulos/agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="../modulos/aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="../modulos/arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="../modulos/assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="../modulos/caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="../modulos/colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="../modulos/comum.html"><code>coral.comum</code></a></li>
+<li><a href="../modulos/conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="../modulos/criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="../modulos/datas.html"><code>coral.datas</code></a></li>
+<li><a href="../modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="../modulos/formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="../modulos/formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="../modulos/graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="../modulos/json.html"><code>coral.json</code></a></li>
+<li><a href="../modulos/matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="../modulos/observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="../modulos/persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="../modulos/procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="../modulos/rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="../modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="../modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="../modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="../modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="../modulos/texto.html"><code>coral.texto</code></a></li>
+<li><a href="../modulos/tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="../modulos/turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="../modulos/web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="../modulos/web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="../modulos/web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="../modulos/web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Linguagem</div>
+      <h1>Coleções e compreensões</h1>
+      <p>Listas, dicionários, tuplas e conjuntos são valores da própria linguagem. O módulo coral.colecoes complementa esses valores com operações prontas, mas os literais e o acesso básico não dependem dele.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    
+    <article class="docs-section">
+      <p data-searchable>Listas, dicionários, tuplas e conjuntos são valores da própria linguagem. O módulo <code>coral.colecoes</code> complementa esses valores com operações prontas, mas os literais e o acesso básico não dependem dele.</p>
+<h2 id="listas" data-searchable>Listas</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> notas como [<span class="code-num">7</span>, <span class="code-num">8</span>, <span class="code-num">9</span>]
+<span class="code-key">coloque</span> <span class="code-num">10</span> em notas
+<span class="code-key">mostre</span> quantidade de notas
+<span class="code-key">mostre</span> notas[<span class="code-num">0</span>]
+<span class="code-key">mostre</span> notas[<span class="code-num">1</span>:<span class="code-num">3</span>]</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A lista passa a ter quatro elementos. O primeiro índice é zero e a fatia de <code>1</code> até antes de <code>3</code> contém <code>8</code> e <code>9</code>.</p></div></details>
+<h2 id="dicionarios" data-searchable>Dicionários</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> aluno como {<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;nota&quot;</span>: <span class="code-num">8</span>}
+<span class="code-key">defina</span> a chave <span class="code-str">&quot;cidade&quot;</span> de aluno como <span class="code-str">&quot;Timon&quot;</span>
+<span class="code-key">mostre</span> aluno[<span class="code-str">&quot;nome&quot;</span>]
+<span class="code-key">mostre</span> aluno[<span class="code-str">&quot;cidade&quot;</span>]</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O dicionário relaciona chaves a valores e a nova chave <code>cidade</code> fica disponível imediatamente.</p></div></details>
+<h2 id="tuplas-e-conjuntos" data-searchable>Tuplas e conjuntos</h2>
+<p data-searchable>Tuplas representam sequências que não são alteradas como listas. Conjuntos representam elementos únicos. <code>{}</code> representa um dicionário vazio; use a forma própria de conjunto vazio quando precisar de um conjunto sem elementos.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> coordenada como (<span class="code-num">10</span>, <span class="code-num">20</span>)
+<span class="code-key">defina</span> unicos como {<span class="code-num">1</span>, <span class="code-num">1</span>, <span class="code-num">2</span>}
+<span class="code-key">mostre</span> coordenada[<span class="code-num">0</span>]
+<span class="code-key">mostre</span> quantidade de unicos</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A primeira consulta retorna <code>10</code>. O conjunto possui dois valores únicos.</p></div></details>
+<h2 id="compreensoes" data-searchable>Compreensões</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> numeros como [<span class="code-num">1</span>, <span class="code-num">2</span>, <span class="code-num">3</span>, <span class="code-num">4</span>]
+<span class="code-key">defina</span> pares_dobrados como [n <span class="code-key">vezes</span> <span class="code-num">2</span> <span class="code-key">para</span> <span class="code-key">cada</span> n em numeros <span class="code-key">se</span> n % <span class="code-num">2</span> for igual a <span class="code-num">0</span>]
+<span class="code-key">mostre</span> pares_dobrados</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A compreensão filtra <code>2</code> e <code>4</code> e produz <code>[4, 8]</code>.</p></div></details>
+<h2 id="desempacotamento" data-searchable>Desempacotamento</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> x e y como (<span class="code-num">10</span>, <span class="code-num">20</span>)
+<span class="code-key">mostre</span> x
+<span class="code-key">mostre</span> y</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>x</code> recebe <code>10</code> e <code>y</code> recebe <code>20</code>.</p></div></details>
+<p data-searchable>Para ordenar, obter valores únicos, contar ocorrências e outras operações prontas, consulte <a href="../modulos/colecoes.html"><code>coral.colecoes</code></a>.</p>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="tipos_tipagem.html"><span>Anterior</span><strong>Tipos e tipagem</strong></a><a class="docs-page-nav-link next" href="erros_padroes.html"><span>Próxima</span><strong>Erros e padrões</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#listas" data-toc-link>Listas</a></li>
+<li class="toc-level-2"><a href="#dicionarios" data-toc-link>Dicionários</a></li>
+<li class="toc-level-2"><a href="#tuplas-e-conjuntos" data-toc-link>Tuplas e conjuntos</a></li>
+<li class="toc-level-2"><a href="#compreensoes" data-toc-link>Compreensões</a></li>
+<li class="toc-level-2"><a href="#desempacotamento" data-toc-link>Desempacotamento</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

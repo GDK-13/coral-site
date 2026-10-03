@@ -19,6 +19,72 @@
       "grupo": "Primeiros passos"
     },
     {
+      "arquivo": "linguagem/index.md",
+      "titulo": "Fundamentos da linguagem",
+      "slug": "fundamentos-da-linguagem",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/valores_variaveis.md",
+      "titulo": "Valores e variáveis",
+      "slug": "valores-e-variaveis",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/operadores_expressoes.md",
+      "titulo": "Operadores e expressões",
+      "slug": "operadores-e-expressoes",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/condicoes_repeticoes.md",
+      "titulo": "Condições e repetições",
+      "slug": "condicoes-e-repeticoes",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/funcoes_escopo.md",
+      "titulo": "Funções e escopo",
+      "slug": "funcoes-e-escopo",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/programa_principal.md",
+      "titulo": "Programa principal",
+      "slug": "programa-principal",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/classes_objetos.md",
+      "titulo": "Classes e objetos",
+      "slug": "classes-e-objetos",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/tipos_tipagem.md",
+      "titulo": "Tipos e tipagem",
+      "slug": "tipos-e-tipagem",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/colecoes_compreensoes.md",
+      "titulo": "Coleções e compreensões",
+      "slug": "colecoes-e-compreensoes",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/erros_padroes.md",
+      "titulo": "Erros e padrões",
+      "slug": "erros-e-padroes",
+      "grupo": "Linguagem"
+    },
+    {
+      "arquivo": "linguagem/geradores_assincrono.md",
+      "titulo": "Geradores e assíncrono",
+      "slug": "geradores-e-assincrono",
+      "grupo": "Linguagem"
+    },
+    {
       "arquivo": "projetos.md",
       "titulo": "Projetos e módulos",
       "slug": "projetos",

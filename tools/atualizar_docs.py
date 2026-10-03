@@ -208,6 +208,34 @@ def extract_basic_natural_contract(zf: zipfile.ZipFile) -> list[str]:
     })
     return sorted(formas)
 
+def extract_structural_language_contract(zf: zipfile.ZipFile) -> list[str]:
+    """Inventaria construções estruturais da linguagem fora do catálogo léxico.
+
+    Algumas evoluções, como tipos compostos, herança múltipla e entrada principal,
+    não mudam a lista de palavras chave. Registrar essas famílias no snapshot evita
+    que o comparador trate uma mudança real da linguagem como release puramente
+    editorial. A detecção é estática e baseada nos componentes canônicos da release.
+    """
+    features: list[str] = []
+    if read_zip_text(zf, "Projeto/coral/tipos_estruturais.py"):
+        features.extend([
+            "lista de T",
+            "conjunto de T",
+            "dicionário de K para V",
+            "tupla de (T, U)",
+            "T ou nulo",
+        ])
+    if read_zip_text(zf, "Projeto/coral/heranca.py"):
+        features.extend([
+            "herança múltipla com MRO C3",
+            "chame o método pai",
+            "inicialize a classe pai",
+        ])
+    if read_zip_text(zf, "Projeto/coral/entrada_principal.py"):
+        features.append("programa principal")
+    return features
+
+
 def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]:
     """Extrai estaticamente o contrato léxico/sintático necessário ao site.
 
@@ -276,6 +304,7 @@ def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]
         "aspas": quotes or ["\"", "'"],
         "linguagens": ["coral", "coral-*"],
         "formas_naturais_basicas": extract_basic_natural_contract(zf),
+        "estruturas_linguagem": extract_structural_language_contract(zf),
         "origem": {
             "esquema": "Projeto/coral/esquema_sintatico.py",
             "lexico": "Projeto/coral/lexico.py",
@@ -598,6 +627,17 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
                 {"arquivo": "introducao.md", "titulo": "Introdução", "slug": "introducao", "grupo": "Primeiros passos"},
                 {"arquivo": "instalacao.md", "titulo": "Instalação", "slug": "instalacao", "grupo": "Primeiros passos"},
                 {"arquivo": "primeiro_programa.md", "titulo": "Seu primeiro programa", "slug": "primeiro-programa", "grupo": "Primeiros passos"},
+                {"arquivo": "linguagem/index.md", "titulo": "Fundamentos da linguagem", "slug": "fundamentos-da-linguagem", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/valores_variaveis.md", "titulo": "Valores e variáveis", "slug": "valores-e-variaveis", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/operadores_expressoes.md", "titulo": "Operadores e expressões", "slug": "operadores-e-expressoes", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/condicoes_repeticoes.md", "titulo": "Condições e repetições", "slug": "condicoes-e-repeticoes", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/funcoes_escopo.md", "titulo": "Funções e escopo", "slug": "funcoes-e-escopo", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/programa_principal.md", "titulo": "Programa principal", "slug": "programa-principal", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/classes_objetos.md", "titulo": "Classes e objetos", "slug": "classes-e-objetos", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/tipos_tipagem.md", "titulo": "Tipos e tipagem", "slug": "tipos-e-tipagem", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/colecoes_compreensoes.md", "titulo": "Coleções e compreensões", "slug": "colecoes-e-compreensoes", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/erros_padroes.md", "titulo": "Erros e padrões", "slug": "erros-e-padroes", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/geradores_assincrono.md", "titulo": "Geradores e assíncrono", "slug": "geradores-e-assincrono", "grupo": "Linguagem"},
                 {"arquivo": "projetos.md", "titulo": "Projetos e módulos", "slug": "projetos", "grupo": "Guias"},
                 {"arquivo": "vscode.md", "titulo": "VS Code", "slug": "vscode", "grupo": "Guias"},
                 {"arquivo": "diagnosticos.md", "titulo": "Diagnósticos", "slug": "diagnosticos", "grupo": "Guias"},
@@ -609,6 +649,31 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
             ]
         }
     regular = [p for p in nav.get("paginas", []) if not p.get("arquivo", "").startswith("modulos/")]
+
+    # A seção Linguagem é um contrato editorial do site. Sincronize a lista a
+    # cada geração, não apenas quando navegacao.json ainda não existe. Isso
+    # permite acrescentar novas construções da linguagem sem deixar páginas
+    # válidas fora do menu e fora do renderer.
+    language_pages = [
+        {"arquivo": "linguagem/index.md", "titulo": "Fundamentos da linguagem", "slug": "fundamentos-da-linguagem", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/valores_variaveis.md", "titulo": "Valores e variáveis", "slug": "valores-e-variaveis", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/operadores_expressoes.md", "titulo": "Operadores e expressões", "slug": "operadores-e-expressoes", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/condicoes_repeticoes.md", "titulo": "Condições e repetições", "slug": "condicoes-e-repeticoes", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/funcoes_escopo.md", "titulo": "Funções e escopo", "slug": "funcoes-e-escopo", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/programa_principal.md", "titulo": "Programa principal", "slug": "programa-principal", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/classes_objetos.md", "titulo": "Classes e objetos", "slug": "classes-e-objetos", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/tipos_tipagem.md", "titulo": "Tipos e tipagem", "slug": "tipos-e-tipagem", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/colecoes_compreensoes.md", "titulo": "Coleções e compreensões", "slug": "colecoes-e-compreensoes", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/erros_padroes.md", "titulo": "Erros e padrões", "slug": "erros-e-padroes", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/geradores_assincrono.md", "titulo": "Geradores e assíncrono", "slug": "geradores-e-assincrono", "grupo": "Linguagem"},
+    ]
+    non_language = [entry for entry in regular if entry.get("grupo") != "Linguagem"]
+    insert_at = 0
+    for index, entry in enumerate(non_language):
+        if entry.get("grupo") == "Primeiros passos":
+            insert_at = index + 1
+    regular = non_language[:insert_at] + language_pages + non_language[insert_at:]
+
     primary_by_name = {m["nome"]: m for m in modules if m.get("destaque")}
     other_by_name = {m["nome"]: m for m in modules if not m.get("destaque")}
     primary_names = [name for name in PRIMARY_MODULE_ORDER if name in primary_by_name]
@@ -678,6 +743,8 @@ def update_index_fallbacks(version: dict[str, Any]) -> None:
         text,
     )
     text = re.sub(r">Release\s+[0-9.]+<", f'>Release <span data-version-key="coral">{version.get("coral", "?")}</span><', text, count=1)
+    text = re.sub(r"Para usar exatamente o runtime \d+\.\d+\.\d+", f'Para usar exatamente o runtime {version.get("coral", "?")}', text)
+    text = re.sub(r"Ler notas da \d+\.\d+\.\d+", f'Ler notas da {version.get("coral", "?")}', text)
 
     # Atualiza também o fallback já marcado. Assim o HTML continua correto sem
     # JavaScript e o gerador permanece idempotente em releases sucessivas.
@@ -752,6 +819,13 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
                 f"coral-language-{ext}.vsix",
                 page,
             )
+            page = re.sub(
+                r"A distribuição corrente usa o runtime \*\*Coral \d+\.\d+\.\d+\*\*, a extensão \*\*Coral Language \d+\.\d+\.\d+\*\* e preserva o \*\*Livro Oficial \d+\.\d+\.\d+\*\*\.",
+                f"A distribuição corrente usa o runtime **Coral {runtime}**, a extensão **Coral Language {ext}** e preserva o **Livro Oficial {livro}**.",
+                page,
+            )
+            page = re.sub(r"O segundo comando deve informar `\d+\.\d+\.\d+`\.", f"O segundo comando deve informar `{runtime}`.", page)
+            page = re.sub(r"A edição \d+\.\d+\.\d+ é publicada com runtime portátil", f"A edição {runtime} é publicada com runtime portátil", page)
         path.write_text(page, encoding="utf-8")
 
     # Frases editoriais padronizadas que descrevem a release corrente também
@@ -795,6 +869,13 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
                 "DOWNLOAD_LIVRO",
                 f"[Baixar o Livro Oficial Coral {livro} em PDF](../downloads/{filename})",
             )
+        livro_text = livro_page.read_text(encoding="utf-8")
+        livro_text = re.sub(
+            r"(O Livro Oficial permanece na edição `[^`]+`, enquanto o runtime corrente é `)\d+\.\d+\.\d+(`\.)",
+            rf"\g<1>{runtime}\g<2>",
+            livro_text,
+        )
+        livro_page.write_text(livro_text, encoding="utf-8")
 
     release_page = PAGINAS / "release.md"
     if release_page.exists():
