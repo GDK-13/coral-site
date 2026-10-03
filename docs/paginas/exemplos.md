@@ -52,6 +52,17 @@ A pasta `Exemplos/Tipagem_1_7_3/` reúne cinco programas executáveis dedicados 
 
 Os exemplos são validados pelo gate do site contra o runtime publicado antes de entrarem na documentação.
 
+## Análise entre módulos 1.7.4
+
+`Exemplos/Analise_1_7_4/Cadastro/` é um projeto completo pequeno para estudar classes, parâmetros tipados, fachada de módulo, aliases, testes e `programa principal`.
+
+* `modelos.coral` declara `Autor` e `Livro` e mostra parâmetros tipados no construtor.
+* `fachada.coral` concentra os nomes públicos usados pelo consumidor.
+* `principal.coral` executa o cadastro pela fachada sem iniciar a aplicação quando o módulo é apenas importado.
+* `testes/cadastro.coral` verifica a mesma API pelo runner nativo.
+
+O exemplo também serve para observar no VS Code como parâmetros, propriedades, classes e símbolos importados recebem papéis semânticos diferentes.
+
 ## Ciência e dados
 
 A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
@@ -96,11 +107,12 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 93 arquivos `.coral`.
+**Total detectado na release:** 97 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
 | Agentes | 2 |
+| Analise_1_7_4 | 4 |
 | Basica_1_7_2 | 3 |
 | Dados | 9 |
 | Espaco | 3 |

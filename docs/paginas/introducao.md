@@ -53,4 +53,6 @@ Projetos passam a ser interessantes quando você precisa de vários módulos, te
 
 ## Ferramentas oficiais
 
-A distribuição estável reúne runtime Coral, Coral Language para VS Code, exemplos oficiais e o Livro Oficial. O site prioriza o estado atual da linguagem; mudanças entre versões ficam isoladas na página **Notas de versão**.
+A distribuição estável reúne runtime Coral, Coral Language para VS Code, exemplos oficiais e o Livro Oficial. O editor usa a análise da própria Coral para entender o papel de símbolos, assinaturas e imports, com TextMate como fallback quando o documento ainda está incompleto.
+
+O site prioriza o estado atual da linguagem; mudanças entre versões ficam isoladas na página **Notas de versão**.

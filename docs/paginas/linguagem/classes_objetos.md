@@ -30,6 +30,25 @@ O objeto começa com valor `10`, o método soma `5` e a propriedade retorna `15`
 
 `ao criar` define a inicialização da instância. As formas `seu`, `sua`, `seus` e `suas` acessam atributos do objeto atual.
 
+## Parâmetros pertencem ao construtor
+
+Parâmetros usados para criar uma instância ficam em `ao criar`, inclusive quando possuem anotação de tipo. O cabeçalho da classe declara a classe e suas bases, não a lista de argumentos do construtor.
+
+```coral
+crie a classe Dieta
+fim
+
+crie a classe Animal
+    ao criar um Animal com dieta do tipo Dieta
+        defina seu dieta como dieta
+    fim
+fim
+```
+
+:::resultado
+`dieta` é recebido pelo construtor com o tipo esperado `Dieta` e depois armazenado na propriedade `seu dieta`. A anotação pertence ao parâmetro, não à propriedade no lado esquerdo da atribuição.
+:::
+
 ## Métodos e propriedades
 
 `método nome` declara uma operação de instância. `propriedade nome` permite consultar um valor como atributo. A linguagem também possui formas para método estático, método de classe e definição de propriedade quando esses comportamentos forem necessários.

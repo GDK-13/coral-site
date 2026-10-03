@@ -104,6 +104,17 @@ elif coral == '1.7.3':
     for esperado in ('herda de A e B', 'chame o método pai'):
         assert esperado in classes, esperado
     assert 'programa principal' in principal
+elif coral == '1.7.4':
+    assert extensao == '0.75.2', versao
+    assert livro == '1.7.0', versao
+    vscode = (root / 'docs/paginas/vscode.md').read_text(encoding='utf-8')
+    projetos = (root / 'docs/paginas/projetos.md').read_text(encoding='utf-8')
+    release = (root / 'docs/paginas/release.md').read_text(encoding='utf-8')
+    for esperado in ('Realce semântico por papel', 'dieta do tipo Dieta', 'Inserir estrutura básica do coral.toml'):
+        assert esperado in vscode, esperado
+    for esperado in ('Interfaces públicas entre módulos', 'Analise_1_7_4/Cadastro'):
+        assert esperado in projetos, esperado
+    assert '## Coral 1.7.4' in release
 
 print(f'OK: identidade Coral {coral}, VS Code {extensao} e Livro {livro} confirmadas.')
 PY

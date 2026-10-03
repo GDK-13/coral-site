@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -144,7 +144,27 @@
     <article class="docs-section">
       <p data-searchable>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
 <h2 id="versao-atual" data-searchable>Versão atual</h2>
-<p data-searchable><strong>Coral:</strong> <code>1.7.3</code> <strong>Coral Language:</strong> <code>0.74.4</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<p data-searchable><strong>Coral:</strong> <code>1.7.4</code> <strong>Coral Language:</strong> <code>0.75.2</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<h2 id="coral-1-7-4" data-searchable>Coral 1.7.4</h2>
+<h3 id="editor-semantico" data-searchable>Editor semântico</h3>
+<p data-searchable>Coral Language <code>0.75.2</code> amplia a identificação contextual dos símbolos. Classes, tipos nativos, funções, métodos, parâmetros, propriedades, variáveis e módulos podem receber categorias semânticas diferentes quando o papel da ocorrência é comprovado. O tema do VS Code continua responsável pelas cores.</p>
+<p data-searchable>TextMate permanece como fallback quando o LSP ainda não possui contexto suficiente ou o documento está incompleto.</p>
+<h3 id="analise-entre-modulos" data-searchable>Análise entre módulos</h3>
+<p data-searchable>Interfaces públicas de módulo passam a carregar assinaturas, retornos, classes, membros, imports e aliases de forma mais rica. O verificador e o editor conseguem reutilizar esses contratos para acompanhar argumentos, retornos e identidades nominais entre arquivos sem executar os módulos do usuário.</p>
+<p data-searchable>Aliases e reexportações preservam a origem do símbolo e possuem proteção contra ciclos. Casos que não podem ser comprovados permanecem conservadores, em vez de receber um tipo inventado.</p>
+<h3 id="fluxo-de-tipos-e-diagnostico-logico" data-searchable>Fluxo de tipos e diagnóstico lógico</h3>
+<p data-searchable>A análise conserva uma informação de tipo somente enquanto o fluxo permite justificá la. Condições, laços e atribuições potencialmente mutáveis invalidam evidências antigas quando necessário.</p>
+<p data-searchable>Expressões lógicas como <code>verdadeiro e falso</code> deixam de receber o diagnóstico aritmético <code>T204</code>.</p>
+<h3 id="coral-toml" data-searchable><code>coral.toml</code></h3>
+<p data-searchable>Um manifesto vazio pode receber a sugestão <strong>Estrutura básica Coral</strong> ou ser inicializado pelo comando <strong>Coral: Inserir estrutura básica do coral.toml</strong>. O editor não sobrescreve um arquivo já preenchido e evita aplicar uma resposta obsoleta quando o documento muda durante a operação.</p>
+<h3 id="exemplos-e-distribuicao" data-searchable>Exemplos e distribuição</h3>
+<p data-searchable>A distribuição acrescenta <code>Exemplos/Analise_1_7_4/Cadastro/</code>, um projeto pequeno com classes, parâmetros tipados, fachada de módulo, aliases, testes e <code>programa principal</code>.</p>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.4.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.75.2.vsix</code>.</li>
+<li data-searchable>Livro Oficial preservado na edição <code>1.7.0</code>.</li>
+<li data-searchable>Linux permanece como plataforma autoritativa desta distribuição.</li>
+</ul>
 <h2 id="coral-1-7-3" data-searchable>Coral 1.7.3</h2>
 <h3 id="tipagem-opcional-estrutural" data-searchable>Tipagem opcional estrutural</h3>
 <p data-searchable>As anotações opcionais agora podem descrever a estrutura das coleções com formas como <code>lista de T</code>, <code>conjunto de T</code>, <code>dicionário de K para V</code> e <code>tupla de (T, U)</code>. Tipos podem ser aninhados, e <code>T ou nulo</code> descreve valores opcionais sem introduzir uniões gerais entre tipos arbitrários.</p>
@@ -225,6 +245,12 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#versao-atual" data-toc-link>Versão atual</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-4" data-toc-link>Coral 1.7.4</a></li>
+<li class="toc-level-3"><a href="#editor-semantico" data-toc-link>Editor semântico</a></li>
+<li class="toc-level-3"><a href="#analise-entre-modulos" data-toc-link>Análise entre módulos</a></li>
+<li class="toc-level-3"><a href="#fluxo-de-tipos-e-diagnostico-logico" data-toc-link>Fluxo de tipos e diagnóstico lógico</a></li>
+<li class="toc-level-3"><a href="#coral-toml" data-toc-link>coral.toml</a></li>
+<li class="toc-level-3"><a href="#exemplos-e-distribuicao" data-toc-link>Exemplos e distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-3" data-toc-link>Coral 1.7.3</a></li>
 <li class="toc-level-3"><a href="#tipagem-opcional-estrutural" data-toc-link>Tipagem opcional estrutural</a></li>
 <li class="toc-level-3"><a href="#heranca-multipla-e-cooperacao" data-toc-link>Herança múltipla e cooperação</a></li>

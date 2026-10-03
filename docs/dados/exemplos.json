@@ -1,8 +1,12 @@
 {
-  "total": 93,
+  "total": 97,
   "arquivos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/fachada.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/modelos.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/principal.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/testes/cadastro.coral",
     "Exemplos/Basica_1_7_2/entrada.coral",
     "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
     "Exemplos/Basica_1_7_2/tipos_conversoes.coral",

@@ -146,6 +146,26 @@ mostre objeto.nomes()
 A chamada segue a ordem C3 e visita a base comum uma única vez.
 :::
 
+### Entender o papel de cada nome no editor
+
+**Nível:** intermediário  
+**Guia:** [`VS Code`](vscode.html)
+
+```coral
+crie a classe Dieta
+fim
+
+crie a classe Animal
+    ao criar um Animal com dieta do tipo Dieta
+        defina seu dieta como dieta
+    fim
+fim
+```
+
+:::resultado
+Com o LSP ativo, o editor pode distinguir o parâmetro `dieta`, a classe `Dieta` e a propriedade `seu dieta`. As cores concretas dependem do tema do VS Code.
+:::
+
 ## Entrada e dados
 
 ### Receber uma linha digitada pelo usuário

@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -179,6 +179,15 @@
 <li data-searchable><code>05_composicao_completa.coral</code> reúne tipos estruturais, hierarquia em diamante e chamada cooperativa.</li>
 </ul>
 <p data-searchable>Os exemplos são validados pelo gate do site contra o runtime publicado antes de entrarem na documentação.</p>
+<h2 id="analise-entre-modulos-1-7-4" data-searchable>Análise entre módulos 1.7.4</h2>
+<p data-searchable><code>Exemplos/Analise_1_7_4/Cadastro/</code> é um projeto completo pequeno para estudar classes, parâmetros tipados, fachada de módulo, aliases, testes e <code>programa principal</code>.</p>
+<ul>
+<li data-searchable><code>modelos.coral</code> declara <code>Autor</code> e <code>Livro</code> e mostra parâmetros tipados no construtor.</li>
+<li data-searchable><code>fachada.coral</code> concentra os nomes públicos usados pelo consumidor.</li>
+<li data-searchable><code>principal.coral</code> executa o cadastro pela fachada sem iniciar a aplicação quando o módulo é apenas importado.</li>
+<li data-searchable><code>testes/cadastro.coral</code> verifica a mesma API pelo runner nativo.</li>
+</ul>
+<p data-searchable>O exemplo também serve para observar no VS Code como parâmetros, propriedades, classes e símbolos importados recebem papéis semânticos diferentes.</p>
 <h2 id="ciencia-e-dados" data-searchable>Ciência e dados</h2>
 <p data-searchable>A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.</p>
 <p data-searchable>Caminhos úteis:</p>
@@ -211,12 +220,13 @@
 <p data-searchable>Os códigos citados no Livro também são sincronizados em <code>Livro/Exemplos/Citados</code>. Essa cópia torna o material autocontido, enquanto a biblioteca geral continua organizada em <code>Exemplos/</code>.</p>
 <h2 id="inventario-da-distribuicao" data-searchable>Inventário da distribuição</h2>
 <p data-searchable>O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.</p>
-<p data-searchable><strong>Total detectado na release:</strong> 93 arquivos <code>.coral</code>.</p>
+<p data-searchable><strong>Total detectado na release:</strong> 97 arquivos <code>.coral</code>.</p>
 <div class="table-wrap"><table><thead><tr>
 <th>Área</th>
 <th>Arquivos</th>
 </tr></thead><tbody>
 <tr><td data-searchable>Agentes</td><td data-searchable>2</td></tr>
+<tr><td data-searchable>Analise_1_7_4</td><td data-searchable>4</td></tr>
 <tr><td data-searchable>Basica_1_7_2</td><td data-searchable>3</td></tr>
 <tr><td data-searchable>Dados</td><td data-searchable>9</td></tr>
 <tr><td data-searchable>Espaco</td><td data-searchable>3</td></tr>
@@ -244,6 +254,7 @@
 <li class="toc-level-2"><a href="#portugues-corrente" data-toc-link>Português corrente</a></li>
 <li class="toc-level-2"><a href="#biblioteca-base-1-7-2" data-toc-link>Biblioteca base 1.7.2</a></li>
 <li class="toc-level-2"><a href="#tipagem-e-heranca-1-7-3" data-toc-link>Tipagem e herança 1.7.3</a></li>
+<li class="toc-level-2"><a href="#analise-entre-modulos-1-7-4" data-toc-link>Análise entre módulos 1.7.4</a></li>
 <li class="toc-level-2"><a href="#ciencia-e-dados" data-toc-link>Ciência e dados</a></li>
 <li class="toc-level-2"><a href="#graficos" data-toc-link>Gráficos</a></li>
 <li class="toc-level-2"><a href="#web" data-toc-link>Web</a></li>

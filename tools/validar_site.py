@@ -433,6 +433,55 @@ def audit_coral_173_content() -> list[str]:
 
 
 
+def audit_coral_174_content() -> list[str]:
+    """Confere a cobertura pública das mudanças visíveis da Coral 1.7.4."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 4):
+        return errors
+    if coral == "1.7.4" and version.get("extensao_vscode") != "0.75.2":
+        errors.append("Coral 1.7.4 deve publicar Coral Language 0.75.2")
+
+    required = {
+        "docs/paginas/vscode.md": (
+            "Realce semântico por papel", "dieta do tipo Dieta", "Análise entre módulos",
+            "Fluxo conservador de tipos", "Inserir estrutura básica do coral.toml",
+        ),
+        "docs/paginas/projetos.md": (
+            "Interfaces públicas entre módulos", "Exemplos/Analise_1_7_4/Cadastro/",
+            "Estrutura básica Coral",
+        ),
+        "docs/paginas/linguagem/classes_objetos.md": (
+            "Parâmetros pertencem ao construtor", "dieta do tipo Dieta",
+        ),
+        "docs/paginas/exemplos.md": (
+            "Análise entre módulos 1.7.4", "Analise_1_7_4/Cadastro",
+        ),
+        "docs/paginas/release.md": (
+            "## Coral 1.7.4", "Editor semântico", "Análise entre módulos",
+            "coral-language-0.75.2.vsix",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.4 ausente: {rel}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in text:
+                errors.append(f"conteúdo 1.7.4 ausente em {rel}: {snippet}")
+
+    landing = (ROOT / "index.html").read_text(encoding="utf-8")
+    if "parâmetros, propriedades, funções, métodos, variáveis e módulos" not in landing:
+        errors.append("landing não apresenta a melhoria semântica do editor 1.7.4")
+    return errors
+
+
 def audit_language_core_docs() -> list[str]:
     """Garante que a linguagem base não volte a ficar escondida atrás dos módulos."""
     errors: list[str] = []
@@ -579,6 +628,7 @@ def main() -> int:
     failures.extend(audit_public_editorial_policy())
     failures.extend(audit_coral_172_content())
     failures.extend(audit_coral_173_content())
+    failures.extend(audit_coral_174_content())
     failures.extend(audit_language_core_docs())
     failures.extend(audit_examples_release_evidence())
     cleanup_runtime_residues()

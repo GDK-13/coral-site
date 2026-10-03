@@ -78,7 +78,7 @@
       "id": "coralReleaseZip",
       "type": "promptString",
       "description": "Caminho para o ZIP oficial da release Coral",
-      "default": "../Coral_1.7.3_Completo.zip"
+      "default": "../Coral_1.7.4_Completo_Atualizado.zip"
     }
   ]
 }

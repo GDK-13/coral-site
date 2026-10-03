@@ -6,11 +6,44 @@ Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distrib
 
 <!-- AUTO:VERSAO_NOTAS -->
 
-**Coral:** `1.7.3`  
-**Coral Language:** `0.74.4`  
+**Coral:** `1.7.4`  
+**Coral Language:** `0.75.2`  
 **Livro Oficial:** `1.7.0`
 
 <!-- /AUTO:VERSAO_NOTAS -->
+
+## Coral 1.7.4
+
+### Editor semântico
+
+Coral Language `0.75.2` amplia a identificação contextual dos símbolos. Classes, tipos nativos, funções, métodos, parâmetros, propriedades, variáveis e módulos podem receber categorias semânticas diferentes quando o papel da ocorrência é comprovado. O tema do VS Code continua responsável pelas cores.
+
+TextMate permanece como fallback quando o LSP ainda não possui contexto suficiente ou o documento está incompleto.
+
+### Análise entre módulos
+
+Interfaces públicas de módulo passam a carregar assinaturas, retornos, classes, membros, imports e aliases de forma mais rica. O verificador e o editor conseguem reutilizar esses contratos para acompanhar argumentos, retornos e identidades nominais entre arquivos sem executar os módulos do usuário.
+
+Aliases e reexportações preservam a origem do símbolo e possuem proteção contra ciclos. Casos que não podem ser comprovados permanecem conservadores, em vez de receber um tipo inventado.
+
+### Fluxo de tipos e diagnóstico lógico
+
+A análise conserva uma informação de tipo somente enquanto o fluxo permite justificá la. Condições, laços e atribuições potencialmente mutáveis invalidam evidências antigas quando necessário.
+
+Expressões lógicas como `verdadeiro e falso` deixam de receber o diagnóstico aritmético `T204`.
+
+### `coral.toml`
+
+Um manifesto vazio pode receber a sugestão **Estrutura básica Coral** ou ser inicializado pelo comando **Coral: Inserir estrutura básica do coral.toml**. O editor não sobrescreve um arquivo já preenchido e evita aplicar uma resposta obsoleta quando o documento muda durante a operação.
+
+### Exemplos e distribuição
+
+A distribuição acrescenta `Exemplos/Analise_1_7_4/Cadastro/`, um projeto pequeno com classes, parâmetros tipados, fachada de módulo, aliases, testes e `programa principal`.
+
+* Runtime portátil: `coral-1.7.4.pyz`.
+* Extensão: `coral-language-0.75.2.vsix`.
+* Livro Oficial preservado na edição `1.7.0`.
+* Linux permanece como plataforma autoritativa desta distribuição.
 
 ## Coral 1.7.3
 

@@ -43,6 +43,18 @@ mostre dobre 21
 
 A forma natural não é uma substituição textual solta. Ela participa do parser e das interfaces de módulo.
 
+## Interfaces públicas entre módulos
+
+A análise de projeto não precisa executar um módulo para descobrir sua superfície pública. A Coral registra contratos com funções, classes, assinaturas, retornos, membros, imports e aliases. O editor e o verificador reutilizam esses contratos para acompanhar símbolos entre arquivos.
+
+O projeto oficial `Exemplos/Analise_1_7_4/Cadastro/` mostra essa organização. `modelos.coral` declara `Autor` e `Livro`, `fachada.coral` publica nomes usados pelo restante do projeto e `principal.coral` consome a fachada a partir de `programa principal`.
+
+Esse mecanismo também protege cadeias de aliases e reexportações contra ciclos. Quando a análise não consegue comprovar um detalhe, ela preserva o estado desconhecido em vez de assumir um tipo ou membro.
+
+## Criar o manifesto no VS Code
+
+Se você abrir um arquivo vazio chamado exatamente `coral.toml`, Coral Language pode oferecer a sugestão **Estrutura básica Coral**. Também existe o comando **Coral: Inserir estrutura básica do coral.toml**. O conteúdo existente é preservado; o editor não substitui silenciosamente um manifesto já preenchido.
+
 ## Validar e construir
 
 A CLI oferece comandos para validar, construir e executar projetos. O VS Code expõe as mesmas operações pela interface para evitar que o terminal seja obrigatório no uso cotidiano.

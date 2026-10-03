@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -163,6 +163,17 @@ execute contador.<span class="code-fn">somar</span>(<span class="code-num">5</sp
 <span class="code-key">mostre</span> contador.atual</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O objeto começa com valor <code>10</code>, o método soma <code>5</code> e a propriedade retorna <code>15</code>.</p></div></details>
 <p data-searchable><code>ao criar</code> define a inicialização da instância. As formas <code>seu</code>, <code>sua</code>, <code>seus</code> e <code>suas</code> acessam atributos do objeto atual.</p>
+<h2 id="parametros-pertencem-ao-construtor" data-searchable>Parâmetros pertencem ao construtor</h2>
+<p data-searchable>Parâmetros usados para criar uma instância ficam em <code>ao criar</code>, inclusive quando possuem anotação de tipo. O cabeçalho da classe declara a classe e suas bases, não a lista de argumentos do construtor.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">classe</span> Dieta
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">classe</span> Animal
+    ao criar um Animal com dieta do <span class="code-key">tipo</span> Dieta
+        <span class="code-key">defina</span> seu dieta como dieta
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>dieta</code> é recebido pelo construtor com o tipo esperado <code>Dieta</code> e depois armazenado na propriedade <code>seu dieta</code>. A anotação pertence ao parâmetro, não à propriedade no lado esquerdo da atribuição.</p></div></details>
 <h2 id="metodos-e-propriedades" data-searchable>Métodos e propriedades</h2>
 <p data-searchable><code>método nome</code> declara uma operação de instância. <code>propriedade nome</code> permite consultar um valor como atributo. A linguagem também possui formas para método estático, método de classe e definição de propriedade quando esses comportamentos forem necessários.</p>
 <h2 id="heranca-simples" data-searchable>Herança simples</h2>
@@ -228,6 +239,7 @@ execute contador.<span class="code-fn">somar</span>(<span class="code-num">5</sp
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#criar-uma-classe" data-toc-link>Criar uma classe</a></li>
+<li class="toc-level-2"><a href="#parametros-pertencem-ao-construtor" data-toc-link>Parâmetros pertencem ao construtor</a></li>
 <li class="toc-level-2"><a href="#metodos-e-propriedades" data-toc-link>Métodos e propriedades</a></li>
 <li class="toc-level-2"><a href="#heranca-simples" data-toc-link>Herança simples</a></li>
 <li class="toc-level-2"><a href="#heranca-multipla" data-toc-link>Herança múltipla</a></li>

@@ -47,8 +47,8 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.3</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.74.4</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
       <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
@@ -164,13 +164,34 @@
 <p data-searchable><code>programa principal</code> também aparece no outline e participa de hover, dobramento, indentação e fechamento automático de bloco. A análise permanece conservadora quando o documento está incompleto durante a edição.</p>
 <h2 id="coloracao-e-tema" data-searchable>Coloração e tema</h2>
 <p data-searchable>A extensão não impõe uma paleta própria ao código. TextMate garante realce léxico enquanto o LSP não está disponível e semantic tokens refinam o papel real de símbolos quando há contexto suficiente. O tema do usuário continua soberano.</p>
+<h2 id="realce-semantico-por-papel" data-searchable>Realce semântico por papel</h2>
+<p data-searchable>A coloração semântica usa o significado que o LSP consegue comprovar no contexto do arquivo. O tema continua decidindo as cores; a extensão fornece categorias e modificadores, não uma paleta fixa.</p>
+<p data-searchable>No exemplo abaixo, as ocorrências de <code>dieta</code> não exercem o mesmo papel:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">classe</span> Dieta
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">classe</span> Animal
+    ao criar um Animal com dieta do <span class="code-key">tipo</span> Dieta
+        <span class="code-key">defina</span> seu dieta como dieta
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<p data-searchable>O primeiro <code>dieta</code> no construtor é um <strong>parâmetro</strong>, <code>Dieta</code> é uma <strong>classe</strong>, <code>seu dieta</code> é uma <strong>propriedade</strong> e a última ocorrência volta a ser o parâmetro. Funções, métodos, variáveis, módulos e símbolos importados também recebem categorias próprias quando a identidade pode ser resolvida.</p>
+<p data-searchable>Quando o código está incompleto ou um símbolo ainda não foi resolvido, o editor preserva o realce lexical do TextMate em vez de inventar uma classificação.</p>
+<h2 id="analise-entre-modulos" data-searchable>Análise entre módulos</h2>
+<p data-searchable>Projetos usam interfaces públicas dos módulos para transportar assinaturas, retornos, classes, membros, imports, aliases e reexportações sem executar o código do usuário. Isso permite que hover, completion, navegação e diagnósticos mantenham a mesma identidade ao atravessar uma fachada de módulo.</p>
+<p data-searchable>A análise permanece conservadora. Membros qualificados e relações de herança que não possam ser comprovados com segurança podem permanecer sem refinamento semântico.</p>
+<h2 id="fluxo-conservador-de-tipos" data-searchable>Fluxo conservador de tipos</h2>
+<p data-searchable>O editor mantém uma evidência de tipo somente enquanto ela continua válida. Condições, laços e atribuições que podem alterar um valor invalidam certezas antigas quando o fluxo não permite provar o tipo resultante. Expressões lógicas como <code>verdadeiro e falso</code> são tratadas como lógica e não recebem o diagnóstico aritmético <code>T204</code>.</p>
+<h2 id="coral-toml-no-editor" data-searchable><code>coral.toml</code> no editor</h2>
+<p data-searchable>Ao abrir um <code>coral.toml</code> vazio, a extensão pode sugerir <strong>Estrutura básica Coral</strong>. O comando <strong>Coral: Inserir estrutura básica do coral.toml</strong> oferece a mesma criação de forma explícita.</p>
+<p data-searchable>A inserção é conservadora: um manifesto já preenchido não é sobrescrito e uma resposta deixa de ser aplicada se o arquivo tiver sido alterado enquanto a operação aguardava conclusão. Completion, hover e diagnósticos continuam disponíveis para as chaves do manifesto.</p>
 <h2 id="linha-longa" data-searchable>Linha longa</h2>
 <p data-searchable>O limite editorial corrente é de 150 caracteres. Quando uma linha ultrapassa esse tamanho, o editor pode oferecer uma prévia de quebra antes de aplicar a alteração.</p>
 <h2 id="ambiente-coral" data-searchable>Ambiente Coral</h2>
 <p data-searchable>A visão Ambiente Coral reúne runtime selecionado, versão, projeto atual, estado do LSP e do DAP, confiança do workspace, componentes e problemas relevantes.</p>
 <h2 id="recuperacao-de-falhas" data-searchable>Recuperação de falhas</h2>
 <p data-searchable>Quando o LSP falha, a extensão deve deixar o estado degradado explícito e oferecer reinício e acesso ao log. O fallback local continua disponível apenas para o que pode ser feito com segurança sem semântica de projeto.</p>
-<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.74.4</code> para Coral <code>1.7.3</code>.</p>
+<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.75.2</code> para Coral <code>1.7.4</code>.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="guias_objetivos.html"><span>Anterior</span><strong>O que você quer fazer?</strong></a><a class="docs-page-nav-link next" href="diagnosticos.html"><span>Próxima</span><strong>Diagnósticos</strong></a></nav>
   </main>
@@ -181,6 +202,10 @@
 <li class="toc-level-2"><a href="#diagnosticos-de-execucao" data-toc-link>Diagnósticos de execução</a></li>
 <li class="toc-level-2"><a href="#tipos-heranca-e-entrada-principal" data-toc-link>Tipos, herança e entrada principal</a></li>
 <li class="toc-level-2"><a href="#coloracao-e-tema" data-toc-link>Coloração e tema</a></li>
+<li class="toc-level-2"><a href="#realce-semantico-por-papel" data-toc-link>Realce semântico por papel</a></li>
+<li class="toc-level-2"><a href="#analise-entre-modulos" data-toc-link>Análise entre módulos</a></li>
+<li class="toc-level-2"><a href="#fluxo-conservador-de-tipos" data-toc-link>Fluxo conservador de tipos</a></li>
+<li class="toc-level-2"><a href="#coral-toml-no-editor" data-toc-link>coral.toml no editor</a></li>
 <li class="toc-level-2"><a href="#linha-longa" data-toc-link>Linha longa</a></li>
 <li class="toc-level-2"><a href="#ambiente-coral" data-toc-link>Ambiente Coral</a></li>
 <li class="toc-level-2"><a href="#recuperacao-de-falhas" data-toc-link>Recuperação de falhas</a></li></ul>

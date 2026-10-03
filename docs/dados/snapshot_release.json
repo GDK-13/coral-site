@@ -1,6 +1,6 @@
 {
-  "runtime": "1.7.3",
-  "extensao_vscode": "0.74.4",
+  "runtime": "1.7.4",
+  "extensao_vscode": "0.75.2",
   "livro": "1.7.0",
   "modulos": {
     "agentes": [
@@ -825,6 +825,10 @@
   "exemplos": [
     "Exemplos/Agentes/01_recursos_atributos_e_efeitos.coral",
     "Exemplos/Agentes/02_habilidades_e_fila.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/fachada.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/modelos.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/principal.coral",
+    "Exemplos/Analise_1_7_4/Cadastro/testes/cadastro.coral",
     "Exemplos/Basica_1_7_2/entrada.coral",
     "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
     "Exemplos/Basica_1_7_2/tipos_conversoes.coral",
@@ -918,7 +922,7 @@
     "Exemplos/Web/04_grafico_interativo_local.coral"
   ],
   "sintaxe": {
-    "release": "1.7.3",
+    "release": "1.7.4",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -1032,5 +1036,32 @@
       "identificadores": "Projeto/coral/identificadores.py"
     }
   },
-  "source": "Coral_1.7.3_Completo.zip"
+  "editor": {
+    "interface_modulo": 2,
+    "semantic_token_types": [
+      "keyword",
+      "function",
+      "class",
+      "variable",
+      "parameter",
+      "property",
+      "namespace",
+      "string",
+      "number",
+      "comment",
+      "type",
+      "method"
+    ],
+    "semantic_token_modifiers": [
+      "declaration",
+      "defaultLibrary",
+      "static",
+      "async",
+      "local",
+      "global"
+    ],
+    "contratos_importados": true,
+    "modelo_coral_toml": true
+  },
+  "source": "Coral_1.7.4_Completo_Atualizado.zip"
 }

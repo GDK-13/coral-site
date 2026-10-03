@@ -33,7 +33,7 @@ O exemplo mostra saída, variável, alteração de valor e uma decisão condicio
 Com o runtime portátil:
 
 ```bash
-python coral-1.7.3.pyz executar ola.coral
+python coral-1.7.4.pyz executar ola.coral
 ```
 
 Se a instalação persistente já estiver registrada, você pode usar o comando Coral configurado pelo instalador.
@@ -43,7 +43,7 @@ Se a instalação persistente já estiver registrada, você pode usar o comando 
 Para validar o programa sem rodar seus efeitos:
 
 ```bash
-python coral-1.7.3.pyz verificar ola.coral
+python coral-1.7.4.pyz verificar ola.coral
 ```
 
 Essa etapa é útil para detectar erros sintáticos e semânticos antes da execução.

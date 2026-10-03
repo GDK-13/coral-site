@@ -56,6 +56,7 @@ class ReleaseInfo:
     exemplos: list[str]
     changelog: str
     sintaxe: dict[str, Any]
+    editor: dict[str, Any]
     source: str
 
 
@@ -234,6 +235,33 @@ def extract_structural_language_contract(zf: zipfile.ZipFile) -> list[str]:
     if read_zip_text(zf, "Projeto/coral/entrada_principal.py"):
         features.append("programa principal")
     return features
+
+
+def extract_editor_contract(zf: zipfile.ZipFile) -> dict[str, Any]:
+    """Inventaria contratos do editor que podem mudar sem alterar a gramática."""
+    interface_source = read_zip_text(zf, "Projeto/coral/interfaces_modulo.py")
+    lsp_source = read_zip_text(zf, "Projeto/coral/lsp.py")
+    package_source = read_zip_text(zf, "Projeto/vscode-coral/package.json")
+    imported_source = read_zip_text(zf, "Projeto/coral/contratos_importados.py")
+    result: dict[str, Any] = {
+        "interface_modulo": None,
+        "semantic_token_types": [],
+        "semantic_token_modifiers": [],
+        "contratos_importados": bool(imported_source),
+        "modelo_coral_toml": "Inserir estrutura básica do coral.toml" in package_source,
+    }
+    if interface_source:
+        try:
+            result["interface_modulo"] = int(literal_assignment(interface_source, "VERSAO_INTERFACE"))
+        except Exception:
+            pass
+    if lsp_source:
+        for source_name, key in (("SEMANTIC_TOKEN_TYPES", "semantic_token_types"), ("SEMANTIC_TOKEN_MODIFIERS", "semantic_token_modifiers")):
+            try:
+                result[key] = _string_collection(_assignment_expr(lsp_source, source_name))
+            except Exception:
+                pass
+    return result
 
 
 def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]:
@@ -432,6 +460,7 @@ def import_release(zip_path: Path) -> ReleaseInfo:
             })
         modules = enrich_modules_from_zip(zf, modules)
         syntax = extract_syntax_contract(zf, runtime)
+        editor = extract_editor_contract(zf)
 
         contracts = read_generated_contract(zf)
         cli = parse_cli_contract(contracts)
@@ -445,7 +474,7 @@ def import_release(zip_path: Path) -> ReleaseInfo:
         changelog_all = read_zip_text(zf, "Projeto/CHANGELOG.md")
         changelog = changelog_for_version(changelog_all, runtime)
 
-    return ReleaseInfo(runtime, ext, livro, modules, cli, examples, changelog, syntax, zip_path.name)
+    return ReleaseInfo(runtime, ext, livro, modules, cli, examples, changelog, syntax, editor, zip_path.name)
 
 
 def release_snapshot(info: ReleaseInfo) -> dict[str, Any]:
@@ -457,6 +486,7 @@ def release_snapshot(info: ReleaseInfo) -> dict[str, Any]:
         "cli": info.cli,
         "exemplos": info.exemplos,
         "sintaxe": info.sintaxe,
+        "editor": info.editor,
         "source": info.source,
     }
 
@@ -485,6 +515,7 @@ def diff_release(old: dict[str, Any], new: dict[str, Any]) -> dict[str, Any]:
         "exemplos_removidos": sorted(old_ex - new_ex),
         "sintaxe_alterada": ({k: v for k, v in old.get("sintaxe", {}).items() if k != "release"}
                              != {k: v for k, v in new.get("sintaxe", {}).items() if k != "release"}),
+        "editor_alterado": old.get("editor", {}) != new.get("editor", {}),
     }
 
 
@@ -898,6 +929,17 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
     example_lines += [f"| {name} | {count} |" for name, count in sorted(groups.items())]
     replace_auto_block(PAGINAS / "exemplos.md", "EXEMPLOS", "\n".join(example_lines))
 
+    tasks_path = ROOT / ".vscode" / "tasks.json"
+    if tasks_path.exists() and version.get("fonte_release"):
+        try:
+            tasks = read_json(tasks_path, {})
+            for item in tasks.get("inputs", []):
+                if item.get("id") == "coralReleaseZip":
+                    item["default"] = "../" + str(version["fonte_release"])
+            write_json(tasks_path, tasks)
+        except Exception:
+            pass
+
 
 def write_review_report(diff: dict[str, Any]) -> None:
     path = ROOT / ".site-local" / "REVISAO_PENDENTE.md"
@@ -930,6 +972,10 @@ def write_review_report(diff: dict[str, Any]) -> None:
         "",
         "Alterado em relação ao snapshot anterior." if diff.get("sintaxe_alterada") else "Sem alteração detectada.",
         "",
+        "## Contrato do editor",
+        "",
+        "Alterado em relação ao snapshot anterior." if diff.get("editor_alterado") else "Sem alteração detectada.",
+        "",
         "## Checklist humano",
         "",
         "* [ ] Revisar páginas pedagógicas dos módulos novos ou alterados.",
@@ -952,6 +998,7 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
         "modulos_novos": [m["nome"] for m in info.modulos], "modulos_removidos": [], "modulos_alterados": [],
         "cli_novo": info.cli.get("opcoes", []) + info.cli.get("subcomandos", []), "cli_removido": [],
         "exemplos_novos": info.exemplos, "exemplos_removidos": [], "sintaxe_alterada": True,
+        "editor_alterado": True,
     }
 
     livro_pdf = sync_book_pdf(zip_path, info.livro)
@@ -995,6 +1042,7 @@ def print_diff(diff: dict[str, Any]) -> None:
         if len(values) > 12:
             print(f"  • ... e mais {len(values)-12}")
     print(f"Sintaxe alterada: {'sim' if diff.get('sintaxe_alterada') else 'não'}")
+    print(f"Contrato do editor alterado: {'sim' if diff.get('editor_alterado') else 'não'}")
     print("\nRevisão manual recomendada:")
     if diff.get("modulos_novos"):
         print("  • Completar os guias pedagógicos dos módulos novos.")
@@ -1002,6 +1050,8 @@ def print_diff(diff: dict[str, Any]) -> None:
         print("  • Revisar links e texto que mencionem itens removidos.")
     if diff.get("exemplos_novos"):
         print("  • Escolher quais exemplos novos merecem destaque editorial.")
+    if diff.get("editor_alterado"):
+        print("  • Revisar VS Code, projetos e recursos de análise expostos ao usuário.")
     print("  • Abrir o site localmente e revisar a navegação antes do git push.")
 
 
