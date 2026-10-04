@@ -1,5 +1,5 @@
 {
-  "release": "1.7.4",
+  "release": "1.7.5",
   "esquema": "1.5.8",
   "lexemas": [
     "aguarde",
@@ -105,7 +105,10 @@
     "herança múltipla com MRO C3",
     "chame o método pai",
     "inicialize a classe pai",
-    "programa principal"
+    "programa principal",
+    "valor for do tipo Classe",
+    "valor não for do tipo Classe",
+    "chame alvo com ... fim"
   ],
   "origem": {
     "esquema": "Projeto/coral/esquema_sintatico.py",

@@ -336,6 +336,8 @@ Exemplo:
 }
 ```
 
+Quando `Livro/EDICAO.json` declarar uma coleção oficial, o mesmo arquivo também registra `livro_pdfs`, `livro_htmls`, `livro_leitor` e, quando disponível, `livro_revisao`.
+
 O HTML também recebe valores de fallback durante a geração para continuar legível quando aberto diretamente.
 
 ## 13. Revisão local

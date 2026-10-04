@@ -1,55 +1,50 @@
 # Livro Oficial
 
-O Livro Oficial é a trilha longa de aprendizagem da Coral. Ele organiza a linguagem, a biblioteca padrão, as ferramentas e a arquitetura em uma sequência contínua, sem substituir a referência rápida do site.
+O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.
 
 <!-- AUTO:EDICAO -->
 
-**Edição editorial corrente:** `1.7.0`.  
-**Runtime corrente:** `1.7.4`.
+**Edição editorial corrente:** `1.7.5`.  
+**Runtime corrente:** `1.7.5`.
 
 <!-- /AUTO:EDICAO -->
 
-## Percurso do Livro
+## Volume I — Linguagem e Desenvolvimento
 
-O conteúdo está organizado em seis partes e dois apêndices.
+O **Volume I** é voltado a leitores iniciantes e intermediários. Ele conduz a leitura de forma progressiva, com explicações acessíveis, exemplos, atividades, resumos e fichas técnicas suficientes para programar sem transformar cada capítulo em uma especificação seca.
 
-| Parte | Foco |
-|---|---|
-| I | Começar com Coral, instalar, configurar o VS Code e criar os primeiros programas |
-| II | Linguagem Coral, controle de fluxo, coleções, funções, objetos, assincronismo, espaço e mapas |
-| III | Projetos, biblioteca padrão, regras, mundo, RPG, Jogos e recursos científicos |
-| IV | CLI, VS Code, depuração, diagnóstico e solução de problemas |
-| V | Implementação técnica, compilador, LSP, DAP, extensão e instalação |
-| VI | Referência sintática, biblioteca padrão, APIs, CLI, configuração, exercícios e glossário |
+A edição 1.7.5 possui **42 capítulos** no Volume I. A revisão de leitura QoL 1 aproxima respostas das atividades, reorganiza exemplos introdutórios e mantém as fichas técnicas completas.
 
-## Livro em números
+Use este volume quando quiser aprender a linguagem, construir programas e avançar da base até um uso intermediário.
 
-A edição oficial 1.7.0 possui **53 capítulos**, **135 páginas A4** no PDF gerado e **24 arquivos `.coral`** na árvore pedagógica de `Livro/Exemplos`, incluindo exemplos citados pelo texto e projetos completos.
+## Volume II — Referência e Arquitetura
 
-## Baixar a edição corrente
+O **Volume II** é voltado à consulta aprofundada. Ele reúne a referência técnica, biblioteca, ferramentas e arquitetura da Coral de forma organizada para quem já sabe o que procura ou precisa entender contratos e implementação com mais detalhe.
+
+Use este volume como companheiro de consulta, especialmente quando uma função, módulo, ferramenta ou comportamento exige mais profundidade do que o percurso pedagógico do Volume I.
+
+## Escolha como ler
 
 <!-- AUTO:DOWNLOAD_LIVRO -->
 
-[Baixar o Livro Oficial Coral 1.7.0 em PDF](../downloads/Coral_1.7.0_Livro_Oficial.pdf)
+[Volume I em PDF](../downloads/Coral_1.7.5_Volume_I.pdf)  
+[Volume II em PDF](../downloads/Coral_1.7.5_Volume_II.pdf)  
+[Ler os volumes no navegador](../livros/1.7.5/index.html)
 
 <!-- /AUTO:DOWNLOAD_LIVRO -->
 
-## Como usar o Livro e o site juntos
+A leitura no navegador permite ajustar fonte, largura e tema, navegar pelo sumário e copiar exemplos. Os PDFs expandem o conteúdo para leitura contínua e impressão.
 
-Use o Livro quando quiser aprender um assunto em sequência ou acompanhar um percurso completo. Use o site quando precisar localizar rapidamente uma API, módulo, comando, guia por objetivo ou exemplo curto.
+## Livro e documentação Web
 
-No **Modo Aprender**, o site funciona como apoio ao percurso do Livro. No **Modo Referência**, ele funciona como consulta compacta enquanto você programa.
+O Livro e o site cumprem papéis complementares. O Volume I é melhor para estudar em sequência; o Volume II para referência aprofundada; o site para busca rápida, guias por objetivo, módulos, exemplos e consulta durante a programação.
 
-## Exemplos do Livro
+No **Modo Aprender**, o site acompanha o percurso didático. No **Modo Referência**, ele privilegia consulta compacta enquanto você programa.
 
-Os códigos citados pelo texto são mantidos também como arquivos reais em `Livro/Exemplos`. Isso permite abrir, executar e estudar os exemplos fora do PDF.
+## Exemplos
 
-## Identidade visual
+Os exemplos do Livro são mantidos como arquivos reais na distribuição. Isso permite abrir, executar e modificar os programas fora do PDF ou do leitor HTML. Os exemplos publicados pelo site também são revalidados contra o runtime da release corrente.
 
-O Livro é distribuído em PDF A4 com a identidade oficial da Coral e tipografia voltada à leitura contínua.
+## Edição atual
 
-## Complemento da documentação Web
-
-O Livro Oficial permanece na edição `1.7.0`, enquanto o runtime corrente é `1.7.4`. Recursos posteriores à edição do Livro são complementados pela documentação Web, incluindo formas naturais da biblioteca base, diagnósticos de execução, tipos estruturais, nulidade, herança múltipla cooperativa, `programa principal` e as ferramentas semânticas atuais do editor para símbolos e projetos entre módulos.
-
-Para esses recursos, consulte **Introdução**, [**Tipos e tipagem**](linguagem/tipos_tipagem.html), [**Classes e objetos**](linguagem/classes_objetos.html), [**Programa principal**](linguagem/programa_principal.html), os módulos da biblioteca base e a página [**Diagnósticos**](diagnosticos.html).
+A coleção publicada corresponde à Coral `1.7.5` e à Coral Language `0.76.0`. A edição legada 1.7.0 permanece na distribuição apenas para compatibilidade com o formato anterior do Livro.

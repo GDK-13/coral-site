@@ -63,6 +63,16 @@ Os exemplos são validados pelo gate do site contra o runtime publicado antes de
 
 O exemplo também serve para observar no VS Code como parâmetros, propriedades, classes e símbolos importados recebem papéis semânticos diferentes.
 
+## Classes e chamadas 1.7.5
+
+`Exemplos/Analise_1_7_5/Ecossistema/` é um projeto curto para estudar as duas construções centrais da versão.
+
+* `modelos.coral` define `Animal`, subclasses com herança múltipla e `Celula`, cujos métodos consultam pertencimento a classes com `for do tipo`.
+* `principal.coral` importa as classes e cria uma célula com uma chamada explícita multilinha.
+* `testes/ecossistema.coral` confere o mesmo comportamento pelo runner nativo.
+
+O projeto **Ecossistema** também é útil para observar no VS Code conclusão de classes depois de `do tipo`, navegação entre arquivos e ajuda de assinatura em chamadas multilinha.
+
 ## Ciência e dados
 
 A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
@@ -107,12 +117,13 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 97 arquivos `.coral`.
+**Total detectado na release:** 100 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
 | Agentes | 2 |
 | Analise_1_7_4 | 4 |
+| Analise_1_7_5 | 3 |
 | Basica_1_7_2 | 3 |
 | Dados | 9 |
 | Espaco | 3 |

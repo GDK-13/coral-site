@@ -86,3 +86,36 @@ mostre dobre 21
 :::resultado
 A forma natural chama a mesma função e produz `42`.
 :::
+
+
+## Chamadas explícitas multilinha
+
+Quando uma chamada começa a ficar larga ou possui argumentos aninhados, a Coral 1.7.5 permite escrever cada argumento em sua própria linha. `com` no fim da linha abre a chamada e `fim` a encerra.
+
+```coral
+crie a função somar com a e b
+    retorne a mais b
+fim
+
+crie a função calcular com a e b
+    retorne a vezes b
+fim
+
+defina total como chame somar com
+    10
+    chame calcular com
+        20
+        30
+    fim
+fim
+
+mostre total
+```
+
+:::resultado
+A chamada interna produz `600`; a chamada externa soma `10` e mostra `610`.
+:::
+
+Em uma chamada multilinha, cada linha do bloco representa um argumento completo. Chamadas aninhadas têm o próprio `fim`. Comentários e linhas vazias não viram argumentos, e argumentos nomeados ou expansões continuam disponíveis. Os argumentos são avaliados uma vez, da esquerda para a direita.
+
+Para uma chamada sem argumentos, continue usando `chame funcao`. Um bloco aberto com `com` precisa ter pelo menos um argumento e ser fechado com `fim`.

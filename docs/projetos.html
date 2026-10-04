@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -169,6 +169,8 @@
 <p data-searchable>A análise de projeto não precisa executar um módulo para descobrir sua superfície pública. A Coral registra contratos com funções, classes, assinaturas, retornos, membros, imports e aliases. O editor e o verificador reutilizam esses contratos para acompanhar símbolos entre arquivos.</p>
 <p data-searchable>O projeto oficial <code>Exemplos/Analise_1_7_4/Cadastro/</code> mostra essa organização. <code>modelos.coral</code> declara <code>Autor</code> e <code>Livro</code>, <code>fachada.coral</code> publica nomes usados pelo restante do projeto e <code>principal.coral</code> consome a fachada a partir de <code>programa principal</code>.</p>
 <p data-searchable>Esse mecanismo também protege cadeias de aliases e reexportações contra ciclos. Quando a análise não consegue comprovar um detalhe, ela preserva o estado desconhecido em vez de assumir um tipo ou membro.</p>
+<h2 id="projeto-ecossistema-da-1-7-5" data-searchable>Projeto Ecossistema da 1.7.5</h2>
+<p data-searchable><code>Exemplos/Analise_1_7_5/Ecossistema/</code> mostra um projeto pequeno em que classes são importadas entre arquivos, consultas <code>for do tipo</code> respeitam herança e uma construção de objeto usa chamada explícita multilinha. É um bom exemplo para verificar navegação, hover e análise de projeto sem concentrar tudo em um único arquivo.</p>
 <h2 id="criar-o-manifesto-no-vs-code" data-searchable>Criar o manifesto no VS Code</h2>
 <p data-searchable>Se você abrir um arquivo vazio chamado exatamente <code>coral.toml</code>, Coral Language pode oferecer a sugestão <strong>Estrutura básica Coral</strong>. Também existe o comando <strong>Coral: Inserir estrutura básica do coral.toml</strong>. O conteúdo existente é preservado; o editor não substitui silenciosamente um manifesto já preenchido.</p>
 <h2 id="validar-e-construir" data-searchable>Validar e construir</h2>
@@ -184,6 +186,7 @@
 <li class="toc-level-2"><a href="#importar-funcoes" data-toc-link>Importar funções</a></li>
 <li class="toc-level-2"><a href="#formas-naturais-importadas" data-toc-link>Formas naturais importadas</a></li>
 <li class="toc-level-2"><a href="#interfaces-publicas-entre-modulos" data-toc-link>Interfaces públicas entre módulos</a></li>
+<li class="toc-level-2"><a href="#projeto-ecossistema-da-1-7-5" data-toc-link>Projeto Ecossistema da 1.7.5</a></li>
 <li class="toc-level-2"><a href="#criar-o-manifesto-no-vs-code" data-toc-link>Criar o manifesto no VS Code</a></li>
 <li class="toc-level-2"><a href="#validar-e-construir" data-toc-link>Validar e construir</a></li></ul>
   </aside>

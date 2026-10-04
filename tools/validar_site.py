@@ -341,8 +341,8 @@ def audit_coral_172_content() -> list[str]:
         return errors
     if coral == "1.7.2" and version.get("extensao_vscode") != "0.74.0":
         errors.append("Coral 1.7.2 deve publicar Coral Language 0.74.0")
-    if version.get("livro") != "1.7.0":
-        errors.append("a linha 1.7.x corrente deve preservar o Livro Oficial 1.7.0 enquanto não houver nova edição")
+    if _version_tuple(coral) < (1, 7, 5) and version.get("livro") != "1.7.0":
+        errors.append("releases 1.7.2 a 1.7.4 devem preservar o Livro Oficial 1.7.0")
 
     required = {
         "docs/paginas/diagnosticos.md": ("R102", "R110", "R203", "exceptionInfo.details.diagnostico"),
@@ -482,6 +482,85 @@ def audit_coral_174_content() -> list[str]:
     return errors
 
 
+
+def audit_coral_175_content() -> list[str]:
+    """Confere a cobertura pública das mudanças da Coral 1.7.5 e da coleção oficial do Livro."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 5):
+        return errors
+    if coral == "1.7.5" and version.get("extensao_vscode") != "0.76.0":
+        errors.append("Coral 1.7.5 deve publicar Coral Language 0.76.0")
+    if coral == "1.7.5" and version.get("livro") != "1.7.5":
+        errors.append("Coral 1.7.5 deve publicar a coleção oficial do Livro 1.7.5")
+
+    required = {
+        "docs/paginas/linguagem/tipos_tipagem.md": (
+            "for do tipo Animal", "não for do tipo", "e_tipo", "modelos.Animal",
+        ),
+        "docs/paginas/linguagem/funcoes_escopo.md": (
+            "Chamadas explícitas multilinha", "chame somar com", "cada linha",
+        ),
+        "docs/paginas/vscode.md": (
+            "Coral Language 0.76.0", "do tipo", "chamadas multilinha", "documento aberto",
+        ),
+        "docs/paginas/exemplos.md": (
+            "Analise_1_7_5/Ecossistema", "Ecossistema",
+        ),
+        "docs/paginas/release.md": (
+            "## Coral 1.7.5", "Consultas naturais de classe", "Chamadas explícitas multilinha",
+            "coral-language-0.76.0.vsix",
+        ),
+        "docs/paginas/livro.md": (
+            "Volume I", "Volume II", "Linguagem e Desenvolvimento", "Referência e Arquitetura",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.5 ausente: {rel}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in text:
+                errors.append(f"conteúdo 1.7.5 ausente em {rel}: {snippet}")
+
+    syntax_path = ROOT / "docs" / "dados" / "sintaxe.json"
+    if syntax_path.exists():
+        syntax = json.loads(syntax_path.read_text(encoding="utf-8"))
+        features = set(syntax.get("estruturas_linguagem", []))
+        expected = {"valor for do tipo Classe", "valor não for do tipo Classe", "chame alvo com ... fim"}
+        missing = sorted(expected - features)
+        if missing:
+            errors.append("snapshot da linguagem não registra estruturas da 1.7.5: " + ", ".join(missing))
+
+    snapshot_path = ROOT / "docs" / "dados" / "snapshot_release.json"
+    if snapshot_path.exists():
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+        editor = snapshot.get("editor", {})
+        for field in ("servico_documentos", "servico_snapshots", "indice_seletivo", "chamadas_multilinha"):
+            if editor.get(field) is not True:
+                errors.append(f"snapshot do editor 1.7.5 não registra {field}")
+
+    pdfs = version.get("livro_pdfs") or []
+    htmls = version.get("livro_htmls") or []
+    if len(pdfs) != 2:
+        errors.append(f"Livro 1.7.5 deve publicar dois PDFs, encontrados {len(pdfs)}")
+    if len(htmls) != 2:
+        errors.append(f"Livro 1.7.5 deve publicar dois HTMLs, encontrados {len(htmls)}")
+    for item in [*pdfs, *htmls]:
+        rel = item.get("arquivo", "") if isinstance(item, dict) else str(item)
+        if not rel or not (ROOT / rel).exists():
+            errors.append(f"artefato do Livro 1.7.5 ausente: {rel or item}")
+    reader = str(version.get("livro_leitor") or "")
+    if not reader or not (ROOT / reader).exists():
+        errors.append("leitor público da coleção Livro 1.7.5 ausente")
+    return errors
+
 def audit_language_core_docs() -> list[str]:
     """Garante que a linguagem base não volte a ficar escondida atrás dos módulos."""
     errors: list[str] = []
@@ -573,7 +652,7 @@ def audit_examples_release_evidence() -> list[str]:
     return errors
 
 def audit_header_layout_contract() -> list[str]:
-    """Impede regressão do cabeçalho claro quando rótulos ficam mais largos."""
+    """Impede regressões de corte e overflow do cabeçalho em larguras intermediárias."""
     errors: list[str] = []
     css_path = ROOT / "assets" / "css" / "styles.css"
     if not css_path.exists():
@@ -581,9 +660,12 @@ def audit_header_layout_contract() -> list[str]:
     css = css_path.read_text(encoding="utf-8")
     contracts = {
         "botões do cabeçalho não podem quebrar linha": "white-space: nowrap;",
-        "ações do cabeçalho precisam poder ceder espaço à busca": "min-width: 0; flex: 1 1 auto;",
-        "busca é o elemento elástico do cabeçalho": "flex: 1 1 280px;",
+        "ações do cabeçalho precisam poder ceder espaço": "min-width: 0; flex: 1 1 auto;",
+        "busca é elástica em desktop": "flex: 1 1 280px;",
         "botões permanecem não encolhíveis": "flex: 0 0 auto;",
+        "há compactação antes do menu móvel": "@media (max-width: 1220px)",
+        "menu principal colapsa antes de cortar conteúdo": "@media (max-width: 1040px)",
+        "contrato responsivo intermediário está documentado": "Cabeçalho intermediário: evita corte",
     }
     for label, snippet in contracts.items():
         if snippet not in css:
@@ -629,6 +711,7 @@ def main() -> int:
     failures.extend(audit_coral_172_content())
     failures.extend(audit_coral_173_content())
     failures.extend(audit_coral_174_content())
+    failures.extend(audit_coral_175_content())
     failures.extend(audit_language_core_docs())
     failures.extend(audit_examples_release_evidence())
     cleanup_runtime_residues()

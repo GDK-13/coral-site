@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -182,6 +182,12 @@
 <p data-searchable>A análise permanece conservadora. Membros qualificados e relações de herança que não possam ser comprovados com segurança podem permanecer sem refinamento semântico.</p>
 <h2 id="fluxo-conservador-de-tipos" data-searchable>Fluxo conservador de tipos</h2>
 <p data-searchable>O editor mantém uma evidência de tipo somente enquanto ela continua válida. Condições, laços e atribuições que podem alterar um valor invalidam certezas antigas quando o fluxo não permite provar o tipo resultante. Expressões lógicas como <code>verdadeiro e falso</code> são tratadas como lógica e não recebem o diagnóstico aritmético <code>T204</code>.</p>
+<h2 id="classes-e-chamadas-na-1-7-5" data-searchable>Classes e chamadas na 1.7.5</h2>
+<p data-searchable>Coral Language 0.76.0 entende consultas como <code>objeto for do tipo Animal</code>. Depois de <code>do tipo</code>, a conclusão pode oferecer tipos nativos e classes comprovadas no escopo. Classes permitem definição, hover com declaração e bases e realce semântico. Um nome local que encobre um import continua apontando para o vínculo local, sem navegar por engano para a classe externa.</p>
+<p data-searchable>As chamadas multilinha também participam da experiência do editor. O formatador mantém a indentação e os fechamentos, o fechamento automático respeita a configuração do usuário e a ajuda de assinatura acompanha o argumento atual mesmo em chamadas aninhadas.</p>
+<h2 id="documentos-abertos-e-indice-do-projeto" data-searchable>Documentos abertos e índice do projeto</h2>
+<p data-searchable>A análise do projeto dá prioridade ao <strong>documento aberto</strong> no editor sobre a cópia salva em disco. Versões antigas do mesmo documento são ignoradas e, ao fechar o arquivo, o estado volta a refletir o conteúdo salvo.</p>
+<p data-searchable>O índice do projeto é seletivo: mudanças na interface pública de um módulo atualizam os consumidores afetados, enquanto alterações apenas no corpo podem preservar contratos já conhecidos. Eventos de arquivos e mudanças no manifesto atualizam somente o projeto correspondente. Isso reduz trabalho desnecessário sem misturar projetos diferentes.</p>
 <h2 id="coral-toml-no-editor" data-searchable><code>coral.toml</code> no editor</h2>
 <p data-searchable>Ao abrir um <code>coral.toml</code> vazio, a extensão pode sugerir <strong>Estrutura básica Coral</strong>. O comando <strong>Coral: Inserir estrutura básica do coral.toml</strong> oferece a mesma criação de forma explícita.</p>
 <p data-searchable>A inserção é conservadora: um manifesto já preenchido não é sobrescrito e uma resposta deixa de ser aplicada se o arquivo tiver sido alterado enquanto a operação aguardava conclusão. Completion, hover e diagnósticos continuam disponíveis para as chaves do manifesto.</p>
@@ -191,7 +197,7 @@
 <p data-searchable>A visão Ambiente Coral reúne runtime selecionado, versão, projeto atual, estado do LSP e do DAP, confiança do workspace, componentes e problemas relevantes.</p>
 <h2 id="recuperacao-de-falhas" data-searchable>Recuperação de falhas</h2>
 <p data-searchable>Quando o LSP falha, a extensão deve deixar o estado degradado explícito e oferecer reinício e acesso ao log. O fallback local continua disponível apenas para o que pode ser feito com segurança sem semântica de projeto.</p>
-<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.75.2</code> para Coral <code>1.7.4</code>.</p>
+<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.76.0</code> para Coral <code>1.7.5</code>.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="guias_objetivos.html"><span>Anterior</span><strong>O que você quer fazer?</strong></a><a class="docs-page-nav-link next" href="diagnosticos.html"><span>Próxima</span><strong>Diagnósticos</strong></a></nav>
   </main>
@@ -205,6 +211,8 @@
 <li class="toc-level-2"><a href="#realce-semantico-por-papel" data-toc-link>Realce semântico por papel</a></li>
 <li class="toc-level-2"><a href="#analise-entre-modulos" data-toc-link>Análise entre módulos</a></li>
 <li class="toc-level-2"><a href="#fluxo-conservador-de-tipos" data-toc-link>Fluxo conservador de tipos</a></li>
+<li class="toc-level-2"><a href="#classes-e-chamadas-na-1-7-5" data-toc-link>Classes e chamadas na 1.7.5</a></li>
+<li class="toc-level-2"><a href="#documentos-abertos-e-indice-do-projeto" data-toc-link>Documentos abertos e índice do projeto</a></li>
 <li class="toc-level-2"><a href="#coral-toml-no-editor" data-toc-link>coral.toml no editor</a></li>
 <li class="toc-level-2"><a href="#linha-longa" data-toc-link>Linha longa</a></li>
 <li class="toc-level-2"><a href="#ambiente-coral" data-toc-link>Ambiente Coral</a></li>

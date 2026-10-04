@@ -62,6 +62,18 @@ A análise permanece conservadora. Membros qualificados e relações de herança
 
 O editor mantém uma evidência de tipo somente enquanto ela continua válida. Condições, laços e atribuições que podem alterar um valor invalidam certezas antigas quando o fluxo não permite provar o tipo resultante. Expressões lógicas como `verdadeiro e falso` são tratadas como lógica e não recebem o diagnóstico aritmético `T204`.
 
+## Classes e chamadas na 1.7.5
+
+Coral Language 0.76.0 entende consultas como `objeto for do tipo Animal`. Depois de `do tipo`, a conclusão pode oferecer tipos nativos e classes comprovadas no escopo. Classes permitem definição, hover com declaração e bases e realce semântico. Um nome local que encobre um import continua apontando para o vínculo local, sem navegar por engano para a classe externa.
+
+As chamadas multilinha também participam da experiência do editor. O formatador mantém a indentação e os fechamentos, o fechamento automático respeita a configuração do usuário e a ajuda de assinatura acompanha o argumento atual mesmo em chamadas aninhadas.
+
+## Documentos abertos e índice do projeto
+
+A análise do projeto dá prioridade ao **documento aberto** no editor sobre a cópia salva em disco. Versões antigas do mesmo documento são ignoradas e, ao fechar o arquivo, o estado volta a refletir o conteúdo salvo.
+
+O índice do projeto é seletivo: mudanças na interface pública de um módulo atualizam os consumidores afetados, enquanto alterações apenas no corpo podem preservar contratos já conhecidos. Eventos de arquivos e mudanças no manifesto atualizam somente o projeto correspondente. Isso reduz trabalho desnecessário sem misturar projetos diferentes.
+
 ## `coral.toml` no editor
 
 Ao abrir um `coral.toml` vazio, a extensão pode sugerir **Estrutura básica Coral**. O comando **Coral: Inserir estrutura básica do coral.toml** oferece a mesma criação de forma explícita.
@@ -82,6 +94,6 @@ Quando o LSP falha, a extensão deve deixar o estado degradado explícito e ofer
 
 <!-- AUTO:VERSAO -->
 
-**Extensão corrente:** Coral Language `0.75.2` para Coral `1.7.4`.
+**Extensão corrente:** Coral Language `0.76.0` para Coral `1.7.5`.
 
 <!-- /AUTO:VERSAO -->

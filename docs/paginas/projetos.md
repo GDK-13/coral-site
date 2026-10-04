@@ -51,6 +51,10 @@ O projeto oficial `Exemplos/Analise_1_7_4/Cadastro/` mostra essa organização. 
 
 Esse mecanismo também protege cadeias de aliases e reexportações contra ciclos. Quando a análise não consegue comprovar um detalhe, ela preserva o estado desconhecido em vez de assumir um tipo ou membro.
 
+## Projeto Ecossistema da 1.7.5
+
+`Exemplos/Analise_1_7_5/Ecossistema/` mostra um projeto pequeno em que classes são importadas entre arquivos, consultas `for do tipo` respeitam herança e uma construção de objeto usa chamada explícita multilinha. É um bom exemplo para verificar navegação, hover e análise de projeto sem concentrar tudo em um único arquivo.
+
 ## Criar o manifesto no VS Code
 
 Se você abrir um arquivo vazio chamado exatamente `coral.toml`, Coral Language pode oferecer a sugestão **Estrutura básica Coral**. Também existe o comando **Coral: Inserir estrutura básica do coral.toml**. O conteúdo existente é preservado; o editor não substitui silenciosamente um manifesto já preenchido.

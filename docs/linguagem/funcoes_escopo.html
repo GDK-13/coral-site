@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -191,6 +191,28 @@
 
 <span class="code-key">mostre</span> dobre <span class="code-num">21</span></code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A forma natural chama a mesma função e produz <code>42</code>.</p></div></details>
+<h2 id="chamadas-explicitas-multilinha" data-searchable>Chamadas explícitas multilinha</h2>
+<p data-searchable>Quando uma chamada começa a ficar larga ou possui argumentos aninhados, a Coral 1.7.5 permite escrever cada argumento em sua própria linha. <code>com</code> no fim da linha abre a chamada e <code>fim</code> a encerra.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> somar com a e b
+    retorne a mais b
+<span class="code-key">fim</span>
+
+<span class="code-key">crie</span> a <span class="code-key">função</span> calcular com a e b
+    retorne a <span class="code-key">vezes</span> b
+<span class="code-key">fim</span>
+
+<span class="code-key">defina</span> total como chame somar com
+    <span class="code-num">10</span>
+    chame calcular com
+        <span class="code-num">20</span>
+        <span class="code-num">30</span>
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span>
+
+<span class="code-key">mostre</span> total</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A chamada interna produz <code>600</code>; a chamada externa soma <code>10</code> e mostra <code>610</code>.</p></div></details>
+<p data-searchable>Em uma chamada multilinha, cada linha do bloco representa um argumento completo. Chamadas aninhadas têm o próprio <code>fim</code>. Comentários e linhas vazias não viram argumentos, e argumentos nomeados ou expansões continuam disponíveis. Os argumentos são avaliados uma vez, da esquerda para a direita.</p>
+<p data-searchable>Para uma chamada sem argumentos, continue usando <code>chame funcao</code>. Um bloco aberto com <code>com</code> precisa ter pelo menos um argumento e ser fechado com <code>fim</code>.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="condicoes_repeticoes.html"><span>Anterior</span><strong>Condições e repetições</strong></a><a class="docs-page-nav-link next" href="programa_principal.html"><span>Próxima</span><strong>Programa principal</strong></a></nav>
   </main>
@@ -201,7 +223,8 @@
 <li class="toc-level-2"><a href="#parametros-opcionais" data-toc-link>Parâmetros opcionais</a></li>
 <li class="toc-level-2"><a href="#quantidade-variavel-de-argumentos" data-toc-link>Quantidade variável de argumentos</a></li>
 <li class="toc-level-2"><a href="#escopo-lexico" data-toc-link>Escopo léxico</a></li>
-<li class="toc-level-2"><a href="#chamadas-naturais" data-toc-link>Chamadas naturais</a></li></ul>
+<li class="toc-level-2"><a href="#chamadas-naturais" data-toc-link>Chamadas naturais</a></li>
+<li class="toc-level-2"><a href="#chamadas-explicitas-multilinha" data-toc-link>Chamadas explícitas multilinha</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

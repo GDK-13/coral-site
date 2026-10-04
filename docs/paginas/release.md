@@ -6,11 +6,48 @@ Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distrib
 
 <!-- AUTO:VERSAO_NOTAS -->
 
-**Coral:** `1.7.4`  
-**Coral Language:** `0.75.2`  
-**Livro Oficial:** `1.7.0`
+**Coral:** `1.7.5`  
+**Coral Language:** `0.76.0`  
+**Livro Oficial:** `1.7.5`
 
 <!-- /AUTO:VERSAO_NOTAS -->
+
+## Coral 1.7.5
+
+### Consultas naturais de classe
+
+`valor for do tipo Classe` passa a consultar diretamente classes definidas pelo programa, incluindo ancestrais por herança simples ou múltipla. A forma negativa `valor não for do tipo Classe` segue o mesmo contrato, e `e_tipo(valor, Classe)` continua disponível para código existente e usos dinâmicos.
+
+Imports, aliases e referências qualificadas como `modelos.Animal` obedecem ao escopo normal. O editor completa classes depois de `do tipo`, e os diagnósticos `T206` e `T207` ajudam a distinguir um nome que não é tipo de um tipo inexistente.
+
+### Chamadas explícitas multilinha
+
+Chamadas longas podem usar `com` no fim da linha, um argumento completo por linha e `fim` para encerrar a chamada. Chamadas aninhadas possuem seu próprio fechamento. Comentários e linhas vazias são ignorados como argumentos, enquanto argumentos nomeados e expansões preservam seus contratos.
+
+```coral
+defina celula como chame Celula com
+    chame Onivoro
+fim
+```
+
+O formatador e a ajuda de assinatura do VS Code acompanham a nova forma.
+
+### Editor e projetos
+
+Coral Language `0.76.0` separa o estado dos documentos abertos, snapshots de análise e o índice seletivo do projeto. A fonte aberta no editor prevalece sobre o disco, versões obsoletas são ignoradas e mudanças de interface atualizam os consumidores afetados sem exigir reanalisar indiscriminadamente todo o workspace.
+
+### Livro Oficial
+
+O Livro Oficial 1.7.5 passa a ser uma coleção em dois volumes. O **Volume I — Linguagem e Desenvolvimento** é voltado à aprendizagem e ao uso prático; o **Volume II — Referência e Arquitetura** concentra consulta técnica e arquitetura. Ambos estão disponíveis em PDF e em leitura HTML local.
+
+### Exemplos e distribuição
+
+A distribuição acrescenta `Exemplos/Analise_1_7_5/Ecossistema/`, com classes, herança múltipla, consultas naturais de classe, chamada explícita multilinha e testes.
+
+* Runtime portátil: `coral-1.7.5.pyz`.
+* Extensão: `coral-language-0.76.0.vsix`.
+* Livro Oficial: coleção `1.7.5` em dois volumes.
+* Linux permanece como plataforma autoritativa desta distribuição.
 
 ## Coral 1.7.4
 

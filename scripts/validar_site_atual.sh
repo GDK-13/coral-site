@@ -76,9 +76,16 @@ intro = (root / 'docs/paginas/introducao.md').read_text(encoding='utf-8')
 assert 'Português corrente' in intro
 
 livro_md = (root / 'docs/paginas/livro.md').read_text(encoding='utf-8')
-pdf = root / f'downloads/Coral_{livro}_Livro_Oficial.pdf'
-assert pdf.is_file() and pdf.stat().st_size > 100_000, pdf
-assert pdf.name in index, pdf.name
+pdfs = versao.get('livro_pdfs') or []
+if pdfs:
+    assert len(pdfs) >= 1, pdfs
+    for item in pdfs:
+        rel = item.get('arquivo') if isinstance(item, dict) else str(item)
+        pdf = root / rel
+        assert pdf.is_file() and pdf.stat().st_size > 100_000, pdf
+else:
+    pdf = root / f'downloads/Coral_{livro}_Livro_Oficial.pdf'
+    assert pdf.is_file() and pdf.stat().st_size > 100_000, pdf
 
 landing_low = index.casefold()
 for proibido in ('roadmap', 'checkpoint', 'congelamento', 'linha 1.5', 'linha 1.6'):
@@ -115,6 +122,21 @@ elif coral == '1.7.4':
     for esperado in ('Interfaces públicas entre módulos', 'Analise_1_7_4/Cadastro'):
         assert esperado in projetos, esperado
     assert '## Coral 1.7.4' in release
+elif coral == '1.7.5':
+    assert extensao == '0.76.0', versao
+    assert livro == '1.7.5', versao
+    assert len(versao.get('livro_pdfs') or []) == 2, versao
+    tipos = (root / 'docs/paginas/linguagem/tipos_tipagem.md').read_text(encoding='utf-8')
+    funcoes = (root / 'docs/paginas/linguagem/funcoes_escopo.md').read_text(encoding='utf-8')
+    vscode = (root / 'docs/paginas/vscode.md').read_text(encoding='utf-8')
+    release = (root / 'docs/paginas/release.md').read_text(encoding='utf-8')
+    for esperado in ('for do tipo Animal', 'modelos.Animal', 'e_tipo'):
+        assert esperado in tipos, esperado
+    for esperado in ('Chamadas explícitas multilinha', 'chame somar com'):
+        assert esperado in funcoes, esperado
+    for esperado in ('Coral Language 0.76.0', 'documento aberto', 'chamadas multilinha'):
+        assert esperado in vscode, esperado
+    assert '## Coral 1.7.5' in release
 
 print(f'OK: identidade Coral {coral}, VS Code {extensao} e Livro {livro} confirmadas.')
 PY

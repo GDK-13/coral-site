@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.4</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.75.2</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.0</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -144,7 +144,29 @@
     <article class="docs-section">
       <p data-searchable>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
 <h2 id="versao-atual" data-searchable>Versão atual</h2>
-<p data-searchable><strong>Coral:</strong> <code>1.7.4</code> <strong>Coral Language:</strong> <code>0.75.2</code> <strong>Livro Oficial:</strong> <code>1.7.0</code></p>
+<p data-searchable><strong>Coral:</strong> <code>1.7.5</code> <strong>Coral Language:</strong> <code>0.76.0</code> <strong>Livro Oficial:</strong> <code>1.7.5</code></p>
+<h2 id="coral-1-7-5" data-searchable>Coral 1.7.5</h2>
+<h3 id="consultas-naturais-de-classe" data-searchable>Consultas naturais de classe</h3>
+<p data-searchable><code>valor for do tipo Classe</code> passa a consultar diretamente classes definidas pelo programa, incluindo ancestrais por herança simples ou múltipla. A forma negativa <code>valor não for do tipo Classe</code> segue o mesmo contrato, e <code>e_tipo(valor, Classe)</code> continua disponível para código existente e usos dinâmicos.</p>
+<p data-searchable>Imports, aliases e referências qualificadas como <code>modelos.Animal</code> obedecem ao escopo normal. O editor completa classes depois de <code>do tipo</code>, e os diagnósticos <code>T206</code> e <code>T207</code> ajudam a distinguir um nome que não é tipo de um tipo inexistente.</p>
+<h3 id="chamadas-explicitas-multilinha" data-searchable>Chamadas explícitas multilinha</h3>
+<p data-searchable>Chamadas longas podem usar <code>com</code> no fim da linha, um argumento completo por linha e <code>fim</code> para encerrar a chamada. Chamadas aninhadas possuem seu próprio fechamento. Comentários e linhas vazias são ignorados como argumentos, enquanto argumentos nomeados e expansões preservam seus contratos.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> celula como chame Celula com
+    chame Onivoro
+<span class="code-key">fim</span></code></pre></div></div>
+<p data-searchable>O formatador e a ajuda de assinatura do VS Code acompanham a nova forma.</p>
+<h3 id="editor-e-projetos" data-searchable>Editor e projetos</h3>
+<p data-searchable>Coral Language <code>0.76.0</code> separa o estado dos documentos abertos, snapshots de análise e o índice seletivo do projeto. A fonte aberta no editor prevalece sobre o disco, versões obsoletas são ignoradas e mudanças de interface atualizam os consumidores afetados sem exigir reanalisar indiscriminadamente todo o workspace.</p>
+<h3 id="livro-oficial" data-searchable>Livro Oficial</h3>
+<p data-searchable>O Livro Oficial 1.7.5 passa a ser uma coleção em dois volumes. O <strong>Volume I — Linguagem e Desenvolvimento</strong> é voltado à aprendizagem e ao uso prático; o <strong>Volume II — Referência e Arquitetura</strong> concentra consulta técnica e arquitetura. Ambos estão disponíveis em PDF e em leitura HTML local.</p>
+<h3 id="exemplos-e-distribuicao" data-searchable>Exemplos e distribuição</h3>
+<p data-searchable>A distribuição acrescenta <code>Exemplos/Analise_1_7_5/Ecossistema/</code>, com classes, herança múltipla, consultas naturais de classe, chamada explícita multilinha e testes.</p>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.5.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.76.0.vsix</code>.</li>
+<li data-searchable>Livro Oficial: coleção <code>1.7.5</code> em dois volumes.</li>
+<li data-searchable>Linux permanece como plataforma autoritativa desta distribuição.</li>
+</ul>
 <h2 id="coral-1-7-4" data-searchable>Coral 1.7.4</h2>
 <h3 id="editor-semantico" data-searchable>Editor semântico</h3>
 <p data-searchable>Coral Language <code>0.75.2</code> amplia a identificação contextual dos símbolos. Classes, tipos nativos, funções, métodos, parâmetros, propriedades, variáveis e módulos podem receber categorias semânticas diferentes quando o papel da ocorrência é comprovado. O tema do VS Code continua responsável pelas cores.</p>
@@ -157,7 +179,7 @@
 <p data-searchable>Expressões lógicas como <code>verdadeiro e falso</code> deixam de receber o diagnóstico aritmético <code>T204</code>.</p>
 <h3 id="coral-toml" data-searchable><code>coral.toml</code></h3>
 <p data-searchable>Um manifesto vazio pode receber a sugestão <strong>Estrutura básica Coral</strong> ou ser inicializado pelo comando <strong>Coral: Inserir estrutura básica do coral.toml</strong>. O editor não sobrescreve um arquivo já preenchido e evita aplicar uma resposta obsoleta quando o documento muda durante a operação.</p>
-<h3 id="exemplos-e-distribuicao" data-searchable>Exemplos e distribuição</h3>
+<h3 id="exemplos-e-distribuicao-2" data-searchable>Exemplos e distribuição</h3>
 <p data-searchable>A distribuição acrescenta <code>Exemplos/Analise_1_7_4/Cadastro/</code>, um projeto pequeno com classes, parâmetros tipados, fachada de módulo, aliases, testes e <code>programa principal</code>.</p>
 <ul>
 <li data-searchable>Runtime portátil: <code>coral-1.7.4.pyz</code>.</li>
@@ -245,12 +267,18 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#versao-atual" data-toc-link>Versão atual</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-5" data-toc-link>Coral 1.7.5</a></li>
+<li class="toc-level-3"><a href="#consultas-naturais-de-classe" data-toc-link>Consultas naturais de classe</a></li>
+<li class="toc-level-3"><a href="#chamadas-explicitas-multilinha" data-toc-link>Chamadas explícitas multilinha</a></li>
+<li class="toc-level-3"><a href="#editor-e-projetos" data-toc-link>Editor e projetos</a></li>
+<li class="toc-level-3"><a href="#livro-oficial" data-toc-link>Livro Oficial</a></li>
+<li class="toc-level-3"><a href="#exemplos-e-distribuicao" data-toc-link>Exemplos e distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-4" data-toc-link>Coral 1.7.4</a></li>
 <li class="toc-level-3"><a href="#editor-semantico" data-toc-link>Editor semântico</a></li>
 <li class="toc-level-3"><a href="#analise-entre-modulos" data-toc-link>Análise entre módulos</a></li>
 <li class="toc-level-3"><a href="#fluxo-de-tipos-e-diagnostico-logico" data-toc-link>Fluxo de tipos e diagnóstico lógico</a></li>
 <li class="toc-level-3"><a href="#coral-toml" data-toc-link>coral.toml</a></li>
-<li class="toc-level-3"><a href="#exemplos-e-distribuicao" data-toc-link>Exemplos e distribuição</a></li>
+<li class="toc-level-3"><a href="#exemplos-e-distribuicao-2" data-toc-link>Exemplos e distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-3" data-toc-link>Coral 1.7.3</a></li>
 <li class="toc-level-3"><a href="#tipagem-opcional-estrutural" data-toc-link>Tipagem opcional estrutural</a></li>
 <li class="toc-level-3"><a href="#heranca-multipla-e-cooperacao" data-toc-link>Herança múltipla e cooperação</a></li>

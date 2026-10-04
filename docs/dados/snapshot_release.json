@@ -1,7 +1,49 @@
 {
-  "runtime": "1.7.4",
-  "extensao_vscode": "0.75.2",
-  "livro": "1.7.0",
+  "runtime": "1.7.5",
+  "extensao_vscode": "0.76.0",
+  "livro": "1.7.5",
+  "livros": {
+    "contrato": "coral.livros.edicao/2",
+    "versao": "1.7.5",
+    "revisao": "Rev4 + QoL 1",
+    "modelo": "Modelo/Modelo_Divisao_Livro_Oficial_Coral_1_7_3_Rev4.md",
+    "oficial": true,
+    "extensao": "0.76.0",
+    "volumes": [
+      {
+        "volume": "I",
+        "fonte": {
+          "arquivo": "Coral_1.7.5_Volume_I_Fonte.md",
+          "sha256": "1c366fa74265e875547a15e298b0647a19ad6504117a3317b39b287ee4340c9e"
+        },
+        "pdf": {
+          "arquivo": "Coral_1.7.5_Volume_I.pdf",
+          "sha256": "dc3d4e124a5542cff6066a34bfe07c2a950197af802e6859c1bb6bda0d3a6b4e"
+        },
+        "html": {
+          "arquivo": "Coral_1.7.5_Volume_I.html",
+          "sha256": "54446118719e96d3b15e56f6ddc51a8bd2fbb78dae858bc11280702120f13584"
+        }
+      },
+      {
+        "volume": "II",
+        "fonte": {
+          "arquivo": "Coral_1.7.5_Volume_II_Fonte.md",
+          "sha256": "c73e673c991e5c197022f3a28addd510c84c88f4affab409ee729618211eb397"
+        },
+        "pdf": {
+          "arquivo": "Coral_1.7.5_Volume_II.pdf",
+          "sha256": "a721f8742d962b5a6b413a46ea2333524e40d03efdce8db16dcf1ac5cd82d59f"
+        },
+        "html": {
+          "arquivo": "Coral_1.7.5_Volume_II.html",
+          "sha256": "10c6884e8dd323584b0a9c6b74f69ee972888a1babbc77ff82215ae4fcf422c4"
+        }
+      }
+    ],
+    "validacao": "VALIDACAO.json",
+    "padrao_leitura": "Modelo/PADRAO_LEITURA_QOL1.md"
+  },
   "modulos": {
     "agentes": [
       "Agente",
@@ -829,6 +871,9 @@
     "Exemplos/Analise_1_7_4/Cadastro/modelos.coral",
     "Exemplos/Analise_1_7_4/Cadastro/principal.coral",
     "Exemplos/Analise_1_7_4/Cadastro/testes/cadastro.coral",
+    "Exemplos/Analise_1_7_5/Ecossistema/modelos.coral",
+    "Exemplos/Analise_1_7_5/Ecossistema/principal.coral",
+    "Exemplos/Analise_1_7_5/Ecossistema/testes/ecossistema.coral",
     "Exemplos/Basica_1_7_2/entrada.coral",
     "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
     "Exemplos/Basica_1_7_2/tipos_conversoes.coral",
@@ -922,7 +967,7 @@
     "Exemplos/Web/04_grafico_interativo_local.coral"
   ],
   "sintaxe": {
-    "release": "1.7.4",
+    "release": "1.7.5",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -1028,7 +1073,10 @@
       "herança múltipla com MRO C3",
       "chame o método pai",
       "inicialize a classe pai",
-      "programa principal"
+      "programa principal",
+      "valor for do tipo Classe",
+      "valor não for do tipo Classe",
+      "chame alvo com ... fim"
     ],
     "origem": {
       "esquema": "Projeto/coral/esquema_sintatico.py",
@@ -1061,7 +1109,11 @@
       "global"
     ],
     "contratos_importados": true,
-    "modelo_coral_toml": true
+    "modelo_coral_toml": true,
+    "servico_documentos": true,
+    "servico_snapshots": true,
+    "indice_seletivo": true,
+    "chamadas_multilinha": true
   },
-  "source": "Coral_1.7.4_Completo_Atualizado.zip"
+  "source": "Coral_1.7.5_Completo_Livros_QoL1.zip"
 }

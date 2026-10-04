@@ -21,7 +21,34 @@ mostre tipo
 O teste reconhece `valor` como inteiro. As consultas usam o mesmo contrato oferecido por `coral.tipos`.
 :::
 
-Booleano não é tratado como inteiro. Para tipos definidos pelo programa, use a API explícita de `coral.tipos` quando precisar de uma consulta dinâmica.
+Booleano não é tratado como inteiro.
+
+## Consultar pertencimento a classes
+
+Na Coral 1.7.5, a mesma leitura natural também funciona com classes definidas pelo programa. Isso permite perguntar diretamente se um objeto pertence a uma classe ou a uma de suas classes ancestrais.
+
+```coral
+crie a classe Animal
+    passe
+fim
+
+crie a classe Herbivoro herda de Animal
+    passe
+fim
+
+defina animal como chame Herbivoro
+
+mostre animal for do tipo Animal
+mostre animal não for do tipo Herbivoro
+```
+
+:::resultado
+A primeira consulta mostra `verdadeiro`, porque `Herbivoro` herda de `Animal`. A segunda mostra `falso`, porque o objeto também pertence a `Herbivoro`.
+:::
+
+`valor for do tipo Animal` tem o mesmo contrato de `e_tipo(valor, Animal)`. A forma negativa equivale à negação dessa consulta. O valor é avaliado uma vez, e herança múltipla segue a mesma ordem de resolução já usada pelas classes.
+
+O nome depois de `do tipo` é uma referência real. Imports, aliases e referências qualificadas como `modelos.Animal` seguem o escopo normal do programa. Se um nome existir mas não representar uma classe ou tipo, a análise pode emitir `T206`; se o tipo não existir, `T207` pode sugerir nomes próximos.
 
 ## Anotar variáveis e parâmetros
 

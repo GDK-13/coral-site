@@ -7,6 +7,7 @@ import html
 import io
 import json
 import re
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -27,6 +28,7 @@ DADOS = DOCS / "dados"
 PAGINAS = DOCS / "paginas"
 MODULOS_DIR = PAGINAS / "modulos"
 DOWNLOADS = ROOT / "downloads"
+BOOKS_DIR = ROOT / "livros"
 TEMPLATES = ROOT / "templates"
 SNAPSHOT = DADOS / "snapshot_release.json"
 VERSION_FILE = DADOS / "versao.json"
@@ -51,6 +53,7 @@ class ReleaseInfo:
     runtime: str
     extensao_vscode: str
     livro: str
+    livros: dict[str, Any] | None
     modulos: list[dict[str, Any]]
     cli: dict[str, Any]
     exemplos: list[str]
@@ -124,23 +127,127 @@ def open_release_zip(zip_path: Path):
         outer.close()
 
 
-def sync_book_pdf(zip_path: Path, edition: str) -> str | None:
-    """Publica no site o PDF oficial da edição corrente do Livro, quando presente."""
-    suffix = f"Livro/Coral_{edition}_Livro_Oficial.pdf"
-    with open_release_zip(zip_path) as zf:
-        matches = [name for name in zf.namelist() if name.endswith(suffix)]
-        if not matches:
-            return None
-        matches.sort(key=len)
-        payload = zf.read(matches[0])
+def read_book_contract(zf: zipfile.ZipFile, legacy_edition: str) -> tuple[str, dict[str, Any] | None]:
+    """Lê a edição pública do Livro, incluindo a coleção oficial em dois volumes.
 
+    ``EDICAO_LIVRO`` do runtime continua apontando para o formato legado por
+    compatibilidade. Quando ``Livro/EDICAO.json`` promove uma coleção oficial,
+    o site usa a edição declarada nesse contrato sem apagar a informação legada.
+    """
+    raw = read_zip_text(zf, "Livro/EDICAO.json")
+    if not raw:
+        return legacy_edition, None
+    try:
+        data = json.loads(raw)
+    except Exception:
+        return legacy_edition, None
+    if not isinstance(data, dict) or not data.get("oficial"):
+        return legacy_edition, None
+    edition = str(data.get("versao") or legacy_edition)
+    collection = data.get("colecao")
+    if isinstance(collection, dict) and collection.get("oficial") and collection.get("volumes"):
+        return edition, collection
+    return edition, None
+
+
+def _book_reader_index(edition: str, volumes: list[dict[str, Any]]) -> str:
+    cards: list[str] = []
+    titles = {"I": "Linguagem e Desenvolvimento", "II": "Referência e Arquitetura"}
+    for item in volumes:
+        volume = str(item.get("volume", "")).strip()
+        html_meta = item.get("html", {}) if isinstance(item.get("html"), dict) else {}
+        pdf_meta = item.get("pdf", {}) if isinstance(item.get("pdf"), dict) else {}
+        html_name = Path(str(html_meta.get("arquivo", ""))).name
+        pdf_name = Path(str(pdf_meta.get("arquivo", ""))).name
+        if not volume or not html_name:
+            continue
+        title = titles.get(volume, f"Volume {volume}")
+        pdf_link = (
+            f'<a href="../../downloads/{html.escape(pdf_name)}">Baixar PDF</a>'
+            if pdf_name else ""
+        )
+        cards.append(
+            f'<article><p class="eyebrow">Volume {html.escape(volume)}</p>'
+            f'<h2>{html.escape(title)}</h2>'
+            f'<p><a class="primary" href="{html.escape(html_name)}">Ler no navegador</a> {pdf_link}</p></article>'
+        )
+    return (
+        '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        f'<title>Livro Oficial Coral {html.escape(edition)}</title><style>'
+        ':root{--coral:#EF362A;--ink:#1B191C;--cream:#FBEBCD;--border:#E5E0D8}'
+        '*{box-sizing:border-box}body{margin:0;font:18px/1.55 system-ui,sans-serif;color:var(--ink);background:#fff}'
+        'main{width:min(880px,calc(100% - 32px));margin:0 auto;padding:48px 0 72px}'
+        'header{display:flex;align-items:center;gap:14px;margin-bottom:34px}header img{width:54px;height:54px}'
+        'h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.05;margin:.2em 0}.lead{max-width:65ch}'
+        '.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:34px 0}'
+        'article{border:1px solid var(--border);border-radius:14px;padding:22px;background:#fff}.eyebrow{font-weight:800;color:var(--coral);margin:0}'
+        'a{color:inherit;text-underline-offset:3px}a.primary{display:inline-block;background:var(--coral);color:var(--cream);padding:9px 13px;border-radius:8px;text-decoration:none;font-weight:800;margin-right:10px}'
+        '.back{display:inline-block;margin-top:14px}@media(max-width:650px){.grid{grid-template-columns:1fr}}'
+        '</style></head><body><main><header><img src="Identidade/coral-256.png" alt=""><strong>Livro Oficial Coral</strong></header>'
+        f'<h1>Edição {html.escape(edition)}</h1><p class="lead">Coleção oficial em dois volumes. '
+        'O Volume I foi organizado para aprender e desenvolver projetos; o Volume II concentra referência completa e arquitetura.</p>'
+        f'<div class="grid">{"".join(cards)}</div>'
+        '<a class="back" href="../../docs/livro.html">Voltar à documentação do Livro</a>'
+        '</main></body></html>'
+    )
+
+
+def sync_book_artifacts(zip_path: Path, edition: str, collection: dict[str, Any] | None) -> dict[str, Any]:
+    """Publica somente os artefatos de leitura oficiais do Livro no site."""
     DOWNLOADS.mkdir(parents=True, exist_ok=True)
-    for old in DOWNLOADS.glob("Coral_*_Livro_Oficial.pdf"):
-        old.unlink()
-    target = DOWNLOADS / f"Coral_{edition}_Livro_Oficial.pdf"
-    target.write_bytes(payload)
-    return target.relative_to(ROOT).as_posix()
+    result: dict[str, Any] = {"pdfs": [], "htmls": []}
+    with open_release_zip(zip_path) as zf:
+        if collection and isinstance(collection.get("volumes"), list):
+            volumes = list(collection["volumes"])
+            # Preserve o PDF legado já publicado para compatibilidade de links antigos.
+            # A coleção corrente substitui apenas volumes de coleções anteriores.
+            for old in DOWNLOADS.glob("Coral_*_Volume_*.pdf"):
+                old.unlink()
 
+            reader = BOOKS_DIR / edition
+            if reader.exists():
+                shutil.rmtree(reader)
+            reader.mkdir(parents=True, exist_ok=True)
+            identity = reader / "Identidade"
+            identity.mkdir(parents=True, exist_ok=True)
+            image_name = next((n for n in zf.namelist() if n.endswith("Livro/Identidade/coral-256.png")), None)
+            if image_name:
+                (identity / "coral-256.png").write_bytes(zf.read(image_name))
+
+            for item in volumes:
+                volume = str(item.get("volume", "")).strip()
+                pdf_meta = item.get("pdf", {}) if isinstance(item.get("pdf"), dict) else {}
+                html_meta = item.get("html", {}) if isinstance(item.get("html"), dict) else {}
+                pdf_name = Path(str(pdf_meta.get("arquivo", ""))).name
+                html_name = Path(str(html_meta.get("arquivo", ""))).name
+                if pdf_name:
+                    match = next((n for n in zf.namelist() if n.endswith("Livro/" + pdf_name)), None)
+                    if match:
+                        target = DOWNLOADS / pdf_name
+                        target.write_bytes(zf.read(match))
+                        result["pdfs"].append({"volume": volume, "arquivo": target.relative_to(ROOT).as_posix()})
+                if html_name:
+                    match = next((n for n in zf.namelist() if n.endswith("Livro/" + html_name)), None)
+                    if match:
+                        target = reader / html_name
+                        target.write_bytes(zf.read(match))
+                        result["htmls"].append({"volume": volume, "arquivo": target.relative_to(ROOT).as_posix()})
+
+            (reader / "index.html").write_text(_book_reader_index(edition, volumes), encoding="utf-8")
+            result["leitor"] = (reader / "index.html").relative_to(ROOT).as_posix()
+            result["revisao"] = str(collection.get("revisao", ""))
+            return result
+
+        suffix = f"Livro/Coral_{edition}_Livro_Oficial.pdf"
+        match = next((n for n in zf.namelist() if n.endswith(suffix)), None)
+        if match:
+            for old in DOWNLOADS.glob("Coral_*_Livro_Oficial.pdf"):
+                old.unlink()
+            target = DOWNLOADS / f"Coral_{edition}_Livro_Oficial.pdf"
+            target.write_bytes(zf.read(match))
+            result["pdfs"].append({"volume": "", "arquivo": target.relative_to(ROOT).as_posix()})
+    return result
 
 def parse_version_init(text: str) -> tuple[str, str]:
     runtime = re.search(r'__version__\s*=\s*["\']([^"\']+)', text)
@@ -234,6 +341,11 @@ def extract_structural_language_contract(zf: zipfile.ZipFile) -> list[str]:
         ])
     if read_zip_text(zf, "Projeto/coral/entrada_principal.py"):
         features.append("programa principal")
+    parser_basica = read_zip_text(zf, "Projeto/coral/_parser_basica.py")
+    if "esperava um tipo ou nome de classe" in parser_basica:
+        features.extend(["valor for do tipo Classe", "valor não for do tipo Classe"])
+    if read_zip_text(zf, "Projeto/coral/_chamadas_multilinha.py"):
+        features.append("chame alvo com ... fim")
     return features
 
 
@@ -249,6 +361,10 @@ def extract_editor_contract(zf: zipfile.ZipFile) -> dict[str, Any]:
         "semantic_token_modifiers": [],
         "contratos_importados": bool(imported_source),
         "modelo_coral_toml": "Inserir estrutura básica do coral.toml" in package_source,
+        "servico_documentos": bool(read_zip_text(zf, "Projeto/coral/_lsp_documentos.py")),
+        "servico_snapshots": bool(read_zip_text(zf, "Projeto/coral/_lsp_snapshots.py")),
+        "indice_seletivo": bool(read_zip_text(zf, "Projeto/coral/_lsp_indice.py")),
+        "chamadas_multilinha": bool(read_zip_text(zf, "Projeto/coral/_lsp_chamadas.py")),
     }
     if interface_source:
         try:
@@ -413,7 +529,8 @@ def changelog_for_version(text: str, version: str) -> str:
 def import_release(zip_path: Path) -> ReleaseInfo:
     with open_release_zip(zip_path) as zf:
         init_text = read_zip_text(zf, "Projeto/coral/__init__.py")
-        runtime, livro = parse_version_init(init_text)
+        runtime, livro_legado = parse_version_init(init_text)
+        livro, livros = read_book_contract(zf, livro_legado)
 
         package_text = read_zip_text(zf, "Projeto/vscode-coral/package.json")
         try:
@@ -474,7 +591,7 @@ def import_release(zip_path: Path) -> ReleaseInfo:
         changelog_all = read_zip_text(zf, "Projeto/CHANGELOG.md")
         changelog = changelog_for_version(changelog_all, runtime)
 
-    return ReleaseInfo(runtime, ext, livro, modules, cli, examples, changelog, syntax, editor, zip_path.name)
+    return ReleaseInfo(runtime=runtime, extensao_vscode=ext, livro=livro, livros=livros, modulos=modules, cli=cli, exemplos=examples, changelog=changelog, sintaxe=syntax, editor=editor, source=zip_path.name)
 
 
 def release_snapshot(info: ReleaseInfo) -> dict[str, Any]:
@@ -482,6 +599,7 @@ def release_snapshot(info: ReleaseInfo) -> dict[str, Any]:
         "runtime": info.runtime,
         "extensao_vscode": info.extensao_vscode,
         "livro": info.livro,
+        "livros": info.livros,
         "modulos": {m["nome"]: m.get("operacoes", []) for m in info.modulos},
         "cli": info.cli,
         "exemplos": info.exemplos,
@@ -892,14 +1010,18 @@ def sync_mechanical_pages(version: dict[str, Any], cli: dict[str, Any], examples
     livro_page = PAGINAS / "livro.md"
     if livro_page.exists():
         replace_auto_block(livro_page, "EDICAO", f"**Edição editorial corrente:** `{livro}`.  \n**Runtime corrente:** `{runtime}`.")
-        livro_pdf = version.get("livro_pdf")
-        if livro_pdf:
-            filename = Path(str(livro_pdf)).name
-            replace_auto_block(
-                livro_page,
-                "DOWNLOAD_LIVRO",
-                f"[Baixar o Livro Oficial Coral {livro} em PDF](../downloads/{filename})",
-            )
+        livro_pdfs = version.get("livro_pdfs") or []
+        if livro_pdfs:
+            linhas_download = []
+            for item in livro_pdfs:
+                volume = str(item.get("volume", "")).strip()
+                arquivo = Path(str(item.get("arquivo", ""))).name
+                rotulo = f"Volume {volume}" if volume else "Livro"
+                linhas_download.append(f"[{rotulo} em PDF](../downloads/{arquivo})")
+            leitor = version.get("livro_leitor")
+            if leitor:
+                linhas_download.append(f"[Ler os volumes no navegador](../{leitor})")
+            replace_auto_block(livro_page, "DOWNLOAD_LIVRO", "  \n".join(linhas_download))
         livro_text = livro_page.read_text(encoding="utf-8")
         livro_text = re.sub(
             r"(O Livro Oficial permanece na edição `[^`]+`, enquanto o runtime corrente é `)\d+\.\d+\.\d+(`\.)",
@@ -1001,7 +1123,7 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
         "editor_alterado": True,
     }
 
-    livro_pdf = sync_book_pdf(zip_path, info.livro)
+    livros_publicados = sync_book_artifacts(zip_path, info.livro, info.livros)
     version = {
         "coral": info.runtime,
         "extensao_vscode": info.extensao_vscode,
@@ -1009,8 +1131,14 @@ def import_and_update(zip_path: Path) -> dict[str, Any]:
         "estavel": True,
         "fonte_release": zip_path.name,
     }
-    if livro_pdf:
-        version["livro_pdf"] = livro_pdf
+    if livros_publicados.get("pdfs"):
+        version["livro_pdfs"] = livros_publicados["pdfs"]
+    if livros_publicados.get("htmls"):
+        version["livro_htmls"] = livros_publicados["htmls"]
+    if livros_publicados.get("leitor"):
+        version["livro_leitor"] = livros_publicados["leitor"]
+    if livros_publicados.get("revisao"):
+        version["livro_revisao"] = livros_publicados["revisao"]
     write_json(VERSION_FILE, version)
     write_json(MODULES_FILE, info.modulos)
     write_json(CLI_FILE, info.cli)
