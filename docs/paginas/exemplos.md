@@ -73,6 +73,40 @@ O exemplo também serve para observar no VS Code como parâmetros, propriedades,
 
 O projeto **Ecossistema** também é útil para observar no VS Code conclusão de classes depois de `do tipo`, navegação entre arquivos e ajuda de assinatura em chamadas multilinha.
 
+## Cabeçalhos e ambientes 1.7.6
+
+A pasta `Exemplos/Citados/Cabecalhos_1_7_6/` possui três exemplos mínimos para parâmetros multilinha, imports multilinha e herança multilinha. Eles são úteis para comparar a forma compacta com a organização vertical sem misturar o conceito com um projeto maior.
+
+`Exemplos/Projetos/Ambiente_Reproduzivel/` demonstra resolução de dependências, `coral.lock`, preparação de ambiente e execução offline com uma wheel didática produzida localmente.
+
+## Arquivos graduais 1.7.7
+
+`Exemplos/Projetos/Importador_Gradual/` processa um CSV em lotes de dois registros, filtra entradas e escreve outro CSV. O exemplo evidencia passagem única, ownership do leitor e memória controlada pelo tamanho do lote.
+
+Use esse projeto junto da página [`coral.arquivos`](modulos/arquivos.html) para estudar `ler_linhas`, `ler_csv`, `ler_lotes_csv`, `escrever_linhas` e `escrever_csv`.
+
+## Esquemas e validação 1.7.8
+
+`Exemplos/Projetos/Importador_Validado/` adiciona validação declarativa ao fluxo gradual. Quantidade e preço são convertidos explicitamente antes de `coral.esquemas`; erros de conversão permanecem responsabilidade da aplicação e erros de validação recebem campo, regra, registro e origem.
+
+O projeto é uma referência útil para distinguir texto CSV vazio, chave ausente e `nulo`, além de mostrar como interromper a coleta por limite de erros sem carregar todos os registros em memória.
+
+## SQLite e textos multilinha 1.7.9
+
+`Exemplos/Projetos/Catalogo_SQLite/` mostra persistência local com `coral.sqlite`. O projeto cria um banco em arquivo, prepara a tabela com SQL multilinha, insere valores por parâmetros, confirma a alteração, consulta os registros e fecha a conexão explicitamente.
+
+O exemplo também é uma referência compacta para os textos multilinha gerais da linguagem: o SQL permanece legível no código sem receber interpretação especial da Coral.
+
+## Aplicações de referência 1.8.0
+
+A Coral 1.8 reúne três projetos de referência que combinam recursos públicos em programas completos. Eles são mais úteis quando você já conhece os exemplos menores e quer observar validação, arquivos, persistência, concorrência e relatórios trabalhando juntos.
+
+* `Exemplos/Projetos/Catalogo_SQLite/` lê CSV, converte e valida registros, persiste em SQLite com parâmetros e demonstra confirmação, reversão e reabertura do banco.
+* `Exemplos/Projetos/Analise_CSV/` percorre CSV gradualmente, valida a coluna numérica, calcula estatística dos valores aceitos e pode exportar um gráfico quando o componente necessário está disponível.
+* `Exemplos/Projetos/Automacao_Arquivos/` usa `FilaTarefas` para limitar simultaneidade, preservar sucesso parcial, acompanhar progresso e demonstrar cancelamento cooperativo antes de operações bloqueantes.
+
+Os três projetos mantêm a entrada da aplicação separada do núcleo reutilizável e permitem direcionar resultados para outra pasta. Leia o `README.md` de cada projeto antes de executar com seus próprios dados.
+
 ## Ciência e dados
 
 A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.
@@ -117,7 +151,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 
 <!-- AUTO:EXEMPLOS -->
 
-**Total detectado na release:** 100 arquivos `.coral`.
+**Total detectado na release:** 114 arquivos `.coral`.
 
 | Área | Arquivos |
 |---|---:|
@@ -125,6 +159,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 | Analise_1_7_4 | 4 |
 | Analise_1_7_5 | 3 |
 | Basica_1_7_2 | 3 |
+| Citados | 3 |
 | Dados | 9 |
 | Espaco | 3 |
 | Fundamentos | 5 |
@@ -132,6 +167,7 @@ O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.
 | Integracao | 4 |
 | Jogos | 12 |
 | Mundo | 4 |
+| Projetos | 11 |
 | Projetos_Completos | 19 |
 | Regras | 3 |
 | SimulacaoTemporal | 14 |

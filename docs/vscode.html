@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -191,13 +194,22 @@
 <h2 id="coral-toml-no-editor" data-searchable><code>coral.toml</code> no editor</h2>
 <p data-searchable>Ao abrir um <code>coral.toml</code> vazio, a extensão pode sugerir <strong>Estrutura básica Coral</strong>. O comando <strong>Coral: Inserir estrutura básica do coral.toml</strong> oferece a mesma criação de forma explícita.</p>
 <p data-searchable>A inserção é conservadora: um manifesto já preenchido não é sobrescrito e uma resposta deixa de ser aplicada se o arquivo tiver sido alterado enquanto a operação aguardava conclusão. Completion, hover e diagnósticos continuam disponíveis para as chaves do manifesto.</p>
+<h2 id="cabecalhos-multilinha-e-projetos-reproduziveis" data-searchable>Cabeçalhos multilinha e projetos reproduzíveis</h2>
+<p data-searchable>A extensão reconhece cabeçalhos multilinha de parâmetros, imports e herança como uma única estrutura. Isso permite manter indentação, navegação e análise sem exigir que declarações extensas sejam comprimidas em uma única linha.</p>
+<p data-searchable>Em projetos que usam <code>coral.lock</code>, o editor e a CLI compartilham a mesma identidade de projeto. A visão <strong>Ambiente Coral</strong> ajuda a distinguir o runtime selecionado, o projeto corrente e o ambiente gerenciado, evitando que a edição e a execução usem configurações divergentes.</p>
+<h2 id="textos-multilinha-na-1-7-9" data-searchable>Textos multilinha na 1.7.9</h2>
+<p data-searchable>Coral Language 0.80.0 reconhece literais delimitados por três aspas como uma única string, inclusive quando ocupam várias linhas físicas. O conteúdo é tratado como texto opaco: palavras que pareçam código Coral, SQL, HTML ou Markdown dentro do literal não recebem análise semântica como se fossem instruções do programa.</p>
+<p data-searchable>O formatador preserva o conteúdo textual e os mapas de linha continuam apontando para as linhas físicas corretas do arquivo. Isso permite usar consultas SQL, mensagens extensas e outros blocos textuais sem confundir o editor sobre onde a string termina.</p>
+<h2 id="guia-de-escrita-e-formatador" data-searchable>Guia de escrita e formatador</h2>
+<p data-searchable>A Coral 1.8 possui um guia canônico de escrita, mas o editor não transforma preferência de estilo em erro de compilação. O formatador preserva a intenção entre formas compactas e multilinha e deve ser idempotente: formatar novamente não deve mudar o resultado da primeira formatação.</p>
+<p data-searchable>Use <a href="linguagem/estilo_legibilidade.html"><strong>Estilo e legibilidade</strong></a> para decidir quando quebrar uma declaração, como organizar imports e como separar definições da entrada da aplicação.</p>
 <h2 id="linha-longa" data-searchable>Linha longa</h2>
 <p data-searchable>O limite editorial corrente é de 150 caracteres. Quando uma linha ultrapassa esse tamanho, o editor pode oferecer uma prévia de quebra antes de aplicar a alteração.</p>
 <h2 id="ambiente-coral" data-searchable>Ambiente Coral</h2>
 <p data-searchable>A visão Ambiente Coral reúne runtime selecionado, versão, projeto atual, estado do LSP e do DAP, confiança do workspace, componentes e problemas relevantes.</p>
 <h2 id="recuperacao-de-falhas" data-searchable>Recuperação de falhas</h2>
 <p data-searchable>Quando o LSP falha, a extensão deve deixar o estado degradado explícito e oferecer reinício e acesso ao log. O fallback local continua disponível apenas para o que pode ser feito com segurança sem semântica de projeto.</p>
-<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.76.0</code> para Coral <code>1.7.5</code>.</p>
+<p data-searchable><strong>Extensão corrente:</strong> Coral Language <code>0.83.0</code> para Coral <code>1.8.0</code>.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="guias_objetivos.html"><span>Anterior</span><strong>O que você quer fazer?</strong></a><a class="docs-page-nav-link next" href="diagnosticos.html"><span>Próxima</span><strong>Diagnósticos</strong></a></nav>
   </main>
@@ -214,6 +226,9 @@
 <li class="toc-level-2"><a href="#classes-e-chamadas-na-1-7-5" data-toc-link>Classes e chamadas na 1.7.5</a></li>
 <li class="toc-level-2"><a href="#documentos-abertos-e-indice-do-projeto" data-toc-link>Documentos abertos e índice do projeto</a></li>
 <li class="toc-level-2"><a href="#coral-toml-no-editor" data-toc-link>coral.toml no editor</a></li>
+<li class="toc-level-2"><a href="#cabecalhos-multilinha-e-projetos-reproduziveis" data-toc-link>Cabeçalhos multilinha e projetos reproduzíveis</a></li>
+<li class="toc-level-2"><a href="#textos-multilinha-na-1-7-9" data-toc-link>Textos multilinha na 1.7.9</a></li>
+<li class="toc-level-2"><a href="#guia-de-escrita-e-formatador" data-toc-link>Guia de escrita e formatador</a></li>
 <li class="toc-level-2"><a href="#linha-longa" data-toc-link>Linha longa</a></li>
 <li class="toc-level-2"><a href="#ambiente-coral" data-toc-link>Ambiente Coral</a></li>
 <li class="toc-level-2"><a href="#recuperacao-de-falhas" data-toc-link>Recuperação de falhas</a></li></ul>

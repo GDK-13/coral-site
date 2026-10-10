@@ -12,6 +12,7 @@
   <url><loc>https://coral-lang.example/docs/linguagem/condicoes_repeticoes.html</loc></url>
   <url><loc>https://coral-lang.example/docs/linguagem/funcoes_escopo.html</loc></url>
   <url><loc>https://coral-lang.example/docs/linguagem/programa_principal.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/linguagem/estilo_legibilidade.html</loc></url>
   <url><loc>https://coral-lang.example/docs/linguagem/classes_objetos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/linguagem/tipos_tipagem.html</loc></url>
   <url><loc>https://coral-lang.example/docs/linguagem/colecoes_compreensoes.html</loc></url>
@@ -45,6 +46,7 @@
   <url><loc>https://coral-lang.example/docs/modulos/criptografia.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/datas.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/entrada.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/esquemas.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/formatacao.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/formatos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/graficos.html</loc></url>
@@ -57,6 +59,7 @@
   <url><loc>https://coral-lang.example/docs/modulos/replay_reativo.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/sequencias_reativas.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/simulacao.html</loc></url>
+  <url><loc>https://coral-lang.example/docs/modulos/sqlite.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/tempo_eventos.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/texto.html</loc></url>
   <url><loc>https://coral-lang.example/docs/modulos/tipos.html</loc></url>

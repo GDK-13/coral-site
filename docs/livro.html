@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.">
+  <meta name="description" content="O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.">
   <meta name="theme-color" content="#EF362A">
   <title>Livro Oficial — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Livro Oficial — Documentação Coral">
-  <meta property="og:description" content="O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.">
+  <meta property="og:description" content="O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.">
   <meta property="og:image" content="../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Livro Oficial — Documentação Coral">
-  <meta name="twitter:description" content="O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.">
+  <meta name="twitter:description" content="O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.">
   <meta name="twitter:image" content="../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -131,7 +134,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Referência</div>
       <h1>Livro Oficial</h1>
-      <p>O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.</p>
+      <p>O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -142,25 +145,29 @@
     </div>
     
     <article class="docs-section">
-      <p data-searchable>O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.</p>
-<p data-searchable><strong>Edição editorial corrente:</strong> <code>1.7.5</code>. <strong>Runtime corrente:</strong> <code>1.7.5</code>.</p>
+      <p data-searchable>O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.</p>
+<p data-searchable><strong>Edição editorial corrente:</strong> <code>1.8.0</code>. <strong>Runtime corrente:</strong> <code>1.8.0</code>.</p>
 <h2 id="volume-i-linguagem-e-desenvolvimento" data-searchable>Volume I — Linguagem e Desenvolvimento</h2>
-<p data-searchable>O <strong>Volume I</strong> é voltado a leitores iniciantes e intermediários. Ele conduz a leitura de forma progressiva, com explicações acessíveis, exemplos, atividades, resumos e fichas técnicas suficientes para programar sem transformar cada capítulo em uma especificação seca.</p>
-<p data-searchable>A edição 1.7.5 possui <strong>42 capítulos</strong> no Volume I. A revisão de leitura QoL 1 aproxima respostas das atividades, reorganiza exemplos introdutórios e mantém as fichas técnicas completas.</p>
+<p data-searchable>O <strong>Volume I</strong> é voltado a leitores iniciantes e intermediários. Ele explica primeiro, formaliza quando necessário e mantém fichas técnicas compactas para que o leitor consiga programar de verdade sem transformar cada capítulo em uma especificação seca.</p>
+<p data-searchable>A edição 1.8.0 mantém <strong>42 capítulos</strong> no Volume I e atualiza o percurso para a linguagem, as ferramentas e o guia de escrita correntes.</p>
 <p data-searchable>Use este volume quando quiser aprender a linguagem, construir programas e avançar da base até um uso intermediário.</p>
 <h2 id="volume-ii-referencia-e-arquitetura" data-searchable>Volume II — Referência e Arquitetura</h2>
-<p data-searchable>O <strong>Volume II</strong> é voltado à consulta aprofundada. Ele reúne a referência técnica, biblioteca, ferramentas e arquitetura da Coral de forma organizada para quem já sabe o que procura ou precisa entender contratos e implementação com mais detalhe.</p>
+<p data-searchable>O <strong>Volume II</strong> é voltado à consulta aprofundada. Ele reúne referência técnica, biblioteca, ferramentas e arquitetura da Coral para quem já sabe o que procura ou precisa compreender contratos e implementação com maior detalhe.</p>
 <p data-searchable>Use este volume como companheiro de consulta, especialmente quando uma função, módulo, ferramenta ou comportamento exige mais profundidade do que o percurso pedagógico do Volume I.</p>
+<h2 id="atualizacoes-da-edicao-1-8-0" data-searchable>Atualizações da edição 1.8.0</h2>
+<p data-searchable>A coleção 1.8.0 incorpora o guia canônico de escrita, a concorrência controlada de <code>coral.assincrono</code>, a integração opcional do desktop Linux e as três aplicações de referência da distribuição.</p>
+<p data-searchable>O Volume I mantém linguagem acessível para iniciantes e intermediários, com explicação antes da formalização e fichas compactas para uso real. O Volume II amplia a referência normativa e cobre a superfície pública inventariada da edição com assinaturas, parâmetros, retornos e arquitetura.</p>
+<p data-searchable>Os exemplos citados pelos dois volumes são verificados contra o runtime corrente antes da publicação da coleção.</p>
 <h2 id="escolha-como-ler" data-searchable>Escolha como ler</h2>
-<p data-searchable><a href="../downloads/Coral_1.7.5_Volume_I.pdf">Volume I em PDF</a> <a href="../downloads/Coral_1.7.5_Volume_II.pdf">Volume II em PDF</a> <a href="../livros/1.7.5/index.html">Ler os volumes no navegador</a></p>
-<p data-searchable>A leitura no navegador permite ajustar fonte, largura e tema, navegar pelo sumário e copiar exemplos. Os PDFs expandem o conteúdo para leitura contínua e impressão.</p>
+<p data-searchable><a href="../downloads/Coral_1.8.0_Volume_I.pdf">Volume I em PDF</a> <a href="../downloads/Coral_1.8.0_Volume_II.pdf">Volume II em PDF</a> <a href="../livros/1.8.0/index.html">Ler os volumes no navegador</a></p>
+<p data-searchable>A leitura no navegador permite ajustar fonte, largura e tema, navegar pelo sumário e copiar exemplos. Os PDFs são melhores para leitura contínua, arquivo e impressão.</p>
 <h2 id="livro-e-documentacao-web" data-searchable>Livro e documentação Web</h2>
 <p data-searchable>O Livro e o site cumprem papéis complementares. O Volume I é melhor para estudar em sequência; o Volume II para referência aprofundada; o site para busca rápida, guias por objetivo, módulos, exemplos e consulta durante a programação.</p>
 <p data-searchable>No <strong>Modo Aprender</strong>, o site acompanha o percurso didático. No <strong>Modo Referência</strong>, ele privilegia consulta compacta enquanto você programa.</p>
 <h2 id="exemplos" data-searchable>Exemplos</h2>
 <p data-searchable>Os exemplos do Livro são mantidos como arquivos reais na distribuição. Isso permite abrir, executar e modificar os programas fora do PDF ou do leitor HTML. Os exemplos publicados pelo site também são revalidados contra o runtime da release corrente.</p>
 <h2 id="edicao-atual" data-searchable>Edição atual</h2>
-<p data-searchable>A coleção publicada corresponde à Coral <code>1.7.5</code> e à Coral Language <code>0.76.0</code>. A edição legada 1.7.0 permanece na distribuição apenas para compatibilidade com o formato anterior do Livro.</p>
+<p data-searchable>A coleção publicada corresponde à Coral <code>1.8.0</code> e à Coral Language <code>0.83.0</code>. Edições anteriores permanecem no pacote apenas quando necessárias para compatibilidade de links e histórico editorial.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="exemplos.html"><span>Anterior</span><strong>Exemplos oficiais</strong></a><a class="docs-page-nav-link next" href="release.html"><span>Próxima</span><strong>Notas de versão</strong></a></nav>
   </main>
@@ -169,6 +176,7 @@
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#volume-i-linguagem-e-desenvolvimento" data-toc-link>Volume I — Linguagem e Desenvolvimento</a></li>
 <li class="toc-level-2"><a href="#volume-ii-referencia-e-arquitetura" data-toc-link>Volume II — Referência e Arquitetura</a></li>
+<li class="toc-level-2"><a href="#atualizacoes-da-edicao-1-8-0" data-toc-link>Atualizações da edição 1.8.0</a></li>
 <li class="toc-level-2"><a href="#escolha-como-ler" data-toc-link>Escolha como ler</a></li>
 <li class="toc-level-2"><a href="#livro-e-documentacao-web" data-toc-link>Livro e documentação Web</a></li>
 <li class="toc-level-2"><a href="#exemplos" data-toc-link>Exemplos</a></li>

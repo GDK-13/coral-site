@@ -1,39 +1,47 @@
 # Livro Oficial
 
-O Livro Oficial Coral 1.7.5 é uma coleção em dois volumes. A divisão evita misturar o percurso de aprendizagem com a referência técnica extensa, sem reduzir a precisão do conteúdo.
+O Livro Oficial Coral 1.8.0 é uma coleção em dois volumes. A divisão mantém o percurso de aprendizagem separado da referência técnica extensa, sem reduzir a precisão do conteúdo.
 
 <!-- AUTO:EDICAO -->
 
-**Edição editorial corrente:** `1.7.5`.  
-**Runtime corrente:** `1.7.5`.
+**Edição editorial corrente:** `1.8.0`.  
+**Runtime corrente:** `1.8.0`.
 
 <!-- /AUTO:EDICAO -->
 
 ## Volume I — Linguagem e Desenvolvimento
 
-O **Volume I** é voltado a leitores iniciantes e intermediários. Ele conduz a leitura de forma progressiva, com explicações acessíveis, exemplos, atividades, resumos e fichas técnicas suficientes para programar sem transformar cada capítulo em uma especificação seca.
+O **Volume I** é voltado a leitores iniciantes e intermediários. Ele explica primeiro, formaliza quando necessário e mantém fichas técnicas compactas para que o leitor consiga programar de verdade sem transformar cada capítulo em uma especificação seca.
 
-A edição 1.7.5 possui **42 capítulos** no Volume I. A revisão de leitura QoL 1 aproxima respostas das atividades, reorganiza exemplos introdutórios e mantém as fichas técnicas completas.
+A edição 1.8.0 mantém **42 capítulos** no Volume I e atualiza o percurso para a linguagem, as ferramentas e o guia de escrita correntes.
 
 Use este volume quando quiser aprender a linguagem, construir programas e avançar da base até um uso intermediário.
 
 ## Volume II — Referência e Arquitetura
 
-O **Volume II** é voltado à consulta aprofundada. Ele reúne a referência técnica, biblioteca, ferramentas e arquitetura da Coral de forma organizada para quem já sabe o que procura ou precisa entender contratos e implementação com mais detalhe.
+O **Volume II** é voltado à consulta aprofundada. Ele reúne referência técnica, biblioteca, ferramentas e arquitetura da Coral para quem já sabe o que procura ou precisa compreender contratos e implementação com maior detalhe.
 
 Use este volume como companheiro de consulta, especialmente quando uma função, módulo, ferramenta ou comportamento exige mais profundidade do que o percurso pedagógico do Volume I.
+
+## Atualizações da edição 1.8.0
+
+A coleção 1.8.0 incorpora o guia canônico de escrita, a concorrência controlada de `coral.assincrono`, a integração opcional do desktop Linux e as três aplicações de referência da distribuição.
+
+O Volume I mantém linguagem acessível para iniciantes e intermediários, com explicação antes da formalização e fichas compactas para uso real. O Volume II amplia a referência normativa e cobre a superfície pública inventariada da edição com assinaturas, parâmetros, retornos e arquitetura.
+
+Os exemplos citados pelos dois volumes são verificados contra o runtime corrente antes da publicação da coleção.
 
 ## Escolha como ler
 
 <!-- AUTO:DOWNLOAD_LIVRO -->
 
-[Volume I em PDF](../downloads/Coral_1.7.5_Volume_I.pdf)  
-[Volume II em PDF](../downloads/Coral_1.7.5_Volume_II.pdf)  
-[Ler os volumes no navegador](../livros/1.7.5/index.html)
+[Volume I em PDF](../downloads/Coral_1.8.0_Volume_I.pdf)  
+[Volume II em PDF](../downloads/Coral_1.8.0_Volume_II.pdf)  
+[Ler os volumes no navegador](../livros/1.8.0/index.html)
 
 <!-- /AUTO:DOWNLOAD_LIVRO -->
 
-A leitura no navegador permite ajustar fonte, largura e tema, navegar pelo sumário e copiar exemplos. Os PDFs expandem o conteúdo para leitura contínua e impressão.
+A leitura no navegador permite ajustar fonte, largura e tema, navegar pelo sumário e copiar exemplos. Os PDFs são melhores para leitura contínua, arquivo e impressão.
 
 ## Livro e documentação Web
 
@@ -47,4 +55,4 @@ Os exemplos do Livro são mantidos como arquivos reais na distribuição. Isso p
 
 ## Edição atual
 
-A coleção publicada corresponde à Coral `1.7.5` e à Coral Language `0.76.0`. A edição legada 1.7.0 permanece na distribuição apenas para compatibilidade com o formato anterior do Livro.
+A coleção publicada corresponde à Coral `1.8.0` e à Coral Language `0.83.0`. Edições anteriores permanecem no pacote apenas quando necessárias para compatibilidade de links e histórico editorial.

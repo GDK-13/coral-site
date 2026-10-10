@@ -13,11 +13,12 @@ Se você está começando, siga esta ordem:
 3. **Condições e repetições** para controlar o fluxo.
 4. **Funções e escopo** para organizar comportamento reutilizável.
 5. **Programa principal** para declarar uma entrada explícita quando o arquivo representar uma aplicação.
-6. **Classes e objetos** para combinar estado, operações e herança.
-7. **Tipos e tipagem** para anotações simples, coleções tipadas e nulidade.
-8. **Coleções e compreensões** para trabalhar com grupos de valores.
-9. **Erros e padrões** para tratar falhas e selecionar estruturas.
-10. **Geradores e assíncrono** quando precisar de execução sob demanda ou concorrência cooperativa.
+6. **Estilo e legibilidade** para organizar nomes, imports, recuo e formas compactas ou multilinha.
+7. **Classes e objetos** para combinar estado, operações e herança.
+8. **Tipos e tipagem** para anotações simples, coleções tipadas e nulidade.
+9. **Coleções e compreensões** para trabalhar com grupos de valores.
+10. **Erros e padrões** para tratar falhas e selecionar estruturas.
+11. **Geradores e assíncrono** quando precisar de execução sob demanda ou concorrência cooperativa.
 
 ## Um exemplo que combina os fundamentos
 

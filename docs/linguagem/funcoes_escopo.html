@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a class="active" aria-current="page" href="funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="programa_principal.html">Programa principal</a></li>
+<li><a href="estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="classes_objetos.html">Classes e objetos</a></li>
 <li><a href="tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="../modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="../modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="../modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="../modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="../modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="../modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="../modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="../modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="../modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="../modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="../modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="../modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="../modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="../modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -183,6 +186,18 @@
 <span class="code-key">mostre</span> <span class="code-fn">contador</span>()
 <span class="code-key">mostre</span> <span class="code-fn">contador</span>()</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>As chamadas mostram <code>1</code> e <code>2</code>. A função interna preserva acesso ao estado criado pela função externa.</p></div></details>
+<h2 id="cabecalhos-de-funcao-multilinha" data-searchable>Cabeçalhos de função multilinha</h2>
+<p data-searchable>Quando uma função possui muitos parâmetros, o cabeçalho pode colocar cada declaração em sua própria linha. O bloco de parâmetros termina em <code>fim com</code>; o corpo continua até o <code>fim</code> da função.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> somar com
+    primeiro do <span class="code-key">tipo</span> inteiro
+    segundo do <span class="code-key">tipo</span> inteiro opcional <span class="code-num">2</span>
+<span class="code-key">fim</span> com <span class="code-key">retornando</span> inteiro
+    retorne primeiro mais segundo
+<span class="code-key">fim</span>
+
+<span class="code-key">mostre</span> <span class="code-fn">somar</span>(<span class="code-num">3</span>)</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>segundo</code> usa o valor padrão <code>2</code>, então a chamada mostra <code>5</code>.</p></div></details>
+<p data-searchable>Tipos, parâmetros opcionais e retorno continuam seguindo os mesmos contratos da forma compacta. A forma multilinha muda a organização visual, não a semântica da função.</p>
 <h2 id="chamadas-naturais" data-searchable>Chamadas naturais</h2>
 <p data-searchable>Uma função pode declarar uma forma natural explícita. Isso não é interpretação livre de português: o padrão faz parte da declaração.</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> dobro com numero <span class="code-key">chamada</span> como <span class="code-str">&quot;dobre {numero}&quot;</span>
@@ -223,6 +238,7 @@
 <li class="toc-level-2"><a href="#parametros-opcionais" data-toc-link>Parâmetros opcionais</a></li>
 <li class="toc-level-2"><a href="#quantidade-variavel-de-argumentos" data-toc-link>Quantidade variável de argumentos</a></li>
 <li class="toc-level-2"><a href="#escopo-lexico" data-toc-link>Escopo léxico</a></li>
+<li class="toc-level-2"><a href="#cabecalhos-de-funcao-multilinha" data-toc-link>Cabeçalhos de função multilinha</a></li>
 <li class="toc-level-2"><a href="#chamadas-naturais" data-toc-link>Chamadas naturais</a></li>
 <li class="toc-level-2"><a href="#chamadas-explicitas-multilinha" data-toc-link>Chamadas explícitas multilinha</a></li></ul>
   </aside>

@@ -1,5 +1,5 @@
 {
-  "release": "1.7.5",
+  "release": "1.8.0",
   "esquema": "1.5.8",
   "lexemas": [
     "aguarde",
@@ -57,6 +57,10 @@
     "\"",
     "'"
   ],
+  "aspas_multilinha": [
+    "\"\"\"",
+    "'''"
+  ],
   "linguagens": [
     "coral",
     "coral-*"
@@ -108,7 +112,8 @@
     "programa principal",
     "valor for do tipo Classe",
     "valor não for do tipo Classe",
-    "chame alvo com ... fim"
+    "chame alvo com ... fim",
+    "texto multilinha com aspas triplas"
   ],
   "origem": {
     "esquema": "Projeto/coral/esquema_sintatico.py",

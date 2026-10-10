@@ -55,6 +55,12 @@
       "grupo": "Linguagem"
     },
     {
+      "arquivo": "linguagem/estilo_legibilidade.md",
+      "titulo": "Estilo e legibilidade",
+      "slug": "estilo-e-legibilidade",
+      "grupo": "Linguagem"
+    },
+    {
       "arquivo": "linguagem/classes_objetos.md",
       "titulo": "Classes e objetos",
       "slug": "classes-e-objetos",
@@ -253,6 +259,12 @@
       "grupo": "Outros módulos"
     },
     {
+      "arquivo": "modulos/esquemas.md",
+      "titulo": "coral.esquemas",
+      "slug": "modulo-esquemas",
+      "grupo": "Outros módulos"
+    },
+    {
       "arquivo": "modulos/formatacao.md",
       "titulo": "coral.formatacao",
       "slug": "modulo-formatacao",
@@ -322,6 +334,12 @@
       "arquivo": "modulos/simulacao.md",
       "titulo": "coral.simulacao",
       "slug": "modulo-simulacao",
+      "grupo": "Outros módulos"
+    },
+    {
+      "arquivo": "modulos/sqlite.md",
+      "titulo": "coral.sqlite",
+      "slug": "modulo-sqlite",
       "grupo": "Outros módulos"
     },
     {

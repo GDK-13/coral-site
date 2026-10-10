@@ -1170,6 +1170,11 @@
     "para_livro": true,
     "advertencia": "",
     "operacoes": [
+      "ler_linhas",
+      "ler_csv",
+      "ler_lotes_csv",
+      "escrever_linhas",
+      "escrever_csv",
       "ler_texto",
       "escrever_texto",
       "adicionar_texto",
@@ -1195,6 +1200,210 @@
     "destaque": false,
     "pagina": "modulos/arquivos",
     "api": [
+      {
+        "nome": "ler_linhas",
+        "tipo": "função",
+        "assinatura": "ler_linhas(caminho, codificacao = 'utf-8') -> Iterator[str]",
+        "retorno": "Iterator[str]",
+        "descricao": "Lê linhas sob demanda, preservando terminadores. Use com/with ou fechar/close.",
+        "documentacao": "Lê linhas sob demanda, preservando terminadores. Use com/with ou fechar/close.\n\nAbre no primeiro avanço e fecha ao terminar ou falhar. É um iterador de\npassagem única; após fechar não reabre. Não há garantia de fechamento por GC.",
+        "origem": "coral.stdlib.arquivos",
+        "arquivo": "coral/stdlib/arquivos.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "não declarado",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "não declarado",
+            "padrao": "'utf-8'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "ler_csv",
+        "tipo": "função",
+        "assinatura": "ler_csv(caminho, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -> Iterator[dict[str, str] | list[str]]",
+        "retorno": "Iterator[dict[str, str] | list[str]]",
+        "descricao": "Lê registros CSV sob demanda, com campos de texto e estrutura estrita.",
+        "documentacao": "Lê registros CSV sob demanda, com campos de texto e estrutura estrita.\n\nCom cabeçalho produz dicionários, sem cabeçalho produz listas. Use com/with\nou fechar/close se interromper a leitura; abre apenas no primeiro avanço.\nFecha no fim e em erros, não reabre e não garante fechamento por GC.",
+        "origem": "coral.stdlib.arquivos",
+        "arquivo": "coral/stdlib/arquivos.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "não declarado",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "não declarado",
+            "padrao": "'utf-8'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "delimitador",
+            "tipo": "não declarado",
+            "padrao": "','",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "cabecalho",
+            "tipo": "não declarado",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "ler_lotes_csv",
+        "tipo": "função",
+        "assinatura": "ler_lotes_csv(caminho, tamanho_lote = 100, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -> Iterator[list[dict[str, str] | list[str]]]",
+        "retorno": "Iterator[list[dict[str, str] | list[str]]]",
+        "descricao": "Lê lotes CSV de tamanho limitado, incluindo o último lote parcial.",
+        "documentacao": "Lê lotes CSV de tamanho limitado, incluindo o último lote parcial.\n\nRecurso de passagem única e abertura preguiçosa. Use com/with ou fechar/close\nem interrupções; fecha no fim e em erros, sem reabrir ou garantia por GC.",
+        "origem": "coral.stdlib.arquivos",
+        "arquivo": "coral/stdlib/arquivos.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "não declarado",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "tamanho_lote",
+            "tipo": "não declarado",
+            "padrao": "100",
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "não declarado",
+            "padrao": "'utf-8'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "delimitador",
+            "tipo": "não declarado",
+            "padrao": "','",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "cabecalho",
+            "tipo": "não declarado",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "escrever_linhas",
+        "tipo": "função",
+        "assinatura": "escrever_linhas(caminho, linhas: Iterable[str], codificacao = 'utf-8') -> None",
+        "retorno": "None",
+        "descricao": "Escreve textos gradualmente, sem inserir terminadores ou converter valores.",
+        "documentacao": "Escreve textos gradualmente, sem inserir terminadores ou converter valores.\n\nTrunca o destino e sempre o fecha. Uma falha pode deixar arquivo parcial.",
+        "origem": "coral.stdlib.arquivos",
+        "arquivo": "coral/stdlib/arquivos.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "não declarado",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "linhas",
+            "tipo": "Iterable[str]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "não declarado",
+            "padrao": "'utf-8'",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [
+          "TypeError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": false
+      },
+      {
+        "nome": "escrever_csv",
+        "tipo": "função",
+        "assinatura": "escrever_csv(caminho, registros: Iterable[Mapping[str, str] | Sequence[str]], codificacao = 'utf-8', *, delimitador = ',', colunas = None, cabecalho = True) -> None",
+        "retorno": "None",
+        "descricao": "Escreve CSV gradualmente com campos estritamente textuais e estrutura exata.",
+        "documentacao": "Escreve CSV gradualmente com campos estritamente textuais e estrutura exata.\n\nInfere colunas do primeiro mapeamento ou aceita nomes explícitos. Sequências\ntextuais usam sua primeira largura; sem colunas não geram cabeçalho, mesmo\ncom cabecalho=True. Trunca e fecha o destino mesmo em erro;\numa falha pode deixar arquivo parcial. Aspas e novas linhas seguem CSV.",
+        "origem": "coral.stdlib.arquivos",
+        "arquivo": "coral/stdlib/arquivos.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "não declarado",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "registros",
+            "tipo": "Iterable[Mapping[str, str] | Sequence[str]]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "codificacao",
+            "tipo": "não declarado",
+            "padrao": "'utf-8'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "delimitador",
+            "tipo": "não declarado",
+            "padrao": "','",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "colunas",
+            "tipo": "não declarado",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "cabecalho",
+            "tipo": "não declarado",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": false
+      },
       {
         "nome": "ler_texto",
         "tipo": "função",
@@ -1773,14 +1982,23 @@
     "nome": "assincrono",
     "importacao": "coral.assincrono",
     "categoria": "runtime",
-    "finalidade": "timeout, cancelamento e agrupamento sobre o modelo assíncrono existente",
+    "finalidade": "timeout, cancelamento, agrupamento e filas limitadas sobre o modelo assíncrono existente",
     "para_livro": true,
     "advertencia": "",
     "operacoes": [
       "ErroTempoEsgotado",
+      "ErroFilaTarefas",
+      "ErroFilaCheia",
+      "ErroFilaFechada",
+      "ResultadoTarefa",
+      "ProgressoTarefas",
+      "RelatorioTarefas",
+      "FilaTarefas",
       "aguardar_com_timeout",
       "cancelar_tarefa",
-      "grupo_tarefas"
+      "grupo_tarefas",
+      "executar_bloqueante",
+      "executar_fila"
     ],
     "destaque": false,
     "pagina": "modulos/assincrono",
@@ -1804,12 +2022,447 @@
         ]
       },
       {
+        "nome": "ErroFilaTarefas",
+        "tipo": "exceção",
+        "assinatura": "ErroFilaTarefas(...)",
+        "retorno": "ErroFilaTarefas",
+        "descricao": "Base das falhas controladas de :class:`FilaTarefas`.",
+        "documentacao": "Base das falhas controladas de :class:`FilaTarefas`.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "ErroOperacao"
+        ]
+      },
+      {
+        "nome": "ErroFilaCheia",
+        "tipo": "exceção",
+        "assinatura": "ErroFilaCheia(...)",
+        "retorno": "ErroFilaCheia",
+        "descricao": "A fila atingiu sua capacidade configurada.",
+        "documentacao": "A fila atingiu sua capacidade configurada.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "ErroFilaTarefas"
+        ]
+      },
+      {
+        "nome": "ErroFilaFechada",
+        "tipo": "exceção",
+        "assinatura": "ErroFilaFechada(...)",
+        "retorno": "ErroFilaFechada",
+        "descricao": "A fila não aceita novas tarefas ou uma nova execução.",
+        "documentacao": "A fila não aceita novas tarefas ou uma nova execução.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "ErroFilaTarefas"
+        ]
+      },
+      {
+        "nome": "ResultadoTarefa",
+        "tipo": "classe",
+        "assinatura": "ResultadoTarefa(indice: int, nome: str, estado: str, valor: Any = None, erro: BaseException | None = None, segundos: float = 0.0)",
+        "retorno": "ResultadoTarefa",
+        "descricao": "Resultado estruturado de uma tarefa submetida à fila.",
+        "documentacao": "Resultado estruturado de uma tarefa submetida à fila.\n\n``estado`` assume ``sucesso``, ``falha`` ou ``cancelada``. ``indice`` é a\nordem de submissão e permanece estável independentemente da ordem em que as\ntarefas terminam.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "indice",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "erro",
+            "tipo": "BaseException | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "segundos",
+            "tipo": "float",
+            "padrao": "0.0",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "ok",
+            "tipo": "propriedade",
+            "assinatura": "ok() -> bool",
+            "retorno": "bool",
+            "descricao": "Retorna verdadeiro somente para uma tarefa concluída com sucesso."
+          },
+          {
+            "nome": "para_dict",
+            "tipo": "método",
+            "assinatura": "para_dict() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": "Converte o resultado para dados simples adequados a relatório/UI."
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "indice",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "nome",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "valor",
+            "tipo": "Any",
+            "padrao": "None"
+          },
+          {
+            "nome": "erro",
+            "tipo": "BaseException | None",
+            "padrao": "None"
+          },
+          {
+            "nome": "segundos",
+            "tipo": "float",
+            "padrao": "0.0"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "ProgressoTarefas",
+        "tipo": "classe",
+        "assinatura": "ProgressoTarefas(total: int, iniciadas: int, concluidas: int, sucessos: int, falhas: int, canceladas: int, pendentes: int, ativas: int)",
+        "retorno": "ProgressoTarefas",
+        "descricao": "Instantâneo imutável do progresso de uma fila.",
+        "documentacao": "Instantâneo imutável do progresso de uma fila.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "total",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "iniciadas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "concluidas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "sucessos",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "falhas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "canceladas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "pendentes",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "ativas",
+            "tipo": "int",
+            "padrao": null,
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "fracao",
+            "tipo": "propriedade",
+            "assinatura": "fracao() -> float",
+            "retorno": "float",
+            "descricao": "Fração concluída entre 0 e 1; fila vazia é considerada concluída."
+          },
+          {
+            "nome": "para_dict",
+            "tipo": "método",
+            "assinatura": "para_dict() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "total",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "iniciadas",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "concluidas",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "sucessos",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "falhas",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "canceladas",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "pendentes",
+            "tipo": "int",
+            "padrao": null
+          },
+          {
+            "nome": "ativas",
+            "tipo": "int",
+            "padrao": null
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "RelatorioTarefas",
+        "tipo": "classe",
+        "assinatura": "RelatorioTarefas(resultados: tuple[ResultadoTarefa, ...], progresso: ProgressoTarefas, estado: str, motivo: str | None = None)",
+        "retorno": "RelatorioTarefas",
+        "descricao": "Relatório final ordenado produzido por :class:`FilaTarefas`.",
+        "documentacao": "Relatório final ordenado produzido por :class:`FilaTarefas`.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "resultados",
+            "tipo": "tuple[ResultadoTarefa, ...]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "progresso",
+            "tipo": "ProgressoTarefas",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "motivo",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "ok",
+            "tipo": "propriedade",
+            "assinatura": "ok() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "para_dict",
+            "tipo": "método",
+            "assinatura": "para_dict() -> dict[str, Any]",
+            "retorno": "dict[str, Any]",
+            "descricao": ""
+          }
+        ],
+        "atributos": [
+          {
+            "nome": "resultados",
+            "tipo": "tuple[ResultadoTarefa, ...]",
+            "padrao": null
+          },
+          {
+            "nome": "progresso",
+            "tipo": "ProgressoTarefas",
+            "padrao": null
+          },
+          {
+            "nome": "estado",
+            "tipo": "str",
+            "padrao": null
+          },
+          {
+            "nome": "motivo",
+            "tipo": "str | None",
+            "padrao": "None"
+          }
+        ],
+        "bases": []
+      },
+      {
+        "nome": "FilaTarefas",
+        "tipo": "classe",
+        "assinatura": "FilaTarefas(limite_ativas: int = 4, capacidade: int | None = None, politica_falha: str = 'continuar', timeout_tarefa: float | None = None)",
+        "retorno": "FilaTarefas",
+        "descricao": "Executa um lote assíncrono com simultaneidade e políticas explícitas.",
+        "documentacao": "Executa um lote assíncrono com simultaneidade e políticas explícitas.\n\nA fila recebe awaitables ou fábricas sem argumentos que produzam awaitables.\n``politica_falha`` pode ser ``continuar`` ou ``parar``. Na política ``parar``\numa falha impede o início de novos trabalhos, mas tarefas que já começaram\npodem terminar. ``cancelar`` é diferente: solicita cancelamento cooperativo\ntambém das tarefas ativas.\n\nUma instância possui ciclo de vida único: adicionar tarefas, executar uma vez\ne consultar o relatório. Isso evita reuso ambíguo de objetos coroutine.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "limite_ativas",
+            "tipo": "int",
+            "padrao": "4",
+            "modo": "posicional"
+          },
+          {
+            "nome": "capacidade",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "posicional"
+          },
+          {
+            "nome": "politica_falha",
+            "tipo": "str",
+            "padrao": "'continuar'",
+            "modo": "posicional"
+          },
+          {
+            "nome": "timeout_tarefa",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "posicional"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "fechada",
+            "tipo": "propriedade",
+            "assinatura": "fechada() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "executando",
+            "tipo": "propriedade",
+            "assinatura": "executando() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "adicionar",
+            "tipo": "método",
+            "assinatura": "adicionar(esperavel: Awaitable[Any] | Callable[[], Awaitable[Any]], nome: str | None = None, timeout: float | None = None) -> int",
+            "retorno": "int",
+            "descricao": "Adiciona uma tarefa e retorna seu índice estável de submissão."
+          },
+          {
+            "nome": "fechar",
+            "tipo": "método",
+            "assinatura": "fechar() -> bool",
+            "retorno": "bool",
+            "descricao": "Fecha a entrada da fila. Tarefas já adicionadas continuam executáveis."
+          },
+          {
+            "nome": "cancelar",
+            "tipo": "método",
+            "assinatura": "cancelar(motivo: str | None = None) -> bool",
+            "retorno": "bool",
+            "descricao": "Solicita cancelamento cooperativo e impede novos trabalhos."
+          },
+          {
+            "nome": "progresso",
+            "tipo": "método",
+            "assinatura": "progresso() -> ProgressoTarefas",
+            "retorno": "ProgressoTarefas",
+            "descricao": ""
+          },
+          {
+            "nome": "executar",
+            "tipo": "método",
+            "assinatura": "async executar(timeout_grupo: float | None = None, ao_progresso: Callable[[ProgressoTarefas], Any] | None = None) -> RelatorioTarefas",
+            "retorno": "RelatorioTarefas",
+            "descricao": "Executa o lote uma única vez e retorna relatório ordenado."
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
         "nome": "aguardar_com_timeout",
         "tipo": "função assíncrona",
         "assinatura": "async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)",
         "retorno": "não declarado",
         "descricao": "Aguarda ``esperavel`` por no máximo ``segundos``.",
-        "documentacao": "Aguarda ``esperavel`` por no máximo ``segundos``.\n\nO awaitable subjacente é cancelado pela política do ``asyncio.wait_for``\nquando o limite é excedido.",
+        "documentacao": "Aguarda ``esperavel`` por no máximo ``segundos``.\n\nO timeout solicita cancelamento cooperativo ao awaitable subjacente. Código\nsíncrono bloqueante que não devolve controle ao laço de eventos não pode ser\ninterrompido à força por esta API.",
         "origem": "coral.assincrono",
         "arquivo": "coral/assincrono.py",
         "parametros": [
@@ -1827,7 +2480,6 @@
           }
         ],
         "excecoes": [
-          "ErroValor",
           "ErroTempoEsgotado"
         ],
         "metodos": [],
@@ -1870,7 +2522,7 @@
         "assinatura": "async grupo_tarefas(*esperaveis: Awaitable[Any]) -> tuple[Any, ...]",
         "retorno": "tuple[Any, ...]",
         "descricao": "Aguarda vários awaitables e preserva a ordem dos resultados.",
-        "documentacao": "Aguarda vários awaitables e preserva a ordem dos resultados.",
+        "documentacao": "Aguarda vários awaitables e preserva a ordem dos resultados.\n\nMantém o contrato histórico: a primeira exceção observada é propagada pelo\n``asyncio.gather`` e não é convertida em resultado estruturado.",
         "origem": "coral.assincrono",
         "arquivo": "coral/assincrono.py",
         "parametros": [
@@ -1885,9 +2537,97 @@
         "metodos": [],
         "atributos": [],
         "tem_retorno_valor": true
+      },
+      {
+        "nome": "executar_bloqueante",
+        "tipo": "função assíncrona",
+        "assinatura": "async executar_bloqueante(funcao: Callable[..., Any], *args: Any, **kwargs: Any) -> Any",
+        "retorno": "Any",
+        "descricao": "Executa uma função síncrona em uma thread auxiliar.",
+        "documentacao": "Executa uma função síncrona em uma thread auxiliar.\n\nÉ a ponte explícita para operações bloqueantes. Cancelar quem aguarda esta\nfunção não encerra à força uma chamada que já esteja executando na thread;\nessa limitação é deliberada e faz parte do contrato público.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "funcao",
+            "tipo": "Callable[..., Any]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "*args",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "variádico"
+          },
+          {
+            "nome": "**kwargs",
+            "tipo": "Any",
+            "padrao": null,
+            "modo": "variádico nomeado"
+          }
+        ],
+        "excecoes": [
+          "ErroValor"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "executar_fila",
+        "tipo": "função assíncrona",
+        "assinatura": "async executar_fila(*esperaveis: Awaitable[Any], limite_ativas: int = 4, politica_falha: str = 'continuar', timeout_tarefa: float | None = None, timeout_grupo: float | None = None, ao_progresso: Callable[[ProgressoTarefas], Any] | None = None) -> RelatorioTarefas",
+        "retorno": "RelatorioTarefas",
+        "descricao": "Atalho para executar um lote de awaitables com :class:`FilaTarefas`.",
+        "documentacao": "Atalho para executar um lote de awaitables com :class:`FilaTarefas`.",
+        "origem": "coral.assincrono",
+        "arquivo": "coral/assincrono.py",
+        "parametros": [
+          {
+            "nome": "*esperaveis",
+            "tipo": "Awaitable[Any]",
+            "padrao": null,
+            "modo": "variádico"
+          },
+          {
+            "nome": "limite_ativas",
+            "tipo": "int",
+            "padrao": "4",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "politica_falha",
+            "tipo": "str",
+            "padrao": "'continuar'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "timeout_tarefa",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "timeout_grupo",
+            "tipo": "float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "ao_progresso",
+            "tipo": "Callable[[ProgressoTarefas], Any] | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
       }
     ],
-    "doc_modulo": "Utilidades assíncronas pequenas e gerais da Coral 1.5.8.\n\nA sintaxe existente de ``aguarde``, tarefas e funções assíncronas continua sendo\na base da linguagem. Este módulo apenas cobre três lacunas práticas sem criar um\nsegundo modelo de concorrência: timeout, cancelamento e agrupamento."
+    "doc_modulo": "Concorrência cooperativa e controlada da biblioteca padrão Coral.\n\nA sintaxe existente de ``aguarde``, tarefas e funções assíncronas continua sendo\nmodelo da linguagem. Este módulo oferece políticas previsíveis para timeout,\ncancelamento, agrupamento e filas de tarefas sem prometer interrupção forçada de\noperações bloqueantes."
   },
   {
     "nome": "caminhos",
@@ -3727,6 +4467,233 @@
     "doc_modulo": ""
   },
   {
+    "nome": "esquemas",
+    "importacao": "coral.esquemas",
+    "categoria": "dados",
+    "finalidade": "validar registros externos sem coerção, distinguindo ausente e nulo",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "campo",
+      "esquema",
+      "validar_registro",
+      "validar_registros"
+    ],
+    "destaque": false,
+    "pagina": "modulos/esquemas",
+    "api": [
+      {
+        "nome": "campo",
+        "tipo": "função",
+        "assinatura": "campo(tipo: str, *, obrigatorio: bool = True, anulavel: bool = False, minimo: int | float | None = None, maximo: int | float | None = None, tamanho_minimo: int | None = None, tamanho_maximo: int | None = None, permitidos: Iterable | None = None) -> dict",
+        "retorno": "dict",
+        "descricao": "Define um campo: ausente depende de obrigatorio; nulo depende de anulavel.",
+        "documentacao": "Define um campo: ausente depende de obrigatorio; nulo depende de anulavel.\n\nTipos: inteiro, decimal, texto, booleano, lista, dicionario. Sem coerção.\nLimites são inclusivos; permitidos vazio recusa qualquer valor não nulo.\nRetorna uma cópia independente. Configuração inválida: TypeError/ValueError.",
+        "origem": "coral.stdlib.esquemas",
+        "arquivo": "coral/stdlib/esquemas.py",
+        "parametros": [
+          {
+            "nome": "tipo",
+            "tipo": "str",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "obrigatorio",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "anulavel",
+            "tipo": "bool",
+            "padrao": "False",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "minimo",
+            "tipo": "int | float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "maximo",
+            "tipo": "int | float | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "tamanho_minimo",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "tamanho_maximo",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "permitidos",
+            "tipo": "Iterable | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "TypeError",
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "esquema",
+        "tipo": "função",
+        "assinatura": "esquema(campos: Mapping[str, dict], *, permitir_extras: bool = True) -> dict",
+        "retorno": "dict",
+        "descricao": "Copia campos declarados em ordem; extras são permitidos por padrão.",
+        "documentacao": "Copia campos declarados em ordem; extras são permitidos por padrão.\n\nCada especificação vem de campo. Ausente difere de nulo. Não há defaults,\ncampos aninhados ou alteração da entrada. Configuração inválida falha cedo.",
+        "origem": "coral.stdlib.esquemas",
+        "arquivo": "coral/stdlib/esquemas.py",
+        "parametros": [
+          {
+            "nome": "campos",
+            "tipo": "Mapping[str, dict]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "permitir_extras",
+            "tipo": "bool",
+            "padrao": "True",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [
+          "TypeError",
+          "ValueError"
+        ],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "validar_registro",
+        "tipo": "função",
+        "assinatura": "validar_registro(registro: Mapping, esquema: Mapping, *, indice: int = 1, linha: int | None = None, origem: str | None = None, modo: str = 'coletar', limite_erros: int = 100) -> dict",
+        "retorno": "dict",
+        "descricao": "Valida sem converter: ausente e nulo têm regras diferentes.",
+        "documentacao": "Valida sem converter: ausente e nulo têm regras diferentes.\n\nRetorna valido, erros e interrompido. Erros têm campo, regra, mensagem,\nregistro (índice base 1), linha e origem; nunca incluem o valor do campo.\nprimeiro para no primeiro erro; coletar para ao atingir limite_erros.",
+        "origem": "coral.stdlib.esquemas",
+        "arquivo": "coral/stdlib/esquemas.py",
+        "parametros": [
+          {
+            "nome": "registro",
+            "tipo": "Mapping",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "esquema",
+            "tipo": "Mapping",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "indice",
+            "tipo": "int",
+            "padrao": "1",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "linha",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'coletar'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "limite_erros",
+            "tipo": "int",
+            "padrao": "100",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      },
+      {
+        "nome": "validar_registros",
+        "tipo": "função",
+        "assinatura": "validar_registros(registros: Iterable[Mapping], esquema: Mapping, *, modo: str = 'coletar', limite_erros: int = 100, linha_inicial: int | None = None, origem: str | None = None) -> dict",
+        "retorno": "dict",
+        "descricao": "Valida uma passagem, sem reter registros nem fechar o iterador do chamador.",
+        "documentacao": "Valida uma passagem, sem reter registros nem fechar o iterador do chamador.\n\nRetorna valido, erros, verificados e interrompido. O limite de erros é global.\nlinha_inicial conta registros lógicos, não linhas físicas de CSV multilinha.\nAusente difere de nulo. Configuração inválida falha antes da iteração.",
+        "origem": "coral.stdlib.esquemas",
+        "arquivo": "coral/stdlib/esquemas.py",
+        "parametros": [
+          {
+            "nome": "registros",
+            "tipo": "Iterable[Mapping]",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "esquema",
+            "tipo": "Mapping",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "modo",
+            "tipo": "str",
+            "padrao": "'coletar'",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "limite_erros",
+            "tipo": "int",
+            "padrao": "100",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "linha_inicial",
+            "tipo": "int | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          },
+          {
+            "nome": "origem",
+            "tipo": "str | None",
+            "padrao": "None",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      }
+    ],
+    "doc_modulo": "Superfície pública de coral.esquemas."
+  },
+  {
     "nome": "formatacao",
     "importacao": "coral.formatacao",
     "categoria": "texto",
@@ -3995,8 +4962,8 @@
       {
         "nome": "de_csv",
         "tipo": "função",
-        "assinatura": "de_csv(texto, *, cabecalho = True, delimitador = ',')",
-        "retorno": "não declarado",
+        "assinatura": "de_csv(texto, *, cabecalho = True, delimitador = ',') -> list[dict[str | None, str | list[str] | None] | list[str]]",
+        "retorno": "list[dict[str | None, str | list[str] | None] | list[str]]",
         "descricao": "",
         "documentacao": "",
         "origem": "coral.stdlib.formatos",
@@ -27562,6 +28529,186 @@
       }
     ],
     "doc_modulo": "Integração segura e portátil do Coral com o sistema operacional."
+  },
+  {
+    "nome": "sqlite",
+    "importacao": "coral.sqlite",
+    "categoria": "dados",
+    "finalidade": "persistência local SQLite com consultas parametrizadas e transações explícitas",
+    "para_livro": true,
+    "advertencia": "",
+    "operacoes": [
+      "ErroSQLite",
+      "ErroOperacionalSQLite",
+      "Conexao",
+      "abrir"
+    ],
+    "destaque": false,
+    "pagina": "modulos/sqlite",
+    "api": [
+      {
+        "nome": "ErroSQLite",
+        "tipo": "exceção",
+        "assinatura": "ErroSQLite(...)",
+        "retorno": "ErroSQLite",
+        "descricao": "Erro de uso ou execução da camada SQLite Coral.",
+        "documentacao": "Erro de uso ou execução da camada SQLite Coral.",
+        "origem": "coral.sqlite",
+        "arquivo": "coral/sqlite.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "RuntimeError"
+        ]
+      },
+      {
+        "nome": "ErroOperacionalSQLite",
+        "tipo": "exceção",
+        "assinatura": "ErroOperacionalSQLite(...)",
+        "retorno": "ErroOperacionalSQLite",
+        "descricao": "Erro operacional do SQLite, como bloqueio, caminho ou SQL inválido.",
+        "documentacao": "Erro operacional do SQLite, como bloqueio, caminho ou SQL inválido.",
+        "origem": "coral.sqlite",
+        "arquivo": "coral/sqlite.py",
+        "parametros": [],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "bases": [
+          "ErroSQLite"
+        ]
+      },
+      {
+        "nome": "Conexao",
+        "tipo": "classe",
+        "assinatura": "Conexao(caminho: str | Path, *, timeout: float = 5.0)",
+        "retorno": "Conexao",
+        "descricao": "Conexão SQLite com resultados em dicionários e transações explícitas.",
+        "documentacao": "Conexão SQLite com resultados em dicionários e transações explícitas.",
+        "origem": "coral.sqlite",
+        "arquivo": "coral/sqlite.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "str | Path",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "timeout",
+            "tipo": "float",
+            "padrao": "5.0",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [
+          {
+            "nome": "fechada",
+            "tipo": "propriedade",
+            "assinatura": "fechada() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "em_transacao",
+            "tipo": "propriedade",
+            "assinatura": "em_transacao() -> bool",
+            "retorno": "bool",
+            "descricao": ""
+          },
+          {
+            "nome": "executar",
+            "tipo": "método",
+            "assinatura": "executar(sql: str, parametros = ()) -> dict[str, int | None]",
+            "retorno": "dict[str, int | None]",
+            "descricao": "Executa um comando e devolve linhas_afetadas e ultimo_id."
+          },
+          {
+            "nome": "executar_muitos",
+            "tipo": "método",
+            "assinatura": "executar_muitos(sql: str, parametros) -> dict[str, int | None]",
+            "retorno": "dict[str, int | None]",
+            "descricao": ""
+          },
+          {
+            "nome": "consultar",
+            "tipo": "método",
+            "assinatura": "consultar(sql: str, parametros = ()) -> list[dict[str, Any]]",
+            "retorno": "list[dict[str, Any]]",
+            "descricao": "Executa consulta e materializa as linhas em dicionários."
+          },
+          {
+            "nome": "consultar_um",
+            "tipo": "método",
+            "assinatura": "consultar_um(sql: str, parametros = ()) -> dict[str, Any] | None",
+            "retorno": "dict[str, Any] | None",
+            "descricao": ""
+          },
+          {
+            "nome": "confirmar",
+            "tipo": "método",
+            "assinatura": "confirmar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "reverter",
+            "tipo": "método",
+            "assinatura": "reverter() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "fechar",
+            "tipo": "método",
+            "assinatura": "fechar() -> None",
+            "retorno": "None",
+            "descricao": ""
+          },
+          {
+            "nome": "transacao",
+            "tipo": "método",
+            "assinatura": "transacao() -> Iterator['Conexao']",
+            "retorno": "Iterator['Conexao']",
+            "descricao": "Confirma ao sair normalmente e reverte quando o bloco falha."
+          }
+        ],
+        "atributos": [],
+        "bases": []
+      },
+      {
+        "nome": "abrir",
+        "tipo": "função",
+        "assinatura": "abrir(caminho: str | Path, *, timeout: float = 5.0) -> Conexao",
+        "retorno": "Conexao",
+        "descricao": "Abre uma conexão SQLite. ``:memoria:`` cria banco somente em memória.",
+        "documentacao": "Abre uma conexão SQLite. ``:memoria:`` cria banco somente em memória.",
+        "origem": "coral.sqlite",
+        "arquivo": "coral/sqlite.py",
+        "parametros": [
+          {
+            "nome": "caminho",
+            "tipo": "str | Path",
+            "padrao": null,
+            "modo": "posicional"
+          },
+          {
+            "nome": "timeout",
+            "tipo": "float",
+            "padrao": "5.0",
+            "modo": "nomeado"
+          }
+        ],
+        "excecoes": [],
+        "metodos": [],
+        "atributos": [],
+        "tem_retorno_valor": true
+      }
+    ],
+    "doc_modulo": "SQLite local para aplicações Coral.\n\nA API mantém SQL explícito e valores parametrizados separados. Não é ORM e não\ntraduz SQL para português. O ciclo de vida da conexão é explícito: confirmar,\nreverter e fechar."
   },
   {
     "nome": "tempo_eventos",

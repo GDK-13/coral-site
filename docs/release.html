@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -144,7 +147,86 @@
     <article class="docs-section">
       <p data-searchable>Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distribuição relevantes para quem usa a Coral. O histórico interno de desenvolvimento não faz parte do site público.</p>
 <h2 id="versao-atual" data-searchable>Versão atual</h2>
-<p data-searchable><strong>Coral:</strong> <code>1.7.5</code> <strong>Coral Language:</strong> <code>0.76.0</code> <strong>Livro Oficial:</strong> <code>1.7.5</code></p>
+<p data-searchable><strong>Coral:</strong> <code>1.8.0</code> <strong>Coral Language:</strong> <code>0.83.0</code> <strong>Livro Oficial:</strong> <code>1.8.0</code></p>
+<h2 id="coral-1-8-0" data-searchable>Coral 1.8.0</h2>
+<h3 id="guia-canonico-de-escrita" data-searchable>Guia canônico de escrita</h3>
+<p data-searchable>A 1.8.0 promove o guia de escrita da Coral. Ele recomenda nomes que indiquem intenção, imports públicos explícitos, quatro espaços por nível, <code>fim</code> alinhado com a construção correspondente e escolha consciente entre formas compactas e multilinha. Essas recomendações orientam legibilidade e manutenção; não são uma nova sintaxe.</p>
+<p data-searchable>A documentação do site ganhou a página <strong>Estilo e legibilidade</strong>, e a coleção do Livro 1.8.0 incorpora as mesmas orientações.</p>
+<h3 id="referencia-e-aplicacoes" data-searchable>Referência e aplicações</h3>
+<p data-searchable>A coleção do Livro 1.8.0 amplia a referência das funções e classes públicas e mantém exemplos verificados contra o runtime corrente. A distribuição também consolida três aplicações de referência: catálogo SQLite validado, análise de CSV com estatística e automação de arquivos com concorrência controlada.</p>
+<h3 id="distribuicao" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.8.0.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.83.0.vsix</code>.</li>
+<li data-searchable>Livro Oficial: coleção <code>1.8.0</code> em dois volumes.</li>
+<li data-searchable>A integração opcional do desktop Linux pode ser administrada pelo subcomando <code>coral desktop</code>.</li>
+</ul>
+<h2 id="coral-1-7-11" data-searchable>Coral 1.7.11</h2>
+<h3 id="integracao-opcional-do-desktop-linux" data-searchable>Integração opcional do desktop Linux</h3>
+<p data-searchable>A 1.7.11 adiciona <code>coral desktop instalar</code>, <code>status</code> e <code>remover</code>. A integração registra <code>*.coral</code> e o nome exato <code>coral.toml</code> com tipos MIME e ícones da Coral, sem escolher aplicativo padrão e sem associar todos os arquivos TOML.</p>
+<p data-searchable>A remoção é conservadora: arquivos de terceiros ou arquivos modificados depois da instalação são preservados.</p>
+<h3 id="aplicacoes-integradas" data-searchable>Aplicações integradas</h3>
+<p data-searchable>Três projetos em <code>Exemplos/Projetos</code> mostram composição de recursos públicos: catálogo SQLite, análise de CSV e automação de arquivos. Eles separam núcleo reutilizável da entrada da aplicação e documentam entradas, saídas e dependências opcionais.</p>
+<h2 id="coral-1-7-10" data-searchable>Coral 1.7.10</h2>
+<h3 id="concorrencia-controlada" data-searchable>Concorrência controlada</h3>
+<p data-searchable><code>coral.assincrono</code> passa a oferecer <code>FilaTarefas</code>, <code>ResultadoTarefa</code>, <code>ProgressoTarefas</code>, <code>RelatorioTarefas</code>, <code>executar_bloqueante</code> e <code>executar_fila</code>. A fila limita simultaneidade e capacidade, permite políticas de falha, timeout por tarefa ou por grupo, cancelamento cooperativo e acompanhamento de progresso.</p>
+<p data-searchable><code>grupo_tarefas</code>, <code>aguardar_com_timeout</code> e <code>cancelar_tarefa</code> permanecem disponíveis. O novo fluxo é indicado quando o programa precisa de sucesso parcial, limite explícito de tarefas ativas ou relatório estruturado.</p>
+<h2 id="coral-1-7-9" data-searchable>Coral 1.7.9</h2>
+<h3 id="sqlite-local" data-searchable>SQLite local</h3>
+<p data-searchable>A 1.7.9 adiciona <code>coral.sqlite</code> para persistência local com SQL explícito. <code>abrir</code> cria uma <code>Conexao</code>, consultas devolvem registros como dicionários e as alterações podem ser confirmadas ou revertidas explicitamente. A API também oferece transação contextual, sem criar aninhamento ou savepoints implícitos.</p>
+<p data-searchable>Valores devem ser enviados separadamente do SQL por parâmetros. Parâmetros representam valores e não substituem nomes de tabelas, colunas ou fragmentos arbitrários de consulta.</p>
+<h3 id="textos-multilinha" data-searchable>Textos multilinha</h3>
+<p data-searchable>Textos podem ser delimitados por três aspas duplas ou três aspas simples. Quando o corpo começa na linha seguinte, a quebra inicial é estrutural e o recuo comum é removido. O recurso é geral e não interpreta automaticamente SQL, HTML, Markdown ou qualquer outro conteúdo incorporado.</p>
+<h3 id="editor-e-distribuicao" data-searchable>Editor e distribuição</h3>
+<p data-searchable>Coral Language <code>0.80.0</code> reconhece o novo literal como string opaca e preserva os mapas de linha. O Livro Oficial 1.7.9 incorpora SQLite e textos multilinha nos dois volumes.</p>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.9.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.80.0.vsix</code>.</li>
+<li data-searchable>Livro Oficial: coleção <code>1.7.9</code> em dois volumes.</li>
+</ul>
+<h2 id="coral-1-7-8" data-searchable>Coral 1.7.8</h2>
+<h3 id="validacao-declarativa-de-dados-externos" data-searchable>Validação declarativa de dados externos</h3>
+<p data-searchable>A 1.7.8 adiciona <code>coral.esquemas</code>, uma API explícita para validar registros sem converter ou preencher valores automaticamente. <code>campo</code> descreve restrições, <code>esquema</code> reúne os campos e <code>validar_registro</code> ou <code>validar_registros</code> produzem relatórios estruturados.</p>
+<p data-searchable>A validação distingue <strong>campo ausente</strong> de <strong>campo presente com <code>nulo</code></strong>. Isso permite declarar, por exemplo, um campo opcional que ainda assim recusa <code>nulo</code>, ou um campo obrigatório que aceita <code>nulo</code> quando estiver presente. Limites numéricos são inclusivos e valores inválidos são relatados sem alterar a entrada.</p>
+<p data-searchable>O projeto <code>Exemplos/Projetos/Importador_Validado/</code> combina CSV gradual, conversão explícita e esquemas para gerar um relatório JSON com origem, índice lógico, regra e mensagem de cada problema.</p>
+<h3 id="distribuicao-2" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.8.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.79.0.vsix</code>.</li>
+<li data-searchable>Livro Oficial: coleção <code>1.7.8</code> em dois volumes.</li>
+<li data-searchable>Linux permanece como plataforma autoritativa desta distribuição.</li>
+</ul>
+<h2 id="coral-1-7-7" data-searchable>Coral 1.7.7</h2>
+<h3 id="leitura-e-escrita-graduais" data-searchable>Leitura e escrita graduais</h3>
+<p data-searchable><code>coral.arquivos</code> passa a oferecer <code>ler_linhas</code>, <code>ler_csv</code>, <code>ler_lotes_csv</code>, <code>escrever_linhas</code> e <code>escrever_csv</code>. Essas operações trabalham gradualmente com os dados, evitando materializar um arquivo inteiro quando o programa só precisa percorrê lo ou transformá lo em sequência.</p>
+<p data-searchable>Os leitores são de passagem única e fecham o arquivo ao chegar ao fim ou diante de erro. Quando o programa interrompe a leitura antes do fim, use <code>com</code> ou feche o leitor explicitamente. O CSV é estrito: cabeçalhos precisam ser coerentes, registros precisam manter a largura esperada e a biblioteca não converte campos silenciosamente.</p>
+<p data-searchable>O projeto <code>Exemplos/Projetos/Importador_Gradual/</code> demonstra leitura em lotes, filtro e escrita CSV preservando o benefício de memória limitada.</p>
+<h3 id="distribuicao-3" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.7.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.78.0.vsix</code>.</li>
+<li data-searchable>A coleção do Livro foi atualizada para acompanhar a edição.</li>
+</ul>
+<h2 id="coral-1-7-6" data-searchable>Coral 1.7.6</h2>
+<h3 id="cabecalhos-multilinha" data-searchable>Cabeçalhos multilinha</h3>
+<p data-searchable>Declarações longas podem distribuir parâmetros de função, imports e bases de herança em várias linhas. A estrutura continua explícita: <code>fim com</code> encerra a lista de parâmetros e <code>fim herança</code> encerra a lista de bases.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> somar com
+    primeiro do <span class="code-key">tipo</span> inteiro
+    segundo do <span class="code-key">tipo</span> inteiro opcional <span class="code-num">2</span>
+<span class="code-key">fim</span> com <span class="code-key">retornando</span> inteiro
+    retorne primeiro mais segundo
+<span class="code-key">fim</span></code></pre></div></div>
+<p data-searchable>Imports também podem listar um símbolo por linha, inclusive com aliases, e herança múltipla pode listar uma base por linha.</p>
+<h3 id="ambientes-de-projeto-reproduziveis" data-searchable>Ambientes de projeto reproduzíveis</h3>
+<p data-searchable>Projetos podem declarar requisitos de Python e dependências em <code>coral.toml</code>, resolver versões para um <code>coral.lock</code> e preparar uma geração isolada em <code>.coral/ambientes</code>. A resolução é offline por padrão, aceita wheels e não instala dependências no Python global.</p>
+<p data-searchable>A execução de projeto usa o ambiente associado ao lock quando o projeto adota esse fluxo. Se o ambiente estiver ausente ou incompatível, a Coral informa o problema em vez de continuar silenciosamente com outro ambiente.</p>
+<p data-searchable><code>Exemplos/Projetos/Ambiente_Reproduzivel/</code> demonstra o fluxo completo sem depender de um registro remoto.</p>
+<h3 id="distribuicao-4" data-searchable>Distribuição</h3>
+<ul>
+<li data-searchable>Runtime portátil: <code>coral-1.7.6.pyz</code>.</li>
+<li data-searchable>Extensão: <code>coral-language-0.77.0.vsix</code>.</li>
+<li data-searchable>Linux é a plataforma qualificada para esse fluxo.</li>
+</ul>
 <h2 id="coral-1-7-5" data-searchable>Coral 1.7.5</h2>
 <h3 id="consultas-naturais-de-classe" data-searchable>Consultas naturais de classe</h3>
 <p data-searchable><code>valor for do tipo Classe</code> passa a consultar diretamente classes definidas pelo programa, incluindo ancestrais por herança simples ou múltipla. A forma negativa <code>valor não for do tipo Classe</code> segue o mesmo contrato, e <code>e_tipo(valor, Classe)</code> continua disponível para código existente e usos dinâmicos.</p>
@@ -211,7 +293,7 @@
 <span class="code-key">fim</span></code></pre></div></div>
 <h3 id="editor-e-ferramentas" data-searchable>Editor e ferramentas</h3>
 <p data-searchable>Coral Language <code>0.74.4</code> acompanha os tipos compostos, múltiplas bases, membros herdados pela ordem de resolução e <code>programa principal</code> no outline, hover, dobramento e indentação.</p>
-<h3 id="distribuicao" data-searchable>Distribuição</h3>
+<h3 id="distribuicao-5" data-searchable>Distribuição</h3>
 <ul>
 <li data-searchable>Runtime portátil: <code>coral-1.7.3.pyz</code>.</li>
 <li data-searchable>Extensão: <code>coral-language-0.74.4.vsix</code>.</li>
@@ -244,7 +326,7 @@
 <p data-searchable>A documentação possui uma página própria de <a href="diagnosticos.html"><strong>Diagnósticos</strong></a> com a tabela de códigos <code>R100</code> a <code>R205</code> e o fallback <code>R001</code>.</p>
 <h3 id="editor" data-searchable>Editor</h3>
 <p data-searchable>Coral Language <code>0.74.0</code> conhece as formas naturais da biblioteca base no LSP e nos snippets. A formatação preserva a escrita escolhida pelo programa, e as ferramentas de ensino podem explicar os contratos sem executar a expressão.</p>
-<h3 id="distribuicao-2" data-searchable>Distribuição</h3>
+<h3 id="distribuicao-6" data-searchable>Distribuição</h3>
 <ul>
 <li data-searchable>Runtime portátil: <code>coral-1.7.2.pyz</code>.</li>
 <li data-searchable>Extensão: <code>coral-language-0.74.0.vsix</code>.</li>
@@ -267,6 +349,29 @@
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#versao-atual" data-toc-link>Versão atual</a></li>
+<li class="toc-level-2"><a href="#coral-1-8-0" data-toc-link>Coral 1.8.0</a></li>
+<li class="toc-level-3"><a href="#guia-canonico-de-escrita" data-toc-link>Guia canônico de escrita</a></li>
+<li class="toc-level-3"><a href="#referencia-e-aplicacoes" data-toc-link>Referência e aplicações</a></li>
+<li class="toc-level-3"><a href="#distribuicao" data-toc-link>Distribuição</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-11" data-toc-link>Coral 1.7.11</a></li>
+<li class="toc-level-3"><a href="#integracao-opcional-do-desktop-linux" data-toc-link>Integração opcional do desktop Linux</a></li>
+<li class="toc-level-3"><a href="#aplicacoes-integradas" data-toc-link>Aplicações integradas</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-10" data-toc-link>Coral 1.7.10</a></li>
+<li class="toc-level-3"><a href="#concorrencia-controlada" data-toc-link>Concorrência controlada</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-9" data-toc-link>Coral 1.7.9</a></li>
+<li class="toc-level-3"><a href="#sqlite-local" data-toc-link>SQLite local</a></li>
+<li class="toc-level-3"><a href="#textos-multilinha" data-toc-link>Textos multilinha</a></li>
+<li class="toc-level-3"><a href="#editor-e-distribuicao" data-toc-link>Editor e distribuição</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-8" data-toc-link>Coral 1.7.8</a></li>
+<li class="toc-level-3"><a href="#validacao-declarativa-de-dados-externos" data-toc-link>Validação declarativa de dados externos</a></li>
+<li class="toc-level-3"><a href="#distribuicao-2" data-toc-link>Distribuição</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-7" data-toc-link>Coral 1.7.7</a></li>
+<li class="toc-level-3"><a href="#leitura-e-escrita-graduais" data-toc-link>Leitura e escrita graduais</a></li>
+<li class="toc-level-3"><a href="#distribuicao-3" data-toc-link>Distribuição</a></li>
+<li class="toc-level-2"><a href="#coral-1-7-6" data-toc-link>Coral 1.7.6</a></li>
+<li class="toc-level-3"><a href="#cabecalhos-multilinha" data-toc-link>Cabeçalhos multilinha</a></li>
+<li class="toc-level-3"><a href="#ambientes-de-projeto-reproduziveis" data-toc-link>Ambientes de projeto reproduzíveis</a></li>
+<li class="toc-level-3"><a href="#distribuicao-4" data-toc-link>Distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-5" data-toc-link>Coral 1.7.5</a></li>
 <li class="toc-level-3"><a href="#consultas-naturais-de-classe" data-toc-link>Consultas naturais de classe</a></li>
 <li class="toc-level-3"><a href="#chamadas-explicitas-multilinha" data-toc-link>Chamadas explícitas multilinha</a></li>
@@ -284,13 +389,13 @@
 <li class="toc-level-3"><a href="#heranca-multipla-e-cooperacao" data-toc-link>Herança múltipla e cooperação</a></li>
 <li class="toc-level-3"><a href="#programa-principal" data-toc-link>Programa principal</a></li>
 <li class="toc-level-3"><a href="#editor-e-ferramentas" data-toc-link>Editor e ferramentas</a></li>
-<li class="toc-level-3"><a href="#distribuicao" data-toc-link>Distribuição</a></li>
+<li class="toc-level-3"><a href="#distribuicao-5" data-toc-link>Distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-2" data-toc-link>Coral 1.7.2</a></li>
 <li class="toc-level-3"><a href="#portugues-corrente-e-biblioteca-base" data-toc-link>Português corrente e biblioteca base</a></li>
 <li class="toc-level-3"><a href="#contratos-de-tipo-e-conversao" data-toc-link>Contratos de tipo e conversão</a></li>
 <li class="toc-level-3"><a href="#diagnosticos-de-execucao" data-toc-link>Diagnósticos de execução</a></li>
 <li class="toc-level-3"><a href="#editor" data-toc-link>Editor</a></li>
-<li class="toc-level-3"><a href="#distribuicao-2" data-toc-link>Distribuição</a></li>
+<li class="toc-level-3"><a href="#distribuicao-6" data-toc-link>Distribuição</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-1" data-toc-link>Coral 1.7.1</a></li>
 <li class="toc-level-2"><a href="#coral-1-7-0" data-toc-link>Coral 1.7.0</a></li>
 <li class="toc-level-2"><a href="#como-ler-estas-notas" data-toc-link>Como ler estas notas</a></li></ul>

@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a class="active" aria-current="page" href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -153,7 +156,7 @@
 <li data-searchable>Instale Coral Language no VS Code para ter navegação, diagnósticos, testes e depuração integrados.</li>
 </ol>
 <h2 id="o-que-a-coral-oferece" data-searchable>O que a Coral oferece</h2>
-<p data-searchable>A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3 e uma entrada opcional <code>programa principal</code> para aplicações.</p>
+<p data-searchable>A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, SQLite, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3, uma entrada opcional <code>programa principal</code> e concorrência controlada sobre o modelo assíncrono existente.</p>
 <p data-searchable>A documentação separa <strong>fundamentos da linguagem</strong> de <strong>biblioteca padrão</strong>. Variáveis, operadores, condições, repetições, funções, classes, objetos, tipagem, coleções e tratamento de erros possuem uma seção própria porque fazem parte da linguagem e não de um módulo <code>coral.*</code>.</p>
 <p data-searchable>A biblioteca padrão é organizada em módulos <code>coral.*</code>. Cada módulo tem uma página própria e pode ser consultado pelo nome ou pelo guia <strong>O que você quer fazer?</strong>.</p>
 <p data-searchable>Se a dúvida for sobre como escrever código Coral, comece por <a href="linguagem/index.html"><strong>Fundamentos da linguagem</strong></a>. Se a dúvida for sobre uma capacidade pronta da biblioteca, consulte os módulos.</p>
@@ -168,6 +171,9 @@
 <span class="code-key">fim</span></code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>idade</code> recebe o inteiro <code>18</code>. O teste natural usa o mesmo contrato de <code>coral.tipos.e_tipo</code>, e a consulta mostra o nome Coral do tipo.</p></div></details>
 <p data-searchable>As chamadas explícitas continuam disponíveis quando você precisa de argumentos opcionais, ordenação reversa, codificação ou outros controles que a forma curta não expressa.</p>
+<h2 id="escrever-coral-com-consistencia" data-searchable>Escrever Coral com consistência</h2>
+<p data-searchable>A Coral 1.8 consolida um guia canônico de escrita. Ele recomenda nomes que expressem intenção, imports públicos explícitos, quatro espaços por nível, uso consciente das formas compacta e multilinha e separação clara entre definições e entrada da aplicação.</p>
+<p data-searchable>Essas recomendações não são uma nova sintaxe e não transformam preferências de estilo em erros. Consulte <a href="linguagem/estilo_legibilidade.html"><strong>Estilo e legibilidade</strong></a> para exemplos curtos e regras de uso.</p>
 <h2 id="arquivo-unico-ou-projeto" data-searchable>Arquivo único ou projeto</h2>
 <p data-searchable>Um arquivo <code>.coral</code> pode ser executado sozinho. Isso é útil para estudar, experimentar uma ideia ou escrever pequenos programas.</p>
 <p data-searchable>Projetos passam a ser interessantes quando você precisa de vários módulos, testes, recursos, caminhos de importação ou configuração compartilhada. Nesse caso, <code>coral.toml</code> vira a fonte de configuração do projeto.</p>
@@ -184,6 +190,7 @@
     <ul><li class="toc-level-2"><a href="#por-onde-comecar" data-toc-link>Por onde começar</a></li>
 <li class="toc-level-2"><a href="#o-que-a-coral-oferece" data-toc-link>O que a Coral oferece</a></li>
 <li class="toc-level-2"><a href="#portugues-corrente-com-equivalencia-deterministica" data-toc-link>Português corrente com equivalência determinística</a></li>
+<li class="toc-level-2"><a href="#escrever-coral-com-consistencia" data-toc-link>Escrever Coral com consistência</a></li>
 <li class="toc-level-2"><a href="#arquivo-unico-ou-projeto" data-toc-link>Arquivo único ou projeto</a></li>
 <li class="toc-level-2"><a href="#ferramentas-oficiais" data-toc-link>Ferramentas oficiais</a></li></ul>
   </aside>

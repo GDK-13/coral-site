@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -157,6 +160,16 @@
 <p data-searchable>A forma seletiva deixa explícito o que entra no escopo do arquivo:</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de calculos <span class="code-key">importe</span> dobro
 <span class="code-key">mostre</span> <span class="code-fn">dobro</span>(<span class="code-num">21</span>)</code></pre></div></div>
+<h2 id="imports-multilinha" data-searchable>Imports multilinha</h2>
+<p data-searchable>Quando uma importação seletiva ficaria longa, os símbolos podem ser listados um por linha. Aliases continuam explícitos.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de math <span class="code-key">importe</span>
+    sqrt como raiz
+    floor
+<span class="code-key">fim</span>
+
+<span class="code-key">mostre</span> <span class="code-fn">raiz</span>(<span class="code-num">9</span>)
+<span class="code-key">mostre</span> <span class="code-fn">floor</span>(<span class="code-num">2.8</span>)</code></pre></div></div>
+<p data-searchable>O <code>fim</code> pertence à lista de imports. Essa forma é útil principalmente quando a interface consumida possui vários nomes e você quer manter cada dependência visível.</p>
 <h2 id="formas-naturais-importadas" data-searchable>Formas naturais importadas</h2>
 <p data-searchable>Funções públicas podem declarar uma forma natural. Quando a função é importada seletivamente, essa forma também pode ser reconhecida no arquivo consumidor.</p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">crie</span> a <span class="code-key">função</span> dobro com numero <span class="code-key">chamada</span> como <span class="code-str">&quot;dobre {numero}&quot;</span>
@@ -173,6 +186,27 @@
 <p data-searchable><code>Exemplos/Analise_1_7_5/Ecossistema/</code> mostra um projeto pequeno em que classes são importadas entre arquivos, consultas <code>for do tipo</code> respeitam herança e uma construção de objeto usa chamada explícita multilinha. É um bom exemplo para verificar navegação, hover e análise de projeto sem concentrar tudo em um único arquivo.</p>
 <h2 id="criar-o-manifesto-no-vs-code" data-searchable>Criar o manifesto no VS Code</h2>
 <p data-searchable>Se você abrir um arquivo vazio chamado exatamente <code>coral.toml</code>, Coral Language pode oferecer a sugestão <strong>Estrutura básica Coral</strong>. Também existe o comando <strong>Coral: Inserir estrutura básica do coral.toml</strong>. O conteúdo existente é preservado; o editor não substitui silenciosamente um manifesto já preenchido.</p>
+<h2 id="ambientes-reproduziveis" data-searchable>Ambientes reproduzíveis</h2>
+<p data-searchable>Projetos que dependem de pacotes Python podem declarar requisitos no próprio <code>coral.toml</code> e fixar a resolução em <code>coral.lock</code>. O objetivo é reproduzir o ambiente sem modificar o Python global da máquina.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-toml">[projeto]
+nome = &quot;meu-projeto&quot;
+
+[coral]
+versao = &quot;&gt;=1.7.6&quot;
+
+[dependencias]
+python = [&quot;numpy&gt;=2.0,&lt;3&quot;]
+
+[ambiente]
+python = &quot;&gt;=3.10,&lt;3.15&quot;</code></pre></div></div>
+<p data-searchable>O fluxo comum é:</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">coral manager ambiente resolver --projeto . --cache wheels --offline --json
+coral manager ambiente preparar --projeto . --offline --aplicar --json
+coral --projeto-executar
+coral manager ambiente verificar --projeto . --json</code></pre></div></div>
+<p data-searchable><code>resolver</code> produz o lock; <code>preparar</code> confere ou cria uma geração isolada; <code>verificar</code> compara o ambiente ativo com o contrato do projeto. Sem <code>--permitir-rede</code>, a resolução não consulta registros remotos. <code>--simular</code> mostra o plano sem criar lock, cache ou ambiente.</p>
+<p data-searchable>O lock registra versões exatas, dependências transitivas, origem e hashes das wheels, além do alvo de Python e plataforma. Quando esses requisitos mudam, faça uma nova resolução em vez de editar o arquivo manualmente.</p>
+<p data-searchable>O exemplo <code>Exemplos/Projetos/Ambiente_Reproduzivel/</code> demonstra esse ciclo usando artefatos locais.</p>
 <h2 id="validar-e-construir" data-searchable>Validar e construir</h2>
 <p data-searchable>A CLI oferece comandos para validar, construir e executar projetos. O VS Code expõe as mesmas operações pela interface para evitar que o terminal seja obrigatório no uso cotidiano.</p>
     </article>
@@ -184,10 +218,12 @@
     <ul><li class="toc-level-2"><a href="#quando-criar-um-projeto" data-toc-link>Quando criar um projeto</a></li>
 <li class="toc-level-2"><a href="#estrutura-minima" data-toc-link>Estrutura mínima</a></li>
 <li class="toc-level-2"><a href="#importar-funcoes" data-toc-link>Importar funções</a></li>
+<li class="toc-level-2"><a href="#imports-multilinha" data-toc-link>Imports multilinha</a></li>
 <li class="toc-level-2"><a href="#formas-naturais-importadas" data-toc-link>Formas naturais importadas</a></li>
 <li class="toc-level-2"><a href="#interfaces-publicas-entre-modulos" data-toc-link>Interfaces públicas entre módulos</a></li>
 <li class="toc-level-2"><a href="#projeto-ecossistema-da-1-7-5" data-toc-link>Projeto Ecossistema da 1.7.5</a></li>
 <li class="toc-level-2"><a href="#criar-o-manifesto-no-vs-code" data-toc-link>Criar o manifesto no VS Code</a></li>
+<li class="toc-level-2"><a href="#ambientes-reproduziveis" data-toc-link>Ambientes reproduzíveis</a></li>
 <li class="toc-level-2"><a href="#validar-e-construir" data-toc-link>Validar e construir</a></li></ul>
   </aside>
 </div>

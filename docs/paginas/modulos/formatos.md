@@ -96,7 +96,7 @@ Teste round trips: valor → formato → valor. Para CSV, inclua células com de
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.5**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.8.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
@@ -297,11 +297,11 @@ Ler CSV.
 
 **Retorno**
 
-Retorna o resultado produzido pela operação; o tipo não é declarado pela release.
+Retorna um valor declarado como `list[dict[str | None, str | list[str] | None] | list[str]]`.
 
 :::details Detalhes técnicos
 
-**Assinatura:** `de_csv(texto, *, cabecalho = True, delimitador = ',')`
+**Assinatura:** `de_csv(texto, *, cabecalho = True, delimitador = ',') -> list[dict[str \| None, str \| list[str] \| None] \| list[str]]`
 
 **Origem da implementação:** `coral.stdlib.formatos`
 

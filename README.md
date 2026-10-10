@@ -60,7 +60,7 @@ Depois abra `http://localhost:8000/` para a landing e `http://localhost:8000/doc
 
 A documentação não trata a Coral apenas como uma coleção de módulos. A seção `docs/linguagem/` cobre construções do próprio código: valores, variáveis, operadores, condições, repetições, funções, escopo, `programa principal`, classes, objetos, tipos simples e estruturais, nulidade, coleções, compreensões, erros, padrões, geradores e assíncrono.
 
-Essas páginas são editoriais, entram na busca global e seus blocos Coral participam do mesmo gate contra o runtime corrente usado pelos exemplos de módulos.
+Essas páginas são editoriais, entram na busca global e seus blocos Coral participam do mesmo gate contra o runtime corrente usado pelos exemplos de módulos. A página **Estilo e legibilidade** apresenta o guia canônico de escrita da Coral 1.8 sem transformar preferências editoriais em regras de compilação.
 
 ## Módulos principais
 

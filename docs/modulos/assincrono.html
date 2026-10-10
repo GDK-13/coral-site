@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="coral.assincrono oferece timeout, cancelamento e agrupamento sobre o modelo assíncrono existente. Use quando uma tarefa assíncrona precisa de limite de tempo, cancelamento cooperativo ou espera agrupada.">
+  <meta name="description" content="coral.assincrono oferece timeout, cancelamento, agrupamento e filas com concorrência limitada sobre o modelo assíncrono existente. Use quando uma tarefa precisa de prazo, cancelamento cooperativo, sucesso parcial, progresso ou controle de simultaneidade.">
   <meta name="theme-color" content="#EF362A">
   <title>coral.assincrono — Documentação Coral</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Coral">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="coral.assincrono — Documentação Coral">
-  <meta property="og:description" content="coral.assincrono oferece timeout, cancelamento e agrupamento sobre o modelo assíncrono existente. Use quando uma tarefa assíncrona precisa de limite de tempo, cancelamento cooperativo ou espera agrupada.">
+  <meta property="og:description" content="coral.assincrono oferece timeout, cancelamento, agrupamento e filas com concorrência limitada sobre o modelo assíncrono existente. Use quando uma tarefa precisa de prazo, cancelamento cooperativo, sucesso parcial, progresso ou controle de simultaneidade.">
   <meta property="og:image" content="../../assets/images/compartilhar.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="coral.assincrono — Documentação Coral">
-  <meta name="twitter:description" content="coral.assincrono oferece timeout, cancelamento e agrupamento sobre o modelo assíncrono existente. Use quando uma tarefa assíncrona precisa de limite de tempo, cancelamento cooperativo ou espera agrupada.">
+  <meta name="twitter:description" content="coral.assincrono oferece timeout, cancelamento, agrupamento e filas com concorrência limitada sobre o modelo assíncrono existente. Use quando uma tarefa precisa de prazo, cancelamento cooperativo, sucesso parcial, progresso ou controle de simultaneidade.">
   <meta name="twitter:image" content="../../assets/images/compartilhar.png">
 </head>
 <body class="docs-body">
@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="../linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="../linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="../linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="../linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="../linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="../linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="../linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="datas.html"><code>coral.datas</code></a></li>
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
@@ -131,7 +134,7 @@
     <div class="page-hero docs-page-hero">
       <div class="breadcrumb">Documentação / Outros módulos</div>
       <h1>coral.assincrono</h1>
-      <p>coral.assincrono oferece timeout, cancelamento e agrupamento sobre o modelo assíncrono existente. Use quando uma tarefa assíncrona precisa de limite de tempo, cancelamento cooperativo ou espera agrupada.</p>
+      <p>coral.assincrono oferece timeout, cancelamento, agrupamento e filas com concorrência limitada sobre o modelo assíncrono existente. Use quando uma tarefa precisa de prazo, cancelamento cooperativo, sucesso parcial, progresso ou controle de simultaneidade.</p>
       <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
         <span class="docs-reading-mode-label">Modo de leitura</span>
         <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
@@ -140,7 +143,7 @@
       </div>
       <div class="search-status" data-search-status aria-live="polite"></div>
     </div>
-    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>timeout, cancelamento e agrupamento sobre o modelo assíncrono existente.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o problema corresponder diretamente aos conceitos acima.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a>, <a href="comum.html"><code>coral.comum</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.assincrono</span> <span class="code-key">importe</span> aguardar_com_timeout
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>timeout, cancelamento, agrupamento e filas limitadas sobre o modelo assíncrono existente.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use este módulo quando o problema corresponder diretamente aos conceitos acima.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a>, <a href="comum.html"><code>coral.comum</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.assincrono</span> <span class="code-key">importe</span> aguardar_com_timeout
 
 <span class="code-key">crie</span> a <span class="code-key">função</span> <span class="code-key">assíncrona</span> leia_dados
     retorne <span class="code-str">&quot;ok&quot;</span>
@@ -154,13 +157,13 @@
 execute assincronamente <span class="code-fn">principal</span>()</code></pre></div></div></div></section>
     <article class="docs-section">
       <h2 id="visao-geral" data-searchable>Visão geral</h2>
-<p data-searchable><code>coral.assincrono</code> oferece timeout, cancelamento e agrupamento sobre o modelo assíncrono existente. Use quando uma tarefa assíncrona precisa de limite de tempo, cancelamento cooperativo ou espera agrupada.</p>
+<p data-searchable><code>coral.assincrono</code> oferece timeout, cancelamento, agrupamento e filas com concorrência limitada sobre o modelo assíncrono existente. Use quando uma tarefa precisa de prazo, cancelamento cooperativo, sucesso parcial, progresso ou controle de simultaneidade.</p>
 <p data-searchable><strong>Importação:</strong> <code>coral.assincrono</code> <strong>Categoria:</strong> runtime</p>
-<p data-searchable>timeout, cancelamento e agrupamento sobre o modelo assíncrono existente</p>
+<p data-searchable>timeout, cancelamento, agrupamento e filas limitadas sobre o modelo assíncrono existente</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>ErroTempoEsgotado</code>, <code>aguardar_com_timeout</code>, <code>cancelar_tarefa</code>, <code>grupo_tarefas</code></p>
+<p data-searchable><code>ErroTempoEsgotado</code>, <code>ErroFilaTarefas</code>, <code>ErroFilaCheia</code>, <code>ErroFilaFechada</code>, <code>ResultadoTarefa</code>, <code>ProgressoTarefas</code>, <code>RelatorioTarefas</code>, <code>FilaTarefas</code>, <code>aguardar_com_timeout</code>, <code>cancelar_tarefa</code>, <code>grupo_tarefas</code>, <code>executar_bloqueante</code>, <code>executar_fila</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
-<p data-searchable>Complementa a sintaxe assíncrona existente da Coral sem criar um segundo modelo de concorrência. O foco da release é resolver três necessidades práticas: limite de tempo, cancelamento cooperativo e espera agrupada.</p>
+<p data-searchable>Complementa a sintaxe assíncrona existente da Coral sem criar um segundo modelo de concorrência. Além de timeout, cancelamento e agrupamento, a superfície corrente inclui <code>FilaTarefas</code> para organizar lotes com limite de simultaneidade, capacidade, política de falha e relatórios estruturados.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
 <h3 id="timeout" data-searchable>Timeout</h3>
 <p data-searchable><code>aguardar_com_timeout</code> envolve um awaitable e converte o estouro de prazo em <code>ErroTempoEsgotado</code>.</p>
@@ -168,6 +171,12 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <p data-searchable><code>cancelar_tarefa</code> solicita cancelamento; a tarefa ainda precisa chegar a um ponto em que o runtime possa entregar esse cancelamento.</p>
 <h3 id="agrupamento" data-searchable>Agrupamento</h3>
 <p data-searchable><code>grupo_tarefas</code> aguarda múltiplos awaitables e preserva a ordem dos resultados.</p>
+<h3 id="fila-de-tarefas" data-searchable>Fila de tarefas</h3>
+<p data-searchable><code>FilaTarefas(limite_ativas=4, capacidade=nulo, politica_falha="continuar", timeout_tarefa=nulo)</code> organiza awaitables em um lote com ciclo de vida explícito. Adicione os trabalhos primeiro e execute a fila uma vez. Depois do início, novas submissões são recusadas.</p>
+<p data-searchable>A política <code>continuar</code> preserva sucessos mesmo quando uma tarefa falha. A política <code>parar</code> impede novos inícios depois da primeira falha observada, mas tarefas que já começaram podem terminar.</p>
+<p data-searchable><code>ProgressoTarefas</code> descreve iniciadas, concluídas, sucessos, falhas, canceladas, pendentes e ativas. <code>RelatorioTarefas</code> preserva a ordem de submissão, não a ordem em que as tarefas terminaram.</p>
+<h3 id="operacoes-bloqueantes" data-searchable>Operações bloqueantes</h3>
+<p data-searchable><code>executar_bloqueante</code> move uma função síncrona para uma thread auxiliar. Isso evita bloquear o ciclo assíncrono enquanto a função roda, mas cancelar quem espera pelo resultado não encerra à força a função que já começou na thread.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
 <p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
@@ -191,6 +200,9 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <tr><td data-searchable><code>aguardar_com_timeout</code></td><td data-searchable>aplicar limite de tempo</td></tr>
 <tr><td data-searchable><code>cancelar_tarefa</code></td><td data-searchable>solicitar cancelamento</td></tr>
 <tr><td data-searchable><code>grupo_tarefas</code></td><td data-searchable>aguardar várias operações</td></tr>
+<tr><td data-searchable><code>FilaTarefas</code></td><td data-searchable>limitar concorrência e organizar um lote</td></tr>
+<tr><td data-searchable><code>executar_fila</code></td><td data-searchable>executar um lote com configuração direta</td></tr>
+<tr><td data-searchable><code>executar_bloqueante</code></td><td data-searchable>levar trabalho síncrono para thread auxiliar</td></tr>
 <tr><td data-searchable><code>ErroTempoEsgotado</code></td><td data-searchable>erro controlado de timeout</td></tr>
 </tbody></table></div>
 <p data-searchable>A seção <strong>Referência da API</strong> no fim desta página contém a superfície pública completa detectada na release, com assinaturas, parâmetros, retornos e docstrings quando presentes.</p>
@@ -200,6 +212,7 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <li data-searchable>Use timeout apenas na fronteira que realmente possui um prazo.</li>
 <li data-searchable>Ao encerrar uma operação longa, solicite cancelamento e deixe o código cooperar com a interrupção.</li>
 <li data-searchable>Agrupe tarefas independentes quando o chamador precisa aguardar todas.</li>
+<li data-searchable>Use <code>FilaTarefas</code> quando precisar limitar simultaneidade, manter sucesso parcial, acompanhar progresso ou aplicar política de falha.</li>
 </ol>
 <h2 id="erros-e-casos-de-borda" data-searchable>Erros e casos de borda</h2>
 <p data-searchable>Timeout não significa necessariamente que um efeito externo foi revertido. Cancelamento também não é transação. Se uma operação modifica estado externo, documente quais fases podem já ter ocorrido quando o prazo expira.</p>
@@ -214,7 +227,7 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Em testes, prefira operações curtas e determinísticas. O objetivo é provar a política de timeout e cancelamento sem depender de esperas reais longas.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.5</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.8.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
 <h4 id="aguardar-com-timeout" data-searchable><code>aguardar_com_timeout</code></h4>
@@ -247,7 +260,7 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>async aguardar_com_timeout(esperavel: Awaitable[Any], segundos: float)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
-<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code>, <code>ErroTempoEsgotado</code></p></div></details>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroTempoEsgotado</code></p></div></details>
 <h4 id="cancelar-tarefa" data-searchable><code>cancelar_tarefa</code></h4>
 <p data-searchable>Solicita cancelamento cooperativo de uma tarefa asyncio.</p>
 <p data-searchable><strong>Parâmetros</strong></p>
@@ -289,10 +302,285 @@ execute assincronamente <span class="code-fn">principal</span>()</code></pre></d
 </tr></thead><tbody>
 <tr><td data-searchable><code>*esperaveis</code></td><td data-searchable>variádico</td></tr>
 </tbody></table></div></div></details>
+<h4 id="executar-bloqueante" data-searchable><code>executar_bloqueante</code></h4>
+<p data-searchable>Executa uma função síncrona em uma thread auxiliar.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>funcao</code></td><td data-searchable>Função fornecida para executar a operação.</td><td data-searchable><code>Callable[..., Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>*args</code></td><td data-searchable>Valor correspondente a args.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>**kwargs</code></td><td data-searchable>Valor correspondente a kwargs.</td><td data-searchable><code>Any</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Any</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>async executar_bloqueante(funcao: Callable[..., Any], *args: Any, **kwargs: Any) -&gt; Any</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>funcao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>*args</code></td><td data-searchable>variádico</td></tr>
+<tr><td data-searchable><code>**kwargs</code></td><td data-searchable>variádico nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ErroValor</code></p></div></details>
+<h4 id="executar-fila" data-searchable><code>executar_fila</code></h4>
+<p data-searchable>Atalho para executar um lote de awaitables com :class:<code>FilaTarefas</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*esperaveis</code></td><td data-searchable>Valor correspondente a esperaveis.</td><td data-searchable><code>Awaitable[Any]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>limite_ativas</code></td><td data-searchable>Valor correspondente a limite ativas.</td><td data-searchable><code>int</code></td><td data-searchable><code>4</code></td></tr>
+<tr><td data-searchable><code>politica_falha</code></td><td data-searchable>Valor correspondente a politica falha.</td><td data-searchable><code>str</code></td><td data-searchable><code>'continuar'</code></td></tr>
+<tr><td data-searchable><code>timeout_tarefa</code></td><td data-searchable>Valor correspondente a timeout tarefa.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>timeout_grupo</code></td><td data-searchable>Valor correspondente a timeout grupo.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>ao_progresso</code></td><td data-searchable>Valor correspondente a ao progresso.</td><td data-searchable><code>Callable[[ProgressoTarefas], Any] | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>RelatorioTarefas</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>async executar_fila(*esperaveis: Awaitable[Any], limite_ativas: int = 4, politica_falha: str = 'continuar', timeout_tarefa: float \| None = None, timeout_grupo: float \| None = None, ao_progresso: Callable[[ProgressoTarefas], Any] \| None = None) -&gt; RelatorioTarefas</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>*esperaveis</code></td><td data-searchable>variádico</td></tr>
+<tr><td data-searchable><code>limite_ativas</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>politica_falha</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>timeout_tarefa</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>timeout_grupo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>ao_progresso</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="resultadotarefa" data-searchable><code>ResultadoTarefa</code></h4>
+<p data-searchable>Resultado estruturado de uma tarefa submetida à fila.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Valor correspondente a indice.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado</code></td><td data-searchable>Estado usado ou atualizado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>Valor correspondente a erro.</td><td data-searchable><code>BaseException | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>segundos</code></td><td data-searchable>Valor correspondente a segundos.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Valor correspondente a indice.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>nome</code></td><td data-searchable>Nome usado para identificar o objeto criado ou consultado.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado</code></td><td data-searchable>Estado usado ou atualizado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>valor</code></td><td data-searchable>Valor processado pela operação.</td><td data-searchable><code>Any</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>erro</code></td><td data-searchable>Valor correspondente a erro.</td><td data-searchable><code>BaseException | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>segundos</code></td><td data-searchable>Valor correspondente a segundos.</td><td data-searchable><code>float</code></td><td data-searchable><code>0.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Retorna verdadeiro somente para uma tarefa concluída com sucesso.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o resultado para dados simples adequados a relatório/UI.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ResultadoTarefa(indice: int, nome: str, estado: str, valor: Any = None, erro: BaseException \| None = None, segundos: float = 0.0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>propriedade</td><td data-searchable><code>ok() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="progressotarefas" data-searchable><code>ProgressoTarefas</code></h4>
+<p data-searchable>Instantâneo imutável do progresso de uma fila.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>total</code></td><td data-searchable>Valor correspondente a total.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>iniciadas</code></td><td data-searchable>Valor correspondente a iniciadas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>concluidas</code></td><td data-searchable>Valor correspondente a concluidas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sucessos</code></td><td data-searchable>Valor correspondente a sucessos.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>falhas</code></td><td data-searchable>Valor correspondente a falhas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>canceladas</code></td><td data-searchable>Valor correspondente a canceladas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pendentes</code></td><td data-searchable>Valor correspondente a pendentes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ativas</code></td><td data-searchable>Valor correspondente a ativas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>total</code></td><td data-searchable>Valor correspondente a total.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>iniciadas</code></td><td data-searchable>Valor correspondente a iniciadas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>concluidas</code></td><td data-searchable>Valor correspondente a concluidas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>sucessos</code></td><td data-searchable>Valor correspondente a sucessos.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>falhas</code></td><td data-searchable>Valor correspondente a falhas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>canceladas</code></td><td data-searchable>Valor correspondente a canceladas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>pendentes</code></td><td data-searchable>Valor correspondente a pendentes.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>ativas</code></td><td data-searchable>Valor correspondente a ativas.</td><td data-searchable><code>int</code></td><td data-searchable>obrigatório</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fracao</code></td><td data-searchable>Fração concluída entre 0 e 1; fila vazia é considerada concluída.</td><td data-searchable><code>float</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ProgressoTarefas(total: int, iniciadas: int, concluidas: int, sucessos: int, falhas: int, canceladas: int, pendentes: int, ativas: int)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fracao</code></td><td data-searchable>propriedade</td><td data-searchable><code>fracao() -&gt; float</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="relatoriotarefas" data-searchable><code>RelatorioTarefas</code></h4>
+<p data-searchable>Relatório final ordenado produzido por :class:<code>FilaTarefas</code>.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultados</code></td><td data-searchable>Valor correspondente a resultados.</td><td data-searchable><code>tuple[ResultadoTarefa, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>Valor correspondente a progresso.</td><td data-searchable><code>ProgressoTarefas</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado</code></td><td data-searchable>Estado usado ou atualizado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Atributos públicos</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>resultados</code></td><td data-searchable>Valor correspondente a resultados.</td><td data-searchable><code>tuple[ResultadoTarefa, ...]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>Valor correspondente a progresso.</td><td data-searchable><code>ProgressoTarefas</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>estado</code></td><td data-searchable>Estado usado ou atualizado pela operação.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>motivo</code></td><td data-searchable>Texto que descreve o motivo associado à operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>Executa a operação <code>ok</code> disponibilizada por <code>coral.assincrono</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>Converte o valor para dict.</td><td data-searchable><code>dict[str, Any]</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>RelatorioTarefas(resultados: tuple[ResultadoTarefa, ...], progresso: ProgressoTarefas, estado: str, motivo: str \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ok</code></td><td data-searchable>propriedade</td><td data-searchable><code>ok() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>para_dict</code></td><td data-searchable>método</td><td data-searchable><code>para_dict() -&gt; dict[str, Any]</code></td></tr>
+</tbody></table></div></div></details>
+<h4 id="filatarefas" data-searchable><code>FilaTarefas</code></h4>
+<p data-searchable>Executa um lote assíncrono com simultaneidade e políticas explícitas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>limite_ativas</code></td><td data-searchable>Valor correspondente a limite ativas.</td><td data-searchable><code>int</code></td><td data-searchable><code>4</code></td></tr>
+<tr><td data-searchable><code>capacidade</code></td><td data-searchable>Valor correspondente a capacidade.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>politica_falha</code></td><td data-searchable>Valor correspondente a politica falha.</td><td data-searchable><code>str</code></td><td data-searchable><code>'continuar'</code></td></tr>
+<tr><td data-searchable><code>timeout_tarefa</code></td><td data-searchable>Valor correspondente a timeout tarefa.</td><td data-searchable><code>float | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fechada</code></td><td data-searchable>Executa a operação <code>fechada</code> disponibilizada por <code>coral.assincrono</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>executando</code></td><td data-searchable>Executa a operação <code>executando</code> disponibilizada por <code>coral.assincrono</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>Adiciona uma tarefa e retorna seu índice estável de submissão.</td><td data-searchable><code>int</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>Fecha a entrada da fila. Tarefas já adicionadas continuam executáveis.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>Solicita cancelamento cooperativo e impede novos trabalhos.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>Executa a operação <code>progresso</code> disponibilizada por <code>coral.assincrono</code>.</td><td data-searchable><code>ProgressoTarefas</code></td></tr>
+<tr><td data-searchable><code>executar</code></td><td data-searchable>Executa o lote uma única vez e retorna relatório ordenado.</td><td data-searchable><code>RelatorioTarefas</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>FilaTarefas(limite_ativas: int = 4, capacidade: int \| None = None, politica_falha: str = 'continuar', timeout_tarefa: float \| None = None)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fechada</code></td><td data-searchable>propriedade</td><td data-searchable><code>fechada() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>executando</code></td><td data-searchable>propriedade</td><td data-searchable><code>executando() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>adicionar</code></td><td data-searchable>método</td><td data-searchable><code>adicionar(esperavel: Awaitable[Any] | Callable[[], Awaitable[Any]], nome: str | None = None, timeout: float | None = None) -&gt; int</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>método</td><td data-searchable><code>fechar() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>cancelar</code></td><td data-searchable>método</td><td data-searchable><code>cancelar(motivo: str | None = None) -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>progresso</code></td><td data-searchable>método</td><td data-searchable><code>progresso() -&gt; ProgressoTarefas</code></td></tr>
+<tr><td data-searchable><code>executar</code></td><td data-searchable>método</td><td data-searchable><code>async executar(timeout_grupo: float | None = None, ao_progresso: Callable[[ProgressoTarefas], Any] | None = None) -&gt; RelatorioTarefas</code></td></tr>
+</tbody></table></div></div></details>
 <h3 id="excecoes" data-searchable>Exceções</h3>
 <h4 id="errotempoesgotado" data-searchable><code>ErroTempoEsgotado</code></h4>
 <p data-searchable>Uma operação assíncrona excedeu o limite solicitado.</p>
 <details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroTempoEsgotado(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p></div></details>
+<h4 id="errofilatarefas" data-searchable><code>ErroFilaTarefas</code></h4>
+<p data-searchable>Base das falhas controladas de :class:<code>FilaTarefas</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroFilaTarefas(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p></div></details>
+<h4 id="errofilacheia" data-searchable><code>ErroFilaCheia</code></h4>
+<p data-searchable>A fila atingiu sua capacidade configurada.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroFilaCheia(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p></div></details>
+<h4 id="errofilafechada" data-searchable><code>ErroFilaFechada</code></h4>
+<p data-searchable>A fila não aceita novas tarefas ou uma nova execução.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroFilaFechada(...)</code></p>
 <p data-searchable><strong>Origem da implementação:</strong> <code>coral.assincrono</code></p>
 <p data-searchable><strong>Arquivo na release:</strong> <code>coral/assincrono.py</code></p></div></details>
     </article>

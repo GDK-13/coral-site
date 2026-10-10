@@ -22,11 +22,16 @@ class CoralSyntax:
     continuacao_ident: str = _DEFAULT_CONT
     decimal: str = "."
     aspas: tuple[str, ...] = ('"', "'")
+    aspas_multilinha: tuple[str, ...] = ()
 
     @classmethod
     def from_mapping(cls, data: dict) -> "CoralSyntax":
         lexemas = frozenset(str(x).casefold() for x in data.get("lexemas", []) if str(x).strip())
         aspas = tuple(str(x) for x in data.get("aspas", ['"', "'"]) if str(x) in {'"', "'"})
+        aspas_multilinha = tuple(
+            str(x) for x in data.get("aspas_multilinha", [])
+            if str(x) in {'"""', "'''"}
+        )
         return cls(
             release=str(data.get("release", "desconhecida")),
             esquema=str(data.get("esquema", "desconhecida")),
@@ -35,6 +40,7 @@ class CoralSyntax:
             continuacao_ident=str(data.get("identificador_continuacao", _DEFAULT_CONT)),
             decimal=str(data.get("decimal", ".")) or ".",
             aspas=aspas or ('"', "'"),
+            aspas_multilinha=aspas_multilinha,
         )
 
 
@@ -104,6 +110,30 @@ def _segmentos_primarios(raw: str, syntax: CoralSyntax) -> list[Token]:
                 continue
 
         ch = raw[i]
+
+        multiline = next((q for q in syntax.aspas_multilinha if raw.startswith(q, i)), None)
+        if multiline is not None:
+            flush(i)
+            j = i + len(multiline)
+            while j < n:
+                pos = raw.find(multiline, j)
+                if pos < 0:
+                    j = n
+                    break
+                backslashes = 0
+                k = pos - 1
+                while k >= i + len(multiline) and raw[k] == "\\":
+                    backslashes += 1
+                    k -= 1
+                if backslashes % 2 == 0:
+                    j = pos + len(multiline)
+                    break
+                j = pos + 1
+            _append(tokens, "str", raw[i:j])
+            logical_line_start = raw[i:j].endswith("\n")
+            i = j
+            text_start = i
+            continue
         if ch in quote_set:
             flush(i)
             quote = ch

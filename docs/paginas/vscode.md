@@ -80,6 +80,24 @@ Ao abrir um `coral.toml` vazio, a extensão pode sugerir **Estrutura básica Cor
 
 A inserção é conservadora: um manifesto já preenchido não é sobrescrito e uma resposta deixa de ser aplicada se o arquivo tiver sido alterado enquanto a operação aguardava conclusão. Completion, hover e diagnósticos continuam disponíveis para as chaves do manifesto.
 
+## Cabeçalhos multilinha e projetos reproduzíveis
+
+A extensão reconhece cabeçalhos multilinha de parâmetros, imports e herança como uma única estrutura. Isso permite manter indentação, navegação e análise sem exigir que declarações extensas sejam comprimidas em uma única linha.
+
+Em projetos que usam `coral.lock`, o editor e a CLI compartilham a mesma identidade de projeto. A visão **Ambiente Coral** ajuda a distinguir o runtime selecionado, o projeto corrente e o ambiente gerenciado, evitando que a edição e a execução usem configurações divergentes.
+
+## Textos multilinha na 1.7.9
+
+Coral Language 0.80.0 reconhece literais delimitados por três aspas como uma única string, inclusive quando ocupam várias linhas físicas. O conteúdo é tratado como texto opaco: palavras que pareçam código Coral, SQL, HTML ou Markdown dentro do literal não recebem análise semântica como se fossem instruções do programa.
+
+O formatador preserva o conteúdo textual e os mapas de linha continuam apontando para as linhas físicas corretas do arquivo. Isso permite usar consultas SQL, mensagens extensas e outros blocos textuais sem confundir o editor sobre onde a string termina.
+
+## Guia de escrita e formatador
+
+A Coral 1.8 possui um guia canônico de escrita, mas o editor não transforma preferência de estilo em erro de compilação. O formatador preserva a intenção entre formas compactas e multilinha e deve ser idempotente: formatar novamente não deve mudar o resultado da primeira formatação.
+
+Use [**Estilo e legibilidade**](linguagem/estilo_legibilidade.html) para decidir quando quebrar uma declaração, como organizar imports e como separar definições da entrada da aplicação.
+
 ## Linha longa
 
 O limite editorial corrente é de 150 caracteres. Quando uma linha ultrapassa esse tamanho, o editor pode oferecer uma prévia de quebra antes de aplicar a alteração.
@@ -94,6 +112,6 @@ Quando o LSP falha, a extensão deve deixar o estado degradado explícito e ofer
 
 <!-- AUTO:VERSAO -->
 
-**Extensão corrente:** Coral Language `0.76.0` para Coral `1.7.5`.
+**Extensão corrente:** Coral Language `0.83.0` para Coral `1.8.0`.
 
 <!-- /AUTO:VERSAO -->

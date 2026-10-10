@@ -1,29 +1,29 @@
 {
-  "coral": "1.7.5",
-  "extensao_vscode": "0.76.0",
-  "livro": "1.7.5",
+  "coral": "1.8.0",
+  "extensao_vscode": "0.83.0",
+  "livro": "1.8.0",
   "estavel": true,
-  "fonte_release": "Coral_1.7.5_Completo_Livros_QoL1.zip",
+  "fonte_release": "Coral_1.8.0_Completo.zip",
   "livro_pdfs": [
     {
       "volume": "I",
-      "arquivo": "downloads/Coral_1.7.5_Volume_I.pdf"
+      "arquivo": "downloads/Coral_1.8.0_Volume_I.pdf"
     },
     {
       "volume": "II",
-      "arquivo": "downloads/Coral_1.7.5_Volume_II.pdf"
+      "arquivo": "downloads/Coral_1.8.0_Volume_II.pdf"
     }
   ],
   "livro_htmls": [
     {
       "volume": "I",
-      "arquivo": "livros/1.7.5/Coral_1.7.5_Volume_I.html"
+      "arquivo": "livros/1.8.0/Coral_1.8.0_Volume_I.html"
     },
     {
       "volume": "II",
-      "arquivo": "livros/1.7.5/Coral_1.7.5_Volume_II.html"
+      "arquivo": "livros/1.8.0/Coral_1.8.0_Volume_II.html"
     }
   ],
-  "livro_leitor": "livros/1.7.5/index.html",
+  "livro_leitor": "livros/1.8.0/index.html",
   "livro_revisao": "Rev4 + QoL 1"
 }

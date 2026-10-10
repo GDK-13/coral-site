@@ -29,6 +29,22 @@ de calculos importe dobro
 mostre dobro(21)
 ```
 
+## Imports multilinha
+
+Quando uma importação seletiva ficaria longa, os símbolos podem ser listados um por linha. Aliases continuam explícitos.
+
+```coral
+de math importe
+    sqrt como raiz
+    floor
+fim
+
+mostre raiz(9)
+mostre floor(2.8)
+```
+
+O `fim` pertence à lista de imports. Essa forma é útil principalmente quando a interface consumida possui vários nomes e você quer manter cada dependência visível.
+
 ## Formas naturais importadas
 
 Funções públicas podem declarar uma forma natural. Quando a função é importada seletivamente, essa forma também pode ser reconhecida no arquivo consumidor.
@@ -58,6 +74,39 @@ Esse mecanismo também protege cadeias de aliases e reexportações contra ciclo
 ## Criar o manifesto no VS Code
 
 Se você abrir um arquivo vazio chamado exatamente `coral.toml`, Coral Language pode oferecer a sugestão **Estrutura básica Coral**. Também existe o comando **Coral: Inserir estrutura básica do coral.toml**. O conteúdo existente é preservado; o editor não substitui silenciosamente um manifesto já preenchido.
+
+## Ambientes reproduzíveis
+
+Projetos que dependem de pacotes Python podem declarar requisitos no próprio `coral.toml` e fixar a resolução em `coral.lock`. O objetivo é reproduzir o ambiente sem modificar o Python global da máquina.
+
+```toml
+[projeto]
+nome = "meu-projeto"
+
+[coral]
+versao = ">=1.7.6"
+
+[dependencias]
+python = ["numpy>=2.0,<3"]
+
+[ambiente]
+python = ">=3.10,<3.15"
+```
+
+O fluxo comum é:
+
+```bash
+coral manager ambiente resolver --projeto . --cache wheels --offline --json
+coral manager ambiente preparar --projeto . --offline --aplicar --json
+coral --projeto-executar
+coral manager ambiente verificar --projeto . --json
+```
+
+`resolver` produz o lock; `preparar` confere ou cria uma geração isolada; `verificar` compara o ambiente ativo com o contrato do projeto. Sem `--permitir-rede`, a resolução não consulta registros remotos. `--simular` mostra o plano sem criar lock, cache ou ambiente.
+
+O lock registra versões exatas, dependências transitivas, origem e hashes das wheels, além do alvo de Python e plataforma. Quando esses requisitos mudam, faça uma nova resolução em vez de editar o arquivo manualmente.
+
+O exemplo `Exemplos/Projetos/Ambiente_Reproduzivel/` demonstra esse ciclo usando artefatos locais.
 
 ## Validar e construir
 

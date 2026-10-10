@@ -14,7 +14,7 @@ Se você nunca usou Coral, a sequência mais simples é instalar a distribuiçã
 
 ## O que a Coral oferece
 
-A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3 e uma entrada opcional `programa principal` para aplicações.
+A linguagem cobre programação geral e também domínios especializados: arquivos, JSON, SQLite, matemática, computação numérica, estatística, gráficos 2D e 3D, experimentos, geração procedural, Web, jogos, mundos, regras reativas, RPG, sistema e hardware. A linguagem também oferece tipagem opcional estrutural para coleções e nulidade, herança múltipla com resolução C3, uma entrada opcional `programa principal` e concorrência controlada sobre o modelo assíncrono existente.
 
 A documentação separa **fundamentos da linguagem** de **biblioteca padrão**. Variáveis, operadores, condições, repetições, funções, classes, objetos, tipagem, coleções e tratamento de erros possuem uma seção própria porque fazem parte da linguagem e não de um módulo `coral.*`.
 
@@ -42,6 +42,12 @@ fim
 :::
 
 As chamadas explícitas continuam disponíveis quando você precisa de argumentos opcionais, ordenação reversa, codificação ou outros controles que a forma curta não expressa.
+
+## Escrever Coral com consistência
+
+A Coral 1.8 consolida um guia canônico de escrita. Ele recomenda nomes que expressem intenção, imports públicos explícitos, quatro espaços por nível, uso consciente das formas compacta e multilinha e separação clara entre definições e entrada da aplicação.
+
+Essas recomendações não são uma nova sintaxe e não transformam preferências de estilo em erros. Consulte [**Estilo e legibilidade**](linguagem/estilo_legibilidade.html) para exemplos curtos e regras de uso.
 
 ## Arquivo único ou projeto
 

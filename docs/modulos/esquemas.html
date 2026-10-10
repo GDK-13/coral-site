@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="coral.esquemas valida registros externos sem alterar os dados. Ele é útil quando CSV, JSON, formulários ou integrações entregam estruturas que precisam ser conferidas antes de entrar na lógica do programa.">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.esquemas — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.esquemas — Documentação Coral">
+  <meta property="og:description" content="coral.esquemas valida registros externos sem alterar os dados. Ele é útil quando CSV, JSON, formulários ou integrações entregam estruturas que precisam ser conferidas antes de entrar na lógica do programa.">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.esquemas — Documentação Coral">
+  <meta name="twitter:description" content="coral.esquemas valida registros externos sem alterar os dados. Ele é útil quando CSV, JSON, formulários ou integrações entregam estruturas que precisam ser conferidas antes de entrar na lógica do programa.">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="../linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="../linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="../linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="../linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="../linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="../linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="../linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
+<li><a href="../linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="../linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="../linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="../linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="../linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a class="active" aria-current="page" href="esquemas.html"><code>coral.esquemas</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="sqlite.html"><code>coral.sqlite</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.esquemas</h1>
+      <p>coral.esquemas valida registros externos sem alterar os dados. Ele é útil quando CSV, JSON, formulários ou integrações entregam estruturas que precisam ser conferidas antes de entrar na lógica do programa.</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>validar registros externos sem coerção, distinguindo ausente e nulo.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use esquemas na fronteira entre dados externos e a lógica do programa: importadores, cadastros, configurações, pesquisas e inventários são casos típicos.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p><a href="conversoes.html"><code>coral.conversoes</code></a>, <a href="arquivos.html"><code>coral.arquivos</code></a>, <a href="json.html"><code>coral.json</code></a></p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
+
+<span class="code-key">defina</span> cadastro como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>), <span class="code-str">&quot;apelido&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, obrigatorio=falso)}, permitir_extras=falso)
+<span class="code-key">defina</span> bruto como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-str">&quot;18&quot;</span>}
+
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(bruto, cadastro)[<span class="code-str">&quot;erros&quot;</span>][<span class="code-num">0</span>][<span class="code-str">&quot;regra&quot;</span>]
+
+<span class="code-key">defina</span> convertido como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">inteiro</span>(bruto[<span class="code-str">&quot;idade&quot;</span>])}
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(convertido, cadastro)[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable><code>coral.esquemas</code> valida registros externos sem alterar os dados. Ele é útil quando CSV, JSON, formulários ou integrações entregam estruturas que precisam ser conferidas antes de entrar na lógica do programa.</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.esquemas</code> <strong>Categoria:</strong> dados</p>
+<p data-searchable>validar registros externos sem coerção, distinguindo ausente e nulo</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>campo</code>, <code>esquema</code>, <code>validar_registro</code>, <code>validar_registros</code></p>
+<h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
+<h3 id="campo-ausente-nao-e-o-mesmo-que-nulo" data-searchable>Campo ausente não é o mesmo que nulo</h3>
+<p data-searchable>Um campo está <strong>ausente</strong> quando a chave não existe. Um campo é <strong>nulo</strong> quando a chave existe com o valor <code>nulo</code>. As duas regras são configuradas separadamente por <code>obrigatorio</code> e <code>anulavel</code>.</p>
+<p data-searchable>Isso permite declarar um campo opcional que pode faltar mas não pode ser nulo, ou um campo obrigatório cuja chave deve existir mesmo quando o valor <code>nulo</code> é aceito.</p>
+<h3 id="validacao-nao-converte" data-searchable>Validação não converte</h3>
+<p data-searchable>O módulo aceita ou relata os valores recebidos. Ele não converte texto em número, não preenche valores padrão e não modifica o registro original. Quando a fonte contém números em texto, converta explicitamente antes da validação.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
+
+<span class="code-key">defina</span> cadastro como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>), <span class="code-str">&quot;apelido&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, obrigatorio=falso)}, permitir_extras=falso)
+<span class="code-key">defina</span> bruto como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-str">&quot;18&quot;</span>}
+
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(bruto, cadastro)[<span class="code-str">&quot;erros&quot;</span>][<span class="code-num">0</span>][<span class="code-str">&quot;regra&quot;</span>]
+
+<span class="code-key">defina</span> convertido como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">inteiro</span>(bruto[<span class="code-str">&quot;idade&quot;</span>])}
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(convertido, cadastro)[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O primeiro resultado é <code>tipo</code>, porque <code>"18"</code> continua sendo texto. Depois da conversão explícita, o registro é válido.</p></div></details>
+<h3 id="restricoes-de-campo" data-searchable>Restrições de campo</h3>
+<p data-searchable><code>campo</code> pode combinar tipo, obrigatoriedade, nulidade, limites numéricos, limites de tamanho e uma coleção de valores permitidos. Limites numéricos são inclusivos. Inteiro recusa booleanos; decimal aceita números finitos e também recusa booleanos.</p>
+<h2 id="validar-um-registro" data-searchable>Validar um registro</h2>
+<p data-searchable><code>validar_registro</code> retorna um relatório estruturado. Dados incompatíveis aparecem em <code>erros</code>; o valor original não é reescrito para tentar fazer a validação passar.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+
+<span class="code-key">defina</span> pessoa como <span class="code-fn">esquema</span>({
+    <span class="code-str">&quot;nome&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, tamanho_minimo=<span class="code-num">1</span>),
+    <span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>),
+    <span class="code-str">&quot;grupo&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, permitidos=[<span class="code-str">&quot;controle&quot;</span>, <span class="code-str">&quot;ensaio&quot;</span>])
+}, permitir_extras=falso)
+
+<span class="code-key">defina</span> resultado como <span class="code-fn">validar_registro</span>({<span class="code-str">&quot;nome&quot;</span>: <span class="code-str">&quot;Ana&quot;</span>, <span class="code-str">&quot;idade&quot;</span>: <span class="code-num">20</span>, <span class="code-str">&quot;grupo&quot;</span>: <span class="code-str">&quot;ensaio&quot;</span>}, pessoa)
+<span class="code-key">mostre</span> resultado[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O relatório informa verdadeiro em <code>valido</code> e não contém erros de campo.</p></div></details>
+<h2 id="validar-varios-registros" data-searchable>Validar vários registros</h2>
+<p data-searchable><code>validar_registros</code> percorre um iterável em passagem única e guarda os erros encontrados, não uma cópia dos registros. <code>modo="primeiro"</code> interrompe no primeiro erro; <code>modo="coletar"</code> continua até o limite configurado.</p>
+<p data-searchable>O retorno informa <code>valido</code>, <code>erros</code>, <code>verificados</code> e <code>interrompido</code>. Cada erro pode registrar <code>campo</code>, <code>regra</code>, <code>mensagem</code>, índice do registro, linha lógica e origem fornecida pelo chamador.</p>
+<p data-searchable>A função não fecha iteradores de terceiros. Quando a entrada vem de <code>ler_csv</code> ou <code>ler_lotes_csv</code>, o bloco <code>com</code> continua pertencendo ao chamador.</p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use esquemas na fronteira entre dados externos e a lógica do programa: importadores, cadastros, configurações, pesquisas e inventários são casos típicos. Para dados já controlados internamente, tipos e invariantes do próprio domínio costumam ser mais diretos.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campo</code></td><td data-searchable>descreve o contrato de um campo</td></tr>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>reúne campos e define a política de chaves extras</td></tr>
+<tr><td data-searchable><code>validar_registro</code></td><td data-searchable>valida um registro e produz relatório</td></tr>
+<tr><td data-searchable><code>validar_registros</code></td><td data-searchable>valida uma sequência em passagem única</td></tr>
+</tbody></table></div>
+<h2 id="erros-comuns" data-searchable>Erros comuns</h2>
+<ul>
+<li data-searchable>Esperar coerção automática de texto para número. Converta antes.</li>
+<li data-searchable>Tratar campo ausente e <code>nulo</code> como a mesma situação.</li>
+<li data-searchable>Confundir índice lógico de registro com linha física de um CSV que possui campos multilinha.</li>
+<li data-searchable>Esquecer que limitar erros pode interromper o consumo antes do fim da entrada.</li>
+<li data-searchable>Fechar no validador um leitor que pertence ao chamador. O ownership continua externo.</li>
+</ul>
+<h2 id="integracao" data-searchable>Integração</h2>
+<p data-searchable><code>coral.esquemas</code> combina especialmente bem com <code>coral.arquivos</code>, <code>coral.conversoes</code> e <code>coral.json</code>. O projeto <code>Exemplos/Projetos/Importador_Validado/</code> mostra o fluxo completo: ler CSV, converter campos explicitamente, validar os registros e salvar um relatório JSON.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="campo" data-searchable><code>campo</code></h4>
+<p data-searchable>Define um campo: ausente depende de obrigatorio; nulo depende de anulavel.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
+
+<span class="code-key">defina</span> cadastro como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>), <span class="code-str">&quot;apelido&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, obrigatorio=falso)}, permitir_extras=falso)
+<span class="code-key">defina</span> bruto como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-str">&quot;18&quot;</span>}
+
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(bruto, cadastro)[<span class="code-str">&quot;erros&quot;</span>][<span class="code-num">0</span>][<span class="code-str">&quot;regra&quot;</span>]
+
+<span class="code-key">defina</span> convertido como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">inteiro</span>(bruto[<span class="code-str">&quot;idade&quot;</span>])}
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(convertido, cadastro)[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>Tipo solicitado para o resultado, quando o módulo oferece essa escolha.</td><td data-searchable><code>str</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>obrigatorio</code></td><td data-searchable>Valor correspondente a obrigatorio.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+<tr><td data-searchable><code>anulavel</code></td><td data-searchable>Valor correspondente a anulavel.</td><td data-searchable><code>bool</code></td><td data-searchable><code>False</code></td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>Limite mínimo considerado pela operação.</td><td data-searchable><code>int | float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>Limite máximo considerado pela operação.</td><td data-searchable><code>int | float | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tamanho_minimo</code></td><td data-searchable>Valor correspondente a tamanho minimo.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>tamanho_maximo</code></td><td data-searchable>Valor correspondente a tamanho maximo.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>permitidos</code></td><td data-searchable>Valor correspondente a permitidos.</td><td data-searchable><code>Iterable | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>campo(tipo: str, *, obrigatorio: bool = True, anulavel: bool = False, minimo: int \| float \| None = None, maximo: int \| float \| None = None, tamanho_minimo: int \| None = None, tamanho_maximo: int \| None = None, permitidos: Iterable \| None = None) -&gt; dict</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.esquemas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/esquemas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>tipo</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>obrigatorio</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>anulavel</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>minimo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>maximo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>tamanho_minimo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>tamanho_maximo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>permitidos</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="esquema" data-searchable><code>esquema</code></h4>
+<p data-searchable>Copia campos declarados em ordem; extras são permitidos por padrão.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
+
+<span class="code-key">defina</span> cadastro como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>), <span class="code-str">&quot;apelido&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, obrigatorio=falso)}, permitir_extras=falso)
+<span class="code-key">defina</span> bruto como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-str">&quot;18&quot;</span>}
+
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(bruto, cadastro)[<span class="code-str">&quot;erros&quot;</span>][<span class="code-num">0</span>][<span class="code-str">&quot;regra&quot;</span>]
+
+<span class="code-key">defina</span> convertido como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">inteiro</span>(bruto[<span class="code-str">&quot;idade&quot;</span>])}
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(convertido, cadastro)[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>Valor correspondente a campos.</td><td data-searchable><code>Mapping[str, dict]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>permitir_extras</code></td><td data-searchable>Controla se deve permitir extras.</td><td data-searchable><code>bool</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>esquema(campos: Mapping[str, dict], *, permitir_extras: bool = True) -&gt; dict</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.esquemas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/esquemas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>campos</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>permitir_extras</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code>, <code>ValueError</code></p></div></details>
+<h4 id="validar-registro" data-searchable><code>validar_registro</code></h4>
+<p data-searchable>Valida sem converter: ausente e nulo têm regras diferentes.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+de <span class="code-mod">coral.conversoes</span> <span class="code-key">importe</span> inteiro
+
+<span class="code-key">defina</span> cadastro como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>), <span class="code-str">&quot;apelido&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;texto&quot;</span>, obrigatorio=falso)}, permitir_extras=falso)
+<span class="code-key">defina</span> bruto como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-str">&quot;18&quot;</span>}
+
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(bruto, cadastro)[<span class="code-str">&quot;erros&quot;</span>][<span class="code-num">0</span>][<span class="code-str">&quot;regra&quot;</span>]
+
+<span class="code-key">defina</span> convertido como {<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">inteiro</span>(bruto[<span class="code-str">&quot;idade&quot;</span>])}
+<span class="code-key">mostre</span> <span class="code-fn">validar_registro</span>(convertido, cadastro)[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registro</code></td><td data-searchable>Valor correspondente a registro.</td><td data-searchable><code>Mapping</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>Valor correspondente a esquema.</td><td data-searchable><code>Mapping</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>Valor correspondente a indice.</td><td data-searchable><code>int</code></td><td data-searchable><code>1</code></td></tr>
+<tr><td data-searchable><code>linha</code></td><td data-searchable>Valor correspondente a linha.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'coletar'</code></td></tr>
+<tr><td data-searchable><code>limite_erros</code></td><td data-searchable>Valor correspondente a limite erros.</td><td data-searchable><code>int</code></td><td data-searchable><code>100</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>validar_registro(registro: Mapping, esquema: Mapping, *, indice: int = 1, linha: int \| None = None, origem: str \| None = None, modo: str = 'coletar', limite_erros: int = 100) -&gt; dict</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.esquemas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/esquemas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registro</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>indice</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>linha</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_erros</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="validar-registros" data-searchable><code>validar_registros</code></h4>
+<p data-searchable>Valida uma passagem, sem reter registros nem fechar o iterador do chamador.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>Iterable[Mapping]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>Valor correspondente a esquema.</td><td data-searchable><code>Mapping</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>Valor correspondente a modo.</td><td data-searchable><code>str</code></td><td data-searchable><code>'coletar'</code></td></tr>
+<tr><td data-searchable><code>limite_erros</code></td><td data-searchable>Valor correspondente a limite erros.</td><td data-searchable><code>int</code></td><td data-searchable><code>100</code></td></tr>
+<tr><td data-searchable><code>linha_inicial</code></td><td data-searchable>Valor correspondente a linha inicial.</td><td data-searchable><code>int | None</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>Origem usada pela operação.</td><td data-searchable><code>str | None</code></td><td data-searchable><code>None</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>dict</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>validar_registros(registros: Iterable[Mapping], esquema: Mapping, *, modo: str = 'coletar', limite_erros: int = 100, linha_inicial: int \| None = None, origem: str \| None = None) -&gt; dict</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.esquemas</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/esquemas.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>esquema</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>modo</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>limite_erros</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>linha_inicial</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>origem</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="entrada.html"><span>Anterior</span><strong>coral.entrada</strong></a><a class="docs-page-nav-link next" href="formatacao.html"><span>Próxima</span><strong>coral.formatacao</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#validar-um-registro" data-toc-link>Validar um registro</a></li>
+<li class="toc-level-2"><a href="#validar-varios-registros" data-toc-link>Validar vários registros</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#erros-comuns" data-toc-link>Erros comuns</a></li>
+<li class="toc-level-2"><a href="#integracao" data-toc-link>Integração</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

@@ -6,11 +6,134 @@ Esta página reúne mudanças de compatibilidade, sintaxe, ferramentas e distrib
 
 <!-- AUTO:VERSAO_NOTAS -->
 
-**Coral:** `1.7.5`  
-**Coral Language:** `0.76.0`  
-**Livro Oficial:** `1.7.5`
+**Coral:** `1.8.0`  
+**Coral Language:** `0.83.0`  
+**Livro Oficial:** `1.8.0`
 
 <!-- /AUTO:VERSAO_NOTAS -->
+
+## Coral 1.8.0
+
+### Guia canônico de escrita
+
+A 1.8.0 promove o guia de escrita da Coral. Ele recomenda nomes que indiquem intenção, imports públicos explícitos, quatro espaços por nível, `fim` alinhado com a construção correspondente e escolha consciente entre formas compactas e multilinha. Essas recomendações orientam legibilidade e manutenção; não são uma nova sintaxe.
+
+A documentação do site ganhou a página **Estilo e legibilidade**, e a coleção do Livro 1.8.0 incorpora as mesmas orientações.
+
+### Referência e aplicações
+
+A coleção do Livro 1.8.0 amplia a referência das funções e classes públicas e mantém exemplos verificados contra o runtime corrente. A distribuição também consolida três aplicações de referência: catálogo SQLite validado, análise de CSV com estatística e automação de arquivos com concorrência controlada.
+
+### Distribuição
+
+* Runtime portátil: `coral-1.8.0.pyz`.
+* Extensão: `coral-language-0.83.0.vsix`.
+* Livro Oficial: coleção `1.8.0` em dois volumes.
+* A integração opcional do desktop Linux pode ser administrada pelo subcomando `coral desktop`.
+
+## Coral 1.7.11
+
+### Integração opcional do desktop Linux
+
+A 1.7.11 adiciona `coral desktop instalar`, `status` e `remover`. A integração registra `*.coral` e o nome exato `coral.toml` com tipos MIME e ícones da Coral, sem escolher aplicativo padrão e sem associar todos os arquivos TOML.
+
+A remoção é conservadora: arquivos de terceiros ou arquivos modificados depois da instalação são preservados.
+
+### Aplicações integradas
+
+Três projetos em `Exemplos/Projetos` mostram composição de recursos públicos: catálogo SQLite, análise de CSV e automação de arquivos. Eles separam núcleo reutilizável da entrada da aplicação e documentam entradas, saídas e dependências opcionais.
+
+## Coral 1.7.10
+
+### Concorrência controlada
+
+`coral.assincrono` passa a oferecer `FilaTarefas`, `ResultadoTarefa`, `ProgressoTarefas`, `RelatorioTarefas`, `executar_bloqueante` e `executar_fila`. A fila limita simultaneidade e capacidade, permite políticas de falha, timeout por tarefa ou por grupo, cancelamento cooperativo e acompanhamento de progresso.
+
+`grupo_tarefas`, `aguardar_com_timeout` e `cancelar_tarefa` permanecem disponíveis. O novo fluxo é indicado quando o programa precisa de sucesso parcial, limite explícito de tarefas ativas ou relatório estruturado.
+
+## Coral 1.7.9
+
+### SQLite local
+
+A 1.7.9 adiciona `coral.sqlite` para persistência local com SQL explícito. `abrir` cria uma `Conexao`, consultas devolvem registros como dicionários e as alterações podem ser confirmadas ou revertidas explicitamente. A API também oferece transação contextual, sem criar aninhamento ou savepoints implícitos.
+
+Valores devem ser enviados separadamente do SQL por parâmetros. Parâmetros representam valores e não substituem nomes de tabelas, colunas ou fragmentos arbitrários de consulta.
+
+### Textos multilinha
+
+Textos podem ser delimitados por três aspas duplas ou três aspas simples. Quando o corpo começa na linha seguinte, a quebra inicial é estrutural e o recuo comum é removido. O recurso é geral e não interpreta automaticamente SQL, HTML, Markdown ou qualquer outro conteúdo incorporado.
+
+### Editor e distribuição
+
+Coral Language `0.80.0` reconhece o novo literal como string opaca e preserva os mapas de linha. O Livro Oficial 1.7.9 incorpora SQLite e textos multilinha nos dois volumes.
+
+* Runtime portátil: `coral-1.7.9.pyz`.
+* Extensão: `coral-language-0.80.0.vsix`.
+* Livro Oficial: coleção `1.7.9` em dois volumes.
+
+## Coral 1.7.8
+
+### Validação declarativa de dados externos
+
+A 1.7.8 adiciona `coral.esquemas`, uma API explícita para validar registros sem converter ou preencher valores automaticamente. `campo` descreve restrições, `esquema` reúne os campos e `validar_registro` ou `validar_registros` produzem relatórios estruturados.
+
+A validação distingue **campo ausente** de **campo presente com `nulo`**. Isso permite declarar, por exemplo, um campo opcional que ainda assim recusa `nulo`, ou um campo obrigatório que aceita `nulo` quando estiver presente. Limites numéricos são inclusivos e valores inválidos são relatados sem alterar a entrada.
+
+O projeto `Exemplos/Projetos/Importador_Validado/` combina CSV gradual, conversão explícita e esquemas para gerar um relatório JSON com origem, índice lógico, regra e mensagem de cada problema.
+
+### Distribuição
+
+* Runtime portátil: `coral-1.7.8.pyz`.
+* Extensão: `coral-language-0.79.0.vsix`.
+* Livro Oficial: coleção `1.7.8` em dois volumes.
+* Linux permanece como plataforma autoritativa desta distribuição.
+
+## Coral 1.7.7
+
+### Leitura e escrita graduais
+
+`coral.arquivos` passa a oferecer `ler_linhas`, `ler_csv`, `ler_lotes_csv`, `escrever_linhas` e `escrever_csv`. Essas operações trabalham gradualmente com os dados, evitando materializar um arquivo inteiro quando o programa só precisa percorrê lo ou transformá lo em sequência.
+
+Os leitores são de passagem única e fecham o arquivo ao chegar ao fim ou diante de erro. Quando o programa interrompe a leitura antes do fim, use `com` ou feche o leitor explicitamente. O CSV é estrito: cabeçalhos precisam ser coerentes, registros precisam manter a largura esperada e a biblioteca não converte campos silenciosamente.
+
+O projeto `Exemplos/Projetos/Importador_Gradual/` demonstra leitura em lotes, filtro e escrita CSV preservando o benefício de memória limitada.
+
+### Distribuição
+
+* Runtime portátil: `coral-1.7.7.pyz`.
+* Extensão: `coral-language-0.78.0.vsix`.
+* A coleção do Livro foi atualizada para acompanhar a edição.
+
+## Coral 1.7.6
+
+### Cabeçalhos multilinha
+
+Declarações longas podem distribuir parâmetros de função, imports e bases de herança em várias linhas. A estrutura continua explícita: `fim com` encerra a lista de parâmetros e `fim herança` encerra a lista de bases.
+
+```coral
+crie a função somar com
+    primeiro do tipo inteiro
+    segundo do tipo inteiro opcional 2
+fim com retornando inteiro
+    retorne primeiro mais segundo
+fim
+```
+
+Imports também podem listar um símbolo por linha, inclusive com aliases, e herança múltipla pode listar uma base por linha.
+
+### Ambientes de projeto reproduzíveis
+
+Projetos podem declarar requisitos de Python e dependências em `coral.toml`, resolver versões para um `coral.lock` e preparar uma geração isolada em `.coral/ambientes`. A resolução é offline por padrão, aceita wheels e não instala dependências no Python global.
+
+A execução de projeto usa o ambiente associado ao lock quando o projeto adota esse fluxo. Se o ambiente estiver ausente ou incompatível, a Coral informa o problema em vez de continuar silenciosamente com outro ambiente.
+
+`Exemplos/Projetos/Ambiente_Reproduzivel/` demonstra o fluxo completo sem depender de um registro remoto.
+
+### Distribuição
+
+* Runtime portátil: `coral-1.7.6.pyz`.
+* Extensão: `coral-language-0.77.0.vsix`.
+* Linux é a plataforma qualificada para esse fluxo.
 
 ## Coral 1.7.5
 

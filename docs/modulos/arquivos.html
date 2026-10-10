@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="../index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="../linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="../linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="../linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="../linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="../linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="../linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="../linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="datas.html"><code>coral.datas</code></a></li>
 <li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="texto.html"><code>coral.texto</code></a></li>
 <li><a href="tipos.html"><code>coral.tipos</code></a></li>
@@ -157,7 +160,7 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <p data-searchable><strong>Importação:</strong> <code>coral.arquivos</code> <strong>Categoria:</strong> sistema</p>
 <p data-searchable>ler, escrever e organizar arquivos e caminhos locais</p>
 <h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
-<p data-searchable><code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>, <code>listar</code>, <code>listar_recursivo</code>, <code>criar_pasta</code>, <code>remover</code>, <code>renomear</code>, <code>copiar</code>, <code>mover</code>, <code>tamanho</code>, <code>metadados</code>, <code>arquivo_temporario</code>, <code>pasta_temporaria</code>, <code>nome</code>, <code>extensao</code>, <code>pai</code>, <code>resolver</code></p>
+<p data-searchable><code>ler_linhas</code>, <code>ler_csv</code>, <code>ler_lotes_csv</code>, <code>escrever_linhas</code>, <code>escrever_csv</code>, <code>ler_texto</code>, <code>escrever_texto</code>, <code>adicionar_texto</code>, <code>ler_bytes</code>, <code>escrever_bytes</code>, <code>existe</code>, <code>listar</code>, <code>listar_recursivo</code>, <code>criar_pasta</code>, <code>remover</code>, <code>renomear</code>, <code>copiar</code>, <code>mover</code>, <code>tamanho</code>, <code>metadados</code>, <code>arquivo_temporario</code>, <code>pasta_temporaria</code>, <code>nome</code>, <code>extensao</code>, <code>pai</code>, <code>resolver</code></p>
 <h2 id="papel-no-ecossistema" data-searchable>Papel no ecossistema</h2>
 <p data-searchable>É a camada de operações locais de sistema de arquivos. Ela concentra leitura, escrita, organização, metadados e recursos temporários para que o restante do programa não precise misturar lógica de domínio com detalhes de IO.</p>
 <h2 id="conceitos-principais" data-searchable>Conceitos principais</h2>
@@ -169,6 +172,22 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <p data-searchable><code>remover</code>, <code>renomear</code>, <code>copiar</code> e <code>mover</code> alteram o estado local. Operações recursivas exigem intenção explícita.</p>
 <h3 id="arquivos-temporarios" data-searchable>Arquivos temporários</h3>
 <p data-searchable><code>arquivo_temporario</code> e <code>pasta_temporaria</code> evitam nomes improvisados em testes, conversões e etapas intermediárias.</p>
+<h2 id="leitura-gradual-e-csv" data-searchable>Leitura gradual e CSV</h2>
+<p data-searchable>Para arquivos grandes ou pipelines que processam registros aos poucos, prefira as operações graduais da 1.7.7:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Operação</th>
+<th>Uso principal</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>ler_linhas</code></td><td data-searchable>percorrer linhas sem carregar o arquivo inteiro</td></tr>
+<tr><td data-searchable><code>ler_csv</code></td><td data-searchable>percorrer registros CSV individualmente</td></tr>
+<tr><td data-searchable><code>ler_lotes_csv</code></td><td data-searchable>percorrer grupos limitados de registros</td></tr>
+<tr><td data-searchable><code>escrever_linhas</code></td><td data-searchable>consumir textos gradualmente</td></tr>
+<tr><td data-searchable><code>escrever_csv</code></td><td data-searchable>consumir registros e gravar CSV gradualmente</td></tr>
+</tbody></table></div>
+<p data-searchable>Os leitores são de passagem única. O arquivo só é aberto quando a leitura começa e é fechado ao chegar ao fim ou diante de uma falha. Se o programa parar antes do fim, use um bloco <code>com</code> ou feche o leitor explicitamente.</p>
+<p data-searchable>O CSV é estrito e preserva texto. Com cabeçalho, os nomes precisam ser únicos e cada registro deve ter a mesma largura. Sem cabeçalho, cada registro é uma lista de textos. Campos multilinha e separadores entre aspas são interpretados como CSV, portanto uma linha física do arquivo não corresponde necessariamente a um registro.</p>
+<p data-searchable>A escrita substitui o destino e não é transacional: uma falha durante o consumo pode deixar conteúdo parcial. Valide dados antes quando precisar garantir que nenhum trecho seja gravado em caso de erro.</p>
+<p data-searchable>O projeto <code>Exemplos/Projetos/Importador_Gradual/</code> demonstra leitura em lotes, transformação e escrita sem acumular todos os registros em memória.</p>
 <h2 id="quando-usar" data-searchable>Quando usar</h2>
 <p data-searchable>Use este módulo quando o problema corresponder diretamente aos conceitos acima. Por ser um módulo complementar, ele normalmente entra em um programa para resolver uma responsabilidade específica e deve permanecer desacoplado da lógica central sempre que possível.</p>
 <h2 id="comecando" data-searchable>Começando</h2>
@@ -227,9 +246,139 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
 <h2 id="testabilidade-e-previsibilidade" data-searchable>Testabilidade e previsibilidade</h2>
 <p data-searchable>Testes devem trabalhar em pasta temporária e conferir efeitos observáveis: arquivo criado, conteúdo, tamanho, listagem e remoção. Isso evita depender do diretório pessoal da máquina.</p>
 <h2 id="compatibilidade-e-evolucao" data-searchable>Compatibilidade e evolução</h2>
-<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.7.5</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
+<p data-searchable>A documentação desta página descreve a superfície detectada na <strong>Coral 1.8.0</strong>. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.</p>
 <h2 id="referencia-da-api" data-searchable>Referência da API</h2>
 <h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="ler-linhas" data-searchable><code>ler_linhas</code></h4>
+<p data-searchable>Lê linhas sob demanda, preservando terminadores. Use com/with ou fechar/close.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Iterator[str]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_linhas(caminho, codificacao = 'utf-8') -&gt; Iterator[str]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p></div></details>
+<h4 id="ler-csv" data-searchable><code>ler_csv</code></h4>
+<p data-searchable>Lê registros CSV sob demanda, com campos de texto e estrutura estrita.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>Valor correspondente a delimitador.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Valor correspondente a cabecalho.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Iterator[dict[str, str] | list[str]]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_csv(caminho, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -&gt; Iterator[dict[str, str] \| list[str]]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h4 id="ler-lotes-csv" data-searchable><code>ler_lotes_csv</code></h4>
+<p data-searchable>Lê lotes CSV de tamanho limitado, incluindo o último lote parcial.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>tamanho_lote</code></td><td data-searchable>Valor correspondente a tamanho lote.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>100</code></td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>Valor correspondente a delimitador.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Valor correspondente a cabecalho.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Iterator[list[dict[str, str] | list[str]]]</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ler_lotes_csv(caminho, tamanho_lote = 100, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -&gt; Iterator[list[dict[str, str] \| list[str]]]</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>tamanho_lote</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>ValueError</code></p></div></details>
+<h4 id="escrever-linhas" data-searchable><code>escrever_linhas</code></h4>
+<p data-searchable>Escreve textos gradualmente, sem inserir terminadores ou converter valores.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>linhas</code></td><td data-searchable>Linhas usadas para construir ou processar a estrutura.</td><td data-searchable><code>Iterable[str]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escrever_linhas(caminho, linhas: Iterable[str], codificacao = 'utf-8') -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Exceções diretamente observáveis no corpo:</strong> <code>TypeError</code></p></div></details>
+<h4 id="escrever-csv" data-searchable><code>escrever_csv</code></h4>
+<p data-searchable>Escreve CSV gradualmente com campos estritamente textuais e estrutura exata.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>não declarado</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>Valor correspondente a registros.</td><td data-searchable><code>Iterable[Mapping[str, str] | Sequence[str]]</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>Codificação de texto usada na leitura ou escrita.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>'utf-8'</code></td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>Valor correspondente a delimitador.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>','</code></td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>Valor correspondente a colunas.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>Valor correspondente a cabecalho.</td><td data-searchable><code>não declarado</code></td><td data-searchable><code>True</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>escrever_csv(caminho, registros: Iterable[Mapping[str, str] \| Sequence[str]], codificacao = 'utf-8', *, delimitador = ',', colunas = None, cabecalho = True) -&gt; None</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.stdlib.arquivos</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/stdlib/arquivos.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>registros</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>codificacao</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>delimitador</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>colunas</code></td><td data-searchable>nomeado</td></tr>
+<tr><td data-searchable><code>cabecalho</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
 <h4 id="ler-texto" data-searchable><code>ler_texto</code></h4>
 <p data-searchable>Lê o conteúdo textual de um arquivo.</p>
 <p data-searchable><strong>Exemplo</strong></p>
@@ -675,6 +824,7 @@ execute <span class="code-fn">escrever_texto</span>(<span class="code-str">&quot
     <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
 <li class="toc-level-2"><a href="#papel-no-ecossistema" data-toc-link>Papel no ecossistema</a></li>
 <li class="toc-level-2"><a href="#conceitos-principais" data-toc-link>Conceitos principais</a></li>
+<li class="toc-level-2"><a href="#leitura-gradual-e-csv" data-toc-link>Leitura gradual e CSV</a></li>
 <li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
 <li class="toc-level-2"><a href="#comecando" data-toc-link>Começando</a></li>
 <li class="toc-level-2"><a href="#formas-naturais" data-toc-link>Formas naturais</a></li>

@@ -346,6 +346,8 @@ def extract_structural_language_contract(zf: zipfile.ZipFile) -> list[str]:
         features.extend(["valor for do tipo Classe", "valor não for do tipo Classe"])
     if read_zip_text(zf, "Projeto/coral/_chamadas_multilinha.py"):
         features.append("chame alvo com ... fim")
+    if read_zip_text(zf, "Projeto/coral/_textos_multilinha.py"):
+        features.append("texto multilinha com aspas triplas")
     return features
 
 
@@ -446,6 +448,7 @@ def extract_syntax_contract(zf: zipfile.ZipFile, runtime: str) -> dict[str, Any]
         "identificador_continuacao": continuacao_ident,
         "decimal": decimal,
         "aspas": quotes or ["\"", "'"],
+        "aspas_multilinha": (["\"\"\"", "'''"] if "_texto_multilinha" in lexical else []),
         "linguagens": ["coral", "coral-*"],
         "formas_naturais_basicas": extract_basic_natural_contract(zf),
         "estruturas_linguagem": extract_structural_language_contract(zf),
@@ -782,6 +785,7 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
                 {"arquivo": "linguagem/condicoes_repeticoes.md", "titulo": "Condições e repetições", "slug": "condicoes-e-repeticoes", "grupo": "Linguagem"},
                 {"arquivo": "linguagem/funcoes_escopo.md", "titulo": "Funções e escopo", "slug": "funcoes-e-escopo", "grupo": "Linguagem"},
                 {"arquivo": "linguagem/programa_principal.md", "titulo": "Programa principal", "slug": "programa-principal", "grupo": "Linguagem"},
+                {"arquivo": "linguagem/estilo_legibilidade.md", "titulo": "Estilo e legibilidade", "slug": "estilo-e-legibilidade", "grupo": "Linguagem"},
                 {"arquivo": "linguagem/classes_objetos.md", "titulo": "Classes e objetos", "slug": "classes-e-objetos", "grupo": "Linguagem"},
                 {"arquivo": "linguagem/tipos_tipagem.md", "titulo": "Tipos e tipagem", "slug": "tipos-e-tipagem", "grupo": "Linguagem"},
                 {"arquivo": "linguagem/colecoes_compreensoes.md", "titulo": "Coleções e compreensões", "slug": "colecoes-e-compreensoes", "grupo": "Linguagem"},
@@ -810,6 +814,7 @@ def build_navigation(modules: list[dict[str, Any]]) -> dict[str, Any]:
         {"arquivo": "linguagem/condicoes_repeticoes.md", "titulo": "Condições e repetições", "slug": "condicoes-e-repeticoes", "grupo": "Linguagem"},
         {"arquivo": "linguagem/funcoes_escopo.md", "titulo": "Funções e escopo", "slug": "funcoes-e-escopo", "grupo": "Linguagem"},
         {"arquivo": "linguagem/programa_principal.md", "titulo": "Programa principal", "slug": "programa-principal", "grupo": "Linguagem"},
+        {"arquivo": "linguagem/estilo_legibilidade.md", "titulo": "Estilo e legibilidade", "slug": "estilo-e-legibilidade", "grupo": "Linguagem"},
         {"arquivo": "linguagem/classes_objetos.md", "titulo": "Classes e objetos", "slug": "classes-e-objetos", "grupo": "Linguagem"},
         {"arquivo": "linguagem/tipos_tipagem.md", "titulo": "Tipos e tipagem", "slug": "tipos-e-tipagem", "grupo": "Linguagem"},
         {"arquivo": "linguagem/colecoes_compreensoes.md", "titulo": "Coleções e compreensões", "slug": "colecoes-e-compreensoes", "grupo": "Linguagem"},
@@ -894,6 +899,9 @@ def update_index_fallbacks(version: dict[str, Any]) -> None:
     text = re.sub(r">Release\s+[0-9.]+<", f'>Release <span data-version-key="coral">{version.get("coral", "?")}</span><', text, count=1)
     text = re.sub(r"Para usar exatamente o runtime \d+\.\d+\.\d+", f'Para usar exatamente o runtime {version.get("coral", "?")}', text)
     text = re.sub(r"Ler notas da \d+\.\d+\.\d+", f'Ler notas da {version.get("coral", "?")}', text)
+    livro_leitor = str(version.get("livro_leitor") or "")
+    if livro_leitor:
+        text = re.sub(r'href="livros/[^"]+/index\.html"', f'href="{livro_leitor}"', text)
 
     # Atualiza também o fallback já marcado. Assim o HTML continua correto sem
     # JavaScript e o gerador permanece idempotente em releases sucessivas.

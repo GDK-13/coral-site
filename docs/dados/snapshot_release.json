@@ -1,43 +1,43 @@
 {
-  "runtime": "1.7.5",
-  "extensao_vscode": "0.76.0",
-  "livro": "1.7.5",
+  "runtime": "1.8.0",
+  "extensao_vscode": "0.83.0",
+  "livro": "1.8.0",
   "livros": {
     "contrato": "coral.livros.edicao/2",
-    "versao": "1.7.5",
+    "versao": "1.8.0",
     "revisao": "Rev4 + QoL 1",
     "modelo": "Modelo/Modelo_Divisao_Livro_Oficial_Coral_1_7_3_Rev4.md",
     "oficial": true,
-    "extensao": "0.76.0",
+    "extensao": "0.83.0",
     "volumes": [
       {
         "volume": "I",
         "fonte": {
-          "arquivo": "Coral_1.7.5_Volume_I_Fonte.md",
-          "sha256": "1c366fa74265e875547a15e298b0647a19ad6504117a3317b39b287ee4340c9e"
+          "arquivo": "Coral_1.8.0_Volume_I_Fonte.md",
+          "sha256": "b90b0ba20e6ad3f98706a9edb6b798433dd0d4d9f1938f152452fe550204d5a3"
         },
         "pdf": {
-          "arquivo": "Coral_1.7.5_Volume_I.pdf",
-          "sha256": "dc3d4e124a5542cff6066a34bfe07c2a950197af802e6859c1bb6bda0d3a6b4e"
+          "arquivo": "Coral_1.8.0_Volume_I.pdf",
+          "sha256": "94921fdec91374880f0fc9bb658d86d8dddbd4fd3520be98988e1b1ecddd1291"
         },
         "html": {
-          "arquivo": "Coral_1.7.5_Volume_I.html",
-          "sha256": "54446118719e96d3b15e56f6ddc51a8bd2fbb78dae858bc11280702120f13584"
+          "arquivo": "Coral_1.8.0_Volume_I.html",
+          "sha256": "10ff133972259a3487a92aea6a2d24075cd6fc206fb1987bcefe950cbff88afa"
         }
       },
       {
         "volume": "II",
         "fonte": {
-          "arquivo": "Coral_1.7.5_Volume_II_Fonte.md",
-          "sha256": "c73e673c991e5c197022f3a28addd510c84c88f4affab409ee729618211eb397"
+          "arquivo": "Coral_1.8.0_Volume_II_Fonte.md",
+          "sha256": "0cd6cdc07ebfedf21f3196940c5e448e0e208a13e6bf3f34f643e1542b0b2a95"
         },
         "pdf": {
-          "arquivo": "Coral_1.7.5_Volume_II.pdf",
-          "sha256": "a721f8742d962b5a6b413a46ea2333524e40d03efdce8db16dcf1ac5cd82d59f"
+          "arquivo": "Coral_1.8.0_Volume_II.pdf",
+          "sha256": "efd68575f5aaa1e724cc80983c1bade2a1e0f8edef22ba61beca52f829b40ba8"
         },
         "html": {
-          "arquivo": "Coral_1.7.5_Volume_II.html",
-          "sha256": "10c6884e8dd323584b0a9c6b74f69ee972888a1babbc77ff82215ae4fcf422c4"
+          "arquivo": "Coral_1.8.0_Volume_II.html",
+          "sha256": "bb98c69a7b470386dc10c5fb936b079a1a7a89dd9ff62353caecf7b7b0c29a52"
         }
       }
     ],
@@ -66,6 +66,11 @@
       "embaralhar"
     ],
     "arquivos": [
+      "ler_linhas",
+      "ler_csv",
+      "ler_lotes_csv",
+      "escrever_linhas",
+      "escrever_csv",
       "ler_texto",
       "escrever_texto",
       "adicionar_texto",
@@ -90,9 +95,18 @@
     ],
     "assincrono": [
       "ErroTempoEsgotado",
+      "ErroFilaTarefas",
+      "ErroFilaCheia",
+      "ErroFilaFechada",
+      "ResultadoTarefa",
+      "ProgressoTarefas",
+      "RelatorioTarefas",
+      "FilaTarefas",
       "aguardar_com_timeout",
       "cancelar_tarefa",
-      "grupo_tarefas"
+      "grupo_tarefas",
+      "executar_bloqueante",
+      "executar_fila"
     ],
     "caminhos": [
       "CaminhoAceito",
@@ -162,6 +176,12 @@
       "FimDeEntrada",
       "ler_linha",
       "usar_fonte_entrada"
+    ],
+    "esquemas": [
+      "campo",
+      "esquema",
+      "validar_registro",
+      "validar_registros"
     ],
     "formatacao": [
       "formatar_valor",
@@ -663,6 +683,12 @@
       "executar_comando",
       "processo_atual"
     ],
+    "sqlite": [
+      "ErroSQLite",
+      "ErroOperacionalSQLite",
+      "Conexao",
+      "abrir"
+    ],
     "tempo_eventos": [
       "CONTRATO",
       "validar_duracao",
@@ -861,7 +887,8 @@
       "explicar",
       "naturalidade",
       "templates",
-      "novo"
+      "novo",
+      "desktop"
     ]
   },
   "exemplos": [
@@ -877,6 +904,9 @@
     "Exemplos/Basica_1_7_2/entrada.coral",
     "Exemplos/Basica_1_7_2/texto_colecoes_json.coral",
     "Exemplos/Basica_1_7_2/tipos_conversoes.coral",
+    "Exemplos/Citados/Cabecalhos_1_7_6/01_parametros.coral",
+    "Exemplos/Citados/Cabecalhos_1_7_6/02_imports.coral",
+    "Exemplos/Citados/Cabecalhos_1_7_6/03_heranca.coral",
     "Exemplos/Dados/01_entrada_conversoes_e_texto.coral",
     "Exemplos/Dados/02_arquivos_json_e_caminhos.coral",
     "Exemplos/Dados/03_aleatorio_e_persistencia.coral",
@@ -917,6 +947,17 @@
     "Exemplos/Mundo/02_mapas_camadas_e_topologias.coral",
     "Exemplos/Mundo/03_regioes_e_travessia.coral",
     "Exemplos/Mundo/04_agente_mapa_regras_e_representacao.coral",
+    "Exemplos/Projetos/Ambiente_Reproduzivel/principal.coral",
+    "Exemplos/Projetos/Analise_CSV/analise.coral",
+    "Exemplos/Projetos/Analise_CSV/principal.coral",
+    "Exemplos/Projetos/Automacao_Arquivos/automacao.coral",
+    "Exemplos/Projetos/Automacao_Arquivos/principal.coral",
+    "Exemplos/Projetos/Catalogo_SQLite/catalogo.coral",
+    "Exemplos/Projetos/Catalogo_SQLite/principal.coral",
+    "Exemplos/Projetos/Importador_Gradual/importador.coral",
+    "Exemplos/Projetos/Importador_Gradual/principal.coral",
+    "Exemplos/Projetos/Importador_Validado/importador.coral",
+    "Exemplos/Projetos/Importador_Validado/principal.coral",
     "Exemplos/Projetos_Completos/Modulos/principal.coral",
     "Exemplos/Projetos_Completos/Modulos/util.coral",
     "Exemplos/Projetos_Completos/Notas/calculos.coral",
@@ -967,7 +1008,7 @@
     "Exemplos/Web/04_grafico_interativo_local.coral"
   ],
   "sintaxe": {
-    "release": "1.7.5",
+    "release": "1.8.0",
     "esquema": "1.5.8",
     "lexemas": [
       "aguarde",
@@ -1025,6 +1066,10 @@
       "\"",
       "'"
     ],
+    "aspas_multilinha": [
+      "\"\"\"",
+      "'''"
+    ],
     "linguagens": [
       "coral",
       "coral-*"
@@ -1076,7 +1121,8 @@
       "programa principal",
       "valor for do tipo Classe",
       "valor não for do tipo Classe",
-      "chame alvo com ... fim"
+      "chame alvo com ... fim",
+      "texto multilinha com aspas triplas"
     ],
     "origem": {
       "esquema": "Projeto/coral/esquema_sintatico.py",
@@ -1115,5 +1161,5 @@
     "indice_seletivo": true,
     "chamadas_multilinha": true
   },
-  "source": "Coral_1.7.5_Completo_Livros_QoL1.zip"
+  "source": "Coral_1.8.0_Completo.zip"
 }

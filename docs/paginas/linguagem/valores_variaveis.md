@@ -43,6 +43,28 @@ defina perfil como {"nome": "Ana", "nivel": 2}
 
 Inteiros não possuem parte fracionária. Decimais usam ponto no código. Textos aceitam aspas simples ou duplas. `verdadeiro` e `falso` representam valores lógicos. `nulo` representa ausência de valor.
 
+## Textos multilinha
+
+Quando um texto precisa ocupar várias linhas, a Coral 1.7.9 aceita três aspas duplas ou três aspas simples como delimitador. O resultado continua sendo um valor do tipo texto.
+
+```coral
+defina mensagem como """
+    Olá!
+    Este texto ocupa mais de uma linha.
+    O recuo comum é removido.
+"""
+
+mostre mensagem
+```
+
+:::resultado
+`mensagem` contém três linhas de texto sem o recuo usado apenas para organizar o código.
+:::
+
+Se o conteúdo começar logo depois das aspas, essa posição é preservada. Quando o conteúdo começa na linha seguinte, a primeira quebra é estrutural e não entra no valor. O mesmo vale para a última quebra quando o delimitador final está sozinho em sua própria linha.
+
+O literal não interpola variáveis nem interpreta SQL, HTML, Markdown ou outro formato. Esses conteúdos continuam sendo apenas texto até que o programa os entregue a uma API específica.
+
 ## Atualizações em português corrente
 
 Além de `adicione` e `subtraia`, a linguagem aceita formas correntes equivalentes para certas atualizações.

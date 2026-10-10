@@ -309,6 +309,12 @@ bash scripts/validar_site_atual.sh
 
 O script genérico substitui validadores presos a uma versão específica e grava `resultado_validacao_site_X_Y_Z.txt`. O gate cobre testes unitários do realce, whitelist de linguagens, strings e escapes, comentários, ponto decimal, identificadores, caminhos de módulo, chamadas naturais não inferidas, segurança HTML, fidelidade dos blocos de código, links, âncoras e IDs.
 
+### Cobertura acumulada de releases
+
+Quando uma atualização pula versões intermediárias, a revisão pública deve absorver todas as mudanças voltadas ao usuário entre a base e a release nova. O importador detecta diferenças mecânicas entre os extremos, mas a revisão editorial deve consultar a documentação de usuário e os exemplos das versões intermediárias para não perder recursos que surgiram e permaneceram estáveis.
+
+O gate do site pode registrar verificações específicas da release corrente para garantir que páginas pedagógicas, exemplos, Livro e landing não fiquem presos à versão anterior.
+
 ## 11. `REVISAO_PENDENTE.md`
 
 Depois de importar uma release, leia:

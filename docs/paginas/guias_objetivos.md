@@ -4,6 +4,13 @@ Esta página parte do problema que você quer resolver e aponta para a parte cer
 
 ## Fundamentos da linguagem
 
+### Organizar o código com o estilo recomendado da Coral
+
+**Nível:** iniciante a intermediário  
+**Guia:** [`Estilo e legibilidade`](linguagem/estilo_legibilidade.html)
+
+Use o guia quando quiser decidir entre forma compacta e multilinha, separar definição de execução, nomear melhor valores e manter imports e fechamentos fáceis de conferir.
+
 ### Criar e alterar variáveis
 
 **Nível:** iniciante  
@@ -17,6 +24,23 @@ mostre pontos
 
 :::resultado
 `pontos` termina com o valor `15`.
+:::
+
+### Escrever um texto com várias linhas
+
+**Nível:** iniciante  
+**Guia:** [`Valores e variáveis`](linguagem/valores_variaveis.html)
+
+```coral
+defina aviso como """
+    Primeira linha
+    Segunda linha
+"""
+mostre aviso
+```
+
+:::resultado
+`aviso` recebe um único valor de texto com duas linhas. O recuo comum usado no código não faz parte do conteúdo final.
 :::
 
 ### Tomar decisões e repetir instruções
@@ -315,6 +339,77 @@ mostre politica
 A política informa o contrato persistente corrente, as versões que podem ser lidas, a versão usada para escrita e a estratégia declarada para esquemas desconhecidos.
 :::
 
+### Processar um CSV grande em lotes
+
+**Nível:** intermediário  
+**Módulo:** [`coral.arquivos`](modulos/arquivos.html)
+
+```coral
+de coral.arquivos importe ler_lotes_csv
+
+com ler_lotes_csv("entrada.csv", 100) como lotes faça
+    para cada lote em lotes faça
+        mostre lote
+    fim
+fim
+```
+
+:::resultado
+O programa percorre no máximo cem registros por lote sem precisar materializar o arquivo inteiro. O bloco `com` garante o fechamento do leitor quando a leitura termina ou é interrompida.
+:::
+
+### Validar dados externos antes de usar
+
+**Nível:** intermediário  
+**Módulo:** [`coral.esquemas`](modulos/esquemas.html)
+
+```coral
+de coral.esquemas importe campo, esquema, validar_registro
+
+defina contrato como esquema({"idade": campo("inteiro", minimo=0)})
+defina resultado como validar_registro({"idade": 19}, contrato)
+mostre resultado["valido"]
+```
+
+:::resultado
+O relatório indica que o registro é válido. A API verifica o valor recebido sem convertê lo ou modificar o dicionário.
+:::
+
+### Guardar dados locais em SQLite
+
+**Nível:** intermediário  
+**Módulo:** [`coral.sqlite`](modulos/sqlite.html)
+
+```coral
+de coral.sqlite importe abrir
+
+defina banco como abrir(":memoria:")
+execute banco.executar("CREATE TABLE itens (nome TEXT NOT NULL)")
+execute banco.executar("INSERT INTO itens(nome) VALUES (?)", ["Caderno"])
+execute banco.confirmar()
+mostre banco.consultar("SELECT nome FROM itens")
+execute banco.fechar()
+```
+
+:::resultado
+O programa cria um banco temporário, inclui um item com parâmetro separado do SQL, confirma a alteração e consulta o registro como dicionário.
+:::
+
+## Projetos e ambientes
+
+### Preparar dependências reproduzíveis
+
+**Nível:** intermediário  
+**Guia:** [`Projetos e módulos`](projetos.html)
+
+Declare os requisitos em `coral.toml`, resolva um `coral.lock` e prepare o ambiente isolado antes de executar o projeto. A resolução é offline por padrão e não instala dependências no Python global.
+
+```bash
+coral manager ambiente resolver --projeto . --cache wheels --offline --json
+coral manager ambiente preparar --projeto . --offline --aplicar --json
+coral manager ambiente verificar --projeto . --json
+```
+
 ## Aleatoriedade e geração
 
 ### Sortear um item
@@ -562,3 +657,12 @@ A falha de conversão é classificada como `R102`. O terminal e o depurador pres
 ## Como continuar
 
 Se o guia resolveu sua dúvida inicial, abra o guia de linguagem ou o módulo relacionado. Use o **Modo Aprender** para entender conceitos e o **Modo Referência** para consultar diretamente a API dos módulos. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.
+
+## Concorrência e tarefas
+
+### Executar várias tarefas com limite de simultaneidade
+
+**Nível:** intermediário  
+**Módulo:** [`coral.assincrono`](modulos/assincrono.html)
+
+Use `FilaTarefas` quando um lote assíncrono precisa limitar quantos trabalhos ficam ativos, continuar depois de falhas parciais ou produzir progresso e relatório estruturado. Cancelamento continua cooperativo.

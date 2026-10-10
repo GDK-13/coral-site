@@ -137,6 +137,26 @@ elif coral == '1.7.5':
     for esperado in ('Coral Language 0.76.0', 'documento aberto', 'chamadas multilinha'):
         assert esperado in vscode, esperado
     assert '## Coral 1.7.5' in release
+elif coral == '1.7.8':
+    assert extensao == '0.79.0', versao
+    assert livro == '1.7.8', versao
+    assert len(versao.get('livro_pdfs') or []) == 2, versao
+    assert len(versao.get('livro_htmls') or []) == 2, versao
+    release = (root / 'docs/paginas/release.md').read_text(encoding='utf-8')
+    projetos = (root / 'docs/paginas/projetos.md').read_text(encoding='utf-8')
+    arquivos = (root / 'docs/paginas/modulos/arquivos.md').read_text(encoding='utf-8')
+    esquemas = (root / 'docs/paginas/modulos/esquemas.md').read_text(encoding='utf-8')
+    livro_md = (root / 'docs/paginas/livro.md').read_text(encoding='utf-8')
+    for esperado in ('## Coral 1.7.6', '## Coral 1.7.7', '## Coral 1.7.8'):
+        assert esperado in release, esperado
+    for esperado in ('Ambientes reproduzíveis', 'coral.lock', 'Imports multilinha'):
+        assert esperado in projetos, esperado
+    for esperado in ('Leitura gradual e CSV', 'ler_lotes_csv', 'escrever_csv'):
+        assert esperado in arquivos, esperado
+    for esperado in ('Validação não converte', 'validar_registros', 'Importador_Validado'):
+        assert esperado in esquemas, esperado
+    assert 'Livro Oficial Coral 1.7.8' in livro_md
+    assert 'livros/1.7.8/index.html' in index
 
 print(f'OK: identidade Coral {coral}, VS Code {extensao} e Livro {livro} confirmadas.')
 PY

@@ -5,16 +5,16 @@ A CLI é a interface de baixo nível para execução, verificação, projetos, t
 ## Uso cotidiano
 
 ```bash
-python coral-1.7.5.pyz --versao
-python coral-1.7.5.pyz --self-check
-python coral-1.7.5.pyz --ambiente
+python coral-1.8.0.pyz --versao
+python coral-1.8.0.pyz --self-check
+python coral-1.8.0.pyz --ambiente
 ```
 
 ## Executar e verificar arquivos
 
 ```bash
-python coral-1.7.5.pyz executar programa.coral
-python coral-1.7.5.pyz verificar programa.coral
+python coral-1.8.0.pyz executar programa.coral
+python coral-1.8.0.pyz verificar programa.coral
 ```
 
 ## REPL
@@ -22,12 +22,24 @@ python coral-1.7.5.pyz verificar programa.coral
 O REPL permite experimentar expressões e construções sem criar um arquivo novo.
 
 ```bash
-python coral-1.7.5.pyz --repl
+python coral-1.8.0.pyz --repl
 ```
 
 ## Projetos
 
 A CLI oferece operações de informação, validação, construção e execução de projetos. Essas ações usam `coral.toml` como fonte de configuração.
+
+## Desktop Linux
+
+A CLI possui um subcomando opcional para registrar tipos MIME e ícones da Coral no desktop Linux sem escolher aplicativos padrão.
+
+```bash
+coral desktop instalar --usuario
+coral desktop status --usuario
+coral desktop remover --usuario
+```
+
+A integração é reversível e separada do VS Code. Instalação de sistema continua sob responsabilidade do administrador ou do gerenciador de pacotes.
 
 ## Diagnóstico
 
@@ -45,6 +57,6 @@ A lista abaixo é importada automaticamente do contrato gerado da release. Ela �
 
 ### Subcomandos detectados
 
-`repl`, `executar`, `verificar`, `lint`, `formatar`, `compilar`, `testar`, `testar-json`, `documentar`, `dependencias`, `projeto-info`, `projeto-validar`, `construir`, `diagnostico`, `explicar`, `naturalidade`, `templates`, `novo`
+`repl`, `executar`, `verificar`, `lint`, `formatar`, `compilar`, `testar`, `testar-json`, `documentar`, `dependencias`, `projeto-info`, `projeto-validar`, `construir`, `diagnostico`, `explicar`, `naturalidade`, `templates`, `novo`, `desktop`
 
 <!-- /AUTO:CLI -->

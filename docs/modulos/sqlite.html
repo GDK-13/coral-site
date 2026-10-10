@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light" data-reading-mode="learn" data-site-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="persistência local SQLite com consultas parametrizadas e transações explícitas">
+  <meta name="theme-color" content="#EF362A">
+  <title>coral.sqlite — Documentação Coral</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <script>(function(){try{var m=localStorage.getItem('coral-reading-mode');if(m==='learn'||m==='reference')document.documentElement.dataset.readingMode=m;}catch(_){ }if(location.protocol==='file:'){var c=document.createElement('link');c.rel='stylesheet';c.href='../../assets/css/fontes-embutidas.css';document.head.append(c);return;}var f=document.createElement('link');f.rel='stylesheet';f.href='../../assets/css/fontes-arquivo.css';document.head.append(f);['../../assets/fonts/atkinsonhyperlegible-normal-400.woff2','../../assets/fonts/fraunces-normal-500-900.woff2'].forEach(function(h){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href=h;document.head.append(l);});})();</script>
+  <script defer src="../../docs/dados/indice_busca.js"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Coral">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="coral.sqlite — Documentação Coral">
+  <meta property="og:description" content="persistência local SQLite com consultas parametrizadas e transações explícitas">
+  <meta property="og:image" content="../../assets/images/compartilhar.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="coral.sqlite — Documentação Coral">
+  <meta name="twitter:description" content="persistência local SQLite com consultas parametrizadas e transações explícitas">
+  <meta name="twitter:image" content="../../assets/images/compartilhar.png">
+</head>
+<body class="docs-body">
+<a class="skip-link" href="#conteudo-docs">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-actions docs-mobile-actions">
+      <button class="menu-button" type="button" data-docs-menu-toggle aria-expanded="false">Menu</button>
+    </div>
+    <a class="brand" href="../../index.html" aria-label="Coral, página inicial">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span class="brand-name">Coral</span>
+    </a>
+    <div class="header-actions">
+      <button class="search-trigger" type="button" data-search-open aria-label="Buscar na documentação">
+        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M11 11l3.4 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Buscar na documentação</span>
+        <kbd aria-hidden="true">/</kbd>
+      </button>
+      <button class="icon-button" type="button" data-theme-toggle>Tema escuro</button>
+    </div>
+  </div>
+</header>
+<div class="docs-backdrop"></div>
+<div class="docs-layout">
+  <nav class="docs-sidebar" aria-label="Documentação">
+    <a class="docs-home-link" href="../index.html">Visão geral da documentação</a>
+    <div class="docs-version-box">
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
+    </div>
+    <h4>Primeiros passos</h4><ul>
+<li><a href="../index.html">Introdução</a></li>
+<li><a href="../instalacao.html">Instalação</a></li>
+<li><a href="../primeiro_programa.html">Seu primeiro programa</a></li>
+</ul>
+<h4>Linguagem</h4><ul>
+<li><a href="../linguagem/index.html">Fundamentos da linguagem</a></li>
+<li><a href="../linguagem/valores_variaveis.html">Valores e variáveis</a></li>
+<li><a href="../linguagem/operadores_expressoes.html">Operadores e expressões</a></li>
+<li><a href="../linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
+<li><a href="../linguagem/funcoes_escopo.html">Funções e escopo</a></li>
+<li><a href="../linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="../linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
+<li><a href="../linguagem/classes_objetos.html">Classes e objetos</a></li>
+<li><a href="../linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
+<li><a href="../linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
+<li><a href="../linguagem/erros_padroes.html">Erros e padrões</a></li>
+<li><a href="../linguagem/geradores_assincrono.html">Geradores e assíncrono</a></li>
+</ul>
+<h4>Guias</h4><ul>
+<li><a href="../projetos.html">Projetos e módulos</a></li>
+<li><a href="../guias_objetivos.html">O que você quer fazer?</a></li>
+<li><a href="../vscode.html">VS Code</a></li>
+<li><a href="../diagnosticos.html">Diagnósticos</a></li>
+<li><a href="../testes.html">Testes</a></li>
+</ul>
+<h4>Referência</h4><ul>
+<li><a href="../repl_cli.html">REPL e CLI</a></li>
+<li><a href="../exemplos.html">Exemplos oficiais</a></li>
+<li><a href="../livro.html">Livro Oficial</a></li>
+<li><a href="../release.html">Notas de versão</a></li>
+</ul>
+<details class="docs-nav-group docs-nav-primary"><summary>Módulos principais</summary><ul>
+<li><a href="numerico.html"><code>coral.numerico</code></a></li>
+<li><a href="sistema.html"><code>coral.sistema</code></a></li>
+<li><a href="laboratorio.html"><code>coral.laboratorio</code></a></li>
+<li><a href="hardware.html"><code>coral.hardware</code></a></li>
+<li><a href="mundo.html"><code>coral.mundo</code></a></li>
+<li><a href="regras.html"><code>coral.regras</code></a></li>
+<li><a href="rpg.html"><code>coral.rpg</code></a></li>
+<li><a href="jogos.html"><code>coral.jogos</code></a></li>
+</ul></details>
+<details class="docs-nav-group docs-nav-secondary" open><summary>Outros módulos</summary><ul>
+<li><a href="agentes.html"><code>coral.agentes</code></a></li>
+<li><a href="aleatorio.html"><code>coral.aleatorio</code></a></li>
+<li><a href="arquivos.html"><code>coral.arquivos</code></a></li>
+<li><a href="assincrono.html"><code>coral.assincrono</code></a></li>
+<li><a href="caminhos.html"><code>coral.caminhos</code></a></li>
+<li><a href="colecoes.html"><code>coral.colecoes</code></a></li>
+<li><a href="comum.html"><code>coral.comum</code></a></li>
+<li><a href="conversoes.html"><code>coral.conversoes</code></a></li>
+<li><a href="criptografia.html"><code>coral.criptografia</code></a></li>
+<li><a href="datas.html"><code>coral.datas</code></a></li>
+<li><a href="entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="esquemas.html"><code>coral.esquemas</code></a></li>
+<li><a href="formatacao.html"><code>coral.formatacao</code></a></li>
+<li><a href="formatos.html"><code>coral.formatos</code></a></li>
+<li><a href="graficos.html"><code>coral.graficos</code></a></li>
+<li><a href="json.html"><code>coral.json</code></a></li>
+<li><a href="matematica.html"><code>coral.matematica</code></a></li>
+<li><a href="observadores_reativos.html"><code>coral.observadores_reativos</code></a></li>
+<li><a href="persistencia.html"><code>coral.persistencia</code></a></li>
+<li><a href="procedural.html"><code>coral.procedural</code></a></li>
+<li><a href="rastreamento_reativo.html"><code>coral.rastreamento_reativo</code></a></li>
+<li><a href="replay_reativo.html"><code>coral.replay_reativo</code></a></li>
+<li><a href="sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
+<li><a href="simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a class="active" aria-current="page" href="sqlite.html"><code>coral.sqlite</code></a></li>
+<li><a href="tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
+<li><a href="texto.html"><code>coral.texto</code></a></li>
+<li><a href="tipos.html"><code>coral.tipos</code></a></li>
+<li><a href="turnos.html"><code>coral.turnos</code></a></li>
+<li><a href="web-html.html"><code>coral.web.html</code></a></li>
+<li><a href="web-http.html"><code>coral.web.http</code></a></li>
+<li><a href="web-servidor.html"><code>coral.web.servidor</code></a></li>
+<li><a href="web-url.html"><code>coral.web.url</code></a></li>
+</ul></details>
+  </nav>
+
+  <main class="docs-main" id="conteudo-docs">
+    <div class="page-hero docs-page-hero">
+      <div class="breadcrumb">Documentação / Outros módulos</div>
+      <h1>coral.sqlite</h1>
+      <p>persistência local SQLite com consultas parametrizadas e transações explícitas</p>
+      <div class="docs-reading-mode" data-reading-mode-switch role="group" aria-label="Modo de leitura da documentação">
+        <span class="docs-reading-mode-label">Modo de leitura</span>
+        <button type="button" data-reading-mode="learn" aria-pressed="true">Aprender</button>
+        <button type="button" data-reading-mode="reference" aria-pressed="false">Referência</button>
+        <span class="docs-reading-mode-status" data-reading-mode-status aria-live="polite"></span>
+      </div>
+      <div class="search-status" data-search-status aria-live="polite"></div>
+    </div>
+    <section class="module-quick-summary" aria-labelledby="resumo-rapido-modulo"><div class="module-quick-summary-head"><span class="module-quick-summary-kicker">Resumo rápido</span><h2 id="resumo-rapido-modulo">Antes de mergulhar</h2></div><div class="module-quick-grid"><div class="module-quick-item"><strong>Serve para</strong><p>persistência local SQLite com consultas parametrizadas e transações explícitas.</p></div><div class="module-quick-item"><strong>Use quando</strong><p>Use <code>coral.sqlite</code> quando o programa precisar guardar dados localmente e consultá los depois sem depender de um servidor de banco de dados.</p></div><div class="module-quick-item"><strong>Talvez você não precise dele quando</strong><p>Quando a necessidade for mais específica e outro módulo do ecossistema expressar melhor a intenção do programa.</p></div><div class="module-quick-item"><strong>Relaciona se com</strong><p>Consulte a navegação lateral para módulos relacionados.</p></div></div><div class="quick-summary-example"><div class="quick-summary-label">Exemplo mínimo</div><div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sqlite</span> <span class="code-key">importe</span> abrir
+
+<span class="code-key">defina</span> banco como <span class="code-fn">abrir</span>(<span class="code-str">&quot;:memoria:&quot;</span>)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;CREATE TABLE itens (id INTEGER PRIMARY KEY, nome TEXT NOT NULL)&quot;</span>
+)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;INSERT INTO itens(nome) VALUES (?)&quot;</span>,
+    [<span class="code-str">&quot;Caderno&quot;</span>]
+)
+execute banco.<span class="code-fn">confirmar</span>()
+<span class="code-comment"># …</span></code></pre></div></div></div></section>
+    <article class="docs-section">
+      <h2 id="visao-geral" data-searchable>Visão geral</h2>
+<p data-searchable>persistência local SQLite com consultas parametrizadas e transações explícitas</p>
+<p data-searchable><strong>Importação:</strong> <code>coral.sqlite</code> <strong>Categoria:</strong> dados</p>
+<p data-searchable>persistência local SQLite com consultas parametrizadas e transações explícitas</p>
+<h3 id="superficie-publica-detectada" data-searchable>Superfície pública detectada</h3>
+<p data-searchable><code>ErroSQLite</code>, <code>ErroOperacionalSQLite</code>, <code>Conexao</code>, <code>abrir</code></p>
+<h2 id="quando-usar" data-searchable>Quando usar</h2>
+<p data-searchable>Use <code>coral.sqlite</code> quando o programa precisar guardar dados localmente e consultá los depois sem depender de um servidor de banco de dados. É adequado para catálogos, configurações estruturadas, pequenos aplicativos locais, protótipos e ferramentas que precisam de persistência relacional em um único arquivo.</p>
+<p data-searchable>SQLite não é um formato Coral nem um ORM. O SQL continua explícito, e os valores devem ser enviados separadamente da consulta por parâmetros.</p>
+<h2 id="comeco-rapido" data-searchable>Começo rápido</h2>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sqlite</span> <span class="code-key">importe</span> abrir
+
+<span class="code-key">defina</span> banco como <span class="code-fn">abrir</span>(<span class="code-str">&quot;:memoria:&quot;</span>)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;CREATE TABLE itens (id INTEGER PRIMARY KEY, nome TEXT NOT NULL)&quot;</span>
+)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;INSERT INTO itens(nome) VALUES (?)&quot;</span>,
+    [<span class="code-str">&quot;Caderno&quot;</span>]
+)
+execute banco.<span class="code-fn">confirmar</span>()
+
+<span class="code-key">defina</span> itens como banco.<span class="code-fn">consultar</span>(<span class="code-str">&quot;SELECT id, nome FROM itens&quot;</span>)
+<span class="code-key">mostre</span> itens
+execute banco.<span class="code-fn">fechar</span>()</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A consulta devolve uma lista de registros em forma de dicionário. O banco <code>:memoria:</code> existe somente durante a conexão.</p></div></details>
+<h2 id="consultas-longas-com-texto-multilinha" data-searchable>Consultas longas com texto multilinha</h2>
+<p data-searchable>A 1.7.9 permite organizar SQL extenso com textos multilinha gerais da linguagem. O conteúdo continua sendo texto comum: a Coral não interpreta nem reescreve SQL.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> consulta como <span class="code-str">&quot;&quot;&quot;
+    SELECT id, nome
+    FROM itens
+    WHERE id &gt; ?
+    ORDER BY id
+&quot;&quot;&quot;</span>
+
+<span class="code-key">defina</span> itens como banco.<span class="code-fn">consultar</span>(consulta, [<span class="code-num">0</span>])</code></pre></div></div>
+<p data-searchable>Quando o conteúdo começa na linha seguinte ao delimitador, a primeira quebra é estrutural. O recuo comum do corpo é removido, e uma quebra final usada apenas para posicionar o delimitador de fechamento também não entra no valor.</p>
+<h2 id="parametros-e-seguranca" data-searchable>Parâmetros e segurança</h2>
+<p data-searchable>Passe valores como parâmetros da consulta. Não monte valores recebidos do usuário concatenando texto SQL.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;INSERT INTO itens(nome, quantidade) VALUES (?, ?)&quot;</span>,
+    [nome, quantidade]
+)</code></pre></div></div>
+<p data-searchable>Os parâmetros representam <strong>valores</strong>. Eles não substituem nomes de tabelas, nomes de colunas ou fragmentos arbitrários de SQL.</p>
+<h2 id="transacoes" data-searchable>Transações</h2>
+<p data-searchable><code>confirmar()</code> conserva alterações pendentes. <code>reverter()</code> desfaz alterações ainda não confirmadas. <code>transacao()</code> oferece um contexto explícito que confirma ao sair normalmente e reverte quando o bloco falha. Transações contextuais aninhadas são recusadas em vez de criar savepoints implícitos.</p>
+<h2 id="api-essencial" data-searchable>API essencial</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Entrada</th>
+<th>Papel</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>abrir</code></td><td data-searchable>Abre um banco em arquivo ou em memória e devolve uma conexão Coral.</td></tr>
+<tr><td data-searchable><code>Conexao</code></td><td data-searchable>Representa a conexão e concentra execução, consulta, transação e fechamento.</td></tr>
+<tr><td data-searchable><code>ErroSQLite</code></td><td data-searchable>Erro base da camada SQLite Coral.</td></tr>
+<tr><td data-searchable><code>ErroOperacionalSQLite</code></td><td data-searchable>Falha operacional, como bloqueio, caminho inválido ou SQL recusado pelo SQLite.</td></tr>
+</tbody></table></div>
+<h2 id="limites" data-searchable>Limites</h2>
+<p data-searchable>A API não introduz ORM, migrações automáticas gerais, MySQL, PostgreSQL ou sincronização em nuvem. Para esses casos, escolha uma camada apropriada ao projeto em vez de tratar <code>coral.sqlite</code> como abstração universal de banco de dados.</p>
+<h2 id="referencia-da-api" data-searchable>Referência da API</h2>
+<h3 id="funcoes" data-searchable>Funções</h3>
+<h4 id="abrir" data-searchable><code>abrir</code></h4>
+<p data-searchable>Abre uma conexão SQLite. `<code>:memoria:</code>` cria banco somente em memória.</p>
+<p data-searchable><strong>Exemplo</strong></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sqlite</span> <span class="code-key">importe</span> abrir
+
+<span class="code-key">defina</span> banco como <span class="code-fn">abrir</span>(<span class="code-str">&quot;:memoria:&quot;</span>)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;CREATE TABLE itens (id INTEGER PRIMARY KEY, nome TEXT NOT NULL)&quot;</span>
+)
+execute banco.<span class="code-fn">executar</span>(
+    <span class="code-str">&quot;INSERT INTO itens(nome) VALUES (?)&quot;</span>,
+    [<span class="code-str">&quot;Caderno&quot;</span>]
+)
+execute banco.<span class="code-fn">confirmar</span>()
+
+<span class="code-key">defina</span> itens como banco.<span class="code-fn">consultar</span>(<span class="code-str">&quot;SELECT id, nome FROM itens&quot;</span>)
+<span class="code-key">mostre</span> itens
+execute banco.<span class="code-fn">fechar</span>()</code></pre></div></div>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float</code></td><td data-searchable><code>5.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Retorno</strong></p>
+<p data-searchable>Retorna um valor declarado como <code>Conexao</code>.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>abrir(caminho: str \| Path, *, timeout: float = 5.0) -&gt; Conexao</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sqlite</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sqlite.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div></div></details>
+<h3 id="classes-e-protocolos" data-searchable>Classes e protocolos</h3>
+<h4 id="conexao" data-searchable><code>Conexao</code></h4>
+<p data-searchable>Conexão SQLite com resultados em dicionários e transações explícitas.</p>
+<p data-searchable><strong>Parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Significado</th>
+<th>Tipo</th>
+<th>Padrão</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>Caminho do arquivo ou diretório usado pela operação.</td><td data-searchable><code>str | Path</code></td><td data-searchable>obrigatório</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>Valor correspondente a timeout.</td><td data-searchable><code>float</code></td><td data-searchable><code>5.0</code></td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Operações públicas da classe</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>O que faz</th>
+<th>Retorno</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fechada</code></td><td data-searchable>Executa a operação <code>fechada</code> disponibilizada por <code>coral.sqlite</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>em_transacao</code></td><td data-searchable>Executa a operação <code>em_transacao</code> disponibilizada por <code>coral.sqlite</code>.</td><td data-searchable><code>bool</code></td></tr>
+<tr><td data-searchable><code>executar</code></td><td data-searchable>Executa um comando e devolve linhas_afetadas e ultimo_id.</td><td data-searchable><code>dict[str, int | None]</code></td></tr>
+<tr><td data-searchable><code>executar_muitos</code></td><td data-searchable>Executa muitos.</td><td data-searchable><code>dict[str, int | None]</code></td></tr>
+<tr><td data-searchable><code>consultar</code></td><td data-searchable>Executa consulta e materializa as linhas em dicionários.</td><td data-searchable><code>list[dict[str, Any]]</code></td></tr>
+<tr><td data-searchable><code>consultar_um</code></td><td data-searchable>Executa a operação <code>consultar_um</code> disponibilizada por <code>coral.sqlite</code>.</td><td data-searchable><code>dict[str, Any] | None</code></td></tr>
+<tr><td data-searchable><code>confirmar</code></td><td data-searchable>Executa a operação <code>confirmar</code> disponibilizada por <code>coral.sqlite</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>reverter</code></td><td data-searchable>Executa a operação <code>reverter</code> disponibilizada por <code>coral.sqlite</code>.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>Fecha o valor solicitado.</td><td data-searchable><code>None</code></td></tr>
+<tr><td data-searchable><code>transacao</code></td><td data-searchable>Confirma ao sair normalmente e reverte quando o bloco falha.</td><td data-searchable><code>Iterator['Conexao']</code></td></tr>
+</tbody></table></div>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>Conexao(caminho: str \| Path, *, timeout: float = 5.0)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sqlite</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sqlite.py</code></p>
+<p data-searchable><strong>Modo dos parâmetros</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Parâmetro</th>
+<th>Modo</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>caminho</code></td><td data-searchable>posicional</td></tr>
+<tr><td data-searchable><code>timeout</code></td><td data-searchable>nomeado</td></tr>
+</tbody></table></div>
+<p data-searchable><strong>Assinaturas de métodos e propriedades</strong></p>
+<div class="table-wrap"><table><thead><tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Assinatura</th>
+</tr></thead><tbody>
+<tr><td data-searchable><code>fechada</code></td><td data-searchable>propriedade</td><td data-searchable><code>fechada() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>em_transacao</code></td><td data-searchable>propriedade</td><td data-searchable><code>em_transacao() -&gt; bool</code></td></tr>
+<tr><td data-searchable><code>executar</code></td><td data-searchable>método</td><td data-searchable><code>executar(sql: str, parametros = ()) -&gt; dict[str, int | None]</code></td></tr>
+<tr><td data-searchable><code>executar_muitos</code></td><td data-searchable>método</td><td data-searchable><code>executar_muitos(sql: str, parametros) -&gt; dict[str, int | None]</code></td></tr>
+<tr><td data-searchable><code>consultar</code></td><td data-searchable>método</td><td data-searchable><code>consultar(sql: str, parametros = ()) -&gt; list[dict[str, Any]]</code></td></tr>
+<tr><td data-searchable><code>consultar_um</code></td><td data-searchable>método</td><td data-searchable><code>consultar_um(sql: str, parametros = ()) -&gt; dict[str, Any] | None</code></td></tr>
+<tr><td data-searchable><code>confirmar</code></td><td data-searchable>método</td><td data-searchable><code>confirmar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>reverter</code></td><td data-searchable>método</td><td data-searchable><code>reverter() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>fechar</code></td><td data-searchable>método</td><td data-searchable><code>fechar() -&gt; None</code></td></tr>
+<tr><td data-searchable><code>transacao</code></td><td data-searchable>método</td><td data-searchable><code>transacao() -&gt; Iterator['Conexao']</code></td></tr>
+</tbody></table></div></div></details>
+<h3 id="excecoes" data-searchable>Exceções</h3>
+<h4 id="errosqlite" data-searchable><code>ErroSQLite</code></h4>
+<p data-searchable>Erro de uso ou execução da camada SQLite Coral.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroSQLite(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sqlite</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sqlite.py</code></p></div></details>
+<h4 id="errooperacionalsqlite" data-searchable><code>ErroOperacionalSQLite</code></h4>
+<p data-searchable>Erro operacional do SQLite, como bloqueio, caminho ou SQL inválido.</p>
+<details class="api-tech-details"><summary>Detalhes técnicos</summary><div class="api-tech-body"><p data-searchable><strong>Assinatura:</strong> <code>ErroOperacionalSQLite(...)</code></p>
+<p data-searchable><strong>Origem da implementação:</strong> <code>coral.sqlite</code></p>
+<p data-searchable><strong>Arquivo na release:</strong> <code>coral/sqlite.py</code></p></div></details>
+    </article>
+    <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="simulacao.html"><span>Anterior</span><strong>coral.simulacao</strong></a><a class="docs-page-nav-link next" href="tempo_eventos.html"><span>Próxima</span><strong>coral.tempo_eventos</strong></a></nav>
+  </main>
+
+  <aside class="toc" id="toc-pagina" aria-label="Nesta página">
+    <h4>Nesta página</h4>
+    <ul><li class="toc-level-2"><a href="#visao-geral" data-toc-link>Visão geral</a></li>
+<li class="toc-level-2"><a href="#quando-usar" data-toc-link>Quando usar</a></li>
+<li class="toc-level-2"><a href="#comeco-rapido" data-toc-link>Começo rápido</a></li>
+<li class="toc-level-2"><a href="#consultas-longas-com-texto-multilinha" data-toc-link>Consultas longas com texto multilinha</a></li>
+<li class="toc-level-2"><a href="#parametros-e-seguranca" data-toc-link>Parâmetros e segurança</a></li>
+<li class="toc-level-2"><a href="#transacoes" data-toc-link>Transações</a></li>
+<li class="toc-level-2"><a href="#api-essencial" data-toc-link>API essencial</a></li>
+<li class="toc-level-2"><a href="#limites" data-toc-link>Limites</a></li>
+<li class="toc-level-2"><a href="#referencia-da-api" data-toc-link>Referência da API</a></li></ul>
+  </aside>
+</div>
+<button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>
+<script defer src="../../assets/js/site.js"></script>
+</body>
+</html>

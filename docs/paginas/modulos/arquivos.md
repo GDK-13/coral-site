@@ -13,7 +13,7 @@ ler, escrever e organizar arquivos e caminhos locais
 
 ### Superfície pública detectada
 
-`ler_texto`, `escrever_texto`, `adicionar_texto`, `ler_bytes`, `escrever_bytes`, `existe`, `listar`, `listar_recursivo`, `criar_pasta`, `remover`, `renomear`, `copiar`, `mover`, `tamanho`, `metadados`, `arquivo_temporario`, `pasta_temporaria`, `nome`, `extensao`, `pai`, `resolver`
+`ler_linhas`, `ler_csv`, `ler_lotes_csv`, `escrever_linhas`, `escrever_csv`, `ler_texto`, `escrever_texto`, `adicionar_texto`, `ler_bytes`, `escrever_bytes`, `existe`, `listar`, `listar_recursivo`, `criar_pasta`, `remover`, `renomear`, `copiar`, `mover`, `tamanho`, `metadados`, `arquivo_temporario`, `pasta_temporaria`, `nome`, `extensao`, `pai`, `resolver`
 
 <!-- /AUTO:MODULO -->
 
@@ -38,6 +38,26 @@ Use as famílias `ler_texto`/`escrever_texto` para dados textuais com codificaç
 ### Arquivos temporários
 
 `arquivo_temporario` e `pasta_temporaria` evitam nomes improvisados em testes, conversões e etapas intermediárias.
+
+## Leitura gradual e CSV
+
+Para arquivos grandes ou pipelines que processam registros aos poucos, prefira as operações graduais da 1.7.7:
+
+| Operação | Uso principal |
+|---|---|
+| `ler_linhas` | percorrer linhas sem carregar o arquivo inteiro |
+| `ler_csv` | percorrer registros CSV individualmente |
+| `ler_lotes_csv` | percorrer grupos limitados de registros |
+| `escrever_linhas` | consumir textos gradualmente |
+| `escrever_csv` | consumir registros e gravar CSV gradualmente |
+
+Os leitores são de passagem única. O arquivo só é aberto quando a leitura começa e é fechado ao chegar ao fim ou diante de uma falha. Se o programa parar antes do fim, use um bloco `com` ou feche o leitor explicitamente.
+
+O CSV é estrito e preserva texto. Com cabeçalho, os nomes precisam ser únicos e cada registro deve ter a mesma largura. Sem cabeçalho, cada registro é uma lista de textos. Campos multilinha e separadores entre aspas são interpretados como CSV, portanto uma linha física do arquivo não corresponde necessariamente a um registro.
+
+A escrita substitui o destino e não é transacional: uma falha durante o consumo pode deixar conteúdo parcial. Valide dados antes quando precisar garantir que nenhum trecho seja gravado em caso de erro.
+
+O projeto `Exemplos/Projetos/Importador_Gradual/` demonstra leitura em lotes, transformação e escrita sem acumular todos os registros em memória.
 
 ## Quando usar
 
@@ -120,13 +140,182 @@ Testes devem trabalhar em pasta temporária e conferir efeitos observáveis: arq
 
 ## Compatibilidade e evolução
 
-A documentação desta página descreve a superfície detectada na **Coral 1.7.5**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
+A documentação desta página descreve a superfície detectada na **Coral 1.8.0**. O gerador do site atualiza automaticamente o inventário e a referência da API quando uma nova release é importada, mas o texto pedagógico desta seção permanece sob revisão humana.
 
 ## Referência da API
 
 <!-- AUTO:API -->
 
 ### Funções
+
+#### `ler_linhas`
+
+Lê linhas sob demanda, preservando terminadores. Use com/with ou fechar/close.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
+
+**Retorno**
+
+Retorna um valor declarado como `Iterator[str]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ler_linhas(caminho, codificacao = 'utf-8') -> Iterator[str]`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+:::
+
+#### `ler_csv`
+
+Lê registros CSV sob demanda, com campos de texto e estrutura estrita.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
+| `delimitador` | Valor correspondente a delimitador. | `não declarado` | `','` |
+| `cabecalho` | Valor correspondente a cabecalho. | `não declarado` | `True` |
+
+**Retorno**
+
+Retorna um valor declarado como `Iterator[dict[str, str] | list[str]]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ler_csv(caminho, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -> Iterator[dict[str, str] \| list[str]]`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `codificacao` | posicional |
+| `delimitador` | nomeado |
+| `cabecalho` | nomeado |
+
+:::
+
+#### `ler_lotes_csv`
+
+Lê lotes CSV de tamanho limitado, incluindo o último lote parcial.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `tamanho_lote` | Valor correspondente a tamanho lote. | `não declarado` | `100` |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
+| `delimitador` | Valor correspondente a delimitador. | `não declarado` | `','` |
+| `cabecalho` | Valor correspondente a cabecalho. | `não declarado` | `True` |
+
+**Retorno**
+
+Retorna um valor declarado como `Iterator[list[dict[str, str] | list[str]]]`.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `ler_lotes_csv(caminho, tamanho_lote = 100, codificacao = 'utf-8', *, delimitador = ',', cabecalho = True) -> Iterator[list[dict[str, str] \| list[str]]]`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `tamanho_lote` | posicional |
+| `codificacao` | posicional |
+| `delimitador` | nomeado |
+| `cabecalho` | nomeado |
+
+**Exceções diretamente observáveis no corpo:** `ValueError`
+
+:::
+
+#### `escrever_linhas`
+
+Escreve textos gradualmente, sem inserir terminadores ou converter valores.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `linhas` | Linhas usadas para construir ou processar a estrutura. | `Iterable[str]` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
+
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `escrever_linhas(caminho, linhas: Iterable[str], codificacao = 'utf-8') -> None`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Exceções diretamente observáveis no corpo:** `TypeError`
+
+:::
+
+#### `escrever_csv`
+
+Escreve CSV gradualmente com campos estritamente textuais e estrutura exata.
+
+**Parâmetros**
+
+| Parâmetro | Significado | Tipo | Padrão |
+|---|---|---|---|
+| `caminho` | Caminho do arquivo ou diretório usado pela operação. | `não declarado` | obrigatório |
+| `registros` | Valor correspondente a registros. | `Iterable[Mapping[str, str] \| Sequence[str]]` | obrigatório |
+| `codificacao` | Codificação de texto usada na leitura ou escrita. | `não declarado` | `'utf-8'` |
+| `delimitador` | Valor correspondente a delimitador. | `não declarado` | `','` |
+| `colunas` | Valor correspondente a colunas. | `não declarado` | `None` |
+| `cabecalho` | Valor correspondente a cabecalho. | `não declarado` | `True` |
+
+**Retorno**
+
+Não produz um valor de retorno útil; o efeito ocorre no estado ou recurso alvo.
+
+:::details Detalhes técnicos
+
+**Assinatura:** `escrever_csv(caminho, registros: Iterable[Mapping[str, str] \| Sequence[str]], codificacao = 'utf-8', *, delimitador = ',', colunas = None, cabecalho = True) -> None`
+
+**Origem da implementação:** `coral.stdlib.arquivos`
+
+**Arquivo na release:** `coral/stdlib/arquivos.py`
+
+**Modo dos parâmetros**
+
+| Parâmetro | Modo |
+|---|---|
+| `caminho` | posicional |
+| `registros` | posicional |
+| `codificacao` | posicional |
+| `delimitador` | nomeado |
+| `colunas` | nomeado |
+| `cabecalho` | nomeado |
+
+:::
 
 #### `ler_texto`
 

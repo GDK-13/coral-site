@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -144,12 +147,23 @@
     <article class="docs-section">
       <p data-searchable>Esta página parte do problema que você quer resolver e aponta para a parte certa da Coral. Use estes guias como porta de entrada. Quando precisar de assinaturas, parâmetros e detalhes completos, siga o link do módulo relacionado.</p>
 <h2 id="fundamentos-da-linguagem" data-searchable>Fundamentos da linguagem</h2>
+<h3 id="organizar-o-codigo-com-o-estilo-recomendado-da-coral" data-searchable>Organizar o código com o estilo recomendado da Coral</h3>
+<p data-searchable><strong>Nível:</strong> iniciante a intermediário <strong>Guia:</strong> <a href="linguagem/estilo_legibilidade.html"><code>Estilo e legibilidade</code></a></p>
+<p data-searchable>Use o guia quando quiser decidir entre forma compacta e multilinha, separar definição de execução, nomear melhor valores e manter imports e fechamentos fáceis de conferir.</p>
 <h3 id="criar-e-alterar-variaveis" data-searchable>Criar e alterar variáveis</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/valores_variaveis.html"><code>Valores e variáveis</code></a></p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> pontos como <span class="code-num">10</span>
 aumente pontos em <span class="code-num">5</span>
 <span class="code-key">mostre</span> pontos</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>pontos</code> termina com o valor <code>15</code>.</p></div></details>
+<h3 id="escrever-um-texto-com-varias-linhas" data-searchable>Escrever um texto com várias linhas</h3>
+<p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/valores_variaveis.html"><code>Valores e variáveis</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">defina</span> aviso como <span class="code-str">&quot;&quot;&quot;
+    Primeira linha
+    Segunda linha
+&quot;&quot;&quot;</span>
+<span class="code-key">mostre</span> aviso</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable><code>aviso</code> recebe um único valor de texto com duas linhas. O recuo comum usado no código não faz parte do conteúdo final.</p></div></details>
 <h3 id="tomar-decisoes-e-repetir-instrucoes" data-searchable>Tomar decisões e repetir instruções</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Guia:</strong> <a href="linguagem/condicoes_repeticoes.html"><code>Condições e repetições</code></a></p>
 <div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral"><span class="code-key">para</span> numero de <span class="code-num">1</span> <span class="code-key">até</span> <span class="code-num">3</span> <span class="code-key">faça</span>
@@ -300,6 +314,42 @@ execute <span class="code-fn">salvar</span>(estado, <span class="code-str">&quot
 <span class="code-key">defina</span> politica como <span class="code-fn">politica_persistencia</span>()
 <span class="code-key">mostre</span> politica</code></pre></div></div>
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A política informa o contrato persistente corrente, as versões que podem ser lidas, a versão usada para escrita e a estratégia declarada para esquemas desconhecidos.</p></div></details>
+<h3 id="processar-um-csv-grande-em-lotes" data-searchable>Processar um CSV grande em lotes</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Módulo:</strong> <a href="modulos/arquivos.html"><code>coral.arquivos</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.arquivos</span> <span class="code-key">importe</span> ler_lotes_csv
+
+com <span class="code-fn">ler_lotes_csv</span>(<span class="code-str">&quot;entrada.csv&quot;</span>, <span class="code-num">100</span>) como lotes <span class="code-key">faça</span>
+    <span class="code-key">para</span> <span class="code-key">cada</span> lote em lotes <span class="code-key">faça</span>
+        <span class="code-key">mostre</span> lote
+    <span class="code-key">fim</span>
+<span class="code-key">fim</span></code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O programa percorre no máximo cem registros por lote sem precisar materializar o arquivo inteiro. O bloco <code>com</code> garante o fechamento do leitor quando a leitura termina ou é interrompida.</p></div></details>
+<h3 id="validar-dados-externos-antes-de-usar" data-searchable>Validar dados externos antes de usar</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Módulo:</strong> <a href="modulos/esquemas.html"><code>coral.esquemas</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.esquemas</span> <span class="code-key">importe</span> campo, esquema, validar_registro
+
+<span class="code-key">defina</span> contrato como <span class="code-fn">esquema</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-fn">campo</span>(<span class="code-str">&quot;inteiro&quot;</span>, minimo=<span class="code-num">0</span>)})
+<span class="code-key">defina</span> resultado como <span class="code-fn">validar_registro</span>({<span class="code-str">&quot;idade&quot;</span>: <span class="code-num">19</span>}, contrato)
+<span class="code-key">mostre</span> resultado[<span class="code-str">&quot;valido&quot;</span>]</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O relatório indica que o registro é válido. A API verifica o valor recebido sem convertê lo ou modificar o dicionário.</p></div></details>
+<h3 id="guardar-dados-locais-em-sqlite" data-searchable>Guardar dados locais em SQLite</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Módulo:</strong> <a href="modulos/sqlite.html"><code>coral.sqlite</code></a></p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-coral">de <span class="code-mod">coral.sqlite</span> <span class="code-key">importe</span> abrir
+
+<span class="code-key">defina</span> banco como <span class="code-fn">abrir</span>(<span class="code-str">&quot;:memoria:&quot;</span>)
+execute banco.<span class="code-fn">executar</span>(<span class="code-str">&quot;CREATE TABLE itens (nome TEXT NOT NULL)&quot;</span>)
+execute banco.<span class="code-fn">executar</span>(<span class="code-str">&quot;INSERT INTO itens(nome) VALUES (?)&quot;</span>, [<span class="code-str">&quot;Caderno&quot;</span>])
+execute banco.<span class="code-fn">confirmar</span>()
+<span class="code-key">mostre</span> banco.<span class="code-fn">consultar</span>(<span class="code-str">&quot;SELECT nome FROM itens&quot;</span>)
+execute banco.<span class="code-fn">fechar</span>()</code></pre></div></div>
+<details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>O programa cria um banco temporário, inclui um item com parâmetro separado do SQL, confirma a alteração e consulta o registro como dicionário.</p></div></details>
+<h2 id="projetos-e-ambientes" data-searchable>Projetos e ambientes</h2>
+<h3 id="preparar-dependencias-reproduziveis" data-searchable>Preparar dependências reproduzíveis</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Guia:</strong> <a href="projetos.html"><code>Projetos e módulos</code></a></p>
+<p data-searchable>Declare os requisitos em <code>coral.toml</code>, resolva um <code>coral.lock</code> e prepare o ambiente isolado antes de executar o projeto. A resolução é offline por padrão e não instala dependências no Python global.</p>
+<div class="code-card"><div class="code-frame"><div class="ring-stripe" aria-hidden="true"></div><pre><code class="language-bash">coral manager ambiente resolver --projeto . --cache wheels --offline --json
+coral manager ambiente preparar --projeto . --offline --aplicar --json
+coral manager ambiente verificar --projeto . --json</code></pre></div></div>
 <h2 id="aleatoriedade-e-geracao" data-searchable>Aleatoriedade e geração</h2>
 <h3 id="sortear-um-item" data-searchable>Sortear um item</h3>
 <p data-searchable><strong>Nível:</strong> iniciante <strong>Módulo:</strong> <a href="modulos/aleatorio.html"><code>coral.aleatorio</code></a></p>
@@ -414,6 +464,10 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <details class="expected-result"><summary>Resultado esperado</summary><div class="expected-result-body"><p data-searchable>A falha de conversão é classificada como <code>R102</code>. O terminal e o depurador preservam a mensagem original e acrescentam categoria, localização quando disponível e uma sugestão curta.</p></div></details>
 <h2 id="como-continuar" data-searchable>Como continuar</h2>
 <p data-searchable>Se o guia resolveu sua dúvida inicial, abra o guia de linguagem ou o módulo relacionado. Use o <strong>Modo Aprender</strong> para entender conceitos e o <strong>Modo Referência</strong> para consultar diretamente a API dos módulos. A busca global continua sendo a melhor opção quando você já conhece o nome de uma função, classe ou conceito.</p>
+<h2 id="concorrencia-e-tarefas" data-searchable>Concorrência e tarefas</h2>
+<h3 id="executar-varias-tarefas-com-limite-de-simultaneidade" data-searchable>Executar várias tarefas com limite de simultaneidade</h3>
+<p data-searchable><strong>Nível:</strong> intermediário <strong>Módulo:</strong> <a href="modulos/assincrono.html"><code>coral.assincrono</code></a></p>
+<p data-searchable>Use <code>FilaTarefas</code> quando um lote assíncrono precisa limitar quantos trabalhos ficam ativos, continuar depois de falhas parciais ou produzir progresso e relatório estruturado. Cancelamento continua cooperativo.</p>
     </article>
     <nav class="docs-page-nav" aria-label="Páginas relacionadas"><a class="docs-page-nav-link" href="projetos.html"><span>Anterior</span><strong>Projetos e módulos</strong></a><a class="docs-page-nav-link next" href="vscode.html"><span>Próxima</span><strong>VS Code</strong></a></nav>
   </main>
@@ -421,7 +475,9 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
   <aside class="toc" id="toc-pagina" aria-label="Nesta página">
     <h4>Nesta página</h4>
     <ul><li class="toc-level-2"><a href="#fundamentos-da-linguagem" data-toc-link>Fundamentos da linguagem</a></li>
+<li class="toc-level-3"><a href="#organizar-o-codigo-com-o-estilo-recomendado-da-coral" data-toc-link>Organizar o código com o estilo recomendado da Coral</a></li>
 <li class="toc-level-3"><a href="#criar-e-alterar-variaveis" data-toc-link>Criar e alterar variáveis</a></li>
+<li class="toc-level-3"><a href="#escrever-um-texto-com-varias-linhas" data-toc-link>Escrever um texto com várias linhas</a></li>
 <li class="toc-level-3"><a href="#tomar-decisoes-e-repetir-instrucoes" data-toc-link>Tomar decisões e repetir instruções</a></li>
 <li class="toc-level-3"><a href="#criar-uma-funcao" data-toc-link>Criar uma função</a></li>
 <li class="toc-level-3"><a href="#criar-uma-classe-e-objetos" data-toc-link>Criar uma classe e objetos</a></li>
@@ -440,6 +496,11 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <li class="toc-level-3"><a href="#escrever-dados-em-json" data-toc-link>Escrever dados em JSON</a></li>
 <li class="toc-level-3"><a href="#salvar-estado-portavel" data-toc-link>Salvar estado portável</a></li>
 <li class="toc-level-3"><a href="#consultar-a-politica-do-formato-persistente" data-toc-link>Consultar a política do formato persistente</a></li>
+<li class="toc-level-3"><a href="#processar-um-csv-grande-em-lotes" data-toc-link>Processar um CSV grande em lotes</a></li>
+<li class="toc-level-3"><a href="#validar-dados-externos-antes-de-usar" data-toc-link>Validar dados externos antes de usar</a></li>
+<li class="toc-level-3"><a href="#guardar-dados-locais-em-sqlite" data-toc-link>Guardar dados locais em SQLite</a></li>
+<li class="toc-level-2"><a href="#projetos-e-ambientes" data-toc-link>Projetos e ambientes</a></li>
+<li class="toc-level-3"><a href="#preparar-dependencias-reproduziveis" data-toc-link>Preparar dependências reproduzíveis</a></li>
 <li class="toc-level-2"><a href="#aleatoriedade-e-geracao" data-toc-link>Aleatoriedade e geração</a></li>
 <li class="toc-level-3"><a href="#sortear-um-item" data-toc-link>Sortear um item</a></li>
 <li class="toc-level-3"><a href="#gerar-conteudo-de-forma-reproduzivel" data-toc-link>Gerar conteúdo de forma reproduzível</a></li>
@@ -460,7 +521,9 @@ execute servidor.<span class="code-fn">encerrar</span>()</code></pre></div></div
 <li class="toc-level-3"><a href="#criar-um-servidor-http-local" data-toc-link>Criar um servidor HTTP local</a></li>
 <li class="toc-level-2"><a href="#entender-erros" data-toc-link>Entender erros</a></li>
 <li class="toc-level-3"><a href="#ler-um-diagnostico-de-execucao" data-toc-link>Ler um diagnóstico de execução</a></li>
-<li class="toc-level-2"><a href="#como-continuar" data-toc-link>Como continuar</a></li></ul>
+<li class="toc-level-2"><a href="#como-continuar" data-toc-link>Como continuar</a></li>
+<li class="toc-level-2"><a href="#concorrencia-e-tarefas" data-toc-link>Concorrência e tarefas</a></li>
+<li class="toc-level-3"><a href="#executar-varias-tarefas-com-limite-de-simultaneidade" data-toc-link>Executar várias tarefas com limite de simultaneidade</a></li></ul>
   </aside>
 </div>
 <button class="toc-fab" type="button" data-toc-toggle aria-controls="toc-pagina" aria-expanded="false">Nesta página</button>

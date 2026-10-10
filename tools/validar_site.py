@@ -549,17 +549,213 @@ def audit_coral_175_content() -> list[str]:
     pdfs = version.get("livro_pdfs") or []
     htmls = version.get("livro_htmls") or []
     if len(pdfs) != 2:
-        errors.append(f"Livro 1.7.5 deve publicar dois PDFs, encontrados {len(pdfs)}")
+        errors.append(f"Livro corrente deve publicar dois PDFs, encontrados {len(pdfs)}")
     if len(htmls) != 2:
-        errors.append(f"Livro 1.7.5 deve publicar dois HTMLs, encontrados {len(htmls)}")
+        errors.append(f"Livro corrente deve publicar dois HTMLs, encontrados {len(htmls)}")
     for item in [*pdfs, *htmls]:
         rel = item.get("arquivo", "") if isinstance(item, dict) else str(item)
         if not rel or not (ROOT / rel).exists():
-            errors.append(f"artefato do Livro 1.7.5 ausente: {rel or item}")
+            errors.append(f"artefato do Livro corrente ausente: {rel or item}")
     reader = str(version.get("livro_leitor") or "")
     if not reader or not (ROOT / reader).exists():
-        errors.append("leitor público da coleção Livro 1.7.5 ausente")
+        errors.append("leitor público da coleção do Livro corrente ausente")
     return errors
+
+def audit_coral_178_content() -> list[str]:
+    """Confere a cobertura pública acumulada das Coral 1.7.6, 1.7.7 e 1.7.8."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 8):
+        return errors
+    if coral == "1.7.8" and version.get("extensao_vscode") != "0.79.0":
+        errors.append("Coral 1.7.8 deve publicar Coral Language 0.79.0")
+    if coral == "1.7.8" and version.get("livro") != "1.7.8":
+        errors.append("Coral 1.7.8 deve publicar a coleção oficial do Livro 1.7.8")
+
+    required = {
+        "docs/paginas/release.md": (
+            "## Coral 1.7.8", "Validação declarativa de dados externos",
+            "## Coral 1.7.7", "Leitura e escrita graduais",
+            "## Coral 1.7.6", "Ambientes de projeto reproduzíveis",
+        ),
+        "docs/paginas/projetos.md": (
+            "Imports multilinha", "Ambientes reproduzíveis", "coral.lock",
+            "manager ambiente resolver", "Ambiente_Reproduzivel",
+        ),
+        "docs/paginas/linguagem/funcoes_escopo.md": (
+            "Cabeçalhos de função multilinha", "fim com retornando inteiro",
+        ),
+        "docs/paginas/linguagem/classes_objetos.md": (
+            "Herança multilinha", "fim herança",
+        ),
+        "docs/paginas/modulos/arquivos.md": (
+            "Leitura gradual e CSV", "ler_lotes_csv", "escrever_csv", "passagem única",
+        ),
+        "docs/paginas/modulos/esquemas.md": (
+            "campo ausente", "Validação não converte", "validar_registros", "Importador_Validado",
+        ),
+        "docs/paginas/exemplos.md": (
+            "Cabeçalhos e ambientes 1.7.6", "Arquivos graduais 1.7.7", "Esquemas e validação 1.7.8",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.8 ausente: {rel}")
+            continue
+        value = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in value:
+                errors.append(f"conteúdo 1.7.8 ausente em {rel}: {snippet}")
+
+    if coral == "1.7.8":
+        livro_path = ROOT / "docs" / "paginas" / "livro.md"
+        livro_text = livro_path.read_text(encoding="utf-8") if livro_path.exists() else ""
+        for snippet in ("Livro Oficial Coral 1.7.8", "Atualizações da edição 1.7.8"):
+            if snippet not in livro_text:
+                errors.append(f"conteúdo 1.7.8 ausente em docs/paginas/livro.md: {snippet}")
+
+    landing = (ROOT / "index.html").read_text(encoding="utf-8")
+    if "docs/modulos/esquemas.html" not in landing:
+        errors.append("landing não oferece acesso ao novo módulo coral.esquemas")
+    reader = str(version.get("livro_leitor") or "")
+    if reader and f'href="{reader}"' not in landing:
+        errors.append("landing não aponta para o leitor da edição corrente do Livro")
+    return errors
+
+def audit_coral_179_content() -> list[str]:
+    """Confere a cobertura pública das mudanças da Coral 1.7.9."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 7, 9):
+        return errors
+    if coral == "1.7.9" and version.get("extensao_vscode") != "0.80.0":
+        errors.append("Coral 1.7.9 deve publicar Coral Language 0.80.0")
+    if coral == "1.7.9" and version.get("livro") != "1.7.9":
+        errors.append("Coral 1.7.9 deve publicar a coleção do Livro 1.7.9")
+
+    required = {
+        "docs/paginas/linguagem/valores_variaveis.md": (
+            "Textos multilinha", "três aspas duplas", "O literal não interpola variáveis",
+        ),
+        "docs/paginas/modulos/sqlite.md": (
+            "Começo rápido", "consultas parametrizadas", "confirmar()", "reverter()", "Conexao",
+        ),
+        "docs/paginas/vscode.md": (
+            "Textos multilinha na 1.7.9", "Coral Language 0.80.0", "texto opaco",
+        ),
+        "docs/paginas/exemplos.md": (
+            "SQLite e textos multilinha 1.7.9", "Catalogo_SQLite",
+        ),
+        "docs/paginas/release.md": (
+            "## Coral 1.7.9", "SQLite local", "Textos multilinha", "coral-language-0.80.0.vsix",
+        ),
+        "docs/paginas/guias_objetivos.md": (
+            "Escrever um texto com várias linhas", "Guardar dados locais em SQLite",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.7.9 ausente: {rel}")
+            continue
+        value = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in value:
+                errors.append(f"conteúdo 1.7.9 ausente em {rel}: {snippet}")
+
+    if coral == "1.7.9":
+        livro_path = ROOT / "docs" / "paginas" / "livro.md"
+        livro_text = livro_path.read_text(encoding="utf-8") if livro_path.exists() else ""
+        for snippet in ("Livro Oficial Coral 1.7.9", "Atualizações da edição 1.7.9", "coral.sqlite"):
+            if snippet not in livro_text:
+                errors.append(f"conteúdo 1.7.9 ausente em docs/paginas/livro.md: {snippet}")
+
+    syntax_path = ROOT / "docs" / "dados" / "sintaxe.json"
+    if syntax_path.exists():
+        syntax = json.loads(syntax_path.read_text(encoding="utf-8"))
+        if set(syntax.get("aspas_multilinha", [])) != {'"""', "'''"}:
+            errors.append("snapshot sintático não registra os dois delimitadores de texto multilinha da 1.7.9")
+        if "texto multilinha com aspas triplas" not in set(syntax.get("estruturas_linguagem", [])):
+            errors.append("snapshot da linguagem não registra texto multilinha com aspas triplas")
+
+    landing = (ROOT / "index.html").read_text(encoding="utf-8")
+    if "docs/modulos/sqlite.html" not in landing:
+        errors.append("landing não oferece acesso ao módulo coral.sqlite")
+    if coral == "1.7.9" and "aspas triplas" not in landing:
+        errors.append("landing não apresenta textos multilinha da 1.7.9")
+    return errors
+
+
+def audit_coral_180_content() -> list[str]:
+    """Confere a cobertura pública das mudanças consolidadas na Coral 1.8.0."""
+    errors: list[str] = []
+    version_path = ROOT / "docs" / "dados" / "versao.json"
+    if not version_path.exists():
+        return ["docs/dados/versao.json ausente"]
+    version = json.loads(version_path.read_text(encoding="utf-8"))
+    coral = str(version.get("coral", ""))
+    if _version_tuple(coral) < (1, 8, 0):
+        return errors
+    if coral == "1.8.0" and version.get("extensao_vscode") != "0.83.0":
+        errors.append("Coral 1.8.0 deve publicar Coral Language 0.83.0")
+    if coral == "1.8.0" and version.get("livro") != "1.8.0":
+        errors.append("Coral 1.8.0 deve publicar a coleção do Livro 1.8.0")
+
+    required = {
+        "docs/paginas/linguagem/estilo_legibilidade.md": (
+            "Estilo e legibilidade", "Quatro espaços por nível", "Forma compacta", "FilaTarefas",
+        ),
+        "docs/paginas/modulos/assincrono.md": (
+            "Fila de tarefas", "politica_falha", "ProgressoTarefas", "executar_bloqueante",
+        ),
+        "docs/paginas/instalacao.md": (
+            "Integração opcional com o desktop Linux", "coral desktop instalar --usuario", "text/x-coral-project",
+        ),
+        "docs/paginas/repl_cli.md": (
+            "Desktop Linux", "coral desktop status --usuario",
+        ),
+        "docs/paginas/exemplos.md": (
+            "Aplicações de referência 1.8.0", "Analise_CSV", "Automacao_Arquivos", "Catalogo_SQLite",
+        ),
+        "docs/paginas/release.md": (
+            "## Coral 1.8.0", "Guia canônico de escrita", "## Coral 1.7.11", "## Coral 1.7.10",
+        ),
+        "docs/paginas/livro.md": (
+            "Livro Oficial Coral 1.8.0", "Atualizações da edição 1.8.0", "Coral Language `0.83.0`",
+        ),
+        "docs/paginas/guias_objetivos.md": (
+            "Organizar o código com o estilo recomendado da Coral", "Executar várias tarefas com limite de simultaneidade",
+        ),
+    }
+    for rel, snippets in required.items():
+        path = ROOT / rel
+        if not path.exists():
+            errors.append(f"conteúdo 1.8.0 ausente: {rel}")
+            continue
+        value = path.read_text(encoding="utf-8")
+        for snippet in snippets:
+            if snippet not in value:
+                errors.append(f"conteúdo 1.8.0 ausente em {rel}: {snippet}")
+
+    landing = (ROOT / "index.html").read_text(encoding="utf-8")
+    for snippet in ("Português corrente e estilo", "Concorrência controlada", "docs/linguagem/estilo_legibilidade.html"):
+        if snippet not in landing:
+            errors.append(f"landing 1.8.0 incompleta: {snippet}")
+
+    reader = str(version.get("livro_leitor") or "")
+    if reader and f'href="{reader}"' not in landing:
+        errors.append("landing não aponta para o leitor do Livro 1.8.0")
+    return errors
+
 
 def audit_language_core_docs() -> list[str]:
     """Garante que a linguagem base não volte a ficar escondida atrás dos módulos."""
@@ -571,6 +767,7 @@ def audit_language_core_docs() -> list[str]:
         "linguagem/condicoes_repeticoes.md": ("senão se", "para cada nome em nomes faça", "continue", "pare"),
         "linguagem/funcoes_escopo.md": ("crie a função dobro", "use valor do escopo externo", "chamada como"),
         "linguagem/programa_principal.md": ("programa principal", "chame apresentar", "pode ser importado"),
+        "linguagem/estilo_legibilidade.md": ("Estilo e legibilidade", "Quatro espaços por nível", "Forma compacta", "FilaTarefas"),
         "linguagem/classes_objetos.md": ("crie a classe", "ao criar", "herda de", "propriedade", "resolução C3"),
         "linguagem/tipos_tipagem.md": ("for do tipo inteiro", "do tipo inteiro retornando inteiro", "lista de decimal", "T ou nulo"),
         "linguagem/colecoes_compreensoes.md": ("pares_dobrados", "defina x e y como"),
@@ -663,9 +860,11 @@ def audit_header_layout_contract() -> list[str]:
         "ações do cabeçalho precisam poder ceder espaço": "min-width: 0; flex: 1 1 auto;",
         "busca é elástica em desktop": "flex: 1 1 280px;",
         "botões permanecem não encolhíveis": "flex: 0 0 auto;",
-        "há compactação antes do menu móvel": "@media (max-width: 1220px)",
-        "menu principal colapsa antes de cortar conteúdo": "@media (max-width: 1040px)",
-        "contrato responsivo intermediário está documentado": "Cabeçalho intermediário: evita corte",
+        "há compactação antes do menu móvel": "@media (max-width: 1320px)",
+        "menu principal colapsa antes de cortar conteúdo": "@media (max-width: 1100px)",
+        "contrato responsivo intermediário está documentado": "Cabeçalho intermediário: compacta antes",
+        "cabeçalho público usa largura própria": "width: min(1400px, calc(100% - 32px))",
+        "navegação principal não encolhe sobre as ações": "flex: 0 0 auto; min-width: max-content",
     }
     for label, snippet in contracts.items():
         if snippet not in css:
@@ -712,6 +911,9 @@ def main() -> int:
     failures.extend(audit_coral_173_content())
     failures.extend(audit_coral_174_content())
     failures.extend(audit_coral_175_content())
+    failures.extend(audit_coral_178_content())
+    failures.extend(audit_coral_179_content())
+    failures.extend(audit_coral_180_content())
     failures.extend(audit_language_core_docs())
     failures.extend(audit_examples_release_evidence())
     cleanup_runtime_residues()

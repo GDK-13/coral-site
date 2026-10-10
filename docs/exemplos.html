@@ -47,9 +47,9 @@
   <nav class="docs-sidebar" aria-label="Documentação">
     <a class="docs-home-link" href="index.html">Visão geral da documentação</a>
     <div class="docs-version-box">
-      <span>Runtime</span><strong data-version-key="coral">1.7.5</strong>
-      <span>VS Code</span><strong data-version-key="extensao_vscode">0.76.0</strong>
-      <span>Livro</span><strong data-version-key="livro">1.7.5</strong>
+      <span>Runtime</span><strong data-version-key="coral">1.8.0</strong>
+      <span>VS Code</span><strong data-version-key="extensao_vscode">0.83.0</strong>
+      <span>Livro</span><strong data-version-key="livro">1.8.0</strong>
     </div>
     <h4>Primeiros passos</h4><ul>
 <li><a href="index.html">Introdução</a></li>
@@ -63,6 +63,7 @@
 <li><a href="linguagem/condicoes_repeticoes.html">Condições e repetições</a></li>
 <li><a href="linguagem/funcoes_escopo.html">Funções e escopo</a></li>
 <li><a href="linguagem/programa_principal.html">Programa principal</a></li>
+<li><a href="linguagem/estilo_legibilidade.html">Estilo e legibilidade</a></li>
 <li><a href="linguagem/classes_objetos.html">Classes e objetos</a></li>
 <li><a href="linguagem/tipos_tipagem.html">Tipos e tipagem</a></li>
 <li><a href="linguagem/colecoes_compreensoes.html">Coleções e compreensões</a></li>
@@ -104,6 +105,7 @@
 <li><a href="modulos/criptografia.html"><code>coral.criptografia</code></a></li>
 <li><a href="modulos/datas.html"><code>coral.datas</code></a></li>
 <li><a href="modulos/entrada.html"><code>coral.entrada</code></a></li>
+<li><a href="modulos/esquemas.html"><code>coral.esquemas</code></a></li>
 <li><a href="modulos/formatacao.html"><code>coral.formatacao</code></a></li>
 <li><a href="modulos/formatos.html"><code>coral.formatos</code></a></li>
 <li><a href="modulos/graficos.html"><code>coral.graficos</code></a></li>
@@ -116,6 +118,7 @@
 <li><a href="modulos/replay_reativo.html"><code>coral.replay_reativo</code></a></li>
 <li><a href="modulos/sequencias_reativas.html"><code>coral.sequencias_reativas</code></a></li>
 <li><a href="modulos/simulacao.html"><code>coral.simulacao</code></a></li>
+<li><a href="modulos/sqlite.html"><code>coral.sqlite</code></a></li>
 <li><a href="modulos/tempo_eventos.html"><code>coral.tempo_eventos</code></a></li>
 <li><a href="modulos/texto.html"><code>coral.texto</code></a></li>
 <li><a href="modulos/tipos.html"><code>coral.tipos</code></a></li>
@@ -196,6 +199,26 @@
 <li data-searchable><code>testes/ecossistema.coral</code> confere o mesmo comportamento pelo runner nativo.</li>
 </ul>
 <p data-searchable>O projeto <strong>Ecossistema</strong> também é útil para observar no VS Code conclusão de classes depois de <code>do tipo</code>, navegação entre arquivos e ajuda de assinatura em chamadas multilinha.</p>
+<h2 id="cabecalhos-e-ambientes-1-7-6" data-searchable>Cabeçalhos e ambientes 1.7.6</h2>
+<p data-searchable>A pasta <code>Exemplos/Citados/Cabecalhos_1_7_6/</code> possui três exemplos mínimos para parâmetros multilinha, imports multilinha e herança multilinha. Eles são úteis para comparar a forma compacta com a organização vertical sem misturar o conceito com um projeto maior.</p>
+<p data-searchable><code>Exemplos/Projetos/Ambiente_Reproduzivel/</code> demonstra resolução de dependências, <code>coral.lock</code>, preparação de ambiente e execução offline com uma wheel didática produzida localmente.</p>
+<h2 id="arquivos-graduais-1-7-7" data-searchable>Arquivos graduais 1.7.7</h2>
+<p data-searchable><code>Exemplos/Projetos/Importador_Gradual/</code> processa um CSV em lotes de dois registros, filtra entradas e escreve outro CSV. O exemplo evidencia passagem única, ownership do leitor e memória controlada pelo tamanho do lote.</p>
+<p data-searchable>Use esse projeto junto da página <a href="modulos/arquivos.html"><code>coral.arquivos</code></a> para estudar <code>ler_linhas</code>, <code>ler_csv</code>, <code>ler_lotes_csv</code>, <code>escrever_linhas</code> e <code>escrever_csv</code>.</p>
+<h2 id="esquemas-e-validacao-1-7-8" data-searchable>Esquemas e validação 1.7.8</h2>
+<p data-searchable><code>Exemplos/Projetos/Importador_Validado/</code> adiciona validação declarativa ao fluxo gradual. Quantidade e preço são convertidos explicitamente antes de <code>coral.esquemas</code>; erros de conversão permanecem responsabilidade da aplicação e erros de validação recebem campo, regra, registro e origem.</p>
+<p data-searchable>O projeto é uma referência útil para distinguir texto CSV vazio, chave ausente e <code>nulo</code>, além de mostrar como interromper a coleta por limite de erros sem carregar todos os registros em memória.</p>
+<h2 id="sqlite-e-textos-multilinha-1-7-9" data-searchable>SQLite e textos multilinha 1.7.9</h2>
+<p data-searchable><code>Exemplos/Projetos/Catalogo_SQLite/</code> mostra persistência local com <code>coral.sqlite</code>. O projeto cria um banco em arquivo, prepara a tabela com SQL multilinha, insere valores por parâmetros, confirma a alteração, consulta os registros e fecha a conexão explicitamente.</p>
+<p data-searchable>O exemplo também é uma referência compacta para os textos multilinha gerais da linguagem: o SQL permanece legível no código sem receber interpretação especial da Coral.</p>
+<h2 id="aplicacoes-de-referencia-1-8-0" data-searchable>Aplicações de referência 1.8.0</h2>
+<p data-searchable>A Coral 1.8 reúne três projetos de referência que combinam recursos públicos em programas completos. Eles são mais úteis quando você já conhece os exemplos menores e quer observar validação, arquivos, persistência, concorrência e relatórios trabalhando juntos.</p>
+<ul>
+<li data-searchable><code>Exemplos/Projetos/Catalogo_SQLite/</code> lê CSV, converte e valida registros, persiste em SQLite com parâmetros e demonstra confirmação, reversão e reabertura do banco.</li>
+<li data-searchable><code>Exemplos/Projetos/Analise_CSV/</code> percorre CSV gradualmente, valida a coluna numérica, calcula estatística dos valores aceitos e pode exportar um gráfico quando o componente necessário está disponível.</li>
+<li data-searchable><code>Exemplos/Projetos/Automacao_Arquivos/</code> usa <code>FilaTarefas</code> para limitar simultaneidade, preservar sucesso parcial, acompanhar progresso e demonstrar cancelamento cooperativo antes de operações bloqueantes.</li>
+</ul>
+<p data-searchable>Os três projetos mantêm a entrada da aplicação separada do núcleo reutilizável e permitem direcionar resultados para outra pasta. Leia o <code>README.md</code> de cada projeto antes de executar com seus próprios dados.</p>
 <h2 id="ciencia-e-dados" data-searchable>Ciência e dados</h2>
 <p data-searchable>A biblioteca inclui exemplos para matemática escalar, estatística descritiva, álgebra linear, transformações 3D, planejamento de experimentos e integração entre geração procedural e Laboratório.</p>
 <p data-searchable>Caminhos úteis:</p>
@@ -228,7 +251,7 @@
 <p data-searchable>Os códigos citados no Livro também são sincronizados em <code>Livro/Exemplos/Citados</code>. Essa cópia torna o material autocontido, enquanto a biblioteca geral continua organizada em <code>Exemplos/</code>.</p>
 <h2 id="inventario-da-distribuicao" data-searchable>Inventário da distribuição</h2>
 <p data-searchable>O quadro abaixo é atualizado automaticamente a partir do ZIP oficial.</p>
-<p data-searchable><strong>Total detectado na release:</strong> 100 arquivos <code>.coral</code>.</p>
+<p data-searchable><strong>Total detectado na release:</strong> 114 arquivos <code>.coral</code>.</p>
 <div class="table-wrap"><table><thead><tr>
 <th>Área</th>
 <th>Arquivos</th>
@@ -237,6 +260,7 @@
 <tr><td data-searchable>Analise_1_7_4</td><td data-searchable>4</td></tr>
 <tr><td data-searchable>Analise_1_7_5</td><td data-searchable>3</td></tr>
 <tr><td data-searchable>Basica_1_7_2</td><td data-searchable>3</td></tr>
+<tr><td data-searchable>Citados</td><td data-searchable>3</td></tr>
 <tr><td data-searchable>Dados</td><td data-searchable>9</td></tr>
 <tr><td data-searchable>Espaco</td><td data-searchable>3</td></tr>
 <tr><td data-searchable>Fundamentos</td><td data-searchable>5</td></tr>
@@ -244,6 +268,7 @@
 <tr><td data-searchable>Integracao</td><td data-searchable>4</td></tr>
 <tr><td data-searchable>Jogos</td><td data-searchable>12</td></tr>
 <tr><td data-searchable>Mundo</td><td data-searchable>4</td></tr>
+<tr><td data-searchable>Projetos</td><td data-searchable>11</td></tr>
 <tr><td data-searchable>Projetos_Completos</td><td data-searchable>19</td></tr>
 <tr><td data-searchable>Regras</td><td data-searchable>3</td></tr>
 <tr><td data-searchable>SimulacaoTemporal</td><td data-searchable>14</td></tr>
@@ -265,6 +290,11 @@
 <li class="toc-level-2"><a href="#tipagem-e-heranca-1-7-3" data-toc-link>Tipagem e herança 1.7.3</a></li>
 <li class="toc-level-2"><a href="#analise-entre-modulos-1-7-4" data-toc-link>Análise entre módulos 1.7.4</a></li>
 <li class="toc-level-2"><a href="#classes-e-chamadas-1-7-5" data-toc-link>Classes e chamadas 1.7.5</a></li>
+<li class="toc-level-2"><a href="#cabecalhos-e-ambientes-1-7-6" data-toc-link>Cabeçalhos e ambientes 1.7.6</a></li>
+<li class="toc-level-2"><a href="#arquivos-graduais-1-7-7" data-toc-link>Arquivos graduais 1.7.7</a></li>
+<li class="toc-level-2"><a href="#esquemas-e-validacao-1-7-8" data-toc-link>Esquemas e validação 1.7.8</a></li>
+<li class="toc-level-2"><a href="#sqlite-e-textos-multilinha-1-7-9" data-toc-link>SQLite e textos multilinha 1.7.9</a></li>
+<li class="toc-level-2"><a href="#aplicacoes-de-referencia-1-8-0" data-toc-link>Aplicações de referência 1.8.0</a></li>
 <li class="toc-level-2"><a href="#ciencia-e-dados" data-toc-link>Ciência e dados</a></li>
 <li class="toc-level-2"><a href="#graficos" data-toc-link>Gráficos</a></li>
 <li class="toc-level-2"><a href="#web" data-toc-link>Web</a></li>

@@ -121,6 +121,33 @@ A chamada segue a ordem cooperativa da hierarquia e produz `C`, `A`, `B` e `Raiz
 
 Bases repetidas, ciclos, bases conhecidas que não são classes e ordens de herança comprovadamente inconsistentes recebem diagnóstico antes da execução.
 
+## Herança multilinha
+
+Listas longas de classes base podem ser escritas verticalmente. `fim herança` encerra apenas a lista de bases; o `fim` seguinte encerra a classe.
+
+```coral
+crie a classe Animal
+fim
+
+crie a classe Identificavel
+fim
+
+crie a classe Herbivoro herda de
+    Animal
+    Identificavel
+fim herança
+fim
+
+crie animal como uma Herbivoro
+mostre animal for do tipo Animal
+```
+
+:::resultado
+`Herbivoro` possui as duas bases e a consulta de tipo mostra verdadeiro para `Animal`.
+:::
+
+A ordem em que as bases aparecem continua sendo relevante para a resolução C3.
+
 ## Cooperação entre classes pai
 
 Dentro de métodos de instância ou de classe, `chame o método pai` continua a cadeia conforme a ordem de resolução. Em construtores, `inicialize a classe pai` faz a mesma cooperação para a inicialização.

@@ -57,6 +57,21 @@ class SyntaxHighlightTests(unittest.TestCase):
         self.assertEqual(strings, ['"Ele disse \\"oi\\""', "'# ainda é string'", '"# ainda é string"'])
         self.assertEqual(comments, ["# agora é comentário"])
 
+    def test_multiline_strings_are_opaque(self):
+        raw = 'defina consulta como """\n    SELECT # nao e comentario\n    FROM itens\n"""\nmostre consulta'
+        tokens = self.tokens(raw)
+        strings = [text for kind, text in tokens if kind == "str"]
+        comments = [text for kind, text in tokens if kind == "comment"]
+        self.assertEqual(len(strings), 1)
+        self.assertIn("SELECT # nao e comentario", strings[0])
+        self.assertEqual(comments, [])
+        self.assertEqual(recovered_code(highlight_coral(raw, self.syntax)), raw)
+
+    def test_multiline_single_quote_delimiter(self):
+        raw = "defina texto como '''linha 1\nlinha 2'''"
+        tokens = self.tokens(raw)
+        self.assertIn(("str", "'''linha 1\nlinha 2'''"), tokens)
+
     def test_natural_comment_line(self):
         raw = "  comentário: exemplo pedagógico\nmostre 1"
         tokens = self.tokens(raw)
@@ -116,6 +131,7 @@ class SyntaxHighlightTests(unittest.TestCase):
             "mostre 'Olá'",
             'mostre "Ele disse \\"oi\\""',
             'mostre "# texto" # comentário',
+            'defina texto como """linha 1\nlinha 2"""',
             'coral.regras.eventos',
             'soma(1, 2)',
             'se x < 10 então\n    mostre "a & b"\nfim',

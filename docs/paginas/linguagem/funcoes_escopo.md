@@ -71,6 +71,27 @@ mostre contador()
 As chamadas mostram `1` e `2`. A função interna preserva acesso ao estado criado pela função externa.
 :::
 
+## Cabeçalhos de função multilinha
+
+Quando uma função possui muitos parâmetros, o cabeçalho pode colocar cada declaração em sua própria linha. O bloco de parâmetros termina em `fim com`; o corpo continua até o `fim` da função.
+
+```coral
+crie a função somar com
+    primeiro do tipo inteiro
+    segundo do tipo inteiro opcional 2
+fim com retornando inteiro
+    retorne primeiro mais segundo
+fim
+
+mostre somar(3)
+```
+
+:::resultado
+`segundo` usa o valor padrão `2`, então a chamada mostra `5`.
+:::
+
+Tipos, parâmetros opcionais e retorno continuam seguindo os mesmos contratos da forma compacta. A forma multilinha muda a organização visual, não a semântica da função.
+
 ## Chamadas naturais
 
 Uma função pode declarar uma forma natural explícita. Isso não é interpretação livre de português: o padrão faz parte da declaração.
